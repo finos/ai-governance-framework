@@ -1,6 +1,6 @@
-<img src="https://github.com/finos/branding/blob/master/sig-logos/ai-readiness/Horizontal/2024_AIReadiness_Logo_Horizontal.svg" width="450">
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
-# AI Readiness
+# AI Governance Framework
 
 Our goal is to mutually develop a governance framework that manages the on-boarding, development of, and running AI-based solutions within financial services organisations - allowing us all to unlock the potential of this disruptive technology in a safe, trustworthy and compliant way.
  
@@ -87,6 +87,12 @@ One of our key goals is to create a framework that makes it easy to follow whate
 
 Copyright © 2024 Fintech Open Source Foundation
 
-Distributed under the [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/deed.en).
+This work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by].
 
-SPDX-License-Identifier: [CC0 1.0 Universal](https://spdx.org/licenses/CC0-1.0.html).
+[![CC BY 4.0][cc-by-image]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+
+SPDX-License-Identifier: [CC BY 4.0](https://spdx.org/licenses/CC-BY-4.0.html).
