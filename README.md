@@ -81,6 +81,25 @@ However, there are a number of excellent frameworks that we feel this group can 
 ### Will this framework address the EU AI Act?
 One of our key goals is to create a framework that makes it easy to follow whatever regional regulation are applied to the AI-based solutions you are building. We haven’t worked out exactly how to marry the two together just yet, and in all fairness, most of the AI-related regulations aren’t published yet. However, we will also consider pre-existing regulations that relate to AI-systems, for example data protection and sovereignty. 
 
+## Contributing
+
+### Using DCO to sign your commits
+
+**All commits** must be signed with a DCO signature to avoid being flagged by the DCO Bot. This means that your commit log message must contain a line that looks like the following one, with your actual name and email address:
+
+```
+Signed-off-by: John Doe <john.doe@example.com>
+```
+
+Adding the `-s` flag to your `git commit` will add that line automatically. You can also add it manually as part of your commit log message or add it afterwards with `git commit --amend -s`.
+
+### Helpful DCO Resources
+- [Git Tools - Signing Your Work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
+- [Signing commits
+](https://docs.github.com/en/github/authenticating-to-github/signing-commits)
+
+See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for more information
+
 ---
 
 ## License
