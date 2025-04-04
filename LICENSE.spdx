@@ -1,7 +1,7 @@
 SPDXVersion: SPDX-2.0
 DataLicense: CC0-1.0
 Creator: FINOS
-PackageName: AI Readiness
+PackageName: ai-governance-framework
 PackageOriginator: FINOS
-PackageHomePage: https://github.com/finos/ai-readiness
-PackageLicenseDeclared: Apache-2.0
+PackageHomePage: https://github.com/finos/ai-governance-framework
+PackageLicenseDeclared: CC-BY-4.0

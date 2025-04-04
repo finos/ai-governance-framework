@@ -16,7 +16,7 @@ All banks have mature processes for on-boarding technology, however, (Generative
 
 ## Goals and approach
 
-The AI readiness group is at the very early formation stages, as a result, the goals and approach will likely evolve in the near-term. The current proposed approach to creating tangible value to members is:
+The AI Governance Framework group is at the very early formation stages, as a result, the goals and approach will likely evolve in the near-term. The current proposed approach to creating tangible value to members is:
 
  - **Focus on a subset of the problem** - with the breadth of AI technologies and applications, we cannot realistically tackle the problem all in one go. We’ll seek to identify a subset of the problem, driven by one or more specific use cases, in order to create a complete ‘vertical slice’ and deliver value early
  - **Leverage existing frameworks** -  financial services organisations already have robust frameworks in place for dealing with technology risk. We’ll look to leverage these framework, or approaches, where appropriate.
@@ -26,7 +26,7 @@ The AI readiness group is at the very early formation stages, as a result, the g
 
 We use the following channels:
  - Group email distribution list: ai-readiness@lists.finos.org
- - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-readiness/issues?q=is%3Aissue+is%3Aopen+label%3Ameeting).
+ - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue+is%3Aopen+label%3Ameeting).
  - Meetings are held each week, with details found on the [FINOS community calendar](https://www.finos.org/calendar)
  - Our backlog is visible as recorded as a [GitHub Project Board](https://github.com/orgs/finos/projects/99).
 

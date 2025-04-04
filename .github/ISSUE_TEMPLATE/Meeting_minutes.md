@@ -1,7 +1,7 @@
 ---
-name: "\U0001F91D AI Readiness Meeting Agenda"
-about: To track AI Readiness meeting agenda
-title: DD MMM YYYY - AI Readiness Meeting Agenda
+name: "\U0001F91D AI Governance Framework Meeting Agenda"
+about: To track AI Governance Framework meeting agenda
+title: DD MMM YYYY - AI Governance Framework Meeting Agenda
 labels: meeting
 assignees: ColinEberhardt
 ---
