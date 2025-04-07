@@ -30,7 +30,7 @@ We use the following channels:
  - Meetings are held bi-weekly, with details found on the [FINOS community calendar](https://www.finos.org/calendar)
  - Our backlog is visible as recorded as a [GitHub Project Board](https://github.com/orgs/finos/projects/99).
 
-The project maintaniers are
+The project maintainers are
 - Colin Eberhardt - Scott Logic @ColinEberhardt (https://github.com/ColinEberhardt) Lead Maintainer
 - Vicente Herrera Garcia - ControlPlane @vicenteherrera (https://github.com/vicenteherrera) 
 - Alvin Shih - Morgan Stanley - @alvin-c-shih (https://github.com/alvin-c-shih)
