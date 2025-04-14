@@ -25,7 +25,7 @@ The AI Governance Framework group is at the very early formation stages, as a re
 ## Ways of working 
 
 We use the following channels:
- - Group email distribution list: 
+ - Group email distribution list: ai-governance-framework@lists.finos.org
  - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue+is%3Aopen+label%3Ameeting).
  - Meetings are held bi-weekly, with details found on the [FINOS community calendar](https://www.finos.org/calendar)
  - Our backlog is visible as recorded as a [GitHub Project Board](https://github.com/orgs/finos/projects/99).
