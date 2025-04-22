@@ -1,21 +1,54 @@
 title: FINOS AI Readiness - AI Governance Framework
 
+risk_classification:
+  RC: Regulatory and Compliance
+  OP: Operational
+  SEC: Security
+
+external_risks:
+  LLM01:
+    title: "OWASP: Prompt Injection"
+    url: "https://genai.owasp.org/llmrisk/llm012025-prompt-injection/"
+  LLM02:
+    title: "OWASP: Sensitive Information Disclosure"
+    url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
+  LLM03:
+    title: "OWASP: Supply Chain Vulnerabilities"
+    url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain-vulnerabilities/"
+  LLM04:
+    title: "OWASP: Data and Model Poisoning"
+    url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/"
+  LLM05:
+    title: "OWASP: Improper Output Handling"
+    url: "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/"
+  LLM06:
+    title: "OWASP: Excessive Agency"
+    url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+  LLM07:
+    title: "OWASP: System Prompt Leakage"
+    url: "https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/"
+  LLM08:
+    title: "OWASP: Vector and Embedding Weaknesses"
+    url: "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/"
+  LLM09:
+    title: "OWASP: Misinformation"
+    url: "https://genai.owasp.org/llmrisk/llm092025-misinformation/"
+  LLM10:
+    title: "OWASP: Unbounded Consumption"
+    url: "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/"
+
 document_status:
   - name: Pre-Draft
     description: "Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written."
-    
   - name: Draft
     description: "The document is in the early stages of development, with content being written and structured but not yet polished."
-    
   - name: Review
     description: "The document is being reviewed by others for feedback. It may undergo multiple iterations at this stage."
-    
   - name: Approved
     description: "The document is in its final form and has been approved by the AI Readiness team."
-    
 
 collections:
-  threats:
-    output: false
-  controls:
-    output: false
+  risks:
+    output: true
+  mitigations:
+    output: true

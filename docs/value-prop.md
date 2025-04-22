@@ -1,0 +1,8 @@
+### Value Proposition
+
+The *AI Readiness Governance Framework* aims to bridge the gap between the transformative potential of AI and the stringent requirements of the financial services industry. By providing a structured approach to identifying, assessing, and mitigating risks associated with AI systems, the framework empowers organizations to harness AI's benefits while maintaining compliance with regulatory standards and safeguarding against operational risks.
+
+- For *Technical Teams*, the AI Readiness Governance Framework can offer developers a clear set of guidelines and best practices for integrating AI technologies into existing systems. This can improve risk mitigation by identifying potential risks early in the development cycle, promoting robust and secure AI solutions.
+- For *CISOs and Risk Management teams*, the AI Readiness Governance Framework can work to establish an early-stage 'toolbox' to evaluate the security implications of AI technologies. This helps to ensure that AI implementations align with organizational policies and regulatory requirements.
+- For *Heads of AI and CTO/CIO Offices*, the AI Readiness Governance Framework provides benefit to aligning AI initiatives with the organization's strategic objectives and technological roadmap. In turn, this can improve resource optimization and ROI with respect to investments in AI development/adoption.
+- For *Vendors and Service Providers*, the AI Readiness Governance Framework can aide in understanding the governance expectations of financial institutions and build trust with clients by demonstrating adherence with an established framework.

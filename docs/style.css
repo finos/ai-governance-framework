@@ -1,112 +1,61 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Custom styles to enhance Bootstrap */
 
-/* General styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
+/* Risk ID styling */
+.risk-id {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #0d6efd;
+    letter-spacing: 0.5px;
 }
 
-/* Container */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Category title styling */
+.category-title {
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #212529;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    color: #222;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-weight: 700;
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #0d6efd;
 }
 
-/* Paragraphs */
-p {
-    margin: 0 0 15px;
+/* Card hover effect - only for index page cards */
+.index.card {
+    transition: transform 0.2s ease-in-out;
+    border-radius: 0.5rem;
 }
 
-/* Links */
-a {
-    color: #007BFF;
-    text-decoration: none;
+.index.card:hover {
+    transform: translateY(-5px);
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-/* Lists */
-ul, ol {
-    margin: 0 0 15px 20px;
-    padding: 0;
-}
-
-/* Images */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-
-/* Responsive design */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
-        padding: 10px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
-    h1 {
-        font-size: 1.8em;
-    }
-
-    h2 {
-        font-size: 1.6em;
-    }
-
-    h3 {
-        font-size: 1.4em;
+    .category-title {
+        font-size: 1.75rem;
     }
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 5px;
-    }
+/* Accessibility improvements */
+.card:focus-within {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
 
-    h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.3em;
-    }
-
-    h3 {
-        font-size: 1.1em;
-    }
+/* High contrast focus states */
+a:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
 }
