@@ -8,13 +8,13 @@ risk_classification:
 external_risks:
   LLM01:
     title: "OWASP: Prompt Injection"
-    url: "https://genai.owasp.org/llmrisk/llm012025-prompt-injection/"
+    url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
   LLM02:
     title: "OWASP: Sensitive Information Disclosure"
     url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
   LLM03:
     title: "OWASP: Supply Chain Vulnerabilities"
-    url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain-vulnerabilities/"
+    url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain/"
   LLM04:
     title: "OWASP: Data and Model Poisoning"
     url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/"
