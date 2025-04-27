@@ -1,12 +1,12 @@
 ---
+sequence: 1
+title: Data Leakage Prevention And Detection
 layout: mitigation
 doc-status: Draft
-sequence: 1
 type:
   - Detective
 mitigates:
   - ri-1
-title: Data Leakage Prevention and Detection
 ---
 
 #### Preventing Leakage of Session Data

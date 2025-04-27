@@ -1,12 +1,12 @@
 ---
+sequence: 9
+title: Alerting / DoW Spend Alert
 layout: mitigation
 doc-status: Pre-Draft
-sequence: 9
 type:
   - Detective
 mitigates:
   - ri-7
-title: Alerting / DoW spend alert 
 ---
 
 - Add usage limits and alerts

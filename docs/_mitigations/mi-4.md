@@ -1,7 +1,8 @@
 ---
+sequence: 4
+title: System Observability
 layout: mitigation
 doc-status: Draft
-sequence: 4
 type:
   - Detective
 mitigates:
@@ -14,7 +15,6 @@ mitigates:
   - ri-8
   - ri-10
   - ri-13
-title: System observability
 ---
 
 #### What to log/monitor

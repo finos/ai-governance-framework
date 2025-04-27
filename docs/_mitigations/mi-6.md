@@ -1,13 +1,13 @@
 ---
+sequence: 6
+title: Data Quality & Classification/Sensitivity
 layout: mitigation
 doc-status: Pre-Draft
-sequence: 6
 type:
   - Preventative
 mitigates:
   - ri-1
   - ri-2
-title: Data quality & classification/sensitivity
 ---
 
 - Data is classified within the Confluence data store, and filtered prior to ingestion

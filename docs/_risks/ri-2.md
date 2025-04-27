@@ -1,9 +1,9 @@
 ---
+sequence: 2
+title: Unauthorized Access And Data Leaks
 layout: risk
 doc-status: Draft
-sequence: 2
 type: SEC
-title: Unauthorized Access and Data Leaks
 external_risks:
   - LLM06
 ---
