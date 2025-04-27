@@ -1,0 +1,5 @@
+* text=auto eol=lf
+
+# Windows batch files (force CRLF)
+*.[cC][mM][dD] text eol=crlf
+*.[bB][aA][tT] text eol=crlf
