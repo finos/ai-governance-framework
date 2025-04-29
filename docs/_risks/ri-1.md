@@ -1,9 +1,9 @@
 ---
+sequence: 1
+title: Information Leaked To Hosted Model
 layout: risk
 doc-status: Draft
-sequence: 1
 type: RC
-title: Information Leaked to Hosted Model
 external_risks:
   - LLM06
 ---

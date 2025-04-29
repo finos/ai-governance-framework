@@ -1,12 +1,12 @@
 ---
+sequence: 8
+title: QoS/DDoS Prevention
 layout: mitigation
 doc-status: Pre-Draft
-sequence: 8
 type:
  - Preventative
 mitigates:
  - ri-7
-title: QoS/DDoS prevention
 ---
 
 Controls should be in place to ensure single or few users don't starve finite resources and interfere with the availability of AI systems.

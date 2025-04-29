@@ -1,9 +1,9 @@
 ---
+sequence: 8
+title: Tampering With the Foundational Model
 layout: risk
 doc-status: Draft
-sequence: 8
 type: SEC
-title: Tampering with the foundational model
 external_risks:
   - LLM03
   - LLM05

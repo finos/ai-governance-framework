@@ -1,9 +1,9 @@
 ---
+sequence: 5
+title: Instability in Foundation Model Behaviour
 layout: risk
 doc-status: Draft
-sequence: 5
 type: OP
-title: Instability in foundation model behaviour
 external_risks:
   - LLM09
 ---

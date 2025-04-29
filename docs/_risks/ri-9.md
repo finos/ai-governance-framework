@@ -1,9 +1,9 @@
 ---
+sequence: 9
+title: Data Poisoning
 layout: risk
 doc-status: Pre-Draft
-sequence: 9
 type: SEC
-title: Data Poisoning
 external_risks:
   - LLM03
   - LLM05

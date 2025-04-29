@@ -1,9 +1,9 @@
 ---
+sequence: 6
+title: Non-Deterministic Behaviour
 layout: risk
 doc-status: Draft
-sequence: 6
 type: OP
-title: Non-deterministic behaviour
 external_risks:
   - LLM08
   - LLM09

@@ -1,9 +1,9 @@
 ---
+sequence: 4
+title: Hallucination and Inaccurate Outputs
 layout: risk
 doc-status: Draft
-sequence: 4
 type: OP
-title: Hallucination and Inaccurate Outputs
 external_risks:
   - LLM08
   - LLM09

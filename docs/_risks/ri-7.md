@@ -1,9 +1,9 @@
 ---
+sequence: 7
+title: Availability of Foundational Model
 layout: risk
 doc-status: Draft
-sequence: 7
 type: OP
-title: Availability of foundational model
 external_risks:
   - LLM04
 ---

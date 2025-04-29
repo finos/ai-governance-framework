@@ -1,13 +1,13 @@
 ---
+sequence: 3
+title: User/App/Model Firewalling/Filtering
 layout: mitigation
 doc-status: Draft
-sequence: 3
 type:
   - Preventative
 mitigates:
   - ri-7
   - ri-10
-title: User/app/model firewalling/filtering
 ---
 
 As in any information system component, you can monitor and filter interactions between the model, inputs from the user, queries to RAG databases or other sources of information, and outputs.
