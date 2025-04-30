@@ -9,6 +9,7 @@ mitigates:
   - ri-1
   - ri-2
   - ri-26
+  - ri-28
   - ri-30
 ---
 
