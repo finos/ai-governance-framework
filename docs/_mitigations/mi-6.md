@@ -8,6 +8,8 @@ type:
 mitigates:
   - ri-1
   - ri-2
+  - ri-26
+  - ri-30
 ---
 
 - Data is classified within the Confluence data store, and filtered prior to ingestion
