@@ -15,6 +15,7 @@ mitigates:
   - ri-8
   - ri-10
   - ri-13
+  - ri-25
 ---
 
 #### What to log/monitor
