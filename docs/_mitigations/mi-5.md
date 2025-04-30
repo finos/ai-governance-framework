@@ -10,6 +10,8 @@ mitigates:
  - ri-5
  - ri-6
  - ri-12
+ - ri-24
+ - ri-29
 ---
 
 System Acceptance Testing is the final phase of the software testing process where the complete system is tested against the specified requirements to ensure it meets the criteria for deployment. For non-AI systems, this will involve creating a number of test cases which are executed, with an expectation that when all tests pass the system is guaranteed to meet its requirements. 
