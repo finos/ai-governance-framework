@@ -7,6 +7,7 @@ type:
   - Preventative
 mitigates:
   - ri-1
+  - ri-26
 ---
 
 To mitigate the risk of sensitive data leakage and tampering in the vector store, the data filtering control ensures that sensitive information from internal knowledge sources, such as Confluence, is anonymized and/or entirely excluded before being processed by the model. This control aims to limit the exposure of sensitive organizational knowledge when creating embeddings that feed into the vector store, thus reducing the likelihood of confidential information being accessible or manipulated.
