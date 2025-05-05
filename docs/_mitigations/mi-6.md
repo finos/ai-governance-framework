@@ -3,8 +3,7 @@ sequence: 6
 title: Data Quality & Classification/Sensitivity
 layout: mitigation
 doc-status: Pre-Draft
-type:
-  - Preventative
+type: PREV
 mitigates:
   - ri-1
   - ri-2

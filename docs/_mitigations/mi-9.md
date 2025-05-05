@@ -3,8 +3,7 @@ sequence: 9
 title: Alerting / DoW Spend Alert
 layout: mitigation
 doc-status: Pre-Draft
-type:
-  - Detective
+type: DET
 mitigates:
   - ri-7
 ---

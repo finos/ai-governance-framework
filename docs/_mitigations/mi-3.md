@@ -3,8 +3,7 @@ sequence: 3
 title: User/App/Model Firewalling/Filtering
 layout: mitigation
 doc-status: Draft
-type:
-  - Preventative
+type: PREV
 mitigates:
   - ri-7
   - ri-10
