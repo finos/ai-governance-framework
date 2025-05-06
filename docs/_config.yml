@@ -45,7 +45,7 @@ document_status:
   - name: Review
     description: "The document is being reviewed by others for feedback. It may undergo multiple iterations at this stage."
   - name: Approved
-    description: "The document is in its final form and has been approved by the AI Readiness team."
+    description: "The document is in its final form and has been approved by the AI Governance Framework Maintainers team."
 
 collections:
   risks:
