@@ -10,8 +10,8 @@ mitigates:
 ---
 
 Detective & Preventive controls: 
-L0 hard spend cap 
-L1 vendor side alerts; 
-L2 FinOps enforced hourly/weekly/monthly limits; 
-L3 Finegrained API key /proxy token/request quotas;
-L4 adaptive rate‑limit. Add semantic, context level/response token caps with semantic anomaly detector, credits are offset normalized by use case.
+- L0 hard spend cap 
+- L1 vendor side alerts; 
+- L2 FinOps enforced hourly/weekly/monthly limits; 
+- L3 Finegrained API key /proxy token/request quotas;
+- L4 adaptive rate‑limit. Add semantic, context level/response token caps with semantic anomaly detector, credits are offset normalized by use case.
