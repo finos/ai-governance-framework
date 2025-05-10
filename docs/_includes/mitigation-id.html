@@ -1,0 +1,2 @@
+{% assign padded_number = "00" | append: include.mitigation.sequence | slice: -3, 3 %}
+AIR-{{ include.mitigation.type }}-{{ padded_number }}

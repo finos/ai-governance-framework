@@ -5,6 +5,10 @@ risk_classification:
   OP: Operational
   SEC: Security
 
+mitigation_classification:
+  PREV: Preventative
+  DET: Detective
+
 external_risks:
   LLM01:
     title: "OWASP: Prompt Injection"

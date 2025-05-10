@@ -8,6 +8,14 @@
     letter-spacing: 0.5px;
 }
 
+/* Mitigation ID styling */
+.mitigation-id {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #0d6efd;
+    letter-spacing: 0.5px;
+}
+
 /* Category title styling */
 .category-title {
     position: relative;

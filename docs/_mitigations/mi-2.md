@@ -3,8 +3,7 @@ sequence: 2
 title: Data Filtering From Confluence Into The Samples
 layout: mitigation
 doc-status: Draft
-type:
-  - Preventative
+type: PREV
 mitigates:
   - ri-1
 ---

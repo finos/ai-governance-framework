@@ -3,8 +3,7 @@ sequence: 1
 title: Data Leakage Prevention And Detection
 layout: mitigation
 doc-status: Draft
-type:
-  - Detective
+type: DET
 mitigates:
   - ri-1
 ---

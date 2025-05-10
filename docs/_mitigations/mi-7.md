@@ -3,8 +3,7 @@ sequence: 7
 title: Legal/Contractual Agreements
 layout: mitigation
 doc-status: Draft
-type:
-  - Preventative
+type: PREV
 mitigates:
   - ri-1
 ---

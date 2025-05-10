@@ -3,8 +3,7 @@ sequence: 4
 title: System Observability
 layout: mitigation
 doc-status: Draft
-type:
-  - Detective
+type: DET
 mitigates:
   - ri-1
   - ri-2

@@ -3,8 +3,7 @@ sequence: 8
 title: QoS/DDoS Prevention
 layout: mitigation
 doc-status: Pre-Draft
-type:
- - Preventative
+type: PREV
 mitigates:
  - ri-7
 ---

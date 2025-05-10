@@ -3,8 +3,7 @@ sequence: 5
 title: System Acceptance Testing
 layout: mitigation
 doc-status: Draft
-type:
- - Preventative
+type: PREV
 mitigates:
  - ri-4
  - ri-5
@@ -28,4 +27,4 @@ System Acceptance Testing is a highly effective control for understanding the ov
 * [GitHub - openai/evals: Evals is a framework for evaluating LLMs and LLM systems, and an open-source registry of benchmarks.](https://github.com/openai/evals)
 * [Evaluation / 🦜️🔗 LangChain](https://python.langchain.com/v0.1/docs/guides/productionization/evaluation/)
 * [Promptfoo](https://www.promptfoo.dev/)
-* [Inspect](https://inspect.ai-safety-institute.org.uk/) 
+* [Inspect](https://inspect.ai-safety-institute.org.uk/)
