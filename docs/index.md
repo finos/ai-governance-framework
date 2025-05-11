@@ -54,7 +54,6 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
   {% if mitigation_group %}
   <section class="mb-5">
       <h3 class="category-title mb-4">{{ site.mitigation_classification[mitigation_group.name] }}</h3>
-      <p>{{ mitigation_group.name }}</p>
       <div class="row g-4">
           {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
           {% for mitigation in sorted_mitigations %}

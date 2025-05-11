@@ -34,10 +34,12 @@ layout: default
                     <h2 class="h4 mb-4">Key Mitigations</h2>
                     <div class="list-group">
                         {% for mitigation in site.mitigations %}
-                        {% if mitigation.mitigates contains page.slug %}
+                        {% assign mitigation_prefix = "ri-" | append: mitigation.sequence %}
+                        {% if mitigation.mitigates contains mitigation_prefix %}
                         <div class="list-group-item">
                             <h3 class="h6 mb-1">
-                                <a href="{{ mitigation.id }}">{{ mitigation.title }}</a>
+                                <a href="{{ mitigation.url }}">{% include mitigation-id.html mitigation=mitigation %} : {{ mitigation.title }}</a>
+
                             </h3>
                         </div>
                         {% endif %}
@@ -48,7 +50,7 @@ layout: default
 
             <div class="card">
                 <div class="card-body">
-                    <h2 class="h4 mb-4">Related Standards</h2>
+                    <h2 class="h4 mb-4">External Standards</h2>
                     <div class="list-group">
                         {% for risk in page.external_risks %}
                         {% assign link = site.external_risks[risk] %}
