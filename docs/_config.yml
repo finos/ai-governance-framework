@@ -10,34 +10,34 @@ mitigation_classification:
   DET: Detective
 
 external_risks:
-  LLM01:
+  OWASP-LLM_2025_LLM01:
     title: "OWASP: Prompt Injection"
     url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
-  LLM02:
+  OWASP-LLM_2025_LLM02:
     title: "OWASP: Sensitive Information Disclosure"
     url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
-  LLM03:
+  OWASP-LLM_2025_LLM03:
     title: "OWASP: Supply Chain Vulnerabilities"
     url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain/"
-  LLM04:
+  OWASP-LLM_2025_LLM04:
     title: "OWASP: Data and Model Poisoning"
     url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/"
-  LLM05:
+  OWASP-LLM_2025_LLM05:
     title: "OWASP: Improper Output Handling"
     url: "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/"
-  LLM06:
+  OWASP-LLM_2025_LLM06:
     title: "OWASP: Excessive Agency"
     url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
-  LLM07:
+  OWASP-LLM_2025_LLM07:
     title: "OWASP: System Prompt Leakage"
     url: "https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/"
-  LLM08:
+  OWASP-LLM_2025_LLM08:
     title: "OWASP: Vector and Embedding Weaknesses"
     url: "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/"
-  LLM09:
+  OWASP-LLM_2025_LLM09:
     title: "OWASP: Misinformation"
     url: "https://genai.owasp.org/llmrisk/llm092025-misinformation/"
-  LLM10:
+  OWASP-LLM_2025_LLM10:
     title: "OWASP: Unbounded Consumption"
     url: "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/"
 

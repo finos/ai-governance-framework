@@ -5,7 +5,7 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-  - LLM07
+  - OWASP-LLM_2025_LLM07
 ---
 
 #### Alignment
