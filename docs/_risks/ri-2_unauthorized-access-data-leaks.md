@@ -1,6 +1,6 @@
 ---
 sequence: 2
-title: Unauthorized Access And Data Leaks
+title: Unauthorized Access & Data Leaks
 layout: risk
 doc-status: Draft
 type: SEC

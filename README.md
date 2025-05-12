@@ -28,9 +28,8 @@ The AI Governance Framework group is at the very early formation stages, as a re
 
 We use the following channels:
  - Group email distribution list: ai-governance-framework@lists.finos.org
- - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue+is%3Aopen+label%3Ameeting).
+ - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%93%86%20meeting%22).
  - Meetings are held bi-weekly, with details found on the [FINOS community calendar](https://www.finos.org/calendar)
- - Our backlog is visible as recorded as a [GitHub Project Board](https://github.com/orgs/finos/projects/99).
 
 The project maintainers are
 - Colin Eberhardt - Scott Logic @ColinEberhardt (https://github.com/ColinEberhardt) Lead Maintainer

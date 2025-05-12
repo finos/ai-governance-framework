@@ -1,0 +1,100 @@
+#!/bin/bash -u
+
+SCRIPT_DIR=$(dirname "$0")
+
+# Usage message
+usage() {
+  echo "Usage: $0 [--ri | -r | --mi | -m] [--dryrun | -d] [--verbose | -v]" >&2
+  echo "  --ri,      -r  Process ri-* files in the _risks directory" >&2
+  echo "  --mi,      -m  Process mi-* files in the _mitigations directory" >&2
+  echo "  --dryrun,  -d  Simulate renaming without making changes" >&2
+  echo "  --verbose, -v  Display skipped messages" >&2
+  exit 1
+}
+
+# Parse arguments
+process_ri=false
+process_mi=false
+dryrun=false
+verbose=false
+
+for arg in "$@"; do
+  case $arg in
+    --ri|-r)
+      process_ri=true
+      ;;
+    --mi|-m)
+      process_mi=true
+      ;;
+    --dryrun|-d)
+      dryrun=true
+      ;;
+    --verbose|-v)
+      verbose=true
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+
+# Ensure at least one of --ri or --mi is specified
+if ! $process_ri && ! $process_mi; then
+  usage
+fi
+
+# Initialize a counter for renamed files
+renamed_count=0
+
+# Function to process files
+process_files() {
+  local prefix=$1
+  local directory=$2
+
+  for file in "$directory"/${prefix}-*.md; do
+    # Extract the sequence and title from the file
+    sequence=$(sed -n 's/^sequence: //p' "$file")
+    title=$(sed -n 's/^title: //p' "$file")
+
+    # Convert title to something filesystem-friendly
+    formatted_title=$(echo "$title" | tr '[:upper:]' '[:lower:]' \
+      | sed -e 's/[^a-z0-9][^a-z0-9]*/-/g')
+    # Construct the new filename
+    new_filename="${directory}/${prefix}-${sequence}_${formatted_title}.md"
+
+    # Check if the file is already named correctly
+    if [[ "$file" == "$new_filename" ]]; then
+      if [ "$verbose" = true ]; then
+        echo "Skipping $file: already correctly named." >&2
+      fi
+      continue
+    fi
+
+    renamed_count=$((renamed_count + 1))
+
+    # Rename the file or simulate the renaming
+    if [ "$dryrun" = true ]; then
+      echo "[DRYRUN] Would rename $file to $new_filename" >&2
+    else
+      mv "$file" "$new_filename"
+      echo "Renamed $file to $new_filename" >&2
+    fi
+  done
+}
+
+# Process ri-* files if --ri is specified
+if $process_ri; then
+  process_files "ri" "$SCRIPT_DIR/../docs/_risks"
+fi
+
+# Process mi-* files if --mi is specified
+if $process_mi; then
+  process_files "mi" "$SCRIPT_DIR/../docs/_mitigations"
+fi
+
+# Print the total count of renamed files
+if [ "$dryrun" = true ]; then
+  echo "Total files to be renamed: $renamed_count" >&2
+else
+  echo "Total files renamed: $renamed_count" >&2
+fi
