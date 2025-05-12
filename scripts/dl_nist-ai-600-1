@@ -1,0 +1,29 @@
+#!/bin/bash -eu
+
+SCRIPT_DIR=$(dirname "$0")
+
+# This script downloads the NIST.AI.600-1.md file from the specified GitHub repository
+# using curl and saves it to the appropriate directory.
+# It is not clear that the repo maintainer will keep these up to date,
+# so caveat emptor.
+
+# Message for the user
+echo "The official PDF file is available at:"
+echo "  https://doi.org/10.6028/NIST.AI.600-1"
+echo "Please check that the Markdown is up to date with the PDF!"
+
+# Update this if the Markdown file is updated in the future.
+YEAR=2024
+RAW_URL="https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/organizations/NIST/NIST.AI.600-1/NIST.AI.600-1.md"
+OUTPUT_DIR="${SCRIPT_DIR}/../_refs-markdown/nist-ai-600-1_$YEAR"
+OUTPUT_FILE="NIST.AI.600-1.md"
+
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+
+# Download the file
+echo "Downloading NIST.AI.600-1.md..."
+curl -s "$RAW_URL" -o "$OUTPUT_DIR/$OUTPUT_FILE"
+
+# Confirm completion
+echo "Download complete. File saved to $OUTPUT_DIR/$OUTPUT_FILE"
