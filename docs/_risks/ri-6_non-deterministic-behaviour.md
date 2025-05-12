@@ -5,8 +5,8 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-  - LLM08
-  - LLM09
+  - OWASP-LLM_2025_LLM08
+  - OWASP-LLM_2025_LLM09
 ---
 
 A fundamental property of LLMs is the non-determinism of their response. This is because LLMs generate responses by predicting the probability of the next word or token in a given context, meaning different prompts equating to the same request can produce different responses from the models. [This method also means that LLMs can tend towards winding or unintelligible outputs when the outputs being produced are larger.](https://arxiv.org/pdf/2203.11370) LLMs also make use of sampling methods like top-k sampling during text generation or have an internal state or seed mechanisms which can cause distinct responses from the same prompt used in different requests. This can make it difficult or impossible to reproduce results, and may result in different (and potentially incorrect) results being returned occasionally and in a hard to predict manner. 

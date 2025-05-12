@@ -5,7 +5,7 @@ layout: risk
 doc-status: Draft
 type: SEC
 external_risks:
-  - LLM06
+  - OWASP-LLM_2025_LLM06
 ---
 
 TODO: Make this non-vector store specific
