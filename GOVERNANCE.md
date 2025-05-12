@@ -37,7 +37,7 @@ The Working Group may form one or more "Discussion Groups" to organize collabora
 
 #### How do you become an Editor or Maintainer?
 
-Once you are an enrolled participant in AIGF, you can apply to become an **editor** or **maintainer** by contacting the existing AIGF maintainers at [ai-governance-framework-maintainers@finos.org](mailto:ai-governance-framework-maintainers@finos.org) and then seeking the approval of the AIGF Standards Working Group. Generally, the maintainers will look for both a history of contribution to AIGF and a commitment to investing sufficient time in the role from any prospective candidates before proposing them to the Standards Working Group for approval. 
+Once you are an enrolled participant in AIGF, you can apply to become an **editor** or **maintainer** by contacting the existing AIGF maintainers at [ai-gov-framework-maintainers@finos.org](mailto:ai-gov-framework-maintainers@lists.finos.org) and then seeking the approval of the AIGF Standards Working Group. Generally, the maintainers will look for both a history of contribution to AIGF and a commitment to investing sufficient time in the role from any prospective candidates before proposing them to the Standards Working Group for approval. 
 
 If you are new to AIGF, but willing to make the investment of time, the maintainers can work with you to build up a history of contribution.
 
@@ -65,15 +65,17 @@ Inspired by [ANSI’s Essential Requirements for Due Process](https://share.ansi
 
 ## 4.	Standard Development Process.  
 
-**4.1.	Pre-Draft.**  Any Participant may submit a proposed initial draft document as a candidate Draft Specification of the Working Group.  The Maintainer(s) will designate each submission as a “Pre-Draft” document.
+**4.1.	Pre-Draft.**  Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written. Any Participant may submit a proposed initial draft document as a candidate Draft Specification of the Working Group. The Maintainer(s) will designate each submission as a “Pre-Draft” document. 
 
-**4.2.	Draft.**  Each Pre-Draft document of the Working Group must first be Approved to become a “Draft Specification”.  Once the Working Group approves a document as a Draft Specification, the Draft Specification becomes the basis for all going forward work on that specification.
+**4.2.	Draft.**  Each Pre-Draft document of the Working Group must first be Approved to become a “Draft Specification”. Once the Working Group approves a document as a Draft Specification, the Draft Specification becomes the basis for all going forward work on that specification. At this stage, the document is in the early stages of development, with content being written and structured but not yet polished.
 
-**4.3.	Working Group Approval.**  Once the Working Group believes it has achieved the objectives for its specification as described in the [Scope](./SCOPE), it will Approve that Draft Specification and progress it to “Approved Specification” status. 
+**4.3.	Review.** The document is being reviewed by others for feedback. It may undergo multiple iterations at this stage.
 
-**4.4.	Publication and Submission.**  Upon the designation of a Draft Specification as an Approved Specification, the Maintainer(s) will publish the Approved Specification in a manner agreed upon by the Working Group Participants (i.e., Working Group Participant only location, publicly available location, Working Group maintained website, Working Group member website, etc.).  The publication of an Approved Specification in a publicly accessible manner must include the terms under which the Approved Specification is being made available under.
+**4.4.	Working Group Approval.**  Once the Working Group believes it has achieved the objectives for its specification as described in the [Scope](./SCOPE), it will Approve that Draft Specification and progress it to “Approved Specification” status. The document is in its final form.
 
-**4.5.	Submissions to Standards Bodies.**  No Draft Specification or Approved Specification may be submitted to another standards development organization without Working Group Approval. Upon reaching Approval, the Maintainer(s) will coordinate the submission of the applicable Draft Specification or Approved Specification to another standards development organization. Working Group Participants that developed that Draft Specification or Approved Specification agree to grant the copyright rights necessary to make those submissions.
+**4.5.	Publication and Submission.**  Upon the designation of a Draft Specification as an Approved Specification, the Maintainer(s) will publish the Approved Specification in a manner agreed upon by the Working Group Participants (i.e., Working Group Participant only location, publicly available location, Working Group maintained website, Working Group member website, etc.).  The publication of an Approved Specification in a publicly accessible manner must include the terms under which the Approved Specification is being made available under.
+
+**4.6.	Submissions to Standards Bodies.**  No Draft Specification or Approved Specification may be submitted to another standards development organization without Working Group Approval. Upon reaching Approval, the Maintainer(s) will coordinate the submission of the applicable Draft Specification or Approved Specification to another standards development organization. Working Group Participants that developed that Draft Specification or Approved Specification agree to grant the copyright rights necessary to make those submissions.
 
 ## 5. Non-Confidential, Restricted Disclosure.
 
