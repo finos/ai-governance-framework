@@ -1,0 +1,56 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "$0")
+
+# Function to check a file name against a regex
+check_filename_regex() {
+  file_name="$1"
+  regex="$2"
+
+  if [[ "$file_name" =~ $regex ]]; then
+    return 0 
+  else
+    return 1
+  fi
+}
+
+# Function to process files in a folder
+process_files() {
+  folder_path="$1"
+  regex="$2"
+
+  if [ ! -d "$folder_path" ]; then
+    echo "Error: $folder_path is not a valid directory."
+    return 1
+  fi
+
+  # Use find to get all files in the directory
+  find "$folder_path" -type f -print0 | while IFS= read -r -d $'\0' file_path; do
+    file_name=$(basename "$file_path") # Extract filename from path
+
+    if ! check_filename_regex "$file_name" "$regex"; then
+      echo "Error: File name '$file_name' does not match the convention. in $folder_path"
+      return 1
+    fi
+
+  done
+}
+
+
+risk_folder="$SCRIPT_DIR/../docs/_risks" 
+risk_filename_regex="^ri-.*\.md$"
+
+mitigation_folder="$SCRIPT_DIR/../docs/_mitigations"
+mitigation_filename_regex="^mi-.*\.md$" 
+
+echo "Inspecting file names in $risk_folder"
+if ! process_files "$risk_folder" "$risk_filename_regex"; then
+  echo "File name check failed."
+  return 1
+fi
+echo "Inspecting file names in $mitigation_folder"
+if ! process_files "$mitigation_folder" "$mitigation_filename_regex"; then
+  echo "File name check failed."
+  return 1
+fi
+
