@@ -5,15 +5,15 @@ layout: mitigation
 doc-status: Draft
 type: DET
 mitigates:
-  - ri-1
-  - ri-2
-  - ri-3
-  - ri-5
-  - ri-6
-  - ri-7
-  - ri-8
-  - ri-10
-  - ri-13
+- ri-1
+- ri-2
+- ri-3
+- ri-5
+- ri-6
+- ri-7
+- ri-8
+- ri-10
+- ri-13
 ---
 
 #### What to log/monitor

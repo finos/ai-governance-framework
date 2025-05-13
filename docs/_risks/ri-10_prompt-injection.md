@@ -5,10 +5,10 @@ layout: risk
 doc-status: Draft
 type: SEC
 external_risks:
-  - OWASP-LLM_2025_LLM01
-  - OWASP-LLM_2025_LLM04
-  - OWASP-LLM_2025_LLM06
-  - OWASP-LLM_2025_LLM10
+- OWASP-LLM_2025_LLM01
+- OWASP-LLM_2025_LLM04
+- OWASP-LLM_2025_LLM06
+- OWASP-LLM_2025_LLM10
 ---
 
 Users of the application or malitious internal agents can craft prompts that are sent to the SaaS-based LLM and potentially cause damaging responses. This is one of the most popular attack vectors as privilage requirements for this attach vector are the lowest [^1][^2]. Unlike SQL injection the scope of attack in prompt injection is wider and can result in incorrect answers, toxic responses, information disclosure, denial of service, unethical and biased responses. A good example of an incident in public is the DPD chatbot [^3]. 

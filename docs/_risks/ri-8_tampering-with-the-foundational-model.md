@@ -5,8 +5,8 @@ layout: risk
 doc-status: Draft
 type: SEC
 external_risks:
-  - OWASP-LLM_2025_LLM03
-  - OWASP-LLM_2025_LLM05
+- OWASP-LLM_2025_LLM03
+- OWASP-LLM_2025_LLM05
 ---
 
 The SaaS-based LLM provider is a 3rd party supplier and as such is subject to all typical supply chain, insider, and software integrity

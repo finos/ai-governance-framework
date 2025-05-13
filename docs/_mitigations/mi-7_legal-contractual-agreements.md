@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 mitigates:
-  - ri-1
+- ri-1
 ---
 
 This control is about legal agreements between the SaaS inference provider and the organization. Those legal agreements not only have to exists, but have to be understood by the organization to make sure they comply with all requirements.

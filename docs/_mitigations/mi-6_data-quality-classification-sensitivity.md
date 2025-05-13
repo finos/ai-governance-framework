@@ -5,8 +5,8 @@ layout: mitigation
 doc-status: Pre-Draft
 type: PREV
 mitigates:
-  - ri-1
-  - ri-2
+- ri-1
+- ri-2
 ---
 
 - Data is classified within the Confluence data store, and filtered prior to ingestion

@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Draft
 type: DET
 mitigates:
- - ri-3
+- ri-3
 ---
 
 When ingesting data to be queried using RAG architecture, the source may have defined different access levels boundaries that are lost in the destination vector storage.

@@ -5,9 +5,9 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 mitigates:
-  - ri-5
-  - ri-6
-  - ri-11
+- ri-5
+- ri-6
+- ri-11
 ---
 
 #### Supplier Controls:

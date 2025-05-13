@@ -4,7 +4,6 @@ title: Regulatory Compliance and Oversight
 layout: risk
 doc-status: Pre-Draft
 type: RC
-
 ---
 
 - Financial services are heavily regulated, and AI use does not exempt firms from compliance.  

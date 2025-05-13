@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Pre-Draft
 type: PREV
 mitigates:
- - ri-7
+- ri-7
 ---
 
 Controls should be in place to ensure single or few users don't starve finite resources and interfere with the availability of AI systems.
