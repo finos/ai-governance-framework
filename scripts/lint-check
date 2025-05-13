@@ -27,14 +27,41 @@ process_files() {
   # Use find to get all files in the directory
   find "$folder_path" -type f -print0 | while IFS= read -r -d $'\0' file_path; do
     file_name=$(basename "$file_path") # Extract filename from path
+      yaml_block=$(sed -n '/^---$/,/^---$/ {
+        /^---$/d      
+        p
+    }' "$file_path")
 
+
+    required_keys=("layout" "type" "doc-status" "title" "sequence")
+    missing_keys=()
+
+    for key in "${required_keys[@]}"; do
+        if ! echo "$yaml_block" | grep -qE "^${key}:"; then
+            missing_keys+=("$key")
+        fi
+    done
+    
+    return_val=0
+    if [ ${#missing_keys[@]} -gt 0 ]; then
+        echo "Missing keys for $file_path:"
+        for key in "${missing_keys[@]}"; do
+            echo "- $key"
+        done
+        return_val=1
+    fi
+    
     if ! check_filename_regex "$file_name" "$regex"; then
       echo "Error: File name '$file_name' does not match the convention. in $folder_path"
+      return_val=1
+    fi
+    if [ $return_val -eq 1 ];then
       return 1
     fi
-
   done
 }
+
+
 
 
 risk_folder="$SCRIPT_DIR/../docs/_risks" 
@@ -43,14 +70,20 @@ risk_filename_regex="^ri-.*\.md$"
 mitigation_folder="$SCRIPT_DIR/../docs/_mitigations"
 mitigation_filename_regex="^mi-.*\.md$" 
 
-echo "Inspecting file names in $risk_folder"
-if ! process_files "$risk_folder" "$risk_filename_regex"; then
-  echo "File name check failed."
-  return 1
-fi
-echo "Inspecting file names in $mitigation_folder"
-if ! process_files "$mitigation_folder" "$mitigation_filename_regex"; then
-  echo "File name check failed."
-  return 1
+risk_check_success=0
+mitigation_check_success=0
+
+if process_files "$risk_folder" "$risk_filename_regex"; then
+  risk_check_success=1
 fi
 
+if process_files "$mitigation_folder" "$mitigation_filename_regex"; then
+  mitigation_check_success=1
+fi
+
+if [ $risk_check_success -eq 1 ] && [ $mitigation_check_success -eq 1 ]; then
+  echo "Lint check successful"
+else
+  echo "Lint check failed"
+  exit 1
+fi
