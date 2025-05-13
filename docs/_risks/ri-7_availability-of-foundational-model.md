@@ -5,7 +5,7 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-  - OWASP-LLM_2025_LLM04
+- OWASP-LLM_2025_LLM04
 ---
 
 RAG systems are proliferating due to the low barrier of entry compared

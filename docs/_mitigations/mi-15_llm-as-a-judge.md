@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Draft
 type: DET
 mitigates:
- - ri-1
+- ri-1
 ---
 
 Testing (evaluating model responses against a set of test cases) and monitoring (continuous evaluation in production) are vital elements in the process of the development and continued deployment of an LLM System, they ensure that your system is functioning properly and that your changes to the system bring a positive improvement, and more. 

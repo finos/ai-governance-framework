@@ -5,10 +5,10 @@ layout: mitigation
 doc-status: Draft
 type: DET
 mitigates:
-  - ri-5
-  - ri-6
-  - ri-11
---- 
+- ri-5
+- ri-6
+- ri-11
+---
 
 #### Human Feedback Loop
 

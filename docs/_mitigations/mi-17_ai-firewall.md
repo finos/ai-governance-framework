@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Pre-Draft
 type: PREV
 mitigates:
- - ri-10
+- ri-10
 ---
 
 An AI firewall would inspect and block user prompts when it detects it may lead to data leakage, making the system unstable, or exahusting resources (number of tokens).

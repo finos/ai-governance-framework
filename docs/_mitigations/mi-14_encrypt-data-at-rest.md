@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 mitigates:
- - ri-12
+- ri-12
 ---
 
 Encrypting data at rest involves converting stored information into a secure format using encryption algorithms, making it inaccessible without the proper decryption key. This process protects sensitive data from unauthorized access or breaches, even if the storage medium is compromised. It is considered standard practice, with many tools and organizations turning this feature on by default across their IT estate and third-party tools.

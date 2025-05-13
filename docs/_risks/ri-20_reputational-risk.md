@@ -4,7 +4,6 @@ title: Reputational Risk
 layout: risk
 doc-status: Pre-Draft
 type: OP
-
 ---
 
 - AI failures or misuse can quickly become public incidents, eroding trust.  
@@ -17,4 +16,4 @@ type: OP
 - Firms must recognize that AI-driven services reflect on their overall conduct.  
 - AI can scale errors rapidly, potentially sending flawed messages to thousands of customers.  
 - Reputation damage from AI mistakes is a significant operational risk.
-  
+
