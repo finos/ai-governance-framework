@@ -14,7 +14,7 @@ The rapid and widespread integration of generative AI into application workflows
 
 ### Key Risks
 
-- **Risk 1**: Data poisoning, a method where the AI's training data is manipulated by an adversary, can impact its decision-making process. This risk is present across the AI agentic workflow, even during stages like fine-tuning and Retriever-Augmented Generation (RAG), potentially leading to skewed or inaccurate results.
+- **Risk 1**: Data poisoning, a method where the AI's training data is manipulated by an adversary, can impact its decision-making process. This risk is present across the AI agentic workflow, even during stages like fine-tuning and Retrieval-Augmented Generation (RAG), potentially leading to skewed or inaccurate results.
 
 - **Risk 2**: Data exfiltration and leakage refer to unauthorized transfer or disclosure of sensitive information from a system. They pose serious risks in the AI agentic workflow, potentially compromising the integrity of the system and violating privacy regulations.
 
