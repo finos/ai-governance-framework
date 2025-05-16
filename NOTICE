@@ -2,3 +2,28 @@ AI Governance Framework - FINOS
 Copyright 2025 FINOS - info@finos.org
 
 This product includes software developed at the Fintech Open Source Foundation (https://www.finos.org/).
+
+The repository includes non signed commits, due to a temporary branch protection misconfiguration:
+
+`git log main --grep='Signed-off-by:' --invert-grep | grep Date: | wc -l`
+
+All mentioned commits are authored by identified contributors:
+
+`git log main --grep='Signed-off-by:' --invert-grep | grep Author: | sort | uniq`
+
+- Alvin Shih <20891793+alvin-c-shih@users.noreply.github.com> (Morgan Stanley)
+- Asad Ateeque <319157+aateeque@users.noreply.github.com> (Natwest)
+- Chamindra de Silva <chamindra@users.noreply.github.com> (Citi)
+- Colin Eberhardt <colin.eberhardt@gmail.com> (ScottLogic)
+- Juan Estrella <juan.estrella@finos.org> (FINOS)
+- Luca Borella <109801093+lucaborella89@users.noreply.github.com> (FINOS)
+- Nathanael Brown <nbrown@scottlogic.com> (ScottLogic)
+- Vicente Herrera <vicente.herrera@control-plane.io> (Control Plane)
+- Vicente Herrera <vicenteherrera@vicenteherrera.com> (Control Plane)
+- gibsonlam <42846903+gibsonlam@users.noreply.github.com> (BMO)
+- lucaborella89 <109801093+lucaborella89@users.noreply.github.com> (FINOS)
+- maoo <maoo@apache.org> (FINOS)
+- Mehak Mehta <mehakeck@gmail.com> (Morgan Stanley)
+- torinvdb <torinvdb@gmail.com> (Control Plane)
+- 0xAverageUser <61067943+0xAverageUser@users.noreply.github.com> (?)
+- Jaidip Banerjee <134380047+erebus27011841@users.noreply.github.com> (?)
