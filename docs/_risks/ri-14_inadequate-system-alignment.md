@@ -4,6 +4,13 @@ title: Inadequate System Alignment
 layout: risk
 doc-status: Draft
 type: OP
+mitigations:
+- mi-5
+- mi-11
+- mi-13
+related_risks:
+- ri-4
+- ri-6
 external_risks:
 - OWASP-LLM_2025_LLM07
 ---
@@ -32,13 +39,6 @@ The concept of **responsible AI** defines the practice of developing and deployi
 #### Links
 
 
-* Other threats
-  * [TR-4 - Hallucination](#TR-4)
-  * [TR-6 - Non-deterministic behavior](#TR-6)
-* Controls
-  * [CT-5 - System acceptance testing](#CT-5)
-  * [CT-11 - Human feedback loop](#CT-11)
-  * [CT-13 - Provide citations](#CT-13)
 * AI vendor providers
   * [AWS - Responsible AI](https://aws.amazon.com/machine-learning/responsible-ai/)
   * [Microsoft - Responsible AI with Azure](https://azure.microsoft.com/en-us/solutions/ai/responsible-ai-with-azure)
