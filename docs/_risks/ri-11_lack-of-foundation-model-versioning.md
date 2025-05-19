@@ -5,7 +5,7 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-- OWASP-LLM_2025_LLM09
+- OWASP-LLM_2025_LLM09  # Misinformation
 
 ---
 

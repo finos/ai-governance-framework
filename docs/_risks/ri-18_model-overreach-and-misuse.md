@@ -4,6 +4,8 @@ title: Model Overreach and Misuse
 layout: risk
 doc-status: Pre-Draft
 type: OP
+external_risks:
+- OWASP-LLM_2025_LLM06  # Excessive Agency
 
 ---
 
@@ -15,4 +17,4 @@ type: OP
 - Compliance breaches may occur if AI is used inappropriately.  
 - Anthropomorphism—treating AI as a human expert—can increase the risk of misplaced trust.  
 - Users may accept AI-generated recommendations too readily, leading to potential errors.
-  
+

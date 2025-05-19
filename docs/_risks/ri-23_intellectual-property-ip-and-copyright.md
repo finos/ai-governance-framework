@@ -4,6 +4,8 @@ title: Intellectual Property (IP) and Copyright
 layout: risk
 doc-status: Pre-Draft
 type: RC
+external_risks:
+- NIST-600_2024_2-10    # Intellectual Property
 ---
 
 - Generative AI models often train on datasets that may include copyrighted material.  

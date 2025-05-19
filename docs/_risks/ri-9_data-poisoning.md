@@ -5,9 +5,10 @@ layout: risk
 doc-status: Pre-Draft
 type: SEC
 external_risks:
-- OWASP-LLM_2025_LLM03
-- OWASP-LLM_2025_LLM05
-- OWASP-LLM_2025_LLM06
+- OWASP-LLM_2025_LLM03  # Supply Chain Vulnerabilities
+- OWASP-LLM_2025_LLM04  # Data and Model Poisoning
+- OWASP-LLM_2025_LLM05  # Improper Output Handling
+- OWASP-LLM_2025_LLM06  # Excessive Agency
 ---
 
 - Adversaries can tamper with AI training or fine-tuning data to introduce hidden patterns.  

@@ -5,7 +5,10 @@ layout: risk
 doc-status: Draft
 type: SEC
 external_risks:
-- OWASP-LLM_2025_LLM06
+- OWASP-LLM_2025_LLM06  # Sensitive Information Disclosure / Excessive Agency
+- OWASP-LLM_2025_LLM08  # Vector and Embedding Weaknesses
+- NIST-600_2024_2-04    # Data Privacy
+- NIST-600_2024_2-09    # Information Security
 ---
 
 TODO: Make this non-vector store specific

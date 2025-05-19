@@ -40,6 +40,42 @@ external_risks:
   OWASP-LLM_2025_LLM10:
     title: "OWASP: Unbounded Consumption"
     url: "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/"
+  NIST-600_2024_2-01:
+    title: "NIST: CBRN Information or Capabilities"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-02:
+    title: "NIST: Confabulation"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-03:
+    title: "NIST: Dangerous, Violent, or Hateful Content"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-04:
+    title: "NIST: Data Privacy"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-05:
+    title: "NIST: Environmental Impacts"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-06:
+    title: "NIST: Harmful Bias and Homogenization"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-07:
+    title: "NIST: Human-AI Configuration"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-08:
+    title: "NIST: Information Integrity"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-09:
+    title: "NIST: Information Security"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-10:
+    title: "NIST: Intellectual Property"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-11:
+    title: "NIST: Obscene, Degrading, and/or Abusive Content"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-12:
+    title: "NIST: Value Chain and Component Integration"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
 
 document_status:
   - name: Pre-Draft

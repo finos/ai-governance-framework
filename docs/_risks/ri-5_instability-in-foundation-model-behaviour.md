@@ -5,7 +5,8 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-- OWASP-LLM_2025_LLM09
+- OWASP-LLM_2025_LLM09  # Misinformation
+- NIST-600_2024_2-08    # Information Integrity
 ---
 
 Instability in foundation model behaviour would manifest itself as deviations in the output (i.e during inferencing), when supplied with the same prompt.

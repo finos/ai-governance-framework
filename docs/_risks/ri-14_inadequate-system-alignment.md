@@ -12,12 +12,12 @@ related_risks:
 - ri-4
 - ri-6
 external_risks:
-- OWASP-LLM_2025_LLM07
+- OWASP-LLM_2025_LLM07  # System Prompt Leakage
 ---
 
 #### Alignment
 
-There is a specific goal you want to achieve when using an AI system in a successful way. It may be an overarching project goal, o a specific requirement for single queries to the AI system. 
+There is a specific goal you want to achieve when using an AI system in a successful way. It may be an overarching project goal, or a specific requirement for single queries to the AI system. 
 
 This risk describes when the AI system behaves in a way that doesn't align with the intended goal.
 
