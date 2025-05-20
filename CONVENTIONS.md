@@ -25,6 +25,18 @@ The author of the link does not have to worry about the title appended to the fi
 through the magic of brute-force looping through all the document objects and inspecting
 the sequence numbers for a match.
 
+In `ri-*.md` files, other risks may be referenced:
+```
+related_risks:
+- ri-4
+```
+
+In `mi-*.md` files, other mitigations may be referenced:
+```
+related_mitigations:
+- mi-8
+```
+
 ## Numbering Convention
 - The `risk-id.html` and `mitigation-id.html` templates enforce a numbering convention where risks and mitigations are prefixed with `AIR-*`.
   - For risks, the numbering follows the format `AIR-<risk_type>-<number>`.
@@ -32,10 +44,19 @@ the sequence numbers for a match.
 
 Risk and Mitigation types are defined in `_config.yml`.
 
-Order in which the Risk and Mitigation types are presented are defined in `index.md`.
+Order in which the Risk and Mitigation types are presented are defined
+in `index.md`.
+
+# External OWASP / NIST References
+
+The `external_risks:` in `ri-*.md` files may take keys from the
+`external_risks:` section of the `_config.yml` file and rendered with
+consistent title and URL.
 
 ## Sorting and Grouping
-- Risks and mitigations are grouped by their `type` attribute and sorted by their `sequence` attribute in the index pages.
+
+- Risks and mitigations are grouped by their `type` attribute and
+  sorted by their `sequence` attribute in the index pages.
 
 ## Templates
 - The `_includes/risk-id.html` and `_includes/mitigation-id.html` templates dynamically generate the `AIR-*` identifiers based on the file's metadata.

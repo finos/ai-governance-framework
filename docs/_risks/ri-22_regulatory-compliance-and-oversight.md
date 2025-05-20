@@ -4,6 +4,8 @@ title: Regulatory Compliance and Oversight
 layout: risk
 doc-status: Pre-Draft
 type: RC
+external_risks:
+- NIST-600_2024_2-09    # Information Security
 ---
 
 - Financial services are heavily regulated, and AI use does not exempt firms from compliance.  

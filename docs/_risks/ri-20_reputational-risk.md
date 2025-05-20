@@ -4,6 +4,8 @@ title: Reputational Risk
 layout: risk
 doc-status: Pre-Draft
 type: OP
+external_risks:
+- OWASP-LLM_2025_LLM09  # Misinformation
 ---
 
 - AI failures or misuse can quickly become public incidents, eroding trust.  

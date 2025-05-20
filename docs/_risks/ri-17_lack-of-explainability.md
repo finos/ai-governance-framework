@@ -4,6 +4,8 @@ title: Lack of Explainability
 layout: risk
 doc-status: Pre-Draft
 type: OP
+external_risks:
+- OWASP-LLM_2025_LLM05  # Improper Output Handling
 
 ---
 
@@ -18,4 +20,4 @@ type: OP
   - Firms risk deploying AI without fully understanding it.  
   - Can lead to inappropriate use or undiagnosed failures.  
   - Traditional testing methods may not work for complex models.
-  
+

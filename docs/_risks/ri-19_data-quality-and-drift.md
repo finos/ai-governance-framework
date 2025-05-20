@@ -4,6 +4,8 @@ title: Data Quality and Drift
 layout: risk
 doc-status: Pre-Draft
 type: OP
+external_risks:
+- NIST-600_2024_2-08    # Information Integrity
 ---
 
 - Generative AI’s outputs depend on the quality and recency of its training data.  
