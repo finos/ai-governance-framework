@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Pre-Draft
 type: DET
 mitigates:
-- ri-12
+  - ri-12
 ---
 
 - Provide citations / linkage to the source data in Confluence

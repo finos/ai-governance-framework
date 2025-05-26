@@ -11,70 +11,70 @@ mitigation_classification:
 
 external_risks:
   OWASP-LLM_2025_LLM01:
-    title: "OWASP: Prompt Injection"
+    title: "OWASP LLM: Prompt Injection"
     url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
   OWASP-LLM_2025_LLM02:
-    title: "OWASP: Sensitive Information Disclosure"
+    title: "OWASP LLM: Sensitive Information Disclosure"
     url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
   OWASP-LLM_2025_LLM03:
-    title: "OWASP: Supply Chain Vulnerabilities"
+    title: "OWASP LLM: Supply Chain Vulnerabilities"
     url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain/"
   OWASP-LLM_2025_LLM04:
-    title: "OWASP: Data and Model Poisoning"
+    title: "OWASP LLM: Data and Model Poisoning"
     url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/"
   OWASP-LLM_2025_LLM05:
-    title: "OWASP: Improper Output Handling"
+    title: "OWASP LLM: Improper Output Handling"
     url: "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/"
   OWASP-LLM_2025_LLM06:
-    title: "OWASP: Excessive Agency"
+    title: "OWASP LLM: Excessive Agency"
     url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
   OWASP-LLM_2025_LLM07:
-    title: "OWASP: System Prompt Leakage"
+    title: "OWASP LLM: System Prompt Leakage"
     url: "https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/"
   OWASP-LLM_2025_LLM08:
-    title: "OWASP: Vector and Embedding Weaknesses"
+    title: "OWASP LLM: Vector and Embedding Weaknesses"
     url: "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/"
   OWASP-LLM_2025_LLM09:
-    title: "OWASP: Misinformation"
+    title: "OWASP LLM: Misinformation"
     url: "https://genai.owasp.org/llmrisk/llm092025-misinformation/"
   OWASP-LLM_2025_LLM10:
-    title: "OWASP: Unbounded Consumption"
+    title: "OWASP LLM: Unbounded Consumption"
     url: "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/"
   NIST-600_2024_2-01:
-    title: "NIST: CBRN Information or Capabilities"
+    title: "NIST 600.1: CBRN Information or Capabilities"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-02:
-    title: "NIST: Confabulation"
+    title: "NIST 600.1: Confabulation"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-03:
-    title: "NIST: Dangerous, Violent, or Hateful Content"
+    title: "NIST 600.1: Dangerous, Violent, or Hateful Content"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-04:
-    title: "NIST: Data Privacy"
+    title: "NIST 600.1: Data Privacy"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-05:
-    title: "NIST: Environmental Impacts"
+    title: "NIST 600.1: Environmental Impacts"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-06:
-    title: "NIST: Harmful Bias and Homogenization"
+    title: "NIST 600.1: Harmful Bias and Homogenization"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-07:
-    title: "NIST: Human-AI Configuration"
+    title: "NIST 600.1: Human-AI Configuration"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-08:
-    title: "NIST: Information Integrity"
+    title: "NIST 600.1: Information Integrity"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-09:
-    title: "NIST: Information Security"
+    title: "NIST 600.1: Information Security"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-10:
-    title: "NIST: Intellectual Property"
+    title: "NIST 600.1: Intellectual Property"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-11:
-    title: "NIST: Obscene, Degrading, and/or Abusive Content"
+    title: "NIST 600.1: Obscene, Degrading, and/or Abusive Content"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   NIST-600_2024_2-12:
-    title: "NIST: Value Chain and Component Integration"
+    title: "NIST 600.1: Value Chain and Component Integration"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
 
 document_status:

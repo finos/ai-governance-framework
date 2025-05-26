@@ -5,15 +5,15 @@ layout: mitigation
 doc-status: Draft
 type: DET
 mitigates:
-- ri-1
-- ri-2
-- ri-3
-- ri-5
-- ri-6
-- ri-7
-- ri-8
-- ri-10
-- ri-13
+  - ri-1   # Information Leaked To Hosted Model
+  - ri-2   # Unauthorized Access & Data Leaks
+  - ri-3
+  - ri-5   # Instability in Foundation Model Behaviour
+  - ri-6   # Non-Deterministic Behaviour
+  - ri-7   # Availability of Foundational Model
+  - ri-8   # Tampering With the Foundational Model
+  - ri-10  # Prompt Injection
+  - ri-13
 ---
 
 #### What to log/monitor

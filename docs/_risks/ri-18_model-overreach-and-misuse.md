@@ -5,11 +5,11 @@ layout: risk
 doc-status: Pre-Draft
 type: OP
 external_risks:
-- OWASP-LLM_2025_LLM06  # Excessive Agency
+  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
 ffiec_references:
-- ffiec_mgt_i-governance
-- ffiec_mgt_ii-risk-management
-- ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_mgt_i-governance
+  - ffiec_mgt_ii-risk-management
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 - The impressive capabilities of GenAI can lead to overestimation of its abilities.  

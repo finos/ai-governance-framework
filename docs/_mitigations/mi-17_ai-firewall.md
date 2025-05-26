@@ -5,13 +5,13 @@ layout: mitigation
 doc-status: Pre-Draft
 type: PREV
 mitigates:
-- ri-7
-- ri-10
-- ri-15
+  - ri-7   # Availability of Foundational Model
+  - ri-10  # Prompt Injection
+  - ri-15
 related_mitigations:
-- mi-8
-- mi-9
-- mi-12
+  - mi-8   # QoS/DDoS Prevention
+  - mi-9   # Alerting / DoW Spend Alert
+  - mi-12  # Role-Based Data Access
 ---
 
 ### Description

@@ -5,14 +5,14 @@ layout: risk
 doc-status: Draft
 type: SEC
 external_risks:
-- OWASP-LLM_2025_LLM06  # Sensitive Information Disclosure / Excessive Agency
-- OWASP-LLM_2025_LLM08  # Vector and Embedding Weaknesses
-- NIST-600_2024_2-04    # Data Privacy
-- NIST-600_2024_2-09    # Information Security
+  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
+  - OWASP-LLM_2025_LLM08  # OWASP LLM: Vector and Embedding Weaknesses
+  - NIST-600_2024_2-04    # NIST 600.1: Data Privacy
+  - NIST-600_2024_2-09    # NIST 600.1: Information Security
 ffiec_references:
-- ffiec_sec_iii-security-operations
-- ffiec_sec_iv-information-security-program-effectiveness
-- ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_sec_iii-security-operations
+  - ffiec_sec_iv-information-security-program-effectiveness
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 TODO: Make this non-vector store specific

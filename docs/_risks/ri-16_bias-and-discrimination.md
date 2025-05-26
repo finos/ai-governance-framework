@@ -5,11 +5,11 @@ layout: risk
 doc-status: Pre-Draft
 type: OP
 external_risks:
-- NIST-600_2024_2-06    # Harmful Bias and Homogenization
+  - NIST-600_2024_2-06  # NIST 600.1: Harmful Bias and Homogenization
 ffiec_references:
-- ffiec_mgt_ii-risk-management
-- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-- ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_mgt_ii-risk-management
+  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
   - AI trained on historical/internet data may embed biases.  

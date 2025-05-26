@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Pre-Draft
 type: PREV
 mitigates:
-- ri-9
+  - ri-9  # Data Poisoning
 ---
 
 - Ensure data provided by Confluence is aligned with the end-user role.

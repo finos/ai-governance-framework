@@ -5,8 +5,8 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 mitigates:
-- ri-7
-- ri-10
+  - ri-7   # Availability of Foundational Model
+  - ri-10  # Prompt Injection
 ---
 
 As in any information system component, you can monitor and filter interactions between the model, inputs from the user, queries to RAG databases or other sources of information, and outputs.
