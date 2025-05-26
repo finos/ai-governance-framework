@@ -6,6 +6,10 @@ doc-status: Pre-Draft
 type: OP
 external_risks:
 - NIST-600_2024_2-08    # Information Integrity
+ffiec_references:
+- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+- ffiec_dam_vii-maintenance
+- ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 - Generative AI’s outputs depend on the quality and recency of its training data.  

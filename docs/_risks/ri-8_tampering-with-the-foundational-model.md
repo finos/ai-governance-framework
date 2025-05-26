@@ -7,6 +7,11 @@ type: SEC
 external_risks:
 - OWASP-LLM_2025_LLM03  # Supply Chain Vulnerabilities
 - OWASP-LLM_2025_LLM05  # Improper Output Handling
+ffiec_references:
+- ffiec_sec_iii-security-operations
+- ffiec_ots_risk-management
+- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+- ffiec_dam_vi-acquisition
 ---
 
 The SaaS-based LLM provider is a 3rd party supplier and as such is subject to all typical supply chain, insider, and software integrity

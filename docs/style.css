@@ -1,5 +1,12 @@
 /* Custom styles to enhance Bootstrap */
 
+/* External link icon styling to prevent resizing */
+.external-link-icon {
+    flex-shrink: 0;
+    transition: none !important;
+    transform: none !important;
+}
+
 /* Risk ID styling */
 .risk-id {
     font-family: monospace;

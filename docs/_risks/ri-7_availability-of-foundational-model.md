@@ -6,6 +6,11 @@ doc-status: Draft
 type: OP
 external_risks:
 - OWASP-LLM_2025_LLM10  # Unbounded Consumption
+ffiec_references:
+- ffiec_bcm_iv-business-continuity-strategies
+- ffiec_bcm_v-business-continuity-plan
+- ffiec_ots_risk-management
+- ffiec_aio_vi-operations
 ---
 
 RAG systems are proliferating due to the low barrier of entry compared
