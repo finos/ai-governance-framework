@@ -1,0 +1,415 @@
+#!/usr/bin/env python3
+"""
+FFIEC IT Booklets Manager
+
+This script manages FFIEC IT Handbook booklets by generating YAML mappings,
+downloading HTML files with navigation filtering, and converting them to Markdown using pandoc.
+
+The script can perform three main operations:
+1. Generate YAML file with booklet structure and URLs
+2. Download all booklet URLs as HTML files (filtering out navigation elements)
+3. Convert HTML files to Markdown using pandoc
+
+Operations can be run individually or in combination using command line flags.
+
+Input: https://ithandbook.ffiec.gov/it-booklets
+Output: 
+    - _data/ffiec-itbooklets.yml (YAML mappings)
+    - _refs-markdown/ffiec-itbooklets/html/*.html (HTML files with navigation removed)
+    - _refs-markdown/ffiec-itbooklets/markdown/*.md (Markdown files)
+
+Usage:
+    python scripts/dl_ffiec-booklets.py --yml          # Generate YAML only
+    python scripts/dl_ffiec-booklets.py --html         # Download HTML only
+    python scripts/dl_ffiec-booklets.py --md           # Convert to Markdown only
+    python scripts/dl_ffiec-booklets.py --all          # Do all steps
+    python scripts/dl_ffiec-booklets.py                # Do all steps (default)
+
+Dependencies: 
+    - pip install requests beautifulsoup4 pyyaml
+    - conda install -c conda-forge pandoc (for Markdown conversion)
+"""
+
+import requests
+from bs4 import BeautifulSoup
+import yaml
+import sys
+import os
+import time
+import subprocess
+import argparse
+from pathlib import Path
+from urllib.parse import urljoin
+
+# Constants
+SCRIPT_DIR = Path(__file__).parent
+
+BASE_URL = "https://ithandbook.ffiec.gov"
+BOOKLETS_URL = f"{BASE_URL}/it-booklets"
+YAML_FILENAME = "ffiec-itbooklets.yml"
+REQUEST_TIMEOUT = 30
+DOWNLOAD_DELAY = 0.5
+URL_COMPONENTS_MAIN_BOOKLET = 5
+URL_COMPONENTS_SECTION = 6
+
+# FFIEC booklet abbreviations mapping
+FFIEC_ABBREVIATIONS = {
+    "architecture-infrastructure-and-operations": "aio",
+    "archived-booklets": "arc", 
+    "audit": "aud",
+    "business-continuity-management": "bcm",
+    "development-acquisition-and-maintenance": "dam",
+    "information-security": "sec",
+    "management": "mgt",
+    "outsourcing-technology-services": "ots",
+    "retail-payment-systems": "rps",
+    "supervision-of-technology-service-providers": "tsp",
+    "wholesale-payment-systems": "wps"
+}
+
+def get_paths():
+    """Calculate all file and directory paths based on script directory."""
+    data_dir = SCRIPT_DIR / ".." / "docs" / "_data"
+    ffiec_itbooklets_dir = SCRIPT_DIR / ".." / "_refs-markdown" / "ffiec-itbooklets"
+    
+    return {
+        'yaml_file': data_dir / YAML_FILENAME,
+        'html_output_dir': ffiec_itbooklets_dir / "html",
+        'md_output_dir': ffiec_itbooklets_dir / "markdown"
+    }
+
+def write_yaml_file(yaml_file, abbreviations, booklets):
+    """Write abbreviations and booklets data to YAML file."""
+    try:
+        with open(yaml_file, 'w', encoding='utf-8') as f:
+            f.write("# FFIEC IT Booklets\n")
+            f.write(f"# Generated from {BOOKLETS_URL}\n\n")
+            yaml.dump({'ffiec_itbooklet_abbreviations': abbreviations}, f, 
+                     default_flow_style=False, sort_keys=True)
+            f.write("\n")
+            yaml.dump({'ffiec_itbooklets': booklets}, f, 
+                     default_flow_style=False, sort_keys=True)
+        return True
+    except (OSError, yaml.YAMLError) as e:
+        print(f"Error writing YAML file: {e}", file=sys.stderr)
+        return False
+
+def read_yaml_file(yaml_file):
+    """Read and parse YAML file, returning the data or None on error."""
+    try:
+        with open(yaml_file, 'r', encoding='utf-8') as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
+        print(f"Error: YAML file not found: {yaml_file}", file=sys.stderr)
+        print("Run with --yml flag first to generate the YAML file.", file=sys.stderr)
+        return None
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML file: {e}", file=sys.stderr)
+        return None
+
+def parse_booklet_url(full_url):
+    """Parse booklet URL to extract key and abbreviation.
+    
+    Returns:
+        tuple: (key, booklet_abbrev) or (None, None) if parsing fails
+    """
+    components = full_url.rstrip('/').split('/')
+    component_count = len(components)
+    
+    if component_count < URL_COMPONENTS_MAIN_BOOKLET:
+        return None, None
+        
+    booklet = components[4]
+    booklet_abbrev = FFIEC_ABBREVIATIONS.get(booklet)
+    
+    if not booklet_abbrev:
+        return None, None
+    
+    if component_count == URL_COMPONENTS_MAIN_BOOKLET:
+        # Main booklet page
+        key = f"ffiec_{booklet_abbrev}"
+    elif component_count == URL_COMPONENTS_SECTION:
+        # Section page
+        section = components[5]
+        key = f"ffiec_{booklet_abbrev}_{section}"
+    else:
+        # Unexpected URL structure
+        return None, None
+        
+    return key, booklet_abbrev
+
+def create_booklet_entry(key, booklet_abbrev, title, url):
+    """Create a booklet dictionary entry."""
+    return {
+        'booklet_abbrev': booklet_abbrev,
+        'title': f"FFIEC {booklet_abbrev.upper()} - {title}",
+        'url': url
+    }
+
+def check_pandoc():
+    """Check if pandoc is available on the system."""
+    try:
+        subprocess.run(['pandoc', '--version'], 
+                      capture_output=True, text=True, check=True)
+        return True
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return False
+
+def convert_html_to_markdown(html_path, md_path):
+    """Convert HTML file to Markdown using pandoc."""
+    try:
+        # Use cleaner pandoc options for better markdown output
+        pandoc_args = [
+            'pandoc', str(html_path), '-o', str(md_path),
+            '--from=html',
+            '--to=gfm-raw_html',     # GitHub markdown without raw HTML passthrough
+            '--wrap=auto',           # Auto-wrap long lines
+            '--strip-comments',      # Remove HTML comments
+        ]
+        subprocess.run(pandoc_args, check=True, capture_output=True)
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"  ✗ Pandoc conversion error: {e}")
+        return False
+
+def generate_yaml_file(yaml_file):
+    """Generate the YAML file with FFIEC booklet structure and URLs."""
+    
+    print("=== Generating YAML file ===")
+    print("Downloading FFIEC IT booklets page...")
+    try:
+        response = requests.get(BOOKLETS_URL)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"Error downloading page: {e}", file=sys.stderr)
+        return False
+    
+    print("Parsing booklet information...")
+    soup = BeautifulSoup(response.content, 'html.parser')
+    
+    # Look for links in the menu-container class
+    menu_container = soup.find(class_="menu-container")
+    if not menu_container:
+        print("Warning: menu-container not found, searching entire page")
+        menu_container = soup
+    
+    booklets = {}
+    
+    # Find all links that contain 'it-booklets' in href
+    for link in menu_container.find_all('a', href=True):
+        href = link['href']
+        
+        # Skip if not a booklet link
+        if '/it-booklets/' not in href:
+            continue
+            
+        # Skip the main booklets page
+        if href.endswith('/it-booklets') or href.endswith('/it-booklets/'):
+            continue
+            
+        title = link.get_text(strip=True)
+        
+        # Skip empty titles or common navigation
+        if not title or title in ['IT Booklets', 'Home']:
+            continue
+            
+        # Convert to absolute URL if needed
+        full_url = urljoin(BASE_URL, href)
+        
+        # Parse the URL to extract key and abbreviation
+        key, booklet_abbrev = parse_booklet_url(full_url)
+        
+        if key is None:
+            print(f"Warning: Could not parse URL {full_url}, skipping", file=sys.stderr)
+            continue
+            
+        # Check for duplicate keys
+        if key in booklets:
+            print(f"Warning: Duplicate key {key} found, skipping", file=sys.stderr)
+            continue
+
+        # Create booklet entry
+        booklets[key] = create_booklet_entry(key, booklet_abbrev, title, full_url)
+    
+    # Write YAML file
+    if not write_yaml_file(yaml_file, FFIEC_ABBREVIATIONS, booklets):
+        return False
+    
+    print(f"✓ YAML file created: {yaml_file}")
+    print(f"✓ Found {len(booklets)} booklets/sections")
+    return True
+
+def download_html_files(yaml_file, html_output_dir):
+    """Download HTML files for all booklets listed in the YAML file."""
+    # Create output directory
+    html_output_dir.mkdir(parents=True, exist_ok=True)
+    
+    print("=== Downloading HTML files ===")
+    print(f"Reading YAML file: {yaml_file}")
+    data = read_yaml_file(yaml_file)
+    if data is None:
+        return False
+    
+    # Extract booklets data
+    ffiec_itbooklets = data.get('ffiec_itbooklets', {})
+    if not ffiec_itbooklets:
+        print("No ffiec_itbooklets section found in YAML file", file=sys.stderr)
+        return False
+    
+    print(f"Found {len(ffiec_itbooklets)} booklets/sections to download")
+    print(f"HTML output directory: {html_output_dir}")
+    
+    success_count = 0
+    error_count = 0
+    
+    for key, booklet_info in ffiec_itbooklets.items():
+        url = booklet_info.get('url')
+        title = booklet_info.get('title', 'Unknown Title')
+        
+        if not url:
+            print(f"Warning: No URL found for {key}")
+            continue
+            
+        # Create filename from key
+        html_filename = f"{key}.html"
+        html_path = html_output_dir / html_filename
+        
+        print(f"Downloading: {title}")
+        print(f"  URL: {url}")
+        print(f"  HTML: {html_filename}")
+        
+        try:
+            response = requests.get(url, timeout=REQUEST_TIMEOUT)
+            response.raise_for_status()
+            
+            # Parse HTML and filter out navigation elements
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Remove navigation elements that interfere with content
+            for nav_element in soup.find_all('ul', class_='menu-container'):
+                nav_element.decompose()
+            
+            for nav_element in soup.find_all('ul', class_='nav-booklet-toc nav-pills text-smaller nobottommargin'):
+                nav_element.decompose()
+            
+            # Write filtered HTML content to file
+            with open(html_path, 'w', encoding='utf-8') as f:
+                f.write(str(soup))
+            
+            print(f"  ✓ HTML downloaded ({len(response.text)} characters)")
+            success_count += 1
+            
+        except requests.RequestException as e:
+            print(f"  ✗ Error downloading {url}: {e}")
+            error_count += 1
+            continue
+        
+        # Small delay to be respectful to the server
+        time.sleep(DOWNLOAD_DELAY)
+    
+    print(f"✓ HTML download complete: {success_count} success, {error_count} errors")
+    return error_count == 0
+
+def convert_to_markdown(html_output_dir, md_output_dir):
+    """Convert HTML files to Markdown using pandoc."""
+    # Create output directory
+    md_output_dir.mkdir(parents=True, exist_ok=True)
+    
+    print("=== Converting to Markdown ===")
+    
+    # Check for pandoc
+    has_pandoc = check_pandoc()
+    if not has_pandoc:
+        print("✗ Pandoc not found - cannot convert to Markdown")
+        print("  Install with: conda install -c conda-forge pandoc")
+        return False
+    
+    print("✓ Pandoc found")
+    print(f"HTML input directory: {html_output_dir}")
+    print(f"Markdown output directory: {md_output_dir}")
+    
+    # Find all HTML files
+    html_files = list(html_output_dir.glob("*.html"))
+    if not html_files:
+        print("No HTML files found to convert")
+        print("Run with --html flag first to download HTML files.")
+        return False
+    
+    print(f"Found {len(html_files)} HTML files to convert")
+    
+    success_count = 0
+    error_count = 0
+    
+    for html_path in html_files:
+        md_filename = f"{html_path.stem}.md"
+        md_path = md_output_dir / md_filename
+        
+        print(f"Converting: {html_path.name} → {md_filename}")
+        
+        if convert_html_to_markdown(html_path, md_path):
+            print("  ✓ Converted successfully")
+            success_count += 1
+        else:
+            error_count += 1
+    
+    print(f"✓ Markdown conversion complete: {success_count} success, {error_count} errors")
+    return error_count == 0
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="FFIEC IT Booklets Manager - Generate YAML, download HTML, and convert to Markdown",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s --yml           Generate YAML file only
+  %(prog)s --html          Download HTML files only  
+  %(prog)s --md            Convert HTML to Markdown only
+  %(prog)s --all           Perform all operations
+  %(prog)s                 Perform all operations (default)
+        """)
+    
+    parser.add_argument('--yml', action='store_true',
+                       help='Generate YAML file with booklet structure')
+    parser.add_argument('--html', action='store_true',
+                       help='Download HTML files')
+    parser.add_argument('--md', action='store_true',
+                       help='Convert HTML files to Markdown')
+    parser.add_argument('--all', action='store_true',
+                       help='Perform all operations (yml + html + md)')
+    
+    args = parser.parse_args()
+    
+    # Default to --all if no specific flags are provided
+    if not any([args.yml, args.html, args.md, args.all]):
+        args.all = True
+    
+    # Set individual flags if --all is specified
+    if args.all:
+        args.yml = args.html = args.md = True
+    
+    paths = get_paths()
+    success = True
+    
+    print("FFIEC IT Booklets Manager")
+    print("=" * 50)
+    
+    if args.yml:
+        success &= generate_yaml_file(paths['yaml_file'])
+        print()
+    
+    if args.html and success:
+        success &= download_html_files(paths['yaml_file'], paths['html_output_dir'])
+        print()
+    
+    if args.md and success:
+        success &= convert_to_markdown(paths['html_output_dir'], paths['md_output_dir'])
+        print()
+    
+    if success:
+        print("✓ All operations completed successfully!")
+    else:
+        print("✗ Some operations failed. Check the output above for details.")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

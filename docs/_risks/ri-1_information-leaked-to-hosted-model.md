@@ -8,6 +8,10 @@ external_risks:
 - OWASP-LLM_2025_LLM06  # Excessive Agency (covers information disclosure)
 - NIST-600_2024_2-04    # Data Privacy
 - NIST-600_2024_2-09    # Information Security
+ffiec_references:
+- ffiec_sec_ii-information-security-program-management
+- ffiec_sec_iii-security-operations
+- ffiec_ots_risk-management
 ---
 
 In the provided system architecture, sensitive data is transmitted to a SaaS-based Generative AI platform for inference, posing a risk of information leakage. Sensitive organizational data, proprietary algorithms, and confidential information may be unintentionally exposed due to inadequate control measures within the hosted model. This can occur through several mechanisms unique to Large Language Models (LLMs), as outlined in OWASP's LLM06, such as [overfitting](https://aws.amazon.com/what-is/overfitting/), [memorization](https://arxiv.org/pdf/2310.18362), and [prompt-based attacks](https://owasp.org/www-project-llm-prompt-hacking/).

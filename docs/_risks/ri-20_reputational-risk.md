@@ -6,6 +6,10 @@ doc-status: Pre-Draft
 type: OP
 external_risks:
 - OWASP-LLM_2025_LLM09  # Misinformation
+ffiec_references:
+- ffiec_mgt_ii-risk-management
+- ffiec_bcm_iii-risk-management
+- ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 - AI failures or misuse can quickly become public incidents, eroding trust.  

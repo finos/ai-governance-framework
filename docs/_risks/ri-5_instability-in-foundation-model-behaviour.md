@@ -7,6 +7,10 @@ type: OP
 external_risks:
 - OWASP-LLM_2025_LLM09  # Misinformation
 - NIST-600_2024_2-08    # Information Integrity
+ffiec_references:
+- ffiec_ots_risk-management
+- ffiec_dam_vii-maintenance
+- ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 Instability in foundation model behaviour would manifest itself as deviations in the output (i.e during inferencing), when supplied with the same prompt.

@@ -9,6 +9,10 @@ external_risks:
 - OWASP-LLM_2025_LLM08  # Vector and Embedding Weaknesses
 - NIST-600_2024_2-04    # Data Privacy
 - NIST-600_2024_2-09    # Information Security
+ffiec_references:
+- ffiec_sec_iii-security-operations
+- ffiec_sec_iv-information-security-program-effectiveness
+- ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 TODO: Make this non-vector store specific

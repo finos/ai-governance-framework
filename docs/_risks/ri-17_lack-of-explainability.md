@@ -6,7 +6,10 @@ doc-status: Pre-Draft
 type: OP
 external_risks:
 - OWASP-LLM_2025_LLM05  # Improper Output Handling
-
+ffiec_references:
+- ffiec_mgt_ii-risk-management
+- ffiec_aud_risk-assessment-and-risk-based-auditing
+- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
 ---
 
 - **Black Box Nature of Generative Models**  

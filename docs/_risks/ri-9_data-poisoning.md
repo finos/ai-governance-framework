@@ -9,6 +9,10 @@ external_risks:
 - OWASP-LLM_2025_LLM04  # Data and Model Poisoning
 - OWASP-LLM_2025_LLM05  # Improper Output Handling
 - OWASP-LLM_2025_LLM06  # Excessive Agency
+ffiec_references:
+- ffiec_sec_iii-security-operations
+- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+- ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 - Adversaries can tamper with AI training or fine-tuning data to introduce hidden patterns.  

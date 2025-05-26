@@ -6,7 +6,10 @@ doc-status: Draft
 type: OP
 external_risks:
 - OWASP-LLM_2025_LLM09  # Misinformation
-
+ffiec_references:
+- ffiec_dam_vii-maintenance
+- ffiec_ots_risk-management
+- ffiec_dam_ii-governance-of-development-acquisition-and-maintenance
 ---
 
 Inadequate or unpublished API versioning and/or model version control may result in response instability, due to changes in the foundation model and the client's absence of opportunity to benchmark and test the new model.
