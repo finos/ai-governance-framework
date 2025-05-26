@@ -16,7 +16,7 @@
 
 # Cross-Linking
 
-Mitigations are associated with Risks via the `mitigates` list. For example:
+Mitigations are associated with Risks via the `mitigates` list in `mi-*.md` files. For example:
 ```
 mitigates:
   - ri-1
@@ -24,6 +24,9 @@ mitigates:
 The author of the link does not have to worry about the title appended to the filename
 through the magic of brute-force looping through all the document objects and inspecting
 the sequence numbers for a match.
+
+Note: Risk files (`ri-*.md`) do NOT have a `mitigations:` section - the relationship is 
+one-way from mitigations to risks.
 
 In `ri-*.md` files, other risks may be referenced:
 ```

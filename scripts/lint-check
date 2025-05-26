@@ -1,4 +1,35 @@
 #!/bin/bash
+#
+# Lint Check Script for AI Governance Framework
+#
+# This script validates the consistency and structure of risk and mitigation files
+# in the governance framework. It performs the following checks:
+#
+# 1. Filename Convention Validation:
+#    - Risk files: Must match pattern ^ri-.*\.md$ in docs/_risks/
+#    - Mitigation files: Must match pattern ^mi-.*\.md$ in docs/_mitigations/
+#
+# 2. YAML Front Matter Validation:
+#    - Checks that all files contain required YAML keys:
+#      * layout: Template layout for the file
+#      * type: Content type classification
+#      * doc-status: Document status (draft, review, approved, etc.)
+#      * title: Human-readable title
+#      * sequence: Numerical sequence for ordering
+#
+# Exit Codes:
+#   0 - All checks passed
+#   1 - One or more validation failures found
+#
+# Usage:
+#   ./scripts/lint-check
+#
+# Example output:
+#   Missing keys for docs/_risks/ri-1.md:
+#   - doc-status
+#   Error: File name 'bad-name.md' does not match the convention. in docs/_risks
+#   Lint check failed
+#
 
 SCRIPT_DIR=$(dirname "$0")
 

@@ -5,12 +5,12 @@ layout: risk
 doc-status: Pre-Draft
 type: RC
 external_risks:
-- NIST-600_2024_2-10    # Intellectual Property
+  - NIST-600_2024_2-10  # NIST 600.1: Intellectual Property
 ffiec_references:
-- ffiec_mgt_i-governance
-- ffiec_mgt_ii-risk-management
-- ffiec_ots_risk-management
-- ffiec_dam_vi-acquisition
+  - ffiec_mgt_i-governance
+  - ffiec_mgt_ii-risk-management
+  - ffiec_ots_risk-management
+  - ffiec_dam_vi-acquisition
 ---
 
 - Generative AI models often train on datasets that may include copyrighted material.  

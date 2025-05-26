@@ -5,14 +5,14 @@ layout: risk
 doc-status: Draft
 type: SEC
 external_risks:
-- OWASP-LLM_2025_LLM01  # Prompt Injection
-- OWASP-LLM_2025_LLM04  # Data and Model Poisoning
-- OWASP-LLM_2025_LLM06  # Excessive Agency
-- OWASP-LLM_2025_LLM10  # Unbounded Consumption
+  - OWASP-LLM_2025_LLM01  # OWASP LLM: Prompt Injection
+  - OWASP-LLM_2025_LLM04  # OWASP LLM: Data and Model Poisoning
+  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
+  - OWASP-LLM_2025_LLM10  # OWASP LLM: Unbounded Consumption
 ffiec_references:
-- ffiec_sec_iii-security-operations
-- ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics
-- ffiec_dam_v-development
+  - ffiec_sec_iii-security-operations
+  - ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics
+  - ffiec_dam_v-development
 ---
 
 Users of the application or malitious internal agents can craft prompts that are sent to the SaaS-based LLM and potentially cause damaging responses. This is one of the most popular attack vectors as privilage requirements for this attach vector are the lowest [^1][^2]. Unlike SQL injection the scope of attack in prompt injection is wider and can result in incorrect answers, toxic responses, information disclosure, denial of service, unethical and biased responses. A good example of an incident in public is the DPD chatbot [^3]. 

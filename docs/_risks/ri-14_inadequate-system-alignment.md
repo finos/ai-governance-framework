@@ -4,19 +4,15 @@ title: Inadequate System Alignment
 layout: risk
 doc-status: Draft
 type: OP
-mitigations:
-- mi-5
-- mi-11
-- mi-13
 ffiec_references:
-- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-- ffiec_dam_v-development
-- ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+  - ffiec_dam_v-development
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
 related_risks:
-- ri-4
-- ri-6
+  - ri-4  # Hallucination and Inaccurate Outputs
+  - ri-6  # Non-Deterministic Behaviour
 external_risks:
-- OWASP-LLM_2025_LLM07  # System Prompt Leakage
+  - OWASP-LLM_2025_LLM07  # OWASP LLM: System Prompt Leakage
 ---
 
 #### Alignment

@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 mitigates:
-- ri-7
+  - ri-7  # Availability of Foundational Model
 ---
 
 ### Overview

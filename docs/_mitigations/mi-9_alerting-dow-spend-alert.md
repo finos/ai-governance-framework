@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Pre-Draft
 type: DET
 mitigates:
-  - ri-7
+  - ri-7  # Availability of Foundational Model
 ---
 
 | **Level** | **Scope**       | **Control**                                                                                                                | **Pros**                                | **Cons / Residual Risk**          |

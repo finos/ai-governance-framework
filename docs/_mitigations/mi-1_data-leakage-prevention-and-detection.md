@@ -5,7 +5,7 @@ layout: mitigation
 doc-status: Draft
 type: DET
 mitigates:
-- ri-1
+  - ri-1  # Information Leaked To Hosted Model
 ---
 
 #### Preventing Leakage of Session Data

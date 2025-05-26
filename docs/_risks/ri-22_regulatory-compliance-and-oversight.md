@@ -5,12 +5,12 @@ layout: risk
 doc-status: Pre-Draft
 type: RC
 external_risks:
-- NIST-600_2024_2-09    # Information Security
+  - NIST-600_2024_2-09  # NIST 600.1: Information Security
 ffiec_references:
-- ffiec_mgt_i-governance
-- ffiec_mgt_ii-risk-management
-- ffiec_aud_internal-audit-program
-- ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_mgt_i-governance
+  - ffiec_mgt_ii-risk-management
+  - ffiec_aud_internal-audit-program
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 - Financial services are heavily regulated, and AI use does not exempt firms from compliance.  

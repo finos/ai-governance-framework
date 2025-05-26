@@ -5,14 +5,14 @@ layout: risk
 doc-status: Pre-Draft
 type: SEC
 external_risks:
-- OWASP-LLM_2025_LLM03  # Supply Chain Vulnerabilities
-- OWASP-LLM_2025_LLM04  # Data and Model Poisoning
-- OWASP-LLM_2025_LLM05  # Improper Output Handling
-- OWASP-LLM_2025_LLM06  # Excessive Agency
+  - OWASP-LLM_2025_LLM03  # OWASP LLM: Supply Chain Vulnerabilities
+  - OWASP-LLM_2025_LLM04  # OWASP LLM: Data and Model Poisoning
+  - OWASP-LLM_2025_LLM05  # OWASP LLM: Improper Output Handling
+  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
 ffiec_references:
-- ffiec_sec_iii-security-operations
-- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-- ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_sec_iii-security-operations
+  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
 ---
 
 - Adversaries can tamper with AI training or fine-tuning data to introduce hidden patterns.  

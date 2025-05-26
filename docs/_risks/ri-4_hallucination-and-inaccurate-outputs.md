@@ -5,13 +5,13 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-- OWASP-LLM_2025_LLM09  # Misinformation
-- NIST-600_2024_2-02    # Confabulation
-- NIST-600_2024_2-08    # Information Integrity
+  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
+  - NIST-600_2024_2-02    # NIST 600.1: Confabulation
+  - NIST-600_2024_2-08    # NIST 600.1: Information Integrity
 ffiec_references:
-- ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-- ffiec_aud_risk-assessment-and-risk-based-auditing
-- ffiec_mgt_ii-risk-management
+  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ffiec_mgt_ii-risk-management
 ---
 
 LLM hallucinations refer to instances when a large language model (LLM) generates incorrect or nonsensical information that seems plausible but is not based on factual data or reality. These "hallucinations" occur because the model generates text based on patterns in its training data rather than true understanding or access to current, verified information.
