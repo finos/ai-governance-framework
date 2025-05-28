@@ -1,6 +1,6 @@
 ---
 sequence: 2
-title: Unauthorized Access & Data Leaks
+title: Information Leaked to Vector Store
 layout: risk
 doc-status: Draft
 type: SEC
@@ -19,15 +19,19 @@ eu-ai_references:
   - eu-ai_c3-s3-a16  # III.S3.A16 Obligations of Providers of High-Risk AI Systems
 ---
 
-TODO: Make this non-vector store specific
+## Summary
+
+LLM applications pose data leakage risks not only through vector stores but across all components handling derived data, such as embeddings, prompt logs, and caches. These representations, while not directly human-readable, can still expose sensitive information via inversion or inference attacks, especially when security controls like access management, encryption, and auditing are lacking. To mitigate these risks, robust enterprise-grade security measures must be applied consistently across all parts of the LLM pipeline.
+
+## Description
 
 Vector stores are specialized databases designed to store and manage 'vector embeddings'—dense numerical representations of data such as text, images, or other complex data types. According to [OpenAI](https://platform.openai.com/docs/guides/embeddings), *"An embedding is a vector (list) of floating point numbers. The distance between two vectors measures their relatedness. Small distances suggest high relatedness and large distances suggest low relatedness."* These embeddings capture the semantic meaning of the input data, enabling advanced operations like semantic search, similarity comparisons, and clustering.
 
 In the context of [Retrieval-Augmented Generation (RAG)](https://aws.amazon.com/what-is/retrieval-augmented-generation/) models, vector stores play a critical role. When a user query is received, it's converted into an embedding, and the vector store is queried to find the most semantically similar embeddings, which correspond to relevant pieces of data or documents. These retrieved data are then used to generate responses using Large Language Models (LLMs).
 
-#### Threat Description
+### Threat Description
 
-In the described system architecture, where a LLM employing RAG relies on a vector store to retrieve relevant organizational knowledge (e.g., from Confluence), the immaturity of current vector store technologies poses significant confidentiality and integrity risks. Vector stores, which hold embeddings of sensitive internal data, may lack enterprise-grade security controls such as robust access control mechanisms, encryption at rest, and audit logging. Misconfigurations or incomplete implementations can lead to unauthorized access to sensitive embeddings, enabling data tampering, theft, or unintentional disclosure.
+In a typical RAG architecture which relies on a vector store to retrieve relevant organizational knowledge (e.g., from Confluence), the immaturity of current vector store technologies poses significant confidentiality and integrity risks. Vector stores, which hold embeddings of sensitive internal data, may lack enterprise-grade security controls such as robust access control mechanisms, encryption at rest, and audit logging. Misconfigurations or incomplete implementations can lead to unauthorized access to sensitive embeddings, enabling data tampering, theft, or unintentional disclosure.
 
 While embeddings are not directly interpretable by humans, recent research has demonstrated that embeddings can reveal substantial information about the original data. For instance, embedding inversion attacks can reconstruct sensitive information from embeddings, potentially exposing proprietary or personally identifiable information (PII). The paper ["Text Embeddings Reveal (Almost) as Much as Text"](https://arxiv.org/abs/2310.06816) illustrates this very point, discussing how embeddings can be used to recover the content of the original text with high fidelity. If you are interested in learning more about how an embedding inversion attack works in practice, check-out the corresponding [GitHub repository](https://github.com/jxmorris12/vec2text) related to the above paper.
 
@@ -41,4 +45,10 @@ Given the nascent nature of vector store products, they may not adhere to enterp
 - **Encryption Failures**: Without encryption at rest, embeddings that contain sensitive or proprietary information may be exposed to anyone with access to the storage layer, leading to data breaches or tampering.
 - **Audit Deficiencies**: The absence of robust audit logging makes it difficult to detect unauthorized access, modifications, or data exfiltration, allowing breaches to go unnoticed for extended periods.
 
-This risk aligns with OWASP’s [LLM06: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm06-sensitive-information-disclosure/), which highlights the dangers of exposing proprietary or PII through large-scale, externally hosted AI systems.
+## Links
+
+* [OpenAI – Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
+* [AWS – What is Retrieval-Augmented Generation (RAG)?](https://aws.amazon.com/what-is/retrieval-augmented-generation/)
+* [Text Embeddings Reveal (Almost) as Much as Text – arXiv](https://arxiv.org/abs/2310.06816)
+* [vec2text – GitHub Repository](https://github.com/jxmorris12/vec2text)
+* [PoisonedRAG – arXiv](https://arxiv.org/html/2402.07867v1)
