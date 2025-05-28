@@ -2,7 +2,7 @@
 sequence: 23
 title: Intellectual Property (IP) and Copyright
 layout: risk
-doc-status: Pre-Draft
+doc-status: Draft
 type: RC
 external_risks:
   - NIST-600_2024_2-10  # NIST 600.1: Intellectual Property
@@ -17,12 +17,20 @@ eu-ai_references:
   - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
-- Generative AI models often train on datasets that may include copyrighted material.  
-- Using AI in financial settings raises intellectual property (IP) risks.  
-- Firms could be liable if AI-generated content inadvertently includes copyrighted material.  
-- AI outputs may closely resemble copyrighted text, code, or proprietary algorithms, leading to infringement claims.  
-- AI-generated content provided to customers must be accurate and legally compliant.  
-- Trade secret risks arise if employees input proprietary data into public AI models.  
-- Some firms have accidentally leaked sensitive code or strategies through AI tools.  
-- Financial institutions must ensure AI models and APIs are properly licensed for commercial use.  
-- Improper use of AI can lead to IP lawsuits and loss of confidential business information.
+## Summary
+
+Generative AI models may be trained on copyrighted or proprietary material, raising the risk that outputs could unintentionally infringe on intellectual property rights. In financial services, this could lead to legal liability if AI-generated content includes copyrighted text, code, or reveals sensitive business information. Additional risks arise when employees input confidential data into public AI tools, potentially leaking trade secrets or violating licensing terms.
+
+## Description
+
+Generative AI models are often trained on vast and diverse datasets, which may contain copyrighted material, proprietary code, or protected intellectual property. When these models are used in financial services—whether to generate documents, code, communications, or analytical reports—there is a risk that outputs may unintentionally replicate or closely resemble copyrighted content, exposing the firm to potential legal claims of infringement.
+
+In some cases, AI-generated outputs might include phrases, structures, or even entire segments that match existing copyrighted text, software code, or confidential algorithms. If such content is provided to clients, published publicly, or used in regulated contexts, the financial institution may be held liable—even if the replication was unintentional and the model was treated as a neutral tool.
+
+Another key concern involves trade secrets and confidential business information. Employees experimenting with or using public AI tools may inadvertently input sensitive data, such as proprietary trading strategies, client information, or internal documentation. These inputs may be stored or used to retrain publicly accessible models, leading to data leakage and loss of competitive advantage. Several publicized incidents have shown how confidential source code and internal IP have been accidentally exposed through careless use of AI services.
+
+Additionally, financial institutions must ensure that the AI models and APIs they rely on are properly licensed for commercial use. Using models or third-party tools without verifying their licensing terms, training data provenance, or usage restrictions could lead to breach of contract, regulatory violations, or reputational damage.
+
+In short, improper use of generative AI tools can result in IP litigation, the accidental loss of trade secrets, and exposure to significant compliance and commercial risk. Robust controls around data input, licensing, and content validation are essential to mitigate this threat.
+
+
