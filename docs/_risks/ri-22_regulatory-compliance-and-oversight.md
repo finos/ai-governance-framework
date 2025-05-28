@@ -2,7 +2,7 @@
 sequence: 22
 title: Regulatory Compliance and Oversight
 layout: risk
-doc-status: Pre-Draft
+doc-status: Draft
 type: RC
 external_risks:
   - NIST-600_2024_2-09  # NIST 600.1: Information Security

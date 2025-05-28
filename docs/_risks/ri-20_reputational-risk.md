@@ -2,7 +2,7 @@
 sequence: 20
 title: Reputational Risk
 layout: risk
-doc-status: Pre-Draft
+doc-status: Draft
 type: OP
 external_risks:
   - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
