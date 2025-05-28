@@ -15,6 +15,10 @@ eu-ai_references:
   - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
 ---
 
+## Summary
+
+LLMs exhibit non-deterministic behaviour, meaning they can generate different outputs for the same input due to probabilistic sampling and internal variability. This unpredictability can lead to inconsistent user experiences, undermine trust, and complicate testing, debugging, and performance evaluation. Inconsistent results may appear as varying answers to identical queries or fluctuating system performance across runs, posing significant challenges for reliable deployment and quality assurance.
+
 ## Description
 
 A fundamental property of Large Language Models (LLMs) is the non-determinism of their responses. These models generate text by predicting a probability distribution over possible next tokens, sampling from that distribution at each step. As a result, even when given the same input prompt, the output may vary across repeated runs. This behaviour is often amplified by sampling techniques such as top-k, top-p (nucleus sampling), or temperature-based decoding, and may also be affected by internal states, implicit random seeds, or changes in the inference environment. [This method also means that LLMs can tend towards winding or unintelligible outputs when the outputs being produced are larger.](https://arxiv.org/pdf/2203.11370)
