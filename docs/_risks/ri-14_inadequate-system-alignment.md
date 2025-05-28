@@ -19,31 +19,25 @@ external_risks:
   - OWASP-LLM_2025_LLM07  # OWASP LLM: System Prompt Leakage
 ---
 
-#### Alignment
+## Summary
 
-There is a specific goal you want to achieve when using an AI system in a successful way. It may be an overarching project goal, or a specific requirement for single queries to the AI system. 
+AI alignment risk arises when a system's behaviour diverges from its intended goals, either by producing irrelevant outputs or by pursuing objectives in harmful or unintended ways. Even well-performing systems may cause issues at scale, such as reinforcing bias, exploiting loopholes, or removing human accountability. Alignment can degrade over time due to model updates, context changes, or inherent unpredictability, making continuous oversight essential.
 
-This risk describes when the AI system behaves in a way that doesn't align with the intended goal.
+## Description
 
+AI systems are typically deployed with a specific goal in mind—this could be an overarching project objective or a requirement tied to individual queries. Misalignment occurs when the behaviour of the AI system does not correspond with the intended goal, either by producing irrelevant, unhelpful outputs or by pursuing the objective in ways that lead to undesirable outcomes.
 
-#### What can go wrong
+In simple cases, this misalignment may resemble hallucinations, where the model fails to deliver useful responses. However, more subtle forms of misalignment can occur even when the AI appears to perform well in isolation. Over time or at scale, the system may optimise for patterns or subgoals that conflict with broader intentions or ethical expectations. For example, an AI tasked with maximising profit may suggest strategies that exploit regulatory gaps, overlook societal impact, or erode trust. Similarly, an AI used in recruitment might select high-performing candidates while systematically disadvantaging certain demographic groups due to biased training data.
 
-In the more basic instance, it already has been described when we talked about [hallucinations](#TR-14) that the model may not be giving useful output to queries. But even when the model does seem to be performing well in the short term for individual queries, it may be putting the emphasis on a specific topic that, when using the AI model on scale, will in turn have undesirable consequences.
+There is also a risk that fully automating certain processes with AI removes human oversight and accountability. When decisions are made entirely by the system, there may be no one left with a clear understanding of how or why those decisions were made, leaving the organisation unable to respond effectively if the system misbehaves.
 
-For example, an AI with a goal to maximize a company's profit could suggest exploiting regulatory loopholes or ignoring the social responsibility for the impact of implementing its solutions on population. In another example, an AI tasked with selecting candidates for jobs positions may be choosing people that perform quite well in the roles, but may be biased against specific kind of population in an unfair way. You could even think that making some processes completely AI automated could pose a risk, for removing completely responsibility about something from humans may end up making nobody knowing anything at all about the automated task, having no accountability or responsibility when it misbehaves.
+Even systems that are initially well-aligned can become misaligned over time due to non-deterministic behaviour, deployment of new model versions, or changes in contextual information such as system prompts or retrieval databases.
 
-Also an AI system that is aligned at first may become misaligned in future situations given its [non-deterministic behavior](#TR-6), when [new versions of the model](#TR-11) are deployed, or it uses different contextual information (system prompt, RAG database, etc).
-
-In general we can summarize that the **AI system may optimize for a goal in a way that causes unintended or harmful side effects**, not only for its immediate goals, but for society in general and the long term.
-
-#### Responsible AI
-
-The concept of **responsible AI** defines the practice of developing and deploying AI systems in a way that we make sure they are aligned with human values, ensure safety, fairness, and accountability while minimizing risks and unintended consequences.
-
-#### Links
+In general, there is a risk that an AI system may optimise for its goals in ways that cause unintended or harmful side effects—both in the immediate context and in broader societal or long-term settings. This highlights the importance of responsible AI development, ensuring that systems are designed and monitored to reflect human values, fairness, and safety while maintaining accountability.
 
 
-* AI vendor providers
+## Links
+
   * [AWS - Responsible AI](https://aws.amazon.com/machine-learning/responsible-ai/)
   * [Microsoft - Responsible AI with Azure](https://azure.microsoft.com/en-us/solutions/ai/responsible-ai-with-azure)
   * [Google - Responsibility and Safety](https://deepmind.google/about/responsibility-safety/)
