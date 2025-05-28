@@ -11,6 +11,10 @@ ffiec_references:
   - ffiec_bcm_v-business-continuity-plan
   - ffiec_ots_risk-management
   - ffiec_aio_vi-operations
+eu-ai_references:
+  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - eu-ai_c3-s3-a26  # III.S3.A26 Obligations of Deployers of High-Risk AI Systems
+  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 RAG systems are proliferating due to the low barrier of entry compared

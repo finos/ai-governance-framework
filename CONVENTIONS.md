@@ -50,11 +50,23 @@ Risk and Mitigation types are defined in `_config.yml`.
 Order in which the Risk and Mitigation types are presented are defined
 in `index.md`.
 
-# External OWASP / NIST References
+# External References
 
-The `external_risks:` in `ri-*.md` files may take keys from the
-`external_risks:` section of the `_config.yml` file and rendered with
-consistent title and URL.
+Risk files (`ri-*.md`) can include several types of external references:
+
+## External Standards (OWASP/NIST)
+The `external_risks:` section may take keys from the `external_risks:` section 
+of the `_config.yml` file and rendered with consistent title and URL.
+
+## FFIEC References  
+The `ffiec_references:` section references keys from `_data/ffiec-itbooklets.yml`.
+Each reference links to the corresponding FFIEC IT Handbook booklet.
+
+## EU AI Act References
+The `eu-ai_references:` section references keys from `_data/eu-ai-act.yml`.
+Each reference links to the corresponding EU AI Act article.
+
+All reference types are displayed as separate cards in the risk layout sidebar.
 
 ## Sorting and Grouping
 

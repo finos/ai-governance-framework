@@ -12,6 +12,10 @@ ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing
   - ffiec_mgt_ii-risk-management
+eu-ai_references:
+  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - eu-ai_c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
+  - eu-ai_c3-s2-a9  # III.S2.A9 Risk Management System
 ---
 
 LLM hallucinations refer to instances when a large language model (LLM) generates incorrect or nonsensical information that seems plausible but is not based on factual data or reality. These "hallucinations" occur because the model generates text based on patterns in its training data rather than true understanding or access to current, verified information.

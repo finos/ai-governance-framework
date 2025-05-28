@@ -52,6 +52,13 @@ DOWNLOAD_DELAY = 0.5
 URL_COMPONENTS_MAIN_BOOKLET = 5
 URL_COMPONENTS_SECTION = 6
 
+# Path constants
+DATA_DIR = SCRIPT_DIR / ".." / "docs" / "_data"
+FFIEC_ITBOOKLETS_DIR = SCRIPT_DIR / ".." / "_refs-markdown" / "ffiec-itbooklets"
+YAML_FILE = DATA_DIR / YAML_FILENAME
+HTML_OUTPUT_DIR = FFIEC_ITBOOKLETS_DIR / "html"
+MD_OUTPUT_DIR = FFIEC_ITBOOKLETS_DIR / "markdown"
+
 # FFIEC booklet abbreviations mapping
 FFIEC_ABBREVIATIONS = {
     "architecture-infrastructure-and-operations": "aio",
@@ -67,16 +74,7 @@ FFIEC_ABBREVIATIONS = {
     "wholesale-payment-systems": "wps"
 }
 
-def get_paths():
-    """Calculate all file and directory paths based on script directory."""
-    data_dir = SCRIPT_DIR / ".." / "docs" / "_data"
-    ffiec_itbooklets_dir = SCRIPT_DIR / ".." / "_refs-markdown" / "ffiec-itbooklets"
-    
-    return {
-        'yaml_file': data_dir / YAML_FILENAME,
-        'html_output_dir': ffiec_itbooklets_dir / "html",
-        'md_output_dir': ffiec_itbooklets_dir / "markdown"
-    }
+
 
 def write_yaml_file(yaml_file, abbreviations, booklets):
     """Write abbreviations and booklets data to YAML file."""
@@ -387,22 +385,21 @@ Examples:
     if args.all:
         args.yml = args.html = args.md = True
     
-    paths = get_paths()
     success = True
     
     print("FFIEC IT Booklets Manager")
     print("=" * 50)
     
     if args.yml:
-        success &= generate_yaml_file(paths['yaml_file'])
+        success &= generate_yaml_file(YAML_FILE)
         print()
     
     if args.html and success:
-        success &= download_html_files(paths['yaml_file'], paths['html_output_dir'])
+        success &= download_html_files(YAML_FILE, HTML_OUTPUT_DIR)
         print()
     
     if args.md and success:
-        success &= convert_to_markdown(paths['html_output_dir'], paths['md_output_dir'])
+        success &= convert_to_markdown(HTML_OUTPUT_DIR, MD_OUTPUT_DIR)
         print()
     
     if success:

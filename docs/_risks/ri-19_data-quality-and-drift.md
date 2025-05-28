@@ -10,6 +10,10 @@ ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_dam_vii-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing
+eu-ai_references:
+  - eu-ai_c3-s2-a10  # III.S2.A10 Data and Data Governance
+  - eu-ai_c3-s2-a9  # III.S2.A9 Risk Management System
+  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
 ---
 
 - Generative AI’s outputs depend on the quality and recency of its training data.  

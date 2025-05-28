@@ -10,6 +10,10 @@ ffiec_references:
   - ffiec_dam_vii-maintenance
   - ffiec_ots_risk-management
   - ffiec_dam_ii-governance-of-development-acquisition-and-maintenance
+eu-ai_references:
+  - eu-ai_c3-s2-a11  # III.S2.A11 Technical Documentation
+  - eu-ai_c3-s2-a12  # III.S2.A12 Record-Keeping
+  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 Inadequate or unpublished API versioning and/or model version control may result in response instability, due to changes in the foundation model and the client's absence of opportunity to benchmark and test the new model.
