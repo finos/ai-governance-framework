@@ -16,10 +16,6 @@ eu-ai_references:
   - eu-ai_c4-a50  # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
 ---
 
-Certainly — here is the expanded version of the explainability risk in prose format, consistent with your other entries:
-
----
-
 ## Summary
 
 AI systems, particularly those using complex foundation models, often lack transparency, making it difficult to interpret how decisions are made. This limits firms’ ability to explain outcomes to regulators, stakeholders, or customers, raising trust and compliance concerns. Without explainability, errors and biases can go undetected, increasing the risk of inappropriate use, regulatory scrutiny, and undiagnosed failures.

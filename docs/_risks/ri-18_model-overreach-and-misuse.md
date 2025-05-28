@@ -38,5 +38,4 @@ A further concern is the anthropomorphising of AI systems—treating them as if 
 
 * **Anthropomorphism in Client Advisory**:
   Relationship managers begin to rely heavily on AI-generated summaries or recommendations during client meetings, assuming the model's outputs are authoritative. This misplaced trust may lead to inaccurate advice being passed to clients, harming customer outcomes and increasing liability.
-  mitigation strategies or link these to real-world incidents.
 
