@@ -10,6 +10,10 @@ ffiec_references:
   - ffiec_mgt_ii-risk-management
   - ffiec_aud_risk-assessment-and-risk-based-auditing
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+eu-ai_references:
+  - eu-ai_c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
+  - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
+  - eu-ai_c4-a50  # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
 ---
 
 - **Black Box Nature of Generative Models**  

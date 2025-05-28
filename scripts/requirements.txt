@@ -1,0 +1,16 @@
+# Requirements for FINOS AI Governance Framework scripts
+# Install with: pip install -r requirements.txt
+
+# Common dependencies
+PyYAML>=6.0
+requests>=2.25.0
+
+# For dl_nist_ai_600_1.py
+markdown-it-py>=3.0.0
+
+# For dl_ffiec-itbooklets.py
+beautifulsoup4>=4.9.0
+
+# Note: pandoc is also required for dl_ffiec-itbooklets.py but must be installed separately:
+# conda install -c conda-forge pandoc
+# or visit: https://pandoc.org/installing.html

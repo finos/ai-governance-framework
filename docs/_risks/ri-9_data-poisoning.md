@@ -13,6 +13,10 @@ ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing
+eu-ai_references:
+  - eu-ai_c3-s2-a10  # III.S2.A10 Data and Data Governance
+  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 - Adversaries can tamper with AI training or fine-tuning data to introduce hidden patterns.  

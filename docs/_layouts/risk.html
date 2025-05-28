@@ -100,6 +100,24 @@ layout: default
                 </div>
             </div>
 
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">EU AI Act References</h2>
+                    <div class="list-group">
+                        {% for reference in page.eu-ai_references %}
+                        {% assign article = site.data.eu-ai-act.eu_ai_act[reference] %}
+                        {% if article %}
+                        <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer" 
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ article.title }}
+                            {% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </main>

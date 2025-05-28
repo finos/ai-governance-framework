@@ -18,6 +18,12 @@ This directory contains scripts for downloading external references, processing 
    - Requires: `pip install requests beautifulsoup4 pyyaml` and `pandoc`
    - Usage: `python dl_ffiec-itbooklets.py --all` (or `--yml`, `--html`, `--md` individually)
 
+## dl_eu-ai-act.py
+   - Downloads EU AI Act Explorer content and extracts table of contents and annexes into structured Markdown and YAML files.
+   - Generates `eu-ai-act-toc.md` (human-readable) and `eu-ai-act.yml` (machine-readable) with hierarchical document structure.
+   - Requires: `pip install requests beautifulsoup4 pyyaml roman`
+   - Usage: `python dl_eu-ai-act.py` (add `--download` to force fresh download)
+
 ## annotate_yaml_front_matter.py
    - Adds title comments to YAML front matter in risk and mitigation files for better readability.
    - Processes external risks, risks, and mitigations to create cross-referenced annotations.

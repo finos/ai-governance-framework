@@ -11,6 +11,10 @@ ffiec_references:
   - ffiec_ots_risk-management
   - ffiec_dam_vii-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing
+eu-ai_references:
+  - eu-ai_c3-s2-a9  # III.S2.A9 Risk Management System
+  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 Instability in foundation model behaviour would manifest itself as deviations in the output (i.e during inferencing), when supplied with the same prompt.

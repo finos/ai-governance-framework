@@ -12,6 +12,10 @@ ffiec_references:
   - ffiec_sec_ii-information-security-program-management
   - ffiec_sec_iii-security-operations
   - ffiec_ots_risk-management
+eu-ai_references:
+  - eu-ai_c3-s2-a10  # III.S2.A10 Data and Data Governance
+  - eu-ai_c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
+  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 In the provided system architecture, sensitive data is transmitted to a SaaS-based Generative AI platform for inference, posing a risk of information leakage. Sensitive organizational data, proprietary algorithms, and confidential information may be unintentionally exposed due to inadequate control measures within the hosted model. This can occur through several mechanisms unique to Large Language Models (LLMs), as outlined in OWASP's LLM06, such as [overfitting](https://aws.amazon.com/what-is/overfitting/), [memorization](https://arxiv.org/pdf/2310.18362), and [prompt-based attacks](https://owasp.org/www-project-llm-prompt-hacking/).

@@ -13,6 +13,10 @@ ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics
   - ffiec_dam_v-development
+eu-ai_references:
+  - eu-ai_c2-a5  # II.A5 Prohibited AI Practices
+  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
 ---
 
 Users of the application or malitious internal agents can craft prompts that are sent to the SaaS-based LLM and potentially cause damaging responses. This is one of the most popular attack vectors as privilage requirements for this attach vector are the lowest [^1][^2]. Unlike SQL injection the scope of attack in prompt injection is wider and can result in incorrect answers, toxic responses, information disclosure, denial of service, unethical and biased responses. A good example of an incident in public is the DPD chatbot [^3]. 

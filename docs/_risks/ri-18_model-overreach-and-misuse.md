@@ -10,6 +10,10 @@ ffiec_references:
   - ffiec_mgt_i-governance
   - ffiec_mgt_ii-risk-management
   - ffiec_aud_risk-assessment-and-risk-based-auditing
+eu-ai_references:
+  - eu-ai_c3-s1-a6  # III.S1.A6 Classification Rules for High-Risk AI Systems
+  - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
+  - eu-ai_c3-s3-a26  # III.S3.A26 Obligations of Deployers of High-Risk AI Systems
 ---
 
 - The impressive capabilities of GenAI can lead to overestimation of its abilities.  
