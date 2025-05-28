@@ -1,5 +1,8 @@
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating) [![CC BY 4.0][cc-by-shield]][cc-by]
 
+![2025_AIGovernanceFramework_Horizontal](https://github.com/user-attachments/assets/7e15f9d0-0163-4b4f-9b4c-57553f3fdef1)
+
+
 # AI Governance Framework 
 
 Our goal is to mutually develop a governance framework that manages the on-boarding, development of, and running AI-based solutions within financial services organisations - allowing us all to unlock the potential of this disruptive technology in a safe, trustworthy and compliant way.
