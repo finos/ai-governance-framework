@@ -2,7 +2,7 @@
 sequence: 19
 title: Data Quality and Drift
 layout: risk
-doc-status: Pre-Draft
+doc-status: Draft
 type: OP
 external_risks:
   - NIST-600_2024_2-08  # NIST 600.1: Information Integrity
@@ -16,11 +16,18 @@ eu-ai_references:
   - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
 ---
 
-- Generative AI’s outputs depend on the quality and recency of its training data.  
-- Poor-quality or outdated data can lead to unreliable or irrelevant results.  
-- AI models can become stale if not regularly retrained.  
-- Lack of updated training may cause AI to miss market shifts or regulatory changes.  
-- In fast-moving financial markets, stale models can lead to flawed risk assessments and compliance failures.  
-- Errors or biases in training data can be reflected and even amplified in AI outputs.  
-- Maintaining data integrity is a continuous operational challenge.
+## Summary
 
+Generative AI systems rely heavily on the quality and freshness of their training data, and outdated or poor-quality data can lead to inaccurate, biased, or irrelevant outputs. In fast-moving sectors like financial services, stale models may miss market changes or regulatory updates, resulting in flawed risk assessments or compliance failures. Ongoing data integrity and retraining efforts are essential to ensure models remain accurate, relevant, and aligned with current conditions.
+
+## Description
+
+The effectiveness of generative AI models is highly dependent on the quality, completeness, and recency of the data used during training or fine-tuning. If the underlying data is inaccurate, outdated, or biased, the model’s outputs are likely to reflect and potentially amplify these issues. Poor-quality data can lead to unreliable, misleading, or irrelevant responses, especially when the AI is used in decision-making, client interactions, or risk analysis.
+
+Over time, models trained on static datasets can become stale—failing to reflect new developments in market dynamics, regulations, or customer behaviour. Without mechanisms for periodic retraining or updates, these models are prone to data drift, where the input data they encounter in production no longer resembles the data used to train them. This is particularly problematic in financial services, where fast-paced environments demand up-to-date information to ensure accurate forecasting, risk assessment, and compliance monitoring.
+
+For instance, a generative AI system trained prior to recent regulatory changes might suggest outdated documentation practices or miss new compliance requirements. Similarly, an AI model used in credit scoring could provide flawed recommendations if it relies on obsolete economic indicators or no longer-representative borrower behaviour patterns.
+
+In addition, errors or embedded biases in historical training data can propagate into the model and be magnified at scale, especially in generative systems that synthesise or infer new content from noisy inputs. This not only undermines performance and trust, but can also introduce legal and reputational risks if decisions are made based on inaccurate or biased outputs.
+
+Maintaining data integrity, accuracy, and relevance is therefore an ongoing operational challenge. It requires continuous monitoring, data validation processes, and governance to ensure that models remain aligned with current realities and organisational objectives.
