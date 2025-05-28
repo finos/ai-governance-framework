@@ -24,6 +24,22 @@ The AI Governance Framework group is at the very early formation stages, as a re
  - **Leverage existing frameworks** -  financial services organisations already have robust frameworks in place for dealing with technology risk. We’ll look to leverage these framework, or approaches, where appropriate.
  - **Threat modelling** - for our selected use case(s), we’ll use threat modelling techniques to map out the challenge, then identify suitable mitigation 
 
+## Roadmap
+
+The following diagram outlines the high-level roadmap for the AI Governance and the broader [AI Readiness SIG](https://github.com/finos/ai-readiness).
+
+![AIGF roadmap](https://private-user-images.githubusercontent.com/109801093/385061957-2fe13b5d-b588-4f67-99b2-3fc133855464.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg0MjIwMTgsIm5iZiI6MTc0ODQyMTcxOCwicGF0aCI6Ii8xMDk4MDEwOTMvMzg1MDYxOTU3LTJmZTEzYjVkLWI1ODgtNGY2Ny05OWIyLTNmYzEzMzg1NTQ2NC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTI4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUyOFQwODQxNThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03NTA2YzIzNWUyZTQyNTU0ZDZjZTNkOGNkZDVkMmM0ZjgxMWU4NTEyYmU5MzBmODU4ZTM4OGMxYjMzMmE1ODYyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.wxjSDCR1IyVro9TiG2PSFDKYZAyLTTg5Ze-TSjtn80I)
+
+The roadmap for the AIGF is as follows:
+
+ - [x] Nov 24 - Preview release at OSFF New York
+ - [x] Q4 24 - Dedicated repository for AIGF and formalised maintainer group
+ - [ ] Jan 25 - Codified NIST and OWASP mapping
+ - [ ] Q2 25 - v1 integration with CCC and first adopters
+ - [ ] Jun 25 - v1 Release at OSFF London
+ - [ ] Q3 25 - Responsible AI framework
+ - [ ] Q4 25 - v2 Assurance levels, Open RegTech
+
 ## Ways of working 
 
 We use the following channels:
