@@ -82,10 +82,10 @@ document_status:
     description: "Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written."
   - name: Draft
     description: "The document is in the early stages of development, with content being written and structured but not yet polished."
-  - name: Review
-    description: "The document is being reviewed by others for feedback. It may undergo multiple iterations at this stage."
-  - name: Approved
-    description: "The document is in its final form and has been approved by the AI Governance Framework Maintainers team."
+  - name: Working-Group-Approved
+    description: "The document is in its final form and has been approved by the AIGF team."
+  - name: Published
+    description: "The publication of an Approved Specification in a publicly accessible manner."
 
 collections:
   risks:
