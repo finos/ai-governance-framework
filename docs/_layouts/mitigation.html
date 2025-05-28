@@ -28,57 +28,29 @@ layout: default
         </div>
 
         <div class="col-lg-4">
+            {% assign key_risks = "" | split: "" %}
+            {% for risk in site.risks %}
+                {% assign risk_prefix = 'ri-' | append: risk.sequence %}
+                {% if page.mitigates contains risk_prefix %}
+                    {% assign key_risks = key_risks | push: risk %}
+                {% endif %}
+            {% endfor %}
+            {% if key_risks.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="h4 mb-4">Key Risks</h2>
                     <div class="list-group">
-                        {% for risk in site.risks %}
-                        {% assign risk_prefix = "ri-" | append: risk.sequence %}
-                        {% if page.mitigates contains risk_prefix %}
+                        {% for risk in key_risks %}
                         <div class="list-group-item">
                             <h3 class="h6 mb-1">
                                 <a href="{{ risk.url }}">{% include risk-id.html risk=risk %} : {{ risk.title }}</a>
                             </h3>
                         </div>
-                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
             </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">Related Mitigations</h2>
-                    <div class="list-group">
-                        {% for mitigation in site.mitigations %}
-                        {% assign mitigation_prefix = "mi-" | append: mitigation.sequence %}
-                        {% if page.related_mitigations contains mitigation_prefix %}
-                        <div class="list-group-item">
-                            <h3 class="h6 mb-1">
-                                <a href="{{ mitigation.url }}">{% include mitigation-id.html mitigation=mitigation %} : {{ mitigation.title }}</a>
-                            </h3>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">External Standards</h2>
-                    <div class="list-group">
-                        {% for standard in page.external_standards %}
-                        {% assign link = site.external_standards[standard] %}
-                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ link.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 </main>

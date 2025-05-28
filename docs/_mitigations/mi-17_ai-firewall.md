@@ -8,10 +8,6 @@ mitigates:
   - ri-7   # Availability of Foundational Model
   - ri-10  # Prompt Injection
   - ri-15
-related_mitigations:
-  - mi-8   # QoS/DDoS Prevention
-  - mi-9   # Alerting / DoW Spend Alert
-  - mi-12  # Role-Based Data Access
 ---
 
 ### Description

@@ -14,7 +14,6 @@ layout: default
         </div>
         <div class="risk-id mb-2">{% include risk-id.html risk=page %}</div>
         <h1 class="display-4">{{ page.title }}</h1>
-        <!-- <p class="lead">{{ page.title }}</p> -->
     </div>
 </header>
 
@@ -29,43 +28,26 @@ layout: default
         </div>
 
         <div class="col-lg-4">
+            {% assign risk_prefix = 'ri-' | append: page.sequence %}
+            {% assign related_mitigations = site.mitigations | where_exp: "mitigation", "mitigation.mitigates contains risk_prefix" %}
+            {% if related_mitigations.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="h4 mb-4">Key Mitigations</h2>
                     <div class="list-group">
-                        {% for mitigation in site.mitigations %}
-                        {% assign risk_prefix = "ri-" | append: mitigation.sequence %}
-                        {% if mitigation.mitigates contains risk_prefix %}
+                        {% for mitigation in related_mitigations %}
                         <div class="list-group-item">
                             <h3 class="h6 mb-1">
                                 <a href="{{ mitigation.url }}">{% include mitigation-id.html mitigation=mitigation %} : {{ mitigation.title }}</a>
-
                             </h3>
                         </div>
-                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
             </div>
+            {% endif %}
 
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">Related Risks</h2>
-                    <div class="list-group">
-                        {% for risk in site.risks %}
-                        {% assign risk_prefix = "ri-" | append: risk.sequence %}
-                        {% if page.related_risks contains risk_prefix %}
-                        <div class="list-group-item">
-                            <h3 class="h6 mb-1">
-                                <a href="{{ risk.url }}">{% include risk-id.html risk=risk %} : {{ risk.title }}</a>
-                            </h3>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
+            {% if page.external_risks and page.external_risks.size > 0 %}
             <div class="card">
                 <div class="card-body">
                     <h2 class="h4 mb-4">External Standards</h2>
@@ -81,7 +63,9 @@ layout: default
                     </div>
                 </div>
             </div>
+            {% endif %}
 
+            {% if page.ffiec_references and page.ffiec_references.size > 0 %}
             <div class="card">
                 <div class="card-body">
                     <h2 class="h4 mb-4">FFIEC References</h2>
@@ -99,7 +83,9 @@ layout: default
                     </div>
                 </div>
             </div>
+            {% endif %}
 
+            {% if page.eu-ai_references and page.eu-ai_references.size > 0 %}
             <div class="card">
                 <div class="card-body">
                     <h2 class="h4 mb-4">EU AI Act References</h2>
@@ -117,6 +103,7 @@ layout: default
                     </div>
                 </div>
             </div>
+            {% endif %}
 
         </div>
     </div>
