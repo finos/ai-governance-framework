@@ -15,12 +15,30 @@ eu-ai_references:
   - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
 ---
 
-A fundamental property of LLMs is the non-determinism of their response. This is because LLMs generate responses by predicting the probability of the next word or token in a given context, meaning different prompts equating to the same request can produce different responses from the models. [This method also means that LLMs can tend towards winding or unintelligible outputs when the outputs being produced are larger.](https://arxiv.org/pdf/2203.11370) LLMs also make use of sampling methods like top-k sampling during text generation or have an internal state or seed mechanisms which can cause distinct responses from the same prompt used in different requests. This can make it difficult or impossible to reproduce results, and may result in different (and potentially incorrect) results being returned occasionally and in a hard to predict manner. 
+## Description
 
-One danger of this is as users get differing responses when they use the system at different times or get different answers than a colleague asking the same question leading to the confusion in the user and the overall trust in the system may degrade until users no longer want to use the tool at all.
+A fundamental property of Large Language Models (LLMs) is the non-determinism of their responses. These models generate text by predicting a probability distribution over possible next tokens, sampling from that distribution at each step. As a result, even when given the same input prompt, the output may vary across repeated runs. This behaviour is often amplified by sampling techniques such as top-k, top-p (nucleus sampling), or temperature-based decoding, and may also be affected by internal states, implicit random seeds, or changes in the inference environment. [This method also means that LLMs can tend towards winding or unintelligible outputs when the outputs being produced are larger.](https://arxiv.org/pdf/2203.11370)
 
-This behaviour can also increase the difficulty of evaluating your system as you may be unable to reproduce what you thought was a bug, or consistently produce evaluation metrics to see if you are improving or degrading the system as you make changes.
+Non-determinism introduces unpredictability that can undermine the usability and trustworthiness of systems relying on LLMs. Two users asking the same question may receive inconsistent answers. A single user may see different outputs to the same query on different days. These behaviours, while sometimes benign, can degrade user trust and confidence over time—especially in contexts where consistency is expected.
 
-#### Links
 
-[The Non-determinism of ChatGPT in Code Generation](https://arxiv.org/abs/2308.02828)
+## Examples of Non-Deterministic Behaviour
+
+* **Customer Support Assistant**: A virtual assistant gives one user a definitive answer to a billing query and another user an ambiguous or conflicting response. The discrepancy leads to confusion and escalated support requests.
+
+* **Code Generation Tool**: An LLM is used to generate Python scripts from natural language descriptions. On one attempt, the model writes clean, functional code; on another, it introduces subtle logic errors or omits key lines, despite identical prompts.
+
+* **Knowledge Search System**: In a RAG pipeline, a user asks a compliance-related question. Depending on which documents are retrieved or how they’re synthesized into the prompt, the LLM may reference different regulations or misinterpret the intent.
+
+* **Documentation Summarizer**: A tool designed to summarize technical documents produces varying summaries of the same document across multiple runs, shifting tone or omitting critical sections inconsistently.
+
+
+## Testing and Evaluation Challenges
+
+Non-determinism significantly complicates the testing, debugging, and evaluation of LLM-integrated systems. Reproducing prior model behaviour is often impossible without deterministic decoding and tightly controlled inputs. Bugs that surface intermittently due to randomness may evade diagnosis, or appear and disappear unpredictably across deployments. This makes regression testing unreliable, especially in continuous integration (CI) environments that assume consistency between test runs.
+
+Quantitative evaluation is similarly affected: metrics such as accuracy, relevance, or coherence may vary across runs, obscuring whether changes in performance are due to real system modifications or natural model variability. This also limits confidence in A/B testing, user feedback loops, or fine-tuning efforts, as behavioural changes can’t be confidently attributed to specific inputs or parameters.
+
+## Links
+
+ - [The Non-determinism of ChatGPT in Code Generation](https://arxiv.org/abs/2308.02828)
