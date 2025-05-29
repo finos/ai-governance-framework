@@ -1,102 +1,119 @@
 ---
 sequence: 11
-title: Human Feedback Loop
+title: Human Feedback Loop for AI Systems
 layout: mitigation
 doc-status: Draft
 type: DET
+external_risks:
+  - ISO-42001_2023_A-6-2-6 # AI system operation and monitoring
+  - ISO-42001_2023_A-8-2   # System documentation and information for users
+  - ISO-42001_2023_A-8-3   # External reporting
+  - ISO-42001_2023_A-3-3   # Reporting of concerns
 mitigates:
-  - ri-5  # Instability in Foundation Model Behaviour
-  - ri-6  # Non-Deterministic Behaviour
+  - ri-5   # Instability in Foundation Model Behaviour (by detecting and reporting it)
+  - ri-6   # Non-Deterministic Behaviour (by allowing users to flag problematic instances)
+  - ri-11  # Lack of Foundation Model Versioning (by helping identify issues when versions change unannounced or impact is unclear)
 ---
 
-#### Human Feedback Loop
+## Purpose
 
-Implementing a human feedback loop is crucial for the effective deployment and continuous improvement of Generative AI solutions. Without appropriate feedback mechanisms, the solution may not perform optimally, and opportunities for enhancement over time could be missed. The following considerations should be kept in mind when designing a feedback loop:
+A **Human Feedback Loop** is a critical detective and continuous improvement mechanism that involves systematically collecting, analyzing, and acting upon feedback provided by human users, subject matter experts (SMEs), or reviewers regarding an AI system's performance, outputs, or behavior. In the context of financial institutions, this feedback is invaluable for:
+* **Monitoring AI System Efficacy:** Understanding how well the AI system is meeting its objectives in real-world scenarios.
+* **Identifying Issues:** Detecting problems such as inaccuracies, biases, unexpected behaviors (`ri-5`, `ri-6`), security vulnerabilities (e.g., successful prompt injections, data leakage observed by users), usability challenges, or instances where the AI generates inappropriate or harmful content.
+* **Enabling Continuous Improvement:** Providing data-driven insights to refine AI models, update underlying data (e.g., for RAG systems), tune prompts, and enhance user experience.
+* **Supporting Incident Response:** Offering a channel for users to report critical failures or adverse impacts, which can trigger incident response processes.
+* **Informing Governance:** Providing qualitative and quantitative data to AI governance bodies and ethics committees.
 
-1. **Alignment with Key Performance Indicators (KPIs)**
+This control emphasizes the importance of structuring how human insights are captured and integrated into the AI system's lifecycle for ongoing refinement and risk management.
 
-- Define a robust set of KPIs and evaluation metrics for the solution. For example, measure how many queries are answered correctly as annotated by subject matter experts (SMEs).
-- Feedback should include both quantitative and qualitative data to adequately assess if the solution is meeting established KPIs and/or objectives.
+---
+## Key Principles for Effective Human Feedback Loops
 
-2. **Intended Use of Feedback Data**
-Solution developers should clearly define and document how the feedback data will be utilized:
+To ensure a human feedback loop is valuable and effective, it should be designed around these core principles:
 
-- **Prompt Fine-tuning**: Analyze user feedback in relation to the LLM's responses. Identify gaps between the solution's purpose and the responses generated. Adjust prompts to bridge these gaps.
-- **RAG Document Update**: Examine low-rated responses to identify content improvement opportunities where the quality of the underlying data is the root cause.
-- **Model/Data Drift Detection**: Use feedback data to quantitatively detect model or data drift due to changes in the foundational model version or data quality over time.
-- **Advanced Usages**: Consider using feedback data for Reinforcement Learning from Human Feedback (RLHF) or fine-tuning the model itself to enhance performance.
+* **Clear Objectives & Actionability:** Feedback collection should be purposeful, with clearly defined goals for how the gathered information will be used to improve the AI system or mitigate risks. Feedback should be sufficiently detailed to be actionable.
+* **Accessibility and User-Centric Design:** Mechanisms for providing feedback must be easily accessible, intuitive to use, and should not unduly disrupt the user's workflow or experience. (Aligns with ISO 42001 A.8.2)
+* **Timeliness:** Processes for collecting, reviewing, and acting upon feedback should be timely to address critical issues promptly and ensure that improvements are relevant.
+* **Alignment with Performance Indicators (KPIs):** Feedback mechanisms should be designed to help assess the AI system's performance against predefined KPIs and business objectives.
+* **Contextual Information:** Encourage feedback that includes context about the situation in which the AI system's behavior was observed, as this is crucial for accurate interpretation and effective remediation.
+* **Transparency with Users:** Where appropriate, inform users about how their feedback is valued, how it will be used, and potentially provide updates on actions taken. This encourages ongoing participation. (Aligns with ISO 42001 A.8.3, A.3.3)
+* **Structured and Consistent Collection:** Employ consistent methods for collecting feedback to allow for trend analysis and aggregation of insights over time.
 
-Defining these goals ensures the long-term viability and continuous improvement of the solution.
+---
+## Implementation Guidance
 
-3. **User Experience**
+Implementing an effective human feedback loop involves careful design of the mechanism, clear processes for its use, and integration with broader AI governance.
 
-- Survey the target audience to gauge their willingness to provide feedback.
-- Ensure that the feedback mechanism does not hamper the effectiveness or usability of the solution.
+### 1. Designing the Feedback Mechanism
+* **Define Intended Use and KPIs:**
+    * **Objectives:** Clearly document how feedback data will be utilized, such as for prompt fine-tuning, RAG document updates, model/data drift detection, or more advanced uses like Reinforcement Learning from Human Feedback (RLHF).
+    * **KPI Alignment:** Design feedback questions and metrics to align with the solution's key performance indicators (KPIs). For example, if accuracy is a KPI, feedback might involve users or SMEs annotating if an answer was correct. 
+* **User Experience (UX) Considerations:**
+    * **Ease of Use:** Ensure the feedback mechanism (e.g., buttons, forms, comment boxes) is simple, intuitive, and does not significantly hamper the user's primary task.
+    * **Willingness to Participate:** Gauge the target audience's willingness to provide feedback; make it optional and low-effort where possible.
+* **Determine Feedback Scope (Wide vs. Narrow):**
+    * **Wide Feedback:** Collect feedback from the general user base. Suitable for broad insights and identifying common issues.
+    * **Narrow Feedback:** For scenarios where general user feedback might be disruptive or if highly specialized input is needed, create a smaller, dedicated group of expert testers or SMEs. These SMEs can provide continuous, detailed feedback directly to development teams. 
 
-4. **Wide vs. Narrow Feedback**
+### 2. Types of Feedback and Collection Methods
+* **Quantitative Feedback:**
+    * **Description:** Involves collecting structured responses that can be easily aggregated and measured, such as numerical ratings (e.g., "Rate this response on a scale of 1-5 for helpfulness"), categorical choices (e.g., "Was this answer: Correct/Incorrect/Partially Correct"), or binary responses (e.g., thumbs up/down).
+    * **Use Cases:** Effective for tracking trends, measuring against KPIs, and quickly identifying areas of high or low performance.
+* **Qualitative Feedback:**
+    * **Description:** Consists of open-ended, free-form text responses where users can provide detailed comments, explanations, or describe nuanced issues not captured by quantitative metrics.
+    * **Use Cases:** Offers rich insights into user reasoning, identifies novel problems, and provides specific examples of AI behavior. Natural Language Processing (NLP) techniques or even other LLMs can be employed to analyze and categorize this textual feedback at scale.
+* **Implicit Feedback:**
+    * **Description:** Derived indirectly from user actions rather than explicit submissions, e.g., whether a user accepts or ignores an AI suggestion, time spent on an AI-generated summary, or if a user immediately rephrases a query after an unsatisfactory response.
+    * **Use Cases:** Can provide large-scale, less biased indicators of user satisfaction or task success.
+* **Channels for Collection:**
+    * In-application widgets (e.g., rating buttons, feedback forms).
+    * Dedicated reporting channels or email addresses.
+    * User surveys.
+    * Facilitated feedback sessions with SMEs or user groups.
+    * Mechanisms for users to report concerns about adverse impacts or ethical issues (aligns with ISO 42001 A.8.3, A.3.3).
 
-- In scenarios where user experience is paramount, and feedback might interfere with usability, consider creating a smaller group of tester SMEs.
-- These SMEs can collaborate closely with the development team to provide continuous, detailed feedback without impacting the broader user base.
+### 3. Processing and Utilizing Feedback
+* **Systematic Analysis:** Implement processes for regularly collecting, aggregating, and analyzing both quantitative and qualitative feedback.
+* **Specific Use Cases for Feedback Data:**
+    * **Prompt Engineering and Fine-tuning:** Use feedback on LLM responses to identify weaknesses in prompts and iteratively refine them to improve clarity, relevance, and safety.
+    * **RAG System Improvement:** Examine low-rated responses from RAG systems to pinpoint deficiencies in the underlying knowledge base, signaling opportunities for content updates, corrections, or additions.
+    * **Model and Data Drift Detection:** Track feedback metrics over time to quantitatively detect degradation in model performance or shifts in output quality that might indicate model drift (due to changes in the foundational model version - addresses `ri-11`) or data drift (due to changes in input data characteristics).
+    * **Identifying Security Vulnerabilities:** User feedback can be an invaluable source for detecting instances where AI systems have been successfully manipulated (e.g., prompt injection), have leaked sensitive information, or exhibit other security flaws.
+    * **Highlighting Ethical Concerns and Bias:** Provide a channel for users to report outputs they perceive as biased, unfair, inappropriate, or ethically problematic.
+    * **Improving User Documentation and Training:** Feedback can highlight areas where user guidance or system documentation (as per ISO 42001 A.8.2) needs improvement.
 
-#### Types of Feedback Mechanisms
-As stated earlier, there are several ways one can collect feedback data. The choice you make will ultimately depend on the intention and use-case of feedback data usage. The two major categories of feedback are: 
+### 4. Advanced Feedback Integration: Reinforcement Learning from Human Feedback (RLHF)
+* **Conceptual Overview for Risk Audience:** RLHF is an advanced machine learning technique where AI models, particularly LLMs, are further refined using direct human judgments on their outputs. Instead of solely relying on pre-existing data, human evaluators assess model responses (e.g., rating helpfulness, correctness, safety, adherence to instructions). This feedback is then used to systematically adjust the model's internal decision-making processes, effectively "rewarding" desired behaviors and "penalizing" undesired ones.
+* **Key Objective:** The primary goal of RLHF is to better align the AI model's behavior with human goals, nuanced preferences, ethical considerations, and complex instructions that are hard to specify in traditional training datasets.
+* **Process Simplification:**
+    1.  **Feedback Collection:** Systematically gather human evaluations on model outputs for a diverse set of inputs.
+    2.  **Reward Modeling:** This feedback is often used to train a separate "reward model" that learns to predict human preferences.
+    3.  **Policy Optimization:** The primary AI model is then fine-tuned using reinforcement learning techniques, with the reward model providing signals to guide its learning towards generating more highly-rated outputs.
+* **Benefits for Control:** RLHF can significantly improve model safety, reduce the generation of harmful or biased content, and enhance the model's ability to follow instructions faithfully. 
 
-1. **Quantitative Feedback**
+### 5. Integration with "LLM-as-a-Judge" Concepts
+* **Context:** As organizations explore using LLMs to evaluate the outputs of other LLMs ("LLM-as-a-Judge" - see [CT-15](./ct-15.md)), human feedback loops remain essential.
+* **Application:** Implement mechanisms for humans (especially SMEs) to provide quantitative and qualitative feedback on the judgments made by these LLM judges.
+* **Benefits:** This allows for:
+    * Comparison of feedback quality and consistency between human SMEs and LLM judges.
+    * Calibration and evaluation of the LLM-as-a-Judge system's effectiveness and reliability.
+    * Targeted human review (narrow feedback) on a sample of LLM-as-a-Judge results, with sample size and methodology dependent on the use-case criticality.
 
-- Involves questions that can be answered with categorical responses or numerical ratings. For example, asking users to rate the chatbot's response on a scale of 1-5 with defined parameters.
-- Quantitative data can be effectively used alongside other metrics to assess KPIs.
+### 6. Feedback Review, Actioning, and Governance Process
+* **Defined Responsibilities:** Assign clear roles and responsibilities for collecting, reviewing, triaging, and actioning feedback (e.g., product owners, MLOps teams, data science teams, AI governance committees).
+* **Triage and Prioritization:** Establish a process to categorize and prioritize incoming feedback based on severity, frequency, potential impact, and alignment with strategic goals.
+* **Tracking and Resolution:** Implement a system to track feedback items, the actions taken in response, and their outcomes.
+* **Closing the Loop:** Where appropriate and feasible, inform users or feedback providers about how their input has been used or what changes have been made, fostering a sense of engagement. (Supports ISO 42001 A.6.2.6 for repairs/updates based on feedback).
 
-2. **Qualitative Feedback**
+---
+## Importance and Benefits
 
-- Consists of open-ended questions where users provide free-form text feedback.
-- Allows users to offer insights not captured in quantitative metrics.
-- Natural Language Processing (NLP) or additional LLMs can be employed to analyze and derive insights from this feedback.
+A well-designed and actively managed human feedback loop is essential for the successful, responsible, and sustainable deployment of AI solutions in financial services:
 
-##### Reinforcement Learning from Human Feedback (RLHF)
-It is important to briefly discuss RLHF given its importance and prevelance in the GenAI space, but first, you might be asking: *What is RLHF?*
-
-Reinforcement Learning from Human Feedback (RLHF) is a machine learning technique that incorporates human evaluations to optimize models for more efficient self-learning. Traditional Reinforcement Learning (RL) trains software agents to make decisions that maximize rewards, improving accuracy over time. RLHF integrates human feedback into the reward function, enabling the model to perform tasks more aligned with human goals, preferences, and ethical considerations.
-
-**How RLHF Works**
-
-1. **State Space and Action Space**
-
-- *State Space*: Represents all relevant information about the task at hand.
-- *Action Space*: Contains all possible decisions the AI agent can make.
-
-2. **Reward Function**
-
-- Human evaluators compare the model's responses to desired outcomes, scoring them based on criteria like correctness, helpfulness, and alignment with human values.
-- The reward function incorporates these human evaluations, providing positive reinforcement for desirable outputs and penalties for undesirable ones.
-
-3. **Policy Optimization**
-
-- The model adjusts its policy (decision-making strategy) to maximize cumulative rewards based on human feedback.
-- Over time, the model learns to generate responses that are more accurate, contextually appropriate, and aligned with user expectations.
-
-**Implement RLHF in the Feedback Loop**
-
-1. **Data Collection**
-
-- Gather human feedback systematically, ensuring a diverse and representative set of evaluations.
-- Both quantitative ratings and qualitative comments can be used to capture the nuances of user expectations.
-
-2. **Model Training**
-
-- Incorporate the collected feedback into the model's training process using RL algorithms.
-- Regularly update the model to reflect new insights and changing user needs.
-
-3. **Monitoring and Evaluation**
-
-- Continuously assess the model's performance against defined KPIs.
-- Monitor for unintended behaviors or biases, adjusting the training process as necessary.
-
-**Benefits of RLHF**
-
-RLHF helps mitigate risks associated with unaligned AI behavior, such as generating harmful or biased content. By incorporating human judgments, the model becomes better at avoiding inappropriate or unsafe outputs. Models trained with RLHF are more likely to produce outputs that are ethical, fair, and respectful of social norms. RLHF allows for ongoing refinement of the model as it interacts with users and receives more feedback, leading to sustained performance improvements.
-
-##### Integration with LLM-as-a-Judge (CT-15)
-Another aspect of Human Feeback which one should consider is related to the growing field of LLM-as-a-Judge (see: [CT-15](./ct-15.md)). When we use LLM-as-a-Judge, one should consider the same set of Quantitative and Qaulitative feedback from the LLM as they will from humans. This will provide them an opportunity to compare feedback between machine and humans. Also it will allow to rate the effectiveness of using LLM-as-a-Judge. One should also consider Narrow feedback on atleast a sample of the LLM-as-a-Judge results. The sample size (in terms of %) and the methodology is use-case dependent. For instance, if the use case is business-critical, then one needs to verify a higher number of samples
-
-#### Wrap Up
-A well-designed human feedback loop, enhanced with techniques like RLHF, is essential for the success of Generative AI solutions. By aligning the feedback mechanism with KPIs, clearly defining the intended use of feedback data, and ensuring a positive user experience, organizations can significantly improve the performance, safety, and reliability of their AI models. Incorporating RLHF, for instance, not only refines the model's outputs but also ensures that the AI system remains aligned with human values and organizational objectives over time.
+* **Continuous Performance Improvement:**  Provides ongoing, real-world insights that drive the iterative refinement of AI models, prompts, and underlying data, leading to sustained improvements in accuracy, relevance, and utility.
+* **Enhanced Safety and Risk Detection:**  Acts as a crucial mechanism for identifying and flagging unsafe, biased, unethical, or unintended AI behaviors that may not have been caught during pre-deployment testing. Allows for early detection of model instability (`ri-5`) or problematic non-deterministic outputs (`ri-6`).
+* **Alignment with Human Values and Expectations:**  Ensures that AI systems evolve in a way that remains aligned with human preferences, ethical considerations, and societal norms, which is particularly important for customer-facing or decision-impactful AI.
+* **Increased User Trust and Adoption:**  When users feel their feedback is heard and acted upon, it fosters greater trust in the AI system and encourages wider adoption and more effective use.
+* **Identification of Emergent Issues and Vulnerabilities:**  Users often interact with AI systems in novel ways and can be the first to discover new types of failures, vulnerabilities (e.g., how a model version change impacts them - `ri-11`), or areas where the AI is being misused.
+* **Data-Driven Governance and Oversight:**  Provides valuable data points for AI governance bodies and ethics committees to monitor AI system impact, ensure adherence to policies, and make informed decisions about the AI's lifecycle.
+* **Reduced Operational Costs Over Time:** By proactively identifying and addressing issues based on feedback, organizations can reduce the costs associated with managing AI failures, customer complaints, or rectifying poor AI-driven decisions.

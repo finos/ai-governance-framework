@@ -9,6 +9,187 @@ mitigation_classification:
   PREV: Preventative
   DET: Detective
 
+external_risks:
+  OWASP-LLM_2025_LLM01:
+    title: "OWASP LLM: Prompt Injection"
+    url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+  OWASP-LLM_2025_LLM02:
+    title: "OWASP LLM: Sensitive Information Disclosure"
+    url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
+  OWASP-LLM_2025_LLM03:
+    title: "OWASP LLM: Supply Chain Vulnerabilities"
+    url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain/"
+  OWASP-LLM_2025_LLM04:
+    title: "OWASP LLM: Data and Model Poisoning"
+    url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/"
+  OWASP-LLM_2025_LLM05:
+    title: "OWASP LLM: Improper Output Handling"
+    url: "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/"
+  OWASP-LLM_2025_LLM06:
+    title: "OWASP LLM: Excessive Agency"
+    url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+  OWASP-LLM_2025_LLM07:
+    title: "OWASP LLM: System Prompt Leakage"
+    url: "https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/"
+  OWASP-LLM_2025_LLM08:
+    title: "OWASP LLM: Vector and Embedding Weaknesses"
+    url: "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/"
+  OWASP-LLM_2025_LLM09:
+    title: "OWASP LLM: Misinformation"
+    url: "https://genai.owasp.org/llmrisk/llm092025-misinformation/"
+  OWASP-LLM_2025_LLM10:
+    title: "OWASP LLM: Unbounded Consumption"
+    url: "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/"
+  OWASP-ML_2023_ML01:
+    title: "OWASP ML: Input Manipulation Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML01_2023-Input_Manipulation_Attack.html"
+  OWASP-ML_2023_ML02:
+    title: "OWASP ML: Data Poisoning Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML02_2023-Data_Poisoning_Attack.html"
+  OWASP-ML_2023_ML03:
+    title: "OWASP ML: Model Inversion Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML03_2023-Model_Inversion_Attack.html"
+  OWASP-ML_2023_ML04:
+    title: "OWASP ML: Membership Inference Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML04_2023-Membership_Inference_Attack.html"
+  OWASP-ML_2023_ML05:
+    title: "OWASP ML: Model Theft"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML05_2023-Model_Theft.html"
+  OWASP-ML_2023_ML06:
+    title: "OWASP ML: ML Supply Chain Attacks"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML06_2023-AI_Supply_Chain_Attacks.html"
+  OWASP-ML_2023_ML07:
+    title: "OWASP ML: Transfer Learning Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML01_2023-Input_Manipulation_Attack.html"
+  OWASP-ML_2023_ML08:
+    title: "OWASP ML: Model Skewing"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML08_2023-Model_Skewing.html"
+  OWASP-ML_2023_ML09:
+    title: "OWASP ML: Output Integrity Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML09_2023-Output_Integrity_Attack.html"
+  OWASP-ML_2023_ML10:
+    title: "OWASP ML: Model Poisoning"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML10_2023-Model_Poisoning.html"
+  NIST-600_2024_2-01:
+    title: "NIST 600.1: CBRN Information or Capabilities"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-02:
+    title: "NIST 600.1: Confabulation"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-03:
+    title: "NIST 600.1: Dangerous, Violent, or Hateful Content"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-04:
+    title: "NIST 600.1: Data Privacy"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-05:
+    title: "NIST 600.1: Environmental Impacts"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-06:
+    title: "NIST 600.1: Harmful Bias and Homogenization"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-07:
+    title: "NIST 600.1: Human-AI Configuration"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-08:
+    title: "NIST 600.1: Information Integrity"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-09:
+    title: "NIST 600.1: Information Security"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-10:
+    title: "NIST 600.1: Intellectual Property"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-11:
+    title: "NIST 600.1: Obscene, Degrading, and/or Abusive Content"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-600_2024_2-12:
+    title: "NIST 600.1: Value Chain and Component Integration"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  ISO-42001_2023_A-2-3:
+    title: "ISO 42001: Alignment with other organizational policies"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-3-2:
+    title: "ISO 42001: AI roles and responsibilities"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-3-3:
+    title: "ISO 42001: Reporting of concerns"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-4-2:
+    title: "ISO 42001: Resource documentation"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-4-3:
+    title: "ISO 42001: Data resources"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-4-4:
+    title: "ISO 42001: Tooling resources"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-4-5:
+    title: "ISO 42001: System and computing resources"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-5-2:
+    title: "ISO 42001: AI system impact assessment process"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-1-2:
+    title: "ISO 42001: Objectives for responsible development of AI systems"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-1-3:
+    title: "ISO 42001: Processes for responsible AI system design and development"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-2:
+    title: "ISO 42001: AI system requirements and specification"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-3:
+    title: "ISO 42001: Documentation of AI system design and development"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-4:
+    title: "ISO 42001: AI system verification and validation"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-5:
+    title: "ISO 42001: AI system deployment"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-6:
+    title: "ISO 42001: AI system operation and monitoring"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-7:
+    title: "ISO 42001: AI system technical documentation"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-6-2-8:
+    title: "ISO 42001: AI system recording of event logs"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-7-2:
+    title: "ISO 42001: Data for development and enhancement of AI system"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-7-3:
+    title: "ISO 42001: Acquisition of data"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-7-4:
+    title: "ISO 42001: Quality of data for AI systems"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-7-6:
+    title: "ISO 42001: Data preparation"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-8-2:
+    title: "ISO 42001: System documentation and information for users"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-8-3:
+    title: "ISO 42001: External reporting"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-8-5:
+    title: "ISO 42001: Information for interested parties"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-9-2:
+    title: "ISO 42001: Processes for responsible use of AI systems"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-10-2:
+    title: "ISO 42001: Allocating responsibilities"
+    url: "https://www.iso.org/standard/81230.html"
+  ISO-42001_2023_A-10-3:
+    title: "ISO 42001: Suppliers"
+    url: "https://www.iso.org/standard/81230.html"
+
+  
+
 document_status:
   - name: Pre-Draft
     description: "Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written."
