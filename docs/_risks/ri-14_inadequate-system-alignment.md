@@ -17,28 +17,23 @@ related_risks:
   - ri-6  # Non-Deterministic Behaviour
 external_risks:
   - OWASP-LLM_2025_LLM07  # OWASP LLM: System Prompt Leakage
+  - OWASP-ML_2023_ML01 # OWASP ML Input Manipulation
+  - OWASP-ML_2023_ML02 # Data Poisoning Attack
+  - OWASP-ML_2023_ML08 # Model Skewing
+  - OWASP-ML_2023_ML10 # Model Poisoning
 ---
 
-#### Alignment
+Inadequate system alignment occurs when an AI system's behaviour deviates from the intended goals, operational requirements, ethical guidelines, or regulatory obligations defined by the institution. This misalignment can arise even if the system appears to perform adequately on individual queries or tasks in the short term.
 
-There is a specific goal you want to achieve when using an AI system in a successful way. It may be an overarching project goal, or a specific requirement for single queries to the AI system. 
+The consequences of such misalignment in a financial services context can be severe. For instance:
 
-This risk describes when the AI system behaves in a way that doesn't align with the intended goal.
+  * Suboptimal or Harmful Business Outcomes: An AI system designed to optimize profitability might inadvertently recommend strategies that exploit regulatory ambiguities, compromise customer best interests (e.g., by promoting unsuitable financial products), or disregard the institution's social responsibilities and long-term reputational integrity.
+  * Bias and Unfair Treatment: AI models used in critical processes like credit assessment, fraud detection, or even recruitment, if misaligned, may perpetuate or amplify existing biases. This can lead to discriminatory outcomes against certain customer demographics or applicant groups, resulting in regulatory breaches (e.g., fair lending violations) and significant reputational damage.
+  * Erosion of Accountability and Oversight: The automation of complex processes by AI systems, if not properly aligned with human oversight mechanisms, can lead to a diffusion of responsibility. If the system behaves unexpectedly or causes harm, the lack of clarity regarding human accountability can hinder remediation and erode trust.
+  * Compromised Decision-Making: Misalignment can be exacerbated by issues such as hallucinations (ri-4) where the model generates plausible but incorrect information, or by the inherent instability and non-deterministic behaviour (ri-5) of foundation models. These factors can lead to unreliable outputs that underpin critical financial decisions.
+  * An AI system that is adequately aligned at its initial deployment may drift towards misalignment over time. This can be due to several factors, including updates to the underlying model by third-party providers (see ri-11: Third-Party Model Versioning), changes in the data it processes (e.g., through Retrieval Augmented Generation databases), shifts in the operational environment, or the model's own learning and adaptation if continuous learning is enabled.
 
-
-#### What can go wrong
-
-In the more basic instance, it already has been described when we talked about [hallucinations](#TR-14) that the model may not be giving useful output to queries. But even when the model does seem to be performing well in the short term for individual queries, it may be putting the emphasis on a specific topic that, when using the AI model on scale, will in turn have undesirable consequences.
-
-For example, an AI with a goal to maximize a company's profit could suggest exploiting regulatory loopholes or ignoring the social responsibility for the impact of implementing its solutions on population. In another example, an AI tasked with selecting candidates for jobs positions may be choosing people that perform quite well in the roles, but may be biased against specific kind of population in an unfair way. You could even think that making some processes completely AI automated could pose a risk, for removing completely responsibility about something from humans may end up making nobody knowing anything at all about the automated task, having no accountability or responsibility when it misbehaves.
-
-Also an AI system that is aligned at first may become misaligned in future situations given its [non-deterministic behavior](#TR-6), when [new versions of the model](#TR-11) are deployed, or it uses different contextual information (system prompt, RAG database, etc).
-
-In general we can summarize that the **AI system may optimize for a goal in a way that causes unintended or harmful side effects**, not only for its immediate goals, but for society in general and the long term.
-
-#### Responsible AI
-
-The concept of **responsible AI** defines the practice of developing and deploying AI systems in a way that we make sure they are aligned with human values, ensure safety, fairness, and accountability while minimizing risks and unintended consequences.
+Ultimately, a misaligned AI system may optimize for its programmed objectives in a manner that produces unintended, detrimental side effects for the institution, its customers, or the broader financial system. Ensuring and maintaining alignment requires a robust governance framework encompassing design, development, testing, deployment, and ongoing monitoring, guided by the principles of responsible AI to ensure safety, fairness, transparency, and accountability.
 
 #### Links
 

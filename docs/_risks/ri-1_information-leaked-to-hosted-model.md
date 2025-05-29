@@ -5,7 +5,9 @@ layout: risk
 doc-status: Draft
 type: RC
 external_risks:
-  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
+  - OWASP-LLM_2025_LLM02  # OWASP LLM: Sensitive Information Disclosure
+  - OWASP-ML_2023_ML03    # OWASP ML Model Inversion Attack
+  - OWASP-ML_2023_ML04    # OWASP ML Membership Inference Attack
   - NIST-600_2024_2-04    # NIST 600.1: Data Privacy
   - NIST-600_2024_2-09    # NIST 600.1: Information Security
 ffiec_references:
@@ -18,27 +20,38 @@ eu-ai_references:
   - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
-In the provided system architecture, sensitive data is transmitted to a SaaS-based Generative AI platform for inference, posing a risk of information leakage. Sensitive organizational data, proprietary algorithms, and confidential information may be unintentionally exposed due to inadequate control measures within the hosted model. This can occur through several mechanisms unique to Large Language Models (LLMs), as outlined in OWASP's LLM06, such as [overfitting](https://aws.amazon.com/what-is/overfitting/), [memorization](https://arxiv.org/pdf/2310.18362), and [prompt-based attacks](https://owasp.org/www-project-llm-prompt-hacking/).
+The transmission of sensitive data to third-party hosted Large Language Model (LLM) platforms for inference or fine-tuning introduces a significant risk of information leakage for financial institutions. This risk encompasses the potential exposure of confidential organizational data, including customer Personally Identifiable Information (PII), Non-Public Market Information (NPMI), proprietary trading algorithms, internal risk assessments, and strategic plans. Such leakage can occur due to inadequate data governance, insufficient control measures within the hosted environment, or inherent characteristics of LLM technology. This aligns with cybersecurity concerns such as those highlighted in OWASP LLM02: Sensitive Information Disclosure.
 
-LLMs can retain data from training processes or user interactions, potentially recalling sensitive information during unrelated sessions, a phenomenon known as "memorization" When data such as Personally Identifiable Information (PII) or proprietary financial strategies enter the model, the risk of inadvertent disclosure rises, particularly when insufficient data sanitization or filtering mechanisms are in place. Additionally, adversarial actors could exploit prompt injection attacks to manipulate the model into revealing sensitive data. 
+A core challenge arises from the nature of interactions with external LLMs, which can be conceptualized as a **two-way trust boundary**. Neither the data inputted into the LLM nor the output received can be fully trusted by default. Inputs containing sensitive financial information may be retained or processed insecurely by the provider, while outputs may inadvertently reveal previously processed sensitive data, even if the immediate input prompt appears benign.
 
-Furthermore, data retention policies or model fine-tuning can exacerbate these risks. When fine-tuning is done on proprietary data without strict access control, sensitive information may inadvertently be disclosed to lower-privileged users, violating principles of least privilege. Without clear Terms of Use, data sanitization, and input validation, the organization loses visibility into how sensitive information is processed by the LLM and where it may be disclosed.
+Several mechanisms unique to or amplified by LLMs contribute to this risk:
 
-It is, however, important to understand distinct risk vectors between commercial/enterprise-grade and free hosted LLMs. For instance, commercial LLMs like ChatGPT offer a "Memory" setting to manage what the system is allowed to memorize from your conversations and Data controls to restrict what can be used to train their models. Additionally, enterprise-grade LLMs will usually sanitize sensitive data when used in organizational environments and often include stringent terms of use related to the handling of your data inputs and outputs that must first be accepted before interacting with the model. Free hosted LLMs, on the other hand, may use your data to train their models without you explicitly knowing that it is happening. Thus, you must always exercise due diligence when interacting with hosted LLM services to better understand how your input and output data is being used behind the scenes.
+* **Model Memorization and Overfitting:** LLMs, particularly very large ones, can inadvertently [memorize](https://arxiv.org/pdf/2310.18362) and retain portions of the data they have processed during training, fine-tuning, or even through user interactions. [Overfitting](https://aws.amazon.com/what-is/overfitting/) during the training process can exacerbate this. Consequently, sensitive information—such as specific customer details from a CRM excerpt, conditions from a confidential loan agreement, or elements of a proprietary financial strategy fed into the model—might be recalled and disclosed in subsequent, unrelated sessions, potentially even to different users (cross-user leakage). Research has demonstrated the [scalable extraction of training data from production language models](https://arxiv.org/abs/2311.17035), highlighting the practical reality of this threat.
+* **Prompt-Based Attacks:** As detailed in the "Prompt Injection" risk (ri-10), adversarial actors can craft malicious prompts to manipulate the LLM into revealing sensitive information it has access to or has previously memorized. This method directly targets the model's ability to recall and synthesize information.
+* **Inadequate Data Sanitization and Filtering:** The risk of inadvertent disclosure significantly increases if the LLM service provider or the financial institution itself fails to implement robust data sanitization, anonymization, or filtering mechanisms for both data inputted into the model and outputs generated by it.
 
+The risk profile can be further influenced by the provider's data handling practices and the specific services utilized:
 
-#### Key Risks 
+* **Data Retention, Logging, and Usage Policies:** The terms of use, data processing addendums, and actual data handling practices of the LLM provider are critical. Without clear contractual agreements and technical assurances regarding data encryption, retention limits, purpose limitation for data usage (e.g., preventing use for future model training without consent), and secure deletion, financial institutions lose visibility and control over their sensitive data. Hosted models may not always provide transparent mechanisms for how input data is processed or retained, increasing the risk of persistent exposure.
+* **Fine-Tuning on Proprietary Data:** Fine-tuning an LLM on a financial institution's proprietary datasets (e.g., internal reports, customer communication logs, specialized financial documents) can embed sensitive details deeply within the model. If this fine-tuning is performed by the third-party provider, or if access controls to the fine-tuned model are not stringently managed, this sensitive embedded information may become accessible to unauthorized individuals or through model queries, potentially violating principles of least privilege.
 
-- **Two-Way Trust Boundary**: The client-to-LLM interaction introduces a two-way trust boundary where neither input nor output can be fully trusted. This makes it critical to assume the output could leak sensitive information unintentionally, even when the input appears benign.
-- **Model Overfitting and Memorization**: LLMs may retain sensitive data introduced during training, leading to unintentional data leakage in future interactions. This includes potential cross-user leakage, where one user's sensitive data might be disclosed to another.
-- **External Inference Endpoint Risks**: Hosted models may not provide transparent mechanisms for how input data is processed, retained, or sanitized, increasing the risk of persistent exposure of proprietary data.
+It is important to conduct thorough due diligence, as the level of data protection can vary significantly between LLM offerings. Enterprise-grade commercial LLMs may offer features like private endpoints, options to disable data retention for model training, data encryption in transit and at rest, and stronger contractual safeguards regarding data ownership and usage. Conversely, free or consumer-grade services might have less stringent data protection measures and may explicitly state that user data will be used for future model improvements. Regardless of the provider's tier, ongoing vigilance and adherence to internal data governance policies are paramount.
 
-This risk is aligned with OWASP’s [LLM06: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm06-sensitive-information-disclosure/), which highlights the dangers of exposing proprietary or personally identifiable information (PII) through large-scale, externally hosted AI systems.
+The consequences of such information leakage for a financial institution can be severe:
+* **Breach of Data Privacy Regulations:** Unauthorized disclosure of PII can lead to significant fines under regulations like GDPR, CCPA, and others, alongside mandated customer notifications.
+* **Violation of Financial Regulations:** Leakage of confidential customer information or market-sensitive data can breach specific financial industry regulations concerning data security and confidentiality (e.g., GLBA in the US).
+* **Loss of Competitive Advantage:** Exposure of proprietary algorithms, trading strategies, or confidential business plans can erode a firm's competitive edge.
+* **Reputational Damage:** Public disclosure of sensitive data leakage incidents can lead to a substantial loss of customer trust and damage to the institution's brand.
+* **Legal Liabilities:** Beyond regulatory fines, institutions may face lawsuits from affected customers or partners.
 
+Mitigating this risk requires a multi-layered approach, including rigorous provider due diligence, contractual safeguards, data minimization strategies, robust input/output validation and sanitization, exploring privacy-enhancing technologies, and continuous monitoring of data flows and model interactions.
 
 #### Links
 
-- https://ithandbook.ffiec.gov/
-- https://www.ffiec.gov/%5C/press/PDF/FFIEC_Appendix_J.pdf
-- Scalable Extraction of Training Data from (Production) Language Models
-    - https://arxiv.org/abs/2311.17035
+* [FFIEC IT Handbook](https://ithandbook.ffiec.gov/)
+* [FFIEC Outsourcing Technology Services Appendix J](https://www.ffiec.gov/%5C/press/PDF/FFIEC_Appendix_J.pdf)
+* [Scalable Extraction of Training Data from (Production) Language Models](https://arxiv.org/abs/2311.17035)
+* [Who's Harry Potter? Approximate Unlearning in LLMs (Memorization Example)](https://arxiv.org/pdf/2310.18362)
+* [OWASP LLM02: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm02-sensitive-information-disclosure/) (Note: The original text referred to LLM06, this link reflects the current OWASP designation for this risk)
+* [Overfitting (AWS Explanation)](https://aws.amazon.com/what-is/overfitting/)
+* [LLM Prompt Hacking (OWASP)](https://owasp.org/www-project-llm-prompt-hacking/)

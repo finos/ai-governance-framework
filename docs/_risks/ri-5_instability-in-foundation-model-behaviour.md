@@ -5,8 +5,12 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
   - NIST-600_2024_2-08    # NIST 600.1: Information Integrity
+  - OWASP-LLM_2025_LLM01  # OWASP LLM: Prompt Injection
+  - OWASP-LLM_2025_LLM03  # OWASP LLM: Supply Chain
+  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
+  - OWASP-ML_2023_ML01    # OWASP ML: Input Manipulation Attack
+  - OWASP-ML_2023_ML08    # OWASP ML: Model Skewing
 ffiec_references:
   - ffiec_ots_risk-management
   - ffiec_dam_vii-maintenance
@@ -17,16 +21,15 @@ eu-ai_references:
   - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
-Instability in foundation model behaviour would manifest itself as deviations in the output (i.e during inferencing), when supplied with the same prompt.
+When we talk about instability in foundation model behaviour, we are referring to the tendency to produce different outputs for the same set of inputs in successive calls to the model. To a degree, this is a core quality of generative AI technology, with the degree of creativity exhibited by the model often controllable by its temperature.
 
-If you completely rely on the model provider for its evaluation, for example because it’s of a kind that changes very quickly, like a code generation model (that can change several times a day), you have to acknowledge that you are putting all the responsibility on the outcome of the architecture on that provider, and you trust what it does whenever the model version is changed.
+This can be an issue where model outputs differ quantitatively (i.e. they draw different factual conclusions over time) and your business process depends on the output to make decisions. Unhelpful variations in model output can also be caused by adversarial users crafting malicious prompts or skewing data distributions in continuous learning models.
 
-If you need to implement strict tests on your whole architecture, the foundation model behaviour may change over time if the third-party doesn't have rigorous version control (covered in Threat 11), you don’t pin the version you are using, or they silently change model versions without notifying the consumer. This can lead to instability in the model's behaviour, which may impact on the client's business operations and actions taken upon model output.
+A significant factor contributing to behavioural instability arises from reliance on third-party model providers. If an institution depends heavily on the provider for model evaluation and validation, particularly for models that are frequently updated (such as code generation models which can change multiple times a day), it effectively transfers responsibility for the stability and suitability of that model component to the provider. This reliance becomes a risk if the provider's update and versioning practices are not transparent or robust.
 
-The provider may change the model without explicit customer knowledge. This could lead to unexpected response from the model that it has not been tested for by the corporation.
-The provider might also provide a mechanism to pin the model version. In both cases non-determinism can lead to instability in model behaviour.
+Instability can manifest if the model provider alters the underlying model without explicit notification to its consumers, or if their version control is not rigorous. Even when a specific model version is "pinned" by the consuming institution, inherent non-determinism in the model's architecture can still lead to variations in output. These changes, whether intentional or emergent, can disrupt business processes that depend on consistent model behaviour, potentially leading to operational failures, incorrect decisions, or regulatory breaches if the model's responses deviate from tested and approved parameters.
 
-Another mechanism to induce instability is around perturbations. There is recent research into using prompt perturbations to attack grounding and hence weaken system defences against malicious attacks.
+Furthermore, the risk of instability is amplified by the potential for adversarial attacks. Malicious actors may use techniques like prompt perturbations – subtle alterations to input prompts – to deliberately induce erratic or unintended model behaviour. Such attacks can compromise the model's grounding in factual information or bypass safety mechanisms, leading to the generation of inaccurate, inappropriate, or harmful content, thereby weakening system defences and posing a direct threat to information integrity.
 
 #### Links
 
