@@ -6,8 +6,10 @@ layout: default
     <div class="container">
         <div class="mb-4">
             <a href="/" class="text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                 </svg>
                 Back to Mitigation Catalogue
             </a>
@@ -30,10 +32,10 @@ layout: default
         <div class="col-lg-4">
             {% assign key_risks = "" | split: "" %}
             {% for risk in site.risks %}
-                {% assign risk_prefix = 'ri-' | append: risk.sequence %}
-                {% if page.mitigates contains risk_prefix %}
-                    {% assign key_risks = key_risks | push: risk %}
-                {% endif %}
+            {% assign risk_prefix = 'ri-' | append: risk.sequence %}
+            {% if page.mitigates contains risk_prefix %}
+            {% assign key_risks = key_risks | push: risk %}
+            {% endif %}
             {% endfor %}
             {% if key_risks.size > 0 %}
             <div class="card mb-4">
@@ -51,9 +53,22 @@ layout: default
                 </div>
             </div>
             {% endif %}
+
+            {% if page.external_risks and page.external_risks.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">External Standards</h2>
+                    <div class="list-group">
+                        {% for risk_ref in page.external_risks %} {% assign link = site.external_risks[risk_ref] %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer"
+                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ link.title }}
+                            {% include external-link-icon.html %} </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </main>
-
-
-
