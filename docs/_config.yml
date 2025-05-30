@@ -40,6 +40,36 @@ external_risks:
   OWASP-LLM_2025_LLM10:
     title: "OWASP LLM: Unbounded Consumption"
     url: "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/"
+  OWASP-ML_2023_ML01:
+    title: "OWASP ML: Input Manipulation Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML01_2023-Input_Manipulation_Attack.html"
+  OWASP-ML_2023_ML02:
+    title: "OWASP ML: Data Poisoning Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML02_2023-Data_Poisoning_Attack.html"
+  OWASP-ML_2023_ML03:
+    title: "OWASP ML: Model Inversion Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML03_2023-Model_Inversion_Attack.html"
+  OWASP-ML_2023_ML04:
+    title: "OWASP ML: Membership Inference Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML04_2023-Membership_Inference_Attack.html"
+  OWASP-ML_2023_ML05:
+    title: "OWASP ML: Model Theft"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML05_2023-Model_Theft.html"
+  OWASP-ML_2023_ML06:
+    title: "OWASP ML: ML Supply Chain Attacks"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML06_2023-AI_Supply_Chain_Attacks.html"
+  OWASP-ML_2023_ML07:
+    title: "OWASP ML: Transfer Learning Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML01_2023-Input_Manipulation_Attack.html"
+  OWASP-ML_2023_ML08:
+    title: "OWASP ML: Model Skewing"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML08_2023-Model_Skewing.html"
+  OWASP-ML_2023_ML09:
+    title: "OWASP ML: Output Integrity Attack"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML09_2023-Output_Integrity_Attack.html"
+  OWASP-ML_2023_ML10:
+    title: "OWASP ML: Model Poisoning"
+    url: "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML10_2023-Model_Poisoning.html"
   NIST-600_2024_2-01:
     title: "NIST 600.1: CBRN Information or Capabilities"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
@@ -76,6 +106,7 @@ external_risks:
   NIST-600_2024_2-12:
     title: "NIST 600.1: Value Chain and Component Integration"
     url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  
 
 document_status:
   - name: Pre-Draft

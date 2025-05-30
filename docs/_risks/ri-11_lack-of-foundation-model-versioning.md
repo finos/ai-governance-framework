@@ -5,7 +5,6 @@ layout: risk
 doc-status: Draft
 type: OP
 external_risks:
-  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
 ffiec_references:
   - ffiec_dam_vii-maintenance
   - ffiec_ots_risk-management

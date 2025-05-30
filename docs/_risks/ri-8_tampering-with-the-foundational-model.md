@@ -6,7 +6,12 @@ doc-status: Draft
 type: SEC
 external_risks:
   - OWASP-LLM_2025_LLM03  # OWASP LLM: Supply Chain Vulnerabilities
+  - OWASP-LLM_2025_LLM04  # OWASP LLM: Data and Model Poisoning
   - OWASP-LLM_2025_LLM05  # OWASP LLM: Improper Output Handling
+  - OWASP-ML_2023_ML02    # OWASP ML: Data Poisoning Attack
+  - OWASP-ML_2023_ML06    # OWASP ML: AI Supply Chain Attacks
+  - OWASP-ML_2023_ML08    # OWASP ML: Transfer Learning Attack
+  - OWASP-ML_2023_ML10    # OWASP ML: Model Poisoning
 ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_ots_risk-management
@@ -18,15 +23,26 @@ eu-ai_references:
   - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
-The SaaS-based LLM provider is a 3rd party supplier and as such is subject to all typical supply chain, insider, and software integrity
-threats. Supply chain attacks on infrastructure and OSS are covered in other frameworks, however supply chains for
-foundational models, training data, model updates, and model retraining are all potential targets for attackers. 
-The underlying firmware of GPUs, the operating system, and the machine learning libraries should be considered as part
-of the supply chain too.
+Tampering with the Foundational Model refers to the deliberate and malicious alteration of a Large Language Model (LLM), its training data, underlying algorithms, or critical components within its software and hardware supply chain. Such actions are typically carried out by sophisticated attackers, including those targeting the AI provider or elements of the AI development and deployment pipeline, with the intent to cause harm, exfiltrate data, or manipulate model outputs for nefarious purposes.
 
-Whilst fine tuning is out of scope of this framework; it is worth noting that adversarial attacks can be built upon 
-model weights for open source models. There could be a possibility of malicious actors using this information to induce unsafe
-behaviour in the model.
+For financial institutions leveraging LLMs, especially those provided as SaaS solutions or built upon third-party foundational models, this risk is significant due to the sensitive nature of their operations and data. The avenues for such tampering are multifaceted:
 
-Similarly, back doors engineered into the model can be triggered through malicious means. This could result in unsafe behaviour
-or such tampering could result in removing safe guards around the model.
+* **AI Supply Chain Compromise:** Foundational models rely on an extensive supply chain, including training datasets, machine learning libraries, model update mechanisms, and even the underlying hardware (e.g., GPU firmware) and operating systems of the provider. Attackers can target any point in this chain.
+    * **Data Poisoning:** Malicious actors could intentionally corrupt the training data used to build or fine-tune the foundational model. This might involve injecting biased information, specific triggers for harmful outputs, or vulnerabilities that can be exploited later. For a financial institution, this could lead to the model generating misleading financial advice, biased loan application assessments, or flawed fraud detection.
+    * **Model Poisoning/Backdoors:** Attackers, potentially insiders at the model provider or external threats who have breached the provider's security, could directly modify the model's architecture or weights. This can embed hidden backdoors, create specific vulnerabilities exploitable via crafted inputs, or systematically skew outputs in a way that benefits the attacker (e.g., manipulating market sentiment predictions or leaking sensitive customer data processed by the model).
+    * **Compromise of Software Components:** Vulnerabilities in machine learning libraries (e.g., TensorFlow, PyTorch) or other software dependencies used by the LLM provider can be exploited to tamper with the model during its training or operation.
+
+* **Exploitation of Open-Source Model Vulnerabilities:** If the foundational model is based on or incorporates open-source components, known or unknown vulnerabilities in these components could be exploited. Adversaries might analyze open-source model weights to devise attacks that induce unsafe or biased behaviour, or to identify ways to bypass safety mechanisms.
+
+* **Malicious Model Updates:** If an attacker compromises the model update mechanism of the provider, they could push a tampered version of the model to unsuspecting financial institutions. This tampered update could introduce new vulnerabilities, remove safeguards, or alter the model's behaviour to align with the attacker's objectives.
+
+The consequences of a tampered foundational model for a financial institution can be severe and wide-ranging:
+
+* **Generation of False or Manipulated Information:** The model could produce inaccurate financial reports, misleading investment advice, or fabricated communications, leading to poor decision-making and financial losses.
+* **Data Exfiltration:** Tampered models might be designed to covertly extract sensitive customer information, proprietary trading algorithms, or confidential institutional data that is processed or generated by the LLM.
+* **Compromise of Security and Compliance Controls:** Backdoors or manipulated logic could allow attackers to bypass internal controls, ethical guidelines, or regulatory compliance checks embedded within AI-driven processes. For example, safeguards against generating advice that violates suitability rules could be disabled.
+* **System Disruption and Unsafe Behaviour:** The model could be triggered to behave erratically, crash critical systems, or execute unauthorized financial transactions.
+* **Regulatory Breaches and Legal Liabilities:** Deploying a tampered model that leads to discriminatory outcomes, privacy violations, or market manipulation can result in significant fines, sanctions, and legal action.
+* **Severe Reputational Damage:** The discovery that a financial institution's AI systems have been tampered with can lead to a catastrophic loss of customer trust and public confidence.
+
+While related to risks like instability or inaccurate outputs, tampering implies a deliberate malicious intent to corrupt the model's integrity, often in ways that are difficult to detect through standard testing. Mitigating this risk requires stringent vendor due diligence, ongoing security assessments of the AI provider, robust monitoring for anomalous model behaviour, and, where feasible, cryptographic verification of model and data integrity throughout the supply chain.
