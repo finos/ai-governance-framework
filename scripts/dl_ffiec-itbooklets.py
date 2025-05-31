@@ -83,7 +83,7 @@ def write_yaml_file(yaml_file, booklets):
             f.write("# FFIEC IT Booklets\n")
             f.write(f"# Generated from {BOOKLETS_URL}\n\n")
             yaml.dump(booklets, f, 
-                     default_flow_style=False, sort_keys=True)
+                     default_flow_style=False, sort_keys=False)
         return True
     except (OSError, yaml.YAMLError) as e:
         print(f"Error writing YAML file: {e}", file=sys.stderr)
