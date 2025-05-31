@@ -13,10 +13,10 @@ ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics
   - ffiec_dam_v-development
-eu-ai_references:
-  - eu-ai_c2-a5  # II.A5 Prohibited AI Practices
-  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
+eu-ai-act_references:
+  - c2-a5  # II.A5 Prohibited AI Practices
+  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - c3-s2-a14  # III.S2.A14 Human Oversight
 ---
 ## Summary
 

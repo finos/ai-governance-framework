@@ -58,12 +58,17 @@ Risk files (`ri-*.md`) can include several types of external references:
 The `external_risks:` section may take keys from the `external_risks:` section 
 of the `_config.yml` file and rendered with consistent title and URL.
 
+## NIST References
+The `nist_references:` section references keys from `_data/nist-sp-800-53r5.yml` 
+and `_data/nist-ai-600-1.yml`. Each reference links to the corresponding NIST 
+control or section.
+
 ## FFIEC References  
 The `ffiec_references:` section references keys from `_data/ffiec-itbooklets.yml`.
 Each reference links to the corresponding FFIEC IT Handbook booklet.
 
 ## EU AI Act References
-The `eu-ai_references:` section references keys from `_data/eu-ai-act.yml`.
+The `eu-ai-act_references:` section references keys from `_data/eu-ai-act.yml`.
 Each reference links to the corresponding EU AI Act article.
 
 All reference types are displayed as separate cards in the risk layout sidebar.

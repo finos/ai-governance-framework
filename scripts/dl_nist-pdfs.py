@@ -468,7 +468,7 @@ class YamlGenerator:
         """Generate YAML document with flattened keys."""
         # Create the data structure
         yaml_data = {
-            self.config.document_type.replace('-', '_'): self._create_bookmark_dict(bookmarks, link_generator)
+            self.config.document_type: self._create_bookmark_dict(bookmarks, link_generator)
         }
         
         # Generate YAML content with header

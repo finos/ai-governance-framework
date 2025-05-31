@@ -140,7 +140,7 @@ def create_booklet_entry(key, booklet_abbrev, title, url):
     """Create a booklet dictionary entry."""
     return {
         'booklet_abbrev': booklet_abbrev,
-        'title': f"FFIEC {booklet_abbrev.upper()} - {title}",
+        'title': f"{booklet_abbrev.upper()}: {title}",
         'url': url
     }
 
@@ -233,8 +233,8 @@ def generate_yaml_file(yaml_file):
     if not write_yaml_file(yaml_file, FFIEC_ABBREVIATIONS, booklets):
         return False
     
-    print(f"✓ YAML file created: {yaml_file}")
-    print(f"✓ Found {len(booklets)} booklets/sections")
+    print(f"[OK] YAML file created: {yaml_file}")
+    print(f"[OK] Found {len(booklets)} booklets/sections")
     return True
 
 def download_html_files(yaml_file, html_output_dir):
@@ -294,7 +294,7 @@ def download_html_files(yaml_file, html_output_dir):
             with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(str(soup))
             
-            print(f"  ✓ HTML downloaded ({len(response.text)} characters)")
+            print(f"  [OK] HTML downloaded ({len(response.text)} characters)")
             success_count += 1
             
         except requests.RequestException as e:
@@ -305,7 +305,7 @@ def download_html_files(yaml_file, html_output_dir):
         # Small delay to be respectful to the server
         time.sleep(DOWNLOAD_DELAY)
     
-    print(f"✓ HTML download complete: {success_count} success, {error_count} errors")
+    print(f"[OK] HTML download complete: {success_count} success, {error_count} errors")
     return error_count == 0
 
 def convert_to_markdown(html_output_dir, md_output_dir):
@@ -322,7 +322,7 @@ def convert_to_markdown(html_output_dir, md_output_dir):
         print("  Install with: conda install -c conda-forge pandoc")
         return False
     
-    print("✓ Pandoc found")
+    print("[OK] Pandoc found")
     print(f"HTML input directory: {html_output_dir}")
     print(f"Markdown output directory: {md_output_dir}")
     
@@ -342,15 +342,15 @@ def convert_to_markdown(html_output_dir, md_output_dir):
         md_filename = f"{html_path.stem}.md"
         md_path = md_output_dir / md_filename
         
-        print(f"Converting: {html_path.name} → {md_filename}")
+        print(f"Converting: {html_path.name} -> {md_filename}")
         
         if convert_html_to_markdown(html_path, md_path):
-            print("  ✓ Converted successfully")
+            print("  [OK] Converted successfully")
             success_count += 1
         else:
             error_count += 1
     
-    print(f"✓ Markdown conversion complete: {success_count} success, {error_count} errors")
+    print(f"[OK] Markdown conversion complete: {success_count} success, {error_count} errors")
     return error_count == 0
 
 def main():
@@ -403,7 +403,7 @@ Examples:
         print()
     
     if success:
-        print("✓ All operations completed successfully!")
+        print("[OK] All operations completed successfully!")
     else:
         print("✗ Some operations failed. Check the output above for details.")
         sys.exit(1)
