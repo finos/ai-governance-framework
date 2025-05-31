@@ -11,10 +11,10 @@ ffiec_references:
   - ffiec_mgt_ii-risk-management
   - ffiec_ots_risk-management
   - ffiec_dam_vi-acquisition
-eu-ai_references:
-  - eu-ai_c3-s2-a10  # III.S2.A10 Data and Data Governance
-  - eu-ai_c3-s2-a11  # III.S2.A11 Technical Documentation
-  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+eu-ai-act_references:
+  - c3-s2-a10  # III.S2.A10 Data and Data Governance
+  - c3-s2-a11  # III.S2.A11 Technical Documentation
+  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 ## Summary

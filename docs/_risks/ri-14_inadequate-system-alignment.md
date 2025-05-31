@@ -8,10 +8,10 @@ ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_dam_v-development
   - ffiec_aud_risk-assessment-and-risk-based-auditing
-eu-ai_references:
-  - eu-ai_c2-a5  # II.A5 Prohibited AI Practices
-  - eu-ai_c3-s2-a9  # III.S2.A9 Risk Management System
-  - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
+eu-ai-act_references:
+  - c2-a5  # II.A5 Prohibited AI Practices
+  - c3-s2-a9  # III.S2.A9 Risk Management System
+  - c3-s2-a14  # III.S2.A14 Human Oversight
 nist-sp-800-53r5_references:
   - sa-11  # SA-11 Developer Testing and Evaluation
   - ra-3   # RA-3 Risk Assessment  

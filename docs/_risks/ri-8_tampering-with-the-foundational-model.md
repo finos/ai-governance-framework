@@ -12,10 +12,10 @@ ffiec_references:
   - ffiec_ots_risk-management
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_dam_vi-acquisition
-eu-ai_references:
-  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - eu-ai_c3-s3-a16  # III.S3.A16 Obligations of Providers of High-Risk AI Systems
-  - eu-ai_c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+eu-ai-act_references:
+  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - c3-s3-a16  # III.S3.A16 Obligations of Providers of High-Risk AI Systems
+  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
 ---
 
 ## Summary

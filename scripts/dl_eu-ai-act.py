@@ -82,7 +82,7 @@ OUTPUT_FILENAME = "eu-ai-act-toc.md"
 HTML_FILENAME = "eu-ai-act-toc.html"
 YAML_FILENAME = "eu-ai-act.yml"
 RECITALS_TABLE_WIDTH = 10
-YAML_KEY_PREFIX = "eu-ai_"  # Prefix for all YAML keys
+YAML_KEY_PREFIX = ""  # Prefix for all YAML keys
 
 # Path constants
 EU_AI_ACT_DIR = SCRIPT_DIR / ".." / "_refs-markdown" / "eu-ai-act"
@@ -385,7 +385,7 @@ def create_flattened_yaml_data(chapters: List[Chapter], annexes: List[Link], rec
                 'url': recital.url
             }
     
-    return {'eu_ai_act': eu_ai_act}
+    return {'eu-ai-act': eu_ai_act}
 
 
 def create_markdown_document(chapters: List[Chapter], annexes: List[Link], recitals: List[Link]) -> str:
@@ -479,7 +479,7 @@ def main():
         
         total_items = len(chapters) + total_sections + total_articles + len(annexes) + len(recitals)
         print(f"Total items processed: {total_items}")
-        print(f"YAML entries created: {len(yaml_data['eu_ai_act'])}")
+        print(f"YAML entries created: {len(yaml_data['eu-ai-act'])}")
         
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)

@@ -1,952 +1,953 @@
 # EU AI Act
 # Generated from https://artificialintelligenceact.eu/ai-act-explorer/
 
-eu_ai_act:
-  eu-ai_c1-a1:
+eu-ai-act:
+  c1-a1:
     title: I.A1 Subject Matter
     url: https://artificialintelligenceact.eu/article/1/
-  eu-ai_c1-a2:
+  c1-a2:
     title: I.A2 Scope
     url: https://artificialintelligenceact.eu/article/2/
-  eu-ai_c1-a3:
+  c1-a3:
     title: I.A3 Definitions
     url: https://artificialintelligenceact.eu/article/3/
-  eu-ai_c1-a4:
+  c1-a4:
     title: I.A4 AI literacy
     url: https://artificialintelligenceact.eu/article/4/
-  eu-ai_c2-a5:
+  c2-a5:
     title: II.A5 Prohibited AI Practices
     url: https://artificialintelligenceact.eu/article/5/
-  eu-ai_c3-s1-a6:
-    title: III.S1.A6 Classification Rules for High-Risk AI Systems
+  c3-s1-a6:
+    title: 'III.S1.A6: Classification Rules for High-Risk AI Systems'
     url: https://artificialintelligenceact.eu/article/6/
-  eu-ai_c3-s1-a7:
-    title: III.S1.A7 Amendments to Annex III
+  c3-s1-a7:
+    title: 'III.S1.A7: Amendments to Annex III'
     url: https://artificialintelligenceact.eu/article/7/
-  eu-ai_c3-s2-a8:
-    title: III.S2.A8 Compliance with the Requirements
+  c3-s2-a8:
+    title: 'III.S2.A8: Compliance with the Requirements'
     url: https://artificialintelligenceact.eu/article/8/
-  eu-ai_c3-s2-a9:
-    title: III.S2.A9 Risk Management System
+  c3-s2-a9:
+    title: 'III.S2.A9: Risk Management System'
     url: https://artificialintelligenceact.eu/article/9/
-  eu-ai_c3-s2-a10:
-    title: III.S2.A10 Data and Data Governance
+  c3-s2-a10:
+    title: 'III.S2.A10: Data and Data Governance'
     url: https://artificialintelligenceact.eu/article/10/
-  eu-ai_c3-s2-a11:
-    title: III.S2.A11 Technical Documentation
+  c3-s2-a11:
+    title: 'III.S2.A11: Technical Documentation'
     url: https://artificialintelligenceact.eu/article/11/
-  eu-ai_c3-s2-a12:
-    title: III.S2.A12 Record-Keeping
+  c3-s2-a12:
+    title: 'III.S2.A12: Record-Keeping'
     url: https://artificialintelligenceact.eu/article/12/
-  eu-ai_c3-s2-a13:
-    title: III.S2.A13 Transparency and Provision of Information to Deployers
+  c3-s2-a13:
+    title: 'III.S2.A13: Transparency and Provision of Information to Deployers'
     url: https://artificialintelligenceact.eu/article/13/
-  eu-ai_c3-s2-a14:
-    title: III.S2.A14 Human Oversight
+  c3-s2-a14:
+    title: 'III.S2.A14: Human Oversight'
     url: https://artificialintelligenceact.eu/article/14/
-  eu-ai_c3-s2-a15:
-    title: III.S2.A15 Accuracy, Robustness and Cybersecurity
+  c3-s2-a15:
+    title: 'III.S2.A15: Accuracy, Robustness and Cybersecurity'
     url: https://artificialintelligenceact.eu/article/15/
-  eu-ai_c3-s3-a16:
-    title: III.S3.A16 Obligations of Providers of High-Risk AI Systems
+  c3-s3-a16:
+    title: 'III.S3.A16: Obligations of Providers of High-Risk AI Systems'
     url: https://artificialintelligenceact.eu/article/16/
-  eu-ai_c3-s3-a17:
-    title: III.S3.A17 Quality Management System
+  c3-s3-a17:
+    title: 'III.S3.A17: Quality Management System'
     url: https://artificialintelligenceact.eu/article/17/
-  eu-ai_c3-s3-a18:
-    title: III.S3.A18 Documentation Keeping
+  c3-s3-a18:
+    title: 'III.S3.A18: Documentation Keeping'
     url: https://artificialintelligenceact.eu/article/18/
-  eu-ai_c3-s3-a19:
-    title: III.S3.A19 Automatically Generated Logs
+  c3-s3-a19:
+    title: 'III.S3.A19: Automatically Generated Logs'
     url: https://artificialintelligenceact.eu/article/19/
-  eu-ai_c3-s3-a20:
-    title: III.S3.A20 Corrective Actions and Duty of Information
+  c3-s3-a20:
+    title: 'III.S3.A20: Corrective Actions and Duty of Information'
     url: https://artificialintelligenceact.eu/article/20/
-  eu-ai_c3-s3-a21:
-    title: III.S3.A21 Cooperation with Competent Authorities
+  c3-s3-a21:
+    title: 'III.S3.A21: Cooperation with Competent Authorities'
     url: https://artificialintelligenceact.eu/article/21/
-  eu-ai_c3-s3-a22:
-    title: III.S3.A22 Authorised Representatives of Providers of High-Risk AI Systems
+  c3-s3-a22:
+    title: 'III.S3.A22: Authorised Representatives of Providers of High-Risk AI Systems'
     url: https://artificialintelligenceact.eu/article/22/
-  eu-ai_c3-s3-a23:
-    title: III.S3.A23 Obligations of Importers
+  c3-s3-a23:
+    title: 'III.S3.A23: Obligations of Importers'
     url: https://artificialintelligenceact.eu/article/23/
-  eu-ai_c3-s3-a24:
-    title: III.S3.A24 Obligations of Distributors
+  c3-s3-a24:
+    title: 'III.S3.A24: Obligations of Distributors'
     url: https://artificialintelligenceact.eu/article/24/
-  eu-ai_c3-s3-a25:
-    title: III.S3.A25 Responsibilities Along the AI Value Chain
+  c3-s3-a25:
+    title: 'III.S3.A25: Responsibilities Along the AI Value Chain'
     url: https://artificialintelligenceact.eu/article/25/
-  eu-ai_c3-s3-a26:
-    title: III.S3.A26 Obligations of Deployers of High-Risk AI Systems
+  c3-s3-a26:
+    title: 'III.S3.A26: Obligations of Deployers of High-Risk AI Systems'
     url: https://artificialintelligenceact.eu/article/26/
-  eu-ai_c3-s3-a27:
-    title: III.S3.A27 Fundamental Rights Impact Assessment for High-Risk AI Systems
+  c3-s3-a27:
+    title: 'III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems'
     url: https://artificialintelligenceact.eu/article/27/
-  eu-ai_c3-s4-a28:
-    title: III.S4.A28 Notifying Authorities
+  c3-s4-a28:
+    title: 'III.S4.A28: Notifying Authorities'
     url: https://artificialintelligenceact.eu/article/28/
-  eu-ai_c3-s4-a29:
-    title: III.S4.A29 Application of a Conformity Assessment Body for Notification
+  c3-s4-a29:
+    title: 'III.S4.A29: Application of a Conformity Assessment Body for Notification'
     url: https://artificialintelligenceact.eu/article/29/
-  eu-ai_c3-s4-a30:
-    title: III.S4.A30 Notification Procedure
+  c3-s4-a30:
+    title: 'III.S4.A30: Notification Procedure'
     url: https://artificialintelligenceact.eu/article/30/
-  eu-ai_c3-s4-a31:
-    title: III.S4.A31 Requirements Relating to Notified Bodies
+  c3-s4-a31:
+    title: 'III.S4.A31: Requirements Relating to Notified Bodies'
     url: https://artificialintelligenceact.eu/article/31/
-  eu-ai_c3-s4-a32:
-    title: III.S4.A32 Presumption of Conformity with Requirements Relating to Notified
-      Bodies
+  c3-s4-a32:
+    title: 'III.S4.A32: Presumption of Conformity with Requirements Relating to Notified
+      Bodies'
     url: https://artificialintelligenceact.eu/article/32/
-  eu-ai_c3-s4-a33:
-    title: III.S4.A33 Subsidiaries of Notified Bodies and Subcontracting
+  c3-s4-a33:
+    title: 'III.S4.A33: Subsidiaries of Notified Bodies and Subcontracting'
     url: https://artificialintelligenceact.eu/article/33/
-  eu-ai_c3-s4-a34:
-    title: III.S4.A34 Operational Obligations of Notified Bodies
+  c3-s4-a34:
+    title: 'III.S4.A34: Operational Obligations of Notified Bodies'
     url: https://artificialintelligenceact.eu/article/34/
-  eu-ai_c3-s4-a35:
-    title: III.S4.A35 Identification Numbers and Lists of Notified Bodies
+  c3-s4-a35:
+    title: 'III.S4.A35: Identification Numbers and Lists of Notified Bodies'
     url: https://artificialintelligenceact.eu/article/35/
-  eu-ai_c3-s4-a36:
-    title: III.S4.A36 Changes to Notifications
+  c3-s4-a36:
+    title: 'III.S4.A36: Changes to Notifications'
     url: https://artificialintelligenceact.eu/article/36/
-  eu-ai_c3-s4-a37:
-    title: III.S4.A37 Challenge to the Competence of Notified Bodies
+  c3-s4-a37:
+    title: 'III.S4.A37: Challenge to the Competence of Notified Bodies'
     url: https://artificialintelligenceact.eu/article/37/
-  eu-ai_c3-s4-a38:
-    title: III.S4.A38 Coordination of Notified Bodies
+  c3-s4-a38:
+    title: 'III.S4.A38: Coordination of Notified Bodies'
     url: https://artificialintelligenceact.eu/article/38/
-  eu-ai_c3-s4-a39:
-    title: III.S4.A39 Conformity Assessment Bodies of Third Countries
+  c3-s4-a39:
+    title: 'III.S4.A39: Conformity Assessment Bodies of Third Countries'
     url: https://artificialintelligenceact.eu/article/39/
-  eu-ai_c3-s5-a40:
-    title: III.S5.A40 Harmonised Standards and Standardisation Deliverables
+  c3-s5-a40:
+    title: 'III.S5.A40: Harmonised Standards and Standardisation Deliverables'
     url: https://artificialintelligenceact.eu/article/40/
-  eu-ai_c3-s5-a41:
-    title: III.S5.A41 Common Specifications
+  c3-s5-a41:
+    title: 'III.S5.A41: Common Specifications'
     url: https://artificialintelligenceact.eu/article/41/
-  eu-ai_c3-s5-a42:
-    title: III.S5.A42 Presumption of Conformity with Certain Requirements
+  c3-s5-a42:
+    title: 'III.S5.A42: Presumption of Conformity with Certain Requirements'
     url: https://artificialintelligenceact.eu/article/42/
-  eu-ai_c3-s5-a43:
-    title: III.S5.A43 Conformity Assessment
+  c3-s5-a43:
+    title: 'III.S5.A43: Conformity Assessment'
     url: https://artificialintelligenceact.eu/article/43/
-  eu-ai_c3-s5-a44:
-    title: III.S5.A44 Certificates
+  c3-s5-a44:
+    title: 'III.S5.A44: Certificates'
     url: https://artificialintelligenceact.eu/article/44/
-  eu-ai_c3-s5-a45:
-    title: III.S5.A45 Information Obligations of Notified Bodies
+  c3-s5-a45:
+    title: 'III.S5.A45: Information Obligations of Notified Bodies'
     url: https://artificialintelligenceact.eu/article/45/
-  eu-ai_c3-s5-a46:
-    title: III.S5.A46 Derogation from Conformity Assessment Procedure
+  c3-s5-a46:
+    title: 'III.S5.A46: Derogation from Conformity Assessment Procedure'
     url: https://artificialintelligenceact.eu/article/46/
-  eu-ai_c3-s5-a47:
-    title: III.S5.A47 EU Declaration of Conformity
+  c3-s5-a47:
+    title: 'III.S5.A47: EU Declaration of Conformity'
     url: https://artificialintelligenceact.eu/article/47/
-  eu-ai_c3-s5-a48:
-    title: III.S5.A48 CE Marking
+  c3-s5-a48:
+    title: 'III.S5.A48: CE Marking'
     url: https://artificialintelligenceact.eu/article/48/
-  eu-ai_c3-s5-a49:
-    title: III.S5.A49 Registration
+  c3-s5-a49:
+    title: 'III.S5.A49: Registration'
     url: https://artificialintelligenceact.eu/article/49/
-  eu-ai_c4-a50:
+  c4-a50:
     title: IV.A50 Transparency Obligations for Providers and Deployers of Certain
       AI Systems
     url: https://artificialintelligenceact.eu/article/50/
-  eu-ai_c5-s1-a51:
-    title: V.S1.A51 Classification of General-Purpose AI Models as General-Purpose
-      AI Models with Systemic Risk
+  c5-s1-a51:
+    title: 'V.S1.A51: Classification of General-Purpose AI Models as General-Purpose
+      AI Models with Systemic Risk'
     url: https://artificialintelligenceact.eu/article/51/
-  eu-ai_c5-s1-a52:
-    title: V.S1.A52 Procedure
+  c5-s1-a52:
+    title: 'V.S1.A52: Procedure'
     url: https://artificialintelligenceact.eu/article/52/
-  eu-ai_c5-s2-a53:
-    title: V.S2.A53 Obligations for Providers of General-Purpose AI Models
+  c5-s2-a53:
+    title: 'V.S2.A53: Obligations for Providers of General-Purpose AI Models'
     url: https://artificialintelligenceact.eu/article/53/
-  eu-ai_c5-s2-a54:
-    title: V.S2.A54 Authorised Representatives of Providers of General-Purpose AI
-      Models
+  c5-s2-a54:
+    title: 'V.S2.A54: Authorised Representatives of Providers of General-Purpose AI
+      Models'
     url: https://artificialintelligenceact.eu/article/54/
-  eu-ai_c5-s3-a55:
-    title: V.S3.A55 Obligations for Providers of General-Purpose AI Models with Systemic
-      Risk
+  c5-s3-a55:
+    title: 'V.S3.A55: Obligations for Providers of General-Purpose AI Models with
+      Systemic Risk'
     url: https://artificialintelligenceact.eu/article/55/
-  eu-ai_c5-s4-a56:
-    title: V.S4.A56 Codes of Practice
+  c5-s4-a56:
+    title: 'V.S4.A56: Codes of Practice'
     url: https://artificialintelligenceact.eu/article/56/
-  eu-ai_c6-a57:
+  c6-a57:
     title: VI.A57 AI Regulatory Sandboxes
     url: https://artificialintelligenceact.eu/article/57/
-  eu-ai_c6-a58:
+  c6-a58:
     title: VI.A58 Detailed Arrangements for, and Functioning of, AI Regulatory Sandboxes
     url: https://artificialintelligenceact.eu/article/58/
-  eu-ai_c6-a59:
+  c6-a59:
     title: VI.A59 Further Processing of Personal Data for Developing Certain AI Systems
       in the Public Interest in the AI Regulatory Sandbox
     url: https://artificialintelligenceact.eu/article/59/
-  eu-ai_c6-a60:
+  c6-a60:
     title: VI.A60 Testing of High-Risk AI Systems in Real World Conditions Outside
       AI Regulatory Sandboxes
     url: https://artificialintelligenceact.eu/article/60/
-  eu-ai_c6-a61:
+  c6-a61:
     title: VI.A61 Informed Consent to Participate in Testing in Real World Conditions
       Outside AI Regulatory Sandboxes
     url: https://artificialintelligenceact.eu/article/61/
-  eu-ai_c6-a62:
+  c6-a62:
     title: VI.A62 Measures for Providers and Deployers, in Particular SMEs, Including
       Start-Ups
     url: https://artificialintelligenceact.eu/article/62/
-  eu-ai_c6-a63:
+  c6-a63:
     title: VI.A63 Derogations for Specific Operators
     url: https://artificialintelligenceact.eu/article/63/
-  eu-ai_c7-s1-a64:
-    title: VII.S1.A64 AI Office
+  c7-s1-a64:
+    title: 'VII.S1.A64: AI Office'
     url: https://artificialintelligenceact.eu/article/64/
-  eu-ai_c7-s1-a65:
-    title: VII.S1.A65 Establishment and Structure of the European Artificial Intelligence
-      Board
+  c7-s1-a65:
+    title: 'VII.S1.A65: Establishment and Structure of the European Artificial Intelligence
+      Board'
     url: https://artificialintelligenceact.eu/article/65/
-  eu-ai_c7-s1-a66:
-    title: VII.S1.A66 Tasks of the Board
+  c7-s1-a66:
+    title: 'VII.S1.A66: Tasks of the Board'
     url: https://artificialintelligenceact.eu/article/66/
-  eu-ai_c7-s1-a67:
-    title: VII.S1.A67 Advisory Forum
+  c7-s1-a67:
+    title: 'VII.S1.A67: Advisory Forum'
     url: https://artificialintelligenceact.eu/article/67/
-  eu-ai_c7-s1-a68:
-    title: VII.S1.A68 Scientific Panel of Independent Experts
+  c7-s1-a68:
+    title: 'VII.S1.A68: Scientific Panel of Independent Experts'
     url: https://artificialintelligenceact.eu/article/68/
-  eu-ai_c7-s1-a69:
-    title: VII.S1.A69 Access to the Pool of Experts by the Member States
+  c7-s1-a69:
+    title: 'VII.S1.A69: Access to the Pool of Experts by the Member States'
     url: https://artificialintelligenceact.eu/article/69/
-  eu-ai_c7-s2-a70:
-    title: VII.S2.A70 Designation of National Competent Authorities and Single Point
-      of Contact
+  c7-s2-a70:
+    title: 'VII.S2.A70: Designation of National Competent Authorities and Single Point
+      of Contact'
     url: https://artificialintelligenceact.eu/article/70/
-  eu-ai_c8-a71:
+  c8-a71:
     title: VIII.A71 EU Database for High-Risk AI Systems Listed in Annex III
     url: https://artificialintelligenceact.eu/article/71/
-  eu-ai_c9-s1-a72:
-    title: IX.S1.A72 Post-Market Monitoring by Providers and Post-Market Monitoring
-      Plan for High-Risk AI Systems
+  c9-s1-a72:
+    title: 'IX.S1.A72: Post-Market Monitoring by Providers and Post-Market Monitoring
+      Plan for High-Risk AI Systems'
     url: https://artificialintelligenceact.eu/article/72/
-  eu-ai_c9-s2-a73:
-    title: IX.S2.A73 Reporting of Serious Incidents
+  c9-s2-a73:
+    title: 'IX.S2.A73: Reporting of Serious Incidents'
     url: https://artificialintelligenceact.eu/article/73/
-  eu-ai_c9-s3-a74:
-    title: IX.S3.A74 Market Surveillance and Control of AI Systems in the Union Market
+  c9-s3-a74:
+    title: 'IX.S3.A74: Market Surveillance and Control of AI Systems in the Union
+      Market'
     url: https://artificialintelligenceact.eu/article/74/
-  eu-ai_c9-s3-a75:
-    title: IX.S3.A75 Mutual Assistance, Market Surveillance and Control of General-Purpose
-      AI Systems
+  c9-s3-a75:
+    title: 'IX.S3.A75: Mutual Assistance, Market Surveillance and Control of General-Purpose
+      AI Systems'
     url: https://artificialintelligenceact.eu/article/75/
-  eu-ai_c9-s3-a76:
-    title: IX.S3.A76 Supervision of Testing in Real World Conditions by Market Surveillance
-      Authorities
+  c9-s3-a76:
+    title: 'IX.S3.A76: Supervision of Testing in Real World Conditions by Market Surveillance
+      Authorities'
     url: https://artificialintelligenceact.eu/article/76/
-  eu-ai_c9-s3-a77:
-    title: IX.S3.A77 Powers of Authorities Protecting Fundamental Rights
+  c9-s3-a77:
+    title: 'IX.S3.A77: Powers of Authorities Protecting Fundamental Rights'
     url: https://artificialintelligenceact.eu/article/77/
-  eu-ai_c9-s3-a78:
-    title: IX.S3.A78 Confidentiality
+  c9-s3-a78:
+    title: 'IX.S3.A78: Confidentiality'
     url: https://artificialintelligenceact.eu/article/78/
-  eu-ai_c9-s3-a79:
-    title: IX.S3.A79 Procedure at National Level for Dealing with AI Systems Presenting
-      a Risk
+  c9-s3-a79:
+    title: 'IX.S3.A79: Procedure at National Level for Dealing with AI Systems Presenting
+      a Risk'
     url: https://artificialintelligenceact.eu/article/79/
-  eu-ai_c9-s3-a80:
-    title: IX.S3.A80 Procedure for Dealing with AI Systems Classified by the Provider
-      as Non-High-Risk in Application of Annex III
+  c9-s3-a80:
+    title: 'IX.S3.A80: Procedure for Dealing with AI Systems Classified by the Provider
+      as Non-High-Risk in Application of Annex III'
     url: https://artificialintelligenceact.eu/article/80/
-  eu-ai_c9-s3-a81:
-    title: IX.S3.A81 Union Safeguard Procedure
+  c9-s3-a81:
+    title: 'IX.S3.A81: Union Safeguard Procedure'
     url: https://artificialintelligenceact.eu/article/81/
-  eu-ai_c9-s3-a82:
-    title: IX.S3.A82 Compliant AI Systems Which Present a Risk
+  c9-s3-a82:
+    title: 'IX.S3.A82: Compliant AI Systems Which Present a Risk'
     url: https://artificialintelligenceact.eu/article/82/
-  eu-ai_c9-s3-a83:
-    title: IX.S3.A83 Formal Non-Compliance
+  c9-s3-a83:
+    title: 'IX.S3.A83: Formal Non-Compliance'
     url: https://artificialintelligenceact.eu/article/83/
-  eu-ai_c9-s3-a84:
-    title: IX.S3.A84 Union AI Testing Support Structures
+  c9-s3-a84:
+    title: 'IX.S3.A84: Union AI Testing Support Structures'
     url: https://artificialintelligenceact.eu/article/84/
-  eu-ai_c9-s4-a85:
-    title: IX.S4.A85 Right to Lodge a Complaint with a Market Surveillance Authority
+  c9-s4-a85:
+    title: 'IX.S4.A85: Right to Lodge a Complaint with a Market Surveillance Authority'
     url: https://artificialintelligenceact.eu/article/85/
-  eu-ai_c9-s4-a86:
-    title: IX.S4.A86 Right to Explanation of Individual Decision-Making
+  c9-s4-a86:
+    title: 'IX.S4.A86: Right to Explanation of Individual Decision-Making'
     url: https://artificialintelligenceact.eu/article/86/
-  eu-ai_c9-s4-a87:
-    title: IX.S4.A87 Reporting of Infringements and Protection of Reporting Persons
+  c9-s4-a87:
+    title: 'IX.S4.A87: Reporting of Infringements and Protection of Reporting Persons'
     url: https://artificialintelligenceact.eu/article/87/
-  eu-ai_c9-s5-a88:
-    title: IX.S5.A88 Enforcement of the Obligations of Providers of General-Purpose
-      AI Models
+  c9-s5-a88:
+    title: 'IX.S5.A88: Enforcement of the Obligations of Providers of General-Purpose
+      AI Models'
     url: https://artificialintelligenceact.eu/article/88/
-  eu-ai_c9-s5-a89:
-    title: 'IX.S5.A89 Article 89 : Monitoring Actions'
+  c9-s5-a89:
+    title: 'IX.S5.A89: Article 89 : Monitoring Actions'
     url: https://artificialintelligenceact.eu/article/89/
-  eu-ai_c9-s5-a90:
-    title: IX.S5.A90 Alerts of Systemic Risks by the Scientific Panel
+  c9-s5-a90:
+    title: 'IX.S5.A90: Alerts of Systemic Risks by the Scientific Panel'
     url: https://artificialintelligenceact.eu/article/90/
-  eu-ai_c9-s5-a91:
-    title: IX.S5.A91 Power to Request Documentation and Information
+  c9-s5-a91:
+    title: 'IX.S5.A91: Power to Request Documentation and Information'
     url: https://artificialintelligenceact.eu/article/91/
-  eu-ai_c9-s5-a92:
-    title: IX.S5.A92 Power to Conduct Evaluations
+  c9-s5-a92:
+    title: 'IX.S5.A92: Power to Conduct Evaluations'
     url: https://artificialintelligenceact.eu/article/92/
-  eu-ai_c9-s5-a93:
-    title: IX.S5.A93 Power to Request Measures
+  c9-s5-a93:
+    title: 'IX.S5.A93: Power to Request Measures'
     url: https://artificialintelligenceact.eu/article/93/
-  eu-ai_c9-s5-a94:
-    title: IX.S5.A94 Procedural Rights of Economic Operators of the General-Purpose
-      AI Model
+  c9-s5-a94:
+    title: 'IX.S5.A94: Procedural Rights of Economic Operators of the General-Purpose
+      AI Model'
     url: https://artificialintelligenceact.eu/article/94/
-  eu-ai_c10-a95:
+  c10-a95:
     title: X.A95 Codes of Conduct for Voluntary Application of Specific Requirements
     url: https://artificialintelligenceact.eu/article/95/
-  eu-ai_c10-a96:
+  c10-a96:
     title: X.A96 Guidelines from the Commission on the Implementation of this Regulation
     url: https://artificialintelligenceact.eu/article/96/
-  eu-ai_c11-a97:
+  c11-a97:
     title: XI.A97 Exercise of the Delegation
     url: https://artificialintelligenceact.eu/article/97/
-  eu-ai_c11-a98:
+  c11-a98:
     title: XI.A98 Committee Procedure
     url: https://artificialintelligenceact.eu/article/98/
-  eu-ai_c12-a99:
+  c12-a99:
     title: XII.A99 Penalties
     url: https://artificialintelligenceact.eu/article/99/
-  eu-ai_c12-a100:
+  c12-a100:
     title: XII.A100 Administrative Fines on Union Institutions, Bodies, Offices and
       Agencies
     url: https://artificialintelligenceact.eu/article/100/
-  eu-ai_c12-a101:
+  c12-a101:
     title: XII.A101 Fines for Providers of General-Purpose AI Models
     url: https://artificialintelligenceact.eu/article/101/
-  eu-ai_c13-a102:
+  c13-a102:
     title: XIII.A102 Amendment to Regulation (EC) No 300/2008
     url: https://artificialintelligenceact.eu/article/102/
-  eu-ai_c13-a103:
+  c13-a103:
     title: XIII.A103 Amendment to Regulation (EU) No 167/2013
     url: https://artificialintelligenceact.eu/article/103/
-  eu-ai_c13-a104:
+  c13-a104:
     title: XIII.A104 Amendment to Regulation (EU) No 168/2013
     url: https://artificialintelligenceact.eu/article/104/
-  eu-ai_c13-a105:
+  c13-a105:
     title: XIII.A105 Amendment to Directive 2014/90/EU
     url: https://artificialintelligenceact.eu/article/105/
-  eu-ai_c13-a106:
+  c13-a106:
     title: XIII.A106 Amendment to Directive (EU) 2016/797
     url: https://artificialintelligenceact.eu/article/106/
-  eu-ai_c13-a107:
+  c13-a107:
     title: XIII.A107 Amendment to Regulation (EU) 2018/858
     url: https://artificialintelligenceact.eu/article/107/
-  eu-ai_c13-a108:
+  c13-a108:
     title: XIII.A108 Amendments to Regulation (EU) 2018/1139
     url: https://artificialintelligenceact.eu/article/108/
-  eu-ai_c13-a109:
+  c13-a109:
     title: XIII.A109 Amendment to Regulation (EU) 2019/2144
     url: https://artificialintelligenceact.eu/article/109/
-  eu-ai_c13-a110:
+  c13-a110:
     title: XIII.A110 Amendment to Directive (EU) 2020/1828
     url: https://artificialintelligenceact.eu/article/110/
-  eu-ai_c13-a111:
+  c13-a111:
     title: XIII.A111 AI Systems Already Placed on the Market or put into Service and
       General-Purpose AI Models Already Placed on the Market
     url: https://artificialintelligenceact.eu/article/111/
-  eu-ai_c13-a112:
+  c13-a112:
     title: XIII.A112 Evaluation and Review
     url: https://artificialintelligenceact.eu/article/112/
-  eu-ai_c13-a113:
+  c13-a113:
     title: XIII.A113 Entry into Force and Application
     url: https://artificialintelligenceact.eu/article/113/
-  eu-ai_annex-1:
-    title: Annex I List of Union Harmonisation Legislation
+  annex-1:
+    title: 'Annex I: List of Union Harmonisation Legislation'
     url: https://artificialintelligenceact.eu/annex/1/
-  eu-ai_annex-2:
-    title: Annex II List of Criminal Offences Referred to in Article 5(1), First Subparagraph,
-      Point (h)(iii)
+  annex-2:
+    title: 'Annex II: List of Criminal Offences Referred to in Article 5(1), First
+      Subparagraph, Point (h)(iii)'
     url: https://artificialintelligenceact.eu/annex/2/
-  eu-ai_annex-3:
-    title: Annex III High-Risk AI Systems Referred to in Article 6(2)
+  annex-3:
+    title: 'Annex III: High-Risk AI Systems Referred to in Article 6(2)'
     url: https://artificialintelligenceact.eu/annex/3/
-  eu-ai_annex-4:
-    title: Annex IV Technical Documentation Referred to in Article 11(1)
+  annex-4:
+    title: 'Annex IV: Technical Documentation Referred to in Article 11(1)'
     url: https://artificialintelligenceact.eu/annex/4/
-  eu-ai_annex-5:
-    title: Annex V EU Declaration of Conformity
+  annex-5:
+    title: 'Annex V: EU Declaration of Conformity'
     url: https://artificialintelligenceact.eu/annex/5/
-  eu-ai_annex-6:
-    title: Annex VI Conformity Assessment Procedure Based on Internal Control
+  annex-6:
+    title: 'Annex VI: Conformity Assessment Procedure Based on Internal Control'
     url: https://artificialintelligenceact.eu/annex/6/
-  eu-ai_annex-7:
-    title: Annex VII Conformity Based on Assessment of the Quality Management System
-      and an Assessment of the Technical Documentation
+  annex-7:
+    title: 'Annex VII: Conformity Based on Assessment of the Quality Management System
+      and an Assessment of the Technical Documentation'
     url: https://artificialintelligenceact.eu/annex/7/
-  eu-ai_annex-8:
-    title: Annex VIII Information to be Submitted upon the Registration of High-Risk
-      AI Systems in Accordance with Article 49
+  annex-8:
+    title: 'Annex VIII: Information to be Submitted upon the Registration of High-Risk
+      AI Systems in Accordance with Article 49'
     url: https://artificialintelligenceact.eu/annex/8/
-  eu-ai_annex-9:
-    title: Annex IX Information to be Submitted upon the Registration of High-Risk
+  annex-9:
+    title: 'Annex IX: Information to be Submitted upon the Registration of High-Risk
       AI Systems Listed in Annex III in Relation to Testing in Real World Conditions
-      in Accordance with Article 60
+      in Accordance with Article 60'
     url: https://artificialintelligenceact.eu/annex/9/
-  eu-ai_annex-10:
-    title: Annex X Union Legislative Acts on Large-Scale IT Systems in the Area of
-      Freedom, Security and Justice
+  annex-10:
+    title: 'Annex X: Union Legislative Acts on Large-Scale IT Systems in the Area
+      of Freedom, Security and Justice'
     url: https://artificialintelligenceact.eu/annex/10/
-  eu-ai_annex-11:
-    title: Annex XI Technical Documentation Referred to in Article 53(1), Point (a)
-      - Technical Documentation for Providers of General-Purpose AI Models
+  annex-11:
+    title: 'Annex XI: Technical Documentation Referred to in Article 53(1), Point
+      (a) - Technical Documentation for Providers of General-Purpose AI Models'
     url: https://artificialintelligenceact.eu/annex/11/
-  eu-ai_annex-12:
-    title: Annex XII Transparency Information Referred to in Article 53(1), Point
+  annex-12:
+    title: 'Annex XII: Transparency Information Referred to in Article 53(1), Point
       (b) - Technical Documentation for Providers of General-Purpose AI Models to
-      Downstream Providers that Integrate the Model into Their AI System
+      Downstream Providers that Integrate the Model into Their AI System'
     url: https://artificialintelligenceact.eu/annex/12/
-  eu-ai_annex-13:
-    title: Annex XIII Criteria for the Designation of General-Purpose AI models with
-      Systemic Risk Referred to in Article 51
+  annex-13:
+    title: 'Annex XIII: Criteria for the Designation of General-Purpose AI models
+      with Systemic Risk Referred to in Article 51'
     url: https://artificialintelligenceact.eu/annex/13/
-  eu-ai_recital-1:
+  recital-1:
     title: Recital 1
     url: https://artificialintelligenceact.eu/recital/1/
-  eu-ai_recital-2:
+  recital-2:
     title: Recital 2
     url: https://artificialintelligenceact.eu/recital/2/
-  eu-ai_recital-3:
+  recital-3:
     title: Recital 3
     url: https://artificialintelligenceact.eu/recital/3/
-  eu-ai_recital-4:
+  recital-4:
     title: Recital 4
     url: https://artificialintelligenceact.eu/recital/4/
-  eu-ai_recital-5:
+  recital-5:
     title: Recital 5
     url: https://artificialintelligenceact.eu/recital/5/
-  eu-ai_recital-6:
+  recital-6:
     title: Recital 6
     url: https://artificialintelligenceact.eu/recital/6/
-  eu-ai_recital-7:
+  recital-7:
     title: Recital 7
     url: https://artificialintelligenceact.eu/recital/7/
-  eu-ai_recital-8:
+  recital-8:
     title: Recital 8
     url: https://artificialintelligenceact.eu/recital/8/
-  eu-ai_recital-9:
+  recital-9:
     title: Recital 9
     url: https://artificialintelligenceact.eu/recital/9/
-  eu-ai_recital-10:
+  recital-10:
     title: Recital 10
     url: https://artificialintelligenceact.eu/recital/10/
-  eu-ai_recital-11:
+  recital-11:
     title: Recital 11
     url: https://artificialintelligenceact.eu/recital/11/
-  eu-ai_recital-12:
+  recital-12:
     title: Recital 12
     url: https://artificialintelligenceact.eu/recital/12/
-  eu-ai_recital-13:
+  recital-13:
     title: Recital 13
     url: https://artificialintelligenceact.eu/recital/13/
-  eu-ai_recital-14:
+  recital-14:
     title: Recital 14
     url: https://artificialintelligenceact.eu/recital/14/
-  eu-ai_recital-15:
+  recital-15:
     title: Recital 15
     url: https://artificialintelligenceact.eu/recital/15/
-  eu-ai_recital-16:
+  recital-16:
     title: Recital 16
     url: https://artificialintelligenceact.eu/recital/16/
-  eu-ai_recital-17:
+  recital-17:
     title: Recital 17
     url: https://artificialintelligenceact.eu/recital/17/
-  eu-ai_recital-18:
+  recital-18:
     title: Recital 18
     url: https://artificialintelligenceact.eu/recital/18/
-  eu-ai_recital-19:
+  recital-19:
     title: Recital 19
     url: https://artificialintelligenceact.eu/recital/19/
-  eu-ai_recital-20:
+  recital-20:
     title: Recital 20
     url: https://artificialintelligenceact.eu/recital/20/
-  eu-ai_recital-21:
+  recital-21:
     title: Recital 21
     url: https://artificialintelligenceact.eu/recital/21/
-  eu-ai_recital-22:
+  recital-22:
     title: Recital 22
     url: https://artificialintelligenceact.eu/recital/22/
-  eu-ai_recital-23:
+  recital-23:
     title: Recital 23
     url: https://artificialintelligenceact.eu/recital/23/
-  eu-ai_recital-24:
+  recital-24:
     title: Recital 24
     url: https://artificialintelligenceact.eu/recital/24/
-  eu-ai_recital-25:
+  recital-25:
     title: Recital 25
     url: https://artificialintelligenceact.eu/recital/25/
-  eu-ai_recital-26:
+  recital-26:
     title: Recital 26
     url: https://artificialintelligenceact.eu/recital/26/
-  eu-ai_recital-27:
+  recital-27:
     title: Recital 27
     url: https://artificialintelligenceact.eu/recital/27/
-  eu-ai_recital-28:
+  recital-28:
     title: Recital 28
     url: https://artificialintelligenceact.eu/recital/28/
-  eu-ai_recital-29:
+  recital-29:
     title: Recital 29
     url: https://artificialintelligenceact.eu/recital/29/
-  eu-ai_recital-30:
+  recital-30:
     title: Recital 30
     url: https://artificialintelligenceact.eu/recital/30/
-  eu-ai_recital-31:
+  recital-31:
     title: Recital 31
     url: https://artificialintelligenceact.eu/recital/31/
-  eu-ai_recital-32:
+  recital-32:
     title: Recital 32
     url: https://artificialintelligenceact.eu/recital/32/
-  eu-ai_recital-33:
+  recital-33:
     title: Recital 33
     url: https://artificialintelligenceact.eu/recital/33/
-  eu-ai_recital-34:
+  recital-34:
     title: Recital 34
     url: https://artificialintelligenceact.eu/recital/34/
-  eu-ai_recital-35:
+  recital-35:
     title: Recital 35
     url: https://artificialintelligenceact.eu/recital/35/
-  eu-ai_recital-36:
+  recital-36:
     title: Recital 36
     url: https://artificialintelligenceact.eu/recital/36/
-  eu-ai_recital-37:
+  recital-37:
     title: Recital 37
     url: https://artificialintelligenceact.eu/recital/37/
-  eu-ai_recital-38:
+  recital-38:
     title: Recital 38
     url: https://artificialintelligenceact.eu/recital/38/
-  eu-ai_recital-39:
+  recital-39:
     title: Recital 39
     url: https://artificialintelligenceact.eu/recital/39/
-  eu-ai_recital-40:
+  recital-40:
     title: Recital 40
     url: https://artificialintelligenceact.eu/recital/40/
-  eu-ai_recital-41:
+  recital-41:
     title: Recital 41
     url: https://artificialintelligenceact.eu/recital/41/
-  eu-ai_recital-42:
+  recital-42:
     title: Recital 42
     url: https://artificialintelligenceact.eu/recital/42/
-  eu-ai_recital-43:
+  recital-43:
     title: Recital 43
     url: https://artificialintelligenceact.eu/recital/43/
-  eu-ai_recital-44:
+  recital-44:
     title: Recital 44
     url: https://artificialintelligenceact.eu/recital/44/
-  eu-ai_recital-45:
+  recital-45:
     title: Recital 45
     url: https://artificialintelligenceact.eu/recital/45/
-  eu-ai_recital-46:
+  recital-46:
     title: Recital 46
     url: https://artificialintelligenceact.eu/recital/46/
-  eu-ai_recital-47:
+  recital-47:
     title: Recital 47
     url: https://artificialintelligenceact.eu/recital/47/
-  eu-ai_recital-48:
+  recital-48:
     title: Recital 48
     url: https://artificialintelligenceact.eu/recital/48/
-  eu-ai_recital-49:
+  recital-49:
     title: Recital 49
     url: https://artificialintelligenceact.eu/recital/49/
-  eu-ai_recital-50:
+  recital-50:
     title: Recital 50
     url: https://artificialintelligenceact.eu/recital/50/
-  eu-ai_recital-51:
+  recital-51:
     title: Recital 51
     url: https://artificialintelligenceact.eu/recital/51/
-  eu-ai_recital-52:
+  recital-52:
     title: Recital 52
     url: https://artificialintelligenceact.eu/recital/52/
-  eu-ai_recital-53:
+  recital-53:
     title: Recital 53
     url: https://artificialintelligenceact.eu/recital/53/
-  eu-ai_recital-54:
+  recital-54:
     title: Recital 54
     url: https://artificialintelligenceact.eu/recital/54/
-  eu-ai_recital-55:
+  recital-55:
     title: Recital 55
     url: https://artificialintelligenceact.eu/recital/55/
-  eu-ai_recital-56:
+  recital-56:
     title: Recital 56
     url: https://artificialintelligenceact.eu/recital/56/
-  eu-ai_recital-57:
+  recital-57:
     title: Recital 57
     url: https://artificialintelligenceact.eu/recital/57/
-  eu-ai_recital-58:
+  recital-58:
     title: Recital 58
     url: https://artificialintelligenceact.eu/recital/58/
-  eu-ai_recital-59:
+  recital-59:
     title: Recital 59
     url: https://artificialintelligenceact.eu/recital/59/
-  eu-ai_recital-60:
+  recital-60:
     title: Recital 60
     url: https://artificialintelligenceact.eu/recital/60/
-  eu-ai_recital-61:
+  recital-61:
     title: Recital 61
     url: https://artificialintelligenceact.eu/recital/61/
-  eu-ai_recital-62:
+  recital-62:
     title: Recital 62
     url: https://artificialintelligenceact.eu/recital/62/
-  eu-ai_recital-63:
+  recital-63:
     title: Recital 63
     url: https://artificialintelligenceact.eu/recital/63/
-  eu-ai_recital-64:
+  recital-64:
     title: Recital 64
     url: https://artificialintelligenceact.eu/recital/64/
-  eu-ai_recital-65:
+  recital-65:
     title: Recital 65
     url: https://artificialintelligenceact.eu/recital/65/
-  eu-ai_recital-66:
+  recital-66:
     title: Recital 66
     url: https://artificialintelligenceact.eu/recital/66/
-  eu-ai_recital-67:
+  recital-67:
     title: Recital 67
     url: https://artificialintelligenceact.eu/recital/67/
-  eu-ai_recital-68:
+  recital-68:
     title: Recital 68
     url: https://artificialintelligenceact.eu/recital/68/
-  eu-ai_recital-69:
+  recital-69:
     title: Recital 69
     url: https://artificialintelligenceact.eu/recital/69/
-  eu-ai_recital-70:
+  recital-70:
     title: Recital 70
     url: https://artificialintelligenceact.eu/recital/70/
-  eu-ai_recital-71:
+  recital-71:
     title: Recital 71
     url: https://artificialintelligenceact.eu/recital/71/
-  eu-ai_recital-72:
+  recital-72:
     title: Recital 72
     url: https://artificialintelligenceact.eu/recital/72/
-  eu-ai_recital-73:
+  recital-73:
     title: Recital 73
     url: https://artificialintelligenceact.eu/recital/73/
-  eu-ai_recital-74:
+  recital-74:
     title: Recital 74
     url: https://artificialintelligenceact.eu/recital/74/
-  eu-ai_recital-75:
+  recital-75:
     title: Recital 75
     url: https://artificialintelligenceact.eu/recital/75/
-  eu-ai_recital-76:
+  recital-76:
     title: Recital 76
     url: https://artificialintelligenceact.eu/recital/76/
-  eu-ai_recital-77:
+  recital-77:
     title: Recital 77
     url: https://artificialintelligenceact.eu/recital/77/
-  eu-ai_recital-78:
+  recital-78:
     title: Recital 78
     url: https://artificialintelligenceact.eu/recital/78/
-  eu-ai_recital-79:
+  recital-79:
     title: Recital 79
     url: https://artificialintelligenceact.eu/recital/79/
-  eu-ai_recital-80:
+  recital-80:
     title: Recital 80
     url: https://artificialintelligenceact.eu/recital/80/
-  eu-ai_recital-81:
+  recital-81:
     title: Recital 81
     url: https://artificialintelligenceact.eu/recital/81/
-  eu-ai_recital-82:
+  recital-82:
     title: Recital 82
     url: https://artificialintelligenceact.eu/recital/82/
-  eu-ai_recital-83:
+  recital-83:
     title: Recital 83
     url: https://artificialintelligenceact.eu/recital/83/
-  eu-ai_recital-84:
+  recital-84:
     title: Recital 84
     url: https://artificialintelligenceact.eu/recital/84/
-  eu-ai_recital-85:
+  recital-85:
     title: Recital 85
     url: https://artificialintelligenceact.eu/recital/85/
-  eu-ai_recital-86:
+  recital-86:
     title: Recital 86
     url: https://artificialintelligenceact.eu/recital/86/
-  eu-ai_recital-87:
+  recital-87:
     title: Recital 87
     url: https://artificialintelligenceact.eu/recital/87/
-  eu-ai_recital-88:
+  recital-88:
     title: Recital 88
     url: https://artificialintelligenceact.eu/recital/88/
-  eu-ai_recital-89:
+  recital-89:
     title: Recital 89
     url: https://artificialintelligenceact.eu/recital/89/
-  eu-ai_recital-90:
+  recital-90:
     title: Recital 90
     url: https://artificialintelligenceact.eu/recital/90/
-  eu-ai_recital-91:
+  recital-91:
     title: Recital 91
     url: https://artificialintelligenceact.eu/recital/91/
-  eu-ai_recital-92:
+  recital-92:
     title: Recital 92
     url: https://artificialintelligenceact.eu/recital/92/
-  eu-ai_recital-93:
+  recital-93:
     title: Recital 93
     url: https://artificialintelligenceact.eu/recital/93/
-  eu-ai_recital-94:
+  recital-94:
     title: Recital 94
     url: https://artificialintelligenceact.eu/recital/94/
-  eu-ai_recital-95:
+  recital-95:
     title: Recital 95
     url: https://artificialintelligenceact.eu/recital/95/
-  eu-ai_recital-96:
+  recital-96:
     title: Recital 96
     url: https://artificialintelligenceact.eu/recital/96/
-  eu-ai_recital-97:
+  recital-97:
     title: Recital 97
     url: https://artificialintelligenceact.eu/recital/97/
-  eu-ai_recital-98:
+  recital-98:
     title: Recital 98
     url: https://artificialintelligenceact.eu/recital/98/
-  eu-ai_recital-99:
+  recital-99:
     title: Recital 99
     url: https://artificialintelligenceact.eu/recital/99/
-  eu-ai_recital-100:
+  recital-100:
     title: Recital 100
     url: https://artificialintelligenceact.eu/recital/100/
-  eu-ai_recital-101:
+  recital-101:
     title: Recital 101
     url: https://artificialintelligenceact.eu/recital/101/
-  eu-ai_recital-102:
+  recital-102:
     title: Recital 102
     url: https://artificialintelligenceact.eu/recital/102/
-  eu-ai_recital-103:
+  recital-103:
     title: Recital 103
     url: https://artificialintelligenceact.eu/recital/103/
-  eu-ai_recital-104:
+  recital-104:
     title: Recital 104
     url: https://artificialintelligenceact.eu/recital/104/
-  eu-ai_recital-105:
+  recital-105:
     title: Recital 105
     url: https://artificialintelligenceact.eu/recital/105/
-  eu-ai_recital-106:
+  recital-106:
     title: Recital 106
     url: https://artificialintelligenceact.eu/recital/106/
-  eu-ai_recital-107:
+  recital-107:
     title: Recital 107
     url: https://artificialintelligenceact.eu/recital/107/
-  eu-ai_recital-108:
+  recital-108:
     title: Recital 108
     url: https://artificialintelligenceact.eu/recital/108/
-  eu-ai_recital-109:
+  recital-109:
     title: Recital 109
     url: https://artificialintelligenceact.eu/recital/109/
-  eu-ai_recital-110:
+  recital-110:
     title: Recital 110
     url: https://artificialintelligenceact.eu/recital/110/
-  eu-ai_recital-111:
+  recital-111:
     title: Recital 111
     url: https://artificialintelligenceact.eu/recital/111/
-  eu-ai_recital-112:
+  recital-112:
     title: Recital 112
     url: https://artificialintelligenceact.eu/recital/112/
-  eu-ai_recital-113:
+  recital-113:
     title: Recital 113
     url: https://artificialintelligenceact.eu/recital/113/
-  eu-ai_recital-114:
+  recital-114:
     title: Recital 114
     url: https://artificialintelligenceact.eu/recital/114/
-  eu-ai_recital-115:
+  recital-115:
     title: Recital 115
     url: https://artificialintelligenceact.eu/recital/115/
-  eu-ai_recital-116:
+  recital-116:
     title: Recital 116
     url: https://artificialintelligenceact.eu/recital/116/
-  eu-ai_recital-117:
+  recital-117:
     title: Recital 117
     url: https://artificialintelligenceact.eu/recital/117/
-  eu-ai_recital-118:
+  recital-118:
     title: Recital 118
     url: https://artificialintelligenceact.eu/recital/118/
-  eu-ai_recital-119:
+  recital-119:
     title: Recital 119
     url: https://artificialintelligenceact.eu/recital/119/
-  eu-ai_recital-120:
+  recital-120:
     title: Recital 120
     url: https://artificialintelligenceact.eu/recital/120/
-  eu-ai_recital-121:
+  recital-121:
     title: Recital 121
     url: https://artificialintelligenceact.eu/recital/121/
-  eu-ai_recital-122:
+  recital-122:
     title: Recital 122
     url: https://artificialintelligenceact.eu/recital/122/
-  eu-ai_recital-123:
+  recital-123:
     title: Recital 123
     url: https://artificialintelligenceact.eu/recital/123/
-  eu-ai_recital-124:
+  recital-124:
     title: Recital 124
     url: https://artificialintelligenceact.eu/recital/124/
-  eu-ai_recital-125:
+  recital-125:
     title: Recital 125
     url: https://artificialintelligenceact.eu/recital/125/
-  eu-ai_recital-126:
+  recital-126:
     title: Recital 126
     url: https://artificialintelligenceact.eu/recital/126/
-  eu-ai_recital-127:
+  recital-127:
     title: Recital 127
     url: https://artificialintelligenceact.eu/recital/127/
-  eu-ai_recital-128:
+  recital-128:
     title: Recital 128
     url: https://artificialintelligenceact.eu/recital/128/
-  eu-ai_recital-129:
+  recital-129:
     title: Recital 129
     url: https://artificialintelligenceact.eu/recital/129/
-  eu-ai_recital-130:
+  recital-130:
     title: Recital 130
     url: https://artificialintelligenceact.eu/recital/130/
-  eu-ai_recital-131:
+  recital-131:
     title: Recital 131
     url: https://artificialintelligenceact.eu/recital/131/
-  eu-ai_recital-132:
+  recital-132:
     title: Recital 132
     url: https://artificialintelligenceact.eu/recital/132/
-  eu-ai_recital-133:
+  recital-133:
     title: Recital 133
     url: https://artificialintelligenceact.eu/recital/133/
-  eu-ai_recital-134:
+  recital-134:
     title: Recital 134
     url: https://artificialintelligenceact.eu/recital/134/
-  eu-ai_recital-135:
+  recital-135:
     title: Recital 135
     url: https://artificialintelligenceact.eu/recital/135/
-  eu-ai_recital-136:
+  recital-136:
     title: Recital 136
     url: https://artificialintelligenceact.eu/recital/136/
-  eu-ai_recital-137:
+  recital-137:
     title: Recital 137
     url: https://artificialintelligenceact.eu/recital/137/
-  eu-ai_recital-138:
+  recital-138:
     title: Recital 138
     url: https://artificialintelligenceact.eu/recital/138/
-  eu-ai_recital-139:
+  recital-139:
     title: Recital 139
     url: https://artificialintelligenceact.eu/recital/139/
-  eu-ai_recital-140:
+  recital-140:
     title: Recital 140
     url: https://artificialintelligenceact.eu/recital/140/
-  eu-ai_recital-141:
+  recital-141:
     title: Recital 141
     url: https://artificialintelligenceact.eu/recital/141/
-  eu-ai_recital-142:
+  recital-142:
     title: Recital 142
     url: https://artificialintelligenceact.eu/recital/142/
-  eu-ai_recital-143:
+  recital-143:
     title: Recital 143
     url: https://artificialintelligenceact.eu/recital/143/
-  eu-ai_recital-144:
+  recital-144:
     title: Recital 144
     url: https://artificialintelligenceact.eu/recital/144/
-  eu-ai_recital-145:
+  recital-145:
     title: Recital 145
     url: https://artificialintelligenceact.eu/recital/145/
-  eu-ai_recital-146:
+  recital-146:
     title: Recital 146
     url: https://artificialintelligenceact.eu/recital/146/
-  eu-ai_recital-147:
+  recital-147:
     title: Recital 147
     url: https://artificialintelligenceact.eu/recital/147/
-  eu-ai_recital-148:
+  recital-148:
     title: Recital 148
     url: https://artificialintelligenceact.eu/recital/148/
-  eu-ai_recital-149:
+  recital-149:
     title: Recital 149
     url: https://artificialintelligenceact.eu/recital/149/
-  eu-ai_recital-150:
+  recital-150:
     title: Recital 150
     url: https://artificialintelligenceact.eu/recital/150/
-  eu-ai_recital-151:
+  recital-151:
     title: Recital 151
     url: https://artificialintelligenceact.eu/recital/151/
-  eu-ai_recital-152:
+  recital-152:
     title: Recital 152
     url: https://artificialintelligenceact.eu/recital/152/
-  eu-ai_recital-153:
+  recital-153:
     title: Recital 153
     url: https://artificialintelligenceact.eu/recital/153/
-  eu-ai_recital-154:
+  recital-154:
     title: Recital 154
     url: https://artificialintelligenceact.eu/recital/154/
-  eu-ai_recital-155:
+  recital-155:
     title: Recital 155
     url: https://artificialintelligenceact.eu/recital/155/
-  eu-ai_recital-156:
+  recital-156:
     title: Recital 156
     url: https://artificialintelligenceact.eu/recital/156/
-  eu-ai_recital-157:
+  recital-157:
     title: Recital 157
     url: https://artificialintelligenceact.eu/recital/157/
-  eu-ai_recital-158:
+  recital-158:
     title: Recital 158
     url: https://artificialintelligenceact.eu/recital/158/
-  eu-ai_recital-159:
+  recital-159:
     title: Recital 159
     url: https://artificialintelligenceact.eu/recital/159/
-  eu-ai_recital-160:
+  recital-160:
     title: Recital 160
     url: https://artificialintelligenceact.eu/recital/160/
-  eu-ai_recital-161:
+  recital-161:
     title: Recital 161
     url: https://artificialintelligenceact.eu/recital/161/
-  eu-ai_recital-162:
+  recital-162:
     title: Recital 162
     url: https://artificialintelligenceact.eu/recital/162/
-  eu-ai_recital-163:
+  recital-163:
     title: Recital 163
     url: https://artificialintelligenceact.eu/recital/163/
-  eu-ai_recital-164:
+  recital-164:
     title: Recital 164
     url: https://artificialintelligenceact.eu/recital/164/
-  eu-ai_recital-165:
+  recital-165:
     title: Recital 165
     url: https://artificialintelligenceact.eu/recital/165/
-  eu-ai_recital-166:
+  recital-166:
     title: Recital 166
     url: https://artificialintelligenceact.eu/recital/166/
-  eu-ai_recital-167:
+  recital-167:
     title: Recital 167
     url: https://artificialintelligenceact.eu/recital/167/
-  eu-ai_recital-168:
+  recital-168:
     title: Recital 168
     url: https://artificialintelligenceact.eu/recital/168/
-  eu-ai_recital-169:
+  recital-169:
     title: Recital 169
     url: https://artificialintelligenceact.eu/recital/169/
-  eu-ai_recital-170:
+  recital-170:
     title: Recital 170
     url: https://artificialintelligenceact.eu/recital/170/
-  eu-ai_recital-171:
+  recital-171:
     title: Recital 171
     url: https://artificialintelligenceact.eu/recital/171/
-  eu-ai_recital-172:
+  recital-172:
     title: Recital 172
     url: https://artificialintelligenceact.eu/recital/172/
-  eu-ai_recital-173:
+  recital-173:
     title: Recital 173
     url: https://artificialintelligenceact.eu/recital/173/
-  eu-ai_recital-174:
+  recital-174:
     title: Recital 174
     url: https://artificialintelligenceact.eu/recital/174/
-  eu-ai_recital-175:
+  recital-175:
     title: Recital 175
     url: https://artificialintelligenceact.eu/recital/175/
-  eu-ai_recital-176:
+  recital-176:
     title: Recital 176
     url: https://artificialintelligenceact.eu/recital/176/
-  eu-ai_recital-177:
+  recital-177:
     title: Recital 177
     url: https://artificialintelligenceact.eu/recital/177/
-  eu-ai_recital-178:
+  recital-178:
     title: Recital 178
     url: https://artificialintelligenceact.eu/recital/178/
-  eu-ai_recital-179:
+  recital-179:
     title: Recital 179
     url: https://artificialintelligenceact.eu/recital/179/
-  eu-ai_recital-180:
+  recital-180:
     title: Recital 180
     url: https://artificialintelligenceact.eu/recital/180/

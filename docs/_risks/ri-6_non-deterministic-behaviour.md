@@ -9,10 +9,10 @@ external_risks:
 ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing
-eu-ai_references:
-  - eu-ai_c3-s2-a9  # III.S2.A9 Risk Management System
-  - eu-ai_c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
+eu-ai-act_references:
+  - c3-s2-a9  # III.S2.A9 Risk Management System
+  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - c3-s2-a14  # III.S2.A14 Human Oversight
 ---
 
 ## Summary
