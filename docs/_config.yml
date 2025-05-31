@@ -19,6 +19,20 @@ document_status:
   - name: Published
     description: "The publication of an Approved Specification in a publicly accessible manner."
 
+# FFIEC IT Booklet abbreviations mapping
+ffiec_itbooklet_abbreviations:
+  architecture-infrastructure-and-operations: aio
+  archived-booklets: arc
+  audit: aud
+  business-continuity-management: bcm
+  development-acquisition-and-maintenance: dam
+  information-security: sec
+  management: mgt
+  outsourcing-technology-services: ots
+  retail-payment-systems: rps
+  supervision-of-technology-service-providers: tsp
+  wholesale-payment-systems: wps
+
 collections:
   risks:
     output: true

@@ -54,38 +54,35 @@ URL_COMPONENTS_SECTION = 6
 
 # Path constants
 DATA_DIR = SCRIPT_DIR / ".." / "docs" / "_data"
+CONFIG_DIR = SCRIPT_DIR / ".." / "docs"
 FFIEC_ITBOOKLETS_DIR = SCRIPT_DIR / ".." / "_refs-markdown" / "ffiec-itbooklets"
 YAML_FILE = DATA_DIR / YAML_FILENAME
+CONFIG_FILE = CONFIG_DIR / "_config.yml"
 HTML_OUTPUT_DIR = FFIEC_ITBOOKLETS_DIR / "html"
 MD_OUTPUT_DIR = FFIEC_ITBOOKLETS_DIR / "markdown"
 
-# FFIEC booklet abbreviations mapping
-FFIEC_ABBREVIATIONS = {
-    "architecture-infrastructure-and-operations": "aio",
-    "archived-booklets": "arc", 
-    "audit": "aud",
-    "business-continuity-management": "bcm",
-    "development-acquisition-and-maintenance": "dam",
-    "information-security": "sec",
-    "management": "mgt",
-    "outsourcing-technology-services": "ots",
-    "retail-payment-systems": "rps",
-    "supervision-of-technology-service-providers": "tsp",
-    "wholesale-payment-systems": "wps"
-}
 
 
+def read_config_file(config_file):
+    """Read and parse Jekyll config file to get abbreviations mapping."""
+    try:
+        with open(config_file, 'r', encoding='utf-8') as f:
+            config_data = yaml.safe_load(f)
+            return config_data.get('ffiec_itbooklet_abbreviations', {})
+    except FileNotFoundError:
+        print(f"Error: Config file not found: {config_file}", file=sys.stderr)
+        return {}
+    except yaml.YAMLError as e:
+        print(f"Error parsing config file: {e}", file=sys.stderr)
+        return {}
 
-def write_yaml_file(yaml_file, abbreviations, booklets):
-    """Write abbreviations and booklets data to YAML file."""
+def write_yaml_file(yaml_file, booklets):
+    """Write booklets data to YAML file."""
     try:
         with open(yaml_file, 'w', encoding='utf-8') as f:
             f.write("# FFIEC IT Booklets\n")
             f.write(f"# Generated from {BOOKLETS_URL}\n\n")
-            yaml.dump({'ffiec_itbooklet_abbreviations': abbreviations}, f, 
-                     default_flow_style=False, sort_keys=True)
-            f.write("\n")
-            yaml.dump({'ffiec_itbooklets': booklets}, f, 
+            yaml.dump(booklets, f, 
                      default_flow_style=False, sort_keys=True)
         return True
     except (OSError, yaml.YAMLError) as e:
@@ -105,8 +102,12 @@ def read_yaml_file(yaml_file):
         print(f"Error parsing YAML file: {e}", file=sys.stderr)
         return None
 
-def parse_booklet_url(full_url):
+def parse_booklet_url(full_url, abbreviations):
     """Parse booklet URL to extract key and abbreviation.
+    
+    Args:
+        full_url: Full URL to parse
+        abbreviations: Dictionary mapping full booklet names to abbreviations
     
     Returns:
         tuple: (key, booklet_abbrev) or (None, None) if parsing fails
@@ -118,7 +119,7 @@ def parse_booklet_url(full_url):
         return None, None
         
     booklet = components[4]
-    booklet_abbrev = FFIEC_ABBREVIATIONS.get(booklet)
+    booklet_abbrev = abbreviations.get(booklet)
     
     if not booklet_abbrev:
         return None, None
@@ -174,6 +175,14 @@ def generate_yaml_file(yaml_file):
     """Generate the YAML file with FFIEC booklet structure and URLs."""
     
     print("=== Generating YAML file ===")
+    
+    # Read abbreviations from config file
+    print(f"Reading abbreviations from config file: {CONFIG_FILE}")
+    abbreviations = read_config_file(CONFIG_FILE)
+    if not abbreviations:
+        print("Error: No abbreviations found in config file", file=sys.stderr)
+        return False
+    
     print("Downloading FFIEC IT booklets page...")
     try:
         response = requests.get(BOOKLETS_URL)
@@ -215,7 +224,7 @@ def generate_yaml_file(yaml_file):
         full_url = urljoin(BASE_URL, href)
         
         # Parse the URL to extract key and abbreviation
-        key, booklet_abbrev = parse_booklet_url(full_url)
+        key, booklet_abbrev = parse_booklet_url(full_url, abbreviations)
         
         if key is None:
             print(f"Warning: Could not parse URL {full_url}, skipping", file=sys.stderr)
@@ -230,7 +239,7 @@ def generate_yaml_file(yaml_file):
         booklets[key] = create_booklet_entry(key, booklet_abbrev, title, full_url)
     
     # Write YAML file
-    if not write_yaml_file(yaml_file, FFIEC_ABBREVIATIONS, booklets):
+    if not write_yaml_file(yaml_file, booklets):
         return False
     
     print(f"[OK] YAML file created: {yaml_file}")
@@ -249,18 +258,17 @@ def download_html_files(yaml_file, html_output_dir):
         return False
     
     # Extract booklets data
-    ffiec_itbooklets = data.get('ffiec_itbooklets', {})
-    if not ffiec_itbooklets:
-        print("No ffiec_itbooklets section found in YAML file", file=sys.stderr)
+    if not data:
+        print("No booklet data found in YAML file", file=sys.stderr)
         return False
     
-    print(f"Found {len(ffiec_itbooklets)} booklets/sections to download")
+    print(f"Found {len(data)} booklets/sections to download")
     print(f"HTML output directory: {html_output_dir}")
     
     success_count = 0
     error_count = 0
     
-    for key, booklet_info in ffiec_itbooklets.items():
+    for key, booklet_info in data.items():
         url = booklet_info.get('url')
         title = booklet_info.get('title', 'Unknown Title')
         
@@ -271,6 +279,13 @@ def download_html_files(yaml_file, html_output_dir):
         # Create filename from key
         html_filename = f"{key}.html"
         html_path = html_output_dir / html_filename
+        
+        # Skip if file already exists
+        if html_path.exists():
+            print(f"Skipping: {title}")
+            print(f"  HTML: {html_filename} (already exists)")
+            success_count += 1
+            continue
         
         print(f"Downloading: {title}")
         print(f"  URL: {url}")
@@ -341,6 +356,12 @@ def convert_to_markdown(html_output_dir, md_output_dir):
     for html_path in html_files:
         md_filename = f"{html_path.stem}.md"
         md_path = md_output_dir / md_filename
+        
+        # Skip if markdown file already exists
+        if md_path.exists():
+            print(f"Skipping: {html_path.name} -> {md_filename} (already exists)")
+            success_count += 1
+            continue
         
         print(f"Converting: {html_path.name} -> {md_filename}")
         

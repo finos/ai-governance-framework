@@ -1,456 +1,442 @@
 # FFIEC IT Booklets
 # Generated from https://ithandbook.ffiec.gov/it-booklets
 
-ffiec_itbooklet_abbreviations:
-  architecture-infrastructure-and-operations: aio
-  archived-booklets: arc
-  audit: aud
-  business-continuity-management: bcm
-  development-acquisition-and-maintenance: dam
-  information-security: sec
-  management: mgt
-  outsourcing-technology-services: ots
-  retail-payment-systems: rps
-  supervision-of-technology-service-providers: tsp
-  wholesale-payment-systems: wps
-
-ffiec_itbooklets:
-  ffiec_aio:
-    booklet_abbrev: aio
-    title: 'AIO: Architecture, Infrastructure, and Operations'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/
-  ffiec_aio_appendix-a-examination-procedures:
-    booklet_abbrev: aio
-    title: 'AIO: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-a-examination-procedures/
-  ffiec_aio_appendix-b-glossary:
-    booklet_abbrev: aio
-    title: 'AIO: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-b-glossary/
-  ffiec_aio_appendix-c-abbreviations:
-    booklet_abbrev: aio
-    title: 'AIO: Appendix C: Abbreviations'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-c-abbreviations/
-  ffiec_aio_appendix-d-references:
-    booklet_abbrev: aio
-    title: 'AIO: Appendix D: References'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-d-references/
-  ffiec_aio_i-architecture-infrastructure-and-operations:
-    booklet_abbrev: aio
-    title: 'AIO: I Architecture, Infrastructure, and Operations'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/i-architecture-infrastructure-and-operations/
-  ffiec_aio_ii-architecture-infrastructure-and-operations-governance:
-    booklet_abbrev: aio
-    title: 'AIO: II Architecture, Infrastructure, and Operations Governance'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/ii-architecture-infrastructure-and-operations-governance/
-  ffiec_aio_iii-common-aio-risk-management-topics:
-    booklet_abbrev: aio
-    title: 'AIO: III Common AIO Risk Management Topics'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/iii-common-aio-risk-management-topics/
-  ffiec_aio_introduction:
-    booklet_abbrev: aio
-    title: 'AIO: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/introduction/
-  ffiec_aio_iv-architecture:
-    booklet_abbrev: aio
-    title: 'AIO: IV Architecture'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/iv-architecture/
-  ffiec_aio_v-infrastructure:
-    booklet_abbrev: aio
-    title: 'AIO: V Infrastructure'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/v-infrastructure/
-  ffiec_aio_vi-operations:
-    booklet_abbrev: aio
-    title: 'AIO: VI Operations'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/vi-operations/
-  ffiec_aio_vii-evolving-technologies:
-    booklet_abbrev: aio
-    title: 'AIO: VII Evolving Technologies'
-    url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/vii-evolving-technologies/
-  ffiec_arc:
-    booklet_abbrev: arc
-    title: 'ARC: Archived Booklets'
-    url: https://ithandbook.ffiec.gov/it-booklets/archived-booklets/
-  ffiec_aud:
-    booklet_abbrev: aud
-    title: 'AUD: Audit'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/
-  ffiec_aud_appendix-a-examination-procedures:
-    booklet_abbrev: aud
-    title: 'AUD: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/appendix-a-examination-procedures/
-  ffiec_aud_appendix-b-glossary:
-    booklet_abbrev: aud
-    title: 'AUD: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/appendix-b-glossary/
-  ffiec_aud_appendix-c-laws-regulations-and-guidance:
-    booklet_abbrev: aud
-    title: 'AUD: Appendix C: Laws, Regulations, and Guidance'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/appendix-c-laws-regulations-and-guidance/
-  ffiec_aud_audit-participation-in-application-development-acquisition-conversions-and-testing:
-    booklet_abbrev: aud
-    title: 'AUD: Audit Participation in Application Development, Acquisition, Conversions,
-      and Testing'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/audit-participation-in-application-development-acquisition-conversions-and-testing/
-  ffiec_aud_independence-and-staffing-of-internal-it-audit:
-    booklet_abbrev: aud
-    title: 'AUD: Independence and Staffing of Internal IT Audit'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/independence-and-staffing-of-internal-it-audit/
-  ffiec_aud_internal-audit-program:
-    booklet_abbrev: aud
-    title: 'AUD: Internal Audit Program'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/internal-audit-program/
-  ffiec_aud_introduction:
-    booklet_abbrev: aud
-    title: 'AUD: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/introduction/
-  ffiec_aud_it-audit-roles-and-responsibilities:
-    booklet_abbrev: aud
-    title: 'AUD: IT Audit Roles and Responsibilities'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/it-audit-roles-and-responsibilities/
-  ffiec_aud_outsourcing-internal-it-audit:
-    booklet_abbrev: aud
-    title: 'AUD: Outsourcing Internal IT Audit'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/outsourcing-internal-it-audit/
-  ffiec_aud_risk-assessment-and-risk-based-auditing:
-    booklet_abbrev: aud
-    title: 'AUD: Risk Assessment and Risk-Based Auditing'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/risk-assessment-and-risk-based-auditing/
-  ffiec_aud_third-party-reviews-of-technology-service-providers:
-    booklet_abbrev: aud
-    title: 'AUD: Third-Party Reviews of Technology Service Providers'
-    url: https://ithandbook.ffiec.gov/it-booklets/audit/third-party-reviews-of-technology-service-providers/
-  ffiec_bcm:
-    booklet_abbrev: bcm
-    title: 'BCM: Business Continuity Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/
-  ffiec_bcm_appendix-a-examination-procedures:
-    booklet_abbrev: bcm
-    title: 'BCM: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-a-examination-procedures/
-  ffiec_bcm_appendix-b-glossary:
-    booklet_abbrev: bcm
-    title: 'BCM: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-b-glossary/
-  ffiec_bcm_appendix-c-abbreviations:
-    booklet_abbrev: bcm
-    title: 'BCM: Appendix C: Abbreviations'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-c-abbreviations/
-  ffiec_bcm_appendix-d-references:
-    booklet_abbrev: bcm
-    title: 'BCM: Appendix D: References'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-d-references/
-  ffiec_bcm_i-business-continuity-management:
-    booklet_abbrev: bcm
-    title: 'BCM: I Business Continuity Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/i-business-continuity-management/
-  ffiec_bcm_ii-business-continuity-management-governance:
-    booklet_abbrev: bcm
-    title: 'BCM: II Business Continuity Management Governance'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/ii-business-continuity-management-governance/
-  ffiec_bcm_iii-risk-management:
-    booklet_abbrev: bcm
-    title: 'BCM: III Risk Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/iii-risk-management/
-  ffiec_bcm_introduction:
-    booklet_abbrev: bcm
-    title: 'BCM: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/introduction/
-  ffiec_bcm_iv-business-continuity-strategies:
-    booklet_abbrev: bcm
-    title: 'BCM: IV Business Continuity Strategies'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/iv-business-continuity-strategies/
-  ffiec_bcm_ix-board-reporting:
-    booklet_abbrev: bcm
-    title: 'BCM: IX Board Reporting'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/ix-board-reporting/
-  ffiec_bcm_v-business-continuity-plan:
-    booklet_abbrev: bcm
-    title: 'BCM: V Business Continuity Plan'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/v-business-continuity-plan/
-  ffiec_bcm_vi-training:
-    booklet_abbrev: bcm
-    title: 'BCM: VI Training'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/vi-training/
-  ffiec_bcm_vii-exercises-and-tests:
-    booklet_abbrev: bcm
-    title: 'BCM: VII Exercises and Tests'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/vii-exercises-and-tests/
-  ffiec_bcm_viii-maintenance-and-improvement:
-    booklet_abbrev: bcm
-    title: 'BCM: VIII Maintenance and Improvement'
-    url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/viii-maintenance-and-improvement/
-  ffiec_dam:
-    booklet_abbrev: dam
-    title: 'DAM: Development, Acquisition, and Maintenance'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/
-  ffiec_dam_appendix-a-examination-procedures:
-    booklet_abbrev: dam
-    title: 'DAM: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-a-examination-procedures/
-  ffiec_dam_appendix-b-glossary:
-    booklet_abbrev: dam
-    title: 'DAM: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-b-glossary/
-  ffiec_dam_appendix-c-abbreviations:
-    booklet_abbrev: dam
-    title: 'DAM: Appendix C: Abbreviations'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-c-abbreviations/
-  ffiec_dam_appendix-d-references:
-    booklet_abbrev: dam
-    title: 'DAM: Appendix D: References'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-d-references/
-  ffiec_dam_i-overview-of-development-acquisition-and-maintenance:
-    booklet_abbrev: dam
-    title: 'DAM: I Overview of Development, Acquisition, and Maintenance'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/i-overview-of-development-acquisition-and-maintenance/
-  ffiec_dam_ii-governance-of-development-acquisition-and-maintenance:
-    booklet_abbrev: dam
-    title: 'DAM: II Governance of Development, Acquisition, and Maintenance'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/ii-governance-of-development-acquisition-and-maintenance/
-  ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance:
-    booklet_abbrev: dam
-    title: 'DAM: III Risk Management of Development, Acquisition, and Maintenance'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/iii-risk-management-of-development-acquisition-and-maintenance/
-  ffiec_dam_introduction:
-    booklet_abbrev: dam
-    title: 'DAM: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/introduction/
-  ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics:
-    booklet_abbrev: dam
-    title: 'DAM: IV Common Development, Acquisition, and Maintenance Risk Topics'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/iv-common-development-acquisition-and-maintenance-risk-topics/
-  ffiec_dam_v-development:
-    booklet_abbrev: dam
-    title: 'DAM: V Development'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/v-development/
-  ffiec_dam_vi-acquisition:
-    booklet_abbrev: dam
-    title: 'DAM: VI Acquisition'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/vi-acquisition/
-  ffiec_dam_vii-maintenance:
-    booklet_abbrev: dam
-    title: 'DAM: VII Maintenance'
-    url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/vii-maintenance/
-  ffiec_mgt:
-    booklet_abbrev: mgt
-    title: 'MGT: Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/
-  ffiec_mgt_appendix-a-examination-procedures:
-    booklet_abbrev: mgt
-    title: 'MGT: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/appendix-a-examination-procedures/
-  ffiec_mgt_appendix-b-glossary:
-    booklet_abbrev: mgt
-    title: 'MGT: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/appendix-b-glossary/
-  ffiec_mgt_appendix-c-references:
-    booklet_abbrev: mgt
-    title: 'MGT: Appendix C: References'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/appendix-c-references/
-  ffiec_mgt_i-governance:
-    booklet_abbrev: mgt
-    title: 'MGT: I   Governance'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/i-governance/
-  ffiec_mgt_ii-risk-management:
-    booklet_abbrev: mgt
-    title: 'MGT: II Risk Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/ii-risk-management/
-  ffiec_mgt_iii-it-risk-management:
-    booklet_abbrev: mgt
-    title: 'MGT: III IT Risk Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/iii-it-risk-management/
-  ffiec_mgt_introduction:
-    booklet_abbrev: mgt
-    title: 'MGT: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/management/introduction/
-  ffiec_ots:
-    booklet_abbrev: ots
-    title: 'OTS: Outsourcing Technology Services'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/
-  ffiec_ots_appendix-a-examination-procedures:
-    booklet_abbrev: ots
-    title: 'OTS: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-a-examination-procedures/
-  ffiec_ots_appendix-b-laws-regulations-and-guidance:
-    booklet_abbrev: ots
-    title: 'OTS: Appendix B: Laws, Regulations, and Guidance'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-b-laws-regulations-and-guidance/
-  ffiec_ots_appendix-c-foreign-based-third-party-service-providers:
-    booklet_abbrev: ots
-    title: 'OTS: Appendix C: Foreign-Based Third-Party Service Providers'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-c-foreign-based-third-party-service-providers/
-  ffiec_ots_appendix-d-managed-security-service-providers:
-    booklet_abbrev: ots
-    title: 'OTS: Appendix D: Managed Security Service Providers'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-d-managed-security-service-providers/
-  ffiec_ots_board-and-management-responsibilities:
-    booklet_abbrev: ots
-    title: 'OTS: Board and Management Responsibilities'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/board-and-management-responsibilities/
-  ffiec_ots_introduction:
-    booklet_abbrev: ots
-    title: 'OTS: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/introduction/
-  ffiec_ots_related-topics:
-    booklet_abbrev: ots
-    title: 'OTS: Related Topics'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/related-topics/
-  ffiec_ots_risk-management:
-    booklet_abbrev: ots
-    title: 'OTS: Risk Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/risk-management/
-  ffiec_rps:
-    booklet_abbrev: rps
-    title: 'RPS: Retail Payment Systems'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/
-  ffiec_rps_appendix-a-examination-procedures:
-    booklet_abbrev: rps
-    title: 'RPS: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-a-examination-procedures/
-  ffiec_rps_appendix-b-glossary:
-    booklet_abbrev: rps
-    title: 'RPS: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-b-glossary/
-  ffiec_rps_appendix-c-schematic-of-retail-payments-access-channels-payments-method:
-    booklet_abbrev: rps
-    title: 'RPS: Appendix C:  Schematic of Retail Payments Access Channels & Payments
-      Method'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-c-schematic-of-retail-payments-access-channels-payments-method/
-  ffiec_rps_appendix-d-laws-regulations-and-guidance:
-    booklet_abbrev: rps
-    title: 'RPS: Appendix D:  Laws, Regulations, and Guidance'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-d-laws-regulations-and-guidance/
-  ffiec_rps_appendix-e-mobile-financial-services:
-    booklet_abbrev: rps
-    title: 'RPS: Appendix E: Mobile Financial Services'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-e-mobile-financial-services/
-  ffiec_rps_introduction:
-    booklet_abbrev: rps
-    title: 'RPS: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/introduction/
-  ffiec_rps_payment-instruments-clearing-and-settlement:
-    booklet_abbrev: rps
-    title: 'RPS: Payment Instruments, Clearing, and Settlement'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/payment-instruments-clearing-and-settlement/
-  ffiec_rps_retail-payment-systems-overview:
-    booklet_abbrev: rps
-    title: 'RPS: Retail Payment Systems Overview'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/retail-payment-systems-overview/
-  ffiec_rps_retail-payment-systems-risk-management:
-    booklet_abbrev: rps
-    title: 'RPS: Retail Payment Systems Risk Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/retail-payment-systems-risk-management/
-  ffiec_sec:
-    booklet_abbrev: sec
-    title: 'SEC: Information Security'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/
-  ffiec_sec_appendix-a-examination-procedures:
-    booklet_abbrev: sec
-    title: 'SEC: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/appendix-a-examination-procedures/
-  ffiec_sec_appendix-b-glossary:
-    booklet_abbrev: sec
-    title: 'SEC: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/appendix-b-glossary/
-  ffiec_sec_appendix-c-laws-regulations-and-guidance:
-    booklet_abbrev: sec
-    title: 'SEC: Appendix C: Laws, Regulations, and Guidance'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/appendix-c-laws-regulations-and-guidance/
-  ffiec_sec_i-governance-of-the-information-security-program:
-    booklet_abbrev: sec
-    title: 'SEC: I Governance of the Information Security Program'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/i-governance-of-the-information-security-program/
-  ffiec_sec_ii-information-security-program-management:
-    booklet_abbrev: sec
-    title: 'SEC: II Information Security Program Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/ii-information-security-program-management/
-  ffiec_sec_iii-security-operations:
-    booklet_abbrev: sec
-    title: 'SEC: III Security Operations'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/iii-security-operations/
-  ffiec_sec_introduction:
-    booklet_abbrev: sec
-    title: 'SEC: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/introduction/
-  ffiec_sec_iv-information-security-program-effectiveness:
-    booklet_abbrev: sec
-    title: 'SEC: IV Information Security Program Effectiveness'
-    url: https://ithandbook.ffiec.gov/it-booklets/information-security/iv-information-security-program-effectiveness/
-  ffiec_tsp:
-    booklet_abbrev: tsp
-    title: 'TSP: Supervision of Technology Service Providers'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/
-  ffiec_tsp_appendix-a-ursit:
-    booklet_abbrev: tsp
-    title: 'TSP: Appendix A: URSIT'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/appendix-a-ursit/
-  ffiec_tsp_introduction:
-    booklet_abbrev: tsp
-    title: 'TSP: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/introduction/
-  ffiec_tsp_risk-based-supervision:
-    booklet_abbrev: tsp
-    title: 'TSP: Risk-Based Supervision'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/risk-based-supervision/
-  ffiec_tsp_roles-and-responsibilities:
-    booklet_abbrev: tsp
-    title: 'TSP: Roles and Responsibilities'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/roles-and-responsibilities/
-  ffiec_tsp_supervisory-policy:
-    booklet_abbrev: tsp
-    title: 'TSP: Supervisory Policy'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/supervisory-policy/
-  ffiec_tsp_supervisory-programs:
-    booklet_abbrev: tsp
-    title: 'TSP: Supervisory Programs'
-    url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/supervisory-programs/
-  ffiec_wps:
-    booklet_abbrev: wps
-    title: 'WPS: Wholesale Payment Systems'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/
-  ffiec_wps_appendix-a-examination-procedures:
-    booklet_abbrev: wps
-    title: 'WPS: Appendix A: Examination Procedures'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-a-examination-procedures/
-  ffiec_wps_appendix-b-glossary:
-    booklet_abbrev: wps
-    title: 'WPS: Appendix B: Glossary'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-b-glossary/
-  ffiec_wps_appendix-c-laws-regulations-and-guidance:
-    booklet_abbrev: wps
-    title: 'WPS: Appendix C: Laws, Regulations and Guidance'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-c-laws-regulations-and-guidance/
-  ffiec_wps_appendix-d-legal-framework-for-interbank-payment-systems:
-    booklet_abbrev: wps
-    title: 'WPS: Appendix D: Legal Framework for Interbank Payment Systems'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-d-legal-framework-for-interbank-payment-systems/
-  ffiec_wps_appendix-e-federal-reserve-board-payment-system-risk-policy-daylight-overdrafts:
-    booklet_abbrev: wps
-    title: 'WPS: Appendix E: Federal Reserve Board Payment System Risk Policy: Daylight
-      Overdrafts'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-e-federal-reserve-board-payment-system-risk-policy-daylight-overdrafts/
-  ffiec_wps_appendix-f-payment-system-resiliency:
-    booklet_abbrev: wps
-    title: 'WPS: Appendix F: Payment System Resiliency'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-f-payment-system-resiliency/
-  ffiec_wps_interbank-payment-and-messaging-systems:
-    booklet_abbrev: wps
-    title: 'WPS: Interbank Payment and Messaging Systems'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/interbank-payment-and-messaging-systems/
-  ffiec_wps_intrabank-payment-and-messaging-systems:
-    booklet_abbrev: wps
-    title: 'WPS: Intrabank Payment and Messaging Systems'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/intrabank-payment-and-messaging-systems/
-  ffiec_wps_introduction:
-    booklet_abbrev: wps
-    title: 'WPS: Introduction'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/introduction/
-  ffiec_wps_securities-settlement-systems:
-    booklet_abbrev: wps
-    title: 'WPS: Securities Settlement Systems'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/securities-settlement-systems/
-  ffiec_wps_wholesale-payment-systems-risk-management:
-    booklet_abbrev: wps
-    title: 'WPS: Wholesale Payment Systems Risk Management'
-    url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/wholesale-payment-systems-risk-management/
+ffiec_aio:
+  booklet_abbrev: aio
+  title: 'AIO: Architecture, Infrastructure, and Operations'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/
+ffiec_aio_appendix-a-examination-procedures:
+  booklet_abbrev: aio
+  title: 'AIO: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-a-examination-procedures/
+ffiec_aio_appendix-b-glossary:
+  booklet_abbrev: aio
+  title: 'AIO: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-b-glossary/
+ffiec_aio_appendix-c-abbreviations:
+  booklet_abbrev: aio
+  title: 'AIO: Appendix C: Abbreviations'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-c-abbreviations/
+ffiec_aio_appendix-d-references:
+  booklet_abbrev: aio
+  title: 'AIO: Appendix D: References'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/appendix-d-references/
+ffiec_aio_i-architecture-infrastructure-and-operations:
+  booklet_abbrev: aio
+  title: 'AIO: I Architecture, Infrastructure, and Operations'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/i-architecture-infrastructure-and-operations/
+ffiec_aio_ii-architecture-infrastructure-and-operations-governance:
+  booklet_abbrev: aio
+  title: 'AIO: II Architecture, Infrastructure, and Operations Governance'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/ii-architecture-infrastructure-and-operations-governance/
+ffiec_aio_iii-common-aio-risk-management-topics:
+  booklet_abbrev: aio
+  title: 'AIO: III Common AIO Risk Management Topics'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/iii-common-aio-risk-management-topics/
+ffiec_aio_introduction:
+  booklet_abbrev: aio
+  title: 'AIO: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/introduction/
+ffiec_aio_iv-architecture:
+  booklet_abbrev: aio
+  title: 'AIO: IV Architecture'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/iv-architecture/
+ffiec_aio_v-infrastructure:
+  booklet_abbrev: aio
+  title: 'AIO: V Infrastructure'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/v-infrastructure/
+ffiec_aio_vi-operations:
+  booklet_abbrev: aio
+  title: 'AIO: VI Operations'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/vi-operations/
+ffiec_aio_vii-evolving-technologies:
+  booklet_abbrev: aio
+  title: 'AIO: VII Evolving Technologies'
+  url: https://ithandbook.ffiec.gov/it-booklets/architecture-infrastructure-and-operations/vii-evolving-technologies/
+ffiec_arc:
+  booklet_abbrev: arc
+  title: 'ARC: Archived Booklets'
+  url: https://ithandbook.ffiec.gov/it-booklets/archived-booklets/
+ffiec_aud:
+  booklet_abbrev: aud
+  title: 'AUD: Audit'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/
+ffiec_aud_appendix-a-examination-procedures:
+  booklet_abbrev: aud
+  title: 'AUD: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/appendix-a-examination-procedures/
+ffiec_aud_appendix-b-glossary:
+  booklet_abbrev: aud
+  title: 'AUD: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/appendix-b-glossary/
+ffiec_aud_appendix-c-laws-regulations-and-guidance:
+  booklet_abbrev: aud
+  title: 'AUD: Appendix C: Laws, Regulations, and Guidance'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/appendix-c-laws-regulations-and-guidance/
+ffiec_aud_audit-participation-in-application-development-acquisition-conversions-and-testing:
+  booklet_abbrev: aud
+  title: 'AUD: Audit Participation in Application Development, Acquisition, Conversions,
+    and Testing'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/audit-participation-in-application-development-acquisition-conversions-and-testing/
+ffiec_aud_independence-and-staffing-of-internal-it-audit:
+  booklet_abbrev: aud
+  title: 'AUD: Independence and Staffing of Internal IT Audit'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/independence-and-staffing-of-internal-it-audit/
+ffiec_aud_internal-audit-program:
+  booklet_abbrev: aud
+  title: 'AUD: Internal Audit Program'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/internal-audit-program/
+ffiec_aud_introduction:
+  booklet_abbrev: aud
+  title: 'AUD: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/introduction/
+ffiec_aud_it-audit-roles-and-responsibilities:
+  booklet_abbrev: aud
+  title: 'AUD: IT Audit Roles and Responsibilities'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/it-audit-roles-and-responsibilities/
+ffiec_aud_outsourcing-internal-it-audit:
+  booklet_abbrev: aud
+  title: 'AUD: Outsourcing Internal IT Audit'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/outsourcing-internal-it-audit/
+ffiec_aud_risk-assessment-and-risk-based-auditing:
+  booklet_abbrev: aud
+  title: 'AUD: Risk Assessment and Risk-Based Auditing'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/risk-assessment-and-risk-based-auditing/
+ffiec_aud_third-party-reviews-of-technology-service-providers:
+  booklet_abbrev: aud
+  title: 'AUD: Third-Party Reviews of Technology Service Providers'
+  url: https://ithandbook.ffiec.gov/it-booklets/audit/third-party-reviews-of-technology-service-providers/
+ffiec_bcm:
+  booklet_abbrev: bcm
+  title: 'BCM: Business Continuity Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/
+ffiec_bcm_appendix-a-examination-procedures:
+  booklet_abbrev: bcm
+  title: 'BCM: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-a-examination-procedures/
+ffiec_bcm_appendix-b-glossary:
+  booklet_abbrev: bcm
+  title: 'BCM: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-b-glossary/
+ffiec_bcm_appendix-c-abbreviations:
+  booklet_abbrev: bcm
+  title: 'BCM: Appendix C: Abbreviations'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-c-abbreviations/
+ffiec_bcm_appendix-d-references:
+  booklet_abbrev: bcm
+  title: 'BCM: Appendix D: References'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/appendix-d-references/
+ffiec_bcm_i-business-continuity-management:
+  booklet_abbrev: bcm
+  title: 'BCM: I Business Continuity Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/i-business-continuity-management/
+ffiec_bcm_ii-business-continuity-management-governance:
+  booklet_abbrev: bcm
+  title: 'BCM: II Business Continuity Management Governance'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/ii-business-continuity-management-governance/
+ffiec_bcm_iii-risk-management:
+  booklet_abbrev: bcm
+  title: 'BCM: III Risk Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/iii-risk-management/
+ffiec_bcm_introduction:
+  booklet_abbrev: bcm
+  title: 'BCM: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/introduction/
+ffiec_bcm_iv-business-continuity-strategies:
+  booklet_abbrev: bcm
+  title: 'BCM: IV Business Continuity Strategies'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/iv-business-continuity-strategies/
+ffiec_bcm_ix-board-reporting:
+  booklet_abbrev: bcm
+  title: 'BCM: IX Board Reporting'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/ix-board-reporting/
+ffiec_bcm_v-business-continuity-plan:
+  booklet_abbrev: bcm
+  title: 'BCM: V Business Continuity Plan'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/v-business-continuity-plan/
+ffiec_bcm_vi-training:
+  booklet_abbrev: bcm
+  title: 'BCM: VI Training'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/vi-training/
+ffiec_bcm_vii-exercises-and-tests:
+  booklet_abbrev: bcm
+  title: 'BCM: VII Exercises and Tests'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/vii-exercises-and-tests/
+ffiec_bcm_viii-maintenance-and-improvement:
+  booklet_abbrev: bcm
+  title: 'BCM: VIII Maintenance and Improvement'
+  url: https://ithandbook.ffiec.gov/it-booklets/business-continuity-management/viii-maintenance-and-improvement/
+ffiec_dam:
+  booklet_abbrev: dam
+  title: 'DAM: Development, Acquisition, and Maintenance'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/
+ffiec_dam_appendix-a-examination-procedures:
+  booklet_abbrev: dam
+  title: 'DAM: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-a-examination-procedures/
+ffiec_dam_appendix-b-glossary:
+  booklet_abbrev: dam
+  title: 'DAM: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-b-glossary/
+ffiec_dam_appendix-c-abbreviations:
+  booklet_abbrev: dam
+  title: 'DAM: Appendix C: Abbreviations'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-c-abbreviations/
+ffiec_dam_appendix-d-references:
+  booklet_abbrev: dam
+  title: 'DAM: Appendix D: References'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/appendix-d-references/
+ffiec_dam_i-overview-of-development-acquisition-and-maintenance:
+  booklet_abbrev: dam
+  title: 'DAM: I Overview of Development, Acquisition, and Maintenance'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/i-overview-of-development-acquisition-and-maintenance/
+ffiec_dam_ii-governance-of-development-acquisition-and-maintenance:
+  booklet_abbrev: dam
+  title: 'DAM: II Governance of Development, Acquisition, and Maintenance'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/ii-governance-of-development-acquisition-and-maintenance/
+ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance:
+  booklet_abbrev: dam
+  title: 'DAM: III Risk Management of Development, Acquisition, and Maintenance'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/iii-risk-management-of-development-acquisition-and-maintenance/
+ffiec_dam_introduction:
+  booklet_abbrev: dam
+  title: 'DAM: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/introduction/
+ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics:
+  booklet_abbrev: dam
+  title: 'DAM: IV Common Development, Acquisition, and Maintenance Risk Topics'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/iv-common-development-acquisition-and-maintenance-risk-topics/
+ffiec_dam_v-development:
+  booklet_abbrev: dam
+  title: 'DAM: V Development'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/v-development/
+ffiec_dam_vi-acquisition:
+  booklet_abbrev: dam
+  title: 'DAM: VI Acquisition'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/vi-acquisition/
+ffiec_dam_vii-maintenance:
+  booklet_abbrev: dam
+  title: 'DAM: VII Maintenance'
+  url: https://ithandbook.ffiec.gov/it-booklets/development-acquisition-and-maintenance/vii-maintenance/
+ffiec_mgt:
+  booklet_abbrev: mgt
+  title: 'MGT: Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/
+ffiec_mgt_appendix-a-examination-procedures:
+  booklet_abbrev: mgt
+  title: 'MGT: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/appendix-a-examination-procedures/
+ffiec_mgt_appendix-b-glossary:
+  booklet_abbrev: mgt
+  title: 'MGT: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/appendix-b-glossary/
+ffiec_mgt_appendix-c-references:
+  booklet_abbrev: mgt
+  title: 'MGT: Appendix C: References'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/appendix-c-references/
+ffiec_mgt_i-governance:
+  booklet_abbrev: mgt
+  title: 'MGT: I   Governance'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/i-governance/
+ffiec_mgt_ii-risk-management:
+  booklet_abbrev: mgt
+  title: 'MGT: II Risk Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/ii-risk-management/
+ffiec_mgt_iii-it-risk-management:
+  booklet_abbrev: mgt
+  title: 'MGT: III IT Risk Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/iii-it-risk-management/
+ffiec_mgt_introduction:
+  booklet_abbrev: mgt
+  title: 'MGT: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/management/introduction/
+ffiec_ots:
+  booklet_abbrev: ots
+  title: 'OTS: Outsourcing Technology Services'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/
+ffiec_ots_appendix-a-examination-procedures:
+  booklet_abbrev: ots
+  title: 'OTS: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-a-examination-procedures/
+ffiec_ots_appendix-b-laws-regulations-and-guidance:
+  booklet_abbrev: ots
+  title: 'OTS: Appendix B: Laws, Regulations, and Guidance'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-b-laws-regulations-and-guidance/
+ffiec_ots_appendix-c-foreign-based-third-party-service-providers:
+  booklet_abbrev: ots
+  title: 'OTS: Appendix C: Foreign-Based Third-Party Service Providers'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-c-foreign-based-third-party-service-providers/
+ffiec_ots_appendix-d-managed-security-service-providers:
+  booklet_abbrev: ots
+  title: 'OTS: Appendix D: Managed Security Service Providers'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/appendix-d-managed-security-service-providers/
+ffiec_ots_board-and-management-responsibilities:
+  booklet_abbrev: ots
+  title: 'OTS: Board and Management Responsibilities'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/board-and-management-responsibilities/
+ffiec_ots_introduction:
+  booklet_abbrev: ots
+  title: 'OTS: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/introduction/
+ffiec_ots_related-topics:
+  booklet_abbrev: ots
+  title: 'OTS: Related Topics'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/related-topics/
+ffiec_ots_risk-management:
+  booklet_abbrev: ots
+  title: 'OTS: Risk Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/outsourcing-technology-services/risk-management/
+ffiec_rps:
+  booklet_abbrev: rps
+  title: 'RPS: Retail Payment Systems'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/
+ffiec_rps_appendix-a-examination-procedures:
+  booklet_abbrev: rps
+  title: 'RPS: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-a-examination-procedures/
+ffiec_rps_appendix-b-glossary:
+  booklet_abbrev: rps
+  title: 'RPS: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-b-glossary/
+ffiec_rps_appendix-c-schematic-of-retail-payments-access-channels-payments-method:
+  booklet_abbrev: rps
+  title: 'RPS: Appendix C:  Schematic of Retail Payments Access Channels & Payments
+    Method'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-c-schematic-of-retail-payments-access-channels-payments-method/
+ffiec_rps_appendix-d-laws-regulations-and-guidance:
+  booklet_abbrev: rps
+  title: 'RPS: Appendix D:  Laws, Regulations, and Guidance'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-d-laws-regulations-and-guidance/
+ffiec_rps_appendix-e-mobile-financial-services:
+  booklet_abbrev: rps
+  title: 'RPS: Appendix E: Mobile Financial Services'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/appendix-e-mobile-financial-services/
+ffiec_rps_introduction:
+  booklet_abbrev: rps
+  title: 'RPS: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/introduction/
+ffiec_rps_payment-instruments-clearing-and-settlement:
+  booklet_abbrev: rps
+  title: 'RPS: Payment Instruments, Clearing, and Settlement'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/payment-instruments-clearing-and-settlement/
+ffiec_rps_retail-payment-systems-overview:
+  booklet_abbrev: rps
+  title: 'RPS: Retail Payment Systems Overview'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/retail-payment-systems-overview/
+ffiec_rps_retail-payment-systems-risk-management:
+  booklet_abbrev: rps
+  title: 'RPS: Retail Payment Systems Risk Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/retail-payment-systems/retail-payment-systems-risk-management/
+ffiec_sec:
+  booklet_abbrev: sec
+  title: 'SEC: Information Security'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/
+ffiec_sec_appendix-a-examination-procedures:
+  booklet_abbrev: sec
+  title: 'SEC: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/appendix-a-examination-procedures/
+ffiec_sec_appendix-b-glossary:
+  booklet_abbrev: sec
+  title: 'SEC: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/appendix-b-glossary/
+ffiec_sec_appendix-c-laws-regulations-and-guidance:
+  booklet_abbrev: sec
+  title: 'SEC: Appendix C: Laws, Regulations, and Guidance'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/appendix-c-laws-regulations-and-guidance/
+ffiec_sec_i-governance-of-the-information-security-program:
+  booklet_abbrev: sec
+  title: 'SEC: I Governance of the Information Security Program'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/i-governance-of-the-information-security-program/
+ffiec_sec_ii-information-security-program-management:
+  booklet_abbrev: sec
+  title: 'SEC: II Information Security Program Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/ii-information-security-program-management/
+ffiec_sec_iii-security-operations:
+  booklet_abbrev: sec
+  title: 'SEC: III Security Operations'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/iii-security-operations/
+ffiec_sec_introduction:
+  booklet_abbrev: sec
+  title: 'SEC: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/introduction/
+ffiec_sec_iv-information-security-program-effectiveness:
+  booklet_abbrev: sec
+  title: 'SEC: IV Information Security Program Effectiveness'
+  url: https://ithandbook.ffiec.gov/it-booklets/information-security/iv-information-security-program-effectiveness/
+ffiec_tsp:
+  booklet_abbrev: tsp
+  title: 'TSP: Supervision of Technology Service Providers'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/
+ffiec_tsp_appendix-a-ursit:
+  booklet_abbrev: tsp
+  title: 'TSP: Appendix A: URSIT'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/appendix-a-ursit/
+ffiec_tsp_introduction:
+  booklet_abbrev: tsp
+  title: 'TSP: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/introduction/
+ffiec_tsp_risk-based-supervision:
+  booklet_abbrev: tsp
+  title: 'TSP: Risk-Based Supervision'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/risk-based-supervision/
+ffiec_tsp_roles-and-responsibilities:
+  booklet_abbrev: tsp
+  title: 'TSP: Roles and Responsibilities'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/roles-and-responsibilities/
+ffiec_tsp_supervisory-policy:
+  booklet_abbrev: tsp
+  title: 'TSP: Supervisory Policy'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/supervisory-policy/
+ffiec_tsp_supervisory-programs:
+  booklet_abbrev: tsp
+  title: 'TSP: Supervisory Programs'
+  url: https://ithandbook.ffiec.gov/it-booklets/supervision-of-technology-service-providers/supervisory-programs/
+ffiec_wps:
+  booklet_abbrev: wps
+  title: 'WPS: Wholesale Payment Systems'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/
+ffiec_wps_appendix-a-examination-procedures:
+  booklet_abbrev: wps
+  title: 'WPS: Appendix A: Examination Procedures'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-a-examination-procedures/
+ffiec_wps_appendix-b-glossary:
+  booklet_abbrev: wps
+  title: 'WPS: Appendix B: Glossary'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-b-glossary/
+ffiec_wps_appendix-c-laws-regulations-and-guidance:
+  booklet_abbrev: wps
+  title: 'WPS: Appendix C: Laws, Regulations and Guidance'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-c-laws-regulations-and-guidance/
+ffiec_wps_appendix-d-legal-framework-for-interbank-payment-systems:
+  booklet_abbrev: wps
+  title: 'WPS: Appendix D: Legal Framework for Interbank Payment Systems'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-d-legal-framework-for-interbank-payment-systems/
+ffiec_wps_appendix-e-federal-reserve-board-payment-system-risk-policy-daylight-overdrafts:
+  booklet_abbrev: wps
+  title: 'WPS: Appendix E: Federal Reserve Board Payment System Risk Policy: Daylight
+    Overdrafts'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-e-federal-reserve-board-payment-system-risk-policy-daylight-overdrafts/
+ffiec_wps_appendix-f-payment-system-resiliency:
+  booklet_abbrev: wps
+  title: 'WPS: Appendix F: Payment System Resiliency'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/appendix-f-payment-system-resiliency/
+ffiec_wps_interbank-payment-and-messaging-systems:
+  booklet_abbrev: wps
+  title: 'WPS: Interbank Payment and Messaging Systems'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/interbank-payment-and-messaging-systems/
+ffiec_wps_intrabank-payment-and-messaging-systems:
+  booklet_abbrev: wps
+  title: 'WPS: Intrabank Payment and Messaging Systems'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/intrabank-payment-and-messaging-systems/
+ffiec_wps_introduction:
+  booklet_abbrev: wps
+  title: 'WPS: Introduction'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/introduction/
+ffiec_wps_securities-settlement-systems:
+  booklet_abbrev: wps
+  title: 'WPS: Securities Settlement Systems'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/securities-settlement-systems/
+ffiec_wps_wholesale-payment-systems-risk-management:
+  booklet_abbrev: wps
+  title: 'WPS: Wholesale Payment Systems Risk Management'
+  url: https://ithandbook.ffiec.gov/it-booklets/wholesale-payment-systems/wholesale-payment-systems-risk-management/
