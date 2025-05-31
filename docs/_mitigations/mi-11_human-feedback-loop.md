@@ -7,7 +7,6 @@ type: DET
 mitigates:
   - ri-5   # Instability in Foundation Model Behaviour
   - ri-6   # Non-Deterministic Behaviour
-  - ri-11  # Lack of Foundation Model Versioning
 ---
 
 #### Human Feedback Loop
