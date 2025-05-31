@@ -105,6 +105,26 @@ layout: default
             </div>
             {% endif %}
 
+            {% if page.nist-sp-800-53r5_references and page.nist-sp-800-53r5_references.size > 0 %}
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">NIST SP 800-53r5 References</h2>
+                    <div class="list-group">
+                        {% for reference in page.nist-sp-800-53r5_references %}
+                        {% assign control = site.data.nist-sp-800-53r5.nist_sp_800_53r5[reference] %}
+                        {% if control %}
+                        <a href="{{ control.url }}" target="_blank" rel="noopener noreferrer" 
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ control.title }}
+                            {% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
         </div>
     </div>
 </main>

@@ -12,6 +12,10 @@ eu-ai_references:
   - eu-ai_c2-a5  # II.A5 Prohibited AI Practices
   - eu-ai_c3-s2-a9  # III.S2.A9 Risk Management System
   - eu-ai_c3-s2-a14  # III.S2.A14 Human Oversight
+nist-sp-800-53r5_references:
+  - sa-11  # SA-11 Developer Testing and Evaluation
+  - ra-3   # RA-3 Risk Assessment  
+  - ca-6   # CA-6 Authorization
 related_risks:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-6  # Non-Deterministic Behaviour
