@@ -1,19 +1,6 @@
 # FFIEC IT Booklets
 # Generated from https://ithandbook.ffiec.gov/it-booklets
 
-ffiec_itbooklet_abbreviations:
-  architecture-infrastructure-and-operations: aio
-  archived-booklets: arc
-  audit: aud
-  business-continuity-management: bcm
-  development-acquisition-and-maintenance: dam
-  information-security: sec
-  management: mgt
-  outsourcing-technology-services: ots
-  retail-payment-systems: rps
-  supervision-of-technology-service-providers: tsp
-  wholesale-payment-systems: wps
-
 ffiec_itbooklets:
   ffiec_aio:
     booklet_abbrev: aio
