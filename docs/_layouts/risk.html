@@ -71,7 +71,7 @@ layout: default
                     <h2 class="h4 mb-4">FFIEC References</h2>
                     <div class="list-group">
                         {% for reference in page.ffiec_references %}
-                        {% assign booklet = site.data.ffiec-itbooklets.ffiec_itbooklets[reference] %}
+                        {% assign booklet = site.data.ffiec-itbooklets[reference] %}
                         {% if booklet %}
                         <a href="{{ booklet.url }}" target="_blank" rel="noopener noreferrer" 
                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">

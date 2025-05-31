@@ -82,7 +82,7 @@ def write_yaml_file(yaml_file, booklets):
         with open(yaml_file, 'w', encoding='utf-8') as f:
             f.write("# FFIEC IT Booklets\n")
             f.write(f"# Generated from {BOOKLETS_URL}\n\n")
-            yaml.dump({'ffiec_itbooklets': booklets}, f, 
+            yaml.dump(booklets, f, 
                      default_flow_style=False, sort_keys=True)
         return True
     except (OSError, yaml.YAMLError) as e:
@@ -258,18 +258,17 @@ def download_html_files(yaml_file, html_output_dir):
         return False
     
     # Extract booklets data
-    ffiec_itbooklets = data.get('ffiec_itbooklets', {})
-    if not ffiec_itbooklets:
-        print("No ffiec_itbooklets section found in YAML file", file=sys.stderr)
+    if not data:
+        print("No booklet data found in YAML file", file=sys.stderr)
         return False
     
-    print(f"Found {len(ffiec_itbooklets)} booklets/sections to download")
+    print(f"Found {len(data)} booklets/sections to download")
     print(f"HTML output directory: {html_output_dir}")
     
     success_count = 0
     error_count = 0
     
-    for key, booklet_info in ffiec_itbooklets.items():
+    for key, booklet_info in data.items():
         url = booklet_info.get('url')
         title = booklet_info.get('title', 'Unknown Title')
         
@@ -280,6 +279,13 @@ def download_html_files(yaml_file, html_output_dir):
         # Create filename from key
         html_filename = f"{key}.html"
         html_path = html_output_dir / html_filename
+        
+        # Skip if file already exists
+        if html_path.exists():
+            print(f"Skipping: {title}")
+            print(f"  HTML: {html_filename} (already exists)")
+            success_count += 1
+            continue
         
         print(f"Downloading: {title}")
         print(f"  URL: {url}")
@@ -350,6 +356,12 @@ def convert_to_markdown(html_output_dir, md_output_dir):
     for html_path in html_files:
         md_filename = f"{html_path.stem}.md"
         md_path = md_output_dir / md_filename
+        
+        # Skip if markdown file already exists
+        if md_path.exists():
+            print(f"Skipping: {html_path.name} -> {md_filename} (already exists)")
+            success_count += 1
+            continue
         
         print(f"Converting: {html_path.name} -> {md_filename}")
         
