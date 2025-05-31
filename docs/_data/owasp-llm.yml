@@ -1,0 +1,30 @@
+llm01-2025:
+  title: LLM01:2025 Prompt Injection
+  url: https://genai.owasp.org/llmrisk/llm01/
+llm02-2025:
+  title: LLM02:2025 Sensitive Information Disclosure
+  url: https://genai.owasp.org/llmrisk/llm02/
+llm03-2025:
+  title: LLM03:2025 Supply Chain
+  url: https://genai.owasp.org/llmrisk/llm03/
+llm04-2025:
+  title: 'LLM04: Data and Model Poisoning'
+  url: https://genai.owasp.org/llmrisk/llm04/
+llm05-2025:
+  title: LLM05:2025 Improper Output Handling
+  url: https://genai.owasp.org/llmrisk/llm05/
+llm06-2025:
+  title: LLM06:2025 Excessive Agency
+  url: https://genai.owasp.org/llmrisk/llm06/
+llm07-2025:
+  title: LLM07:2025 System Prompt Leakage
+  url: https://genai.owasp.org/llmrisk/llm07/
+llm08-2025:
+  title: LLM08:2025 Vector and Embedding Weaknesses
+  url: https://genai.owasp.org/llmrisk/llm08/
+llm09-2025:
+  title: LLM09:2025 Misinformation
+  url: https://genai.owasp.org/llmrisk/llm09/
+llm10-2025:
+  title: LLM10:2025 Unbounded Consumption
+  url: https://genai.owasp.org/llmrisk/llm10/
