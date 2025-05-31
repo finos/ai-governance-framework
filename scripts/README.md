@@ -24,6 +24,14 @@ This directory contains scripts for downloading external references, processing 
    - Requires: `pip install requests beautifulsoup4 pyyaml roman`
    - Usage: `python dl_eu-ai-act.py` (add `--download` to force fresh download)
 
+## dl_nist-pdfs.py
+   - Extracts precise bookmarks from NIST documents (SP 800-53r5, AI 600-1) with object-based deep links.
+   - Supports multiple output formats: fancy/plain Markdown or YAML for Jekyll integration.
+   - Can extract leaf nodes only (`--leafs`) for individual controls/risks, or full hierarchical structure.
+   - Generates YAML files in `docs/_data/` with normalized keys (e.g., `ac-1`, `2-1`) for easy reference.
+   - Requires: `pip install requests pypdf pyyaml`
+   - Usage: `python dl_nist-pdfs.py --document ai-600-1 --leafs --format yaml`
+
 ## annotate_yaml_front_matter.py
    - Adds title comments to YAML front matter in risk and mitigation files for better readability.
    - Processes external risks, risks, and mitigations to create cross-referenced annotations.
