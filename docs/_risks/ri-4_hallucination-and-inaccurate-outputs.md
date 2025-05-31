@@ -6,8 +6,9 @@ doc-status: Draft
 type: OP
 external_risks:
   - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
-  - NIST-600_2024_2-02    # NIST 600.1: Confabulation
-  - NIST-600_2024_2-08    # NIST 600.1: Information Integrity
+nist-ai-600-1_references:
+  - 2-2    # NIST AI 600.1: Confabulation
+  - 2-8    # NIST AI 600.1: Information Integrity
 ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing

@@ -7,8 +7,9 @@ type: SEC
 external_risks:
   - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
   - OWASP-LLM_2025_LLM08  # OWASP LLM: Vector and Embedding Weaknesses
-  - NIST-600_2024_2-04    # NIST 600.1: Data Privacy
-  - NIST-600_2024_2-09    # NIST 600.1: Information Security
+nist-ai-600-1_references:
+  - 2-4    # NIST AI 600.1: Data Privacy
+  - 2-9    # NIST AI 600.1: Information Security
 ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_sec_iv-information-security-program-effectiveness
