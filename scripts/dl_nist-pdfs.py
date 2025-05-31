@@ -466,10 +466,8 @@ class YamlGenerator:
 
     def generate_yaml(self, bookmarks: List[BookmarkInfo], link_generator: DeepLinkGenerator) -> str:
         """Generate YAML document with flattened keys."""
-        # Create the data structure
-        yaml_data = {
-            self.config.document_type: self._create_bookmark_dict(bookmarks, link_generator)
-        }
+        # Remove the extra level and output bookmark dict directly
+        yaml_data = self._create_bookmark_dict(bookmarks, link_generator)
         
         # Generate YAML content with header
         yaml_content = f"# NIST {self.config.document_type.upper()}\n"

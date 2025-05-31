@@ -1,40 +1,39 @@
 # NIST NIST-AI-600-1
 # Generated from https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
 
-nist-ai-600-1:
-  2-1:
-    title: 2.1. CBRN Information or Capabilities
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A64%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C92.0%2C493.0%2C0%5D
-  2-2:
-    title: 2.2. Confabulation
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A67%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C720.0%2C0%5D
-  2-3:
-    title: 2.3. Dangerous, Violent, or Hateful Content
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A67%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C255.0%2C0%5D
-  2-4:
-    title: 2.4. Data Privacy
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A70%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C450.0%2C0%5D
-  2-5:
-    title: 2.5. Environmental Impacts
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A73%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C685.0%2C0%5D
-  2-6:
-    title: 2.6. Harmful Bias and Homogenization
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A73%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C435.0%2C0%5D
-  2-7:
-    title: 2.7. Human-AI Configuration
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A76%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C557.0%2C0%5D
-  2-8:
-    title: 2.8. Information Integrity
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A76%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C293.0%2C0%5D
-  2-9:
-    title: 2.9. Information Security
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A79%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C415.0%2C0%5D
-  2-10:
-    title: 2.10. Intellectual Property
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A82%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C493.0%2C0%5D
-  2-11:
-    title: 2.11. Obscene, Degrading, and/or Abusive Content
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A82%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C307.0%2C0%5D
-  2-12:
-    title: 2.12. Value Chain and Component Integration
-    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A85%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C650.0%2C0%5D
+2-1:
+  title: 2.1. CBRN Information or Capabilities
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A64%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C92.0%2C493.0%2C0%5D
+2-2:
+  title: 2.2. Confabulation
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A67%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C720.0%2C0%5D
+2-3:
+  title: 2.3. Dangerous, Violent, or Hateful Content
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A67%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C255.0%2C0%5D
+2-4:
+  title: 2.4. Data Privacy
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A70%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C450.0%2C0%5D
+2-5:
+  title: 2.5. Environmental Impacts
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A73%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C685.0%2C0%5D
+2-6:
+  title: 2.6. Harmful Bias and Homogenization
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A73%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C435.0%2C0%5D
+2-7:
+  title: 2.7. Human-AI Configuration
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A76%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C557.0%2C0%5D
+2-8:
+  title: 2.8. Information Integrity
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A76%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C293.0%2C0%5D
+2-9:
+  title: 2.9. Information Security
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A79%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C415.0%2C0%5D
+2-10:
+  title: 2.10. Intellectual Property
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A82%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C493.0%2C0%5D
+2-11:
+  title: 2.11. Obscene, Degrading, and/or Abusive Content
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A82%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C307.0%2C0%5D
+2-12:
+  title: 2.12. Value Chain and Component Integration
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf#%5B%7B%22num%22%3A85%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70.0%2C650.0%2C0%5D
