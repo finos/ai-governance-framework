@@ -4,8 +4,8 @@ title: Reputational Risk
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
+owasp-llm_references:
+  - llm09-2025  # OWASP LLM: Misinformation
 ffiec_references:
   - ffiec_mgt_ii-risk-management
   - ffiec_bcm_iii-risk-management

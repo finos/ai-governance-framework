@@ -4,8 +4,8 @@ title: Information Leaked To Hosted Model
 layout: risk
 doc-status: Draft
 type: RC
-external_risks:
-  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
+owasp-llm_references:
+  - llm06-2025  # OWASP LLM: Excessive Agency
 nist-ai-600-1_references:
   - 2-4    # NIST AI 600.1: Data Privacy
   - 2-9    # NIST AI 600.1: Information Security

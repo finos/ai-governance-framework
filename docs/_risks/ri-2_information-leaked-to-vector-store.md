@@ -4,9 +4,9 @@ title: Information Leaked to Vector Store
 layout: risk
 doc-status: Draft
 type: SEC
-external_risks:
-  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
-  - OWASP-LLM_2025_LLM08  # OWASP LLM: Vector and Embedding Weaknesses
+owasp-llm_references:
+  - llm06-2025  # OWASP LLM: Excessive Agency
+  - llm08-2025  # OWASP LLM: Vector and Embedding Weaknesses
 nist-ai-600-1_references:
   - 2-4    # NIST AI 600.1: Data Privacy
   - 2-9    # NIST AI 600.1: Information Security

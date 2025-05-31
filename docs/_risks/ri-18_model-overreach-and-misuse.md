@@ -4,8 +4,8 @@ title: Model Overreach and Misuse
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
+owasp-llm_references:
+  - llm06-2025  # OWASP LLM: Excessive Agency
 ffiec_references:
   - ffiec_mgt_i-governance
   - ffiec_mgt_ii-risk-management

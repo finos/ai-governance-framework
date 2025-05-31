@@ -4,11 +4,11 @@ title: Data Poisoning
 layout: risk
 doc-status: Draft
 type: SEC
-external_risks:
-  - OWASP-LLM_2025_LLM03  # OWASP LLM: Supply Chain Vulnerabilities
-  - OWASP-LLM_2025_LLM04  # OWASP LLM: Data and Model Poisoning
-  - OWASP-LLM_2025_LLM05  # OWASP LLM: Improper Output Handling
-  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
+owasp-llm_references:
+  - llm03-2025  # OWASP LLM: Supply Chain Vulnerabilities
+  - llm04-2025  # OWASP LLM: Data and Model Poisoning
+  - llm05-2025  # OWASP LLM: Improper Output Handling
+  - llm06-2025  # OWASP LLM: Excessive Agency
 ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance

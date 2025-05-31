@@ -4,8 +4,8 @@ title: Lack of Explainability
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM05  # OWASP LLM: Improper Output Handling
+owasp-llm_references:
+  - llm05-2025  # OWASP LLM: Improper Output Handling
 ffiec_references:
   - ffiec_mgt_ii-risk-management
   - ffiec_aud_risk-assessment-and-risk-based-auditing

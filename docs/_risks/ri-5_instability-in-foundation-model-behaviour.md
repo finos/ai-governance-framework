@@ -4,8 +4,8 @@ title: Instability in Foundation Model Behaviour
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
+owasp-llm_references:
+  - llm09-2025  # OWASP LLM: Misinformation
 nist-ai-600-1_references:
   - 2-8    # NIST AI 600.1: Information Integrity
 ffiec_references:
