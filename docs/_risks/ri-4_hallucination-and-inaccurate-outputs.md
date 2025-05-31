@@ -4,8 +4,8 @@ title: Hallucination and Inaccurate Outputs
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
+owasp-llm_references:
+  - llm09-2025  # OWASP LLM: Misinformation
 nist-ai-600-1_references:
   - 2-2    # NIST AI 600.1: Confabulation
   - 2-8    # NIST AI 600.1: Information Integrity

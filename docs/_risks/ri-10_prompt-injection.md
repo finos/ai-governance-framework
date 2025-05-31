@@ -4,11 +4,11 @@ title: Prompt Injection
 layout: risk
 doc-status: Draft
 type: SEC
-external_risks:
-  - OWASP-LLM_2025_LLM01  # OWASP LLM: Prompt Injection
-  - OWASP-LLM_2025_LLM04  # OWASP LLM: Data and Model Poisoning
-  - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
-  - OWASP-LLM_2025_LLM10  # OWASP LLM: Unbounded Consumption
+owasp-llm_references:
+  - llm01-2025  # OWASP LLM: Prompt Injection
+  - llm04-2025  # OWASP LLM: Data and Model Poisoning
+  - llm06-2025  # OWASP LLM: Excessive Agency
+  - llm10-2025  # OWASP LLM: Unbounded Consumption
 ffiec_references:
   - ffiec_sec_iii-security-operations
   - ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics

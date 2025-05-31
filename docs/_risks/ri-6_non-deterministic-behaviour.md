@@ -4,8 +4,8 @@ title: Non-Deterministic Behaviour
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM09  # OWASP LLM: Misinformation
+owasp-llm_references:
+  - llm09-2025  # OWASP LLM: Misinformation
 ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_aud_risk-assessment-and-risk-based-auditing

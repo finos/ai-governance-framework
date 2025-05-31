@@ -19,8 +19,8 @@ nist-sp-800-53r5_references:
 related_risks:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-6  # Non-Deterministic Behaviour
-external_risks:
-  - OWASP-LLM_2025_LLM07  # OWASP LLM: System Prompt Leakage
+owasp-llm_references:
+  - llm07-2025  # OWASP LLM: System Prompt Leakage
 ---
 
 ## Summary

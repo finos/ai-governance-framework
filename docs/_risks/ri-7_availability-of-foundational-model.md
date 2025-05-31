@@ -4,8 +4,8 @@ title: Availability of Foundational Model
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - OWASP-LLM_2025_LLM10  # OWASP LLM: Unbounded Consumption
+owasp-llm_references:
+  - llm10-2025  # OWASP LLM: Unbounded Consumption
 ffiec_references:
   - ffiec_bcm_iv-business-continuity-strategies
   - ffiec_bcm_v-business-continuity-plan
