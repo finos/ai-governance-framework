@@ -1,0 +1,30 @@
+ml01-2023:
+  title: ML01:2023 Input Manipulation Attack
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML01_2023-Input_Manipulation_Attack.html
+ml02-2023:
+  title: ML02:2023 Data Poisoning Attack
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML02_2023-Data_Poisoning_Attack.html
+ml03-2023:
+  title: ML03:2023 Model Inversion Attack
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML03_2023-Model_Inversion_Attack.html
+ml04-2023:
+  title: ML04:2023 Membership Inference Attack
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML04_2023-Membership_Inference_Attack.html
+ml05-2023:
+  title: ML05:2023 Model Theft
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML05_2023-Model_Theft.html
+ml06-2023:
+  title: ML06:2023 ML Supply Chain Attacks
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML06_2023-AI_Supply_Chain_Attacks.html
+ml07-2023:
+  title: ML07:2023 Transfer Learning Attack
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML07_2023-Transfer_Learning_Attack.html
+ml08-2023:
+  title: ML08:2023 Model Skewing
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML08_2023-Model_Skewing.html
+ml09-2023:
+  title: ML09:2023 Output Integrity Attack
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML09_2023-Output_Integrity_Attack.html
+ml10-2023:
+  title: ML10:2023 Model Poisoning
+  url: https://owasp.org/www-project-machine-learning-security-top-10/docs/ML10_2023-Model_Poisoning.html

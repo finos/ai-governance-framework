@@ -67,6 +67,10 @@ Each reference links to the corresponding NIST control or section with deep PDF 
 The `ffiec_references:` section references keys from `_data/ffiec-itbooklets.yml`.
 Each reference links to the corresponding FFIEC IT Handbook booklet.
 
+## OWASP ML Top 10 References
+The `owasp-ml_references:` section references keys from `_data/owasp-ml.yml`.
+Each reference links to the corresponding OWASP Machine Learning Security Top 10 risk.
+
 ## EU AI Act References
 The `eu-ai-act_references:` section references keys from `_data/eu-ai-act.yml`.
 Each reference links to the corresponding EU AI Act article.
