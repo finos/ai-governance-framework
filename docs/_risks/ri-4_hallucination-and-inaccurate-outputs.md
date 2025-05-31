@@ -6,6 +6,8 @@ doc-status: Draft
 type: OP
 owasp-llm_references:
   - llm09-2025  # OWASP LLM: Misinformation
+owasp-ml_references:
+  - ml09-2023  # OWASP ML: Output Integrity Attack
 nist-ai-600-1_references:
   - 2-2    # NIST AI 600.1: Confabulation
   - 2-8    # NIST AI 600.1: Information Integrity

@@ -21,6 +21,8 @@ related_risks:
   - ri-6  # Non-Deterministic Behaviour
 owasp-llm_references:
   - llm07-2025  # OWASP LLM: System Prompt Leakage
+owasp-ml_references:
+  - ml08-2023  # OWASP ML: Model Skewing
 ---
 
 ## Summary
