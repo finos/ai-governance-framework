@@ -59,9 +59,9 @@ The `external_risks:` section may take keys from the `external_risks:` section
 of the `_config.yml` file and rendered with consistent title and URL.
 
 ## NIST References
-The `nist_references:` section references keys from `_data/nist-sp-800-53r5.yml` 
-and `_data/nist-ai-600-1.yml`. Each reference links to the corresponding NIST 
-control or section.
+The `nist-sp-800-53r5_references:` section references keys from `_data/nist-sp-800-53r5.yml`.
+The `nist-ai-600-1_references:` section references keys from `_data/nist-ai-600-1.yml`.
+Each reference links to the corresponding NIST control or section with deep PDF links.
 
 ## FFIEC References  
 The `ffiec_references:` section references keys from `_data/ffiec-itbooklets.yml`.

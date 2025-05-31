@@ -4,8 +4,8 @@ title: Regulatory Compliance and Oversight
 layout: risk
 doc-status: Draft
 type: RC
-external_risks:
-  - NIST-600_2024_2-09  # NIST 600.1: Information Security
+nist-ai-600-1_references:
+  - 2-9    # NIST AI 600.1: Information Security
 ffiec_references:
   - ffiec_mgt_i-governance
   - ffiec_mgt_ii-risk-management

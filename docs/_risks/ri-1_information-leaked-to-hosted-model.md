@@ -6,8 +6,9 @@ doc-status: Draft
 type: RC
 external_risks:
   - OWASP-LLM_2025_LLM06  # OWASP LLM: Excessive Agency
-  - NIST-600_2024_2-04    # NIST 600.1: Data Privacy
-  - NIST-600_2024_2-09    # NIST 600.1: Information Security
+nist-ai-600-1_references:
+  - 2-4    # NIST AI 600.1: Data Privacy
+  - 2-9    # NIST AI 600.1: Information Security
 ffiec_references:
   - ffiec_sec_ii-information-security-program-management
   - ffiec_sec_iii-security-operations

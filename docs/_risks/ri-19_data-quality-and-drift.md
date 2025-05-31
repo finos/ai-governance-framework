@@ -4,8 +4,8 @@ title: Data Quality and Drift
 layout: risk
 doc-status: Draft
 type: OP
-external_risks:
-  - NIST-600_2024_2-08  # NIST 600.1: Information Integrity
+nist-ai-600-1_references:
+  - 2-8    # NIST AI 600.1: Information Integrity
 ffiec_references:
   - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
   - ffiec_dam_vii-maintenance

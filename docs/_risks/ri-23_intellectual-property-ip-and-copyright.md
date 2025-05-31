@@ -4,8 +4,8 @@ title: Intellectual Property (IP) and Copyright
 layout: risk
 doc-status: Draft
 type: RC
-external_risks:
-  - NIST-600_2024_2-10  # NIST 600.1: Intellectual Property
+nist-ai-600-1_references:
+  - 2-10    # NIST AI 600.1: Intellectual Property
 ffiec_references:
   - ffiec_mgt_i-governance
   - ffiec_mgt_ii-risk-management
