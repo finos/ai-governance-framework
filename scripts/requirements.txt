@@ -5,11 +5,17 @@
 PyYAML>=6.0
 requests>=2.25.0
 
-# For dl_nist_ai_600_1.py
-markdown-it-py>=3.0.0
+# For dl_nist-pdfs.py
+pypdf>=3.0.0
 
-# For dl_ffiec-itbooklets.py
+# For dl_ffiec-itbooklets.py and dl_eu-ai-act.py
 beautifulsoup4>=4.9.0
+
+# For dl_eu-ai-act.py
+roman>=3.0
+
+# Legacy dependencies (may be used by older scripts)
+markdown-it-py>=3.0.0
 
 # Note: pandoc is also required for dl_ffiec-itbooklets.py but must be installed separately:
 # conda install -c conda-forge pandoc

@@ -14,11 +14,12 @@ This directory contains scripts for downloading external references, processing 
    - Requires: `pip install requests beautifulsoup4 pyyaml roman`
    - Usage: `python dl_eu-ai-act.py` (add `--download` to force fresh download)
 
-## dl_owasp_llm.py
-   - Downloads OWASP LLM Top 10 markdown files and generates YAML mappings.
-   - Creates structured references to all LLM security risks with proper URLs.
+## dl_owasp.py
+   - Unified downloader for OWASP projects (LLM Top 10, ML Security Top 10).
+   - Configuration-driven approach supports multiple OWASP projects with different metadata extraction methods.
+   - Downloads markdown files and generates YAML mappings with normalized keys for Jekyll integration.
    - Requires: `pip install requests pyyaml`
-   - Usage: `python dl_owasp_llm.py`
+   - Usage: `python dl_owasp.py [llm|ml|all]` (default: all)
 
 ## dl_nist-pdfs.py
    - Extracts precise bookmarks from NIST documents (SP 800-53r5, AI 600-1) with object-based deep links.
@@ -30,7 +31,8 @@ This directory contains scripts for downloading external references, processing 
 
 ## annotate_yaml_front_matter.py
    - Adds title comments to YAML front matter in risk and mitigation files for better readability.
-   - Processes external risks, risks, and mitigations to create cross-referenced annotations.
+   - Processes reference sections (NIST, FFIEC, OWASP, EU AI Act), risks, and mitigations to create cross-referenced annotations.
+   - Automatically derives YAML filenames from reference types in docs/_data/ directory.
    - Requires: `pip install PyYAML`
    - Usage: `python annotate_yaml_front_matter.py`
 
@@ -43,3 +45,10 @@ This directory contains scripts for downloading external references, processing 
    - Validates filename conventions and project structure consistency.
    - Checks that files follow expected naming patterns.
    - Usage: `./lint-check`
+
+---
+
+## Legacy Scripts
+The following scripts are superseded by the unified versions above:
+- `dl_owasp_llm.py` → Use `dl_owasp.py llm`
+- `dl_owasp_ml.py` → Use `dl_owasp.py ml`
