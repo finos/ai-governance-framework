@@ -1,64 +1,96 @@
 ---
 sequence: 17
-title: Ai Firewall
+title: AI Firewall Implementation and Management
 layout: mitigation
-doc-status: Pre-Draft
+doc-status: Draft
 type: PREV
+iso-42001_references:
+  - A-6-1-3 # Processes for responsible AI system design and development
+  - A-6-2-2 # AI system requirements and specification
+  - A-9-2   # Processes for responsible use of AI systems
 mitigates:
-  - ri-7   # Availability of Foundational Model
+  - ri-7   # Availability of Foundational Model (by preventing resource exhaustion via prompts)
   - ri-10  # Prompt Injection
-  - ri-15
+  - ri-15  
 ---
 
-### Description
-The rapid and widespread integration of generative AI into application workflows, either through direct API calls, agentic workflows, or the client-server concept of the Model Context Protocol (MCP), brings forth emerging risks. These risks include model inversion, prompt injection, and data exfiltration or leakage. Given these threats, there is a growing necessity for a security system like an AI firewall. Such a firewall would intercept and analyze communication between user and agent, agent and tools, and even inter-agent communication. Its functions should include, but not be limited to, threat detection, monitoring, alerting, blocking, reporting, and implementing guardrails to preserve Personally Identifiable Information (PII) and the confidentiality of sensitive data.
+## Purpose
 
+An **AI Firewall** is conceptualized as a specialized security system designed to protect Artificial Intelligence (AI) models and applications by inspecting, filtering, and controlling the data and interactions flowing to and from them. As AI, particularly Generative AI and agentic systems, becomes more integrated into critical workflows, it introduces novel risks that traditional security measures may not adequately address.
 
-### Key Risks
+The primary purpose of an AI Firewall is to mitigate these emerging AI-specific threats, including but not limited to:
+* **Malicious Inputs:** Such as [Prompt Injection](#ri-10) attacks intended to manipulate model behavior or execute unauthorized actions.
+* **Data Exfiltration and Leakage:** Preventing sensitive information (e.g., PII, confidential corporate data) from being inadvertently or maliciously extracted through model inputs or outputs 
+* **Model Integrity and Stability:** Protecting against inputs designed to make the AI system unstable, behave erratically, or exhaust its computational resources
+* **AI Agent Misuse:** Monitoring and controlling interactions in AI agentic workflows to prevent tool abuse (Risk 4) or compromise of AI agents.
+* **Harmful Content Generation:** Filtering outputs to prevent the generation or dissemination of inappropriate, biased, or harmful content.
+* **Unauthorized Access and Activity:** Enhancing transparency and control over who or what is interacting with AI models and for what purpose.
+* **Data Poisoning (at Inference/Interaction):** While primary data poisoning targets training data, an AI Firewall might detect inputs during inference designed to exploit existing vulnerabilities or attempt to skew behavior in models that support forms of continuous learning or fine-tuning based on interactions.
 
-- **Risk 1**: Data poisoning, a method where the AI's training data is manipulated by an adversary, can impact its decision-making process. This risk is present across the AI agentic workflow, even during stages like fine-tuning and Retrieval-Augmented Generation (RAG), potentially leading to skewed or inaccurate results.
+Such a system would typically intercept and analyze communication between users and AI models/agents, between AI agents and various tools or data sources, and potentially even inter-agent communications. Its functions would ideally include threat detection, real-time monitoring, alerting, automated blocking or sanitization, comprehensive reporting, and the enforcement of predefined security and ethical guardrails.
 
-- **Risk 2**: Data exfiltration and leakage refer to unauthorized transfer or disclosure of sensitive information from a system. They pose serious risks in the AI agentic workflow, potentially compromising the integrity of the system and violating privacy regulations.
+---
+## Key Conceptual Capabilities of an AI Firewall
 
-- **Risk 3**: AI agent compromise, which refers to the scenario where an adversary gains unauthorized access or control over an AI system, which can manipulate its functions and outputs, posing a significant threat to the integrity and reliability of the AI agentic workflow.
+An effective AI Firewall, whether a dedicated product or a set of integrated capabilities, would ideally possess the following functions:
 
-- **Risk 4**: Tool abuse, refers to the misuse of agent tools and its resources, usually involving the use of such tools for unauthorized purposes. This can lead to harmful consequences, ranging from data breaches to the production of misleading or harmful outputs.
+* **Deep Input Inspection and Sanitization:**
+    * Analyze incoming prompts and data for known malicious patterns, prompt injection techniques, attempts to exploit model vulnerabilities, or commands intended to cause harm or bypass security controls.
+    * Sanitize inputs by removing or neutralizing potentially harmful elements.
+* **Intelligent Output Filtering and Redaction:**
+    * Inspect model-generated responses to detect and prevent the leakage of sensitive information (PII, financial data, trade secrets).
+    * Filter or block the generation of harmful, inappropriate, biased, or policy-violating content before it reaches the end-user or another system.
+* **Behavioral Policy Enforcement for AI Agents:**
+    * In systems involving AI agents that can interact with other tools and systems, enforce predefined rules or policies on permissible actions, tool usage, and data access to prevent abuse or unintended consequences.
+* **Anomaly Detection and Threat Intelligence:**
+    * Monitor interaction patterns, data flows, and resource consumption for anomalies that could indicate sophisticated attacks, compromised accounts, or internal misuse.
+    * Integrate with threat intelligence feeds for up-to-date information on AI-specific attack vectors and malicious indicators.
+* **Resource Utilization and Denial of Service (DoS) Prevention:**
+    * Specifically for AI workloads, monitor and control the complexity or volume of requests (e.g., number of tokens, computational cost of queries) to prevent resource exhaustion attacks targeting the AI model itself.
+    * Implement rate limiting and quotas tailored to AI interactions.
+* **Context-Aware Filtering:**
+    * Unlike traditional firewalls that often rely on static signatures, an AI Firewall may need to understand the context of AI interactions to differentiate between legitimate complex queries and malicious attempts. This might involve using AI/ML techniques within the firewall itself.
+* **Comprehensive Logging, Alerting, and Reporting:**
+    * Provide detailed logs of all inspected traffic, detected threats, policy violations, and actions taken.
+    * Generate real-time alerts for critical security events.
+    * Offer reporting capabilities for compliance, security analysis, and understanding AI interaction patterns.
 
-- **Risk 5**: Resource exhaustion through DoS attacks, on the other hand, involves overloading an AI system with excessive requests, aiming to overwhelm the system and render it unable to function properly. This form of cyberattack can severely affect the performance of the AI system, and in extreme cases, can cause the system to shut down entirely.
+---
+## Implementation Considerations and Approaches
 
-- **Risk 6**: Lack of transparency can obscure who is accessing what tools or data, and whether these activities are authorized or potentially malicious and this can pose significant security risks.
+As AI Firewalls are an emerging technology, implementation may involve a combination of existing tools, new specialized products, and custom-developed components:
 
-- **Risk 7**: Absence of an input filter, the system is vulnerable to malicious data or commands. This could lead to a variety of issues like system corruption, manipulated outputs, or the execution of unauthorized actions.
+* **Policy Definition:** Crucially, organizations must first define clear policies regarding what constitutes acceptable and unacceptable inputs/outputs, data sensitivity rules, and permissible AI agent behaviors. These policies will drive the firewall's configuration.
+* **Technological Approaches:**
+    * **Specialized AI Security Gateways/Proxies:** Dedicated appliances or software that sit in front of AI models to inspect traffic.
+    * **Enhanced Web Application Firewalls (WAFs):** Existing WAFs may evolve or offer add-ons with AI-specific rule sets and inspection capabilities.
+    * **API Security Solutions:** Many AI interactions occur via APIs; API security tools with deep payload inspection and behavioral analysis are relevant.
+    * **"Guardian" AI Models:** Utilizing secondary AI models (sometimes called "LLM judges" or "safety models") specifically trained to evaluate the safety, security, and appropriateness of prompts and responses.
+* **Architectural Placement:** Determine the optimal points for inspection (e.g., at the edge, at API gateways, between application components and AI models, or within agentic frameworks).
+* **Performance Impact:** Deep inspection of AI payloads (which can be large and complex) can introduce latency. The performance overhead must be carefully balanced against security benefits.
+* **Adaptability and Continuous Learning:** Given the rapidly evolving nature of AI threats, an AI Firewall should ideally be adaptive, capable of being updated frequently with new threat signatures, patterns, and potentially using machine learning to detect novel attacks.
+* **Integration with Security Ecosystem:** Ensure the AI Firewall can integrate with existing security infrastructure, such as Security Information and Event Management (SIEM) systems for log correlation and alerting, Security Orchestration, Automation and Response (SOAR) platforms for automated incident response, and threat intelligence platforms.
 
-- **Risk 8**: Absence of an output filter, which may result in the disclosure of sensitive information, violation of privacy regulations, or the production of harmful or inappropriate responses. Output filters are crucial to ensure the AI system's responses align with ethical guidelines and do not inadvertently harm the user or the system's reputation.
+---
+## Challenges and Limitations
 
-### Technical Background (Optional)
-<Include any technical details, references, or context that help explain the risk.>
+Deploying and relying on AI Firewall technology presents several challenges:
 
-### Challenges
-<Highlight specific challenges or complexities associated with this risk.>
+* **Evolving Attack Vectors:** AI-specific attacks are constantly changing, making it difficult for any predefined set of rules or signatures to remain effective long-term.
+* **Contextual Understanding:** Differentiating between genuinely malicious prompts and unusual but benign complex queries requires deep contextual understanding, which can be challenging to automate accurately.
+* **False Positives and Negatives:** Striking the right balance between blocking actual threats (true positives) and not blocking legitimate interactions (false positives) or missing real threats (false negatives) is critical and difficult. Overly aggressive filtering can hinder usability.
+* **Performance Overhead:** The computational cost of deeply inspecting AI inputs and outputs, especially if using another AI model as a judge, can introduce significant latency, impacting user experience.
+* **Complexity of Agentic Systems:** Monitoring and controlling the intricate and potentially emergent behaviors of multi-agent AI systems is a highly complex challenge.
+* **"Arms Race" Potential:** As AI firewalls become more sophisticated, attackers will develop more sophisticated methods to bypass them.
 
-### Mitigation Strategies
-- **Strategy 1**: <Description of the first mitigation strategy.>
-- **Strategy 2**: <Description of the second mitigation strategy.>
-- ...
+---
+## Importance and Benefits
 
-### Regulatory References
-- [Link 1](#)
-- [Link 2](#)
+Despite being an emerging area, the concept of an AI Firewall addresses a growing need for specialized AI security:
 
-### Standards References
-- [Link 1](#)
-- [Link 2](#)
-
-### Technical References
-- [Link 1](#)
-- [Link 2](#)
-- 
-
-An AI firewall would inspect and block user prompts when it detects it may lead to data leakage, making the system unstable, or exahusting resources (number of tokens).
-
-### Further reading
-- CT-8 QoS/DDoS prevention
-- CT-9 Alerting / DoW spend alert
-- CT-12 Role-based data access
+* **Dedicated AI Threat Mitigation:** Provides a focused defense layer against attack vectors unique to AI/ML systems, which are often not adequately covered by traditional network or application firewalls.
+* **Enhanced Data Protection:** Crucial for preventing both intentional exfiltration and accidental leakage of sensitive data through interactions with AI models.
+* **Preservation of Model Integrity and Availability:** Helps protect AI models from manipulation, denial of service, and other attacks that could compromise their reliability or render them unusable.
+* **Support for Responsible and Ethical AI:** Can enforce policies related to fairness, bias, and the generation of appropriate content, contributing to the responsible deployment of AI.
+* **Improved Governance and Observability:** Offers critical visibility into how AI models are being used and interacted with, supporting security monitoring, incident response, and compliance efforts.
+* **Risk Reduction for Novel Workflows:** As organizations adopt more complex AI systems like agentic workflows, an AI Firewall can be a key component in managing the associated risks.

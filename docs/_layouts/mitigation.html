@@ -51,6 +51,26 @@ layout: default
                 </div>
             </div>
             {% endif %}
+
+            {% if page.iso-42001_references and page.iso-42001_references.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">ISO 42001 References</h2>
+                    <div class="list-group">
+                        {% for iso_ref in page.iso-42001_references %}
+                        {% assign iso_link = site.data.iso-42001[iso_ref] %}
+                        {% if iso_link %}
+                        <a href="{{ iso_link.url }}" target="_blank" rel="noopener noreferrer"
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ iso_ref }}: {{ iso_link.title }}
+                            {% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </main>
