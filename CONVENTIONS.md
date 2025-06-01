@@ -52,11 +52,7 @@ in `index.md`.
 
 # External References
 
-Risk files (`ri-*.md`) can include several types of external references:
-
-## External Standards (OWASP/NIST)
-The `external_risks:` section may take keys from the `external_risks:` section 
-of the `_config.yml` file and rendered with consistent title and URL.
+Risk files (`ri-*.md`) can include several types of external references.
 
 ## NIST References
 The `nist-sp-800-53r5_references:` section references keys from `_data/nist-sp-800-53r5.yml`.
