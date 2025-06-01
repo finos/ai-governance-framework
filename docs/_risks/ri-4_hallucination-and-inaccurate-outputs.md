@@ -12,9 +12,9 @@ nist-ai-600-1_references:
   - 2-2    # NIST AI 600.1: Confabulation
   - 2-8    # NIST AI 600.1: Information Integrity
 ffiec_references:
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
-  - ffiec_mgt_ii-risk-management
+  - dam-3
+  - aud-4
+  - mgt-2
 eu-ai-act_references:
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
   - c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers

@@ -5,9 +5,9 @@ layout: risk
 doc-status: Draft
 type: OP
 ffiec_references:
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_dam_v-development
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - dam-3
+  - dam-5
+  - aud-4
 eu-ai-act_references:
   - c2-a5  # II.A5 Prohibited AI Practices
   - c3-s2-a9  # III.S2.A9 Risk Management System

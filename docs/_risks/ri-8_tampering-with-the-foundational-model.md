@@ -8,10 +8,10 @@ owasp-llm_references:
   - llm03-2025  # OWASP LLM: Supply Chain Vulnerabilities
   - llm05-2025  # OWASP LLM: Improper Output Handling
 ffiec_references:
-  - ffiec_sec_iii-security-operations
-  - ffiec_ots_risk-management
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_dam_vi-acquisition
+  - sec-3
+  - ots-2
+  - dam-3
+  - dam-6
 eu-ai-act_references:
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
   - c3-s3-a16  # III.S3.A16 Obligations of Providers of High-Risk AI Systems

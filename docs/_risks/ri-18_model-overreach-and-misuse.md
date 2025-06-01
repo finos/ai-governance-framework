@@ -7,9 +7,9 @@ type: OP
 owasp-llm_references:
   - llm06-2025  # OWASP LLM: Excessive Agency
 ffiec_references:
-  - ffiec_mgt_i-governance
-  - ffiec_mgt_ii-risk-management
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - mgt-1
+  - mgt-2
+  - aud-4
 eu-ai-act_references:
   - c3-s1-a6  # III.S1.A6 Classification Rules for High-Risk AI Systems
   - c3-s2-a14  # III.S2.A14 Human Oversight

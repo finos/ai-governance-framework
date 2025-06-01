@@ -7,10 +7,10 @@ type: OP
 owasp-llm_references:
   - llm10-2025  # OWASP LLM: Unbounded Consumption
 ffiec_references:
-  - ffiec_bcm_iv-business-continuity-strategies
-  - ffiec_bcm_v-business-continuity-plan
-  - ffiec_ots_risk-management
-  - ffiec_aio_vi-operations
+  - bcm-4
+  - bcm-5
+  - ots-2
+  - aio-6
 eu-ai-act_references:
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
   - c3-s3-a26  # III.S3.A26 Obligations of Deployers of High-Risk AI Systems

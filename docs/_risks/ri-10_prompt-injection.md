@@ -10,9 +10,9 @@ owasp-llm_references:
   - llm06-2025  # OWASP LLM: Excessive Agency
   - llm10-2025  # OWASP LLM: Unbounded Consumption
 ffiec_references:
-  - ffiec_sec_iii-security-operations
-  - ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics
-  - ffiec_dam_v-development
+  - sec-3
+  - dam-4
+  - dam-5
 eu-ai-act_references:
   - c2-a5  # II.A5 Prohibited AI Practices
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity

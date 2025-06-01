@@ -9,9 +9,9 @@ owasp-llm_references:
 nist-ai-600-1_references:
   - 2-8    # NIST AI 600.1: Information Integrity
 ffiec_references:
-  - ffiec_ots_risk-management
-  - ffiec_dam_vii-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - ots-2
+  - dam-7
+  - aud-4
 eu-ai-act_references:
   - c3-s2-a9  # III.S2.A9 Risk Management System
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity

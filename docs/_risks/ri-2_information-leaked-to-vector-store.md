@@ -11,9 +11,9 @@ nist-ai-600-1_references:
   - 2-4    # NIST AI 600.1: Data Privacy
   - 2-9    # NIST AI 600.1: Information Security
 ffiec_references:
-  - ffiec_sec_iii-security-operations
-  - ffiec_sec_iv-information-security-program-effectiveness
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - sec-3
+  - sec-4
+  - aud-4
 eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10 Data and Data Governance
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity

@@ -7,10 +7,10 @@ type: RC
 nist-ai-600-1_references:
   - 2-9    # NIST AI 600.1: Information Security
 ffiec_references:
-  - ffiec_mgt_i-governance
-  - ffiec_mgt_ii-risk-management
-  - ffiec_aud_internal-audit-program
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - mgt-1
+  - mgt-2
+  - aud-3
+  - aud-4
 eu-ai-act_references:
   - c3-s2-a8  # III.S2.A8 Compliance with the Requirements
   - c3-s3-a21  # III.S3.A21 Cooperation with Competent Authorities

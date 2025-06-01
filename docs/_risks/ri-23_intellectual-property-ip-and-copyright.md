@@ -7,10 +7,10 @@ type: RC
 nist-ai-600-1_references:
   - 2-10    # NIST AI 600.1: Intellectual Property
 ffiec_references:
-  - ffiec_mgt_i-governance
-  - ffiec_mgt_ii-risk-management
-  - ffiec_ots_risk-management
-  - ffiec_dam_vi-acquisition
+  - mgt-1
+  - mgt-2
+  - ots-2
+  - dam-6
 eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10 Data and Data Governance
   - c3-s2-a11  # III.S2.A11 Technical Documentation

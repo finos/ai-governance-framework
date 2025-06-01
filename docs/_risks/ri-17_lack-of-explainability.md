@@ -7,9 +7,9 @@ type: OP
 owasp-llm_references:
   - llm05-2025  # OWASP LLM: Improper Output Handling
 ffiec_references:
-  - ffiec_mgt_ii-risk-management
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
+  - mgt-2
+  - aud-4
+  - dam-3
 eu-ai-act_references:
   - c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
   - c3-s2-a14  # III.S2.A14 Human Oversight

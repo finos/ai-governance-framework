@@ -7,8 +7,8 @@ type: OP
 owasp-llm_references:
   - llm09-2025  # OWASP LLM: Misinformation
 ffiec_references:
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - dam-3
+  - aud-4
 eu-ai-act_references:
   - c3-s2-a9  # III.S2.A9 Risk Management System
   - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity

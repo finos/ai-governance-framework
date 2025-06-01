@@ -7,9 +7,9 @@ type: OP
 nist-ai-600-1_references:
   - 2-8    # NIST AI 600.1: Information Integrity
 ffiec_references:
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_dam_vii-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - dam-3
+  - dam-7
+  - aud-4
 eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10 Data and Data Governance
   - c3-s2-a9  # III.S2.A9 Risk Management System
