@@ -38,6 +38,8 @@ import os
 import time
 import subprocess
 import argparse
+import roman
+import re
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -46,7 +48,7 @@ SCRIPT_DIR = Path(__file__).parent
 
 BASE_URL = "https://ithandbook.ffiec.gov"
 BOOKLETS_URL = f"{BASE_URL}/it-booklets"
-YAML_FILENAME = "ffiec-itbooklets.yml"
+YAML_FILENAME = "ffiec-itbooklets_v2.yml"
 REQUEST_TIMEOUT = 30
 DOWNLOAD_DELAY = 0.5
 URL_COMPONENTS_MAIN_BOOKLET = 5
@@ -137,6 +139,73 @@ def parse_booklet_url(full_url, abbreviations):
         
     return key, booklet_abbrev
 
+def parse_title_for_short_key(title, booklet_abbrev):
+    """
+    Parse a title to extract section identifier for short key generation.
+    
+    Args:
+        title: Full title like "AUD: IT Audit Roles and Responsibilities"
+        booklet_abbrev: Booklet abbreviation like "aud"
+        
+    Returns:
+        tuple: (section_type, identifier) where:
+            - section_type: 'main', 'intro', 'numbered', 'appendix'
+            - identifier: extracted number/letter or None for sequential assignment
+    """
+    # Remove booklet prefix (e.g., "AUD: " or "DAM: ")
+    clean_title = re.sub(rf'^{booklet_abbrev.upper()}:\s*', '', title, flags=re.IGNORECASE)
+    
+    # Check for introduction
+    if 'introduction' in clean_title.lower():
+        return 'intro', None
+        
+    # Check for appendix (e.g., "Appendix A: Something")
+    appendix_match = re.match(r'^appendix\s+([a-z])\s*:', clean_title, flags=re.IGNORECASE)
+    if appendix_match:
+        return 'appendix', appendix_match.group(1).lower()
+    
+    # Check for roman numerals at start (e.g., "I Overview", "II Governance")
+    roman_match = re.match(r'^([ivx]+)\s+', clean_title, flags=re.IGNORECASE)
+    if roman_match:
+        try:
+            roman_num = roman_match.group(1).upper()
+            section_num = roman.fromRoman(roman_num)
+            return 'numbered', section_num
+        except roman.InvalidRomanNumeralError:
+            pass
+    
+    # No explicit numbering found - needs sequential assignment
+    return 'numbered', None
+
+def generate_short_key(booklet_abbrev, section_type, identifier, sequential_num=None):
+    """
+    Generate short key based on parsing results.
+    
+    Args:
+        booklet_abbrev: 3-letter code like "aud"
+        section_type: 'main', 'intro', 'numbered', 'appendix'
+        identifier: extracted identifier or None
+        sequential_num: assigned sequential number if identifier is None
+        
+    Returns:
+        str: Short key like "aud-1", "dam-i", "aud-a"
+    """
+    if section_type == 'main':
+        return booklet_abbrev
+    elif section_type == 'intro':
+        return f"{booklet_abbrev}-0"
+    elif section_type == 'appendix':
+        return f"{booklet_abbrev}-{identifier}"
+    elif section_type == 'numbered':
+        if identifier is not None:
+            return f"{booklet_abbrev}-{identifier}"
+        elif sequential_num is not None:
+            return f"{booklet_abbrev}-{sequential_num}"
+        else:
+            raise ValueError("Need either identifier or sequential_num for numbered section")
+    else:
+        raise ValueError(f"Unknown section_type: {section_type}")
+
 def create_booklet_entry(key, booklet_abbrev, title, url):
     """Create a booklet dictionary entry."""
     return {
@@ -201,8 +270,9 @@ def generate_yaml_file(yaml_file):
         menu_container = soup
     
     booklets = {}
+    booklet_sections = {}  # Track sections by booklet for sequential numbering
     
-    # Find all links that contain 'it-booklets' in href
+    # First pass: collect all sections by booklet
     for link in menu_container.find_all('a', href=True):
         href = link['href']
         
@@ -223,20 +293,53 @@ def generate_yaml_file(yaml_file):
         # Convert to absolute URL if needed
         full_url = urljoin(BASE_URL, href)
         
-        # Parse the URL to extract key and abbreviation
-        key, booklet_abbrev = parse_booklet_url(full_url, abbreviations)
+        # Parse the URL to extract original key and abbreviation
+        old_key, booklet_abbrev = parse_booklet_url(full_url, abbreviations)
         
-        if key is None:
+        if old_key is None:
             print(f"Warning: Could not parse URL {full_url}, skipping", file=sys.stderr)
             continue
+        
+        # Store for processing
+        if booklet_abbrev not in booklet_sections:
+            booklet_sections[booklet_abbrev] = []
+        
+        booklet_sections[booklet_abbrev].append((title, full_url, old_key))
+    
+    # Second pass: generate short keys with sequential numbering
+    for booklet_abbrev in sorted(booklet_sections.keys()):
+        sections = booklet_sections[booklet_abbrev]
+        sequential_counter = 1
+        
+        for title, full_url, old_key in sections:
+            # Determine if this is a main booklet page (no section suffix)
+            is_main_booklet = old_key == f"ffiec_{booklet_abbrev}"
             
-        # Check for duplicate keys
-        if key in booklets:
-            print(f"Warning: Duplicate key {key} found, skipping", file=sys.stderr)
-            continue
-
-        # Create booklet entry
-        booklets[key] = create_booklet_entry(key, booklet_abbrev, title, full_url)
+            if is_main_booklet:
+                # Main booklet page
+                short_key = booklet_abbrev
+            else:
+                # Parse title to determine section type
+                section_type, identifier = parse_title_for_short_key(title, booklet_abbrev)
+                
+                if section_type == 'numbered' and identifier is None:
+                    # Assign sequential number
+                    short_key = generate_short_key(booklet_abbrev, section_type, identifier, sequential_counter)
+                    sequential_counter += 1
+                else:
+                    # Use extracted identifier
+                    short_key = generate_short_key(booklet_abbrev, section_type, identifier)
+            
+            # Check for duplicate keys
+            if short_key in booklets:
+                print(f"ERROR: Duplicate key '{short_key}' found for '{title}'", file=sys.stderr)
+                print(f"       Existing: {booklets[short_key]['title']}", file=sys.stderr)
+                print(f"       New: {title}", file=sys.stderr)
+                return False
+            
+            # Create booklet entry
+            booklets[short_key] = create_booklet_entry(short_key, booklet_abbrev, title, full_url)
+            print(f"  {old_key} -> {short_key}: {title}")
     
     # Write YAML file
     if not write_yaml_file(yaml_file, booklets):

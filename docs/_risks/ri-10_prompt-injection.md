@@ -5,18 +5,18 @@ layout: risk
 doc-status: Draft
 type: SEC
 owasp-llm_references:
-  - llm01-2025  # OWASP LLM: Prompt Injection
-  - llm04-2025  # OWASP LLM: Data and Model Poisoning
-  - llm06-2025  # OWASP LLM: Excessive Agency
-  - llm10-2025  # OWASP LLM: Unbounded Consumption
-ffiec_references:
-  - ffiec_sec_iii-security-operations
-  - ffiec_dam_iv-common-development-acquisition-and-maintenance-risk-topics
-  - ffiec_dam_v-development
+  - llm01-2025  # LLM01:2025 Prompt Injection
+  - llm04-2025  # LLM04: Data and Model Poisoning
+  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm10-2025  # LLM10:2025 Unbounded Consumption
+ffiec-itbooklets_references:
+  - sec-3  # SEC: III Security Operations
+  - dam-4  # DAM: IV Common Development, Acquisition, and Maintenance Risk Topics
+  - dam-5  # DAM: V Development
 eu-ai-act_references:
-  - c2-a5  # II.A5 Prohibited AI Practices
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - c3-s2-a14  # III.S2.A14 Human Oversight
+  - c2-a5      # II.A5 Prohibited AI Practices
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+  - c3-s2-a14  # III.S2.A14: Human Oversight
 ---
 ## Summary
 

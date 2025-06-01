@@ -5,18 +5,18 @@ layout: risk
 doc-status: Draft
 type: RC
 owasp-llm_references:
-  - llm06-2025  # OWASP LLM: Excessive Agency
+  - llm06-2025  # LLM06:2025 Excessive Agency
 nist-ai-600-1_references:
-  - 2-4    # NIST AI 600.1: Data Privacy
-  - 2-9    # NIST AI 600.1: Information Security
-ffiec_references:
-  - ffiec_sec_ii-information-security-program-management
-  - ffiec_sec_iii-security-operations
-  - ffiec_ots_risk-management
+  - 2-4  # 2.4. Data Privacy
+  - 2-9  # 2.9. Information Security
+ffiec-itbooklets_references:
+  - sec-2  # SEC: II Information Security Program Management
+  - sec-3  # SEC: III Security Operations
+  - ots-2  # OTS: Risk Management
 eu-ai-act_references:
-  - c3-s2-a10  # III.S2.A10 Data and Data Governance
-  - c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
-  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+  - c3-s2-a10  # III.S2.A10: Data and Data Governance
+  - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
+  - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 ---
 ## Summary
 

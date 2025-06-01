@@ -52,11 +52,7 @@ in `index.md`.
 
 # External References
 
-Risk files (`ri-*.md`) can include several types of external references:
-
-## External Standards (OWASP/NIST)
-The `external_risks:` section may take keys from the `external_risks:` section 
-of the `_config.yml` file and rendered with consistent title and URL.
+Risk files (`ri-*.md`) can include several types of external references.
 
 ## NIST References
 The `nist-sp-800-53r5_references:` section references keys from `_data/nist-sp-800-53r5.yml`.
@@ -64,12 +60,16 @@ The `nist-ai-600-1_references:` section references keys from `_data/nist-ai-600-
 Each reference links to the corresponding NIST control or section with deep PDF links.
 
 ## FFIEC References  
-The `ffiec_references:` section references keys from `_data/ffiec-itbooklets.yml`.
+The `ffiec-itbooklets_references:` section references keys from `_data/ffiec-itbooklets.yml`.
 Each reference links to the corresponding FFIEC IT Handbook booklet.
 
 ## OWASP ML Top 10 References
 The `owasp-ml_references:` section references keys from `_data/owasp-ml.yml`.
 Each reference links to the corresponding OWASP Machine Learning Security Top 10 risk.
+
+## OWASP LLM Top 10 References
+The `owasp-llm_references:` section references keys from `_data/owasp-llm.yml`.
+Each reference links to the corresponding OWASP LLM Security Top 10 risk.
 
 ## EU AI Act References
 The `eu-ai-act_references:` section references keys from `_data/eu-ai-act.yml`.

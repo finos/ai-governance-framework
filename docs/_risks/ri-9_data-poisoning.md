@@ -5,18 +5,18 @@ layout: risk
 doc-status: Draft
 type: SEC
 owasp-llm_references:
-  - llm03-2025  # OWASP LLM: Supply Chain Vulnerabilities
-  - llm04-2025  # OWASP LLM: Data and Model Poisoning
-  - llm05-2025  # OWASP LLM: Improper Output Handling
-  - llm06-2025  # OWASP LLM: Excessive Agency
-ffiec_references:
-  - ffiec_sec_iii-security-operations
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - llm03-2025  # LLM03:2025 Supply Chain
+  - llm04-2025  # LLM04: Data and Model Poisoning
+  - llm05-2025  # LLM05:2025 Improper Output Handling
+  - llm06-2025  # LLM06:2025 Excessive Agency
+ffiec-itbooklets_references:
+  - sec-3  # SEC: III Security Operations
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c3-s2-a10  # III.S2.A10 Data and Data Governance
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+  - c3-s2-a10  # III.S2.A10: Data and Data Governance
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+  - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 ---
 ## Summary
 

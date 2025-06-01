@@ -7,7 +7,7 @@ Dependencies:
     pip install PyYAML
 
 For each file in the '_mitigations' and '_risks' directories, the script:
-1. Reads the external risk titles from _config.yml
+1. Reads the external risk titles from YAML files in docs/_data/
 2. Reads the risk titles from files in the '_risks' directory
 3. Reads the mitigation titles from files in the '_mitigations' directory
 4. Creates mappings of IDs to their titles
@@ -20,7 +20,7 @@ Mitigation files (mi-*.md):
 
 Risk files (ri-*.md):
 - Updates 'related_risks' section with risk titles
-- Updates 'external_risks' section with external risk titles from _config.yml
+- Updates reference sections (nist-sp-800-53r5_references, nist-ai-600-1_references, ffiec-itbooklets_references, owasp-ml_references, owasp-llm_references, eu-ai-act_references) with reference titles from docs/_data/*.yml
 
 Example:
     Original YAML:
@@ -65,23 +65,39 @@ def read_yaml_header(file_path):
                 return None
     return None
 
-def get_external_risk_titles():
-    """Create a mapping of external risk IDs to their titles from _config.yml."""
-    external_risk_titles = {}
-    config_file = SCRIPT_DIR / '..' / 'docs' / '_config.yml'
+def get_reference_titles():
+    """Create mappings of reference IDs to their titles from YAML files in docs/_data."""
+    reference_mappings = {}
+    data_dir = SCRIPT_DIR / '..' / 'docs' / '_data'
     
-    try:
-        with open(config_file, 'r', encoding='utf-8') as f:
-            config_data = yaml.safe_load(f)
-            
-        if config_data and 'external_risks' in config_data:
-            for risk_id, risk_info in config_data['external_risks'].items():
-                if isinstance(risk_info, dict) and 'title' in risk_info:
-                    external_risk_titles[risk_id] = risk_info['title']
-    except Exception as e:
-        print(f"Error reading external risks from config: {e}")
+    # Define the reference types (filename derived by removing '_references' suffix)
+    reference_types = [
+        'nist-sp-800-53r5',
+        'nist-ai-600-1', 
+        'ffiec-itbooklets',
+        'owasp-ml',
+        'owasp-llm',
+        'eu-ai-act'
+    ]
     
-    return external_risk_titles
+    for reference_type in reference_types:
+        yaml_file = data_dir / f'{reference_type}.yml'
+        ref_type = f'{reference_type}_references'
+        
+        if yaml_file.exists():
+            reference_mappings[ref_type] = {}
+            try:
+                with open(yaml_file, 'r', encoding='utf-8') as f:
+                    data = yaml.safe_load(f)
+                    
+                if data:
+                    for ref_id, ref_info in data.items():
+                        if isinstance(ref_info, dict) and 'title' in ref_info:
+                            reference_mappings[ref_type][ref_id] = ref_info['title']
+            except Exception as e:
+                print(f"Error reading from {yaml_file.name}: {e}")
+    
+    return reference_mappings
 
 def get_titles_from_directory(directory_name, file_prefix, id_prefix):
     """Create a mapping of IDs to their titles from markdown files in a directory."""
@@ -148,7 +164,12 @@ def update_file_yaml(file_path, title_mappings):
             'mitigates': title_mappings['risks'],
             'related_mitigations': title_mappings['mitigations'],
             'related_risks': title_mappings['risks'],
-            'external_risks': title_mappings['external_risks']
+            'nist-sp-800-53r5_references': title_mappings.get('nist-sp-800-53r5_references', {}),
+            'nist-ai-600-1_references': title_mappings.get('nist-ai-600-1_references', {}),
+            'ffiec-itbooklets_references': title_mappings.get('ffiec-itbooklets_references', {}),
+            'owasp-ml_references': title_mappings.get('owasp-ml_references', {}),
+            'owasp-llm_references': title_mappings.get('owasp-llm_references', {}),
+            'eu-ai-act_references': title_mappings.get('eu-ai-act_references', {})
         }
         
         # Check if file has any sections we need to update
@@ -191,21 +212,29 @@ def process_files_in_directory(directory_name, file_prefix, title_mappings):
     return updated_count
 
 def main():
-    # Get mappings of IDs to titles (external → risks → mitigations)
-    external_risk_titles = get_external_risk_titles()
+    # Get mappings of IDs to titles (references → risks → mitigations)
+    reference_mappings = get_reference_titles()
     risk_titles = get_titles_from_directory('_risks', 'ri', 'ri')
     mitigation_titles = get_titles_from_directory('_mitigations', 'mi', 'mi')
     
-    print(f"Found {len(external_risk_titles)} external risk titles")
+    # Print counts for each reference type
+    total_references = 0
+    for ref_type, mapping in reference_mappings.items():
+        count = len(mapping)
+        total_references += count
+        print(f"Found {count} {ref_type.replace('_', ' ')}")
+    
     print(f"Found {len(risk_titles)} risk titles")
     print(f"Found {len(mitigation_titles)} mitigation titles")
     
     # Create consolidated title mappings
     title_mappings = {
-        'external_risks': external_risk_titles,
         'risks': risk_titles,
         'mitigations': mitigation_titles
     }
+    
+    # Add reference mappings
+    title_mappings.update(reference_mappings)
     
     # Process all files (risks → mitigations)
     risk_updated_count = process_files_in_directory('_risks', 'ri', title_mappings)

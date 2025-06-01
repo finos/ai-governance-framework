@@ -4,25 +4,25 @@ title: Inadequate System Alignment
 layout: risk
 doc-status: Draft
 type: OP
-ffiec_references:
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_dam_v-development
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+ffiec-itbooklets_references:
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - dam-5  # DAM: V Development
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c2-a5  # II.A5 Prohibited AI Practices
-  - c3-s2-a9  # III.S2.A9 Risk Management System
-  - c3-s2-a14  # III.S2.A14 Human Oversight
+  - c2-a5      # II.A5 Prohibited AI Practices
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a14  # III.S2.A14: Human Oversight
 nist-sp-800-53r5_references:
-  - sa-11  # SA-11 Developer Testing and Evaluation
-  - ra-3   # RA-3 Risk Assessment  
+  - sa-11  # SA-11 Developer Testing And Evaluation
+  - ra-3   # RA-3 Risk Assessment
   - ca-6   # CA-6 Authorization
 related_risks:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-6  # Non-Deterministic Behaviour
 owasp-llm_references:
-  - llm07-2025  # OWASP LLM: System Prompt Leakage
+  - llm07-2025  # LLM07:2025 System Prompt Leakage
 owasp-ml_references:
-  - ml08-2023  # OWASP ML: Model Skewing
+  - ml08-2023  # ML08:2023 Model Skewing
 ---
 
 ## Summary

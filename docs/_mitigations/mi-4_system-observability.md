@@ -6,7 +6,7 @@ doc-status: Draft
 type: DET
 mitigates:
   - ri-1   # Information Leaked To Hosted Model
-  - ri-2   # Unauthorized Access & Data Leaks
+  - ri-2   # Information Leaked to Vector Store
   - ri-3
   - ri-5   # Instability in Foundation Model Behaviour
   - ri-6   # Non-Deterministic Behaviour

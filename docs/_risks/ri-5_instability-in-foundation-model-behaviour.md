@@ -5,17 +5,17 @@ layout: risk
 doc-status: Draft
 type: OP
 owasp-llm_references:
-  - llm09-2025  # OWASP LLM: Misinformation
+  - llm09-2025  # LLM09:2025 Misinformation
 nist-ai-600-1_references:
-  - 2-8    # NIST AI 600.1: Information Integrity
-ffiec_references:
-  - ffiec_ots_risk-management
-  - ffiec_dam_vii-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - 2-8  # 2.8. Information Integrity
+ffiec-itbooklets_references:
+  - ots-2  # OTS: Risk Management
+  - dam-7  # DAM: VII Maintenance
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c3-s2-a9  # III.S2.A9 Risk Management System
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+  - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 ---
 
 ## Summary

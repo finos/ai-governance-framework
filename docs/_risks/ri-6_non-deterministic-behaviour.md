@@ -5,14 +5,14 @@ layout: risk
 doc-status: Draft
 type: OP
 owasp-llm_references:
-  - llm09-2025  # OWASP LLM: Misinformation
-ffiec_references:
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - llm09-2025  # LLM09:2025 Misinformation
+ffiec-itbooklets_references:
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c3-s2-a9  # III.S2.A9 Risk Management System
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - c3-s2-a14  # III.S2.A14 Human Oversight
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+  - c3-s2-a14  # III.S2.A14: Human Oversight
 ---
 
 ## Summary

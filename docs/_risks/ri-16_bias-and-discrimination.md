@@ -5,15 +5,15 @@ layout: risk
 doc-status: Pre-Draft
 type: OP
 nist-ai-600-1_references:
-  - 2-6    # NIST AI 600.1: Harmful Bias and Homogenization
-ffiec_references:
-  - ffiec_mgt_ii-risk-management
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_aud_risk-assessment-and-risk-based-auditing
+  - 2-6  # 2.6. Harmful Bias and Homogenization
+ffiec-itbooklets_references:
+  - mgt-2  # MGT: II Risk Management
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c2-a5  # II.A5 Prohibited AI Practices
-  - c3-s2-a9  # III.S2.A9 Risk Management System
-  - c3-s2-a14  # III.S2.A14 Human Oversight
+  - c2-a5      # II.A5 Prohibited AI Practices
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a14  # III.S2.A14: Human Oversight
 ---
 
 ## Summary

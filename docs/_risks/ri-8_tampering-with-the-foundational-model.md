@@ -5,17 +5,17 @@ layout: risk
 doc-status: Draft
 type: SEC
 owasp-llm_references:
-  - llm03-2025  # OWASP LLM: Supply Chain Vulnerabilities
-  - llm05-2025  # OWASP LLM: Improper Output Handling
-ffiec_references:
-  - ffiec_sec_iii-security-operations
-  - ffiec_ots_risk-management
-  - ffiec_dam_iii-risk-management-of-development-acquisition-and-maintenance
-  - ffiec_dam_vi-acquisition
+  - llm03-2025  # LLM03:2025 Supply Chain
+  - llm05-2025  # LLM05:2025 Improper Output Handling
+ffiec-itbooklets_references:
+  - sec-3  # SEC: III Security Operations
+  - ots-2  # OTS: Risk Management
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - dam-6  # DAM: VI Acquisition
 eu-ai-act_references:
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - c3-s3-a16  # III.S3.A16 Obligations of Providers of High-Risk AI Systems
-  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+  - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
+  - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 ---
 
 ## Summary
