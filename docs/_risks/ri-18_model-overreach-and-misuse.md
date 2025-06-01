@@ -5,15 +5,15 @@ layout: risk
 doc-status: Draft
 type: OP
 owasp-llm_references:
-  - llm06-2025  # OWASP LLM: Excessive Agency
+  - llm06-2025  # LLM06:2025 Excessive Agency
 ffiec_references:
-  - mgt-1
-  - mgt-2
-  - aud-4
+  - mgt-1  # MGT: I   Governance
+  - mgt-2  # MGT: II Risk Management
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c3-s1-a6  # III.S1.A6 Classification Rules for High-Risk AI Systems
-  - c3-s2-a14  # III.S2.A14 Human Oversight
-  - c3-s3-a26  # III.S3.A26 Obligations of Deployers of High-Risk AI Systems
+  - c3-s1-a6   # III.S1.A6: Classification Rules for High-Risk AI Systems
+  - c3-s2-a14  # III.S2.A14: Human Oversight
+  - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
 ---
 
 ## Summary

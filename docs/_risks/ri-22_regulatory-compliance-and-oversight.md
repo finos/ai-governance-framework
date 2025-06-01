@@ -5,16 +5,16 @@ layout: risk
 doc-status: Draft
 type: RC
 nist-ai-600-1_references:
-  - 2-9    # NIST AI 600.1: Information Security
+  - 2-9  # 2.9. Information Security
 ffiec_references:
-  - mgt-1
-  - mgt-2
-  - aud-3
-  - aud-4
+  - mgt-1  # MGT: I   Governance
+  - mgt-2  # MGT: II Risk Management
+  - aud-3  # AUD: Internal Audit Program
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c3-s2-a8  # III.S2.A8 Compliance with the Requirements
-  - c3-s3-a21  # III.S3.A21 Cooperation with Competent Authorities
-  - c3-s3-a16  # III.S3.A16 Obligations of Providers of High-Risk AI Systems
+  - c3-s2-a8   # III.S2.A8: Compliance with the Requirements
+  - c3-s3-a21  # III.S3.A21: Cooperation with Competent Authorities
+  - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
 ---
 
 ## Summary

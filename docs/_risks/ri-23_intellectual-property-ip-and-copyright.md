@@ -5,16 +5,16 @@ layout: risk
 doc-status: Draft
 type: RC
 nist-ai-600-1_references:
-  - 2-10    # NIST AI 600.1: Intellectual Property
+  - 2-10  # 2.10. Intellectual Property
 ffiec_references:
-  - mgt-1
-  - mgt-2
-  - ots-2
-  - dam-6
+  - mgt-1  # MGT: I   Governance
+  - mgt-2  # MGT: II Risk Management
+  - ots-2  # OTS: Risk Management
+  - dam-6  # DAM: VI Acquisition
 eu-ai-act_references:
-  - c3-s2-a10  # III.S2.A10 Data and Data Governance
-  - c3-s2-a11  # III.S2.A11 Technical Documentation
-  - c5-s2-a53  # V.S2.A53 Obligations for Providers of General-Purpose AI Models
+  - c3-s2-a10  # III.S2.A10: Data and Data Governance
+  - c3-s2-a11  # III.S2.A11: Technical Documentation
+  - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 ---
 
 ## Summary

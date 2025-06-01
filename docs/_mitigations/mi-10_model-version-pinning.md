@@ -5,8 +5,8 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 mitigates:
-  - ri-5   # Instability in Foundation Model Behaviour
-  - ri-6   # Non-Deterministic Behaviour
+  - ri-5  # Instability in Foundation Model Behaviour
+  - ri-6  # Non-Deterministic Behaviour
 ---
 
 #### Supplier Controls:

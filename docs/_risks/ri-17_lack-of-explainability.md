@@ -5,15 +5,15 @@ layout: risk
 doc-status: Draft
 type: OP
 owasp-llm_references:
-  - llm05-2025  # OWASP LLM: Improper Output Handling
+  - llm05-2025  # LLM05:2025 Improper Output Handling
 ffiec_references:
-  - mgt-2
-  - aud-4
-  - dam-3
+  - mgt-2  # MGT: II Risk Management
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
 eu-ai-act_references:
-  - c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
-  - c3-s2-a14  # III.S2.A14 Human Oversight
-  - c4-a50  # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
+  - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
+  - c3-s2-a14  # III.S2.A14: Human Oversight
+  - c4-a50     # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
 ---
 
 ## Summary

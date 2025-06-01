@@ -5,15 +5,15 @@ layout: risk
 doc-status: Draft
 type: OP
 nist-ai-600-1_references:
-  - 2-8    # NIST AI 600.1: Information Integrity
+  - 2-8  # 2.8. Information Integrity
 ffiec_references:
-  - dam-3
-  - dam-7
-  - aud-4
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - dam-7  # DAM: VII Maintenance
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c3-s2-a10  # III.S2.A10 Data and Data Governance
-  - c3-s2-a9  # III.S2.A9 Risk Management System
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
+  - c3-s2-a10  # III.S2.A10: Data and Data Governance
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
 ---
 
 ## Summary

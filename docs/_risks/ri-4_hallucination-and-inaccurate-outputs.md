@@ -5,20 +5,20 @@ layout: risk
 doc-status: Draft
 type: OP
 owasp-llm_references:
-  - llm09-2025  # OWASP LLM: Misinformation
+  - llm09-2025  # LLM09:2025 Misinformation
 owasp-ml_references:
-  - ml09-2023  # OWASP ML: Output Integrity Attack
+  - ml09-2023  # ML09:2023 Output Integrity Attack
 nist-ai-600-1_references:
-  - 2-2    # NIST AI 600.1: Confabulation
-  - 2-8    # NIST AI 600.1: Information Integrity
+  - 2-2  # 2.2. Confabulation
+  - 2-8  # 2.8. Information Integrity
 ffiec_references:
-  - dam-3
-  - aud-4
-  - mgt-2
+  - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
+  - mgt-2  # MGT: II Risk Management
 eu-ai-act_references:
-  - c3-s2-a15  # III.S2.A15 Accuracy, Robustness and Cybersecurity
-  - c3-s2-a13  # III.S2.A13 Transparency and Provision of Information to Deployers
-  - c3-s2-a9  # III.S2.A9 Risk Management System
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+  - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
+  - c3-s2-a9   # III.S2.A9: Risk Management System
 ---
 
 ## Summary

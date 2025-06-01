@@ -6,7 +6,7 @@ doc-status: Pre-Draft
 type: PREV
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
-  - ri-2  # Unauthorized Access & Data Leaks
+  - ri-2  # Information Leaked to Vector Store
 ---
 
 - Data is classified within the Confluence data store, and filtered prior to ingestion

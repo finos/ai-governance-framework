@@ -5,15 +5,15 @@ layout: risk
 doc-status: Draft
 type: OP
 owasp-llm_references:
-  - llm09-2025  # OWASP LLM: Misinformation
+  - llm09-2025  # LLM09:2025 Misinformation
 ffiec_references:
-  - mgt-2
-  - bcm-3
-  - aud-4
+  - mgt-2  # MGT: II Risk Management
+  - bcm-3  # BCM: III Risk Management
+  - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:
-  - c2-a5  # II.A5 Prohibited AI Practices
-  - c3-s2-a9  # III.S2.A9 Risk Management System
-  - c3-s2-a14  # III.S2.A14 Human Oversight
+  - c2-a5      # II.A5 Prohibited AI Practices
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a14  # III.S2.A14: Human Oversight
 ---
 
 ## Summary
