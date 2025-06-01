@@ -90,10 +90,6 @@ def get_reference_titles():
                     data = yaml.safe_load(f)
                     
                 if data:
-                    # Handle nested structure for EU AI Act
-                    if ref_type == 'eu-ai-act_references' and 'eu-ai-act' in data:
-                        data = data['eu-ai-act']
-                    
                     for ref_id, ref_info in data.items():
                         if isinstance(ref_info, dict) and 'title' in ref_info:
                             reference_mappings[ref_type][ref_id] = ref_info['title']

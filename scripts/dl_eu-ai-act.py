@@ -385,7 +385,7 @@ def create_flattened_yaml_data(chapters: List[Chapter], annexes: List[Link], rec
                 'url': recital.url
             }
     
-    return {'eu-ai-act': eu_ai_act}
+    return eu_ai_act
 
 
 def create_markdown_document(chapters: List[Chapter], annexes: List[Link], recitals: List[Link]) -> str:
@@ -479,7 +479,7 @@ def main():
         
         total_items = len(chapters) + total_sections + total_articles + len(annexes) + len(recitals)
         print(f"Total items processed: {total_items}")
-        print(f"YAML entries created: {len(yaml_data['eu-ai-act'])}")
+        print(f"YAML entries created: {len(yaml_data)}")
         
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)

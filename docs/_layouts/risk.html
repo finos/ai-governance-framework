@@ -109,7 +109,7 @@ layout: default
                     <h2 class="h4 mb-4">EU AI Act References</h2>
                     <div class="list-group">
                         {% for reference in page.eu-ai-act_references %}
-                        {% assign article = site.data.eu-ai-act.eu-ai-act[reference] %}
+                        {% assign article = site.data.eu-ai-act[reference] %}
                         {% if article %}
                         <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer" 
                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
