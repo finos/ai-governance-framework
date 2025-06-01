@@ -28,6 +28,28 @@ layout: default
         </div>
 
         <div class="col-lg-4">
+            {% if page.related_risks and page.related_risks.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">Related Risks</h2>
+                    <div class="list-group">
+                        {% for risk_id in page.related_risks %}
+                        {% assign risk_sequence = risk_id | remove: 'ri-' %}
+                        {% assign related_risk = site.risks | where: "sequence", risk_sequence | first %}
+                        {% if related_risk %}
+                        <div class="list-group-item">
+                            <h3 class="h6 mb-1">
+                                <a href="{{ related_risk.url }}">{{ risk_id | upcase }}: {{ related_risk.title }}</a>
+                            </h3>
+                        </div>
+                        {% else %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             {% assign risk_prefix = 'ri-' | append: page.sequence %}
             {% assign related_mitigations = site.mitigations | where_exp: "mitigation", "mitigation.mitigates contains risk_prefix" %}
             {% if related_mitigations.size > 0 %}
