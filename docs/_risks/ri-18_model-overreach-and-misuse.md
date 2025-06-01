@@ -24,9 +24,11 @@ Model overreach occurs when AI systems are used beyond their intended purpose, o
 
 The impressive capabilities of generative AI (GenAI) can create a false sense of reliability, leading users to overestimate what the model is capable of. This can result in staff using AI systems well beyond their intended scope or original design. For instance, a model fine-tuned to draft marketing emails might be repurposed—without validation—for high-stakes tasks such as providing legal advice or making investment recommendations.
 
-Such misuse can lead to poor-quality, non-compliant, or even harmful outputs, especially when the AI operates in domains that require domain-specific expertise or regulatory oversight. Overreliance on AI, particularly by users who do not fully understand the model's limitations, can introduce operational errors and expose the organisation to legal or reputational risk.
+Such misuse can lead to poor-quality, non-compliant, or even harmful outputs, especially when the AI operates in domains that require domain-specific expertise or regulatory oversight. This perception gap creates a risk of "model overreach," where personnel may be tempted to utilize AI systems beyond their validated and intended operational scope.
 
-A further concern is the anthropomorphising of AI systems—treating them as if they possess human judgment or authority. When users place excessive trust in AI-generated recommendations, they may accept incorrect, biased, or incomplete outputs without sufficient scrutiny. This increases the likelihood of errors, inappropriate actions, and decisions that may not align with business policy or regulatory requirements.
+A contributing factor to this risk is the tendency towards anthropomorphism—attributing human-like understanding or expertise to AI. This can foster misplaced trust, leading users to accept AI-generated outputs or recommendations too readily, without sufficient critical review or human oversight. Consequently, errors or biases in the AI's output may go undetected, potentially leading to financial losses, customer detriment, or reputational damage for the institution.
+
+Overreliance on AI without a thorough understanding of its boundaries and potential failure points can result in critical operational mistakes and flawed decision-making. If AI systems are applied to tasks for which they are not suited or in ways that contravene regulatory requirements or ethical guidelines, significant compliance breaches can occur.
 
 ## Examples
 

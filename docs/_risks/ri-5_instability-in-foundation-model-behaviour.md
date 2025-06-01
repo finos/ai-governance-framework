@@ -30,6 +30,22 @@ There are several ways in which foundation model behaviour may change:
 
 * **Version Updates**: Model providers frequently improve and update their foundation models, which may involve retraining, fine-tuning, or architecture changes. These updates, if applied without explicit notification or without allowing version pinning, can lead to shifts in behaviour even when inputs remain unchanged.
 
+### Versioning Challenges
+
+The challenge of managing model stability is compounded by unique difficulties in versioning large language models:
+
+* **Model Size and Complexity**: Models comprise vast numbers of parameters, making it complex to track changes and their impacts meaningfully across such massive systems.
+
+* **Dynamic Nature**: Some LLMs are designed to learn and adapt over time, while others are updated through fine-tuning and customizations, making it difficult to define discrete versions.
+
+* **Multidimensional Changes**: Updates might involve changes to model architecture, training data, fine-tuning processes, and inference parameters—ranging from minor hyperparameter adjustments to complete retraining with new data.
+
+* **Training Data Versioning**: LLMs are trained on massive datasets, making it difficult to track and manage changes in the training corpus.
+
+* **Resource Management**: Running multiple versions simultaneously can strain computational resources and challenge infrastructure.
+
+* **Lack of Standardization**: No widely accepted standards exist for versioning LLMs, leading to inconsistent practices across organizations.
+
 * **System Prompt Modifications**: Many models operate with a hidden or implicit *system prompt*—a predefined set of instructions that guides the model’s tone, formatting, or safety behaviour. Changes to this internal prompt (e.g., for improved safety or compliance) can alter model outputs subtly or significantly, even if user inputs remain identical.
 
 * **Non-Determinism in Generation**: LLMs and other generative models inherently involve stochastic processes—especially when parameters like `temperature` or `top-p` sampling are non-zero. Even without external changes, this randomness can cause variability in the outputs across repeated runs.
@@ -45,6 +61,17 @@ If the foundation model behaviour changes over time—due to lack of version pin
 The model provider may alter the model or its configuration without explicit customer notification. Such silent changes can result in outputs that deviate from tested expectations. Even when mechanisms for version pinning are offered, the inherent non-determinism of these systems means that output variability remains a risk.
 
 Another source of instability is **prompt perturbation**. Recent research highlights how even minor variations in phrasing can significantly impact output, and in some cases, be exploited to attack model grounding or circumvent safeguards—thereby introducing further unpredictability and risk.
+
+### Impact of Inadequate Versioning
+
+Poor versioning practices exacerbate instability risks and create additional operational challenges:
+
+* **Inconsistent Output**: Models may produce different responses to identical prompts, leading to inconsistent user experiences and unreliable decision-making
+* **Reproducibility Issues**: Inability to replicate or trace past outputs complicates testing, debugging, and audit requirements
+* **Performance Variability**: Unexpected changes in model performance, potentially introducing regressions or new biases, while making it difficult to assess improvements
+* **Compliance and Auditing**: Inability to track and explain model changes creates compliance problems and difficulties in auditing AI-driven decisions
+* **Integration Challenges**: Other systems that depend on specific model behaviors may break when models are updated without proper versioning
+* **Security and Privacy**: Difficulty tracking security vulnerabilities or privacy issues, with new problems potentially introduced during updates
 
 ## Links
 

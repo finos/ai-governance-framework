@@ -51,6 +51,14 @@ A well-known public example is the [DPD chatbot incident](https://www.bbc.co.uk/
 
 Indirect attacks are especially dangerous in systems with automated workflows or multi-agent architectures, as they can hijack decision-making processes, escalate privileges, or even direct actions (e.g., sending unauthorized emails, changing account settings, or triggering transactions).
 
+### Financial Services Impact
+
+For financial institutions, prompt injection attacks can have particularly severe consequences:
+
+* **Direct Prompt Injection Examples:** An attacker might "jailbreak" an AI-powered financial advisory chatbot to make it disclose proprietary investment algorithms, generate fake transaction histories, provide advice that violates regulatory compliance (e.g., bypassing suitability checks), or access underlying data stores containing customer information.
+
+* **Indirect Prompt Injection Examples:** A malicious prompt could be embedded within an email, a customer feedback form, a third-party market report, or a document uploaded for analysis. When the LLM processes this contaminated data (e.g., for summarization, sentiment analysis, or integration into a workflow), the injected prompt could trigger actions like exfiltrating the data being processed, manipulating summaries provided to financial analysts, executing unauthorized commands in connected systems, or biasing critical automated decisions in areas like loan processing or fraud assessment.
+
 ## Model Profiling and Inversion Risks
 
 Sophisticated prompt injection techniques can also be used to probe the internal structure of an LLM, performing model inversion attacks to extract:

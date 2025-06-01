@@ -18,17 +18,37 @@ eu-ai-act_references:
 
 ## Summary
 
-AI systems risk perpetuating bias and discrimination when trained on historical or internet-based data that reflect societal inequalities. This can lead to unfair outcomes such as biased credit scoring, discriminatory loan approvals, or unequal access to financial products. These effects may be subtle and difficult to detect, but can result in regulatory, ethical, and reputational consequences if left unaddressed.
+Bias and Discrimination in the context of AI systems refer to the systematic and often unfair differential treatment of individuals or groups based on inherent characteristics such as age, gender, ethnicity, disability, or other protected attributes. This can occur when AI models produce outcomes that disproportionately favor or disadvantage certain groups, even if the intention behind deploying the AI was not discriminatory. Such biases often stem from skewed or unrepresentative training data, flawed model design, or the use of proxy variables that correlate with sensitive characteristics.
 
 ## Description
 
-Foundational models are typically trained on large-scale datasets collected from the internet, historical records, or other broad text corpora. These data sources often reflect the biases, stereotypes, and inequalities present in the societies from which they were drawn. As a result, the models may internalize and reproduce these patterns in their outputs, even when those outcomes are unintentional or socially harmful.
+Within the financial services industry, the manifestations and consequences of AI-driven bias and discrimination can be particularly severe, impacting critical functions and leading to significant harm:
 
-When used in decision-making systems, these biases can translate into discriminatory outcomes. For example, AI models used in credit scoring might assign lower creditworthiness to certain demographic groups based on historical lending patterns. In pricing algorithms, the model might recommend higher prices to individuals from specific geographic or socioeconomic backgrounds. In recruitment or admissions systems, underrepresented groups may be ranked lower due to skewed training data or biased evaluation criteria.
+* **Credit, Lending, and Insurance:** AI models used for credit scoring, loan origination, or insurance underwriting may unfairly deny services, offer less favorable terms, or set inequitable premiums for individuals from protected groups. This can perpetuate financial exclusion and violate fair lending and anti-discrimination regulations (e.g., the Equal Credit Opportunity Act, Equality Act).
 
-These issues are often invisible or hard to detect, particularly when models operate as part of complex or opaque workflows. Even when explicit demographic data is excluded from training, proxy variables—such as postal codes, language style, or purchase history—can reintroduce discriminatory patterns.
+* **Fraud Detection and Prevention:** Systems designed to detect fraudulent activity might exhibit higher false positive rates for certain demographics, leading to unnecessary scrutiny, account blockages, and distress for legitimate customers.
 
-Bias and discrimination risks are compounded when models are retrained on real-world feedback, potentially reinforcing unjust patterns over time. Without regular auditing, fairness assessments, and transparent governance, these systems may systematically disadvantage certain individuals or groups, resulting in reputational damage, regulatory violations, or ethical harm.
+* **Customer Service and Engagement:** AI-powered chatbots or virtual assistants could inadvertently provide a lower quality of service, offer biased advice, or misinterpret queries from specific user groups due to biases learned from interaction data or design limitations.
+
+* **Marketing and Product Recommendation:** AI-driven marketing campaigns might unfairly exclude certain groups from beneficial product offers or target vulnerable populations with predatory products, leading to ethical concerns and reputational damage.
+
+* **Algorithmic Trading and Investment Advice:** While more complex, biases could theoretically emerge in algorithmic trading strategies or robo-advisory services if models learn from historical data that reflects market inefficiencies or past discriminatory practices, potentially disadvantaging certain investor profiles or asset classes without justification.
+
+### Root Causes of Bias
+
+The root causes of bias in AI systems are multifaceted. They include:
+* **Data Bias:** Training datasets may reflect historical societal biases or underrepresent certain populations, leading the model to learn and perpetuate these biases.
+* **Algorithmic Bias:** The choice of model architecture, features, and optimization functions can unintentionally introduce or amplify biases.
+* **Proxy Discrimination:** Seemingly neutral data points (e.g., postal codes, certain types of transaction history) can act as proxies for protected characteristics.
+* **Feedback Loops:** If a biased AI system's outputs are fed back into its learning cycle without correction, the bias can become self-reinforcing and amplified over time.
+
+### Implications
+
+The implications of deploying biased AI systems are far-reaching for financial institutions, encompassing:
+* **Regulatory Sanctions and Legal Liabilities:** Severe penalties, fines, and legal action for non-compliance with anti-discrimination laws and financial regulations.
+* **Reputational Damage:** Significant erosion of public trust, customer loyalty, and brand value.
+* **Customer Detriment:** Direct harm to customers through unfair treatment, financial exclusion, or economic loss.
+* **Operational Inefficiencies:** Flawed decision-making stemming from biased models can lead to suboptimal business outcomes and increased operational risk.
 
 ## Examples
 
