@@ -46,8 +46,8 @@ Given the nascent nature of vector store products, they may not adhere to enterp
 - **Encryption Failures**: Without encryption at rest, embeddings that contain sensitive or proprietary information may be exposed to anyone with access to the storage layer, leading to data breaches or tampering.
 - **Audit Deficiencies**: The absence of robust audit logging makes it difficult to detect unauthorized access, modifications, or data exfiltration, allowing breaches to go unnoticed for extended periods.
 
-## Links
 
+## Links
 * [OpenAI – Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
 * [AWS – What is Retrieval-Augmented Generation (RAG)?](https://aws.amazon.com/what-is/retrieval-augmented-generation/)
 * [Text Embeddings Reveal (Almost) as Much as Text – arXiv](https://arxiv.org/abs/2310.06816)

@@ -27,11 +27,11 @@ Generative AI models are often trained on vast and diverse datasets, which may c
 
 This can lead to several IP-related challenges for financial institutions:
 
-* **Copyright Infringement through AI-Generated Content**: AI models may generate outputs that are substantially similar to, or derivative of, copyrighted works present in their training data. Financial institutions could face legal liability for copyright infringement if they use or distribute such AI-generated content. This could manifest if AI-generated marketing copy closely resembles a competitor's copyrighted materials, if code produced by an AI assistant for internal financial modelling tools replicates snippets from licensed or proprietary software, or if AI-generated research reports inadvertently include passages from copyrighted financial analyses.
+* **Copyright Infringement**: AI outputs may replicate copyrighted material from training data, risking legal liability when used in marketing, code generation, or research reports.
 
-* **Loss of Proprietary Information and Trade Secrets**: A significant risk involves the potential leakage of a financial institution's own valuable IP when employees interact with AI models, particularly public or third-party hosted tools. Inputting confidential information—such as proprietary trading algorithms, sensitive client data analyses, M&A strategies, unreleased financial product details, or internal operational know-how—into these AI systems can lead to the irretrievable loss of trade secrets. There have been instances where firms have accidentally leaked sensitive internal code or confidential business strategies through the use of AI tools.
+* **Trade Secret Leakage**: Employees inputting proprietary algorithms, M&A strategies, or confidential data into public AI tools risk irretrievable loss of valuable IP.
 
-* **Licensing and Usage Rights for AI Models and Platforms**: Financial institutions must ensure that the AI models, platforms, and APIs they utilize are properly licensed for commercial purposes. The terms of service for AI tools can vary widely, and failure to adhere to licensing conditions could result in contractual breaches or loss of access to critical AI capabilities.
+* **Licensing Violations**: Improper licensing of AI platforms or failure to comply with terms of service can result in contractual breaches.
 
 ### Consequences
 

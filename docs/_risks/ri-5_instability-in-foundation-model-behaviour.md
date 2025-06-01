@@ -1,9 +1,11 @@
 ---
 sequence: 5
-title: Instability in Foundation Model Behaviour
+title: Foundation Model Versioning
 layout: risk
 doc-status: Draft
 type: OP
+related_risks:
+  - ri-6  # Non-Deterministic Behaviour
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation
 nist-ai-600-1_references:
@@ -20,39 +22,27 @@ eu-ai-act_references:
 
 ## Summary
 
-Foundation model instability refers to unpredictable changes in model behaviour over time, even when given identical prompts. This can result from version updates, internal system prompt changes, non-deterministic generation, or unannounced modifications by the provider. Such variability can undermine testing, reliability, and trust in systems built on top of these models, particularly when no version control or change notification mechanisms are in place.
+Foundation model instability refers to unpredictable changes in model behavior over time due to external factors like version updates, system prompt modifications, or provider changes. Unlike inherent non-determinism (ri-6), this instability stems from upstream modifications that alter the model's fundamental behavior patterns. Such variability can undermine testing, reliability, and trust when no version control or change notification mechanisms are in place.
 
 ## Description
 
-Instability in foundation model behaviour may manifest as deviations in output (i.e., during inferencing) when the same prompt is supplied. This can affect reliability, reproducibility, and downstream decision-making in systems built on top of these models.
+Model providers frequently improve and update their foundation models, which may involve retraining, fine-tuning, or architecture changes. These updates, if applied without explicit notification or without allowing version pinning, can lead to shifts in behaviour even when inputs remain unchanged.
 
-There are several ways in which foundation model behaviour may change:
-
-* **Version Updates**: Model providers frequently improve and update their foundation models, which may involve retraining, fine-tuning, or architecture changes. These updates, if applied without explicit notification or without allowing version pinning, can lead to shifts in behaviour even when inputs remain unchanged.
-
-### Versioning Challenges
-
-The challenge of managing model stability is compounded by unique difficulties in versioning large language models:
-
-* **Model Size and Complexity**: Models comprise vast numbers of parameters, making it complex to track changes and their impacts meaningfully across such massive systems.
-
-* **Dynamic Nature**: Some LLMs are designed to learn and adapt over time, while others are updated through fine-tuning and customizations, making it difficult to define discrete versions.
-
-* **Multidimensional Changes**: Updates might involve changes to model architecture, training data, fine-tuning processes, and inference parameters—ranging from minor hyperparameter adjustments to complete retraining with new data.
-
-* **Training Data Versioning**: LLMs are trained on massive datasets, making it difficult to track and manage changes in the training corpus.
-
-* **Resource Management**: Running multiple versions simultaneously can strain computational resources and challenge infrastructure.
-
-* **Lack of Standardization**: No widely accepted standards exist for versioning LLMs, leading to inconsistent practices across organizations.
-
-* **System Prompt Modifications**: Many models operate with a hidden or implicit *system prompt*—a predefined set of instructions that guides the model’s tone, formatting, or safety behaviour. Changes to this internal prompt (e.g., for improved safety or compliance) can alter model outputs subtly or significantly, even if user inputs remain identical.
-
-* **Non-Determinism in Generation**: LLMs and other generative models inherently involve stochastic processes—especially when parameters like `temperature` or `top-p` sampling are non-zero. Even without external changes, this randomness can cause variability in the outputs across repeated runs.
+* **System Prompt Modifications**: Many models operate with a hidden or implicit *system prompt*—a predefined set of instructions that guides the model's tone, formatting, or safety behaviour. Changes to this internal prompt (e.g., for improved safety or compliance) can alter model outputs subtly or significantly, even if user inputs remain identical.
 
 * **Context Window Effects**: Model behaviour may vary depending on the total length and structure of input context, including position in the token window. Outputs can shift when prompts are rephrased, rearranged, or extended—even if core semantics are preserved.
 
 * **Deployment Environment or API Changes**: Changes in model deployment infrastructure (e.g., hardware, quantization, tokenization behaviour) or API defaults can also affect behaviour, particularly for latency-sensitive or performance-critical applications.
+
+### Versioning Challenges
+
+LLM versioning is uniquely difficult due to:
+
+* **Scale and Complexity**: Massive parameter counts make tracking changes challenging
+* **Dynamic Updates**: Continuous learning and fine-tuning blur discrete version boundaries  
+* **Multidimensional Changes**: Updates span architecture, training data, and inference parameters
+* **Resource Constraints**: Running multiple versions simultaneously strains infrastructure
+* **No Standards**: Lack of accepted versioning practices across organizations
 
 Relying entirely on the model provider for evaluation—particularly for fast-evolving model types such as code generation—places the burden of behavioural consistency entirely on that provider. Any change introduced upstream, whether explicitly versioned or not, can impact downstream system reliability.
 

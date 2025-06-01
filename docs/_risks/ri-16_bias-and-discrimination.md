@@ -18,21 +18,27 @@ eu-ai-act_references:
 
 ## Summary
 
-Bias and Discrimination in the context of AI systems refer to the systematic and often unfair differential treatment of individuals or groups based on inherent characteristics such as age, gender, ethnicity, disability, or other protected attributes. This can occur when AI models produce outcomes that disproportionately favor or disadvantage certain groups, even if the intention behind deploying the AI was not discriminatory. Such biases often stem from skewed or unrepresentative training data, flawed model design, or the use of proxy variables that correlate with sensitive characteristics.
+AI systems can systematically disadvantage protected groups through biased training data, flawed design, or proxy variables that correlate with sensitive characteristics. In financial services, this manifests as discriminatory credit decisions, unfair fraud detection, or biased customer service, potentially violating fair lending laws and causing significant regulatory and reputational damage.
 
 ## Description
 
 Within the financial services industry, the manifestations and consequences of AI-driven bias and discrimination can be particularly severe, impacting critical functions and leading to significant harm:
 
-* **Credit, Lending, and Insurance:** AI models used for credit scoring, loan origination, or insurance underwriting may unfairly deny services, offer less favorable terms, or set inequitable premiums for individuals from protected groups. This can perpetuate financial exclusion and violate fair lending and anti-discrimination regulations (e.g., the Equal Credit Opportunity Act, Equality Act).
+* **Biased Credit Scoring**:
+  An AI model trained on historical lending data may learn patterns that reflect past discriminatory practices—such as granting loans disproportionately to individuals from certain zip codes, employment types, or educational backgrounds. This can result in lower credit scores for minority applicants or applicants from underserved communities, even if their actual financial behaviour is comparable to others.
 
-* **Fraud Detection and Prevention:** Systems designed to detect fraudulent activity might exhibit higher false positive rates for certain demographics, leading to unnecessary scrutiny, account blockages, and distress for legitimate customers.
+* **Unfair Loan Approval Recommendations**:
+  An LLM-powered decision support tool might assist underwriters by summarizing borrower applications. If trained on biased documentation or internal guidance, the system might consistently recommend rejection for certain profiles (e.g., single parents, freelancers), reinforcing systemic exclusion and contributing to disparate impact under fair lending laws.
 
-* **Customer Service and Engagement:** AI-powered chatbots or virtual assistants could inadvertently provide a lower quality of service, offer biased advice, or misinterpret queries from specific user groups due to biases learned from interaction data or design limitations.
+* **Discriminatory Insurance Premium Calculations**:
+  Insurance pricing algorithms that use AI may rely on features like occupation, home location, or education level—attributes that correlate with socioeconomic status or race. This can lead to higher premiums for certain demographic groups without a justifiable basis in actual risk, potentially violating fairness or equal treatment regulations.
 
-* **Marketing and Product Recommendation:** AI-driven marketing campaigns might unfairly exclude certain groups from beneficial product offers or target vulnerable populations with predatory products, leading to ethical concerns and reputational damage.
+* **Disparate Marketing Practices**:
+  AI systems used for personalized financial product recommendations or targeted advertising might exclude certain users from seeing offers—such as mortgage refinancing or investment services—based on income, browsing behaviour, or inferred demographics. This results in unequal access to financial opportunities and can perpetuate wealth gaps.
 
-* **Algorithmic Trading and Investment Advice:** While more complex, biases could theoretically emerge in algorithmic trading strategies or robo-advisory services if models learn from historical data that reflects market inefficiencies or past discriminatory practices, potentially disadvantaging certain investor profiles or asset classes without justification.
+* **Customer Service Disparities**:
+  Foundational models used in customer support chatbots may respond differently based on linguistic patterns or perceived socioeconomic cues. For example, customers writing in non-standard English or with certain accents (in voice-based systems) might receive lower-quality or less helpful responses, affecting service equity.
+
 
 ### Root Causes of Bias
 
@@ -50,21 +56,5 @@ The implications of deploying biased AI systems are far-reaching for financial i
 * **Customer Detriment:** Direct harm to customers through unfair treatment, financial exclusion, or economic loss.
 * **Operational Inefficiencies:** Flawed decision-making stemming from biased models can lead to suboptimal business outcomes and increased operational risk.
 
-## Examples
-
-* **Biased Credit Scoring**:
-  An AI model trained on historical lending data may learn patterns that reflect past discriminatory practices—such as granting loans disproportionately to individuals from certain zip codes, employment types, or educational backgrounds. This can result in lower credit scores for minority applicants or applicants from underserved communities, even if their actual financial behaviour is comparable to others.
-
-* **Unfair Loan Approval Recommendations**:
-  An LLM-powered decision support tool might assist underwriters by summarizing borrower applications. If trained on biased documentation or internal guidance, the system might consistently recommend rejection for certain profiles (e.g., single parents, freelancers), reinforcing systemic exclusion and contributing to disparate impact under fair lending laws.
-
-* **Discriminatory Insurance Premium Calculations**:
-  Insurance pricing algorithms that use AI may rely on features like occupation, home location, or education level—attributes that correlate with socioeconomic status or race. This can lead to higher premiums for certain demographic groups without a justifiable basis in actual risk, potentially violating fairness or equal treatment regulations.
-
-* **Disparate Marketing Practices**:
-  AI systems used for personalized financial product recommendations or targeted advertising might exclude certain users from seeing offers—such as mortgage refinancing or investment services—based on income, browsing behaviour, or inferred demographics. This results in unequal access to financial opportunities and can perpetuate wealth gaps.
-
-* **Customer Service Disparities**:
-  Foundational models used in customer support chatbots may respond differently based on linguistic patterns or perceived socioeconomic cues. For example, customers writing in non-standard English or with certain accents (in voice-based systems) might receive lower-quality or less helpful responses, affecting service equity.
 
 

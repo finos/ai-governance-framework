@@ -24,11 +24,17 @@ Data poisoning occurs when adversaries tamper with training or fine-tuning data 
 
 ## Description
 
-Data poisoning refers to the deliberate manipulation of training or fine-tuning datasets with the goal of influencing or corrupting the behaviour of an AI model. Adversaries may introduce subtle patterns or maliciously crafted examples into the training data, which remain hidden during validation but activate under specific conditions. For example, fraudsters might inject fake records into transaction logs that mislabel fraudulent activity as legitimate, leading the model to internalize incorrect associations and reduce its ability to detect real fraud.
+Data poisoning involves adversaries deliberately tampering with training or fine-tuning data to corrupt the learning process and manipulate subsequent model behavior. In financial services, this presents several attack vectors:
 
-Poisoning can also introduce systematic biases into models. In a credit scoring system, adversaries may bias training data to favour certain fraudulent profiles or unfairly disadvantage legitimate applicants, causing inaccurate or discriminatory outcomes. This risk is particularly acute in systems that support continuous or online learning, where models ingest and adapt to new data in real time without rigorous human review or validation.
+**Training Data Manipulation**: Adversaries alter datasets by changing labels (marking fraudulent transactions as legitimate) or injecting crafted data points with hidden patterns exploitable later.
 
-The use of third-party or crowd-sourced datasets further increases exposure, as these sources may be compromised or manipulated before ingestion. Poisoned inputs from such sources can propagate unnoticed through the training pipeline, embedding vulnerabilities or performance degradation into production models. Critically, the effects of data poisoning are often difficult to detect and may only surface during high-impact incidents—such as regulatory failures, financial loss, or safety-critical system errors.
+**Continuous Learning Exploitation**: Systems that continuously learn from new data are vulnerable if validation mechanisms are inadequate. Fraudsters can systematically feed misleading information to skew decision-making in credit scoring or trading models.
+
+**Third-Party Data Compromise**: Financial institutions rely on external data feeds (market data, credit references, KYC/AML watchlists). If these sources are compromised, poisoned data can unknowingly introduce biases or vulnerabilities.
+
+**Bias Introduction**: Data poisoning can amplify biases in credit scoring or loan approval models, leading to discriminatory outcomes and regulatory non-compliance.
+
+The effects are often subtle and difficult to detect, potentially remaining hidden until major failures, financial losses, or regulatory interventions occur.
 
 ## Links
 

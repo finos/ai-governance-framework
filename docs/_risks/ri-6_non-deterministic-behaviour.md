@@ -21,9 +21,16 @@ LLMs exhibit non-deterministic behaviour, meaning they can generate different ou
 
 ## Description
 
-A fundamental property of Large Language Models (LLMs) is the non-determinism of their responses. These models generate text by predicting a probability distribution over possible next tokens, sampling from that distribution at each step. As a result, even when given the same input prompt, the output may vary across repeated runs. This behaviour is often amplified by sampling techniques such as top-k, top-p (nucleus sampling), or temperature-based decoding, and may also be affected by internal states, implicit random seeds, or changes in the inference environment. [This method also means that LLMs can tend towards winding or unintelligible outputs when the outputs being produced are larger.](https://arxiv.org/pdf/2203.11370)
+LLMs inherently involve stochastic processes that cause **non-deterministic generation**—producing different outputs for identical inputs. This occurs because models predict probability distributions over possible next tokens and sample from these distributions at each step. Parameters like `temperature` (randomness level) and `top-p` sampling (nucleus sampling) amplify this variability, even without external changes to the model itself.
 
-Non-determinism introduces unpredictability that can undermine the usability and trustworthiness of systems relying on LLMs. Two users asking the same question may receive inconsistent answers. A single user may see different outputs to the same query on different days. These behaviours, while sometimes benign, can degrade user trust and confidence over time—especially in contexts where consistency is expected.
+Key sources of non-determinism include:
+
+* **Probabilistic Sampling**: Models don't always choose the highest-probability token, introducing controlled randomness for more natural, varied outputs
+* **Internal States**: Random seeds, GPU computation variations, or floating-point precision differences can affect results
+* **Context Effects**: Model behavior varies based on prompt position within the token window or slight rephrasing
+* **Temperature Settings**: Higher temperatures increase randomness; lower temperatures increase consistency but may reduce creativity
+
+This unpredictability can undermine trust and complicate business processes that depend on consistent model behavior. Financial institutions may see varying risk assessments, inconsistent customer responses, or unreliable compliance checks from identical inputs.
 
 
 ## Examples of Non-Deterministic Behaviour

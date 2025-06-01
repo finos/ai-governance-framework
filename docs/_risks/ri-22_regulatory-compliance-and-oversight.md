@@ -25,13 +25,10 @@ AI systems in financial services must comply with the same regulatory standards 
 
 The financial services sector is subject to extensive regulatory oversight, and the use of artificial intelligence does not exempt firms from these obligations. Regulators across jurisdictions have made it clear that AI-generated content and decisions must comply with the same standards as those made by human professionals. Whether AI is used for advice, marketing, decision-making, or communication, firms remain fully accountable for ensuring regulatory compliance.
 
-A primary aspect of this risk is the direct applicability of established financial regulations to AI-generated outputs:
-* **Financial Advice and Suitability**: AI tools providing financial advice or recommendations are subject to stringent requirements such as Know Your Customer (KYC), suitability assessments (ensuring advice is appropriate for a client's financial situation and objectives), and the avoidance of misleading statements, as mandated by frameworks like MiFID II in Europe or SEC regulations in the US.
-* **Marketing and Customer Communications**: All AI-generated marketing materials, advertisements, and customer communications must be fair, clear, accurate, and not misleading, complying with consumer protection laws and specific sectoral rules against unfair or deceptive practices.
-
-Record-keeping obligations under laws such as MiFID II, SEC Rule 17a-4, or FINRA guidelines may require firms to retain AI-generated interactions, including chatbot transcripts, personalised recommendations, and generated documentation. Failure to capture or archive these outputs could result in breaches of evidentiary or audit trail requirements.
-
-* **Record-Keeping Obligations**: Financial regulations, including MiFID II and various SEC rules, impose extensive record-keeping requirements. These obligations extend to AI-generated outputs, decisions, and communications, which can present significant data management and retention challenges for firms deploying AI at scale.
+Key regulatory obligations apply directly to AI-generated outputs:
+* **Financial Advice**: Subject to KYC, suitability assessments, and accuracy requirements (MiFID II, SEC regulations)
+* **Marketing Communications**: Must be fair, clear, accurate, and not misleading per consumer protection laws
+* **Record-Keeping**: AI interactions, recommendations, and outputs must be retained per MiFID II, SEC Rule 17a-4, and FINRA guidelines
 
 Beyond the application of existing rules, financial regulators (such as the PRA and FCA in the UK, the OCC and FRB in the US, and the EBA in the EU) explicitly mandate robust AI-specific governance, risk management, and validation frameworks. This includes:
 * **Model Risk Management**: AI models, particularly those informing critical decisions in areas such as credit underwriting, capital adequacy calculations, algorithmic trading, fraud detection, and AML/CFT monitoring, must be subject to rigorous model governance. This involves comprehensive validation, ongoing performance monitoring, clear documentation, and effective human oversight, consistent with established model risk management principles.
