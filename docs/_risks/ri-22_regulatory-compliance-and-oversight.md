@@ -6,7 +6,7 @@ doc-status: Draft
 type: RC
 nist-ai-600-1_references:
   - 2-9  # 2.9. Information Security
-ffiec_references:
+ffiec-itbooklets_references:
   - mgt-1  # MGT: I   Governance
   - mgt-2  # MGT: II Risk Management
   - aud-3  # AUD: Internal Audit Program

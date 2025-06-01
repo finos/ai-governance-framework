@@ -6,7 +6,7 @@ doc-status: Draft
 type: OP
 owasp-llm_references:
   - llm06-2025  # LLM06:2025 Excessive Agency
-ffiec_references:
+ffiec-itbooklets_references:
   - mgt-1  # MGT: I   Governance
   - mgt-2  # MGT: II Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

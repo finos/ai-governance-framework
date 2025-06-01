@@ -108,5 +108,5 @@ The script automatically generates keys for:
 - **Appendices**: `ffiec_{abbrev}_appendix-{letter}-{title-slug}`
 
 #### Integration with Risk Files
-The generated keys are used in the `ffiec_references:` section of risk files (`docs/_risks/ri-*.md`) to map AI governance risks to specific FFIEC requirements.
+The generated keys are used in the `ffiec-itbooklets_references:` section of risk files (`docs/_risks/ri-*.md`) to map AI governance risks to specific FFIEC requirements.
 

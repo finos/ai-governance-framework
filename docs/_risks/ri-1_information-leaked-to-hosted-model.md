@@ -9,7 +9,7 @@ owasp-llm_references:
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy
   - 2-9  # 2.9. Information Security
-ffiec_references:
+ffiec-itbooklets_references:
   - sec-2  # SEC: II Information Security Program Management
   - sec-3  # SEC: III Security Operations
   - ots-2  # OTS: Risk Management

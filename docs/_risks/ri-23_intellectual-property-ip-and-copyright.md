@@ -6,7 +6,7 @@ doc-status: Draft
 type: RC
 nist-ai-600-1_references:
   - 2-10  # 2.10. Intellectual Property
-ffiec_references:
+ffiec-itbooklets_references:
   - mgt-1  # MGT: I   Governance
   - mgt-2  # MGT: II Risk Management
   - ots-2  # OTS: Risk Management

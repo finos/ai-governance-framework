@@ -6,7 +6,7 @@ doc-status: Draft
 type: OP
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation
-ffiec_references:
+ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
 eu-ai-act_references:

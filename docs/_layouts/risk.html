@@ -83,12 +83,12 @@ layout: default
             </div>
             {% endif %}
 
-            {% if page.ffiec_references and page.ffiec_references.size > 0 %}
+            {% if page.ffiec-itbooklets_references and page.ffiec-itbooklets_references.size > 0 %}
             <div class="card">
                 <div class="card-body">
                     <h2 class="h4 mb-4">FFIEC References</h2>
                     <div class="list-group">
-                        {% for reference in page.ffiec_references %}
+                        {% for reference in page.ffiec-itbooklets_references %}
                         {% assign booklet = site.data.ffiec-itbooklets[reference] %}
                         {% if booklet %}
                         <a href="{{ booklet.url }}" target="_blank" rel="noopener noreferrer" 

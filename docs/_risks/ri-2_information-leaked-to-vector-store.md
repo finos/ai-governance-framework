@@ -10,7 +10,7 @@ owasp-llm_references:
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy
   - 2-9  # 2.9. Information Security
-ffiec_references:
+ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - sec-4  # SEC: IV Information Security Program Effectiveness
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

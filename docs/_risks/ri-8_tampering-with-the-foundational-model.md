@@ -7,7 +7,7 @@ type: SEC
 owasp-llm_references:
   - llm03-2025  # LLM03:2025 Supply Chain
   - llm05-2025  # LLM05:2025 Improper Output Handling
-ffiec_references:
+ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - ots-2  # OTS: Risk Management
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance

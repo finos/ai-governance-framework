@@ -4,7 +4,7 @@ title: Inadequate System Alignment
 layout: risk
 doc-status: Draft
 type: OP
-ffiec_references:
+ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - dam-5  # DAM: V Development
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

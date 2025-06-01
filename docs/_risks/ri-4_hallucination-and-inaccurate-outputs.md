@@ -11,7 +11,7 @@ owasp-ml_references:
 nist-ai-600-1_references:
   - 2-2  # 2.2. Confabulation
   - 2-8  # 2.8. Information Integrity
-ffiec_references:
+ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
   - mgt-2  # MGT: II Risk Management

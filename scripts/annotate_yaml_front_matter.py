@@ -20,7 +20,7 @@ Mitigation files (mi-*.md):
 
 Risk files (ri-*.md):
 - Updates 'related_risks' section with risk titles
-- Updates reference sections (nist-sp-800-53r5_references, nist-ai-600-1_references, ffiec_references, owasp-ml_references, owasp-llm_references, eu-ai-act_references) with reference titles from docs/_data/*.yml
+- Updates reference sections (nist-sp-800-53r5_references, nist-ai-600-1_references, ffiec-itbooklets_references, owasp-ml_references, owasp-llm_references, eu-ai-act_references) with reference titles from docs/_data/*.yml
 
 Example:
     Original YAML:
@@ -70,21 +70,22 @@ def get_reference_titles():
     reference_mappings = {}
     data_dir = SCRIPT_DIR / '..' / 'docs' / '_data'
     
-    # Define the reference types and their corresponding file mappings
-    reference_files = {
-        'nist-sp-800-53r5_references': 'nist-sp-800-53r5.yml',
-        'nist-ai-600-1_references': 'nist-ai-600-1.yml', 
-        'ffiec_references': 'ffiec-itbooklets.yml',
-        'owasp-ml_references': 'owasp-ml.yml',
-        'owasp-llm_references': 'owasp-llm.yml',
-        'eu-ai-act_references': 'eu-ai-act.yml'
-    }
+    # Define the reference types (filename derived by removing '_references' suffix)
+    reference_types = [
+        'nist-sp-800-53r5',
+        'nist-ai-600-1', 
+        'ffiec-itbooklets',
+        'owasp-ml',
+        'owasp-llm',
+        'eu-ai-act'
+    ]
     
-    for ref_type, filename in reference_files.items():
-        reference_mappings[ref_type] = {}
-        yaml_file = data_dir / filename
+    for reference_type in reference_types:
+        yaml_file = data_dir / f'{reference_type}.yml'
+        ref_type = f'{reference_type}_references'
         
         if yaml_file.exists():
+            reference_mappings[ref_type] = {}
             try:
                 with open(yaml_file, 'r', encoding='utf-8') as f:
                     data = yaml.safe_load(f)
@@ -94,7 +95,7 @@ def get_reference_titles():
                         if isinstance(ref_info, dict) and 'title' in ref_info:
                             reference_mappings[ref_type][ref_id] = ref_info['title']
             except Exception as e:
-                print(f"Error reading from {filename}: {e}")
+                print(f"Error reading from {yaml_file.name}: {e}")
     
     return reference_mappings
 
@@ -165,7 +166,7 @@ def update_file_yaml(file_path, title_mappings):
             'related_risks': title_mappings['risks'],
             'nist-sp-800-53r5_references': title_mappings.get('nist-sp-800-53r5_references', {}),
             'nist-ai-600-1_references': title_mappings.get('nist-ai-600-1_references', {}),
-            'ffiec_references': title_mappings.get('ffiec_references', {}),
+            'ffiec-itbooklets_references': title_mappings.get('ffiec-itbooklets_references', {}),
             'owasp-ml_references': title_mappings.get('owasp-ml_references', {}),
             'owasp-llm_references': title_mappings.get('owasp-llm_references', {}),
             'eu-ai-act_references': title_mappings.get('eu-ai-act_references', {})

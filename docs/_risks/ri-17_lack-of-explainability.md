@@ -6,7 +6,7 @@ doc-status: Draft
 type: OP
 owasp-llm_references:
   - llm05-2025  # LLM05:2025 Improper Output Handling
-ffiec_references:
+ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance

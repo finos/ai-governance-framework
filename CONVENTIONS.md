@@ -60,7 +60,7 @@ The `nist-ai-600-1_references:` section references keys from `_data/nist-ai-600-
 Each reference links to the corresponding NIST control or section with deep PDF links.
 
 ## FFIEC References  
-The `ffiec_references:` section references keys from `_data/ffiec-itbooklets.yml`.
+The `ffiec-itbooklets_references:` section references keys from `_data/ffiec-itbooklets.yml`.
 Each reference links to the corresponding FFIEC IT Handbook booklet.
 
 ## OWASP ML Top 10 References

@@ -6,7 +6,7 @@ doc-status: Draft
 type: OP
 nist-ai-600-1_references:
   - 2-8  # 2.8. Information Integrity
-ffiec_references:
+ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - dam-7  # DAM: VII Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

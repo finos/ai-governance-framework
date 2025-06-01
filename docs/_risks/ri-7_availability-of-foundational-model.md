@@ -6,7 +6,7 @@ doc-status: Draft
 type: OP
 owasp-llm_references:
   - llm10-2025  # LLM10:2025 Unbounded Consumption
-ffiec_references:
+ffiec-itbooklets_references:
   - bcm-4  # BCM: IV Business Continuity Strategies
   - bcm-5  # BCM: V Business Continuity Plan
   - ots-2  # OTS: Risk Management

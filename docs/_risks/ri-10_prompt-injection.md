@@ -9,7 +9,7 @@ owasp-llm_references:
   - llm04-2025  # LLM04: Data and Model Poisoning
   - llm06-2025  # LLM06:2025 Excessive Agency
   - llm10-2025  # LLM10:2025 Unbounded Consumption
-ffiec_references:
+ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - dam-4  # DAM: IV Common Development, Acquisition, and Maintenance Risk Topics
   - dam-5  # DAM: V Development

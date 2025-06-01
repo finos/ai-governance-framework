@@ -6,7 +6,7 @@ doc-status: Draft
 type: OP
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation
-ffiec_references:
+ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - bcm-3  # BCM: III Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

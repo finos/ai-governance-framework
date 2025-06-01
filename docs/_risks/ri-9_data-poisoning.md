@@ -9,7 +9,7 @@ owasp-llm_references:
   - llm04-2025  # LLM04: Data and Model Poisoning
   - llm05-2025  # LLM05:2025 Improper Output Handling
   - llm06-2025  # LLM06:2025 Excessive Agency
-ffiec_references:
+ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

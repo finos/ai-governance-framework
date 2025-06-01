@@ -8,7 +8,7 @@ owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation
 nist-ai-600-1_references:
   - 2-8  # 2.8. Information Integrity
-ffiec_references:
+ffiec-itbooklets_references:
   - ots-2  # OTS: Risk Management
   - dam-7  # DAM: VII Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

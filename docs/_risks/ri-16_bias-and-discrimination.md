@@ -6,7 +6,7 @@ doc-status: Pre-Draft
 type: OP
 nist-ai-600-1_references:
   - 2-6  # 2.6. Harmful Bias and Homogenization
-ffiec_references:
+ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
