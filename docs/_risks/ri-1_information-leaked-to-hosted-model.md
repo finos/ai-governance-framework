@@ -20,17 +20,36 @@ eu-ai-act_references:
 ---
 ## Summary
 
-Using third-party hosted large language models (LLMs) introduces a significant risk of sensitive information disclosure, as data transmitted for inference may be retained or exposed through model behaviors like overfitting, memorization, and prompt-based attacks. Without robust data sanitization, access controls, and clear terms of use, proprietary or personally identifiable information (PII) may be inadvertently leaked to unauthorized users. These risks are especially pronounced in free or inadequately governed LLM services, where data handling practices may lack transparency and safeguards.
+Using third-party hosted LLMs creates a **two-way trust boundary** where neither inputs nor outputs can be fully trusted. Sensitive financial data sent for inference may be memorized by models, leaked through prompt attacks, or exposed via inadequate provider controls. This risks exposing customer PII, proprietary algorithms, and confidential business information, particularly with free or poorly-governed LLM services.
 
 ## Description
 
-With many GenAI applications using third-party hosted LLMs, there is the potential for sensitive data to be transmitted to the third-party platform for inference, posing a risk of information leakage. Sensitive organizational data, proprietary algorithms, and confidential information may be unintentionally exposed due to inadequate control measures within the hosted model. This can occur through several mechanisms unique to Large Language Models (LLMs), as outlined in OWASP's LLM06, such as [overfitting](https://aws.amazon.com/what-is/overfitting/), [memorization](https://arxiv.org/pdf/2310.18362), and [prompt-based attacks](https://owasp.org/www-project-llm-prompt-hacking/).
+A core challenge arises from the nature of interactions with external LLMs, which can be conceptualized as a **two-way trust boundary**. Neither the data inputted into the LLM nor the output received can be fully trusted by default. Inputs containing sensitive financial information may be retained or processed insecurely by the provider, while outputs may inadvertently reveal previously processed sensitive data, even if the immediate input prompt appears benign.
 
-LLMs can retain data from training processes or user interactions, potentially recalling sensitive information during unrelated sessions, a phenomenon known as "memorization" When data such as Personally Identifiable Information (PII) or proprietary financial strategies enter the model, the risk of inadvertent disclosure rises, particularly when insufficient data sanitization or filtering mechanisms are in place. Additionally, adversarial actors could exploit prompt injection attacks to manipulate the model into revealing sensitive data. 
+Several mechanisms unique to or amplified by LLMs contribute to this risk:
 
-Furthermore, data retention policies or model fine-tuning can exacerbate these risks. When fine-tuning is done on proprietary data without strict access control, sensitive information may inadvertently be disclosed to lower-privileged users, violating principles of least privilege. Without clear Terms of Use, data sanitization, and input validation, the organization loses visibility into how sensitive information is processed by the LLM and where it may be disclosed.
+* **Model Memorization**: LLMs can [memorize](https://arxiv.org/pdf/2310.18362) sensitive data from training or user interactions, later disclosing customer details, loan terms, or trading strategies in unrelated sessions—even to different users.
 
-It is, however, important to understand distinct risk vectors between commercial/enterprise-grade and free hosted LLMs. For instance, commercial LLMs like ChatGPT offer a "Memory" setting to manage what the system is allowed to memorize from your conversations and Data controls to restrict what can be used to train their models. Additionally, enterprise-grade LLMs will usually sanitize sensitive data when used in organizational environments and often include stringent terms of use related to the handling of your data inputs and outputs that must first be accepted before interacting with the model. Free hosted LLMs, on the other hand, may use your data to train their models without you explicitly knowing that it is happening. Thus, you must always exercise due diligence when interacting with hosted LLM services to better understand how your input and output data is being used behind the scenes.
+* **Prompt-Based Attacks**: Adversaries can craft prompts to extract memorized sensitive information (see ri-10).
+
+* **Inadequate Data Controls**: Insufficient sanitization, encryption, or access controls by providers or institutions increases disclosure risk.
+
+The risk profile can be further influenced by the provider's data handling practices and the specific services utilized:
+
+* **Provider Data Practices**: Without clear contracts ensuring encryption, retention limits, and secure deletion, institutions lose control over sensitive data. Providers may lack transparency about data processing and retention.
+
+* **Fine-Tuning Risks**: Using proprietary data for fine-tuning embeds sensitive information in models, potentially accessible to unauthorized users if access controls are inadequate.
+
+Enterprise LLMs typically offer better protections (private endpoints, no training data usage, encryption) than free services, which often use input data for model improvements. Thorough due diligence on provider practices is essential.
+
+### Consequences
+
+The consequences of such information leakage for a financial institution can be severe:
+* **Breach of Data Privacy Regulations:** Unauthorized disclosure of PII can lead to significant fines under regulations like GDPR, CCPA, and others, alongside mandated customer notifications.
+* **Violation of Financial Regulations:** Leakage of confidential customer information or market-sensitive data can breach specific financial industry regulations concerning data security and confidentiality (e.g., GLBA in the US).
+* **Loss of Competitive Advantage:** Exposure of proprietary algorithms, trading strategies, or confidential business plans can erode a firm's competitive edge.
+* **Reputational Damage:** Public disclosure of sensitive data leakage incidents can lead to a substantial loss of customer trust and damage to the institution's brand.
+* **Legal Liabilities:** Beyond regulatory fines, institutions may face lawsuits from affected customers or partners.
 
 
 ### Key Risks 

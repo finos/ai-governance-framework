@@ -30,5 +30,7 @@ The financial sector is especially vulnerable due to its reliance on trust, fair
 
 A unique concern with AI is its ability to scale errors rapidly. A flaw in a traditional system might affect one customer or one transaction; a similar flaw in an AI-powered system could propagate across thousands of customers in real time—amplifying the reputational impact exponentially.
 
-Regulators and industry watchdogs are increasingly treating AI-related reputational risk as a key area of concern. Firms must therefore recognise that every AI-driven interaction, recommendation, or decision reflects on their broader conduct and accountability. Effective governance, transparency, and fallback procedures are essential to mitigate this evolving operational risk.
+Compliance failures linked to the deployment or operation of AI systems can also lead to substantial regulatory fines, increased scrutiny, and further reputational harm. Regulators have increasingly highlighted AI-related reputational risk as a key concern for the financial services industry. Financial institutions must recognize that the outputs and actions of their AI-driven services are a direct reflection of their overall conduct and commitment to responsible practices.
+
+A critical aspect of AI-related reputational risk is the potential for rapid scalability of errors. A flaw in an AI system could lead to the dissemination of incorrect or harmful messages to thousands, or even millions, of customers almost instantaneously. Therefore, damage to reputation arising from AI missteps constitutes a significant operational risk that requires proactive governance, rigorous testing, and continuous monitoring.
 

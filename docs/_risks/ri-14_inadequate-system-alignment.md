@@ -39,7 +39,21 @@ There is also a risk that fully automating certain processes with AI removes hum
 
 Even systems that are initially well-aligned can become misaligned over time due to non-deterministic behaviour, deployment of new model versions, or changes in contextual information such as system prompts or retrieval databases.
 
-In general, there is a risk that an AI system may optimise for its goals in ways that cause unintended or harmful side effects—both in the immediate context and in broader societal or long-term settings. This highlights the importance of responsible AI development, ensuring that systems are designed and monitored to reflect human values, fairness, and safety while maintaining accountability.
+### Financial Services Impact
+
+The consequences of such misalignment in a financial services context can be severe:
+
+* **Suboptimal or Harmful Business Outcomes**: An AI system designed to optimize profitability might inadvertently recommend strategies that exploit regulatory ambiguities, compromise customer best interests (e.g., by promoting unsuitable financial products), or disregard the institution's social responsibilities and long-term reputational integrity.
+
+* **Bias and Unfair Treatment**: AI models used in critical processes like credit assessment, fraud detection, or even recruitment, if misaligned, may perpetuate or amplify existing biases. This can lead to discriminatory outcomes against certain customer demographics or applicant groups, resulting in regulatory breaches (e.g., fair lending violations) and significant reputational damage.
+
+* **Erosion of Accountability and Oversight**: The automation of complex processes by AI systems, if not properly aligned with human oversight mechanisms, can lead to a diffusion of responsibility. If the system behaves unexpectedly or causes harm, the lack of clarity regarding human accountability can hinder remediation and erode trust.
+
+* **Compromised Decision-Making**: Misalignment can be exacerbated by issues such as hallucinations (ri-4) where the model generates plausible but incorrect information, or by the inherent instability and non-deterministic behaviour (ri-5) of foundation models. These factors can lead to unreliable outputs that underpin critical financial decisions.
+
+An AI system that is adequately aligned at its initial deployment may drift towards misalignment over time. This can be due to several factors, including updates to the underlying model by third-party providers, changes in the data it processes (e.g., through Retrieval Augmented Generation databases), shifts in the operational environment, or the model's own learning and adaptation if continuous learning is enabled.
+
+Ultimately, a misaligned AI system may optimize for its programmed objectives in a manner that produces unintended, detrimental side effects for the institution, its customers, or the broader financial system. Ensuring and maintaining alignment requires a robust governance framework encompassing design, development, testing, deployment, and ongoing monitoring, guided by the principles of responsible AI to ensure safety, fairness, transparency, and accountability.
 
 
 ## Links
