@@ -1,49 +1,105 @@
 ---
 sequence: 4
-title: System Observability
+title: AI System Observability
 layout: mitigation
 doc-status: Draft
 type: DET
+iso-42001_references:
+  - A-6-2-6 # AI system operation and monitoring
+  - A-6-2-8 # AI system recording of event logs
 mitigates:
-  - ri-1   # Information Leaked To Hosted Model
-  - ri-2   # Information Leaked to Vector Store
-  - ri-3
-  - ri-5   # Instability in Foundation Model Behaviour
-  - ri-6   # Non-Deterministic Behaviour
-  - ri-7   # Availability of Foundational Model
-  - ri-8   # Tampering With the Foundational Model
-  - ri-10  # Prompt Injection
-  - ri-13
+  - ri-1  # Information Leaked To Hosted Model
+  - ri-5  # Instability in Foundation Model Behaviour
+  - ri-6  # Non-Deterministic Behaviour
+  - ri-7  # Availability of Foundational Model
 ---
 
-#### What to log/monitor
+## Purpose
 
-When talking about observability, these are the main things to log and monitor:
+AI System Observability encompasses the comprehensive collection, analysis, and monitoring of data about AI system behavior, performance, interactions, and outcomes. This control is essential for maintaining operational awareness, detecting anomalies, ensuring performance standards, and supporting incident response for AI-driven applications and services within a financial institution.
 
-- Inputs from the user
-- Output from the model
-- APIs calls
-- Information crossing trust boundaries
+The goal is to provide deep visibility into all aspects of AI system operations—from user interactions and model behavior to resource utilization and security events—enabling proactive management, rapid issue resolution, and continuous improvement.
 
-It is always good to log and monitor all, or as much as possible. But when there are limitations because of the bandwidth of the ingested data, consider at least the previous sources. Every application using the models should be included.
+---
+## Key Components of AI System Observability
 
-Consider employing a solution for horizontal monitoring, across several inputs/outputs at the same time for the whole architecture.
+Effective observability for AI systems should encompass multiple data types and monitoring layers:
 
+* **Logging and Audit Trails:** Comprehensive capture of system events, user interactions, and operational data (as per ISO 42001 A.6.2.8).
+* **Performance Monitoring:** Real-time tracking of system health, response times, throughput, and resource utilization.
+* **Model Behavior Analysis:** Monitoring of AI model outputs, accuracy trends, and behavioral patterns.
+* **Security Event Detection:** Identification of potential threats, unauthorized access attempts, and policy violations.
+* **User Interaction Tracking:** Analysis of how users interact with AI systems and the quality of their experience.
 
-#### Why
+---
+## Implementation Guidance
 
-The following reasons explain why we want to log and monitor, and what threats we tackle or how we benefit from it:
+Implementing a robust observability framework for AI systems involves several key steps:
 
-- Anomaly detection, something that other controls are not explicitly looking into.
-- Audit and compliance. Although we are not aware of current regulation that requires it, it could become mandatory in the future.
-- Version control drift from changes, including model, system architecture, and data. Detecting performance degradation that can affect the stability and safety of the whole system.
-  
-- Set clear SLA for availability and performance metrics, specially when multiple tenants are involved. This and cost monitoring is related to security because of [denial of wallet](#ri-7), for that we look into API calls, CPU-lock/scale out, front-end DOS. Once we monitor it, we can rate limit or throttle when reaching limits (Finops), and alerting as described in [CT-9	-	Alerting / DoW spend alert](#CT-9).
+### 1. Establish an Observability Strategy
+* **Define Objectives:** Clearly articulate the goals for AI system observability based on business requirements, specific AI risks (e.g., fairness, security, operational resilience), compliance obligations, and operational support needs.
+* **Identify Stakeholders:** Determine who needs access to observability data and insights (e.g., MLOps teams, data scientists, security analysts, risk managers, compliance officers) and their specific information requirements.
 
-- The recommendation to capture inputs including user prompt, can be used to discover external misuse of your system, even if individually blocked, by individuals or organized campaigns that may require severe measures to completely block while maintaining stability.
+### 2. Identify Key Data Points for Logging and Monitoring
+Comprehensive logging is fundamental (as per ISO 42001 A.6.2.8). Consider the following critical data points, ensuring collection respects data privacy and minimization principles:
 
-- Being able to detect data bleeding (information from a user in a session being available for other users/session), and data persistence (information from one finished session being available into another session). Also known as data pollution, related [CT-3 - User/app/model firewalling/filtering](#CT-3), [CT-1 - Draft	Data Leakage Prevention and Detection](#CT-1), [CT-2 - Draft	Data filtering from Confluence into the samples](#CT-2).
+* **User Interactions and Inputs:**
+    * Complete user inputs (e.g., prompts, queries, uploaded files/data), where permissible and necessary for analysis.
+    * System-generated queries to internal/external data sources (e.g., RAG database queries).
+* **AI Model Behavior and Outputs:**
+    * AI model outputs (e.g., predictions, classifications, generated text/images, decisions).
+    * Associated confidence scores, uncertainty measures, or explainability data (if the model provides these).
+    * Potentially key intermediate calculations or feature values, especially during debugging or fine-grained analysis of complex models.
+* **API Traffic and System Interactions:**
+    * All API calls related to the AI system (to and from the model, between microservices), including request/response payloads (or sanitized summaries), status codes, latencies, and authentication details.
+    * Data flows and interactions crossing trust boundaries (e.g., with external data sources, third-party AI services, or different internal security zones).
+* **Model Performance Metrics (as per ISO 42001 A.6.2.6):**
+    * Task-specific accuracy metrics (e.g., precision, recall, F1-score, AUC for classification; MAE, RMSE for regression).
+    * Model prediction drift, concept drift, and data drift indicators.
+    * Inference latency, throughput (queries per second).
+    * Error rates and types.
+* **Resource Utilization and System Health:**
+    * Consumption of computational resources (CPU, GPU, memory, disk I/O).
+    * Network bandwidth utilization and latency.
+    * Health status and operational logs from underlying infrastructure (servers, containers, orchestrators).
+* **Security-Specific Events:**
+    * Authentication and authorization events (both successes and failures).
+    * Alerts and events from integrated security tools (e.g., AI Firewall, Data Leakage Prevention systems, intrusion detection systems).
+    * Detected access control policy violations or attempts.
+* **Versioning Information:**
+    * Log the versions of AI models, datasets, key software libraries, and system components active during any given operation or event. This is crucial for diagnosing version-specific issues and understanding behavioral changes (e.g., model drift due to an update).
 
-- Assurances that responsible AI metrics are met, need logging, monitoring and processing of the whole system behavior against the specific metrics for this topic. 
+### 3. Implement Appropriate Tooling and Architecture
+* **Logging Frameworks & Libraries:** Utilize robust logging libraries within AI applications and infrastructure components to generate structured and informative log data.
+* **Centralized Log Management:** Aggregate logs from all components into a centralized system (e.g., SIEM, specialized log management platforms) to facilitate efficient searching, analysis, correlation, and long-term retention.
+* **Monitoring and Visualization Platforms:** Employ dashboards and visualization tools to display key metrics, operational trends, system health, and security events in real-time or near real-time.
+* **Alerting Mechanisms:** Configure automated alerts based on predefined thresholds, significant deviations from baselines, critical errors, or specific security event signatures (linking to concepts such as [MI-9 Alerting / DoW spend alert](#mi-9)).
+* **Distributed Tracing:** For complex AI systems composed of multiple interacting microservices, implement distributed tracing capabilities to map end-to-end request flows, identify performance bottlenecks, and understand component dependencies.
+* **Horizontal Monitoring Solutions:** Consider solutions that enable monitoring and correlation of activities across various inputs, outputs, and components simultaneously to achieve a holistic architectural view.
 
-- When in the future you are experiencing security issues, you need to have started collecting information in the past for a full fledged analysis and troubleshooting.
+### 4. Establish Baselines and Implement Anomaly Detection
+* **Baseline Definition:** Collect observability data over a sufficient period under normal operating conditions to establish baselines for key performance, behavioral, and resource utilization metrics.
+* **Anomaly Detection Techniques:** Implement methods (ranging from statistical approaches to machine learning-based techniques) to automatically detect significant deviations from these established baselines. Anomalies can indicate performance issues, emerging security threats, data drift, or unexpected model behavior.
+
+### 5. Define Data Retention and Archival Policies
+* Formulate and implement clear policies for the retention and secure archival of observability data, balancing operational needs (e.g., troubleshooting, trend analysis), regulatory requirements (e.g., audit trails), and storage cost considerations.
+
+### 6. Ensure Regular Review and Iteration
+* Periodically review the effectiveness of the observability strategy, the relevance of data points being collected, the accuracy of alerting thresholds, and the utility of dashboards. Adapt and refine the observability setup as the AI system evolves, new risks are identified, or business and compliance requirements change.
+
+---
+## Importance and Benefits
+
+Comprehensive AI system observability provides numerous critical benefits for a financial institution:
+
+* **Early Anomaly and Threat Detection:** Enables the proactive identification of unusual system behaviors, performance degradation, data drift, potential security breaches (e.g., unauthorized access, prompt injection attempts), or misuse that other specific controls might not explicitly cover.
+* **Enhanced Security Incident Response:**  Provides vital data for thoroughly investigating security incidents, understanding attack vectors, assessing the scope and impact, performing root cause analysis, and informing remediation efforts.
+* **Support for Audit, Compliance, and Regulatory Reporting:**  Generates essential, auditable records to demonstrate operational integrity, adherence to internal policies, and compliance with external regulatory requirements (e.g., event logging for accountability). 
+* **Effective Performance Management and Optimization:**  Allows for continuous tracking of AI model performance (e.g., accuracy, latency, throughput) and resource utilization, facilitating the identification of bottlenecks and opportunities for optimization.
+* **Proactive Management of Model and System Drift:**  Helps detect and diagnose changes in model behavior or overall system performance that may occur due to updates in models, system architecture, or shifts in underlying data distributions.
+* **Improved SLA Adherence and Cost Control (FinOps):**  Provides the necessary data to monitor Service Level Agreement (SLA) compliance for AI services. Monitoring API call volumes, resource consumption (CPU, GPU), and frontend activity is crucial for managing operational costs and preventing "Denial of Wallet" attacks (`ri-7`). Alerts can be configured for when usage approaches predefined limits.
+* **Detection and Understanding of System Misuse:**  Capturing inputs, including user prompts (while respecting privacy), can help identify patterns of external misuse, such as individuals or coordinated campaigns attempting to exploit the system or bypass established guardrails, even if individual attempts are initially blocked. 
+* **Identification of Data Integrity and Leakage Issues:**  Aids in detecting potential data integrity problems, such as "data bleeding" (unintended information leakage between different user sessions) or unintended data persistence across sessions ("data pollution"). 
+* **Crucial Support for Responsible AI Implementation:**  Logging and monitoring AI system behavior against specific metrics (e.g., related to fairness, bias, transparency, explainability) is necessary to provide ongoing assurance that responsible AI principles are being effectively implemented and maintained in practice. 
+* **Informed Troubleshooting and Debugging:**  Offers deep insights into system operations and interactions, facilitating faster diagnosis and resolution of both technical and model-related issues.
+* **Increased Trust and Transparency:**  Demonstrates robust control, understanding, and transparent operation of AI systems, fostering trust among users, stakeholders, and regulatory bodies.
