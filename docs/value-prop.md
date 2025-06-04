@@ -21,5 +21,8 @@ FINOS’s rapid release of an initial AI Governance Framework only after 6 month
 4. Code and Tooling Integration
 FINOS projects frequently include reference implementations, code snippets, and tooling to help organizations operationalize guidelines. While ISO or NIST may provide valuable conceptual frameworks, FINOS will be implementing open source controls and tests in the Common Cloud Controls project to enable easy conformance and compliance. 
 
-5. Direct Regulator Engagement Within the Community
+5. Financial Service Reglatory Mapping
+The framework also differs by providing a regulatory mapping to various regulatory requirements in the Financial Services industry. This help provide a baseline of additional considerations needed for implementing these AI use-cases in the Financial Services Industry
+
+6. Direct Regulator Engagement Within the Community
 FINOS open source nature enables active visibility towards and participation from regulators, facilitating alignment with evolving expectations and helping to bridge industry and regulatory perspectives. This fosters mutual trust and ensures the framework is developed with direct regulatory insight, something not always inherent in ISO or NIST processes.
