@@ -13,7 +13,14 @@ layout: default
             </a>
         </div>
         <div class="mitigation-id mb-2">{% include mitigation-id.html mitigation=page %}</div>
-        <h1 class="display-4">{{ page.title }}</h1>
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <img src="/2025_AIGovernanceFramework_Icon.png" alt="AI Governance Framework Icon" style="height: 48px;" class="me-3 mb-0">
+                <div>
+                    <h1 class="display-4 mb-0">{{ page.title }}</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -28,49 +35,57 @@ layout: default
         </div>
 
         <div class="col-lg-4">
-            {% assign key_risks = "" | split: "" %}
-            {% for risk in site.risks %}
-                {% assign risk_prefix = 'ri-' | append: risk.sequence %}
-                {% if page.mitigates contains risk_prefix %}
-                    {% assign key_risks = key_risks | push: risk %}
-                {% endif %}
-            {% endfor %}
-            {% if key_risks.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="h4 mb-4">Key Risks</h2>
                     <div class="list-group">
-                        {% for risk in key_risks %}
+                        {% for risk in site.risks %}
+                        {% assign risk_prefix = "ri-" | append: risk.sequence %}
+                        {% if page.mitigates contains risk_prefix %}
                         <div class="list-group-item">
                             <h3 class="h6 mb-1">
                                 <a href="{{ risk.url }}">{% include risk-id.html risk=risk %} : {{ risk.title }}</a>
                             </h3>
                         </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-
-            {% if page.iso-42001_references and page.iso-42001_references.size > 0 %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">ISO 42001 References</h2>
-                    <div class="list-group">
-                        {% for iso_ref in page.iso-42001_references %}
-                        {% assign iso_link = site.data.iso-42001[iso_ref] %}
-                        {% if iso_link %}
-                        <a href="{{ iso_link.url }}" target="_blank" rel="noopener noreferrer"
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ iso_ref }}: {{ iso_link.title }}
-                            {% include external-link-icon.html %}
-                        </a>
                         {% endif %}
                         {% endfor %}
                     </div>
                 </div>
             </div>
-            {% endif %}
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">Related Mitigations</h2>
+                    <div class="list-group">
+                        {% for mitigation in site.mitigations %}
+                        {% assign mitigation_prefix = "mi-" | append: mitigation.sequence %}
+                        {% if page.related_mitigations contains mitigation_prefix %}
+                        <div class="list-group-item">
+                            <h3 class="h6 mb-1">
+                                <a href="{{ mitigation.url }}">{% include mitigation-id.html mitigation=mitigation %} : {{ mitigation.title }}</a>
+                            </h3>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">External Standards</h2>
+                    <div class="list-group">
+                        {% for standard in page.external_standards %}
+                        {% assign link = site.external_standards[standard] %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" 
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ link.title }}
+                            {% include external-link-icon.html %}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
