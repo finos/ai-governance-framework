@@ -10,9 +10,9 @@ assignees: ColinEberhardt
 YYYYMMDD - time
 
 ## Zoom details
-https://zoom.us/j/92957783050
-Meeting ID: 929 5778 3050
-Passcode: 020122
+https://zoom.us/j/96783320878
+Meeting ID: 967 8332 0878
+Passcode: 798800
 
 
 ## Meeting notices
