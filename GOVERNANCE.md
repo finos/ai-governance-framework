@@ -33,7 +33,7 @@ The Working Group may form one or more "Discussion Groups" to organize collabora
 
 #### How do you become a Maintainer?
 
-Once you are an enrolled participant in AIGF, you can apply to become an **maintainer** by contacting the existing AIGF maintainers at [ai-gov-framework-maintainers@finos.org](mailto:ai-gov-framework-maintainers@lists.finos.org) and then seeking the approval of the AIGF Standards Working Group. Generally, the maintainers will look for both a history of contribution to AIGF and a commitment to investing sufficient time in the role from any prospective candidates before proposing them to the Standards Working Group for approval. 
+Once you are an enrolled participant in AIGF, you can apply to become an **maintainer** by contacting the existing AIGF maintainers at [ai-gov-framework-maintainers@lists.finos.org](mailto:ai-gov-framework-maintainers@lists.finos.org) and then seeking the approval of the AIGF Standards Working Group. Generally, the maintainers will look for both a history of contribution to AIGF and a commitment to investing sufficient time in the role from any prospective candidates before proposing them to the Standards Working Group for approval. 
 
 If you are new to AIGF, but willing to make the investment of time, the maintainers can work with you to build up a history of contribution.
 
