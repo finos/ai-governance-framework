@@ -5,10 +5,10 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-6-2-6 # AI system operation and monitoring
-  - A-4-2   # Resource documentation
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-4-2    # ISO 42001: Resource documentation
 mitigates:
-  - ri-7  # Availability of Foundational Model (as DoW can lead to service suspension or degraded performance)
+  - ri-7  # Availability of Foundational Model
 ---
 
 ## Purpose

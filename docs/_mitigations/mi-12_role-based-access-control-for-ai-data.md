@@ -5,8 +5,8 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-3-2 # AI roles and responsibilities
-  - A-7-2 # Data for development and enhancement of AI system
+  - A-3-2  # ISO 42001: AI roles and responsibilities
+  - A-7-2  # ISO 42001: Data for development and enhancement of AI system
 mitigates:
   - ri-9  # Data Poisoning
   - ri-1  # Information Leaked To Hosted Model

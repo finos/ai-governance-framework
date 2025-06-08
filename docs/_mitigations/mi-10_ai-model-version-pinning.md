@@ -5,21 +5,19 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-6-2-3 # Documentation of AI system design and development
-  - A-6-2-5 # AI system deployment
-  - A-6-2-6 # AI system operation and monitoring
-  - A-4-4   # Tooling resources
+  - A-6-2-3  # ISO 42001: Documentation of AI system design and development
+  - A-6-2-5  # ISO 42001: AI system deployment
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-4-4    # ISO 42001: Tooling resources
 mitigates:
-  - ri-5   # Instability in Foundation Model Behaviour
-  - ri-6   # Non-Deterministic Behaviour
-  - ri-11  # Lack of Foundation Model Versioning
+  - ri-5  # Foundation Model Versioning
+  - ri-6  # Non-Deterministic Behaviour
 ---
 
 ## Purpose
 
 Model Version Pinning is the deliberate practice of selecting and using a specific, fixed version of an Artificial Intelligence (AI) model within a production environment, rather than automatically adopting the latest available version. This is particularly crucial when utilizing externally sourced models, such as foundation models provided by third-party vendors. The primary goal of model version pinning is to **ensure operational stability, maintain predictable AI system behavior, and enable a controlled, risk-managed approach to adopting model updates.** This practice helps prevent unexpected disruptions, performance degradation, or the introduction of new vulnerabilities that might arise from unvetted changes in newer model versions.
 
----
 ## Key Principles
 
 The implementation of model version pinning is guided by the following core principles:
@@ -29,7 +27,6 @@ The implementation of model version pinning is guided by the following core prin
 * **Risk Mitigation:** This practice prevents automatic exposure to potential regressions in performance, new or altered biases, increased non-deterministic behavior, or security vulnerabilities that might be present in newer, unvetted model versions (mitigating `ri-11`).
 * **Supplier Accountability and Collaboration:** Effective model version pinning relies on AI model suppliers offering robust versioning support and clear communication. The organization must actively manage these supplier relationships to understand and plan for model updates.
 
----
 ## Implementation Guidance
 
 Effective model version pinning involves both managing expectations with suppliers and establishing robust internal organizational practices:
@@ -76,7 +73,6 @@ The institution must implement its own controls and procedures for managing AI m
 * **Thorough Documentation:**
     * **Action:** Document the rationale for selecting a specific pinned version, the results of its initial validation testing, any subsequent evaluations of that version, and the strategic plan for future reviews or upgrades. (Supports ISO 42001 A.6.2.3) Also document tooling used in managing these versions (aligns with ISO 42001 A.4.4).
 
----
 ## Importance and Benefits
 
 Adopting AI model version pinning offers significant advantages for financial institutions:

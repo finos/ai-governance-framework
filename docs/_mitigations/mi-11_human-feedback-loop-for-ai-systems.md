@@ -5,14 +5,13 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-6-2-6 # AI system operation and monitoring
-  - A-8-2   # System documentation and information for users
-  - A-8-3   # External reporting
-  - ISO-42001_2023_A-3-3   # Reporting of concerns
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-8-2    # ISO 42001: System documentation and information for users
+  - A-8-3    # ISO 42001: External reporting
+  - A-3-3    # ISO 42001: Reporting of concerns
 mitigates:
-  - ri-5   # Instability in Foundation Model Behaviour (by detecting and reporting it)
-  - ri-6   # Non-Deterministic Behaviour (by allowing users to flag problematic instances)
-  - ri-11  # Lack of Foundation Model Versioning (by helping identify issues when versions change unannounced or impact is unclear)
+  - ri-5  # Foundation Model Versioning
+  - ri-6  # Non-Deterministic Behaviour
 ---
 
 ## Purpose

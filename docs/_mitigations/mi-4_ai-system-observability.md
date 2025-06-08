@@ -5,11 +5,11 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-6-2-6 # AI system operation and monitoring
-  - A-6-2-8 # AI system recording of event logs
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-6-2-8  # ISO 42001: AI system recording of event logs
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
-  - ri-5  # Instability in Foundation Model Behaviour
+  - ri-5  # Foundation Model Versioning
   - ri-6  # Non-Deterministic Behaviour
   - ri-7  # Availability of Foundational Model
 ---

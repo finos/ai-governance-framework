@@ -5,12 +5,11 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-8-2   # System documentation and information for users
-  - A-6-1-2 # Objectives for responsible development of AI system
-  - A-6-2-7 # AI system technical documentation
+  - A-8-2    # ISO 42001: System documentation and information for users
+  - A-6-1-2  # ISO 42001: Objectives for responsible development of AI systems
+  - A-6-2-7  # ISO 42001: AI system technical documentation
 mitigates:
-  - ri-12 
-  - ri-4
+  - ri-4  # Hallucination and Inaccurate Outputs
 ---
 
 ## Purpose

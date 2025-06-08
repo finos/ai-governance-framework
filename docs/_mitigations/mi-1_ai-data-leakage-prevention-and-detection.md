@@ -5,9 +5,9 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-7-2   # Data for development and enhancement of AI system
-  - A-6-2-6 # AI system operation and monitoring
-  - A-5-2   # AI system impact assessment process
+  - A-7-2    # ISO 42001: Data for development and enhancement of AI system
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-5-2    # ISO 42001: AI system impact assessment process
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
 ---

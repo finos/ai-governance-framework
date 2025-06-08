@@ -5,15 +5,15 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-2-3   # Alignment with other organizational policies
-  - A-10-2  # Allocating responsibilities
-  - A-10-3  # Suppliers
-  - A-8-5   # Information for interested parties
+  - A-2-3   # ISO 42001: Alignment with other organizational policies
+  - A-10-2  # ISO 42001: Allocating responsibilities
+  - A-10-3  # ISO 42001: Suppliers
+  - A-8-5   # ISO 42001: Information for interested parties
 mitigates:
-  - ri-1  # Information Leaked To Hosted Model
-  - ri-20 # Reputational Risk
-  - ri-22 # Regulatory Compliance and Oversight
-  - ri-23 # Intellectual Property (IP) and Copyright
+  - ri-1   # Information Leaked To Hosted Model
+  - ri-20  # Reputational Risk
+  - ri-22  # Regulatory Compliance and Oversight
+  - ri-23  # Intellectual Property (IP) and Copyright
 ---
 
 ## Purpose
