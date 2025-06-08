@@ -18,7 +18,8 @@ The consumption-based pricing models common in AI services (especially cloud-hos
 This control establishes comprehensive alerting and spend monitoring mechanisms to detect, prevent, and respond to both malicious and accidental overconsumption of AI resources, ensuring financial predictability and service availability.
 
 ---
-## Multi-Layered Spend Control Framework
+
+## Key Principles
 
 Effective DoW prevention requires implementing multiple layers of controls, each providing different levels of granularity and responsiveness:
 
@@ -31,6 +32,7 @@ Effective DoW prevention requires implementing multiple layers of controls, each
 | **4**     | API key / team  | **Token & request quotas** in central API Gateway, Proxy middleware                                                        | Fine-grained; immediate                  | Complex implementation             |
 
 ---
+
 ## Implementation Guidance
 
 ### 1. Establish Financial Guardrails
@@ -95,6 +97,7 @@ Effective DoW prevention requires implementing multiple layers of controls, each
 * **Incident Response:** Integration with broader cybersecurity incident response procedures for suspected attacks
 
 ---
+
 ## Importance and Benefits
 
 Implementing comprehensive spend monitoring and DoW prevention provides critical advantages:

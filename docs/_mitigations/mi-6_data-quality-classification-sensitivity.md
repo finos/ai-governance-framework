@@ -27,7 +27,8 @@ The integrity, security, and effectiveness of any AI system deployed within a fi
 Adherence to these practices is critical for building trustworthy AI, minimizing risks, and meeting regulatory obligations.
 
 ---
-## Core Principles and Processes
+
+## Key Principles
 
 A structured approach to data quality and classification for AI systems should be built upon the following principles:
 
@@ -57,6 +58,7 @@ A structured approach to data quality and classification for AI systems should b
 * **Fitness for Purpose:** Ensure that data selected for AI model training and operation is appropriate for the specific AI task. Critically evaluate whether its scope and context could introduce unintended biases, fairness issues, or operational risks.
 
 ---
+
 ## Implementation Guidance
 
 To effectively manage data quality and classification for AI systems:
@@ -81,13 +83,14 @@ To effectively manage data quality and classification for AI systems:
     * Provide regular training to all personnel involved in data management, AI development, and AI operations on the institution's data classification policies, data quality standards, ethical data use, and secure data handling procedures.
 
 ---
+
 ## Importance and Benefits
 
 Implementing robust data quality assurance and sensitivity classification for AI systems yields significant benefits:
 
-* **Minimizes Data Leakage and Misuse:** Accurate classification is the first line of defense in protecting sensitive information, directly mitigating risks of unauthorized access and data breaches (as per `ri-1`, `ri-2`).
-* **Enhances AI Model Performance and Reliability:** High-quality, relevant data is essential for training accurate, robust, and dependable AI models. Conversely, poor data quality can lead to flawed model outputs, poor decision-making, and operational failures.
-* **Supports Ethical, Fair, and Unbiased AI:** Rigorous attention to data quality, including the representativeness of datasets, is crucial for identifying and mitigating biases, leading to fairer and more ethical AI outcomes.
-* **Ensures Regulatory Compliance and Auditability:** Financial institutions are subject to stringent regulations regarding data protection (e.g., GDPR, CCPA) and data accuracy. This control provides a framework for compliance and facilitates easier audits.
-* **Builds Stakeholder Trust:** Demonstrating strong data governance, including meticulous data quality and classification practices, increases trust and confidence in AI systems among customers, employees, regulators, and the public.
-* **Improves Operational Efficiency:** Using high-quality data from the outset prevents wasted resources on developing and retraining AI models due to data-related issues, leading to more efficient AI development and deployment cycles.
+* **Data Protection:** Accurate classification protects sensitive information and mitigates unauthorized access risks
+* **Model Performance:** High-quality data ensures accurate, robust, and dependable AI model outputs
+* **Bias Mitigation:** Rigorous data quality practices support ethical, fair, and unbiased AI outcomes
+* **Regulatory Compliance:** Provides framework for meeting data protection regulations and audit requirements
+* **Stakeholder Trust:** Demonstrates strong governance practices that build confidence in AI systems
+* **Operational Efficiency:** Prevents wasted resources from data-related issues and rework

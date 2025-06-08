@@ -13,6 +13,8 @@ mitigates:
   - ri-10  # Prompt Injection
 ---
 
+## Purpose
+
 Effective security for AI systems involves monitoring and filtering interactions at multiple points: between the AI model and its users, between different application components, and between the model and its various data sources (e.g., Retrieval Augmented Generation (RAG) databases).
 
 A helpful analogy is a Web Application Firewall (WAF) which inspects incoming web traffic for known attack patterns (like malicious URLs targeting server vulnerabilities) and filters outgoing responses to prevent issues like malicious JavaScript injection. Similarly, for AI systems, we must inspect and control data flows to and from the model.
@@ -20,9 +22,10 @@ A helpful analogy is a Web Application Firewall (WAF) which inspects incoming we
 Beyond filtering direct user inputs and model outputs, careful attention must be given to data handling in associated components, such as RAG databases. When internal company information is used to enrich a RAG database – especially if this involves processing by external services (e.g., a Software-as-a-Service (SaaS) LLM platform for converting text into specialized data formats called 'embeddings') – this data and the external communication pathways must be carefully managed and secured. Any proprietary or sensitive information sent to an external service for such processing requires rigorous filtering *before* transmission to prevent data leakage.
 
 ---
-#### Key Areas for Monitoring and Filtering
 
-Implementing monitoring and filtering capabilities allows for the detection and blocking of undesired behaviors and potential threats. Key areas include:
+## Key Principles
+
+Implementing monitoring and filtering capabilities allows for the detection and blocking of undesired behaviors and potential threats.
 
 * **RAG Data Ingestion:**
     * **Control:** Before transmitting internal information to an external service (e.g., an embeddings endpoint of a SaaS LLM provider) for processing and inclusion in a RAG system, meticulously filter out any sensitive or private data that should not be disclosed or processed externally.
@@ -42,7 +45,10 @@ These filtering mechanisms can be enhanced by monitoring the size of queries and
 Ideally, all interactions between AI system components—not just user and LLM communications—should be monitored, logged, and subject to automated safety mechanisms. A key principle is to implement filtering at information boundaries, especially where data crosses trust zones or system components.
 
 ---
-#### Challenges in Implementation
+
+## Implementation Guidance
+
+### Key Areas for Monitoring and Filtering
 
 * **RAG Database Security:**
     * While it's often more practical to pre-process and filter data for RAG systems before sending it for external embedding creation, organizations might also consider in-line filters for real-time checks.
@@ -54,8 +60,7 @@ Ideally, all interactions between AI system components—not just user and LLM c
     * **Trade-off:** However, implementing output filtering can be challenging with streaming. To comprehensively filter a response, the entire output often needs to be assembled first. This can negate the benefits of streaming or, if filtering is done on partial streams, risk exposing unfiltered sensitive information before it's detected and redacted.
     * **Alternative:** An approach is to stream the response while performing on-the-fly detection. If an issue is found, the streamed output is immediately cancelled and removed. This requires careful risk assessment based on the sensitivity of the information and the user base, as there's a brief window of potential exposure.
 
----
-#### Remediation Techniques
+### Remediation Techniques
 
 * **Basic Filters:** Simple static checks using blocklists (denylists) and regular expressions can detect rudimentary attacks or policy violations.
 * **System Prompts (Caution Advised):** While system prompts can instruct an LLM on what to avoid, they are generally not a robust security control. Attackers can often bypass these instructions or even trick the LLM into revealing the prompt itself, thereby exposing the filtering logic.
@@ -65,14 +70,36 @@ Ideally, all interactions between AI system components—not just user and LLM c
     * For highly sensitive or organization-specific information, consider training a custom LLM judge tailored to recognize proprietary data types or unique risk categories.
 * **Human Feedback Loop:** Implementing a system where users can easily report problematic AI responses provides a valuable complementary control. This feedback helps verify the effectiveness of automated guardrails and identify new evasion techniques.
 
----
-#### Additional Considerations
+### Additional Considerations
 
 * **API Security and Observability:** Implementing a comprehensive API monitoring and security solution offers benefits beyond AI-specific threats, enhancing overall system security. For example, a security proxy can enforce encrypted communication (e.g., TLS) between all AI system components.
 * **Logging and Analysis:** Detailed logging of interactions (queries, responses, filter actions) is essential. It aids in understanding user behavior, system performance, and allows for the detection of sophisticated attacks or anomalies that may only be apparent through statistical analysis of logged data (e.g., coordinated denial-of-service attempts).
 
 ---
-#### Links
+
+## Challenges and Considerations
+
+The implementation guidance above includes various challenges such as:
+
+* **RAG Database Security:** Vector databases make traditional security filtering difficult once data is embedded
+* **Filtering Efficacy:** Static filters may miss nuanced attacks or sophisticated content
+* **Streaming Outputs:** Real-time filtering creates trade-offs between security and user experience
+
+---
+
+## Importance and Benefits
+
+Implementing comprehensive user/app/model firewalling provides critical security benefits:
+
+* **Attack Prevention:** Blocks prompt injection attacks and malicious user inputs before they reach AI models
+* **Data Protection:** Prevents sensitive information from being leaked through AI outputs or RAG processing
+* **Service Availability:** Protects against denial-of-service attacks and excessive resource consumption
+* **Reputation Protection:** Filters inappropriate content that could damage organizational reputation
+* **Compliance Support:** Helps meet regulatory requirements for data handling and system security
+
+---
+
+## Additional Resources
 
 * Tooling
     * [LLM Guard](https://github.com/protectai/llm-guard): Open source LLM filter for sanitization, detection of harmful language, prevention of data leakage, and resistance against prompt injection attacks.

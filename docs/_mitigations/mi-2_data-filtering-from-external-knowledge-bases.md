@@ -31,6 +31,7 @@ Effective data filtering from external knowledge bases should be guided by these
 * **Auditability and Transparency:** Maintain clear documentation and audit trails of what data filtering processes have been applied and why (supports ISO 42001 A.7.2).
 
 ---
+
 ## Implementation Guidance
 
 ### 1. Rigorous Data Cleansing and Anonymization at Ingestion
@@ -100,11 +101,11 @@ Effective data filtering from external knowledge bases should be guided by these
 
 Implementing robust data filtering from external knowledge bases is a critical preventative measure that provides significant benefits:
 
-* **Prevention of Data Leakage:** 🛡️ Significantly reduces the risk of sensitive organizational information being inadvertently exposed through AI system outputs or stored in less secure external services.
-* **Regulatory Compliance:** 📜 Helps meet requirements under data protection regulations (e.g., GDPR, CCPA, GLBA) that mandate the protection of personal and sensitive business information.
-* **Intellectual Property Protection:** 💡 Safeguards valuable trade secrets, strategic information, and proprietary data from unauthorized disclosure or competitive exposure.
+* **Prevention of Data Leakage:** Significantly reduces the risk of sensitive organizational information being inadvertently exposed through AI system outputs or stored in less secure external services.
+* **Regulatory Compliance:** Helps meet requirements under data protection regulations (e.g., GDPR, CCPA, GLBA) that mandate the protection of personal and sensitive business information.
+* **Intellectual Property Protection:** Safeguards valuable trade secrets, strategic information, and proprietary data from unauthorized disclosure or competitive exposure.
 * **Reduced Attack Surface:** By controlling the information that enters AI operational environments, organizations minimize the potential impact of AI-specific attacks like prompt injection or data extraction attempts.
-* **Enhanced Trust and Confidence:** 🤝 Builds stakeholder confidence in AI systems by demonstrating rigorous data protection practices.
+* **Enhanced Trust and Confidence:** Builds stakeholder confidence in AI systems by demonstrating rigorous data protection practices.
 * **Compliance with Internal Data Governance:** Supports adherence to internal data classification and handling policies within AI contexts.
 * **Mitigation of Insider Risk:** Reduces the risk of sensitive information being accessed by unauthorized internal users through AI interfaces.
 

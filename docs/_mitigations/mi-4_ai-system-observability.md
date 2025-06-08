@@ -21,7 +21,8 @@ AI System Observability encompasses the comprehensive collection, analysis, and 
 The goal is to provide deep visibility into all aspects of AI system operations—from user interactions and model behavior to resource utilization and security events—enabling proactive management, rapid issue resolution, and continuous improvement.
 
 ---
-## Key Components of AI System Observability
+
+## Key Principles
 
 Effective observability for AI systems should encompass multiple data types and monitoring layers:
 
@@ -32,6 +33,7 @@ Effective observability for AI systems should encompass multiple data types and 
 * **User Interaction Tracking:** Analysis of how users interact with AI systems and the quality of their experience.
 
 ---
+
 ## Implementation Guidance
 
 Implementing a robust observability framework for AI systems involves several key steps:

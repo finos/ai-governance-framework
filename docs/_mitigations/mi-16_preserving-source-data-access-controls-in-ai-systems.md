@@ -31,6 +31,7 @@ The preservation of source data access controls within AI systems should be guid
 * **Transparency of Access Logic:** The mechanisms by which the AI system determines and enforces access based on preserved source controls should be documented, understandable, and transparent to relevant stakeholders (e.g., security teams, auditors). (Supports ISO 42001 A.9.2).
 
 ---
+
 ## Implementation Guidance
 
 Implementing and verifying the preservation of source access controls is a complex task, particularly for RAG systems. It requires a multi-faceted approach:
@@ -73,7 +74,8 @@ Implementing and verifying the preservation of source access controls is a compl
 * **Data Lineage and Provenance Tracking:** To the extent possible, maintain lineage information that tracks which source documents (and their original permissions) contributed to specific AI-generated outputs. This aids in investigations if a potential access control violation is suspected.
 
 ---
-## Challenges
+
+## Challenges and Considerations
 
 Implementing and maintaining the preservation of source access controls in AI systems is a significant technical and governance challenge:
 
@@ -86,14 +88,15 @@ Implementing and maintaining the preservation of source access controls in AI sy
 * **Maturity of Tooling:** While improving, native access control features in some newer AI-specific data stores (like many vector databases) may not yet be as mature or granular as those in traditional enterprise data systems.
 
 ---
+
 ## Importance and Benefits
 
 Despite the challenges, striving to preserve source data access controls within AI systems is crucial:
 
-* **Prevents Unauthorized Data Access and Privilege Escalation:**  Ensures that the AI system does not become an unintentional "backdoor" allowing users to access data or insights they are not authorized to see in the original source systems (mitigates `ri-3`).
-* **Upholds Data Confidentiality and Integrity:**  Maintains the intended security posture and confidentiality requirements of the source data as it is utilized within the AI ecosystem.
-* **Critical for Regulatory Compliance and Data Governance:**  Essential for adhering to data protection regulations (e.g., GDPR, HIPAA, GLBA) and internal data governance policies that mandate controlled access to sensitive information.
-* **Reduces Insider Risk:** 👤 Limits the scope of data accessible via the AI system, even by authenticated internal users, to only what their roles permit, thereby reducing the potential impact of accidental exposure or malicious insider activity.
-* **Builds and Maintains Trust in AI Systems:**  Assures data owners, users, and other stakeholders that the AI system respects and enforces established data access policies, fostering greater trust in its deployment.
-* **Enables Auditing and Detection of Violations:**  The processes of verifying and auditing these preserved controls act as a detective mechanism. They allow the institution to identify and investigate misconfigurations, policy violations, or attempts to bypass access restrictions, leading to corrective actions.
-* **Supports Responsible AI Deployment:**  Forms a cornerstone of responsible AI use by ensuring that AI systems operate within the established data governance and security framework of the institution (aligns with ISO 42001 A.9.2).
+* **Unauthorized Access Prevention:** Prevents AI systems from becoming unintentional backdoors for accessing restricted data
+* **Data Confidentiality Maintenance:** Upholds intended security posture and confidentiality requirements of source data
+* **Regulatory Compliance:** Essential for adhering to data protection regulations and internal governance policies
+* **Insider Risk Reduction:** Limits accessible data scope to only what user roles permit
+* **Trust Building:** Assures stakeholders that AI systems respect and enforce established data access policies
+* **Audit and Detection Support:** Enables identification and investigation of misconfigurations and policy violations
+* **Responsible AI Deployment:** Ensures AI systems operate within established data governance frameworks
