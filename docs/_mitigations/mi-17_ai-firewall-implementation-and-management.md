@@ -29,7 +29,8 @@ The primary purpose of an AI Firewall is to mitigate these emerging AI-specific 
 Such a system would typically intercept and analyze communication between users and AI models/agents, between AI agents and various tools or data sources, and potentially even inter-agent communications. Its functions would ideally include threat detection, real-time monitoring, alerting, automated blocking or sanitization, comprehensive reporting, and the enforcement of predefined security and ethical guardrails.
 
 ---
-## Key Conceptual Capabilities of an AI Firewall
+
+## Key Principles
 
 An effective AI Firewall, whether a dedicated product or a set of integrated capabilities, would ideally possess the following functions:
 
@@ -55,7 +56,8 @@ An effective AI Firewall, whether a dedicated product or a set of integrated cap
     * Offer reporting capabilities for compliance, security analysis, and understanding AI interaction patterns.
 
 ---
-## Implementation Considerations and Approaches
+
+## Implementation Guidance
 
 As AI Firewalls are an emerging technology, implementation may involve a combination of existing tools, new specialized products, and custom-developed components:
 
@@ -71,7 +73,8 @@ As AI Firewalls are an emerging technology, implementation may involve a combina
 * **Integration with Security Ecosystem:** Ensure the AI Firewall can integrate with existing security infrastructure, such as Security Information and Event Management (SIEM) systems for log correlation and alerting, Security Orchestration, Automation and Response (SOAR) platforms for automated incident response, and threat intelligence platforms.
 
 ---
-## Challenges and Limitations
+
+## Challenges and Considerations
 
 Deploying and relying on AI Firewall technology presents several challenges:
 
@@ -83,13 +86,14 @@ Deploying and relying on AI Firewall technology presents several challenges:
 * **"Arms Race" Potential:** As AI firewalls become more sophisticated, attackers will develop more sophisticated methods to bypass them.
 
 ---
+
 ## Importance and Benefits
 
 Despite being an emerging area, the concept of an AI Firewall addresses a growing need for specialized AI security:
 
-* **Dedicated AI Threat Mitigation:** Provides a focused defense layer against attack vectors unique to AI/ML systems, which are often not adequately covered by traditional network or application firewalls.
-* **Enhanced Data Protection:** Crucial for preventing both intentional exfiltration and accidental leakage of sensitive data through interactions with AI models.
-* **Preservation of Model Integrity and Availability:** Helps protect AI models from manipulation, denial of service, and other attacks that could compromise their reliability or render them unusable.
-* **Support for Responsible and Ethical AI:** Can enforce policies related to fairness, bias, and the generation of appropriate content, contributing to the responsible deployment of AI.
-* **Improved Governance and Observability:** Offers critical visibility into how AI models are being used and interacted with, supporting security monitoring, incident response, and compliance efforts.
-* **Risk Reduction for Novel Workflows:** As organizations adopt more complex AI systems like agentic workflows, an AI Firewall can be a key component in managing the associated risks.
+* **AI Threat Mitigation:** Provides focused defense against attack vectors unique to AI/ML systems
+* **Data Protection:** Prevents intentional exfiltration and accidental leakage of sensitive data
+* **Model Integrity:** Protects AI models from manipulation and denial of service attacks
+* **Responsible AI Support:** Enforces policies related to fairness, bias, and appropriate content generation
+* **Governance and Observability:** Provides visibility into AI model usage for security monitoring and compliance
+* **Risk Reduction:** Key component for managing risks in complex AI systems and agentic workflows

@@ -21,7 +21,8 @@ mitigates:
 Robust legal and contractual agreements are essential for governing the development, procurement, deployment, and use of AI systems within a financial institution. This control ensures that comprehensive frameworks are established and maintained to manage risks, define responsibilities, protect data, and ensure compliance with legal and regulatory obligations when engaging with AI technology vendors, data providers, partners, and even in defining terms for end-users. These agreements must be thoroughly understood and actively managed to ensure adherence to all stipulated requirements.
 
 ---
-## Key Areas for Legal and Contractual Management
+
+## Key Principles
 
 This control is about legal agreements between the SaaS inference provider and the organization. Those legal agreements not only have to exist, but have to be understood by the organization to make sure they comply with all requirements.
 
@@ -45,6 +46,7 @@ Legal agreement should explain these questions:
 - Legal contract should state the policy about model versioning and changes, and inform clients to ensure that foundational models don't drift or change in unexpected ways.
 
 ---
+
 ## Implementation Guidance
 
 ### 1. Data Governance, Privacy, and Security
@@ -80,11 +82,12 @@ Legal agreement should explain these questions:
 * **Maintenance and Support:** Outline provisions for ongoing maintenance, technical support, and updates.
 
 ---
+
 ## Importance and Benefits
 
-* **Risk Mitigation:** Well-drafted contracts are crucial for mitigating legal, financial, operational, and reputational risks associated with AI systems, including data breaches (`ri-1`), IP infringement (`ri-23`), and regulatory non-compliance (`ri-22`).
-* **Clear Accountability:** Establishes clear lines of responsibility between the institution and third parties, reducing ambiguity and potential for disputes.
-* **Protection of Assets:** Safeguards the institution's data, intellectual property, and other assets.
-* **Ensuring Compliance:** Helps ensure that the development and use of AI systems align with legal, regulatory, and ethical obligations.
-* **Supporting Responsible AI:** Contractual requirements can mandate practices that support the responsible development and use of AI, aligning with the institution's values and policies.
-* **Facilitating Trustworthy Partnerships:** Transparent and comprehensive agreements form the basis of strong, trustworthy relationships with AI vendors and partners.
+* **Risk Mitigation:** Well-drafted contracts mitigate legal, financial, operational, and reputational risks associated with AI systems
+* **Clear Accountability:** Establishes clear lines of responsibility between the institution and third parties
+* **Asset Protection:** Safeguards the institution's data, intellectual property, and other assets
+* **Compliance Assurance:** Ensures AI system development and use align with legal, regulatory, and ethical obligations
+* **Responsible AI Support:** Contractual requirements mandate practices supporting responsible AI development
+* **Partnership Foundation:** Transparent agreements form the basis of trustworthy relationships with AI vendors

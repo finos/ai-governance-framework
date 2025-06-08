@@ -75,13 +75,14 @@ Effective implementation of data at rest encryption for AI systems involves the 
 * Include encryption at rest configurations and key management practices as part of regular information security audits and assessments.
 
 ---
+
 ## Importance and Benefits
 
 Implementing strong encryption for AI data at rest provides crucial benefits to financial institutions:
 
-* **Enhanced Data Confidentiality:** 🛡️ Protects sensitive corporate, customer, and AI model data from unauthorized disclosure if storage media is lost, stolen, physically accessed by unauthorized individuals, or if other security layers are breached.
-* **Reduced Impact of Data Breaches:** 📉 In the event of a security breach that compromises storage systems, properly encrypted data remains unintelligible and unusable to attackers without the decryption keys, significantly mitigating the impact.
-* **Support for Regulatory Compliance:** 📜 Helps meet the stringent data protection requirements mandated by various regulations (e.g., GDPR, GLBA, NYDFS Cybersecurity Regulation, PCI DSS), many of which require or strongly recommend encryption for sensitive data.
-* **Protection of Intellectual Property:** 💡 AI models and proprietary datasets represent valuable intellectual property. Encryption at rest helps protect these assets from theft, unauthorized copying, or reverse engineering.
-* **Increased Trust and Confidence:** 🤝 Demonstrates a strong commitment to data security, thereby building and maintaining trust with customers, partners, regulators, and other stakeholders.
-* **Alignment with Security Best Practices:** Adheres to widely recognized information security standards and best practices, strengthening the institution's overall security posture.
+* **Data Confidentiality:** Protects sensitive corporate, customer, and AI model data from unauthorized disclosure
+* **Breach Impact Reduction:** Encrypted data remains unintelligible to attackers without decryption keys
+* **Regulatory Compliance:** Meets stringent data protection requirements mandated by various regulations
+* **Intellectual Property Protection:** Safeguards valuable AI models and proprietary datasets from theft
+* **Trust and Confidence:** Demonstrates strong commitment to data security for stakeholders
+* **Security Best Practices:** Aligns with widely recognized information security standards

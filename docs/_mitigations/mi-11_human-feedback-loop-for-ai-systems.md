@@ -26,7 +26,8 @@ A **Human Feedback Loop** is a critical detective and continuous improvement mec
 This control emphasizes the importance of structuring how human insights are captured and integrated into the AI system's lifecycle for ongoing refinement and risk management.
 
 ---
-## Key Principles for Effective Human Feedback Loops
+
+## Key Principles
 
 To ensure a human feedback loop is valuable and effective, it should be designed around these core principles:
 
@@ -39,6 +40,7 @@ To ensure a human feedback loop is valuable and effective, it should be designed
 * **Structured and Consistent Collection:** Employ consistent methods for collecting feedback to allow for trend analysis and aggregation of insights over time.
 
 ---
+
 ## Implementation Guidance
 
 Implementing an effective human feedback loop involves careful design of the mechanism, clear processes for its use, and integration with broader AI governance.
@@ -105,14 +107,15 @@ Implementing an effective human feedback loop involves careful design of the mec
 * **Closing the Loop:** Where appropriate and feasible, inform users or feedback providers about how their input has been used or what changes have been made, fostering a sense of engagement. (Supports ISO 42001 A.6.2.6 for repairs/updates based on feedback).
 
 ---
+
 ## Importance and Benefits
 
-A well-designed and actively managed human feedback loop is essential for the successful, responsible, and sustainable deployment of AI solutions in financial services:
+A well-designed human feedback loop provides essential value for AI systems in financial services:
 
-* **Continuous Performance Improvement:**  Provides ongoing, real-world insights that drive the iterative refinement of AI models, prompts, and underlying data, leading to sustained improvements in accuracy, relevance, and utility.
-* **Enhanced Safety and Risk Detection:**  Acts as a crucial mechanism for identifying and flagging unsafe, biased, unethical, or unintended AI behaviors that may not have been caught during pre-deployment testing. Allows for early detection of model instability (`ri-5`) or problematic non-deterministic outputs (`ri-6`).
-* **Alignment with Human Values and Expectations:**  Ensures that AI systems evolve in a way that remains aligned with human preferences, ethical considerations, and societal norms, which is particularly important for customer-facing or decision-impactful AI.
-* **Increased User Trust and Adoption:**  When users feel their feedback is heard and acted upon, it fosters greater trust in the AI system and encourages wider adoption and more effective use.
-* **Identification of Emergent Issues and Vulnerabilities:**  Users often interact with AI systems in novel ways and can be the first to discover new types of failures, vulnerabilities (e.g., how a model version change impacts them - `ri-11`), or areas where the AI is being misused.
-* **Data-Driven Governance and Oversight:**  Provides valuable data points for AI governance bodies and ethics committees to monitor AI system impact, ensure adherence to policies, and make informed decisions about the AI's lifecycle.
-* **Reduced Operational Costs Over Time:** By proactively identifying and addressing issues based on feedback, organizations can reduce the costs associated with managing AI failures, customer complaints, or rectifying poor AI-driven decisions.
+* **Performance Improvement:** Provides ongoing insights that drive iterative refinement of AI models and systems
+* **Safety and Risk Detection:** Identifies unsafe, biased, or unintended AI behaviors not caught during testing
+* **Human Alignment:** Ensures AI systems remain aligned with human values and ethical considerations
+* **User Trust:** Builds trust when users see their feedback is valued and acted upon
+* **Vulnerability Discovery:** Users often discover novel failures or vulnerabilities through real-world interaction
+* **Governance Support:** Provides data for AI governance bodies to monitor impact and make decisions
+* **Cost Reduction:** Proactively addresses issues, reducing costs from AI failures and poor decisions

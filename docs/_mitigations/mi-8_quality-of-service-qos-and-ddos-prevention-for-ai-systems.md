@@ -18,7 +18,8 @@ The increasing integration of Artificial Intelligence (AI) into financial applic
 AI systems, especially those exposed via APIs or public interfaces, are susceptible to various attacks that can impact QoS. These include volumetric attacks (overwhelming the system with traffic), prompt flooding (sending a high volume of complex queries), and inference spam (repeated, resource-intensive model calls). Such activities can exhaust computational resources, induce unacceptable latency, or deny legitimate users access to critical AI-driven services. This control aims to maintain system resilience, ensure fair access, and protect against malicious attempts to disrupt AI operations.
 
 ---
-## Core Objectives and Principles
+
+## Key Principles
 
 Controls should be in place to ensure single or few users don't starve finite resources and interfere with the availability of AI systems.
 
@@ -30,6 +31,7 @@ The primary objectives of implementing QoS and DDoS prevention for AI systems ar
 * **Fair Resource Allocation:** Implement mechanisms to prioritize access and allocate resources effectively, especially during periods of congestion, based on user roles, service tiers, or business-critical workflows.
 
 ---
+
 ## Implementation Guidance
 
 To effectively ensure QoS and protect AI systems from DDoS attacks, consider the following implementation measures:
@@ -54,13 +56,14 @@ A common approach is to deploy an API gateway and generate API keys specific to 
   3. Prioritizing access of LLM requests when capacity has been saturated and SLAs across all consumers cannot be satisfied
 
 ---
+
 ## Importance and Benefits
 
 Implementing robust QoS and DDoS prevention measures for AI systems provides several key benefits for financial institutions:
 
-* **Ensures Service Availability:** Protects critical AI-driven services from disruption, ensuring business continuity and availability for legitimate users.
-* **Maintains Performance and User Experience:** Prevents degradation of AI system performance, ensuring timely responses and a positive user experience.
-* **Protects Against Financial Loss:** Mitigates direct costs associated with service downtime, resource abuse ("Denial of Wallet" attacks), and the indirect costs of reputational damage.
-* **Safeguards Reputation:** Demonstrates reliability and security, preserving customer trust and the institution's reputation.
-* **Supports Fair Access:** Enables equitable distribution of AI resources, preventing monopolization by any single user or process, especially during peak loads.
-* **Enhances Operational Stability:** Contributes to the overall stability and predictability of IT operations that rely on AI components.
+* **Service Availability:** Protects critical AI-driven services from disruption, ensuring business continuity for legitimate users
+* **Performance Maintenance:** Prevents degradation of AI system performance, ensuring timely responses and positive user experience
+* **Financial Protection:** Mitigates costs from service downtime, resource abuse, and reputational damage
+* **Reputation Safeguarding:** Demonstrates reliability and security, preserving customer trust
+* **Fair Access:** Enables equitable distribution of AI resources, preventing monopolization during peak loads
+* **Operational Stability:** Contributes to overall stability and predictability of IT operations

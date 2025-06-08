@@ -18,7 +18,8 @@ mitigates:
 System Acceptance Testing (SAT) for AI systems is a crucial validation phase within a financial institution. Its primary goal is to **confirm that a developed AI solution rigorously meets all agreed-upon business and user requirements**, functions as intended from an end-user perspective, and is **fit for its designated purpose before being deployed** into any live operational environment. This testing focuses on the user's viewpoint and verifies the system's overall operational readiness, including its alignment with risk and compliance standards.
 
 ---
-## Key Considerations for AI System Testing
+
+## Key Principles
 
 System Acceptance Testing for AI systems shares similarities with traditional software testing but includes unique considerations:
 
@@ -27,7 +28,8 @@ System Acceptance Testing for AI systems shares similarities with traditional so
 2. **Quality Thresholds vs. Binary Pass/Fail:** For non-AI systems often the goal is to achieve a 100% pass rate for test cases. Whereas for LLM-based applications, it is likely that lower pass rate is acceptable. The overall quality of the system is considered a sliding scale rather than a fixed bar.
 
 ---
-## Key Activities and Implementation Guidance
+
+## Implementation Guidance
 
 Effective System Acceptance Testing for AI systems in the financial services sector should be a structured process that includes the following key activities:
 
@@ -78,18 +80,22 @@ For example, a test harness for a RAG-based chat application would likely requir
 System Acceptance Testing is a highly effective control for understanding the overall quality of an LLM-based application. While the system is under development it quantifies quality, allowing for more effective and efficient development. And when the system becomes ready for production it allows risks to be quantified.
 
 ---
-## Available Tools and Frameworks
 
-* [GitHub - openai/evals: Evals is a framework for evaluating LLMs and LLM systems, and an open-source registry of benchmarks.](https://github.com/openai/evals)
-* [Evaluation / 🦜️🔗 LangChain](https://python.langchain.com/v0.1/docs/guides/productionization/evaluation/)
-* [Promptfoo](https://www.promptfoo.dev/)
-* [Inspect](https://inspect.ai-safety-institute.org.uk/)
+## Importance and Benefits
+
+System Acceptance Testing provides critical value for financial institutions:
+
+* **Risk Mitigation:** Identifies and mitigates operational and reputational risks before deployment
+* **Compliance Assurance:** Provides documented evidence of thorough vetting for regulatory requirements
+* **User Confidence:** Builds trust through stakeholder involvement in validation processes
+* **Cost Prevention:** Prevents expensive post-deployment failures and remediation efforts
+* **Quality Assurance:** Ensures AI systems meet business objectives and performance standards
 
 ---
-## Importance and Benefits for Financial Institutions
 
-* **Reduces Operational and Reputational Risk:** SAT is a key control to identify and mitigate risks that could arise from deploying an AI system that fails to meet business objectives, produces erroneous or biased outcomes, or violates regulatory obligations.
-* **Ensures Fitness for Purpose and Value Delivery:** Confirms that the AI system will function as expected in the live environment, thereby delivering the anticipated business value and supporting strategic goals.
-* **Builds User Confidence and Adoption:** Involving users in the acceptance process fosters their trust in the system, leading to smoother adoption and more effective utilization.
-* **Strengthens Governance and Regulatory Compliance:** Provides tangible, documented evidence that the AI system has been thoroughly vetted against predefined requirements before operational use, which is essential for internal governance and demonstrating due diligence to regulators.
-* **Prevents Costly Post-Deployment Failures:** Identifying and rectifying issues during SAT, before the system goes live, is significantly more efficient and less costly than addressing them in a production environment where they could impact customers, operations, or market standing.
+## Additional Resources
+
+* [GitHub - openai/evals: Evals is a framework for evaluating LLMs and LLM systems, and an open-source registry of benchmarks.](https://github.com/openai/evals)
+* [Evaluation / LangChain](https://python.langchain.com/v0.1/docs/guides/productionization/evaluation/)
+* [Promptfoo](https://www.promptfoo.dev/)
+* [Inspect](https://inspect.ai-safety-institute.org.uk/)

@@ -22,7 +22,8 @@ Data Leakage Prevention and Detection (DLP&D) for Artificial Intelligence (AI) s
 This control applies to both internally developed AI systems and, crucially, to scenarios involving Third-Party Service Providers (TSPs) for LLM-powered services or raw model endpoints, where data may cross organizational boundaries.
 
 ---
-## Key Principles and Strategies
+
+## Key Principles
 
 Effective DLP&D for AI systems is built upon these fundamental strategies:
 
@@ -105,10 +106,10 @@ The use of TSPs for cutting-edge LLMs is often compelling due to proprietary mod
 
 Implementing comprehensive Data Leakage Prevention and Detection controls for AI systems is vital for financial institutions due to:
 
-* **Protection of Highly Sensitive Information:** 🛡️ Safeguards customer Personally Identifiable Information (PII), confidential corporate data, financial records, and strategic information that may be processed by or embedded within AI systems.
-* **Preservation of Valuable Intellectual Property:** 💡 Protects proprietary AI models, unique training datasets, and related innovations from theft, unauthorized use, or competitive disadvantage.
-* **Adherence to Regulatory Compliance:** 📜 Helps meet stringent obligations under various data protection laws (e.g., GDPR, CCPA, GLBA) and industry-specific regulations which mandate the security of sensitive data and often carry severe penalties for breaches.
-* **Maintaining Customer and Stakeholder Trust:** 🤝 Prevents data breaches and unauthorized disclosures that can severely damage customer trust, institutional reputation, and investor confidence.
-* **Mitigating Financial and Operational Loss:** 💸 Avoids direct financial costs associated with data leakage incidents (e.g., fines, legal fees, incident response costs) and indirect costs from business disruption or loss of competitive edge.
-* **Enabling Safe Innovation with Third-Party AI:** 🚀 Provides crucial mechanisms to reduce and monitor risks when leveraging external AI services and foundational models, allowing the institution to innovate confidently while managing data exposure.
-* **Early Warning System:** 🚨 Detective controls act as an early warning system, enabling rapid response to contain leaks and minimize their impact before they escalate.
+* **Protection of Highly Sensitive Information:** Safeguards customer Personally Identifiable Information (PII), confidential corporate data, financial records, and strategic information that may be processed by or embedded within AI systems.
+* **Preservation of Valuable Intellectual Property:** Protects proprietary AI models, unique training datasets, and related innovations from theft, unauthorized use, or competitive disadvantage.
+* **Adherence to Regulatory Compliance:** Helps meet stringent obligations under various data protection laws (e.g., GDPR, CCPA, GLBA) and industry-specific regulations which mandate the security of sensitive data and often carry severe penalties for breaches.
+* **Maintaining Customer and Stakeholder Trust:** Prevents data breaches and unauthorized disclosures that can severely damage customer trust, institutional reputation, and investor confidence.
+* **Mitigating Financial and Operational Loss:** Avoids direct financial costs associated with data leakage incidents (e.g., fines, legal fees, incident response costs) and indirect costs from business disruption or loss of competitive edge.
+* **Enabling Safe Innovation with Third-Party AI:** Provides crucial mechanisms to reduce and monitor risks when leveraging external AI services and foundational models, allowing the institution to innovate confidently while managing data exposure.
+* **Early Warning System:** Detective controls act as an early warning system, enabling rapid response to contain leaks and minimize their impact before they escalate.

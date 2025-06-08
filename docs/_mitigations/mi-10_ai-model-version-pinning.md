@@ -18,6 +18,8 @@ mitigates:
 
 Model Version Pinning is the deliberate practice of selecting and using a specific, fixed version of an Artificial Intelligence (AI) model within a production environment, rather than automatically adopting the latest available version. This is particularly crucial when utilizing externally sourced models, such as foundation models provided by third-party vendors. The primary goal of model version pinning is to **ensure operational stability, maintain predictable AI system behavior, and enable a controlled, risk-managed approach to adopting model updates.** This practice helps prevent unexpected disruptions, performance degradation, or the introduction of new vulnerabilities that might arise from unvetted changes in newer model versions.
 
+---
+
 ## Key Principles
 
 The implementation of model version pinning is guided by the following core principles:
@@ -26,6 +28,8 @@ The implementation of model version pinning is guided by the following core prin
 * **Controlled Change Management:** Model pinning facilitates a deliberate and structured update strategy. It is not about indefinitely avoiding model upgrades but about enabling a rigorous process for evaluating, testing, and approving new versions before they are deployed into production (aligns with ISO 42001 A.6.2.6).
 * **Risk Mitigation:** This practice prevents automatic exposure to potential regressions in performance, new or altered biases, increased non-deterministic behavior, or security vulnerabilities that might be present in newer, unvetted model versions (mitigating `ri-11`).
 * **Supplier Accountability and Collaboration:** Effective model version pinning relies on AI model suppliers offering robust versioning support and clear communication. The organization must actively manage these supplier relationships to understand and plan for model updates.
+
+---
 
 ## Implementation Guidance
 
@@ -73,13 +77,15 @@ The institution must implement its own controls and procedures for managing AI m
 * **Thorough Documentation:**
     * **Action:** Document the rationale for selecting a specific pinned version, the results of its initial validation testing, any subsequent evaluations of that version, and the strategic plan for future reviews or upgrades. (Supports ISO 42001 A.6.2.3) Also document tooling used in managing these versions (aligns with ISO 42001 A.4.4).
 
+---
+
 ## Importance and Benefits
 
 Adopting AI model version pinning offers significant advantages for financial institutions:
 
-* **Enhanced Operational Stability:** Prevents unexpected disruptions and ensures consistent AI system behavior by isolating production environments from unvetted changes in upstream model provider updates (addresses `ri-5`, `ri-6`).
-* **Predictable and Reliable Performance:** Guarantees that AI systems perform as expected based on previously tested and validated model versions, which is critical for user trust and dependable business processes.
-* **Proactive Risk Management:** Allows for thorough assessment and mitigation of risks (e.g., new flaws, biases, security vulnerabilities, performance regressions) associated with new model versions before they impact production.
-* **Structured Change Control:** Facilitates a systematic, auditable, and governed change management process for AI model updates, aligning with broader IT and enterprise risk management frameworks.
-* **Improved Compliance and Auditability:** Provides clear documentation and traceability of which model version was active at any point in time, supporting regulatory inquiries, internal audits, and demonstrating control over AI systems (addresses `ri-11`).
-* **Effective Incident Response:** Simplifies troubleshooting, root cause analysis, and incident response by providing a stable, known baseline for AI model behavior and allowing for quicker isolation of issues related to model changes.
+* **Operational Stability:** Prevents unexpected disruptions and ensures consistent AI system behavior
+* **Predictable Performance:** Guarantees AI systems perform as expected based on tested model versions
+* **Risk Management:** Enables thorough assessment of risks before deploying new model versions
+* **Change Control:** Facilitates systematic, auditable change management for AI model updates
+* **Compliance Support:** Provides documentation and traceability for regulatory requirements
+* **Incident Response:** Simplifies troubleshooting by providing stable, known baselines for AI behavior

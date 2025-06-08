@@ -19,7 +19,8 @@ This control outlines the practice of designing Artificial Intelligence (AI) sys
 The primary purpose of providing citations is to enhance the **transparency, verifiability, and trustworthiness** of AI-generated information. By enabling users, reviewers, and auditors to trace claims to their origins, this control acts as a crucial detective mechanism. It allows for the independent assessment of the AI's informational basis, thereby helping to **detect and mitigate risks associated with misinformation, AI "hallucinations," lack of accountability, and reliance on inappropriate or outdated sources.**
 
 ---
-## Key Principles for Providing Citations in AI Systems
+
+## Key Principles
 
 The implementation of citation capabilities in AI systems should be guided by the following principles:
 
@@ -32,6 +33,7 @@ The implementation of citation capabilities in AI systems should be guided by th
 * **Distinction of Source Types:** Where applicable and meaningful, the system may differentiate between citations from highly authoritative internal knowledge bases versus external web sources or less curated repositories.
 
 ---
+
 ## Implementation Guidance
 
 Effectively implementing citation capabilities in AI systems involves considerations across system design, user interface, and data management:
@@ -69,7 +71,8 @@ Effectively implementing citation capabilities in AI systems involves considerat
     * Any known limitations or potential inaccuracies in the citation process.
 
 ---
-## Challenges in Implementing Citations
+
+## Challenges and Considerations
 
 Implementing robust citation capabilities in AI systems presents several challenges:
 
@@ -81,14 +84,15 @@ Implementing robust citation capabilities in AI systems presents several challen
 * **Performance Overhead:** The processes of retrieving information, tracking its provenance, and formatting citations can add computational overhead and potentially increase latency in the AI system's response time.
 
 ---
+
 ## Importance and Benefits
 
 Despite the challenges, providing citations and source traceability for AI-generated information offers significant benefits to financial institutions:
 
-* **Enhances Trust and Transparency:**  By allowing users to see and potentially verify the basis for AI-generated information, citations foster greater trust and reduce the "black box" perception often associated with AI systems (supports ISO 42001 A.6.1.2 on responsible AI objectives).
-* **Promotes Verifiability and Accountability:**  Enables users, internal reviewers, and auditors to independently verify the accuracy and basis of AI claims by checking the cited sources. This is crucial for establishing accountability, especially for AI-generated information used in financial reporting, customer advice, or compliance contexts.
-* **Aids in Detection and Mitigation of Misinformation/Hallucinations:**  By providing a path to trace information back to its alleged sources, users and reviewers can more easily identify instances where the AI may have "hallucinated" facts, misinterpreted source material, or inadvertently generated misinformation 
-* **Supports Critical Evaluation by Users:**  Empowers users to move beyond passively accepting AI output and instead critically evaluate its credibility by assessing the quality, relevance, and potential biases of the underlying cited sources.
-* **Facilitates Debugging and Model Improvement:**  When users or reviewers identify discrepancies between an AI-generated statement and its cited source, this specific feedback is invaluable for debugging the AI system, refining RAG retrieval mechanisms, improving prompt engineering, or identifying areas where model retraining or fine-tuning may be needed.
-* **Strengthens Compliance and Audit Processes:**  In a regulated industry like finance, being able to provide traceable sources for critical AI-generated information can be essential for demonstrating due diligence, supporting compliance with various informational and record-keeping requirements, and facilitating audits.
-* **Improves User Understanding and Knowledge Discovery:**  Citations can guide users to relevant source documents, helping them to deepen their understanding of a topic and discover additional related information.
+* **Trust and Transparency:** Allows users to verify the basis for AI-generated information, reducing "black box" perceptions
+* **Verifiability and Accountability:** Enables independent verification of AI claims through source checking
+* **Misinformation Detection:** Provides paths to trace information back to sources and identify hallucinations
+* **Critical Evaluation:** Empowers users to assess the quality and relevance of underlying sources
+* **System Improvement:** User feedback on citation accuracy helps debug and refine AI systems
+* **Compliance Support:** Provides traceable sources for regulatory requirements and audit processes
+* **Knowledge Discovery:** Citations guide users to relevant documents for deeper understanding
