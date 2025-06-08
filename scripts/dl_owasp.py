@@ -73,7 +73,7 @@ OWASP_PROJECTS = {
         'year': '2025',
         'filter_pattern': r'.*\.md$',
         'metadata_type': 'heading',
-        'url_template': 'https://genai.owasp.org/llmrisk/llm{num}/',
+        'url_template': 'https://genai.owasp.org/llmrisk/llm{num_year_format}-{slug}/',
         'key_format': 'llm{num:02d}-{year}',
         'title_prefix': 'LLM'
     },
@@ -173,13 +173,33 @@ def extract_file_metadata_heading(file_path, config):
                 title = line[3:].strip()
                 break
         
-        # Generate URL based on filename
+        # Generate URL based on filename and title for LLM project
         filename = file_path.stem
-        if filename.startswith(config['title_prefix']):
+        if filename.startswith(config['title_prefix']) and title:
             num = filename[3:5]  # Extract number like "01", "02", etc.
-            url = config['url_template'].format(num=num.lstrip('0') or '0')
+            # Create slug from title: remove LLM prefix and year, convert to lowercase, replace spaces/special chars with hyphens
+            title_for_slug = title
+            if title_for_slug.startswith('LLM'):
+                # Remove "LLM01:2025" or "LLM04:" or similar prefix
+                title_for_slug = re.sub(r'^LLM\d+:(\d+\s*)?', '', title_for_slug)
+            
+            # Convert to slug: lowercase, replace spaces and special chars with hyphens
+            slug = re.sub(r'[^\w\s-]', '', title_for_slug.lower())
+            slug = re.sub(r'[-\s]+', '-', slug).strip('-')
+            
+            # Format URL with number, year, and slug - LLM01 is special case without year
+            num_int = int(num)
+            if num_int == 1:
+                num_year_format = f"{num_int:02d}"  # LLM01 doesn't have year in URL
+            else:
+                num_year_format = f"{num_int:02d}{config['year']}"  # LLM02+ have year
+            
+            url = config['url_template'].format(
+                num_year_format=num_year_format,
+                slug=slug
+            )
         else:
-            url = config['url_template'].format(num='')
+            url = config['url_template'].format(num_year_format='', slug='')
         
         return title, url
     except Exception as e:
