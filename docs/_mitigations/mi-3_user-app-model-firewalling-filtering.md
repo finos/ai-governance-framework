@@ -5,9 +5,9 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-6-1-3 # Processes for responsible AI system design and development
-  - A-6-2-2 # AI system requirements and specification
-  - A-9-2 # Processes for responsible use of AI systems
+  - A-6-1-3  # ISO 42001: Processes for responsible AI system design and development
+  - A-6-2-2  # ISO 42001: AI system requirements and specification
+  - A-9-2    # ISO 42001: Processes for responsible use of AI systems
 mitigates:
   - ri-7   # Availability of Foundational Model
   - ri-10  # Prompt Injection

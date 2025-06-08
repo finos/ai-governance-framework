@@ -5,8 +5,8 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-6-2-6 # AI system operation and monitoring
-  - A-4-5   # System and computing resources
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-4-5    # ISO 42001: System and computing resources
 mitigates:
   - ri-7  # Availability of Foundational Model
 ---

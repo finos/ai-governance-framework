@@ -5,16 +5,16 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-7-4 # Quality of data for AI systems
-  - A-7-2 # Data for development and enhancement of AI system
-  - A-4-3 # Data resources
+  - A-7-4  # ISO 42001: Quality of data for AI systems
+  - A-7-2  # ISO 42001: Data for development and enhancement of AI system
+  - A-4-3  # ISO 42001: Data resources
 mitigates:
-  - ri-1  # Information Leaked To Hosted Model
-  - ri-2  # Unauthorized Access & Data Leaks
-  - ri-4  # Hallucination and Inaccurate Outputs
-  - ri-16 # Bias and Discrimination
-  - ri-22 # Intellectual Property (IP) and Copyright
-  - ri-23 # Regulatory Compliance and Oversight
+  - ri-1   # Information Leaked To Hosted Model
+  - ri-2   # Information Leaked to Vector Store
+  - ri-4   # Hallucination and Inaccurate Outputs
+  - ri-16  # Bias and Discrimination
+  - ri-22  # Regulatory Compliance and Oversight
+  - ri-23  # Intellectual Property (IP) and Copyright
 ---
 
 ## Purpose

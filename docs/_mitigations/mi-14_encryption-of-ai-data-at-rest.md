@@ -5,10 +5,10 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-7-2 # Data for development and enhancement of AI system
+  - A-7-2  # ISO 42001: Data for development and enhancement of AI system
 mitigates:
-  - ri-2  # Unauthorized Access & Data Leaks
-  - ri-22 # Regulatory Compliance and Oversight
+  - ri-2   # Information Leaked to Vector Store
+  - ri-22  # Regulatory Compliance and Oversight
 ---
 
 ## Purpose

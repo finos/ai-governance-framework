@@ -5,14 +5,14 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-6-2-4 # AI system verification and validation
-  - A-6-2-6 # AI system operation and monitoring
+  - A-6-2-4  # ISO 42001: AI system verification and validation
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
 mitigates:
-  - ri-1  # Information Leaked To Hosted Model (if the 'judge' is configured to detect such patterns in outputs)
-  - ri-4  # Hallucination and inaccurate outputs
-  - ri-5  # Instability in Foundation Model Behaviour (by automatically evaluating outputs against consistency or quality criteria)
-  - ri-6  # Non-Deterministic Behaviour (by comparing outputs to expected patterns or identifying undesired variability)
-  - ri-16 # Bias and Discrimination
+  - ri-1   # Information Leaked To Hosted Model
+  - ri-4   # Hallucination and Inaccurate Outputs
+  - ri-5   # Foundation Model Versioning
+  - ri-6   # Non-Deterministic Behaviour
+  - ri-16  # Bias and Discrimination
 ---
 
 ## Purpose

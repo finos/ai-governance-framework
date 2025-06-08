@@ -5,10 +5,10 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-7-2 # Data for development and enhancement of AI systems
-  - A-7-3 # Acquisition of data
-  - A-7-4 # Quality of data for AI systems
-  - A-7-6 # Data preparation
+  - A-7-2  # ISO 42001: Data for development and enhancement of AI system
+  - A-7-3  # ISO 42001: Acquisition of data
+  - A-7-4  # ISO 42001: Quality of data for AI systems
+  - A-7-6  # ISO 42001: Data preparation
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
 ---

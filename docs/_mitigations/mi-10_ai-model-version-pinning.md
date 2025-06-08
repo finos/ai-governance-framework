@@ -5,14 +5,13 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-6-2-3 # Documentation of AI system design and development
-  - A-6-2-5 # AI system deployment
-  - A-6-2-6 # AI system operation and monitoring
-  - A-4-4   # Tooling resources
+  - A-6-2-3  # ISO 42001: Documentation of AI system design and development
+  - A-6-2-5  # ISO 42001: AI system deployment
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
+  - A-4-4    # ISO 42001: Tooling resources
 mitigates:
-  - ri-5   # Instability in Foundation Model Behaviour
-  - ri-6   # Non-Deterministic Behaviour
-  - ri-11  # Lack of Foundation Model Versioning
+  - ri-5  # Foundation Model Versioning
+  - ri-6  # Non-Deterministic Behaviour
 ---
 
 ## Purpose

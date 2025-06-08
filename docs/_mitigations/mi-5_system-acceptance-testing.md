@@ -5,13 +5,12 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 iso-42001_references:
-  - A-6-2-4 # AI system verification and validation
-  - A-6-2-5 # AI system deployment
+  - A-6-2-4  # ISO 42001: AI system verification and validation
+  - A-6-2-5  # ISO 42001: AI system deployment
 mitigates:
-  - ri-4   # Hallucination and Inaccurate Outputs
-  - ri-5   # Instability in Foundation Model Behaviour
-  - ri-6   # Non-Deterministic Behaviour
-  - ri-12
+  - ri-4  # Hallucination and Inaccurate Outputs
+  - ri-5  # Foundation Model Versioning
+  - ri-6  # Non-Deterministic Behaviour
 ---
 
 ## Purpose

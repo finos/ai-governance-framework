@@ -20,7 +20,7 @@ Mitigation files (mi-*.md):
 
 Risk files (ri-*.md):
 - Updates 'related_risks' section with risk titles
-- Updates reference sections (nist-sp-800-53r5_references, nist-ai-600-1_references, ffiec-itbooklets_references, owasp-ml_references, owasp-llm_references, eu-ai-act_references) with reference titles from docs/_data/*.yml
+- Updates reference sections (eu-ai-act_references, ffiec-itbooklets_references, ffiec-itbooklets_v2_references, iso-42001_references, nist-ai-600-1_references, nist-sp-800-53r5_references, owasp-llm_references, owasp-ml_references) with reference titles from docs/_data/*.yml
 
 Example:
     Original YAML:
@@ -48,6 +48,18 @@ import yaml
 # Base directory for all relative paths
 SCRIPT_DIR = Path(__file__).parent
 
+# Reference types that correspond to YAML files in docs/_data/
+REFERENCE_TYPES = [
+    'eu-ai-act',
+    'ffiec-itbooklets',
+    'ffiec-itbooklets_v2',
+    'iso-42001',
+    'nist-ai-600-1',
+    'nist-sp-800-53r5',
+    'owasp-llm',
+    'owasp-ml'
+]
+
 def read_yaml_header(file_path):
     """Read YAML front matter from a markdown file."""
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -70,17 +82,7 @@ def get_reference_titles():
     reference_mappings = {}
     data_dir = SCRIPT_DIR / '..' / 'docs' / '_data'
     
-    # Define the reference types (filename derived by removing '_references' suffix)
-    reference_types = [
-        'nist-sp-800-53r5',
-        'nist-ai-600-1', 
-        'ffiec-itbooklets',
-        'owasp-ml',
-        'owasp-llm',
-        'eu-ai-act'
-    ]
-    
-    for reference_type in reference_types:
+    for reference_type in REFERENCE_TYPES:
         yaml_file = data_dir / f'{reference_type}.yml'
         ref_type = f'{reference_type}_references'
         
@@ -163,14 +165,13 @@ def update_file_yaml(file_path, title_mappings):
         annotated_sections = {
             'mitigates': title_mappings['risks'],
             'related_mitigations': title_mappings['mitigations'],
-            'related_risks': title_mappings['risks'],
-            'nist-sp-800-53r5_references': title_mappings.get('nist-sp-800-53r5_references', {}),
-            'nist-ai-600-1_references': title_mappings.get('nist-ai-600-1_references', {}),
-            'ffiec-itbooklets_references': title_mappings.get('ffiec-itbooklets_references', {}),
-            'owasp-ml_references': title_mappings.get('owasp-ml_references', {}),
-            'owasp-llm_references': title_mappings.get('owasp-llm_references', {}),
-            'eu-ai-act_references': title_mappings.get('eu-ai-act_references', {})
+            'related_risks': title_mappings['risks']
         }
+        
+        # Add all reference sections dynamically
+        for key in title_mappings:
+            if key.endswith('_references'):
+                annotated_sections[key] = title_mappings[key]
         
         # Check if file has any sections we need to update
         sections_to_update = [key for key in annotated_sections if key in yaml_data]

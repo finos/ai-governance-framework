@@ -5,12 +5,12 @@ layout: mitigation
 doc-status: Draft
 type: DET
 iso-42001_references:
-  - A-7-2 # Data for development and enhancement of AI system
-  - A-7-3 # Acquisition of data
-  - A-9-2 # Processes for responsible use of AI systems
+  - A-7-2  # ISO 42001: Data for development and enhancement of AI system
+  - A-7-3  # ISO 42001: Acquisition of data
+  - A-9-2  # ISO 42001: Processes for responsible use of AI systems
 mitigates:
-  - ri-2  # Unauthorized Access & Data Leaks
-  - ri-22 # Regulatory compliance
+  - ri-2   # Information Leaked to Vector Store
+  - ri-22  # Regulatory Compliance and Oversight
 ---
 
 ## Purpose
