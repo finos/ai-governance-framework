@@ -73,6 +73,24 @@ layout: default
             </div>
             {% endif %}
 
+            {% if page.external_risks and page.external_risks.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">External Controls</h2>
+                    <div class="list-group">
+                        {% for risk in page.external_risks %}
+                        {% assign link = site.external_risks[risk] %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer"
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ link.title }}
+                            {% include external-link-icon.html %}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
         </div>
     </div>
 </main>
