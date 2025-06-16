@@ -12,6 +12,10 @@ mitigates:
   - ri-5  # Foundation Model Versioning
   - ri-6  # Non-Deterministic Behaviour
   - ri-7  # Availability of Foundational Model
+related_mitigations:
+  - mi-9   # AI System Alerting and Denial of Wallet DoW Spend Monitoring
+  - mi-11  # Human Feedback Loop for AI Systems
+  - mi-1   # AI Data Leakage Prevention and Detection
 ---
 
 ## Purpose

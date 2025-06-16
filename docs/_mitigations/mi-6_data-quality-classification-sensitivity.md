@@ -15,6 +15,10 @@ mitigates:
   - ri-16  # Bias and Discrimination
   - ri-22  # Regulatory Compliance and Oversight
   - ri-23  # Intellectual Property (IP) and Copyright
+related_mitigations:
+  - mi-2   # Data Filtering From External Knowledge Bases
+  - mi-12  # Role Based Access Control for AI Data
+  - mi-14  # Encryption of AI Data at Rest
 ---
 
 ## Purpose
