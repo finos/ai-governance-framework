@@ -56,5 +56,7 @@ The implications of deploying biased AI systems are far-reaching for financial i
 * **Customer Detriment:** Direct harm to customers through unfair treatment, financial exclusion, or economic loss.
 * **Operational Inefficiencies:** Flawed decision-making stemming from biased models can lead to suboptimal business outcomes and increased operational risk.
 
+## Links
 
+* [Wikipedia: Disparate impact](https://en.wikipedia.org/wiki/Disparate_impact)
 

@@ -21,7 +21,7 @@ LLMs exhibit non-deterministic behaviour, meaning they can generate different ou
 
 ## Description
 
-LLMs inherently involve stochastic processes that cause **non-deterministic generation**—producing different outputs for identical inputs. This occurs because models predict probability distributions over possible next tokens and sample from these distributions at each step. Parameters like `temperature` (randomness level) and `top-p` sampling (nucleus sampling) amplify this variability, even without external changes to the model itself.
+LLMs may produce different outputs for identical inputs. This occurs because **models predict probability distributions over possible next tokens** and sample from these distributions at each step. Parameters like `temperature` (randomness level) and `top-p` sampling (nucleus sampling) may amplify this variability, even without external changes to the model itself.
 
 Key sources of non-determinism include:
 
