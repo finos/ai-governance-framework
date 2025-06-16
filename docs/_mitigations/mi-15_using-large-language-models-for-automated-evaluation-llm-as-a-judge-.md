@@ -13,6 +13,10 @@ mitigates:
   - ri-5   # Foundation Model Versioning
   - ri-6   # Non-Deterministic Behaviour
   - ri-16  # Bias and Discrimination
+related_mitigations:
+  - mi-11  # Human Feedback Loop for AI Systems
+  - mi-5   # System Acceptance Testing
+  - mi-3   # User App Model Firewalling Filtering
 ---
 
 ## Purpose

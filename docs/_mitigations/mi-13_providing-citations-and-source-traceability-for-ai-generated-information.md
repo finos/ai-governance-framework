@@ -10,6 +10,10 @@ iso-42001_references:
   - A-6-2-7  # ISO 42001: AI system technical documentation
 mitigates:
   - ri-4  # Hallucination and Inaccurate Outputs
+related_mitigations:
+  - mi-4   # AI System Observability
+  - mi-6   # Data Quality Classification Sensitivity
+  - mi-16  # Preserving Source Data Access Controls in AI Systems
 ---
 
 ## Purpose

@@ -9,6 +9,10 @@ iso-42001_references:
 mitigates:
   - ri-2   # Information Leaked to Vector Store
   - ri-22  # Regulatory Compliance and Oversight
+related_mitigations:
+  - mi-6   # Data Quality Classification Sensitivity
+  - mi-12  # Role Based Access Control for AI Data
+  - mi-1   # AI Data Leakage Prevention and Detection
 ---
 
 ## Purpose

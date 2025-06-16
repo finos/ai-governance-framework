@@ -11,6 +11,10 @@ mitigates:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-5  # Foundation Model Versioning
   - ri-6  # Non-Deterministic Behaviour
+related_mitigations:
+  - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
+  - mi-11  # Human Feedback Loop for AI Systems
+  - mi-10  # AI Model Version Pinning
 ---
 
 ## Purpose

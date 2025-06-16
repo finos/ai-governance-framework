@@ -9,6 +9,10 @@ iso-42001_references:
   - A-4-5    # ISO 42001: System and computing resources
 mitigates:
   - ri-7  # Availability of Foundational Model
+related_mitigations:
+  - mi-9   # AI System Alerting and Denial of Wallet DoW Spend Monitoring
+  - mi-17  # AI Firewall Implementation and Management
+  - mi-4   # AI System Observability
 ---
 
 ## Purpose
