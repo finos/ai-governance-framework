@@ -27,9 +27,10 @@ Prompt injection occurs when attackers craft inputs that manipulate a language m
 
 ## Description
 
-Prompt injection is a significant security threat in LLM-based applications, where both external users and malicious internal actors can manipulate the prompts sent to a language model to induce unintended, harmful, or malicious behaviour. This attack vector is particularly dangerous because it typically requires*no special privileges and can be executed through simple input manipulation—making it one of the most accessible and widely exploited threats in LLM systems.
+Prompt injection is a significant security threat in LLM-based applications, where both external users and malicious internal actors can manipulate the prompts sent to a language model to induce unintended, harmful, or malicious behaviour. This attack vector is particularly dangerous because it typically requires **no special privileges** and can be executed through simple input manipulation—making it one of the most accessible and widely exploited threats in LLM systems.
 
-Unlike traditional injection attacks like SQL injection, the scope of prompt injection is broader and less predictable, encompassing risks such as:
+Unlike traditional programming languages like Java and SQL, **LLMs do not make a hard
+distinction between instructions and data.**  Therefore, the scope of prompt injection is broader and less predictable, encompassing risks such as:
 
 * Incorrect or misleading answers
 * Toxic or offensive content
@@ -81,3 +82,5 @@ This enables intellectual property theft, enables future attacks, or facilitates
 * [Indirect Prompt Injection – Simon Willison](https://simonwillison.net/2023/Apr/3/indirect-prompt-injection/) – Excellent technical explanation and examples of indirect prompt injection risks.
 * [Jailbreaking LLMs via Prompt Injection – ArXiv](https://arxiv.org/abs/2302.12173) – Research exploring how models can be jailbroken using carefully crafted prompts.
 * [Prompt Injection Attacks Against LLMs – PromptInject](https://promptinject.com/) – A living catalog of prompt injection techniques and attack patterns.
+* [Can LLMs Separate Instructions From Data?
+And What Do We Even Mean By That?](https://arxiv.org/pdf/2403.06833v2)

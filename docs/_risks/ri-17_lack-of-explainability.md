@@ -36,4 +36,6 @@ This can lead to inappropriate application, undiagnosed failures in specific sce
 
 Transparency and accountability are paramount in financial services; the lack of explainability directly undermines these principles, potentially exposing firms to operational, reputational, and compliance risks.
 
+## Links
 
+* [Large language models don't behave like people, even though we may expect them to](https://techxplore.com/news/2024-07-large-language-dont-people.html)
