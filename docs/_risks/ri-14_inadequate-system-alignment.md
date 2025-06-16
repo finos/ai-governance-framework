@@ -27,33 +27,53 @@ owasp-ml_references:
 
 ## Summary
 
-AI alignment risk arises when a system's behaviour diverges from its intended goals, either by producing irrelevant outputs or by pursuing objectives in harmful or unintended ways. Even well-performing systems may cause issues at scale, such as reinforcing bias, exploiting loopholes, or removing human accountability. Alignment can degrade over time due to model updates, context changes, or inherent unpredictability, making continuous oversight essential.
+LLM-powered RAG systems may generate responses that diverge from their intended business purpose, producing outputs that appear relevant but contain inaccurate financial advice, biased recommendations, or inappropriate tone for the financial context. Misalignment often occurs when the LLM prioritizes response fluency over accuracy, fails to respect financial compliance constraints, or draws inappropriate conclusions from retrieved documents. This risk is particularly acute in financial services where confident-sounding but incorrect responses can lead to regulatory violations or customer harm.
 
 ## Description
 
-AI systems are typically deployed with a specific goal in mind—this could be an overarching project objective or a requirement tied to individual queries. Misalignment occurs when the behaviour of the AI system does not correspond with the intended goal, either by producing irrelevant, unhelpful outputs or by pursuing the objective in ways that lead to undesirable outcomes.
+Large Language Models in Retrieval-Augmented Generation (RAG) systems for financial services are designed to provide accurate, compliant, and contextually appropriate responses by combining retrieved institutional knowledge with the LLM's language capabilities. However, response misalignment occurs when the LLM's output diverges from the intended business purpose, regulatory requirements, or institutional policies, despite appearing coherent and relevant.
 
-In simple cases, this misalignment may resemble hallucinations, where the model fails to deliver useful responses. However, more subtle forms of misalignment can occur even when the AI appears to perform well in isolation. Over time or at scale, the system may optimise for patterns or subgoals that conflict with broader intentions or ethical expectations. For example, an AI tasked with maximising profit may suggest strategies that exploit regulatory gaps, overlook societal impact, or erode trust. Similarly, an AI used in recruitment might select high-performing candidates while systematically disadvantaging certain demographic groups due to biased training data.
+Unlike simpler AI systems with clearly defined inputs and outputs, LLMs in RAG systems must navigate complex interactions between retrieved documents, system prompts, user queries, and financial domain constraints. This complexity creates multiple vectors for misalignment:
 
-There is also a risk that fully automating certain processes with AI removes human oversight and accountability. When decisions are made entirely by the system, there may be no one left with a clear understanding of how or why those decisions were made, leaving the organisation unable to respond effectively if the system misbehaves.
+### Key Misalignment Patterns in Financial RAG Systems
 
-Even systems that are initially well-aligned can become misaligned over time due to non-deterministic behaviour, deployment of new model versions, or changes in contextual information such as system prompts or retrieval databases.
+**Retrieval-Response Disconnect**: The LLM generates confident responses that contradict or misinterpret the retrieved financial documents. For example, when asked about loan eligibility criteria, the LLM might provide a simplified answer that omits critical regulatory exceptions documented in the retrieved policy, potentially leading to compliance violations.
 
-### Financial Services Impact
+**Context Window Limitations**: Important regulatory caveats, disclaimers, or conditional statements get truncated or deprioritized when documents exceed the LLM's context window. This can result in incomplete financial guidance that appears authoritative but lacks essential compliance information.
 
-The consequences of such misalignment in a financial services context can be severe:
+**Domain Knowledge Gaps**: When retrieved documents don't fully address a financial query, the LLM may fill gaps with plausible-sounding but incorrect financial information from its training data, creating responses that blend accurate institutional knowledge with inaccurate general knowledge.
 
-* **Suboptimal or Harmful Business Outcomes**: An AI system designed to optimize profitability might inadvertently recommend strategies that exploit regulatory ambiguities, compromise customer best interests (e.g., by promoting unsuitable financial products), or disregard the institution's social responsibilities and long-term reputational integrity.
+**Scope Boundary Violations**: The LLM provides advice or recommendations that exceed its authorized scope. For instance, a customer service RAG system might inadvertently provide investment advice when only licensed for general account information, creating potential regulatory liability.
 
-* **Bias and Unfair Treatment**: AI models used in critical processes like credit assessment, fraud detection, or even recruitment, if misaligned, may perpetuate or amplify existing biases. This can lead to discriminatory outcomes against certain customer demographics or applicant groups, resulting in regulatory breaches (e.g., fair lending violations) and significant reputational damage.
+**Prompt Injection via Retrieved Content**: Malicious or poorly formatted content in the knowledge base can manipulate the LLM's responses through indirect prompt injection, causing the system to ignore safety guidelines or provide inappropriate responses.
 
-* **Erosion of Accountability and Oversight**: The automation of complex processes by AI systems, if not properly aligned with human oversight mechanisms, can lead to a diffusion of responsibility. If the system behaves unexpectedly or causes harm, the lack of clarity regarding human accountability can hinder remediation and erode trust.
+**Tone and Compliance Mismatches**: The LLM adopts an inappropriate tone or level of certainty for financial communications, such as being overly definitive about complex regulatory matters or using casual language for formal compliance communications.
 
-* **Compromised Decision-Making**: Misalignment can be exacerbated by issues such as hallucinations (ri-4) where the model generates plausible but incorrect information, or by the inherent instability and non-deterministic behaviour (ri-5) of foundation models. These factors can lead to unreliable outputs that underpin critical financial decisions.
+### Impact on Financial Operations
 
-An AI system that is adequately aligned at its initial deployment may drift towards misalignment over time. This can be due to several factors, including updates to the underlying model by third-party providers, changes in the data it processes (e.g., through Retrieval Augmented Generation databases), shifts in the operational environment, or the model's own learning and adaptation if continuous learning is enabled.
+The consequences of LLM response misalignment in RAG systems can be severe for financial institutions:
 
-Ultimately, a misaligned AI system may optimize for its programmed objectives in a manner that produces unintended, detrimental side effects for the institution, its customers, or the broader financial system. Ensuring and maintaining alignment requires a robust governance framework encompassing design, development, testing, deployment, and ongoing monitoring, guided by the principles of responsible AI to ensure safety, fairness, transparency, and accountability.
+* **Regulatory Compliance Violations**: Misaligned responses may provide incomplete or incorrect regulatory guidance, leading to compliance failures. For example, a RAG system might omit required disclosures for investment products or provide outdated regulatory information that exposes the institution to penalties.
+
+* **Customer Harm and Liability**: Incorrect financial advice or product recommendations can result in customer financial losses, creating legal liability and reputational damage. This is particularly problematic when responses appear authoritative due to the LLM's confident tone and institutional branding.
+
+* **Operational Risk Amplification**: Misaligned responses in internal-facing RAG systems can lead to incorrect policy interpretations by staff, resulting in procedural errors that scale across the organization. Risk assessment tools that provide misaligned guidance can compound decision-making errors.
+
+* **Trust Erosion**: Inconsistent or contradictory responses from RAG systems undermine confidence in AI-assisted financial services, potentially impacting customer retention and staff adoption of AI tools.
+
+### Alignment Drift in RAG Systems
+
+RAG systems can experience alignment drift over time due to several factors specific to their architecture:
+
+* **Knowledge Base Evolution**: As institutional documents are updated, added, or removed, the retrieval patterns change, potentially exposing the LLM to conflicting information or creating gaps that trigger inappropriate response generation.
+
+* **Foundation Model Updates**: Changes to the underlying LLM (ri-5) can alter response patterns even with identical retrieved content, potentially breaking carefully calibrated prompt engineering and safety measures.
+
+* **Context Contamination**: Poor document hygiene in the knowledge base can introduce biased, outdated, or incorrect information that the LLM incorporates into responses without proper validation.
+
+* **Query Evolution**: As users discover new ways to interact with the system, edge cases emerge that weren't addressed in initial alignment testing, revealing previously unknown misalignment patterns.
+
+Maintaining alignment in financial RAG systems requires continuous monitoring of response quality, regular validation against regulatory requirements, and systematic testing of new query patterns and document combinations.
 
 
 ## Links
