@@ -15,6 +15,9 @@ eu-ai-act_references:
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
+related_risks:
+  - ri-5   # Foundation Model Versioning
+  - ri-8   # Tampering With the Foundational Model
 ---
 
 ## Summary
