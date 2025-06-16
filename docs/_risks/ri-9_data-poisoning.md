@@ -17,6 +17,9 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
+related_risks:
+  - ri-8   # Tampering With the Foundational Model
+  - ri-19  # Data Quality and Drift
 ---
 ## Summary
 

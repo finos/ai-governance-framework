@@ -15,6 +15,10 @@ eu-ai-act_references:
   - c3-s2-a8   # III.S2.A8: Compliance with the Requirements
   - c3-s3-a21  # III.S3.A21: Cooperation with Competent Authorities
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
+related_risks:
+  - ri-16  # Bias and Discrimination
+  - ri-17  # Lack of Explainability
+  - ri-18  # Model Overreach / Expanded Use
 ---
 
 ## Summary

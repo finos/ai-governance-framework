@@ -17,6 +17,9 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
+related_risks:
+  - ri-2   # Information Leaked to Vector Store
+  - ri-23  # Intellectual Property and Copyright
 ---
 ## Summary
 

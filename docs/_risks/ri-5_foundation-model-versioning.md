@@ -5,7 +5,8 @@ layout: risk
 doc-status: Draft
 type: OP
 related_risks:
-  - ri-6  # Non-Deterministic Behaviour
+  - ri-7  # Availability of Foundational Model
+  - ri-8  # Tampering With the Foundational Model
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation
 nist-ai-600-1_references:

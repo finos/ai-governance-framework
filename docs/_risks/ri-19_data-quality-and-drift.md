@@ -14,6 +14,10 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+related_risks:
+  - ri-4   # Hallucination and Inaccurate Outputs
+  - ri-16  # Bias and Discrimination
+  - ri-9   # Data Poisoning
 ---
 
 ## Summary
