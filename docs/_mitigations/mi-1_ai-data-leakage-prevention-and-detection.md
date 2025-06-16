@@ -10,6 +10,10 @@ iso-42001_references:
   - A-5-2    # ISO 42001: AI system impact assessment process
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
+related_mitigations:
+  - mi-2   # Data Filtering From External Knowledge Bases
+  - mi-4   # AI System Observability
+  - mi-14  # Encryption of AI Data at Rest
 ---
 
 ## Purpose

@@ -11,6 +11,10 @@ iso-42001_references:
   - A-7-6  # ISO 42001: Data preparation
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
+related_mitigations:
+  - mi-1   # AI Data Leakage Prevention and Detection
+  - mi-6   # Data Quality Classification Sensitivity
+  - mi-16  # Preserving Source Data Access Controls in AI Systems
 ---
 
 ## Purpose

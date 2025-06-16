@@ -12,6 +12,9 @@ iso-42001_references:
 mitigates:
   - ri-5  # Foundation Model Versioning
   - ri-6  # Non-Deterministic Behaviour
+related_mitigations:
+  - mi-5   # System Acceptance Testing
+  - mi-4   # AI System Observability
 ---
 
 ## Purpose

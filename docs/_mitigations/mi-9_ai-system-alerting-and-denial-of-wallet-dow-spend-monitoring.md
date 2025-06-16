@@ -9,6 +9,10 @@ iso-42001_references:
   - A-4-2    # ISO 42001: Resource documentation
 mitigates:
   - ri-7  # Availability of Foundational Model
+related_mitigations:
+  - mi-8   # Quality of Service QoS and DDoS Prevention for AI Systems
+  - mi-4   # AI System Observability
+  - mi-3   # User App Model Firewalling Filtering
 ---
 
 ## Purpose

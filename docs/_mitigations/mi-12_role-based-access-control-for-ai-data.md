@@ -10,6 +10,10 @@ iso-42001_references:
 mitigates:
   - ri-9  # Data Poisoning
   - ri-1  # Information Leaked To Hosted Model
+related_mitigations:
+  - mi-16  # Preserving Source Data Access Controls in AI Systems
+  - mi-6   # Data Quality Classification Sensitivity
+  - mi-14  # Encryption of AI Data at Rest
 ---
 
 ## Purpose

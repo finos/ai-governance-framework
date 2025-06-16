@@ -14,6 +14,10 @@ mitigates:
   - ri-20  # Reputational Risk
   - ri-22  # Regulatory Compliance and Oversight
   - ri-23  # Intellectual Property (IP) and Copyright
+related_mitigations:
+  - mi-1   # AI Data Leakage Prevention and Detection
+  - mi-10  # AI Model Version Pinning
+  - mi-6   # Data Quality Classification Sensitivity
 ---
 
 ## Purpose

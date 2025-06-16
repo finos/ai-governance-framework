@@ -11,6 +11,10 @@ iso-42001_references:
 mitigates:
   - ri-7   # Availability of Foundational Model
   - ri-10  # Prompt Injection
+related_mitigations:
+  - mi-17  # AI Firewall Implementation and Management
+  - mi-8   # Quality of Service QoS and DDoS Prevention for AI Systems
+  - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
 ---
 
 ## Purpose
