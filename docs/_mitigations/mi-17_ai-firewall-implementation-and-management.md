@@ -8,6 +8,14 @@ iso-42001_references:
   - A-6-1-3  # ISO 42001: Processes for responsible AI system design and development
   - A-6-2-2  # ISO 42001: AI system requirements and specification
   - A-9-2    # ISO 42001: Processes for responsible use of AI systems
+nist-sp-800-53r5_references:
+  - ac-4  # AC-4 Information Flow Enforcement
+  - sc-5  # SC-5 Denial-of-service Protection
+  - sc-7  # SC-7 Boundary Protection
+  - si-3  # SI-3 Malicious Code Protection
+  - si-4  # SI-4 System Monitoring
+  - si-10  # SI-10 Information Input Validation
+  - si-15  # SI-15 Information Output Filtering
 mitigates:
   - ri-7   # Availability of Foundational Model
   - ri-10  # Prompt Injection

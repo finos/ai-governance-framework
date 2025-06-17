@@ -7,6 +7,14 @@ type: PREV
 iso-42001_references:
   - A-6-2-4  # ISO 42001: AI system verification and validation
   - A-6-2-5  # ISO 42001: AI system deployment
+nist-sp-800-53r5_references:
+  - ca-2  # CA-2 Control Assessments
+  - ca-6  # CA-6 Authorization
+  - cm-4  # CM-4 Impact Analyses
+  - sa-4  # SA-4 Acquisition Process
+  - sa-11  # SA-11 Developer Testing And Evaluation
+  - si-2  # SI-2 Flaw Remediation
+  - si-6  # SI-6 Security And Privacy Function Verification
 mitigates:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-5  # Foundation Model Versioning

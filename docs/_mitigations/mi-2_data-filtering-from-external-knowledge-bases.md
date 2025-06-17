@@ -9,6 +9,15 @@ iso-42001_references:
   - A-7-3  # ISO 42001: Acquisition of data
   - A-7-4  # ISO 42001: Quality of data for AI systems
   - A-7-6  # ISO 42001: Data preparation
+nist-sp-800-53r5_references:
+  - ac-4  # AC-4 Information Flow Enforcement
+  - ac-22  # AC-22 Publicly Accessible Content
+  - mp-6  # MP-6 Media Sanitization
+  - pt-2  # PT-2 Authority To Process Personally Identifiable Information
+  - si-4  # SI-4 System Monitoring
+  - si-12  # SI-12 Information Management And Retention
+  - si-15  # SI-15 Information Output Filtering
+  - si-19  # SI-19 De-identification
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
 related_mitigations:

@@ -8,6 +8,12 @@ iso-42001_references:
   - A-8-2    # ISO 42001: System documentation and information for users
   - A-6-1-2  # ISO 42001: Objectives for responsible development of AI systems
   - A-6-2-7  # ISO 42001: AI system technical documentation
+nist-sp-800-53r5_references:
+  - au-10  # AU-10 Non-repudiation
+  - sa-8  # SA-8 Security And Privacy Engineering Principles
+  - ac-16  # AC-16 Security And Privacy Attributes
+  - si-7  # SI-7 Software, Firmware, And Information Integrity
+  - at-2  # AT-2 Literacy Training And Awareness
 mitigates:
   - ri-4  # Hallucination and Inaccurate Outputs
 related_mitigations:
