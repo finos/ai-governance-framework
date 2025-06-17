@@ -7,6 +7,15 @@ type: DET
 iso-42001_references:
   - A-6-2-4  # ISO 42001: AI system verification and validation
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
+nist-sp-800-53r5_references:
+  - ca-2  # CA-2 Control Assessments
+  - ca-7  # CA-7 Authorization
+  - au-6  # AU-6 Audit Record Review, Analysis, And Reporting
+  - ra-10  # RA-10 Threat Hunting
+  - sa-11  # SA-11 Developer Testing And Evaluation
+  - si-4  # SI-4 System Monitoring
+  - si-7  # SI-7 Software, Firmware, And Information Integrity
+  - si-15  # SI-15 Information Output Filtering
 mitigates:
   - ri-1   # Information Leaked To Hosted Model
   - ri-4   # Hallucination and Inaccurate Outputs

@@ -9,6 +9,15 @@ iso-42001_references:
   - A-8-2    # ISO 42001: System documentation and information for users
   - A-8-3    # ISO 42001: External reporting
   - A-3-3    # ISO 42001: Reporting of concerns
+nist-sp-800-53r5_references:
+  - ca-7  # CA-7 Authorization
+  - ir-6  # IR-6 Incident Reporting
+  - pm-26  # PM-26 Complaint Management
+  - ra-5  # RA-5 Vulnerability Monitoring And Scanning
+  - si-2  # SI-2 Flaw Remediation
+  - si-4  # SI-4 System Monitoring
+  - at-2  # AT-2 Literacy Training And Awareness
+  - ca-2  # CA-2 Control Assessments
 mitigates:
   - ri-5  # Foundation Model Versioning
   - ri-6  # Non-Deterministic Behaviour

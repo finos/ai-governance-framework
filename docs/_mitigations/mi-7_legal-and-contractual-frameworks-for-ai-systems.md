@@ -9,6 +9,18 @@ iso-42001_references:
   - A-10-2  # ISO 42001: Allocating responsibilities
   - A-10-3  # ISO 42001: Suppliers
   - A-8-5   # ISO 42001: Information for interested parties
+nist-sp-800-53r5_references:
+  - ac-20  # AC-20 Use Of External Systems
+  - ca-3  # CA-3 Information Exchange
+  - ir-6  # IR-6 Incident Reporting
+  - pm-30  # PM-30 Supply Chain Risk Management Strategy
+  - ps-7  # PS-7 External Personnel Security
+  - sa-4  # SA-4 Acquisition Process
+  - sa-9  # SA-9 External System Services
+  - sr-2  # SR-2 Supply Chain Risk Management Plan
+  - sr-3  # SR-3 Supply Chain Controls And Processes
+  - sr-5  # SR-5 Acquisition Strategies, Tools, And Methods
+  - sr-8  # SR-8 Notification Agreements
 mitigates:
   - ri-1   # Information Leaked To Hosted Model
   - ri-20  # Reputational Risk
