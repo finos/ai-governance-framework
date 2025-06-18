@@ -91,6 +91,21 @@ layout: default
             </div>
             {% endif %}
 
+            {% include reference-card.html
+                references=page.iso-42001_references
+                dataset="iso-42001"
+                heading="ISO 42001 References" %}
+
+            {% include reference-card.html
+                references=page.nist-sp-800-53r5_references
+                dataset="nist-sp-800-53r5"
+                heading="NIST SP 800-53r5 References" %}
+
+            {% include reference-card.html
+                references=page.nist-ai-600-1_references
+                dataset="nist-ai-600-1"
+                heading="NIST AI 600-1 References" %}
+
         </div>
     </div>
 </main>

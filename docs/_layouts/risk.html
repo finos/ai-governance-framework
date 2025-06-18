@@ -76,121 +76,35 @@ layout: default
             </div>
             {% endif %}
 
-            {% if page.owasp-llm_references and page.owasp-llm_references.size > 0 %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">OWASP LLM Top 10 References</h2>
-                    <div class="list-group">
-                        {% for risk in page.owasp-llm_references %}
-                        {% assign link = site.data.owasp-llm[risk] %}
-                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ link.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% include reference-card.html
+                references=page.owasp-llm_references
+                dataset="owasp-llm"
+                heading="OWASP LLM Top 10 References" %}
 
-            {% if page.owasp-ml_references and page.owasp-ml_references.size > 0 %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">OWASP ML Top 10 References</h2>
-                    <div class="list-group">
-                        {% for risk in page.owasp-ml_references %}
-                        {% assign link = site.data.owasp-ml[risk] %}
-                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ link.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% include reference-card.html
+                references=page.owasp-ml_references
+                dataset="owasp-ml"
+                heading="OWASP ML Top 10 References" %}
 
-            {% if page.ffiec-itbooklets_references and page.ffiec-itbooklets_references.size > 0 %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">FFIEC References</h2>
-                    <div class="list-group">
-                        {% for reference in page.ffiec-itbooklets_references %}
-                        {% assign booklet = site.data.ffiec-itbooklets[reference] %}
-                        {% if booklet %}
-                        <a href="{{ booklet.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ booklet.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% include reference-card.html
+                references=page.ffiec-itbooklets_references
+                dataset="ffiec-itbooklets"
+                heading="FFIEC References" %}
 
-            {% if page.eu-ai-act_references and page.eu-ai-act_references.size > 0 %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">EU AI Act References</h2>
-                    <div class="list-group">
-                        {% for reference in page.eu-ai-act_references %}
-                        {% assign article = site.data.eu-ai-act[reference] %}
-                        {% if article %}
-                        <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ article.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% include reference-card.html
+                references=page.eu-ai-act_references
+                dataset="eu-ai-act"
+                heading="EU AI Act References" %}
 
-            {% if page.nist-sp-800-53r5_references and page.nist-sp-800-53r5_references.size > 0 %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">NIST SP 800-53r5 References</h2>
-                    <div class="list-group">
-                        {% for reference in page.nist-sp-800-53r5_references %}
-                        {% assign control = site.data.nist-sp-800-53r5[reference] %}
-                        {% if control %}
-                        <a href="{{ control.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ control.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% include reference-card.html
+                references=page.nist-sp-800-53r5_references
+                dataset="nist-sp-800-53r5"
+                heading="NIST SP 800-53r5 References" %}
 
-            {% if page.nist-ai-600-1_references and page.nist-ai-600-1_references.size > 0 %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h4 mb-4">NIST AI 600-1 References</h2>
-                    <div class="list-group">
-                        {% for reference in page.nist-ai-600-1_references %}
-                        {% assign control = site.data.nist-ai-600-1[reference] %}
-                        {% if control %}
-                        <a href="{{ control.url }}" target="_blank" rel="noopener noreferrer" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ control.title }}
-                            {% include external-link-icon.html %}
-                        </a>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% include reference-card.html
+                references=page.nist-ai-600-1_references
+                dataset="nist-ai-600-1"
+                heading="NIST AI 600-1 References" %}
 
         </div>
     </div>
