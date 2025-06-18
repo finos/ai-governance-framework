@@ -7,6 +7,15 @@ type: PREV
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-4-5    # ISO 42001: System and computing resources
+nist-sp-800-53r5_references:
+  - sc-5  # SC-5 Denial-of-service Protection
+  - sc-6  # SC-6 Resource Availability
+  - sc-7  # SC-7 Boundary Protection
+  - si-4  # SI-4 System Monitoring
+  - si-10  # SI-10 Information Input Validation
+  - si-13  # SI-13 Predictable Failure Prevention
+  - ir-4  # IR-4 Incident Handling
+  - ca-7  # CA-7 Authorization
 mitigates:
   - ri-7  # Availability of Foundational Model
 related_mitigations:

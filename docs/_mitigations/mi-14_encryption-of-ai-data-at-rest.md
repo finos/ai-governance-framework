@@ -6,6 +6,14 @@ doc-status: Draft
 type: PREV
 iso-42001_references:
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system
+nist-sp-800-53r5_references:
+  - sc-28  # SC-28 Protection Of Information AT Rest
+  - sc-12  # SC-12 Cryptographic Key Establishment And Management
+  - sc-13  # SC-13 Cryptographic Protection
+  - cp-9  # CP-9 System Backup
+  - ac-19  # AC-19 Access Control For Mobile Devices
+  - sa-9  # SA-9 External System Services
+  - cm-3  # CM-3 Configuration Change Control
 mitigates:
   - ri-2   # Information Leaked to Vector Store
   - ri-22  # Regulatory Compliance and Oversight

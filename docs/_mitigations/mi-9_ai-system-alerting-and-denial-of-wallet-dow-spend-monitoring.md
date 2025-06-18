@@ -7,6 +7,13 @@ type: DET
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-4-2    # ISO 42001: Resource documentation
+nist-sp-800-53r5_references:
+  - ac-2  # AC-2 Account Management
+  - ca-7  # CA-7 Authorization
+  - ir-4  # IR-4 Incident Handling
+  - sc-5  # SC-5 Denial-of-service Protection
+  - sc-6  # SC-6 Resource Availability
+  - si-4  # SI-4 System Monitoring
 mitigates:
   - ri-7  # Availability of Foundational Model
 related_mitigations:

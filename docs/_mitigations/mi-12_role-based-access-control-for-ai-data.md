@@ -7,6 +7,19 @@ type: PREV
 iso-42001_references:
   - A-3-2  # ISO 42001: AI roles and responsibilities
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system
+nist-sp-800-53r5_references:
+  - ac-1  # AC-1 Policy And Procedures
+  - ac-2  # AC-2 Account Management
+  - ac-3  # AC-3 Access Enforcement
+  - ac-5  # AC-5 Separation Of Duties
+  - ac-6  # AC-6 Least Privilege
+  - ac-16  # AC-16 Security And Privacy Attributes
+  - au-2  # AU-2 Event Logging
+  - au-6  # AU-6 Audit Record Review, Analysis, And Reporting
+  - ia-2  # IA-2 Identification And Authentication (organizational Users)
+  - ia-4  # IA-4 Identifier Management
+  - ia-5  # IA-5 Authenticator Management
+  - cm-12  # CM-12 Information Location
 mitigates:
   - ri-9  # Data Poisoning
   - ri-1  # Information Leaked To Hosted Model

@@ -8,6 +8,21 @@ iso-42001_references:
   - A-7-2    # ISO 42001: Data for development and enhancement of AI system
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-5-2    # ISO 42001: AI system impact assessment process
+nist-sp-800-53r5_references:
+  - ac-4  # AC-4 Information Flow Enforcement
+  - ac-20  # AC-20 Use Of External Systems
+  - au-13  # AU-13 Monitoring For Information Disclosure
+  - ca-3  # CA-3 Information Exchange
+  - ca-7  # CA-7 Authorization
+  - ir-4  # IR-4 Incident Handling
+  - ir-9  # IR-9 Information Spillage Response
+  - mp-6  # MP-6 Media Sanitization
+  - sa-9  # SA-9 External System Services
+  - sc-7  # SC-7 Boundary Protection
+  - sc-8  # SC-8 Transmission Confidentiality And Integrity
+  - sc-28  # SC-28 Protection Of Information AT Rest
+  - si-4  # SI-4 System Monitoring
+  - si-20  # SI-20 Tainting
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
 related_mitigations:
