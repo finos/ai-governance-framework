@@ -2,7 +2,7 @@
 sequence: 7
 title: Availability of Foundational Model
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
   - llm10-2025  # LLM10:2025 Unbounded Consumption

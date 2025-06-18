@@ -2,7 +2,7 @@
 sequence: 10
 title: Prompt Injection
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm01-2025  # LLM01:2025 Prompt Injection

@@ -2,7 +2,7 @@
 sequence: 8
 title: Quality of Service (QoS) and DDoS Prevention for AI Systems
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring

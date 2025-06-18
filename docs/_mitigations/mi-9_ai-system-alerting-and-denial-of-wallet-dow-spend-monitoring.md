@@ -2,7 +2,7 @@
 sequence: 9
 title: AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: DET
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring

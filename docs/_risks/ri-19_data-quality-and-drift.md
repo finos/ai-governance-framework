@@ -2,7 +2,7 @@
 sequence: 19
 title: Data Quality and Drift
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 nist-ai-600-1_references:
   - 2-8  # 2.8. Information Integrity

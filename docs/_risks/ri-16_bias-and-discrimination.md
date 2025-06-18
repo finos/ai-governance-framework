@@ -2,7 +2,7 @@
 sequence: 16
 title: Bias and Discrimination
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 nist-ai-600-1_references:
   - 2-6  # 2.6. Harmful Bias and Homogenization

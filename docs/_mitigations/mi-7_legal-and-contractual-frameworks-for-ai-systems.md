@@ -2,7 +2,7 @@
 sequence: 7
 title: Legal and Contractual Frameworks for AI Systems
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 iso-42001_references:
   - A-2-3   # ISO 42001: Alignment with other organizational policies

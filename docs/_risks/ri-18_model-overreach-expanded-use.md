@@ -2,7 +2,7 @@
 sequence: 18
 title: Model Overreach / Expanded Use
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
   - llm06-2025  # LLM06:2025 Excessive Agency

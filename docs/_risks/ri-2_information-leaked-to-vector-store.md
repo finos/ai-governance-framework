@@ -2,7 +2,7 @@
 sequence: 2
 title: Information Leaked to Vector Store
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm06-2025  # LLM06:2025 Excessive Agency

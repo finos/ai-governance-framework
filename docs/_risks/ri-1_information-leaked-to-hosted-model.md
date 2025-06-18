@@ -2,7 +2,7 @@
 sequence: 1
 title: Information Leaked To Hosted Model
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: RC
 owasp-llm_references:
   - llm06-2025  # LLM06:2025 Excessive Agency

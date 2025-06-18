@@ -2,7 +2,7 @@
 sequence: 23
 title: Intellectual Property (IP) and Copyright
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: RC
 nist-ai-600-1_references:
   - 2-10  # 2.10. Intellectual Property

@@ -2,7 +2,7 @@
 sequence: 15
 title: Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: DET
 iso-42001_references:
   - A-6-2-4  # ISO 42001: AI system verification and validation
