@@ -1,0 +1,19 @@
+{% assign references = include.references %}
+{% if references and references.size > 0 %}
+<div class="card">
+    <div class="card-body">
+        <h2 class="h4 mb-4">{{ include.heading }}</h2>
+        <div class="list-group">
+            {% for id in references %}
+            {% assign item = site.data[include.dataset][id] %}
+            {% if item %}
+            <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                {{ item.title }}
+                {% include external-link-icon.html %}
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
