@@ -1,5 +1,8 @@
 title: FINOS AI Readiness - AI Governance Framework
 
+version: v1
+release-date: 2024-06-09
+
 risk_classification:
   RC: Regulatory and Compliance
   OP: Operational

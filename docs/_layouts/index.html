@@ -11,6 +11,13 @@ layout: default
             </div>
         </div>
         <p class="lead mb-0">{{ page.subtitle }}</p>
+        <p class="lead mb-0 small fst-italic" style="font-size: 0.8em;">
+            <em>
+            version: {{ site.version }} 
+            {% assign formatted_date = site.release-date | date: "%B %d, %Y" %}
+            ({{ formatted_date }})
+            </em>
+        </p>
     </div>
 </header>
 
