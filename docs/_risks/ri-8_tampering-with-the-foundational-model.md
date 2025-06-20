@@ -2,7 +2,7 @@
 sequence: 8
 title: Tampering With the Foundational Model
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm03-2025  # LLM03:2025 Supply Chain

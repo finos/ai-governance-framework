@@ -2,7 +2,7 @@
 sequence: 1
 title: AI Data Leakage Prevention and Detection
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: DET
 iso-42001_references:
   - A-7-2    # ISO 42001: Data for development and enhancement of AI system

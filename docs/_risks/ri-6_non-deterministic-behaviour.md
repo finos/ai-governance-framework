@@ -2,7 +2,7 @@
 sequence: 6
 title: Non-Deterministic Behaviour
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation

@@ -2,7 +2,7 @@
 sequence: 5
 title: System Acceptance Testing
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 iso-42001_references:
   - A-6-2-4  # ISO 42001: AI system verification and validation

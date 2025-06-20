@@ -2,7 +2,7 @@
 sequence: 5
 title: Foundation Model Versioning
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 related_risks:
   - ri-7  # Availability of Foundational Model

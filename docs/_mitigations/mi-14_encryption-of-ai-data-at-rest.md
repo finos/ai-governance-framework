@@ -2,7 +2,7 @@
 sequence: 14
 title: Encryption of AI Data at Rest
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 iso-42001_references:
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system

@@ -2,7 +2,7 @@
 sequence: 14
 title: Inadequate System Alignment
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance

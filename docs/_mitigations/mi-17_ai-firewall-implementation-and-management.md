@@ -2,7 +2,7 @@
 sequence: 17
 title: AI Firewall Implementation and Management
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 iso-42001_references:
   - A-6-1-3  # ISO 42001: Processes for responsible AI system design and development

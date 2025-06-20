@@ -2,7 +2,7 @@
 sequence: 13
 title: Providing Citations and Source Traceability for AI-Generated Information
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: DET
 iso-42001_references:
   - A-8-2    # ISO 42001: System documentation and information for users

@@ -2,7 +2,7 @@
 sequence: 17
 title: Lack of Explainability
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
   - llm05-2025  # LLM05:2025 Improper Output Handling

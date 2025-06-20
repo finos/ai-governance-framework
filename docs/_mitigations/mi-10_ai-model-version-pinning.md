@@ -2,7 +2,7 @@
 sequence: 10
 title: AI Model Version Pinning
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 iso-42001_references:
   - A-6-2-3  # ISO 42001: Documentation of AI system design and development

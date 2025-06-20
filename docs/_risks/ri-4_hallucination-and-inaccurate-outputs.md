@@ -2,7 +2,7 @@
 sequence: 4
 title: Hallucination and Inaccurate Outputs
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation

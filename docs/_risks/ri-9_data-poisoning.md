@@ -2,7 +2,7 @@
 sequence: 9
 title: Data Poisoning
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm03-2025  # LLM03:2025 Supply Chain
