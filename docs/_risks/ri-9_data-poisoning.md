@@ -8,7 +8,12 @@ owasp-llm_references:
   - llm03-2025  # LLM03:2025 Supply Chain
   - llm04-2025  # LLM04: Data and Model Poisoning
   - llm05-2025  # LLM05:2025 Improper Output Handling
-  - llm06-2025  # LLM06:2025 Excessive Agency
+owasp-ml_references:
+  - ml02-2023  # ML02:2023 Data Poisoning Attack
+  - ml10-2023  # ML10:2023 Model Poisoning
+nist-ai-600-1_references:
+  - 2-8   # 2.8. Information Integrity
+  - 2-12  # 2.12. Value Chain and Component Integration
 ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance

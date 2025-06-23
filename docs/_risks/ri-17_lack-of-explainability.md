@@ -4,8 +4,7 @@ title: Lack of Explainability
 layout: risk
 doc-status: Approved-Specification
 type: OP
-owasp-llm_references:
-  - llm05-2025  # LLM05:2025 Improper Output Handling
+# No direct OWASP LLM mapping - explainability is not covered in OWASP LLM Top 10
 ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

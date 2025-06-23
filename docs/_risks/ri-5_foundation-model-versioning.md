@@ -9,6 +9,8 @@ related_risks:
   - ri-8  # Tampering With the Foundational Model
 owasp-llm_references:
   - llm09-2025  # LLM09:2025 Misinformation
+owasp-ml_references:
+  - ml07-2023  # ML07:2023 Transfer Learning Attack
 nist-ai-600-1_references:
   - 2-8  # 2.8. Information Integrity
 ffiec-itbooklets_references:

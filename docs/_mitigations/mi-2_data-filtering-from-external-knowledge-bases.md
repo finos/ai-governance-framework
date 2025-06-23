@@ -20,6 +20,7 @@ nist-sp-800-53r5_references:
   - si-19  # SI-19 De-identification
 mitigates:
   - ri-1  # Information Leaked To Hosted Model
+  - ri-9  # Data Poisoning
 related_mitigations:
   - mi-1   # AI Data Leakage Prevention and Detection
   - mi-6   # Data Quality Classification Sensitivity

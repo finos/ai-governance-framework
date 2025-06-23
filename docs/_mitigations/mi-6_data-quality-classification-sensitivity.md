@@ -28,7 +28,9 @@ mitigates:
   - ri-1   # Information Leaked To Hosted Model
   - ri-2   # Information Leaked to Vector Store
   - ri-4   # Hallucination and Inaccurate Outputs
+  - ri-9   # Data Poisoning
   - ri-16  # Bias and Discrimination
+  - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight
   - ri-23  # Intellectual Property (IP) and Copyright
 related_mitigations:

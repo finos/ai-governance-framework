@@ -21,8 +21,9 @@ nist-sp-800-53r5_references:
   - ia-5  # IA-5 Authenticator Management
   - cm-12  # CM-12 Information Location
 mitigates:
-  - ri-9  # Data Poisoning
   - ri-1  # Information Leaked To Hosted Model
+  - ri-8  # Tampering With the Foundational Model
+  - ri-9  # Data Poisoning
 related_mitigations:
   - mi-16  # Preserving Source Data Access Controls in AI Systems
   - mi-6   # Data Quality Classification Sensitivity

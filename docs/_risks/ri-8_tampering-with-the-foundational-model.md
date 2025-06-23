@@ -6,7 +6,12 @@ doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm03-2025  # LLM03:2025 Supply Chain
-  - llm05-2025  # LLM05:2025 Improper Output Handling
+owasp-ml_references:
+  - ml05-2023  # ML05:2023 Model Theft
+  - ml06-2023  # ML06:2023 ML Supply Chain Attacks
+  - ml10-2023  # ML10:2023 Model Poisoning
+nist-ai-600-1_references:
+  - 2-12  # 2.12. Value Chain and Component Integration
 ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - ots-2  # OTS: Risk Management
