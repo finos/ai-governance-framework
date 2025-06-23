@@ -21,10 +21,13 @@ nist-sp-800-53r5_references:
   - si-4  # SI-4 System Monitoring
   - si-7  # SI-7 Software, Firmware, And Information Integrity
 mitigates:
-  - ri-1  # Information Leaked To Hosted Model
-  - ri-5  # Foundation Model Versioning
-  - ri-6  # Non-Deterministic Behaviour
-  - ri-7  # Availability of Foundational Model
+  - ri-1   # Information Leaked To Hosted Model
+  - ri-5   # Foundation Model Versioning
+  - ri-6   # Non-Deterministic Behaviour
+  - ri-7   # Availability of Foundational Model
+  - ri-14  # Inadequate System Alignment
+  - ri-18  # Model Overreach / Expanded Use
+  - ri-19  # Data Quality and Drift
 related_mitigations:
   - mi-9   # AI System Alerting and Denial of Wallet DoW Spend Monitoring
   - mi-11  # Human Feedback Loop for AI Systems

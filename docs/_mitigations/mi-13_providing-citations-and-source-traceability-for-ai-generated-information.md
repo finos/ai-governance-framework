@@ -15,7 +15,9 @@ nist-sp-800-53r5_references:
   - si-7  # SI-7 Software, Firmware, And Information Integrity
   - at-2  # AT-2 Literacy Training And Awareness
 mitigates:
-  - ri-4  # Hallucination and Inaccurate Outputs
+  - ri-4   # Hallucination and Inaccurate Outputs
+  - ri-17  # Lack of Explainability
+  - ri-20  # Reputational Risk
 related_mitigations:
   - mi-4   # AI System Observability
   - mi-6   # Data Quality Classification Sensitivity

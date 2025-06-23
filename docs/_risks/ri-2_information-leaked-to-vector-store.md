@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm02-2025  # LLM02:2025 Sensitive Information Disclosure
   - llm08-2025  # LLM08:2025 Vector and Embedding Weaknesses
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy

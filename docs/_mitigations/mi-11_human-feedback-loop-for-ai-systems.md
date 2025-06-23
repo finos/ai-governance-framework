@@ -19,8 +19,10 @@ nist-sp-800-53r5_references:
   - at-2  # AT-2 Literacy Training And Awareness
   - ca-2  # CA-2 Control Assessments
 mitigates:
-  - ri-5  # Foundation Model Versioning
-  - ri-6  # Non-Deterministic Behaviour
+  - ri-5   # Foundation Model Versioning
+  - ri-6   # Non-Deterministic Behaviour
+  - ri-14  # Inadequate System Alignment
+  - ri-20  # Reputational Risk
 related_mitigations:
   - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
   - mi-4   # AI System Observability

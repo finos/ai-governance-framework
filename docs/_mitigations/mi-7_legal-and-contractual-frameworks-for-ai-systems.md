@@ -23,6 +23,7 @@ nist-sp-800-53r5_references:
   - sr-8  # SR-8 Notification Agreements
 mitigates:
   - ri-1   # Information Leaked To Hosted Model
+  - ri-8   # Tampering With the Foundational Model
   - ri-20  # Reputational Risk
   - ri-22  # Regulatory Compliance and Oversight
   - ri-23  # Intellectual Property (IP) and Copyright

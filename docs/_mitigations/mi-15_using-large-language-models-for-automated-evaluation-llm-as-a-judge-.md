@@ -21,7 +21,9 @@ mitigates:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-5   # Foundation Model Versioning
   - ri-6   # Non-Deterministic Behaviour
+  - ri-14  # Inadequate System Alignment
   - ri-16  # Bias and Discrimination
+  - ri-19  # Data Quality and Drift
 related_mitigations:
   - mi-11  # Human Feedback Loop for AI Systems
   - mi-5   # System Acceptance Testing

@@ -18,6 +18,8 @@ nist-sp-800-53r5_references:
 mitigates:
   - ri-7   # Availability of Foundational Model
   - ri-10  # Prompt Injection
+  - ri-18  # Model Overreach / Expanded Use
+  - ri-20  # Reputational Risk
 related_mitigations:
   - mi-17  # AI Firewall Implementation and Management
   - mi-8   # Quality of Service QoS and DDoS Prevention for AI Systems

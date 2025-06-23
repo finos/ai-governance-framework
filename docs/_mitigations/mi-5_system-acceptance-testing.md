@@ -16,9 +16,10 @@ nist-sp-800-53r5_references:
   - si-2  # SI-2 Flaw Remediation
   - si-6  # SI-6 Security And Privacy Function Verification
 mitigates:
-  - ri-4  # Hallucination and Inaccurate Outputs
-  - ri-5  # Foundation Model Versioning
-  - ri-6  # Non-Deterministic Behaviour
+  - ri-4   # Hallucination and Inaccurate Outputs
+  - ri-5   # Foundation Model Versioning
+  - ri-6   # Non-Deterministic Behaviour
+  - ri-14  # Inadequate System Alignment
 related_mitigations:
   - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
   - mi-11  # Human Feedback Loop for AI Systems

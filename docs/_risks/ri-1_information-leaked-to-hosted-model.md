@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: RC
 owasp-llm_references:
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm02-2025  # LLM02:2025 Sensitive Information Disclosure
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy
   - 2-9  # 2.9. Information Security
