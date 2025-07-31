@@ -23,11 +23,11 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
         <div class="card border-0 bg-light">
             <div class="card-body">
                 <div class="row g-3">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <label for="searchInput" class="form-label fw-bold">Search</label>
                         <input type="text" class="form-control" id="searchInput" placeholder="Search risks and mitigations by title or content...">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label for="typeFilter" class="form-label fw-bold">Filter by Type</label>
                         <select class="form-select" id="typeFilter">
                             <option value="">All Types</option>
@@ -49,6 +49,12 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                                 <option value="DET">Detective</option>
                             </optgroup>
                         </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label fw-bold">&nbsp;</label>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="resetFilters">
+                            Reset
+                        </button>
                     </div>
                 </div>
             </div>
@@ -217,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const typeFilter = document.getElementById('typeFilter');
     const categoryFilter = document.getElementById('categoryFilter');
+    const resetButton = document.getElementById('resetFilters');
     const riskCatalogue = document.getElementById('riskCatalogue');
     const mitigationCatalogue = document.getElementById('mitigationCatalogue');
     const riskColumn = riskCatalogue.closest('.col-md-6');
@@ -349,6 +356,21 @@ document.addEventListener('DOMContentLoaded', function() {
         categoryFilter.value = '';
     }
     
+    // Reset all filters and search
+    function resetAllFilters() {
+        searchInput.value = '';
+        typeFilter.value = '';
+        categoryFilter.value = '';
+        
+        // Reset expand states
+        catalogueStates.risk.expanded = false;
+        catalogueStates.mitigation.expanded = false;
+        
+        // Update category options and apply states
+        updateCategoryOptions();
+        filterItems();
+    }
+    
     // Handle expand button clicks
     document.querySelectorAll('.expand-btn').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -383,6 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
         filterItems();
     });
     categoryFilter.addEventListener('change', filterItems);
+    resetButton.addEventListener('click', resetAllFilters);
     
     // Initialize
     updateCategoryOptions();
