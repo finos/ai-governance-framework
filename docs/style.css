@@ -1,76 +1,202 @@
-/* Custom styles to enhance Bootstrap */
+/* FINOS AI Governance Framework - Optimized Styles */
 
-/* External link icon styling to prevent resizing */
+/* External link icon styling */
 .external-link-icon {
     flex-shrink: 0;
     transition: none !important;
     transform: none !important;
 }
 
-/* Risk ID styling */
+/* ID styling for risks and mitigations */
 .risk-id {
     font-family: monospace;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #0d6efd;
     letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
-/* Mitigation ID styling */
 .mitigation-id {
     font-family: monospace;
-    font-size: 0.9rem;
-    color: #0d6efd;
+    font-size: 0.8rem;
+    color: #198754;
     letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
-/* Category title styling */
-.category-title {
-    position: relative;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: #212529;
+/* Card styling and interactions */
+.card {
+    transition: all 0.2s ease-in-out;
+    border: none;
 }
 
-.category-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: #0d6efd;
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12) !important;
 }
 
-/* Card hover effect - only for index page cards */
-.index.card {
-    transition: transform 0.2s ease-in-out;
-    border-radius: 0.5rem;
+/* Specific hover effects for catalogue items */
+.risk-item .card:hover {
+    transform: translateX(3px);
+    box-shadow: 0 2px 15px rgba(13, 110, 253, 0.15) !important;
 }
 
-.index.card:hover {
-    transform: translateY(-5px);
+.mitigation-item .card:hover {
+    transform: translateX(3px);
+    box-shadow: 0 2px 15px rgba(25, 135, 84, 0.15) !important;
 }
 
-/* Responsive adjustments */
+/* Form controls */
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Optgroup styling */
+optgroup {
+    font-weight: 600;
+    color: #495057;
+    font-style: normal;
+}
+
+optgroup option {
+    font-weight: 400;
+    padding-left: 1rem;
+}
+
+/* Button styling */
+.btn:hover {
+    transform: none !important;
+}
+
+/* Expand button styling */
+.expand-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.expand-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Badge styling */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Category headers */
+.h5.text-primary {
+    color: #0d6efd !important;
+    font-weight: 600;
+}
+
+.h5.text-success {
+    color: #198754 !important;
+    font-weight: 600;
+}
+
+/* Border styling */
+.border-start.border-primary {
+    border-left-width: 4px !important;
+}
+
+.border-start.border-success {
+    border-left-width: 4px !important;
+}
+
+/* Collapse functionality */
+.collapse:not(.show) {
+    display: none;
+}
+
+.collapse.show {
+    display: block;
+}
+
+.collapsing {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
     .container {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
-
-    .category-title {
-        font-size: 1.75rem;
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .row.g-2 > * {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    
+    .row.g-3 > * {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
     }
 }
 
-/* Accessibility improvements */
+@media (max-width: 576px) {
+    .h4 {
+        font-size: 1.1rem;
+    }
+    
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Accessibility */
 .card:focus-within {
     outline: 2px solid #0d6efd;
     outline-offset: 2px;
 }
 
-/* High contrast focus states */
 a:focus {
     outline: 2px solid #0d6efd;
     outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .btn, 
+    .collapse-btn,
+    .form-control,
+    .form-select {
+        display: none !important;
+    }
+    
+    .card {
+        border: 1px solid #dee2e6 !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Button group styling for stacked buttons */
+.d-flex.flex-column.gap-1 {
+    min-width: 70px;
+}
+
+.d-flex.flex-column.gap-1 .btn {
+    margin: 0;
+    min-width: 70px;
+    white-space: nowrap;
+}
+
+.d-flex.flex-column.gap-1 .btn:first-child {
+    margin-bottom: 0.25rem;
 }
