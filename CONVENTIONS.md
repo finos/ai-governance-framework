@@ -85,14 +85,7 @@ All reference types are displayed as separate cards in the risk layout sidebar.
 ## Templates
 - The `_includes/risk-id.html` and `_includes/mitigation-id.html` templates dynamically generate the `AIR-*` identifiers based on the file's metadata.
 - The `_layouts/risk.html` and `_layouts/mitigation.html` templates format the `_risks/ri-*.md`  and `_mitigations/mi-*.md` as HTML, including backlinks.
-  
-## Running Jekyll Locally
 
-It's faster to preview formatting changes by running Jekyll locally.
+## Local Development
 
-Remember to `cd(1)` into the `docs/` directory before running `jekyll` commands. The main ones are:
-- `jekyll clean`
-- `jekyll build`
-- `jekyll serve`
-
-By default, the server comes up on http://localhost:4000 .
+For instructions on setting up and running the Jekyll site locally, see [DEVELOPMENT.md](DEVELOPMENT.md).
