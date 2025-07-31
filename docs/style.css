@@ -38,6 +38,18 @@
     box-shadow: 0 6px 25px rgba(0,0,0,0.12) !important;
 }
 
+/* Search and filter controls styling */
+.card.bg-light {
+    background-color: #f8f9fa !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.card.bg-light:hover {
+    transform: none !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+}
+
 /* Specific hover effects for catalogue items */
 .risk-item .card:hover {
     transform: translateX(3px);

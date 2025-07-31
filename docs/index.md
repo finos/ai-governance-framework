@@ -139,7 +139,7 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                                       <div class="card-body py-2">
                                           <div class="d-flex justify-content-between align-items-start">
                                               <div class="flex-grow-1">
-                                                  <div class="risk-id small text-muted mb-1">
+                                                  <div class="risk-id small mb-1">
                                                     {% include risk-id.html risk=risk %}
                                                   </div>
                                                   <h4 class="h6 mb-1">{{ risk.title }}</h4>
@@ -220,7 +220,7 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                                       <div class="card-body py-2">
                                           <div class="d-flex justify-content-between align-items-start">
                                               <div class="flex-grow-1">
-                                                  <div class="mitigation-id small text-muted mb-1">
+                                                  <div class="mitigation-id small mb-1">
                                                     {% include mitigation-id.html mitigation=mitigation %}
                                                   </div>
                                                   <h4 class="h6 mb-1">{{ mitigation.title }}</h4>
