@@ -200,3 +200,51 @@ a:focus {
 .d-flex.flex-column.gap-1 .btn:first-child {
     margin-bottom: 0.25rem;
 }
+
+/* Responsive description text truncation */
+.description-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    max-height: 2.8em; /* 2 lines * 1.4 line-height */
+}
+
+/* Expanded view - allow more text */
+.col-12 .description-text {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    max-height: 5.6em; /* 4 lines * 1.4 line-height */
+}
+
+/* Mobile responsiveness for descriptions */
+@media (max-width: 768px) {
+    .description-text {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        max-height: 4.2em; /* 3 lines * 1.4 line-height */
+    }
+    
+    .col-12 .description-text {
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+        max-height: 7em; /* 5 lines * 1.4 line-height */
+    }
+}
+
+@media (max-width: 576px) {
+    .description-text {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        max-height: 2.8em;
+    }
+    
+    .col-12 .description-text {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        max-height: 5.6em;
+    }
+}

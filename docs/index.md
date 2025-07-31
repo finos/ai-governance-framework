@@ -94,7 +94,19 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                                                     {% include risk-id.html risk=risk %}
                                                   </div>
                                                   <h4 class="h6 mb-1">{{ risk.title }}</h4>
-                                                  <p class="small text-muted mb-0">{{ risk.content | strip_html | strip_newlines | split: " " | slice: 0, 12 | join: " " }}...</p>
+                                                  {% assign raw_content = risk.content | strip_html | strip_newlines %}
+                                                  {% assign content_after_summary = raw_content | split: "Summary" %}
+                                                  {% if content_after_summary.size > 1 %}
+                                                    {% assign clean_summary = content_after_summary[1] | strip %}
+                                                  {% else %}
+                                                    {% assign content_after_desc = raw_content | split: "Description" %}
+                                                    {% if content_after_desc.size > 1 %}
+                                                      {% assign clean_summary = content_after_desc[1] | strip %}
+                                                    {% else %}
+                                                      {% assign clean_summary = raw_content | strip %}
+                                                    {% endif %}
+                                                  {% endif %}
+                                                  <p class="small text-muted mb-0 description-text">{{ clean_summary }}</p>
                                               </div>
                                               <div class="d-flex flex-column gap-1 ms-2">
                                                   <a href="{{ risk.id }}.html" class="btn btn-outline-primary btn-sm">
@@ -156,7 +168,24 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                                                     {% include mitigation-id.html mitigation=mitigation %}
                                                   </div>
                                                   <h4 class="h6 mb-1">{{ mitigation.title }}</h4>
-                                                  <p class="small text-muted mb-0">{{ mitigation.content | strip_html | strip_newlines | split: " " | slice: 0, 12 | join: " " }}...</p>
+                                                  {% assign raw_content = mitigation.content | strip_html | strip_newlines %}
+                                                  {% assign content_after_summary = raw_content | split: "Summary" %}
+                                                  {% if content_after_summary.size > 1 %}
+                                                    {% assign clean_summary = content_after_summary[1] | strip %}
+                                                  {% else %}
+                                                    {% assign content_after_purpose = raw_content | split: "Purpose" %}
+                                                    {% if content_after_purpose.size > 1 %}
+                                                      {% assign clean_summary = content_after_purpose[1] | strip %}
+                                                    {% else %}
+                                                      {% assign content_after_desc = raw_content | split: "Description" %}
+                                                      {% if content_after_desc.size > 1 %}
+                                                        {% assign clean_summary = content_after_desc[1] | strip %}
+                                                      {% else %}
+                                                        {% assign clean_summary = raw_content | strip %}
+                                                      {% endif %}
+                                                    {% endif %}
+                                                  {% endif %}
+                                                  <p class="small text-muted mb-0 description-text">{{ clean_summary }}</p>
                                               </div>
                                               <div class="d-flex flex-column gap-1 ms-2">
                                                   <a href="{{ mitigation.id }}.html" class="btn btn-outline-success btn-sm">
