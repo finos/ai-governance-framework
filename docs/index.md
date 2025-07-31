@@ -36,19 +36,53 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label for="categoryFilter" class="form-label fw-bold">Filter by Category</label>
-                        <select class="form-select" id="categoryFilter">
-                            <option value="">All Categories</option>
-                            <optgroup label="Risk Categories">
-                                <option value="OP">Operational</option>
-                                <option value="SEC">Security</option>
-                                <option value="RC">Regulatory & Compliance</option>
-                            </optgroup>
-                            <optgroup label="Mitigation Categories">
-                                <option value="PREV">Preventative</option>
-                                <option value="DET">Detective</option>
-                            </optgroup>
-                        </select>
+                        <label class="form-label fw-bold">Filter by Category</label>
+                        <div class="card border">
+                            <div class="card-body p-2">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="small text-muted fw-bold mb-2">
+                                            <i class="bi bi-asterisk me-1"></i>Risks
+                                        </div>
+                                        <div class="form-check form-check-sm mb-1">
+                                            <input class="form-check-input category-checkbox" type="checkbox" value="OP" id="cat-OP" data-type="risk">
+                                            <label class="form-check-label small" for="cat-OP">
+                                                <i class="bi bi-person-fill-gear me-1"></i>Operational
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-sm mb-1">
+                                            <input class="form-check-input category-checkbox" type="checkbox" value="SEC" id="cat-SEC" data-type="risk">
+                                            <label class="form-check-label small" for="cat-SEC">
+                                                <i class="bi bi-bug-fill me-1"></i>Security
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-sm mb-0">
+                                            <input class="form-check-input category-checkbox" type="checkbox" value="RC" id="cat-RC" data-type="risk">
+                                            <label class="form-check-label small" for="cat-RC">
+                                                <i class="bi bi-clipboard2-check-fill me-1"></i>Regulatory
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="small text-muted fw-bold mb-2">
+                                            <i class="bi bi-shield-shaded me-1"></i>Mitigations
+                                        </div>
+                                        <div class="form-check form-check-sm mb-1">
+                                            <input class="form-check-input category-checkbox" type="checkbox" value="PREV" id="cat-PREV" data-type="mitigation">
+                                            <label class="form-check-label small" for="cat-PREV">
+                                                <i class="bi bi-lock-fill me-1"></i>Preventative
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-sm mb-0">
+                                            <input class="form-check-input category-checkbox" type="checkbox" value="DET" id="cat-DET" data-type="mitigation">
+                                            <label class="form-check-label small" for="cat-DET">
+                                                <i class="bi bi-eye-fill me-1"></i>Detective
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label fw-bold">&nbsp;</label>
@@ -69,10 +103,10 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
             <div class="card-header bg-primary text-white">
                 <div class="d-flex justify-content-between align-items-center">
                     <h2 class="h4 mb-0">
-                        <i class="bi bi-exclamation-triangle me-2"></i>Risk Catalogue
+                        <i class="bi bi-asterisk me-2"></i>Risk Catalogue
                     </h2>
                     <button class="btn btn-outline-light btn-sm expand-btn" type="button" data-catalogue="risk">
-                        &gt;
+                        <i class="bi bi-chevron-bar-right"></i>
                     </button>
                 </div>
             </div>
@@ -85,7 +119,16 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                       {% if risk_group %}
                       <div class="mb-4">
                           <div class="d-flex justify-content-between align-items-center mb-2">
-                              <h3 class="h5 mb-0 text-primary">{{ site.risk_classification[risk_group.name] }}</h3>
+                              <h3 class="h5 mb-0 text-primary">
+                                  {% if order == 'OP' %}
+                                      <i class="bi bi-person-fill-gear me-2"></i>
+                                  {% elsif order == 'SEC' %}
+                                      <i class="bi bi-bug-fill me-2"></i>
+                                  {% elsif order == 'RC' %}
+                                      <i class="bi bi-clipboard2-check-fill me-2"></i>
+                                  {% endif %}
+                                  {{ site.risk_classification[risk_group.name] }}
+                              </h3>
                               <span class="badge bg-primary">{{ risk_group.items | size }} risks</span>
                           </div>
                           <div class="row g-2" data-category="{{ order }}" data-type="risk">
@@ -143,10 +186,10 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
             <div class="card-header bg-success text-white">
                 <div class="d-flex justify-content-between align-items-center">
                     <h2 class="h4 mb-0">
-                        <i class="bi bi-shield-check me-2"></i>Mitigation Catalogue
+                        <i class="bi bi-shield-shaded me-2"></i>Mitigation Catalogue
                     </h2>
                     <button class="btn btn-outline-light btn-sm expand-btn" type="button" data-catalogue="mitigation">
-                        &lt;
+                        <i class="bi bi-chevron-bar-left"></i>
                     </button>
                 </div>
             </div>
@@ -159,7 +202,14 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
                       {% if mitigation_group %}
                       <div class="mb-4">
                           <div class="d-flex justify-content-between align-items-center mb-2">
-                              <h3 class="h5 mb-0 text-success">{{ site.mitigation_classification[mitigation_group.name] }}</h3>
+                              <h3 class="h5 mb-0 text-success">
+                                  {% if order == 'PREV' %}
+                                      <i class="bi bi-lock-fill me-2"></i>
+                                  {% elsif order == 'DET' %}
+                                      <i class="bi bi-eye-fill me-2"></i>
+                                  {% endif %}
+                                  {{ site.mitigation_classification[mitigation_group.name] }}
+                              </h3>
                               <span class="badge bg-success">{{ mitigation_group.items | size }} mitigations</span>
                           </div>
                           <div class="row g-2" data-category="{{ order }}" data-type="mitigation">
@@ -222,7 +272,6 @@ The following framework has been developed by [FINOS (Fintech Open Source Founda
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const typeFilter = document.getElementById('typeFilter');
-    const categoryFilter = document.getElementById('categoryFilter');
     const resetButton = document.getElementById('resetFilters');
     const riskCatalogue = document.getElementById('riskCatalogue');
     const mitigationCatalogue = document.getElementById('mitigationCatalogue');
@@ -271,18 +320,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (type === 'risk') {
                 if (isExpanded) {
                     // When risk is expanded, show left arrow to collapse it back
-                    button.innerHTML = '&lt;';
+                    button.innerHTML = `<i class="bi bi-chevron-bar-left"></i>`;
                 } else {
                     // When risk is not expanded, show right arrow to expand it
-                    button.innerHTML = '&gt;';
+                    button.innerHTML = `<i class="bi bi-chevron-bar-right"></i>`;
                 }
             } else { // mitigation
                 if (isExpanded) {
                     // When mitigation is expanded, show right arrow to collapse it back
-                    button.innerHTML = '&gt;';
+                    button.innerHTML = `<i class="bi bi-chevron-bar-right"></i>`;
                 } else {
                     // When mitigation is not expanded, show left arrow to expand it
-                    button.innerHTML = '&lt;';
+                    button.innerHTML = `<i class="bi bi-chevron-bar-left"></i>`;
                 }
             }
         }
@@ -292,7 +341,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterItems() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedType = typeFilter.value;
-        const selectedCategory = categoryFilter.value;
+        const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+        const selectedCategories = Array.from(categoryCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+        
+        let riskCount = 0;
+        let mitigationCount = 0;
         
         // Filter items
         ['risk', 'mitigation'].forEach(type => {
@@ -304,63 +359,135 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const matchesSearch = !searchTerm || title.includes(searchTerm) || content.includes(searchTerm);
                 const matchesType = !selectedType || selectedType === type;
-                const matchesCategory = !selectedCategory || selectedCategory === itemCategory;
+                const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(itemCategory);
                 
-                item.style.display = matchesSearch && matchesType && matchesCategory ? 'block' : 'none';
+                const isVisible = matchesSearch && matchesType && matchesCategory;
+                item.style.display = isVisible ? 'block' : 'none';
+                
+                // Count visible items
+                if (isVisible) {
+                    if (type === 'risk') {
+                        riskCount++;
+                    } else {
+                        mitigationCount++;
+                    }
+                }
             });
         });
         
-        // Update category section visibility
+        // Update category section visibility and badges
         document.querySelectorAll('[data-category]').forEach(section => {
             const categoryType = section.getAttribute('data-category');
             const sectionType = section.getAttribute('data-type');
             const visibleItems = section.querySelectorAll(`.${sectionType}-item:not([style*="display: none"])`);
             
             const shouldShow = (!selectedType || selectedType === sectionType) && 
-                             (!selectedCategory || selectedCategory === categoryType) &&
+                             (selectedCategories.length === 0 || selectedCategories.includes(categoryType)) &&
                              visibleItems.length > 0;
             
             const container = section.closest('.mb-4');
             if (container) container.style.display = shouldShow ? 'block' : 'none';
+            
+            // Update individual category badges
+            const badge = container?.querySelector('.badge');
+            if (badge && shouldShow) {
+                const count = visibleItems.length;
+                const itemType = sectionType === 'risk' ? 'risk' : 'mitigation';
+                badge.textContent = `${count} ${itemType}${count !== 1 ? 's' : ''}`;
+            }
         });
+        
+        // Update main catalogue header badges
+        const riskHeader = document.querySelector('#riskCatalogue').closest('.card').querySelector('.card-header h2');
+        const mitigationHeader = document.querySelector('#mitigationCatalogue').closest('.card').querySelector('.card-header h2');
+        
+        // Update or create badges in headers
+        updateHeaderBadge(riskHeader, riskCount, 'risk');
+        updateHeaderBadge(mitigationHeader, mitigationCount, 'mitigation');
         
         applyCatalogueStates();
     }
     
-    // Update category options
+    // Helper function to update header badges
+    function updateHeaderBadge(header, count, type) {
+        if (!header) return;
+        
+        // Remove existing badge if any
+        const existingBadge = header.querySelector('.count-badge');
+        if (existingBadge) {
+            existingBadge.remove();
+        }
+        
+        // Create new badge
+        const badge = document.createElement('span');
+        badge.className = `badge ${type === 'risk' ? 'bg-light text-primary' : 'bg-light text-success'} ms-2 count-badge`;
+        badge.textContent = `${count} ${type}${count !== 1 ? 's' : ''}`;
+        header.appendChild(badge);
+    }
+    
+    // Update checkbox visibility and enabled state based on type selection
     function updateCategoryOptions() {
         const selectedType = typeFilter.value;
-        categoryFilter.innerHTML = '<option value="">All Categories</option>';
+        const riskCheckboxes = document.querySelectorAll('.category-checkbox[data-type="risk"]');
+        const mitigationCheckboxes = document.querySelectorAll('.category-checkbox[data-type="mitigation"]');
+        const riskColumn = document.querySelector('.col-6:first-child');
+        const mitigationColumn = document.querySelector('.col-6:last-child');
         
-        if (selectedType !== 'mitigation') {
-            const riskGroup = document.createElement('optgroup');
-            riskGroup.label = 'Risk Categories';
-            riskGroup.innerHTML = `
-                <option value="OP">Operational</option>
-                <option value="SEC">Security</option>
-                <option value="RC">Regulatory & Compliance</option>
-            `;
-            categoryFilter.appendChild(riskGroup);
+        // Handle risk checkboxes and column
+        if (selectedType === 'mitigation') {
+            // Grey out risk checkboxes when only mitigations are selected
+            riskCheckboxes.forEach(checkbox => {
+                checkbox.disabled = true;
+                checkbox.checked = false;
+            });
+            riskColumn.style.opacity = '0.5';
+        } else {
+            // Enable risk checkboxes
+            riskCheckboxes.forEach(checkbox => {
+                checkbox.disabled = false;
+            });
+            riskColumn.style.opacity = '1';
         }
         
-        if (selectedType !== 'risk') {
-            const mitigationGroup = document.createElement('optgroup');
-            mitigationGroup.label = 'Mitigation Categories';
-            mitigationGroup.innerHTML = `
-                <option value="PREV">Preventative</option>
-                <option value="DET">Detective</option>
-            `;
-            categoryFilter.appendChild(mitigationGroup);
+        // Handle mitigation checkboxes and column
+        if (selectedType === 'risk') {
+            // Grey out mitigation checkboxes when only risks are selected
+            mitigationCheckboxes.forEach(checkbox => {
+                checkbox.disabled = true;
+                checkbox.checked = false;
+            });
+            mitigationColumn.style.opacity = '0.5';
+        } else {
+            // Enable mitigation checkboxes
+            mitigationCheckboxes.forEach(checkbox => {
+                checkbox.disabled = false;
+            });
+            mitigationColumn.style.opacity = '1';
         }
         
-        categoryFilter.value = '';
+        // Re-attach event listeners to all checkboxes (enabled ones)
+        document.querySelectorAll('.category-checkbox:not(:disabled)').forEach(checkbox => {
+            // Remove existing listeners to prevent duplicates
+            checkbox.removeEventListener('change', filterItems);
+            checkbox.addEventListener('change', filterItems);
+        });
     }
     
     // Reset all filters and search
     function resetAllFilters() {
         searchInput.value = '';
         typeFilter.value = '';
-        categoryFilter.value = '';
+        
+        // Uncheck and enable all category checkboxes
+        document.querySelectorAll('.category-checkbox').forEach(checkbox => {
+            checkbox.checked = false;
+            checkbox.disabled = false;
+        });
+        
+        // Reset column opacity
+        document.querySelectorAll('.col-6').forEach(column => {
+            column.style.opacity = '1';
+        });
         
         // Reset expand states
         catalogueStates.risk.expanded = false;
@@ -404,12 +531,16 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCategoryOptions();
         filterItems();
     });
-    categoryFilter.addEventListener('change', filterItems);
     resetButton.addEventListener('click', resetAllFilters);
     
     // Initialize
     updateCategoryOptions();
     applyCatalogueStates();
+    
+    // Add initial event listeners to category checkboxes
+    document.querySelectorAll('.category-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', filterItems);
+    });
 });
 </script>
 
