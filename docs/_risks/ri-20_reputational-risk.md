@@ -38,3 +38,7 @@ Compliance failures linked to the deployment or operation of AI systems can also
 
 A critical aspect of AI-related reputational risk is the potential for rapid scalability of errors. A flaw in an AI system could lead to the dissemination of incorrect or harmful messages to thousands, or even millions, of customers almost instantaneously. Therefore, damage to reputation arising from AI missteps constitutes a significant operational risk that requires proactive governance, rigorous testing, and continuous monitoring.
 
+## Links
+
+* [Financial Regulators Intensify Scrutiny of AI-Related Reputational Risks](https://www.morganlewis.com/pubs/2023/09/financial-regulators-intensify-scrutiny-of-ai-related-reputational-risks)
+
