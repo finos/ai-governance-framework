@@ -46,24 +46,24 @@ Several factors increase the risk of hallucination:
  - **Confidence Mismatch:** LLMs often present hallucinated information with high fluency and syntactic confidence, making it difficult for users to recognize inaccuracies.
  - **Fine-Tuning or Prompt Bias:** Instructions or training intended to improve helpfulness or creativity can inadvertently increase the tendency to generate unsupported statements.
 
-## Example hallucinations
+## Example Financial Services Hallucinations
 
-Below are a few illustrative cases of LLM hallucination.
+Below are a few illustrative cases of LLM hallucination tailored to the financial services industry.
 
-1. **Cited Sources That Don't Exist**
-   An LLM asked to summarize academic work may invent references, complete with plausible authors, titles, and journal names, that are entirely fictional.
+1. **Fabricated Financial News or Analysis**
+   An LLM-powered market analysis tool incorrectly reports that 'Fictional Bank Corp' has missed its quarterly earnings target based on a non-existent press release, causing a temporary dip in its stock price.
 
-2. **Fabricated Legal or Medical Advice**
-   When prompted for legal precedents or medical diagnoses, LLMs may provide entirely fabricated cases or treatments that sound convincing but have no basis in reality.
+2. **Incorrect Regulatory Interpretations**
+   A compliance chatbot, when asked about anti-money laundering (AML) requirements, confidently states that a specific low-risk transaction type is exempt from reporting, citing a non-existent clause in the Bank Secrecy Act.
 
-3. **Incorrect Product or API Descriptions**
-   Given prompts about software tools or APIs, the model may hallucinate methods, parameters, or features that are not part of the actual documentation.
+3. **Hallucinated Customer Information**
+   When a customer asks a banking chatbot for their last five transactions, the LLM hallucinates a plausible-sounding but entirely fictional transaction, such as a payment to a non-existent online merchant.
 
-4. **False Historical or Scientific Claims**
-   LLMs have been known to invent historical facts (e.g., attributing events to the wrong year or country) or scientific findings (e.g., claiming a drug is approved for a condition it is not).
+4. **False Information in Loan Adjudication**
+   An AI-powered loan processing system summarizes a loan application and incorrectly states the applicant has a prior bankruptcy, a detail fabricated by the model, leading to an unfair loan denial.
 
-5. **Contradictory Reasoning**
-   In some cases, LLMs produce internally inconsistent outputs—for example, simultaneously asserting and denying the same fact in the same answer, or offering logically incompatible reasoning steps.
+5. **Generating Flawed Code for Financial Models**
+   A developer asks an LLM to generate Python code for calculating Value at Risk (VaR). The model provides code that uses a non-existent function from a popular financial library, which would cause the risk calculation to fail or produce incorrect values if not caught.
 
 ## Links
 
