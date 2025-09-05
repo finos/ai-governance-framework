@@ -62,63 +62,48 @@ This section outlines specific measures for both preventing and detecting data l
 
 ### I. Proactive Measures: Preventing Data Leakage
 
-#### A. Protecting AI Session Data (Especially with Third-Party Services)
-The use of TSPs for cutting-edge LLMs is often compelling due to proprietary model access, specialized GPU compute requirements, and scalability needs. However, this necessitates rigorous controls:
+#### A. Protecting AI Session Data with Third-Party Services
 
-* **Secure Communication Channels:**
-    * **Action:** Mandate and verify the use of strong, industry-best-practice encryption protocols (e.g., TLS 1.3+) for all data in transit when interacting with TSPs or any external AI service endpoint.
-    * **Rationale:** Protects against network taps and Man-In-The-Middle (MITM) attacks.
-* **Secure Network Architectures:**
-    * **Action:** Where feasible, prefer architectural patterns where the TSP hosts their service within the institution's secure cloud tenant (e.g., using private endpoints, dedicated clusters) to minimize data transmission outside of controlled system boundaries.
-    * **Rationale:** Reduces exposure to public internet threats.
-* **Control over Data Persistence by Third Parties:**
-    * **Action:** Contractually require and, where possible, technically verify that TSPs default to "zero persistence" or minimal, time-bound persistence of logs, session data (prompts/responses), and temporary files (e.g., core dumps), unless explicitly agreed in writing for specific, justified purposes (e.g., audit, support) and with robust safeguards.
-    * **Rationale:** Minimizes the data footprint at the TSP, reducing the window of opportunity for leakage from their systems.
-* **Secure Data Disposal by Third Parties:**
-    * **Action:** Ensure that vendor contracts include commitments to Data Lifecycle Management best practices, compatible with the institution's standards, particularly concerning the secure and certified disposal of storage media.
-    * **Rationale:** Prevents data recovery from improperly decommissioned hardware.
-* **Scrutiny of Multi-Tenant Architectures:**
-    * **Action:** For multi-tenant AI services, the institution's security design and vendor risk management teams should thoroughly review the TSP's system architecture documentation, security certifications (e.g., SOC 2 Type II), and penetration test results to assess the adequacy of logical tenant isolation and controls preventing cross-tenant data leakage.
-    * **Rationale:** Ensures one tenant's data is not inadvertently exposed to another.
-* **Contractual Prohibitions on Unauthorized Data Use (e.g., Model Training):**
-    * **Action:** Legal agreements with AI providers (especially for API-based access to foundational models) must explicitly state that proprietary API inputs/outputs (session data) will **not** be used for training their general-purpose models or for any other purpose outside the direct provision of the contracted service, without the institution's explicit, informed consent. (Addresses "Memorization" risk).
-    * **Rationale:** Prevents institutional data from becoming embedded in publicly accessible or other clients' models.
-* **Transparency and Control over Performance Optimizations (e.g., Caching):**
-    * **Action:** Given the high computational cost of LLMs, TSPs may implement caching mechanisms (e.g., for token activations or common prompt prefixes) to reduce redundancy and improve performance. Require TSPs to provide clear information about any such optimizations.
-    * **Review:** The institution's ML and security teams should review these practices for potential risks of data remnants or unintended information exposure through shared cache elements.
-    * **Rationale:** Ensures performance optimizations do not inadvertently create new data leakage vectors.
+The use of TSPs for cutting-edge LLMs is often compelling due to proprietary model access, specialized GPU compute requirements, and scalability needs. However, this necessitates rigorous controls across several domains:
+
+##### 1. Secure Data Transmission and Architecture
+*   **Secure Communication Channels:** Mandate and verify the use of strong, industry-best-practice encryption protocols (e.g., TLS 1.3+) for all data in transit.
+*   **Secure Network Architectures:** Where feasible, prefer architectural patterns like private endpoints or dedicated clusters within the institution's secure cloud tenant to minimize data transmission over the public internet.
+
+##### 2. Data Handling and Persistence by Third Parties
+*   **Control over Data Persistence:** Contractually require and technically verify that TSPs default to "zero persistence" or minimal, time-bound persistence of logs and session data.
+*   **Secure Data Disposal:** Ensure vendor contracts include commitments to secure and certified disposal of storage media.
+*   **Scrutiny of Multi-Tenant Architectures:** Thoroughly review the TSP's architecture, security certifications (e.g., SOC 2 Type II), and penetration test results to assess the adequacy of logical tenant isolation.
+
+##### 3. Contractual and Policy Safeguards
+*   **Prohibition on Unauthorized Data Use:** Legal agreements must explicitly prohibit AI providers from using proprietary data for training their general-purpose models without explicit consent.
+*   **Transparency in Performance Optimizations:** Require TSPs to provide clear information about caching or other performance optimizations that might create new data leakage vectors.
 
 #### B. Protecting AI Training Data
-* **Robust Access Controls and Secure Storage:** Implement strict access controls (e.g., Role-Based Access Control), strong encryption at rest, and secure, isolated storage environments for all proprietary datasets used for training or fine-tuning AI models.
-* **Guardrails Against Extraction via Prompts:** For models fine-tuned with proprietary data, the institution or its AI provider must implement and continuously evaluate input/output filtering mechanisms ("guardrails"). These are designed to detect and block attempts by users to extract significant portions of the training data through carefully crafted prompts. This requires ongoing monitoring and adaptation by ML and security teams.
+*   **Robust Access Controls and Secure Storage:** Implement strict access controls (e.g., Role-Based Access Control), strong encryption at rest, and secure, isolated storage environments for all proprietary datasets.
+*   **Guardrails Against Extraction via Prompts:** Implement and continuously evaluate input/output filtering mechanisms ("guardrails") to detect and block attempts by users to extract training data through crafted prompts.
 
-#### C. Protecting AI Model Intellectual Property (e.g., Weights, Architecture)
-* **Secure Model Storage and Access Control:** Treat trained model weights, configurations, and proprietary architectures as highly sensitive intellectual property. Store them in secure, access-controlled repositories with strong encryption.
-* **Prevent Unauthorized Distribution and Replication:** Implement technical controls (e.g., digital rights management, if applicable) and contractual obligations to prevent unauthorized copying, transfer, or distribution of model artifacts.
+#### C. Protecting AI Model Intellectual Property
+*   **Secure Model Storage and Access Control:** Treat trained model weights and configurations as highly sensitive intellectual property, storing them in secure, access-controlled repositories with strong encryption.
+*   **Prevent Unauthorized Distribution:** Implement technical and contractual controls to prevent unauthorized copying or transfer of model artifacts.
 
 ### II. Detective Measures: Identifying Data Leakage
 
-#### A. Detecting Session Data Leakage (Especially with External AI Services)
-* **Canary Tokens ("Honey Tokens"):**
-    * **Concept:** Embed uniquely identifiable, non-sensitive markers (e.g., unique strings, fictitious identifiers, GUIDs) – "canaries" – within data streams, prompts, or queries sent to external or internal AI models. These canaries have no legitimate business value but are designed to be easily detectable if they appear in unauthorized locations.
-    * **Implementation:** Strategically place canary tokens in representative samples of data. Continuously monitor public internet sources (e.g., code repositories, forums, paste sites), dark web locations, and potentially even unexpected internal systems for the appearance of these canaries.
-* **Data Fingerprinting:**
-    * **Concept:** Generate unique cryptographic hashes or more sophisticated signatures ("fingerprints") of sensitive data segments or entire documents before they are processed by an AI system, particularly if sent to an external provider.
-    * **Implementation:** Monitor for the appearance of these exact fingerprints in unauthorized locations. This is most effective for detecting leakage of static, well-defined data elements.
-* **Integration into AI Interaction Points:**
-    * **Action:** Where feasible, integrate canary token generation and fingerprinting mechanisms at key data touchpoints within the AI system's architecture, such as API gateways, data ingestion pipelines, or custom plugins for LLM interactions. This facilitates systematic and continuous monitoring.
-* **Automated Detection and Incident Response Workflow:**
-    * **Action:** Develop or utilize automated systems to continuously scan for exposed canaries or fingerprints across relevant environments.
-    * **Response:** Upon detection of a canary or fingerprint in an unauthorized location, the system must trigger an immediate alert to the Security Operations Center (SOC) or designated incident response team. This initiates a predefined incident response process, including:
-        * Identifying the likely source and vector of the breach.
-        * Determining the scope and potential impact of the leakage.
-        * Implementing containment and remediation actions (e.g., isolating the affected service, notifying the third-party provider, revoking credentials, invoking contractual clauses for breach).
+#### A. Detecting Session Data Leakage from External Services
+
+##### 1. Deception-Based Detection
+*   **Canary Tokens ("Honey Tokens"):** Embed uniquely identifiable, non-sensitive markers ("canaries") within data streams sent to AI models. Continuously monitor public and dark web sources for the appearance of these canaries.
+*   **Data Fingerprinting:** Generate unique cryptographic hashes ("fingerprints") of sensitive data before it is processed by an AI system. Monitor for the appearance of these fingerprints in unauthorized locations.
+
+##### 2. Automated Monitoring and Response
+*   **Integration into AI Interaction Points:** Integrate canary token generation and fingerprinting at key data touchpoints like API gateways or data ingestion pipelines.
+*   **Automated Detection and Incident Response:** Develop automated systems to scan for exposed canaries or fingerprints. Upon detection, trigger an immediate alert to the security operations team to initiate a predefined incident response plan.
 
 #### B. Detecting Unauthorized Training Data Extraction
-* **Monitoring Guardrail Effectiveness:** Continuously monitor the performance and logs of input/output guardrails designed to prevent training data extraction. Investigate suspicious prompt patterns or model outputs that might indicate attempts to circumvent these protective measures.
+*   **Monitoring Guardrail Effectiveness:** Continuously monitor the performance and logs of input/output guardrails. Investigate suspicious prompt patterns that might indicate attempts to circumvent these protections.
 
 #### C. Detecting AI Model Weight Leakage
-* **Emerging Techniques:** Stay informed about and evaluate emerging research techniques for "fingerprinting" or watermarking AI models (e.g., knowledge injection methods like "Instructional Fingerprinting"). While many of these are still in the research phase, they may offer future capabilities for detecting unauthorized copies or uses of proprietary models if they are found in the wild.
+*   **Emerging Techniques:** Stay informed about and evaluate emerging research for "fingerprinting" or watermarking AI models (e.g., "Instructional Fingerprinting") to detect unauthorized copies of proprietary models.
 
 ---
 ## Importance and Benefits

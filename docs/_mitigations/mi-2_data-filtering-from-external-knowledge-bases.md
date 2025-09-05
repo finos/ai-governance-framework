@@ -104,11 +104,11 @@ Effective data filtering from external knowledge bases should be guided by these
 ---
 ## Challenges and Considerations
 
-* **Balancing Utility and Security:** Over-aggressive filtering may remove so much information that the AI system becomes less useful for legitimate business purposes. Finding the right balance requires careful consideration of business needs and risk tolerance.
-* **Contextual Sensitivity:** Some information may be sensitive in certain contexts but not others. Developing filtering rules that understand context can be complex.
-* **False Positives and Negatives:** Filtering systems may incorrectly identify non-sensitive information as sensitive (false positives) or miss actual sensitive information (false negatives). Regular calibration and human oversight are essential.
-* **Evolving Data Landscape:** As organizational data and business processes evolve, filtering rules and strategies must be updated accordingly.
-* **Performance Impact:** Comprehensive data filtering can introduce latency in AI system responses, particularly for real-time applications.
+* **Balancing Utility and Security:** Over-aggressive filtering may remove so much information that the AI system becomes less useful for legitimate business purposes. For example, in financial analysis, filtering out all mentions of a specific company could render the AI useless for analyzing that company's performance. Finding the right balance requires careful consideration of business needs and risk tolerance.
+* **Contextual Sensitivity:** Some information may be sensitive in certain contexts but not others. For example, a customer's name is sensitive in the context of their account balance, but not in the context of a public news article. Developing filtering rules that understand context can be complex and may require the use of more advanced AI techniques.
+* **False Positives and Negatives:** Filtering systems may incorrectly identify non-sensitive information as sensitive (false positives) or miss actual sensitive information (false negatives). In finance, a false negative could lead to a serious data breach, while a false positive could hinder a time-sensitive trade or analysis. Regular calibration and human oversight are essential to minimize these errors.
+* **Evolving Data Landscape:** As organizational data and business processes evolve, filtering rules and strategies must be updated accordingly. For example, a new regulation might require the filtering of a new type of data, or a new business unit might introduce a new type of sensitive information.
+* **Performance Impact:** Comprehensive data filtering can introduce latency in AI system responses, particularly for real-time applications like fraud detection or algorithmic trading. The performance impact must be carefully measured and managed to ensure that the AI system can meet its real-time requirements.
 
 ---
 ## Importance and Benefits

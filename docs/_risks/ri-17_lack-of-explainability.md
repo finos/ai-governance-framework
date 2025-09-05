@@ -33,7 +33,7 @@ Furthermore, the inability to peer inside the model can conceal underlying error
 
 This can lead to inappropriate application, undiagnosed failures in specific scenarios, or an inability to adapt the model effectively to changing market conditions or regulatory requirements. Traditional validation and testing methodologies may prove insufficient for these complex, non-linear models, making it difficult to ensure they are functioning as intended and in alignment with the institution's ethical guidelines and risk appetite.
 
-Transparency and accountability are paramount in financial services; the lack of explainability directly undermines these principles, potentially exposing firms to operational, reputational, and compliance risks.
+Transparency and accountability are paramount in financial services; the lack of explainability directly undermines these principles, potentially exposing firms to operational, reputational, and compliance risks. Therefore, establishing robust governance and oversight mechanisms is essential to mitigate the risks associated with opaque AI systems.
 
 ## Links
 
