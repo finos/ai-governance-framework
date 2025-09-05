@@ -1,0 +1,74 @@
+@startuml RAG_System
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+' Global layout options for better arrow symmetry
+!define DIRECTION top to bottom direction
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 100
+skinparam minlen 2
+skinparam LabelFontSize 10
+skinparam ArrowFontSize 9
+
+title RAG System Architecture
+
+Person(user, "User", "Performs queries against RAG system")
+
+Enterprise_Boundary(org, "Organization") {
+    Container(tests, "Tests", "Test Suite", "System validation\nRI-5, RI-6, RI-11, RI-14")
+    
+    System_Boundary(data_proc, "A) RAG Knowledge base preparation\nData Processing Environment\n(Internal OnPrem/Cloud)") {
+        ContainerDb(pks, "Private Knowledge Data Source", "Database", "Raw organizational data\nRI-19, RI-23")
+        Container(dpf, "Data Processor and Filtering", "Service", "Processes and filters data\nRI-9, RI-19, RI-23")
+        ContainerDb(rks, "Refined Knowledge Data Source", "Database", "Cleaned and processed data\nRI-2, RI-19")
+        Container(vdl, "Vector Data Loader", "Service", "Converts data to embeddings\nRI-1, RI-2, RI-8")
+        ContainerDb(vdb, "Vector Database", "Vector Store", "Stores embeddings for retrieval\nRI-2, RI-16")
+    }
+    
+    System_Boundary(instrumentation, "B) RAG Inference for users\nInstrumentation Environment\n(Internal OnPrem/Cloud)") {
+        Container(user_query, "User Query", "Interface", "Query input\nRI-10, RI-18, RI-20")
+        Container(query_proc, "Query Processing", "Service", "Orchestrates RAG pipeline\nRI-1, RI-2, RI-4, RI-16, RI-17")
+    }
+    
+    System_Boundary(inference, "Inference Environment (SaaS)") {
+        Container(emb_endpoint, "Embeddings Endpoint", "API", "Generates embeddings\nRI-1, RI-7, RI-8, RI-22")
+        ContainerDb(emb_model, "Embeddings Model", "ML Model Store", "Text embedding model weights/data\nRI-5, RI-6, RI-8, RI-11, RI-16")
+        Container(inf_endpoint, "Inference Endpoint", "API", "Handles inference requests\nRI-1, RI-7, RI-8, RI-22")
+        ContainerDb(llm_model, "LLM Model", "ML Model Store", "Large language model weights/data\nRI-4, RI-5, RI-6, RI-8, RI-11, RI-16, RI-17")
+    }
+    
+    ' Layout positioning hints
+    data_proc -[hidden]down-> instrumentation
+    instrumentation -[hidden]right-> inference
+    data_proc -[hidden]right-> inference
+}
+
+' Data flow relationships
+Rel(pks, dpf, "Raw data")
+Rel(dpf, rks, "Processed data")
+Rel(rks, vdl, "Refined data")
+Rel(vdl, vdb, "Vector embeddings")
+
+' Cross-environment relationships - preparation
+Rel(vdl, emb_endpoint, "Embedding requests", "HTTPS")
+Rel(emb_model, emb_endpoint, "Vector embeddings")
+Rel(emb_endpoint, emb_model, "Text to embed")
+
+' Inference environment internal flow
+Rel(inf_endpoint, llm_model, "Generation requests")
+Rel(llm_model, inf_endpoint, "Generated responses")
+
+' User flow
+Rel(user, user_query, "Request")
+Rel(tests, user_query, "Validated queries")
+Rel(user_query, tests, "Test responses")
+Rel(user_query, query_proc, "User input")
+
+' Cross-environment inference connections
+Rel(query_proc, vdb, "Vector search", "Retrieval")
+Rel(query_proc, emb_endpoint, "Query embedding", "HTTPS")
+Rel(query_proc, inf_endpoint, "Inference request", "HTTPS")
+Rel(user_query, user, "Response")
+
+SHOW_LEGEND()
+@enduml
