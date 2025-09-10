@@ -31,13 +31,16 @@ Many high-performing LLMs require access to GPU-accelerated infrastructure to me
 Availability risks include:
 
 **Denial of Wallet (DoW)**:
-- A situation where usage patterns inadvertently lead to excessive costs, throttling, or service disruptions. For example, overly long prompts—due to large document chunking or the inclusion of multiple documents—can exhaust token limits or drive up usage charges. These effects may be magnified when systems work with multimedia content or fall victim to token-expensive attacks (e.g., adversarial queries designed to extract training data). In other scenarios, poorly throttled scripts or agentic systems may generate excessive or unexpected API calls, overwhelming available resources and bypassing original capacity planning assumptions.
+A situation where usage patterns inadvertently lead to excessive costs, throttling, or service disruptions. For example, overly long prompts—due to large document chunking or the inclusion of multiple documents—can exhaust token limits or drive up usage charges. These effects may be magnified when systems work with multimedia content or fall victim to token-expensive attacks (e.g., adversarial queries designed to extract training data). In other scenarios, poorly throttled scripts or agentic systems may generate excessive or unexpected API calls, overwhelming available resources and bypassing original capacity planning assumptions.
 
-**TSP outage or degradation**:
-- May occur when providers lack the operational maturity to maintain stable service levels. Some models may go offline unexpectedly or become temporarily degraded under load. A particular concern arises when an LLM implementation is tightly coupled to a specific proprietary provider, limiting the ability to fail over to alternative services. This lack of redundancy can violate business continuity expectations and has been highlighted in regulatory guidance such as the FFIEC Appendix J on third-party resilience.
+**TSP Outage or Degradation**:
+External providers may lack the operational maturity to maintain stable service levels, leading to unexpected outages or performance degradation under load. A particular concern arises when an LLM implementation is tightly coupled to a specific proprietary provider, limiting the ability to fail over to alternative services. This lack of redundancy can violate business continuity expectations and has been highlighted in regulatory guidance such as the FFIEC Appendix J on third-party resilience. Mature TSPs may offer service level agreements (SLAs), but these do not guarantee uninterrupted service and may not compensate for business losses during an outage.
 
-**VRAM exhaustion** on the serving infrastructure:
-- This can result from several factors. These include memory leaks introduced by updates to model-serving libraries, the adoption of caching strategies that trade VRAM for throughput, or configuration changes such as increased context length. Each of these can compromise model responsiveness or trigger crashes, reducing system availability during critical usage periods.
+**VRAM Exhaustion**:
+Video RAM (VRAM) exhaustion on the serving infrastructure can compromise model responsiveness or trigger crashes. This can result from several factors, including:
+*   **Memory Leaks**: Bugs in model-serving libraries can lead to memory leaks, where VRAM is not properly released after use, eventually causing the system to crash.
+*   **Caching Strategies**: Some strategies trade VRAM for throughput by caching model states or activations. While this can improve performance, it also increases VRAM consumption and the risk of exhaustion.
+*   **Configuration Changes**: Increasing the context length or batch size can significantly increase VRAM requirements, potentially exceeding available resources.
 
 These availability-related risks underscore the importance of robust capacity planning, usage monitoring, and fallback strategies when integrating foundation models into operational systems.
 

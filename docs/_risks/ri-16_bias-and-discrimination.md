@@ -46,10 +46,10 @@ Within the financial services industry, the manifestations and consequences of A
 ### Root Causes of Bias
 
 The root causes of bias in AI systems are multifaceted. They include:
-* **Data Bias:** Training datasets may reflect historical societal biases or underrepresent certain populations, leading the model to learn and perpetuate these biases.
-* **Algorithmic Bias:** The choice of model architecture, features, and optimization functions can unintentionally introduce or amplify biases.
-* **Proxy Discrimination:** Seemingly neutral data points (e.g., postal codes, certain types of transaction history) can act as proxies for protected characteristics.
-* **Feedback Loops:** If a biased AI system's outputs are fed back into its learning cycle without correction, the bias can become self-reinforcing and amplified over time.
+* **Data Bias:** Training datasets may reflect historical societal biases or underrepresent certain populations, leading the model to learn and perpetuate these biases. For example, if a model is trained on historical loan data that shows a lower approval rate for a certain demographic, it may learn to replicate this bias, even if the underlying data is flawed.
+* **Algorithmic Bias:** The choice of model architecture, features, and optimization functions can unintentionally introduce or amplify biases. For instance, an algorithm might inadvertently place more weight on a particular feature that is highly correlated with a protected characteristic, leading to biased outcomes.
+* **Proxy Discrimination:** Seemingly neutral data points (e.g., postal codes, certain types of transaction history) can act as proxies for protected characteristics like race or socioeconomic status. A model might learn to associate these proxies with negative outcomes, leading to discriminatory decisions.
+* **Feedback Loops:** If a biased AI system's outputs are fed back into its learning cycle without correction, the bias can become self-reinforcing and amplified over time. For example, if a biased fraud detection model flags certain transactions as fraudulent, and these flagged transactions are used to retrain the model, the model may become even more biased against those types of transactions in the future.
 
 ### Implications
 
