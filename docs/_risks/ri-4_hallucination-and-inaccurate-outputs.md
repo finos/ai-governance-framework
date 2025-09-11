@@ -48,7 +48,7 @@ Several factors increase the risk of hallucination:
 
 ## Example Financial Services Hallucinations
 
-Below are a few illustrative cases of LLM hallucination tailored to the financial services industry.
+Below are a few illustrative, hypothetical cases of LLM hallucination tailored to the financial services industry.
 
 1. **Fabricated Financial News or Analysis**
    An LLM-powered market analysis tool incorrectly reports that 'Fictional Bank Corp' has missed its quarterly earnings target based on a non-existent press release, causing a temporary dip in its stock price.
