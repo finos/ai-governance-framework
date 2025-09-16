@@ -1,0 +1,65 @@
+---
+layout: default
+title: "Single Page - FINOS AI Governance Framework"
+---
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>FINOS AI Governance Framework — Single Page</h1>
+    <div>
+      <a href="/" class="btn btn-outline-secondary btn-sm">Back</a>
+      <button class="btn btn-outline-primary btn-sm" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <nav class="mb-4">
+    <h5>Contents</h5>
+    <ul>
+      <li><a href="#risks">Risk Catalogue</a>
+        <ul>
+          {% for risk in site.risks %}
+            <li><a href="#{{ risk.id }}">{{ risk.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="#mitigations">Mitigation Catalogue</a>
+        <ul>
+          {% for mitigation in site.mitigations %}
+            <li><a href="#{{ mitigation.id }}">{{ mitigation.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="risks">
+    <h2>Risk Catalogue</h2>
+    {% assign sorted_risks = site.risks | sort: 'sequence' %}
+    {% for risk in sorted_risks %}
+      <article id="{{ risk.id }}" class="mb-4">
+        <h3>{{ risk.title }}</h3>
+        <div class="text-muted mb-2 small">{{ risk.date | date: "%B %d, %Y" }}</div>
+        <div>
+          {{ risk.content }}
+        </div>
+        <hr/>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section id="mitigations" class="mt-5">
+    <h2>Mitigation Catalogue</h2>
+    {% assign sorted_mitigations = site.mitigations | sort: 'sequence' %}
+    {% for mitigation in sorted_mitigations %}
+      <article id="{{ mitigation.id }}" class="mb-4">
+        <h3>{{ mitigation.title }}</h3>
+        <div class="text-muted mb-2 small">{{ mitigation.date | date: "%B %d, %Y" }}</div>
+        <div>
+          {{ mitigation.content }}
+        </div>
+        <hr/>
+      </article>
+    {% endfor %}
+  </section>
+
+</div>
