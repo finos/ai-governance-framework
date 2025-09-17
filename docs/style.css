@@ -93,6 +93,46 @@
     box-shadow: 0 2px 15px rgba(25, 135, 84, 0.15) !important;
 }
 
+/* Clickable card styling */
+.card-hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+}
+
+/* Link styling for clickable cards */
+a.text-decoration-none:hover .card-hover {
+    text-decoration: none !important;
+}
+
+/* Collapsed filter panel styling */
+.filter-panel-collapsed {
+    max-height: 60px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.filter-panel-expanded {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.filter-toggle-btn {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.filter-toggle-btn:hover {
+    transform: scale(1.05);
+}
+
+.filter-toggle-btn.collapsed {
+    transform: rotate(180deg);
+}
+
 /* Form controls */
 .form-control:focus,
 .form-select:focus {

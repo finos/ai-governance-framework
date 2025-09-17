@@ -2,74 +2,87 @@
 <div class="row mb-4">
     <div class="col-12">
         <div class="card border-0 bg-light">
-            <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-5">
-                        <label for="searchInput" class="form-label fw-bold">Search</label>
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search risks and mitigations by title or content...">
-                    </div>
-                    <div class="col-md-2">
-                        <label for="typeFilter" class="form-label fw-bold">Filter by Type</label>
-                        <select class="form-select" id="typeFilter">
-                            <option value="">All Types</option>
-                            <option value="risk">Risks Only</option>
-                            <option value="mitigation">Mitigations Only</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label fw-bold">Filter by Category</label>
-                        <div class="card border">
-                            <div class="card-body p-2">
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <div class="small text-muted fw-bold mb-2">
-                                            <i class="bi bi-asterisk me-1"></i>Risks
+            <div class="card-body" id="filterPanel">
+                <!-- Collapsed header with toggle button -->
+                <div class="d-flex justify-content-between align-items-center mb-3" id="filterHeader">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="bi bi-funnel me-2"></i>Search & Filter
+                    </h5>
+                    <button type="button" class="btn btn-link p-0 filter-toggle-btn collapsed" id="filterToggle">
+                        <i class="bi bi-chevron-down fs-5"></i>
+                    </button>
+                </div>
+                
+                <!-- Filter content that can be collapsed -->
+                <div class="filter-content" id="filterContent" style="display: none;">
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <label for="searchInput" class="form-label fw-bold">Search</label>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search risks and mitigations by title or content...">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="typeFilter" class="form-label fw-bold">Filter by Type</label>
+                            <select class="form-select" id="typeFilter">
+                                <option value="">All Types</option>
+                                <option value="risk">Risks Only</option>
+                                <option value="mitigation">Mitigations Only</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-bold">Filter by Category</label>
+                            <div class="card border">
+                                <div class="card-body p-2">
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <div class="small text-muted fw-bold mb-2">
+                                                <i class="bi bi-asterisk me-1"></i>Risks
+                                            </div>
+                                            <div class="form-check form-check-sm mb-1">
+                                                <input class="form-check-input category-checkbox" type="checkbox" value="OP" id="cat-OP" data-type="risk">
+                                                <label class="form-check-label small" for="cat-OP">
+                                                    <i class="bi bi-person-fill-gear me-1"></i>Operational
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-sm mb-1">
+                                                <input class="form-check-input category-checkbox" type="checkbox" value="SEC" id="cat-SEC" data-type="risk">
+                                                <label class="form-check-label small" for="cat-SEC">
+                                                    <i class="bi bi-bug-fill me-1"></i>Security
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-sm mb-0">
+                                                <input class="form-check-input category-checkbox" type="checkbox" value="RC" id="cat-RC" data-type="risk">
+                                                <label class="form-check-label small" for="cat-RC">
+                                                    <i class="bi bi-clipboard2-check-fill me-1"></i>Regulatory
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="form-check form-check-sm mb-1">
-                                            <input class="form-check-input category-checkbox" type="checkbox" value="OP" id="cat-OP" data-type="risk">
-                                            <label class="form-check-label small" for="cat-OP">
-                                                <i class="bi bi-person-fill-gear me-1"></i>Operational
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-sm mb-1">
-                                            <input class="form-check-input category-checkbox" type="checkbox" value="SEC" id="cat-SEC" data-type="risk">
-                                            <label class="form-check-label small" for="cat-SEC">
-                                                <i class="bi bi-bug-fill me-1"></i>Security
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-sm mb-0">
-                                            <input class="form-check-input category-checkbox" type="checkbox" value="RC" id="cat-RC" data-type="risk">
-                                            <label class="form-check-label small" for="cat-RC">
-                                                <i class="bi bi-clipboard2-check-fill me-1"></i>Regulatory
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="small text-muted fw-bold mb-2">
-                                            <i class="bi bi-shield-shaded me-1"></i>Mitigations
-                                        </div>
-                                        <div class="form-check form-check-sm mb-1">
-                                            <input class="form-check-input category-checkbox" type="checkbox" value="PREV" id="cat-PREV" data-type="mitigation">
-                                            <label class="form-check-label small" for="cat-PREV">
-                                                <i class="bi bi-lock-fill me-1"></i>Preventative
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-sm mb-0">
-                                            <input class="form-check-input category-checkbox" type="checkbox" value="DET" id="cat-DET" data-type="mitigation">
-                                            <label class="form-check-label small" for="cat-DET">
-                                                <i class="bi bi-eye-fill me-1"></i>Detective
-                                            </label>
+                                        <div class="col-6">
+                                            <div class="small text-muted fw-bold mb-2">
+                                                <i class="bi bi-shield-shaded me-1"></i>Mitigations
+                                            </div>
+                                            <div class="form-check form-check-sm mb-1">
+                                                <input class="form-check-input category-checkbox" type="checkbox" value="PREV" id="cat-PREV" data-type="mitigation">
+                                                <label class="form-check-label small" for="cat-PREV">
+                                                    <i class="bi bi-lock-fill me-1"></i>Preventative
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-sm mb-0">
+                                                <input class="form-check-input category-checkbox" type="checkbox" value="DET" id="cat-DET" data-type="mitigation">
+                                                <label class="form-check-label small" for="cat-DET">
+                                                    <i class="bi bi-eye-fill me-1"></i>Detective
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label fw-bold">&nbsp;</label>
-                        <button type="button" class="btn btn-outline-secondary w-100" id="resetFilters">
-                            Reset
-                        </button>
+                        <div class="col-md-2">
+                            <label class="form-label fw-bold">&nbsp;</label>
+                            <button type="button" class="btn btn-outline-secondary w-100" id="resetFilters">
+                                Reset
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +129,7 @@
                               {% assign sorted_risks = risk_group.items | sort: "sequence" %}
                               {% for risk in sorted_risks %}
                               <div class="col-12 risk-item" data-title="{{ risk.title | downcase }}" data-content="{{ risk.content | strip_html | strip_newlines | downcase }}">
-                                  <div class="card border-start border-primary border-3 h-100">
+                                  <div class="card border-start border-primary border-3 h-100 card-hover" onclick="window.location.href='{{ risk.id }}.html'" style="cursor: pointer;">
                                       <div class="card-body py-2">
                                           <div class="d-flex justify-content-between align-items-start">
                                               <div class="flex-grow-1">
@@ -138,14 +151,9 @@
                                                   {% endif %}
                                                   <p class="small text-muted mb-0 description-text">{{ clean_summary }}</p>
                                               </div>
-                                              <div class="d-flex flex-column gap-1 ms-2">
-                                                  <a href="{{ risk.id }}.html" class="btn btn-outline-primary btn-sm">
+                                              <div class="ms-2">
+                                                  <a href="{{ risk.id }}.html" class="btn btn-outline-primary btn-sm" onclick="event.stopPropagation();">
                                                       View
-                                                  </a>
-                                                  <a href="https://github.com/finos/ai-governance-framework/edit/main/docs/{{ risk.path }}" 
-                                                     target="_blank" 
-                                                     class="btn btn-outline-primary btn-sm">
-                                                      Edit
                                                   </a>
                                               </div>
                                           </div>
@@ -197,7 +205,7 @@
                               {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
                               {% for mitigation in sorted_mitigations %}
                               <div class="col-12 mitigation-item" data-title="{{ mitigation.title | downcase }}" data-content="{{ mitigation.content | strip_html | strip_newlines | downcase }}">
-                                  <div class="card border-start border-success border-3 h-100">
+                                  <div class="card border-start border-success border-3 h-100 card-hover" onclick="window.location.href='{{ mitigation.id }}.html'" style="cursor: pointer;">
                                       <div class="card-body py-2">
                                           <div class="d-flex justify-content-between align-items-start">
                                               <div class="flex-grow-1">
@@ -224,14 +232,9 @@
                                                   {% endif %}
                                                   <p class="small text-muted mb-0 description-text">{{ clean_summary }}</p>
                                               </div>
-                                              <div class="d-flex flex-column gap-1 ms-2">
-                                                  <a href="{{ mitigation.id }}.html" class="btn btn-outline-success btn-sm">
+                                              <div class="ms-2">
+                                                  <a href="{{ mitigation.id }}.html" class="btn btn-outline-success btn-sm" onclick="event.stopPropagation();">
                                                       View
-                                                  </a>
-                                                  <a href="https://github.com/finos/ai-governance-framework/edit/main/docs/{{ mitigation.path }}" 
-                                                     target="_blank" 
-                                                     class="btn btn-outline-success btn-sm">
-                                                      Edit
                                                   </a>
                                               </div>
                                           </div>
@@ -258,6 +261,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const mitigationCatalogue = document.getElementById('mitigationCatalogue');
     const riskColumn = riskCatalogue.closest('.col-md-6');
     const mitigationColumn = mitigationCatalogue.closest('.col-md-6');
+    
+    // Filter panel toggle functionality
+    const filterToggle = document.getElementById('filterToggle');
+    const filterContent = document.getElementById('filterContent');
+    
+    filterToggle.addEventListener('click', function() {
+        const isCollapsed = filterContent.style.display === 'none';
+        
+        if (isCollapsed) {
+            // Expand
+            filterContent.style.display = 'block';
+            filterToggle.classList.remove('collapsed');
+            filterToggle.innerHTML = '<i class="bi bi-chevron-up fs-5"></i>';
+        } else {
+            // Collapse
+            filterContent.style.display = 'none';
+            filterToggle.classList.add('collapsed');
+            filterToggle.innerHTML = '<i class="bi bi-chevron-down fs-5"></i>';
+        }
+    });
     
     // State management
     let catalogueStates = {
