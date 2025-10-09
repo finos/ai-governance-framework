@@ -39,7 +39,7 @@ Unlike traditional supply chain attacks that target static dependencies, MCP ser
 * **DNS/Infrastructure Attacks**
   Redirecting agent MCP server connections to attacker-controlled servers through DNS poisoning, BGP hijacking, or other network-level attacks.
 
-### Financial Services Impact Scenarios
+### Financial Services Impact Scenario Examples
 
 * **Market Data Manipulation**
   Compromised market data MCP servers provide false pricing information, leading agents to make inappropriate trading decisions or provide incorrect investment advice to customers.
