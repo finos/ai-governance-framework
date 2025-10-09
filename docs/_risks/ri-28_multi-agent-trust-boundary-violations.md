@@ -31,10 +31,10 @@ The fundamental challenge lies in balancing the operational need for agent coord
   Compromised agents corrupt shared databases, APIs, or state storage systems that other agents rely upon, causing systematic decision-making errors across multiple agent types.
 
 * **Agent Authority Impersonation**
-  Compromised agents impersonate higher-privilege agents or use stolen credentials to access resources or influence decisions outside their intended scope.
+  Compromised agents impersonate higher-privilege agents or use stolen credentials to access resources or influence decisions outside their intended scope.  This is similar to a privilege escalation attack, where the risk is that agent privilege level needs to be clearly defined and enforced.
 
 * **Cross-Agent Privilege Inheritance**
-  Design flaws allow agents to inherit or assume privileges from other agents they interact with, leading to privilege escalation across the multi-agent system.
+  Design flaws allow agents to inherit or assume privileges from other agents they interact with, leading to privilege escalation across the multi-agent system.  Where agent action-scope is not clearly defined and monitored this could lead to significant privilege escalation
 
 * **Cascade Failure Propagation**
   Failures or compromises in one agent cause cascading failures in dependent agents, potentially bringing down entire business processes or decision-making chains.

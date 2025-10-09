@@ -157,7 +157,7 @@ Effective multi-agent isolation requires comprehensive security boundaries acros
   * **Compliance Reporting**: Generate compliance reports demonstrating effective implementation of multi-agent isolation controls.
 
 * **Audit Trail Maintenance**:
-  * **Cross-Agent Audit Logs**: Maintain comprehensive audit logs of all cross-agent interactions and boundary enforcement actions.
+  * **Cross-Agent Audit Logs**: Maintain comprehensive audit logs of all cross-agent interactions and boundary enforcement actions.  Reviewing these logs at speed and at scale may require the deployment of additional agents to review the logs.
   * **Security Event Correlation**: Correlate security events across multiple agents to detect coordinated attacks or systemic issues.
   * **Forensic Analysis Support**: Provide detailed information for forensic analysis of multi-agent security incidents.
 
