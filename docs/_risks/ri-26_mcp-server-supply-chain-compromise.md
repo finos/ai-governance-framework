@@ -66,6 +66,8 @@ Unlike traditional supply chain attacks that target static dependencies, MCP ser
 
 * **Agent Tracking**: MCP servers log and profile agent behavior to build intelligence about the financial institution's operations and decision-making patterns.
 
+* **Privilege Escalation:** Compromised MCP servers may gain access to sensitive data beyond the scope of approved use cases
+
 ### Consequences
 
 MCP server supply chain compromises can result in severe consequences:
