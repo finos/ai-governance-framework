@@ -29,7 +29,7 @@ This framework extends traditional least privilege principles to address the uni
 
 Effective agent privilege management must address the dynamic and autonomous nature of agentic systems:
 
-* **Granular API Access Control**: Agents should have access only to specific API endpoints and methods required for their designated use case, with restrictions enforced at the tool manager and API gateway levels.
+* **Granular API Access Control**: Agents should have access only to specific API endpoints and methods required for their designated use case, with restrictions enforced at the tool manager and API gateway levels. Agent identity and role must be included in all API invocations to enable authorization decisions.
 * **Contextual Privilege Adjustment**: Agent privileges should dynamically adjust based on current context, risk level, transaction value, or customer sensitivity, ensuring appropriate controls for different scenarios.
 * **Time-Bounded Privileges**: Agent access should be time-limited where appropriate, with privileges automatically expiring after task completion or specified time periods.
 * **Separation of Duties Enforcement**: Multi-step processes requiring approval or verification should be enforced through agent privilege restrictions, preventing single agents from completing entire high-risk workflows.
@@ -42,7 +42,7 @@ Effective agent privilege management must address the dynamic and autonomous nat
 
 ### 1. Agent Role and Privilege Definition
 
-* **Role-Based Agent Classification**:
+* **Role-Based Agent Classification** (examples):
   * **Customer Service Agents**: Read-only access to customer account information, limited transaction inquiry capabilities, no modification or transfer authorities.
   * **Risk Assessment Agents**: Access to risk calculation APIs and customer financial data for analysis purposes only, no decision execution capabilities.
   * **Compliance Agents**: Read-only access to transaction data and regulatory databases for compliance checking, no approval or modification authorities.
@@ -70,9 +70,10 @@ Effective agent privilege management must address the dynamic and autonomous nat
 ### 3. API and Tool Access Enforcement
 
 * **Tool Manager Security Layer**:
-  * Implement comprehensive authorization checks at the tool manager level before any API calls are executed.
+  * A "tool manager" is the component that mediates between agents and external APIs/tools, translating agent requests into concrete API calls and managing the execution of those calls. This layer provides a critical enforcement point for authorization controls.
+  * Implement comprehensive authorization checks at the tool manager level before any API calls are executed, validating the agent's identity and role against the requested operation.
   * Validate that requested API endpoints and parameters are within the agent's authorized scope.
-  * Reject and log any attempts to access unauthorized tools or APIs.
+  * Reject and log any attempts to access unauthorized tools or APIs, including the agent identity for audit purposes.
 
 * **API Gateway Integration**:
   * Integrate agent identity and privilege information with API gateway systems.

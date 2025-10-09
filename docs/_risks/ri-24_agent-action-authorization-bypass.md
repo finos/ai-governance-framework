@@ -18,7 +18,7 @@ Agent systems may bypass intended authorization controls and perform actions bey
 
 ## Description
 
-Agentic AI systems in financial services operate with significantly more autonomy than traditional RAG-based implementations, capable of making decisions and executing actions through various APIs and tools. This autonomy introduces a critical security risk: **Agent Action Authorization Bypass**, where agents perform operations outside their intended authorization boundaries.
+Agentic AI systems in financial services may operate with significantly more autonomy than traditional RAG-based implementations, capable of making decisions and executing actions through various APIs and tools. This autonomy introduces a critical security risk: **Agent Action Authorization Bypass**, where agents perform operations outside their intended authorization boundaries.
 
 Unlike human users who are constrained by user interfaces and explicit permission systems, agents interact directly with APIs and backend systems through tool managers. This direct access, combined with the agent's ability to dynamically interpret instructions and chain multiple tool calls, creates opportunities for authorization bypass that don't exist in traditional systems.
 

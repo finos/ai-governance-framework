@@ -84,6 +84,7 @@ MCP server supply chain compromises can result in severe consequences:
 - **Limited MCP Server Monitoring**: Insufficient logging and monitoring of MCP server responses and behavior patterns.
 - **MCP Server Concentration Risk**: Over-reliance on single MCP servers for critical functions without appropriate redundancy or validation.
 - **Inadequate MCP Update Controls**: Poor controls over MCP server updates, patches, and configuration changes.
+- **Decentralized MCP Architecture**: Distributed many-to-many MCP deployments increase attack surface and complexity compared to centralized proxy architectures with pre-approved servers.
 
 ## Links
 

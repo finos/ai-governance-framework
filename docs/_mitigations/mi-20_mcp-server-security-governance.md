@@ -39,7 +39,52 @@ Effective MCP server security governance requires comprehensive coverage of the 
 
 ---
 
+## Tiered Implementation Approach
+
+Organizations should adopt MCP server security governance appropriate to their deployment model and risk tolerance. This mitigation presents three tiers of implementation, each building on the previous tier with increasing security controls and complexity:
+
+### Tier 1: Centralized Proxy with Pre-Approved Servers
+**Recommended for:** Organizations beginning MCP adoption, coding assistant deployments, development workflows
+
+* **Architecture**: All MCP clients connect through a centrally-administered MCP proxy server that enforces connections only to pre-approved, trusted MCP server implementations
+* **Key Controls**:
+  * Central IT/security team maintains allowlist of approved MCP servers
+  * MCP proxy enforces connection restrictions (clients cannot bypass proxy to connect directly to MCP servers)
+  * Approved MCP servers undergo basic security vetting (source code review for open source, vendor assessment for commercial)
+  * TLS encryption for all MCP communications
+  * Basic logging of MCP server connections and usage
+* **Example**: [GitHub Copilot's centralized MCP server access configuration](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access)
+
+### Tier 2: Centralized Proxy + Human-in-the-Loop Controls
+**Recommended for:** Production deployments with moderate risk, customer-facing applications with oversight
+
+* **All Tier 1 controls, plus**:
+* **Additional Controls**:
+  * Human approval required before agents execute actions suggested by MCP servers
+  * Enhanced monitoring and alerting on MCP server behavior and data anomalies
+  * Regular security reviews of approved MCP servers (at least annually)
+  * Incident response procedures specific to MCP server compromise
+  * User/agent identity propagation through MCP proxy for audit trails
+
+### Tier 3: Distributed Many-to-Many with Comprehensive Security
+**Recommended for:** Complex multi-agent systems, high-risk financial transactions, fully autonomous deployments
+
+* **All Tier 1 and 2 controls, plus**:
+* **Additional Controls**:
+  * Comprehensive supply chain due diligence for all MCP server providers (detailed in sections below)
+  * Advanced data integrity validation including cryptographic signatures and cross-reference validation
+  * Real-time behavioral monitoring and anomaly detection for MCP server responses
+  * Network segmentation and service isolation for MCP connections
+  * Mutual authentication between all MCP clients and servers
+  * Advanced incident response capabilities with forensic analysis and rapid isolation procedures
+
+Organizations should start with Tier 1 controls and progress to higher tiers as their MCP deployment matures, risk profile increases, or autonomy levels grow. The detailed implementation guidance below provides comprehensive controls appropriate for Tier 3 deployments, with many controls also applicable to lower tiers.
+
+---
+
 ## Implementation Guidance
+
+The following sections provide detailed implementation guidance primarily for Tier 3 deployments, though many controls are also applicable to Tier 2 and can inform security practices at Tier 1.
 
 ### 1. MCP Server Vetting and Onboarding
 
@@ -147,10 +192,12 @@ Effective MCP server security governance requires comprehensive coverage of the 
 
 ## Challenges and Considerations
 
-* **Third-Party Dependency Management**: Managing security across multiple third-party MCP server providers with varying security capabilities and standards.
-* **Performance vs. Security Trade-offs**: Balancing comprehensive security validation with the performance requirements of real-time agent operations.
+* **Tier Selection and Progression**: Organizations must carefully assess their risk profile, deployment maturity, and operational capabilities to select the appropriate tier. Moving between tiers requires significant planning and may impact existing deployments.
+* **Centralized Proxy as Single Point of Failure**: Tier 1 and 2 implementations rely on a centralized MCP proxy, which becomes a critical system requiring high availability and robust security controls. Organizations must ensure the proxy itself doesn't become a vulnerability.
+* **Third-Party Dependency Management**: Managing security across multiple third-party MCP server providers with varying security capabilities and standards, particularly challenging in Tier 3 distributed deployments.
+* **Performance vs. Security Trade-offs**: Balancing comprehensive security validation with the performance requirements of real-time agent operations. Tier 3 controls may introduce latency that is unacceptable for some use cases.
 * **Regulatory Compliance**: Ensuring MCP server governance meets regulatory requirements across multiple jurisdictions and financial service regulations.
-* **Incident Response Complexity**: Coordinating incident response across multiple MCP server providers and internal systems during security events.
+* **Incident Response Complexity**: Coordinating incident response across multiple MCP server providers and internal systems during security events, especially in Tier 3 deployments.
 
 ---
 

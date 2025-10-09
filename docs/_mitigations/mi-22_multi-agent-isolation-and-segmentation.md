@@ -149,6 +149,7 @@ Effective multi-agent isolation requires comprehensive security boundaries acros
   * **Interaction Monitoring**: Monitor all inter-agent interactions for compliance with established security policies.
   * **Behavioral Analysis**: Analyze agent behavior patterns to detect potential isolation violations or compromise indicators.
   * **Performance Impact Assessment**: Monitor the performance impact of isolation controls and optimize where necessary.
+  * **Scalable Monitoring Architecture**: As multi-agent systems scale, traditional monitoring approaches may become infeasible. Consider implementing agent-based monitoring systems where specialized monitoring agents are responsible for observing and red-flagging suspicious activities across other agents. This approach distributes the monitoring workload and can scale with the multi-agent system itself.
 
 * **Compliance Verification**:
   * **Isolation Testing**: Regularly test isolation controls to ensure they remain effective as systems evolve.
@@ -166,6 +167,7 @@ Effective multi-agent isolation requires comprehensive security boundaries acros
 
 * **Performance vs. Security Trade-offs**: Comprehensive isolation may impact performance of multi-agent workflows requiring careful optimization.
 * **Operational Complexity**: Managing isolation controls across multiple agent types increases operational complexity and maintenance overhead.
+* **Monitoring Scalability**: As multi-agent systems scale, monitoring all inter-agent interactions and communications can become computationally expensive and operationally challenging. Organizations may need to adopt agent-based monitoring approaches where specialized monitoring agents perform distributed observation and anomaly detection, introducing additional system complexity.
 * **Business Process Integration**: Balancing security isolation with business requirements for agent collaboration and data sharing.
 * **Technology Integration**: Implementing consistent isolation controls across diverse agent technologies and deployment platforms.
 
