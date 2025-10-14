@@ -70,7 +70,7 @@ Effective agent privilege management must address the dynamic and autonomous nat
 ### 3. API and Tool Access Enforcement
 
 * **Tool Manager Security Layer**:
-  * A "tool manager" is the component that mediates between agents and external APIs/tools, translating agent requests into concrete API calls and managing the execution of those calls. This layer provides a critical enforcement point for authorization controls.
+  * A "tool manager" is the component that mediates between agents and APIs/tools that are external to the agent, translating agent requests into concrete API calls and managing the execution of those calls. This layer provides a critical enforcement point for authorization controls.
   * Implement comprehensive authorization checks at the tool manager level before any API calls are executed, validating the agent's identity and role against the requested operation.
   * Validate that requested API endpoints and parameters are within the agent's authorized scope.
   * Reject and log any attempts to access unauthorized tools or APIs, including the agent identity for audit purposes.

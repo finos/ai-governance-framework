@@ -97,5 +97,5 @@ Agent state persistence poisoning can result in severe consequences:
 
 ## Links
 
-- [OWASP Machine Learning Security Top 10](https://owasp.org/www-project-machine-learning-security-top-10/)
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [Example Memory-Based Attack](https://arstechnica.com/security/2024/09/false-memories-planted-in-chatgpt-give-hacker-persistent-exfiltration-channel/)
+- [PaloAlto White Paper on Memory Based Attacks](https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/)

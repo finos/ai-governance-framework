@@ -43,28 +43,32 @@ Effective MCP server security governance requires comprehensive coverage of the 
 
 Organizations should adopt MCP server security governance appropriate to their deployment model and risk tolerance. This mitigation presents three tiers of implementation, each building on the previous tier with increasing security controls and complexity:
 
-### Tier 1: Centralized Proxy with Pre-Approved Servers
+### Tier 1: Centralized Proxy + Human-in-the-Loop Controls
 **Recommended for:** Organizations beginning MCP adoption, coding assistant deployments, development workflows
 
 * **Architecture**: All MCP clients connect through a centrally-administered MCP proxy server that enforces connections only to pre-approved, trusted MCP server implementations
 * **Key Controls**:
   * Central IT/security team maintains allowlist of approved MCP servers
   * MCP proxy enforces connection restrictions (clients cannot bypass proxy to connect directly to MCP servers)
-  * Approved MCP servers undergo basic security vetting (source code review for open source, vendor assessment for commercial)
+  * Approved MCP servers undergo basic security vetting including:
+    * Source code review for open source implementations
+    * Scanning of transitive dependencies and license checks
+    * CVE checks and vulnerability scanning
+    * Vendor assessment for commercial providers
   * TLS encryption for all MCP communications
-  * Basic logging of MCP server connections and usage
-* **Example**: [GitHub Copilot's centralized MCP server access configuration](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access)
-
-### Tier 2: Centralized Proxy + Human-in-the-Loop Controls
-**Recommended for:** Production deployments with moderate risk, customer-facing applications with oversight
-
-* **All Tier 1 controls, plus**:
-* **Additional Controls**:
-  * Human approval required before agents execute actions suggested by MCP servers
-  * Enhanced monitoring and alerting on MCP server behavior and data anomalies
+  * **Human approval required before agents execute actions provided by MCP servers**
   * Regular security reviews of approved MCP servers (at least annually)
   * Incident response procedures specific to MCP server compromise
-  * User/agent identity propagation through MCP proxy for audit trails
+* **Example**: [GitHub Copilot's centralized MCP server access configuration](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access)
+
+### Tier 2: Centralized Proxy with Pre-Approved Servers
+**Recommended for:** Production deployments with moderate risk, customer-facing applications with oversight
+
+* **All Tier 1 controls, minus Human-in-the-Loop, plus**:
+* **Additional Controls**:
+  * Enhanced monitoring and alerting on MCP server behavior and data anomalies (replaces human approval)
+  * User/agent identity propagation through MCP proxy for comprehensive audit trails
+  * Basic logging of MCP server connections and usage patterns
 
 ### Tier 3: Distributed Many-to-Many with Comprehensive Security
 **Recommended for:** Complex multi-agent systems, high-risk financial transactions, fully autonomous deployments

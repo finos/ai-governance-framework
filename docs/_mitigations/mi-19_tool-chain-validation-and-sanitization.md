@@ -51,6 +51,7 @@ Effective tool chain validation requires comprehensive coverage of agent decisio
   * **Decision Logging**: Log the agent's reasoning for tool selection decisions, including input factors and decision criteria.
   * **Alternative Analysis**: When possible, capture why other available tools were not selected to identify potential manipulation.
   * **Confidence Scoring**: Implement confidence metrics for tool selection decisions to identify potentially compromised selections.
+  * **Continuous Telemetry**: Note that this approach requires continuous telemetry on agent tool use, which supports ongoing evaluation, benchmarking, and security monitoring. Organizations should establish clear data retention policies and privacy controls for this telemetry data.
 
 * **Dynamic Tool Selection Validation**:
   * **Real-time Validation**: Validate tool selections at execution time rather than relying solely on pre-configured rules.
@@ -127,6 +128,7 @@ Effective tool chain validation requires comprehensive coverage of agent decisio
 ### 6. Integration with Agent Architecture
 
 * **Tool Manager Integration**:
+*For a definition of what a Tool Manager is, please see mi-18, Agent Authority Least Privilege Framework, section 3*
   * **Pre-execution Validation**: Implement validation checks at the tool manager level before any tool execution begins.
   * **Parameter Interception**: Intercept and validate all parameters before they are passed to underlying APIs or systems.
   * **Tool Chain Orchestration**: Use the tool manager to orchestrate safe tool execution sequences and enforce workflow validation.

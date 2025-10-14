@@ -42,7 +42,60 @@ Effective agent decision auditing requires comprehensive coverage of the complet
 
 ---
 
+## Tiered Implementation Approach
+
+Organizations should adopt decision audit and explainability controls appropriate to the stakes and risk profile of their use case. This mitigation presents four tiers of implementation, with increasing levels of detail and cost:
+
+### Tier 0: Zero Data Retention
+**Recommended for:** Low-stakes applications with human oversight, software development with code reviews, scenarios where data leakage risk outweighs audit benefits
+
+* **Key Controls**:
+  * Architecture Decision Record (ADR) documenting the risk analysis and rationale for minimal retention
+  * Basic security logging for infrastructure-level events (authentication, authorization failures)
+  * Human-in-the-loop controls replace detailed audit trails
+  * Emphasis on preventing data leakage over decision reconstruction
+
+### Tier 1: Basic Flow Reconstruction
+**Recommended for:** Moderate-stakes applications, development and testing environments, applications with oversight mechanisms
+
+* **Key Controls**:
+  * Log flows of data and prompts to enable reproduction in lab/test environments
+  * Capture input data sources, timestamps, and tool invocations without detailed reasoning
+  * Record final decisions and outcomes
+  * Enable reconstruction of "what happened" without requiring "why it happened"
+  * Sufficient detail to reproduce issues for debugging and root cause analysis
+
+### Tier 2: Explicit Reasoning Generation
+**Recommended for:** Production systems with significant business impact, regulated activities requiring explanation, customer-facing decisions
+
+* **Key Controls**:
+  * All Tier 1 controls, plus:
+  * Explicit reasoning should be generated and logged in advance of tool calls
+  * Natural language explanations of decision logic
+  * Confidence scoring and alternative analysis when feasible
+  * Note: This tier incurs additional cost due to extended generation, but reasoning may not be complete if the model provider hides internal reasoning tokens (e.g., OpenAI o1 models)
+
+### Tier 3: Comprehensive Audit Trail
+**Recommended for:** High-risk financial transactions, regulatory compliance scenarios, fully autonomous systems, safety-critical applications
+
+* **Key Controls**:
+  * All Tier 1 and 2 controls, plus:
+  * Detailed decision reasoning documentation including logical flow and decision trees
+  * Complete contextual information capture (customer, business, risk, temporal context)
+  * Cryptographic protection and tamper-evident logging
+  * Full regulatory compliance integration
+  * Real-time monitoring and anomaly detection
+
+**Important Considerations:**
+* **Model Limitations**: Some model providers (e.g., OpenAI reasoning models) hide internal reasoning tokens, making complete reasoning capture impossible via API. Organizations using these models cannot achieve full Tier 3 compliance and should document this limitation in their ADR.
+* **Cost-Benefit Analysis**: Detailed reasoning capture significantly increases token costs. Organizations should perform explicit cost-benefit analysis documented in an Architecture Decision Record.
+* **Tier Selection Requirement**: At minimum, organizations should create an ADR showing the risk analysis performed and which tier applies to each use case.
+
+---
+
 ## Implementation Guidance
+
+The following sections provide detailed implementation guidance primarily for Tier 2 and Tier 3 deployments. Organizations at Tier 0 or Tier 1 should focus on the controls specific to their tier as outlined above.
 
 ### 1. Comprehensive Decision Logging Framework
 
@@ -155,9 +208,12 @@ Effective agent decision auditing requires comprehensive coverage of the complet
 
 ## Challenges and Considerations
 
-* **Data Volume Management**: Agent decision logging can generate enormous amounts of data requiring efficient storage and analysis systems.
+* **Tier Selection Complexity**: Organizations must carefully assess risk profiles for different use cases to select appropriate audit tiers. The same organization may operate at different tiers for different applications.
+* **Model Provider Limitations**: Hidden reasoning tokens (e.g., OpenAI o1 models) make complete reasoning capture impossible, limiting achievable audit levels regardless of investment.
+* **Cost-Benefit Trade-offs**: Higher audit tiers (Tier 2-3) significantly increase operational costs through token usage and storage. Organizations must balance compliance and investigative benefits against these costs.
+* **Data Volume Management**: Tier 2-3 decision logging generates enormous amounts of data requiring efficient storage and analysis systems.
 * **Performance Impact**: Comprehensive logging may impact agent performance, requiring optimization and selective logging strategies.
-* **Privacy and Confidentiality**: Balancing transparency requirements with customer privacy and confidentiality obligations.
+* **Privacy and Confidentiality**: Balancing transparency requirements with customer privacy and confidentiality obligations, particularly at higher audit tiers.
 * **Technical Complexity**: Implementing explainable AI for complex agent decision-making processes requires sophisticated technical solutions.
 
 ---
