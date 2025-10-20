@@ -2,7 +2,7 @@
 sequence: 29
 title: Agent-Mediated Credential Discovery and Harvesting
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm01-2025  # LLM01:2025 Prompt Injection

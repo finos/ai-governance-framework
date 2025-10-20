@@ -2,7 +2,7 @@
 sequence: 20
 title: MCP Server Security Governance
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 nist-sp-800-53r5_references:
   - sa-9   # SA-9 External System Services

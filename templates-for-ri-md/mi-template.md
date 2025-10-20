@@ -2,7 +2,7 @@
 sequence: [NUMBER]
 title: [MITIGATION_TITLE]
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: [PREV|DET|RESP]  # Prevention, Detection, or Response
 iso-42001_references:
   - [ISO_REFERENCE] # Brief description

@@ -1,7 +1,7 @@
 title: FINOS AI Readiness - AI Governance Framework
 
-version: v1
-release-date: 2024-06-09
+version: v2
+release-date: 2025-10-20
 
 risk_classification:
   RC: Regulatory and Compliance
@@ -19,7 +19,7 @@ document_status:
     description: "The document is in the early stages of development, with content being written and structured but not yet polished."
   - name: Working-Group-Approved
     description: "The document is in its final form and has been approved by the AIGF team."
-  - name: Published
+  - name: Approved-Specification
     description: "The publication of an Approved Specification in a publicly accessible manner."
 
 # FFIEC IT Booklet abbreviations mapping

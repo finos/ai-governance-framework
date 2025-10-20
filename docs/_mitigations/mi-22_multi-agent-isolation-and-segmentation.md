@@ -2,7 +2,7 @@
 sequence: 22
 title: Multi-Agent Isolation and Segmentation
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 nist-sp-800-53r5_references:
   - sc-7   # SC-7 Boundary Protection

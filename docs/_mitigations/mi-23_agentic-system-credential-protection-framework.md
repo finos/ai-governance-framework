@@ -2,7 +2,7 @@
 sequence: 23
 title: Agentic System Credential Protection Framework
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 nist-sp-800-53r5_references:
   - ia-5   # IA-5 Authenticator Management

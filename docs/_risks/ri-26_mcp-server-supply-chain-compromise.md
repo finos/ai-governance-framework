@@ -2,7 +2,7 @@
 sequence: 26
 title: MCP Server Supply Chain Compromise
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 related_risks:
   - ri-8   # Tampering with the Foundational Model

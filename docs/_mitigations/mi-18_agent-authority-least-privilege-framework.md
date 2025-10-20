@@ -2,7 +2,7 @@
 sequence: 18
 title: Agent Authority Least Privilege Framework
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 nist-sp-800-53r5_references:
   - ac-6   # AC-6 Least Privilege

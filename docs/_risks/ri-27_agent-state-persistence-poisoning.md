@@ -2,7 +2,7 @@
 sequence: 27
 title: Agent State Persistence Poisoning
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: SEC
 related_risks:
   - ri-10  # Prompt Injection
