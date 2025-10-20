@@ -2,7 +2,7 @@
 sequence: 19
 title: Tool Chain Validation and Sanitization
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: PREV
 nist-sp-800-53r5_references:
   - si-10  # SI-10 Information Input Validation

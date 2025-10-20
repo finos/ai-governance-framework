@@ -2,7 +2,7 @@
 sequence: 28
 title: Multi-Agent Trust Boundary Violations
 layout: risk
-doc-status: Draft
+doc-status: Approved-Specification
 type: OP
 related_risks:
   - ri-24  # Agent Action Authorization Bypass

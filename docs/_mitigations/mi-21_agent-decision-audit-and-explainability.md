@@ -2,7 +2,7 @@
 sequence: 21
 title: Agent Decision Audit and Explainability
 layout: mitigation
-doc-status: Draft
+doc-status: Approved-Specification
 type: DET
 iso-42001_references:
   - A-8-3    # ISO 42001: External reporting
