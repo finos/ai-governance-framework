@@ -14,13 +14,6 @@ The Working Group includes the following roles:
 
 Becoming an AIGF Participant is as easy as attending a meeting and/or raising issues for changes you'd like see in the Standard, commenting on issues others have raised or even asking questions (which can often result in the clarification of the Standard's documentation to help others with the same questions in future).
 
-#### Register to vote
-Participants may register to vote on changes to the AIGF Standard (see [Section 2](#2decision-making) below). To do so register to the group by sending an empty email to [ai-governance-framework+subscribe@lists.finos.org] to join the enrolled voting participants group.
-
-Upon enrollment as an [AIGF voting participant](https://github.com/orgs/finos/teams/ai-governance-framework-participants), you will be invited to join the [FINOS GitHub organization](https://github.com/orgs/finos/people) and the [aigf-participants](https://github.com/orgs/finos/teams/ai-governance-framework-participants) GitHub team.
-
-- [View the AIGF Participants GitHub Team](https://github.com/orgs/finos/teams/ai-governance-framework-participants)
-
 ### 1.2. Discussion Groups
 
 The Working Group may form one or more "Discussion Groups" to organize collaboration around a particular aspect of a specification. Discussion Groups are for discussion only.  Approval of all portions of a specification is subject to the consensus-based decision-making process of the AIGF Standard Working Group.
