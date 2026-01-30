@@ -9,6 +9,9 @@ iso-42001_references:
   - A-8-2    # ISO 42001: System documentation and information for users
   - A-8-3    # ISO 42001: External reporting
   - A-3-3    # ISO 42001: Reporting of concerns
+eu-ai-act_references:
+  - c3-s2-a14  # III.S2.A14: Human Oversight
+  - c9-s1-a72  # IX.S1.A72: Post-Market Monitoring by Providers and Post-Market Monitoring Plan for High-Risk AI Systems
 nist-sp-800-53r5_references:
   - ca-7  # CA-7 Authorization
   - ir-6  # IR-6 Incident Reporting
@@ -22,6 +25,7 @@ mitigates:
   - ri-5   # Foundation Model Versioning
   - ri-6   # Non-Deterministic Behaviour
   - ri-14  # Inadequate System Alignment
+  - ri-16  # Bias and Discrimination
   - ri-20  # Reputational Risk
 related_mitigations:
   - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge

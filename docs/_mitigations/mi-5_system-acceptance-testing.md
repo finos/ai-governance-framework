@@ -7,6 +7,9 @@ type: PREV
 iso-42001_references:
   - A-6-2-4  # ISO 42001: AI system verification and validation
   - A-6-2-5  # ISO 42001: AI system deployment
+eu-ai-act_references:
+  - c3-s2-a9   # III.S2.A9: Risk Management System
+  - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
 nist-sp-800-53r5_references:
   - ca-2  # CA-2 Control Assessments
   - ca-6  # CA-6 Authorization
@@ -20,6 +23,8 @@ mitigates:
   - ri-5   # Foundation Model Versioning
   - ri-6   # Non-Deterministic Behaviour
   - ri-14  # Inadequate System Alignment
+  - ri-16  # Bias and Discrimination
+  - ri-22  # Regulatory Compliance and Oversight
 related_mitigations:
   - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
   - mi-11  # Human Feedback Loop for AI Systems

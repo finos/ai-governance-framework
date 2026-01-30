@@ -8,6 +8,8 @@ iso-42001_references:
   - A-7-4  # ISO 42001: Quality of data for AI systems
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system
   - A-4-3  # ISO 42001: Data resources
+eu-ai-act_references:
+  - c3-s2-a10  # III.S2.A10: Data and Data Governance
 nist-sp-800-53r5_references:
   - ac-1  # AC-1 Policy And Procedures
   - ac-4  # AC-4 Information Flow Enforcement
