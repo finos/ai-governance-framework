@@ -10,9 +10,7 @@ assignees: ColinEberhardt
 YYYYMMDD - time
 
 ## Zoom details
-https://zoom.us/j/96783320878
-Meeting ID: 967 8332 0878
-Passcode: 798800
+https://zoom-lfx.platform.linuxfoundation.org/meeting/97158459687?password=62a83d0b-7b19-416d-8250-e5bcf9f7640b
 
 
 ## Meeting notices
