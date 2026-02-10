@@ -1,0 +1,2 @@
+{% assign padded_number = "00" | append: include.usecase.sequence | slice: -3, 3 %}
+UC-{{ padded_number }}
