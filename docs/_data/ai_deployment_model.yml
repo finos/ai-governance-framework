@@ -1,0 +1,112 @@
+ai_deployment_model_taxonomy:
+  - ai_type:
+      - Static_AI:
+          description: >
+            Traditional AI/ML models with fixed logic and parameters after training (e.g., classical ML, rule-based systems).
+      - Dynamic_AI:
+          description: >
+            AI/ML models that adapt or retrain over time based on new data (e.g., online learning, adaptive models).
+      - Generative_AI:
+          description: >
+            Models that generate new content, data, or predictions (e.g., LLMs, diffusion models, GenAI).
+      - Agentic_AI:
+          description: >
+            AI systems capable of autonomous decision-making and actions, often with feedback loops (e.g., AI agents, RPA bots).
+      - Composite_AI:
+          description: >
+            Solutions combining multiple AI paradigms (e.g., ensemble models, hybrid AI, multi-modal AI).
+
+  - architecture_pattern:
+      - Classical_ML:
+          description: >
+            Supervised, unsupervised, or reinforcement learning models using structured data.
+      - Deep_Learning:
+          description: >
+            Neural network-based architectures (CNNs, RNNs, Transformers, etc.).
+      - Generative_AI:
+          description: >
+            LLMs, diffusion models, GANs, and other generative architectures.
+      - Agentic/Autonomous_AI:
+          description: >
+            Multi-agent systems, autonomous agents, and agent-based modeling.
+      - Hybrid/Composite:
+          description: >
+            Architectures combining ML, GenAI, rules, and/or agentic components.
+      - Federated_Learning:
+          description: >
+            Distributed learning across multiple data sources without centralizing data.
+
+  - deployment_type:
+      - On_Premises:
+          description: >
+            Deployed within the organization's own infrastructure/data centers.
+      - Private_Cloud:
+          description: >
+            Hosted in a dedicated cloud environment for a single organization.
+      - Public_Cloud:
+          description: >
+            Hosted in a shared cloud environment (AWS, Azure, GCP, etc.).
+      - Hybrid_Cloud:
+          description: >
+            Combination of on-premises and cloud resources.
+      - Hosted_SaaS:
+          description: >
+            AI/ML/GenAI provided as a managed service by a third party.
+      - Edge/On_Device:
+          description: >
+            Deployed on local devices or edge infrastructure for low-latency or privacy.
+
+  - data_handling:
+      - Centralized:
+          description: >
+            All data is aggregated and processed in a central location.
+      - Federated:
+          description: >
+            Data remains distributed; only model updates or insights are shared.
+      - Synthetic_Data:
+          description: >
+            Use of artificially generated data for training, testing, or privacy.
+      - Privacy_Preserving:
+          description: >
+            Techniques such as differential privacy, encryption, or secure enclaves.
+
+  - regulatory_alignment:
+      - RegTech_Compliant:
+          description: >
+            Designed to meet regulatory requirements (e.g., explainability, auditability, traceability).
+      - Cross_Border:
+          description: >
+            Supports data residency and sovereignty requirements for multi-jurisdictional deployments.
+      - Sector_Specific:
+          description: >
+            Tailored for financial industry standards (e.g., PCI DSS, GLBA, Basel III).
+
+  - operational_model:
+      - Batch:
+          description: >
+            Processes data in scheduled batches (e.g., overnight risk calculations).
+      - Real_Time:
+          description: >
+            Processes data and produces outputs in real time (e.g., fraud detection).
+      - Human_in_the_Loop:
+          description: >
+            Requires human validation or intervention at key steps.
+      - Fully_Autonomous:
+          description: >
+            Operates end-to-end without human intervention.
+
+  - integration_pattern:
+      - API_Based:
+          description: >
+            Exposed via REST/gRPC APIs for integration with other systems.
+      - Embedded:
+          description: >
+            Integrated directly into business applications or workflows.
+      - Event_Driven:
+          description: >
+            Triggered by events or message queues (e.g., Kafka, RabbitMQ).
+      - Batch_File:
+          description: >
+            Consumes or produces files for integration (e.g., CSV, XML).
+
+# Add or extend as needed for further granularity or industry-specific requirements.
