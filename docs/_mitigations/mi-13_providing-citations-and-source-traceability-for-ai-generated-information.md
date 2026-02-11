@@ -8,6 +8,9 @@ iso-42001_references:
   - A-8-2    # ISO 42001: System documentation and information for users
   - A-6-1-2  # ISO 42001: Objectives for responsible development of AI systems
   - A-6-2-7  # ISO 42001: AI system technical documentation
+eu-ai-act_references:
+  - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
+  - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
 nist-sp-800-53r5_references:
   - au-10  # AU-10 Non-repudiation
   - sa-8  # SA-8 Security And Privacy Engineering Principles
@@ -18,6 +21,7 @@ mitigates:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-17  # Lack of Explainability
   - ri-20  # Reputational Risk
+  - ri-22  # Regulatory Compliance and Oversight
 related_mitigations:
   - mi-4   # AI System Observability
   - mi-6   # Data Quality Classification Sensitivity
