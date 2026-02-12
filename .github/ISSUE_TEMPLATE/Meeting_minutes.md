@@ -6,6 +6,11 @@ labels: meeting
 assignees: ColinEberhardt
 ---
 
+## Overview
+![FINOS AI Governance Framework - December 2025](https://github.com/user-attachments/assets/d00a97f9-fa92-44c6-8277-bbb45c1a83f5)
+
+Click on the image and then on the item to view the related repo
+
 ## Date
 YYYYMMDD - time
 
