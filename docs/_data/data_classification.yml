@@ -1,0 +1,44 @@
+financial_data_classification:
+  - name: Public_Financial_Data
+    sensitivity: Low
+    description: >
+      Data that is publicly available and poses minimal risk if disclosed.
+    examples:
+      - Public market data
+      - Published financial statements
+      - Exchange rates
+    storage_location: Public cloud, CDN
+    regulations: None specific
+
+  - name: Internal_Financial_Data
+    sensitivity: Medium
+    description: >
+      Data generated within the organization, not intended for public release.
+    examples:
+      - Aggregated transaction data
+      - Internal financial metrics
+      - Risk scores
+    storage_location: Private cloud, internal servers
+    regulations: SOX, GDPR (if personal data)
+
+  - name: Sensitive_Financial_Data
+    sensitivity: High
+    description: >
+      Data that can identify individuals or reveal sensitive business operations.
+    examples:
+      - Individual transaction records
+      - Account balances
+      - Credit scores
+    storage_location: Encrypted storage, access-controlled systems
+    regulations: GLBA, PSD2, GDPR, CCPA
+
+  - name: Critical_Financial_Data
+    sensitivity: Critical
+    description: >
+      Data whose compromise could cause severe financial or reputational damage.
+    examples:
+      - Payment card data
+      - Banking credentials
+      - Trading algorithms
+    storage_location: High-security encrypted storage, isolated systems
+    regulations: PCI DSS, BASEL, GLBA
