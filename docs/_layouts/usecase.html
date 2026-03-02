@@ -1,0 +1,162 @@
+---
+layout: default
+---
+
+<header class="py-5 bg-light border-bottom">
+    <div class="container">
+        <div class="mb-4">
+            <a href="/use-cases/" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                Back to Use Cases Catalogue
+            </a>
+        </div>
+        <div class="usecase-id mb-2">{% include usecase-id.html usecase=page %}</div>
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <img src="/2025_AIGovernanceFramework_Icon.png" alt="AI Governance Framework Icon" style="height: 48px;" class="me-3 mb-0">
+                    <div>
+                        <h1 class="display-4 mb-0">{{ page.title }}</h1>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://github.com/finos/ai-governance-framework/edit/main/docs/{{ page.path }}"
+                       target="_blank"
+                       class="btn btn-outline-primary btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        Edit on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            {% if page.category %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Category</h2>
+                    <span class="badge bg-primary">{{ page.category | replace: '_', ' ' }}</span>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.related_risks and page.related_risks.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">Related Risks</h2>
+                    <div class="list-group">
+                        {% for risk_sequence in page.related_risks %}
+                        {% for risk in site.risks %}
+                        {% if risk.sequence == risk_sequence %}
+                        <div class="list-group-item">
+                            <h3 class="h6 mb-1">
+                                <a href="{{ risk.url }}">{% include risk-id.html risk=risk %}: {{ risk.title }}</a>
+                            </h3>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.related_mitigations and page.related_mitigations.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">Related Mitigations</h2>
+                    <div class="list-group">
+                        {% for mitigation_id in page.related_mitigations %}
+                        {% for mitigation in site.mitigations %}
+                        {% assign mitigation_prefix = "mi-" | append: mitigation.sequence %}
+                        {% if mitigation_prefix == mitigation_id %}
+                        <div class="list-group-item">
+                            <h3 class="h6 mb-1">
+                                <a href="{{ mitigation.url }}">{% include mitigation-id.html mitigation=mitigation %}: {{ mitigation.title }}</a>
+                            </h3>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.data_classification %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Data Classification</h2>
+                    {% assign data_class = site.data.data_classification.financial_data_classification | where: "name", page.data_classification | first %}
+                    {% if data_class %}
+                    <p class="mb-2"><strong>{{ data_class.name }}</strong></p>
+                    <p class="text-muted small mb-2"><span class="badge bg-warning text-dark">{{ data_class.sensitivity }} Sensitivity</span></p>
+                    <p class="text-muted small mb-3">{{ data_class.description }}</p>
+
+                    {% if data_class.examples %}
+                    <p class="mb-1 small"><strong>Data Types:</strong></p>
+                    <ul class="small text-muted mb-2">
+                        {% for example in data_class.examples %}
+                        <li>{{ example }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    {% if data_class.storage_location %}
+                    <p class="mb-1 small"><strong>Storage:</strong> {{ data_class.storage_location }}</p>
+                    {% endif %}
+
+                    {% if data_class.regulations %}
+                    <p class="mb-0 small"><strong>Regulations:</strong> {{ data_class.regulations }}</p>
+                    {% endif %}
+                    {% else %}
+                    <p class="mb-0">{{ page.data_classification }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% include reference-card.html
+                references=page.nist-ai-600-1_references
+                dataset="nist-ai-600-1"
+                heading="NIST AI 600-1" %}
+
+            {% include reference-card.html
+                references=page.nist-sp-800-53r5_references
+                dataset="nist-sp-800-53r5"
+                heading="NIST SP 800-53r5" %}
+
+            {% include reference-card.html
+                references=page.ffiec-itbooklets_references
+                dataset="ffiec-itbooklets"
+                heading="FFIEC IT Booklets" %}
+
+            {% include reference-card.html
+                references=page.eu-ai-act_references
+                dataset="eu-ai-act"
+                heading="EU AI Act" %}
+
+            {% include reference-card.html
+                references=page.iso-42001_references
+                dataset="iso-42001"
+                heading="ISO 42001" %}
+
+        </div>
+    </div>
+</main>
