@@ -74,7 +74,7 @@ Sophisticated prompt injection techniques can also be used to probe the internal
 This enables intellectual property theft, enables future attacks, or facilitates the creation of clone models.
 
 
-## Links
+## Links
 
 * [OWASP Top 10 for LLM Applications (PDF)](https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf)
 * [MITRE Prompt Injection Technique](https://attack.mitre.org/techniques/T1055/)
