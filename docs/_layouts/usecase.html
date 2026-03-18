@@ -18,7 +18,8 @@ layout: default
                 <div class="d-flex align-items-center">
                     <img src="/2025_AIGovernanceFramework_Icon.png" alt="AI Governance Framework Icon" style="height: 48px;" class="me-3 mb-0">
                     <div>
-                        <h1 class="display-4 mb-0">{{ page.title }}</h1>
+                        <h1 class="display-4 mb-1">{{ page.title }}</h1>
+                        {% if page.category %}<span class="badge bg-primary">{{ page.category | replace: '_', ' ' }}</span>{% endif %}
                     </div>
                 </div>
                 <div>
@@ -48,21 +49,227 @@ layout: default
 
         <div class="col-lg-4">
 
-            <!-- 1. Category -->
-            {% if page.category %}
+            <!-- 1. Data Classifications -->
+            {% if page.data_classifications and page.data_classifications.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-tag-fill me-2"></i>Category</h2>
-                    <span class="badge bg-primary">{{ page.category | replace: '_', ' ' }}</span>
+                    <h2 class="h4 mb-3">Data Classifications</h2>
+                    {% for dc in page.data_classifications %}
+                    {% assign dc_name = dc.name | default: dc %}
+                    {% assign data_class = site.data.data_classification.financial_data_classification | where: "name", dc_name | first %}
+                    {% if data_class %}
+                    {% unless forloop.first %}<hr class="my-3">{% endunless %}
+                    <p class="mb-1 fw-semibold small">{{ data_class.name | replace: '_', ' ' }}</p>
+                    <p class="text-muted small mb-2">
+                        {% if data_class.sensitivity == "Critical" %}<span class="badge bg-danger">Critical Sensitivity</span>
+                        {% elsif data_class.sensitivity == "High" %}<span class="badge bg-warning text-dark">High Sensitivity</span>
+                        {% elsif data_class.sensitivity == "Medium" %}<span class="badge bg-info text-dark">Medium Sensitivity</span>
+                        {% else %}<span class="badge bg-success">Low Sensitivity</span>{% endif %}
+                    </p>
+                    <p class="text-muted small mb-2">{{ data_class.description }}</p>
+                    {% if dc.data_types %}
+                    <p class="mb-1 small"><strong>Data Processed:</strong></p>
+                    <ul class="small text-muted mb-2">
+                        {% for dtype in dc.data_types %}
+                        <li>{{ dtype }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% elsif data_class.examples %}
+                    <p class="mb-1 small"><strong>Typical Data Types:</strong></p>
+                    <ul class="small text-muted mb-2">
+                        {% for example in data_class.examples %}
+                        <li>{{ example }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if data_class.storage_location %}
+                    <p class="mb-1 small"><strong>Storage:</strong> {{ data_class.storage_location }}</p>
+                    {% endif %}
+                    {% if data_class.regulations %}
+                    <p class="mb-0 small"><strong>Regulations:</strong> {{ data_class.regulations }}</p>
+                    {% endif %}
+                    {% else %}
+                    <p class="mb-0 small">{{ dc_name }}</p>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
             {% endif %}
 
-            <!-- 2. Related Risks -->
+            <!-- 2a. Regulations -->
+            {% assign has_regulations = false %}
+            {% if page.sr11-7_references and page.sr11-7_references.size > 0 %}{% assign has_regulations = true %}{% endif %}
+            {% if page.eu-ai-act_references and page.eu-ai-act_references.size > 0 %}{% assign has_regulations = true %}{% endif %}
+            {% if page.regulatory_concerns and page.regulatory_concerns.size > 0 %}{% assign has_regulations = true %}{% endif %}
+            {% if has_regulations %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Regulations</h2>
+
+                    {% if page.sr11-7_references and page.sr11-7_references.size > 0 %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">SR 11-7: Model Risk Management</p>
+                        <span class="badge bg-light text-dark border" style="font-size:0.65rem;">US</span>
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        {% for id in page.sr11-7_references %}
+                        {% assign item = site.data.sr11-7[id] %}
+                        {% if item %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ item.title }}{% include external-link-icon.html %}
+                        </a>
+                        {% else %}
+                        <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ id }}{% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.eu-ai-act_references and page.eu-ai-act_references.size > 0 %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">EU AI Act</p>
+                        <span class="badge bg-light text-dark border" style="font-size:0.65rem;">EU</span>
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        {% for id in page.eu-ai-act_references %}
+                        {% assign item = site.data.eu-ai-act[id] %}
+                        {% if item %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ item.title }}{% include external-link-icon.html %}
+                        </a>
+                        {% else %}
+                        <a href="https://artificialintelligenceact.eu/" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ id }}{% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.regulatory_concerns and page.regulatory_concerns.size > 0 %}
+                    {% for reg in page.regulatory_concerns %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">{{ reg.name }}</p>
+                        {% if reg.jurisdiction %}<span class="badge bg-light text-dark border" style="font-size:0.65rem;">{{ reg.jurisdiction }}</span>{% endif %}
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        <a href="{{ reg.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ reg.name }}{% include external-link-icon.html %}
+                        </a>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- 2b. Standards & Frameworks -->
+            {% assign has_standards = false %}
+            {% if page.nist-ai-600-1_references and page.nist-ai-600-1_references.size > 0 %}{% assign has_standards = true %}{% endif %}
+            {% if page.ffiec-itbooklets_references and page.ffiec-itbooklets_references.size > 0 %}{% assign has_standards = true %}{% endif %}
+            {% if page.iso-42001_references and page.iso-42001_references.size > 0 %}{% assign has_standards = true %}{% endif %}
+            {% if page.nist-sp-800-53r5_references and page.nist-sp-800-53r5_references.size > 0 %}{% assign has_standards = true %}{% endif %}
+            {% if has_standards %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Standards &amp; Frameworks</h2>
+
+                    {% if page.nist-ai-600-1_references and page.nist-ai-600-1_references.size > 0 %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">NIST AI 600-1</p>
+                        <span class="badge bg-light text-dark border" style="font-size:0.65rem;">US</span>
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        {% for id in page.nist-ai-600-1_references %}
+                        {% assign item = site.data.nist-ai-600-1[id] %}
+                        {% if item %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ item.title }}{% include external-link-icon.html %}
+                        </a>
+                        {% else %}
+                        <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ id }}{% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.ffiec-itbooklets_references and page.ffiec-itbooklets_references.size > 0 %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">FFIEC IT Booklets</p>
+                        <span class="badge bg-light text-dark border" style="font-size:0.65rem;">US</span>
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        {% for id in page.ffiec-itbooklets_references %}
+                        {% assign item = site.data.ffiec-itbooklets[id] %}
+                        {% if item %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ item.title }}{% include external-link-icon.html %}
+                        </a>
+                        {% else %}
+                        <a href="https://ithandbook.ffiec.gov/" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ id }}{% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.iso-42001_references and page.iso-42001_references.size > 0 %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">ISO 42001</p>
+                        <span class="badge bg-light text-dark border" style="font-size:0.65rem;">International</span>
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        {% for id in page.iso-42001_references %}
+                        {% assign item = site.data.iso-42001[id] %}
+                        {% if item %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ item.title }}{% include external-link-icon.html %}
+                        </a>
+                        {% else %}
+                        <a href="https://www.iso.org/standard/81230.html" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ id }}{% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.nist-sp-800-53r5_references and page.nist-sp-800-53r5_references.size > 0 %}
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <p class="fw-semibold small mb-0">NIST SP 800-53r5</p>
+                        <span class="badge bg-light text-dark border" style="font-size:0.65rem;">US</span>
+                    </div>
+                    <div class="list-group list-group-flush mb-3">
+                        {% for id in page.nist-sp-800-53r5_references %}
+                        {% assign item = site.data.nist-sp-800-53r5[id] %}
+                        {% if item %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ item.title }}{% include external-link-icon.html %}
+                        </a>
+                        {% else %}
+                        <a href="https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-1 px-0 border-0 small">
+                            {{ id }}{% include external-link-icon.html %}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- 3. Related Risks -->
             {% if page.related_risks and page.related_risks.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Related Risks</h2>
+                    <h2 class="h4 mb-3">Related Risks</h2>
                     <div class="list-group">
                         {% for risk_sequence in page.related_risks %}
                         {% for risk in site.risks %}
@@ -80,11 +287,11 @@ layout: default
             </div>
             {% endif %}
 
-            <!-- 3. Related Mitigations -->
+            <!-- 4. Related Mitigations -->
             {% if page.related_mitigations and page.related_mitigations.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-shield-check-fill text-success me-2"></i>Related Mitigations</h2>
+                    <h2 class="h4 mb-3">Related Mitigations</h2>
                     <div class="list-group">
                         {% for mitigation_id in page.related_mitigations %}
                         {% for mitigation in site.mitigations %}
@@ -102,163 +309,6 @@ layout: default
                 </div>
             </div>
             {% endif %}
-
-            <!-- 4. Operational Model -->
-            {% if page.operational_models and page.operational_models.size > 0 %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-gear-fill me-2"></i>Operational Model</h2>
-                    {% for item in page.operational_models %}
-                    <div class="d-flex align-items-start mb-2">
-                        {% if item == "Batch" %}<i class="bi bi-stack me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Real_Time" %}<i class="bi bi-lightning-fill text-warning me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Human_in_the_Loop" %}<i class="bi bi-person-check-fill text-success me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Fully_Autonomous" %}<i class="bi bi-robot text-danger me-2 mt-1 fs-5"></i>
-                        {% else %}<i class="bi bi-gear me-2 mt-1 fs-5"></i>{% endif %}
-                        <div>
-                            <div class="fw-semibold small">{{ item | replace: '_', ' ' }}</div>
-                            {% for section in site.data.ai_deployment_model.ai_deployment_model_taxonomy %}
-                            {% if section.operational_model %}
-                            {% for entry in section.operational_model %}
-                            {% assign entry_keys = entry | keys %}
-                            {% if entry_keys[0] == item %}
-                            <div class="text-muted" style="font-size:0.78rem">{{ entry[item].description | strip }}</div>
-                            {% endif %}
-                            {% endfor %}
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-
-            <!-- 5. Data Classification -->
-            {% if page.data_classification %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-lock-fill me-2"></i>Data Classification</h2>
-                    {% assign data_class = site.data.data_classification.financial_data_classification | where: "name", page.data_classification | first %}
-                    {% if data_class %}
-                    <p class="mb-2"><strong>{{ data_class.name }}</strong></p>
-                    <p class="text-muted small mb-2"><span class="badge bg-warning text-dark">{{ data_class.sensitivity }} Sensitivity</span></p>
-                    <p class="text-muted small mb-3">{{ data_class.description }}</p>
-
-                    {% if data_class.examples %}
-                    <p class="mb-1 small"><strong>Data Types:</strong></p>
-                    <ul class="small text-muted mb-2">
-                        {% for example in data_class.examples %}
-                        <li>{{ example }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-
-                    {% if data_class.storage_location %}
-                    <p class="mb-1 small"><strong>Storage:</strong> {{ data_class.storage_location }}</p>
-                    {% endif %}
-
-                    {% if data_class.regulations %}
-                    <p class="mb-0 small"><strong>Regulations:</strong> {{ data_class.regulations }}</p>
-                    {% endif %}
-                    {% else %}
-                    <p class="mb-0">{{ page.data_classification }}</p>
-                    {% endif %}
-                </div>
-            </div>
-            {% endif %}
-
-            <!-- 6. Data Handling -->
-            {% if page.data_handling_aspects and page.data_handling_aspects.size > 0 %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-database-fill me-2"></i>Data Handling</h2>
-                    {% for item in page.data_handling_aspects %}
-                    <div class="d-flex align-items-start mb-2">
-                        {% if item == "Centralized" %}<i class="bi bi-database-fill me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Federated" %}<i class="bi bi-diagram-3-fill text-info me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Synthetic_Data" %}<i class="bi bi-shuffle me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Privacy_Preserving" %}<i class="bi bi-shield-lock-fill text-success me-2 mt-1 fs-5"></i>
-                        {% else %}<i class="bi bi-database me-2 mt-1 fs-5"></i>{% endif %}
-                        <div>
-                            <div class="fw-semibold small">{{ item | replace: '_', ' ' }}</div>
-                            {% for section in site.data.ai_deployment_model.ai_deployment_model_taxonomy %}
-                            {% if section.data_handling %}
-                            {% for entry in section.data_handling %}
-                            {% assign entry_keys = entry | keys %}
-                            {% if entry_keys[0] == item %}
-                            <div class="text-muted" style="font-size:0.78rem">{{ entry[item].description | strip }}</div>
-                            {% endif %}
-                            {% endfor %}
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-
-            <!-- 7. Regulatory Alignment -->
-            {% if page.regulatory_alignments and page.regulatory_alignments.size > 0 %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-3"><i class="bi bi-patch-check-fill me-2"></i>Regulatory Alignment</h2>
-                    {% for item in page.regulatory_alignments %}
-                    <div class="d-flex align-items-start mb-2">
-                        {% if item == "RegTech_Compliant" %}<i class="bi bi-patch-check-fill text-success me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Cross_Border" %}<i class="bi bi-globe2 text-primary me-2 mt-1 fs-5"></i>
-                        {% elsif item == "Sector_Specific" %}<i class="bi bi-building text-secondary me-2 mt-1 fs-5"></i>
-                        {% else %}<i class="bi bi-check-circle me-2 mt-1 fs-5"></i>{% endif %}
-                        <div>
-                            <div class="fw-semibold small">{{ item | replace: '_', ' ' }}</div>
-                            {% for section in site.data.ai_deployment_model.ai_deployment_model_taxonomy %}
-                            {% if section.regulatory_alignment %}
-                            {% for entry in section.regulatory_alignment %}
-                            {% assign entry_keys = entry | keys %}
-                            {% if entry_keys[0] == item %}
-                            <div class="text-muted" style="font-size:0.78rem">{{ entry[item].description | strip }}</div>
-                            {% endif %}
-                            {% endfor %}
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-
-            <!-- 8–12. Regulatory Framework References -->
-            {% include reference-card.html
-                references=page.eu-ai-act_references
-                dataset="eu-ai-act"
-                heading="EU AI Act"
-                icon="bi-file-earmark-ruled" %}
-
-            {% include reference-card.html
-                references=page.nist-ai-600-1_references
-                dataset="nist-ai-600-1"
-                heading="NIST AI 600-1"
-                icon="bi-file-earmark-text" %}
-
-            {% include reference-card.html
-                references=page.ffiec-itbooklets_references
-                dataset="ffiec-itbooklets"
-                heading="FFIEC IT Booklets"
-                icon="bi-bank2" %}
-
-            {% include reference-card.html
-                references=page.iso-42001_references
-                dataset="iso-42001"
-                heading="ISO 42001"
-                icon="bi-award" %}
-
-            {% include reference-card.html
-                references=page.nist-sp-800-53r5_references
-                dataset="nist-sp-800-53r5"
-                heading="NIST SP 800-53r5"
-                icon="bi-file-earmark-text" %}
 
         </div>
     </div>

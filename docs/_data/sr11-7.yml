@@ -1,0 +1,66 @@
+# SR 11-7: Supervisory Guidance on Model Risk Management
+# Federal Reserve / OCC, April 2011
+# Source: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm
+
+overview:
+  title: 'SR 11-7: Model Risk Management Overview'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm
+
+# Section: Model Development, Implementation, and Use
+s2:
+  title: 'SR 11-7 S2: Model Development, Implementation, and Use'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s2-dev:
+  title: 'SR 11-7 S2.1: Model Development'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s2-impl:
+  title: 'SR 11-7 S2.2: Model Implementation'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s2-use:
+  title: 'SR 11-7 S2.3: Model Use'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+# Section: Model Validation
+s3:
+  title: 'SR 11-7 S3: Model Validation'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s3-conceptual:
+  title: 'SR 11-7 S3.1: Conceptual Soundness'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s3-monitoring:
+  title: 'SR 11-7 S3.2: Ongoing Monitoring'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s3-outcomes:
+  title: 'SR 11-7 S3.3: Outcomes Analysis and Back-Testing'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+# Section: Governance, Policies, and Controls
+s4:
+  title: 'SR 11-7 S4: Governance, Policies, and Controls'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s4-board:
+  title: 'SR 11-7 S4.1: Board and Senior Management Oversight'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s4-policies:
+  title: 'SR 11-7 S4.2: Policies and Procedures'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s4-inventory:
+  title: 'SR 11-7 S4.3: Model Inventory'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s4-audit:
+  title: 'SR 11-7 S4.4: Review and Audit'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf
+
+s4-incentives:
+  title: 'SR 11-7 S4.5: Incentives'
+  url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf

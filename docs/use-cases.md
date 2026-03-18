@@ -56,12 +56,29 @@ permalink: /use-cases/
 
                             <p class="card-text text-muted small mb-3">{{ usecase.description }}</p>
 
-                            <!-- Badges -->
+                            <!-- Badges: highest sensitivity + regulations -->
+                            {% if usecase.data_classifications and usecase.data_classifications.size > 0 %}
+                            {% assign max_rank = 0 %}
+                            {% assign all_regulations = "" %}
+                            {% for dc_entry in usecase.data_classifications %}
+                            {% assign dc_name = dc_entry.name | default: dc_entry %}
+                            {% assign dc = site.data.data_classification.financial_data_classification | where: "name", dc_name | first %}
+                            {% if dc %}
+                            {% if dc.sensitivity == "Critical" %}{% assign rank = 4 %}{% elsif dc.sensitivity == "High" %}{% assign rank = 3 %}{% elsif dc.sensitivity == "Medium" %}{% assign rank = 2 %}{% else %}{% assign rank = 1 %}{% endif %}
+                            {% if rank > max_rank %}{% assign max_rank = rank %}{% assign max_sensitivity = dc.sensitivity %}{% endif %}
+                            {% if dc.regulations and dc.regulations != "None specific" %}
+                            {% if all_regulations == "" %}{% assign all_regulations = dc.regulations %}{% else %}{% assign all_regulations = all_regulations | append: ", " | append: dc.regulations %}{% endif %}
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
                             <div class="d-flex flex-wrap gap-2">
-                                {% if usecase.data_classification %}
-                                <span class="badge bg-warning text-dark">{{ usecase.data_classification }}</span>
-                                {% endif %}
+                                {% if max_sensitivity == "Critical" %}<span class="badge bg-danger">Critical Sensitivity</span>
+                                {% elsif max_sensitivity == "High" %}<span class="badge bg-warning text-dark">High Sensitivity</span>
+                                {% elsif max_sensitivity == "Medium" %}<span class="badge bg-info text-dark">Medium Sensitivity</span>
+                                {% elsif max_sensitivity == "Low" %}<span class="badge bg-success">Low Sensitivity</span>{% endif %}
+                                {% if all_regulations != "" %}<span class="badge bg-light text-dark border small">{{ all_regulations }}</span>{% endif %}
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
