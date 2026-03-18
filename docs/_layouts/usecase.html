@@ -59,34 +59,25 @@ layout: default
                     {% assign data_class = site.data.data_classification.financial_data_classification | where: "name", dc_name | first %}
                     {% if data_class %}
                     {% unless forloop.first %}<hr class="my-3">{% endunless %}
-                    <p class="mb-1 fw-semibold small">{{ data_class.name | replace: '_', ' ' }}</p>
-                    <p class="text-muted small mb-2">
-                        {% if data_class.sensitivity == "Critical" %}<span class="badge bg-danger">Critical Sensitivity</span>
-                        {% elsif data_class.sensitivity == "High" %}<span class="badge bg-warning text-dark">High Sensitivity</span>
-                        {% elsif data_class.sensitivity == "Medium" %}<span class="badge bg-info text-dark">Medium Sensitivity</span>
-                        {% else %}<span class="badge bg-success">Low Sensitivity</span>{% endif %}
-                    </p>
-                    <p class="text-muted small mb-2">{{ data_class.description }}</p>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0 fw-semibold small">{{ data_class.name | replace: '_', ' ' }}</p>
+                        {% if data_class.sensitivity == "Critical" %}<span class="badge bg-danger">Critical</span>
+                        {% elsif data_class.sensitivity == "High" %}<span class="badge bg-warning text-dark">High</span>
+                        {% elsif data_class.sensitivity == "Medium" %}<span class="badge bg-info text-dark">Medium</span>
+                        {% else %}<span class="badge bg-success">Low</span>{% endif %}
+                    </div>
                     {% if dc.data_types %}
-                    <p class="mb-1 small"><strong>Data Processed:</strong></p>
-                    <ul class="small text-muted mb-2">
+                    <ul class="small text-muted mb-0">
                         {% for dtype in dc.data_types %}
                         <li>{{ dtype }}</li>
                         {% endfor %}
                     </ul>
                     {% elsif data_class.examples %}
-                    <p class="mb-1 small"><strong>Typical Data Types:</strong></p>
-                    <ul class="small text-muted mb-2">
+                    <ul class="small text-muted mb-0">
                         {% for example in data_class.examples %}
                         <li>{{ example }}</li>
                         {% endfor %}
                     </ul>
-                    {% endif %}
-                    {% if data_class.storage_location %}
-                    <p class="mb-1 small"><strong>Storage:</strong> {{ data_class.storage_location }}</p>
-                    {% endif %}
-                    {% if data_class.regulations %}
-                    <p class="mb-0 small"><strong>Regulations:</strong> {{ data_class.regulations }}</p>
                     {% endif %}
                     {% else %}
                     <p class="mb-0 small">{{ dc_name }}</p>

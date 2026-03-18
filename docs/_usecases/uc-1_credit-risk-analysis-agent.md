@@ -21,12 +21,19 @@ related_mitigations:
   - mi-5
 
 data_classifications:
+  - name: Customer_Personal_Data
+    data_types:
+      - Credit applicant identity and contact information
+      - Business ownership and structure details
   - name: Sensitive_Financial_Data
     data_types:
       - Individual credit application records and financial statements
       - Account balances, income, and liability data
       - Credit scores (input and agent-generated)
+  - name: Internal_Financial_Data
+    data_types:
       - Proprietary internal lending policies
+      - Risk assessment models and scoring thresholds
 
 data_handling_aspects:
   - Centralized

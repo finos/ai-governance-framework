@@ -1,44 +1,210 @@
 financial_data_classification:
+
   - name: Public_Financial_Data
     sensitivity: Low
     description: >
       Data that is publicly available and poses minimal risk if disclosed.
     examples:
-      - Public market data
-      - Published financial statements
-      - Exchange rates
+      - Published financial statements and annual reports
+      - Public market prices and exchange rates
+      - Regulatory filings and public disclosures
     storage_location: Public cloud, CDN
     regulations: None specific
+    references:
+      - name: "BCBS 239 P3: Accuracy and Integrity"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
 
   - name: Internal_Financial_Data
     sensitivity: Medium
     description: >
-      Data generated within the organization, not intended for public release.
+      Data generated or held within the organization, not intended for public
+      release. Includes aggregated risk data, models, and internal policies.
     examples:
-      - Aggregated transaction data
-      - Internal financial metrics
-      - Risk scores
+      - Aggregated transaction data and internal metrics
+      - Risk model parameters and lending policies
+      - Stress test assumptions and scenario data
+      - Internal performance and financial reporting
     storage_location: Private cloud, internal servers
-    regulations: SOX, GDPR (if personal data)
+    regulations: SOX
+    references:
+      - name: "SOX Section 302/404"
+        url: "https://www.sec.gov/spotlight/sarbanes-oxley.htm"
+        jurisdiction: "US"
+      - name: "BCBS 239 P1: Governance"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "BCBS 239 P3: Accuracy and Integrity"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "BCBS 239 P4: Completeness"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+
+  - name: Customer_Personal_Data
+    sensitivity: High
+    description: >
+      Non-public personal information (NPI) about consumers obtained in the
+      course of providing financial services. Covers identity, contact, and
+      account-level information as defined under GLBA.
+    examples:
+      - Customer names, addresses, and contact details
+      - Account numbers and financial history
+      - Credit application data and income declarations
+      - Long-term relationship and preference profiles
+    storage_location: Encrypted storage, access-controlled systems
+    regulations: GLBA, GDPR, CCPA
+    references:
+      - name: "GLBA: Safeguards Rule (NPI)"
+        url: "https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act"
+        jurisdiction: "US"
+      - name: "GDPR Article 4: Definition of Personal Data"
+        url: "https://gdpr-info.eu/art-4-gdpr/"
+        jurisdiction: "EU"
+      - name: "CCPA: Consumer Personal Information"
+        url: "https://oag.ca.gov/privacy/ccpa"
+        jurisdiction: "US"
+      - name: "BCBS 239 P2: Data Architecture and IT Infrastructure"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
 
   - name: Sensitive_Financial_Data
     sensitivity: High
     description: >
-      Data that can identify individuals or reveal sensitive business operations.
+      Detailed financial data about individuals or entities that reveals
+      sensitive business operations, transaction behaviour, or financial
+      position. Subject to multiple financial privacy regulations.
     examples:
-      - Individual transaction records
-      - Account balances
-      - Credit scores
+      - Individual transaction records and payment history
+      - Account balances and investment holdings
+      - Credit scores (input and model-generated)
+      - Investment Policy Statements and portfolio constraints
     storage_location: Encrypted storage, access-controlled systems
-    regulations: GLBA, PSD2, GDPR, CCPA
+    regulations: GLBA, PSD2, GDPR, CCPA, MiFID II
+    references:
+      - name: "GLBA: Safeguards Rule"
+        url: "https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act"
+        jurisdiction: "US"
+      - name: "PSD2: Payment Services Directive"
+        url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L2366"
+        jurisdiction: "EU"
+      - name: "GDPR Article 5: Data Quality Principles"
+        url: "https://gdpr-info.eu/art-5-gdpr/"
+        jurisdiction: "EU"
+      - name: "CCPA: Consumer Privacy Rights"
+        url: "https://oag.ca.gov/privacy/ccpa"
+        jurisdiction: "US"
+      - name: "BCBS 239 P3: Accuracy and Integrity"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "BCBS 239 P5: Timeliness"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "NIST SP 800-60: Information Type Categorization"
+        url: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final"
+        jurisdiction: "US"
+
+  - name: Special_Category_Personal_Data
+    sensitivity: Critical
+    description: >
+      Personal data revealing health, biometric, racial or ethnic origin,
+      genetic, or other highly sensitive characteristics linked to financial
+      decisions. Subject to the most restrictive processing conditions under
+      GDPR Art 9 and CCPA Sensitive PI — explicit consent or specific legal
+      basis required.
+    examples:
+      - Health events and medical conditions linked to financial decisions
+      - Biometric identifiers used for authentication
+      - Personal life events affecting risk profiles (disability, chronic illness)
+      - Racial or ethnic origin data arising in credit or insurance contexts
+    storage_location: Isolated encrypted systems, TEE recommended, strict access controls
+    regulations: GDPR Art 9, CCPA Sensitive PI, HIPAA (if health-adjacent)
+    references:
+      - name: "GDPR Article 9: Special Categories of Personal Data"
+        url: "https://gdpr-info.eu/art-9-gdpr/"
+        jurisdiction: "EU"
+      - name: "CCPA: Sensitive Personal Information"
+        url: "https://oag.ca.gov/privacy/ccpa"
+        jurisdiction: "US"
+      - name: "NIST SP 800-60: Information Type Categorization"
+        url: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final"
+        jurisdiction: "US"
+
+  - name: Risk_Aggregation_Data
+    sensitivity: High
+    description: >
+      Aggregated risk exposures and positions across the firm, subject to
+      BCBS 239 principles for accuracy, completeness, timeliness, and
+      adaptability. Distinct from individual customer data — this is
+      firm-level risk intelligence requiring specific data lineage and
+      governance controls.
+    examples:
+      - Aggregated credit exposures and concentration data
+      - Trading book positions and market risk metrics
+      - Liquidity gaps and funding profiles
+      - Stress test outputs and capital adequacy data
+    storage_location: Secure internal systems with full data lineage and audit trail
+    regulations: BCBS 239, Basel III/IV, SR 11-7
+    references:
+      - name: "BCBS 239 P3: Accuracy and Integrity"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "BCBS 239 P4: Completeness"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "BCBS 239 P5: Timeliness"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "BCBS 239 P6: Adaptability"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "SR 11-7: Model Risk Management"
+        url: "https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm"
+        jurisdiction: "US"
 
   - name: Critical_Financial_Data
     sensitivity: Critical
     description: >
-      Data whose compromise could cause severe financial or reputational damage.
+      Data whose compromise could cause severe financial, operational, or
+      reputational damage. Includes payment card data (PAN), credentials,
+      and proprietary IP such as trading algorithms. Excludes Sensitive
+      Authentication Data which must never be stored.
     examples:
-      - Payment card data
-      - Banking credentials
-      - Trading algorithms
-    storage_location: High-security encrypted storage, isolated systems
-    regulations: PCI DSS, BASEL, GLBA
+      - Payment card numbers (PAN) and cardholder data
+      - Banking credentials and access tokens
+      - Proprietary trading algorithms and model IP
+      - Encryption keys and cryptographic material
+    storage_location: High-security encrypted storage, isolated systems, HSM for keys
+    regulations: PCI DSS (CHD), GLBA, Basel III
+    references:
+      - name: "PCI DSS v4.0: Cardholder Data Environment"
+        url: "https://www.pcisecuritystandards.org/document_library/"
+        jurisdiction: "International"
+      - name: "GLBA: Safeguards Rule"
+        url: "https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act"
+        jurisdiction: "US"
+      - name: "BCBS 239 P1: Governance"
+        url: "https://www.bis.org/publ/bcbs239.htm"
+        jurisdiction: "International"
+      - name: "NIST SP 800-60: Information Type Categorization"
+        url: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final"
+        jurisdiction: "US"
+
+  - name: Payment_Authentication_Data
+    sensitivity: Critical
+    description: >
+      Sensitive Authentication Data (SAD) as defined by PCI DSS. Must never
+      be stored after payment authorisation is complete, without exception.
+      Distinct from Cardholder Data — no compensating controls exist;
+      post-authorisation storage is prohibited regardless of encryption.
+    examples:
+      - Full magnetic stripe data or chip equivalent
+      - CVV2/CVC2/CID card verification values
+      - PIN blocks and encrypted PINs
+      - Full card credentials used in authorisation
+    storage_location: Never stored post-authorisation — processing only, in-memory
+    regulations: PCI DSS (SAD — never store rule)
+    references:
+      - name: "PCI DSS v4.0: Sensitive Authentication Data (Req 3.2)"
+        url: "https://www.pcisecuritystandards.org/document_library/"
+        jurisdiction: "International"

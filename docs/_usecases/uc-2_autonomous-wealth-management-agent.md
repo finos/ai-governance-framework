@@ -24,12 +24,18 @@ related_mitigations:
   - mi-11
 
 data_classifications:
+  - name: Special_Category_Personal_Data
+    data_types:
+      - Health and life events linked to financial decisions (illness, disability)
+      - Personal circumstances affecting risk tolerance (marriage, retirement, bereavement)
+  - name: Customer_Personal_Data
+    data_types:
+      - Client identity and contact information
+      - Long-term risk tolerance profiles (versioned over multi-year relationship)
   - name: Sensitive_Financial_Data
     data_types:
       - Client portfolio holdings and balances
       - Investment Policy Statement constraints and ethical restrictions
-      - Personal life events linked to financial decisions (marriage, health, purchases)
-      - Long-term risk tolerance profiles (versioned over multi-year relationship)
       - Proprietary compliance and regulatory rule sets
 
 data_handling_aspects:
