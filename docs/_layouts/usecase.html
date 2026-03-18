@@ -47,19 +47,22 @@ layout: default
         </div>
 
         <div class="col-lg-4">
+
+            <!-- 1. Category -->
             {% if page.category %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-3">Category</h2>
+                    <h2 class="h4 mb-3"><i class="bi bi-tag-fill me-2"></i>Category</h2>
                     <span class="badge bg-primary">{{ page.category | replace: '_', ' ' }}</span>
                 </div>
             </div>
             {% endif %}
 
+            <!-- 2. Related Risks -->
             {% if page.related_risks and page.related_risks.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-4">Related Risks</h2>
+                    <h2 class="h4 mb-3"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Related Risks</h2>
                     <div class="list-group">
                         {% for risk_sequence in page.related_risks %}
                         {% for risk in site.risks %}
@@ -77,10 +80,11 @@ layout: default
             </div>
             {% endif %}
 
+            <!-- 3. Related Mitigations -->
             {% if page.related_mitigations and page.related_mitigations.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-4">Related Mitigations</h2>
+                    <h2 class="h4 mb-3"><i class="bi bi-shield-check-fill text-success me-2"></i>Related Mitigations</h2>
                     <div class="list-group">
                         {% for mitigation_id in page.related_mitigations %}
                         {% for mitigation in site.mitigations %}
@@ -99,10 +103,42 @@ layout: default
             </div>
             {% endif %}
 
+            <!-- 4. Operational Model -->
+            {% if page.operational_models and page.operational_models.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3"><i class="bi bi-gear-fill me-2"></i>Operational Model</h2>
+                    {% for item in page.operational_models %}
+                    <div class="d-flex align-items-start mb-2">
+                        {% if item == "Batch" %}<i class="bi bi-stack me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Real_Time" %}<i class="bi bi-lightning-fill text-warning me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Human_in_the_Loop" %}<i class="bi bi-person-check-fill text-success me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Fully_Autonomous" %}<i class="bi bi-robot text-danger me-2 mt-1 fs-5"></i>
+                        {% else %}<i class="bi bi-gear me-2 mt-1 fs-5"></i>{% endif %}
+                        <div>
+                            <div class="fw-semibold small">{{ item | replace: '_', ' ' }}</div>
+                            {% for section in site.data.ai_deployment_model.ai_deployment_model_taxonomy %}
+                            {% if section.operational_model %}
+                            {% for entry in section.operational_model %}
+                            {% assign entry_keys = entry | keys %}
+                            {% if entry_keys[0] == item %}
+                            <div class="text-muted" style="font-size:0.78rem">{{ entry[item].description | strip }}</div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- 5. Data Classification -->
             {% if page.data_classification %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="h4 mb-3">Data Classification</h2>
+                    <h2 class="h4 mb-3"><i class="bi bi-lock-fill me-2"></i>Data Classification</h2>
                     {% assign data_class = site.data.data_classification.financial_data_classification | where: "name", page.data_classification | first %}
                     {% if data_class %}
                     <p class="mb-2"><strong>{{ data_class.name }}</strong></p>
@@ -132,30 +168,97 @@ layout: default
             </div>
             {% endif %}
 
+            <!-- 6. Data Handling -->
+            {% if page.data_handling_aspects and page.data_handling_aspects.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3"><i class="bi bi-database-fill me-2"></i>Data Handling</h2>
+                    {% for item in page.data_handling_aspects %}
+                    <div class="d-flex align-items-start mb-2">
+                        {% if item == "Centralized" %}<i class="bi bi-database-fill me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Federated" %}<i class="bi bi-diagram-3-fill text-info me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Synthetic_Data" %}<i class="bi bi-shuffle me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Privacy_Preserving" %}<i class="bi bi-shield-lock-fill text-success me-2 mt-1 fs-5"></i>
+                        {% else %}<i class="bi bi-database me-2 mt-1 fs-5"></i>{% endif %}
+                        <div>
+                            <div class="fw-semibold small">{{ item | replace: '_', ' ' }}</div>
+                            {% for section in site.data.ai_deployment_model.ai_deployment_model_taxonomy %}
+                            {% if section.data_handling %}
+                            {% for entry in section.data_handling %}
+                            {% assign entry_keys = entry | keys %}
+                            {% if entry_keys[0] == item %}
+                            <div class="text-muted" style="font-size:0.78rem">{{ entry[item].description | strip }}</div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- 7. Regulatory Alignment -->
+            {% if page.regulatory_alignments and page.regulatory_alignments.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3"><i class="bi bi-patch-check-fill me-2"></i>Regulatory Alignment</h2>
+                    {% for item in page.regulatory_alignments %}
+                    <div class="d-flex align-items-start mb-2">
+                        {% if item == "RegTech_Compliant" %}<i class="bi bi-patch-check-fill text-success me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Cross_Border" %}<i class="bi bi-globe2 text-primary me-2 mt-1 fs-5"></i>
+                        {% elsif item == "Sector_Specific" %}<i class="bi bi-building text-secondary me-2 mt-1 fs-5"></i>
+                        {% else %}<i class="bi bi-check-circle me-2 mt-1 fs-5"></i>{% endif %}
+                        <div>
+                            <div class="fw-semibold small">{{ item | replace: '_', ' ' }}</div>
+                            {% for section in site.data.ai_deployment_model.ai_deployment_model_taxonomy %}
+                            {% if section.regulatory_alignment %}
+                            {% for entry in section.regulatory_alignment %}
+                            {% assign entry_keys = entry | keys %}
+                            {% if entry_keys[0] == item %}
+                            <div class="text-muted" style="font-size:0.78rem">{{ entry[item].description | strip }}</div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- 8–12. Regulatory Framework References -->
+            {% include reference-card.html
+                references=page.eu-ai-act_references
+                dataset="eu-ai-act"
+                heading="EU AI Act"
+                icon="bi-file-earmark-ruled" %}
+
             {% include reference-card.html
                 references=page.nist-ai-600-1_references
                 dataset="nist-ai-600-1"
-                heading="NIST AI 600-1" %}
-
-            {% include reference-card.html
-                references=page.nist-sp-800-53r5_references
-                dataset="nist-sp-800-53r5"
-                heading="NIST SP 800-53r5" %}
+                heading="NIST AI 600-1"
+                icon="bi-file-earmark-text" %}
 
             {% include reference-card.html
                 references=page.ffiec-itbooklets_references
                 dataset="ffiec-itbooklets"
-                heading="FFIEC IT Booklets" %}
-
-            {% include reference-card.html
-                references=page.eu-ai-act_references
-                dataset="eu-ai-act"
-                heading="EU AI Act" %}
+                heading="FFIEC IT Booklets"
+                icon="bi-bank2" %}
 
             {% include reference-card.html
                 references=page.iso-42001_references
                 dataset="iso-42001"
-                heading="ISO 42001" %}
+                heading="ISO 42001"
+                icon="bi-award" %}
+
+            {% include reference-card.html
+                references=page.nist-sp-800-53r5_references
+                dataset="nist-sp-800-53r5"
+                heading="NIST SP 800-53r5"
+                icon="bi-file-earmark-text" %}
 
         </div>
     </div>

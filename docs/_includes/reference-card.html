@@ -2,7 +2,7 @@
 {% if references and references.size > 0 %}
 <div class="card mb-4">
     <div class="card-body">
-        <h2 class="h4 mb-4">{{ include.heading }}</h2>
+        <h2 class="h4 mb-3">{% if include.icon %}<i class="bi {{ include.icon }} me-2"></i>{% endif %}{{ include.heading }}</h2>
         <div class="list-group">
             {% for id in references %}
             {% assign item = site.data[include.dataset][id] %}

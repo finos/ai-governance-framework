@@ -25,6 +25,20 @@ related_mitigations:
 
 data_classification: Sensitive_Financial_Data
 
+regulatory_alignments:
+  - RegTech_Compliant
+  - Cross_Border
+  - Sector_Specific
+
+operational_models:
+  - Real_Time
+  - Human_in_the_Loop
+  - Fully_Autonomous
+
+data_handling_aspects:
+  - Centralized
+  - Privacy_Preserving
+
 eu-ai-act_references:
   - c3-s2-a10
   - c3-s2-a15
