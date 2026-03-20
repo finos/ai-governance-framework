@@ -57,10 +57,10 @@ We’re taking a deeply practical use-case led approach. We’ll identify realis
 No. 
 
 ### Will this framework help us on-board third-party AI services? 
-Yes. In the future, it is likely that AI will become increasingly commoditised, with applications making use of externally hosted AI models (e.g. foundational models) which are accessible via APIs. This framework will certainly cover this type of architecture, as well as the more ‘traditional’ approach where an AI model is developerd entirely in-house.
+Yes. In the future, it is likely that AI will become increasingly commoditised, with applications making use of externally hosted AI models (e.g. foundational models) which are accessible via APIs. This framework will certainly cover this type of architecture, as well as the more ‘traditional’ approach where an AI model is developed entirely in-house.
 
 ### Why do we need this framework? AI isn’t new?
-Good question! AI has been widely used within financial services to great effect. Typically this has involved creating predictive (often numeric) AI models with closed datasets, under the guidance of experience data scientists.
+Good question! AI has been widely used within financial services to great effect. Typically this has involved creating predictive (often numeric) AI models with closed datasets, under the guidance of experienced data scientists.
 
 However, in the past few years AI has become increasingly commoditised and democratised. The existing frameworks that financial services organisations have for managing AI models, model development and deployment aren’t compatible with the rapidly emerging (predominantly generative) AI models.
 
