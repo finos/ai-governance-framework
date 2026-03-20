@@ -24,11 +24,11 @@ related_mitigations:
   - mi-11
 
 data_classifications:
-  - name: Special_Category_Personal_Data
+  - name: PHI_Other_Personal_Data
     data_types:
       - Health and life events linked to financial decisions (illness, disability)
       - Personal circumstances affecting risk tolerance (marriage, retirement, bereavement)
-  - name: Customer_Personal_Data
+  - name: Customer_PII_Data
     data_types:
       - Client identity and contact information
       - Long-term risk tolerance profiles (versioned over multi-year relationship)

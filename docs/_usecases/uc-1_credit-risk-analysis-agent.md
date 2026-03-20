@@ -21,7 +21,7 @@ related_mitigations:
   - mi-5
 
 data_classifications:
-  - name: Customer_Personal_Data
+  - name: Customer_PII_Data
     data_types:
       - Credit applicant identity and contact information
       - Business ownership and structure details
@@ -30,7 +30,7 @@ data_classifications:
       - Individual credit application records and financial statements
       - Account balances, income, and liability data
       - Credit scores (input and agent-generated)
-  - name: Internal_Financial_Data
+  - name: Internal_Proprietary_Data
     data_types:
       - Proprietary internal lending policies
       - Risk assessment models and scoring thresholds
