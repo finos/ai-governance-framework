@@ -1,6 +1,6 @@
 ---
 sequence: 1
-title: "Credit Risk Analysis Agent"
+title: "Credit Risk Analysis"
 layout: usecase
 doc-status: Draft
 category: Risk_Management_and_Compliance
@@ -10,10 +10,10 @@ end_user: "Risk analyst, loan officer"
 business_value: "Reduces loan approval times from days to hours while standardizing risk assessment"
 
 related_risks:
-  - 1
-  - 4
-  - 17
-  - 19
+  - ri-1
+  - ri-4
+  - ri-17
+  - ri-19
 
 related_mitigations:
   - mi-1
@@ -52,6 +52,14 @@ regulatory_concerns:
   - name: "ECOA / Fair Lending"
     url: "https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/"
     jurisdiction: "US"
+
+further_reading:
+  - name: "Machine Learning in Credit Risk (Working Paper No. 1019)"
+    url: "https://www.bis.org/publ/work1019.htm"
+    source: "BIS"
+  - name: "AI in Credit Underwriting"
+    url: "https://www.accenture.com/us-en/insights/banking/credit-risk-ai"
+    source: "Accenture"
 ---
 
 ## Description

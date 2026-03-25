@@ -256,22 +256,39 @@ layout: default
             </div>
             {% endif %}
 
+            <!-- 2c. Further Reading -->
+            {% if page.further_reading and page.further_reading.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Further Reading</h2>
+                    <div class="list-group list-group-flush">
+                        {% for ref in page.further_reading %}
+                        <a href="{{ ref.url }}" target="_blank" rel="noopener noreferrer"
+                           class="list-group-item list-group-item-action py-2 px-0 border-0 small">
+                            <div>{{ ref.name }}{% include external-link-icon.html %}</div>
+                            {% if ref.source %}<div class="text-muted" style="font-size:0.75rem;">{{ ref.source }}</div>{% endif %}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <!-- 3. Related Risks -->
             {% if page.related_risks and page.related_risks.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="h4 mb-3">Related Risks</h2>
                     <div class="list-group">
-                        {% for risk_sequence in page.related_risks %}
                         {% for risk in site.risks %}
-                        {% if risk.sequence == risk_sequence %}
+                        {% assign risk_prefix = "ri-" | append: risk.sequence %}
+                        {% if page.related_risks contains risk_prefix %}
                         <div class="list-group-item">
                             <h3 class="h6 mb-1">
                                 <a href="{{ risk.url }}">{% include risk-id.html risk=risk %}: {{ risk.title }}</a>
                             </h3>
                         </div>
                         {% endif %}
-                        {% endfor %}
                         {% endfor %}
                     </div>
                 </div>

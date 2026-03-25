@@ -1,6 +1,6 @@
 ---
 sequence: 2
-title: "Autonomous Wealth Management Agent"
+title: "Autonomous Wealth Management"
 layout: usecase
 doc-status: Draft
 category: Trading_and_Investment
@@ -10,12 +10,12 @@ end_user: "Wealth advisor, financial planner, retail wealth client"
 business_value: "Solves fiduciary inconsistency by maintaining long-term constraint adherence while adapting to market conditions"
 
 related_risks:
-  - 1
-  - 4
-  - 6
-  - 14
-  - 17
-  - 19
+  - ri-1
+  - ri-4
+  - ri-6
+  - ri-14
+  - ri-17
+  - ri-19
 
 related_mitigations:
   - mi-1
@@ -75,6 +75,11 @@ regulatory_concerns:
   - name: "GDPR Article 22"
     url: "https://gdpr-info.eu/art-22-gdpr/"
     jurisdiction: "EU"
+
+further_reading:
+  - name: "AI and Machine Learning in Capital Markets (2021)"
+    url: "https://www.iosco.org/library/pubdocs/pdf/IOSCOPD658.pdf"
+    source: "IOSCO"
 ---
 
 ## Description
