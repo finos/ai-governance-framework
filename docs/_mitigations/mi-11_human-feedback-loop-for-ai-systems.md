@@ -122,6 +122,7 @@ Implementing an effective human feedback loop involves careful design of the mec
 ### 6. Feedback Review, Actioning, and Governance Process
 * **Defined Responsibilities:** Assign clear roles and responsibilities for collecting, reviewing, triaging, and actioning feedback (e.g., product owners, MLOps teams, data science teams, AI governance committees).
 * **Triage and Prioritization:** Establish a process to categorize and prioritize incoming feedback based on severity, frequency, potential impact, and alignment with strategic goals.
+* **Feedback Participation Monitoring:** Track submission rates and feedback quality over time as early indicators of feedback loop degradation. A sustained decline is often caused by feedback fatigue, when the effort required outweighs the perceived impact, and can make feedback statistically unrepresentative, weakening triage and governance decisions. If participation drops, corrective actions should be taken, such as simplifying feedback channels, rotating SME reviewers, or clearly communicating the impact of prior submissions.
 * **Tracking and Resolution:** Implement a system to track feedback items, the actions taken in response, and their outcomes.
 * **Closing the Loop:** Where appropriate and feasible, inform users or feedback providers about how their input has been used or what changes have been made, fostering a sense of engagement. (Supports ISO 42001 A.6.2.6 for repairs/updates based on feedback).
 
