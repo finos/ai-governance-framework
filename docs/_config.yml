@@ -12,6 +12,22 @@ mitigation_classification:
   PREV: Preventative
   DET: Detective
 
+usecase_categories:
+  - Customer_Experience_and_Engagement
+  - Risk_Management_and_Compliance
+  - Operations_and_Process_Optimization
+  - Trading_and_Investment
+  - Data_Intelligence_and_Analytics
+  - Fraud_Detection_and_Security
+
+usecase_order:
+  - Customer_Experience_and_Engagement
+  - Risk_Management_and_Compliance
+  - Operations_and_Process_Optimization
+  - Trading_and_Investment
+  - Data_Intelligence_and_Analytics
+  - Fraud_Detection_and_Security
+
 document_status:
   - name: Pre-Draft
     description: "Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written."
@@ -41,3 +57,6 @@ collections:
     output: true
   mitigations:
     output: true
+  usecases:
+    output: true
+    permalink: /usecase/:name/
