@@ -12,6 +12,11 @@ nist-sp-800-53r5_references:
   - au-3   # AU-3 Content of Audit Records
   - au-6   # AU-6 Audit Record Review, Analysis, And Reporting
   - ca-7   # CA-7 Authorization
+canada-regulations_references:
+  - osfi-e23-p5             # Independent validation and effective challenge
+  - osfi-e23-p6             # Ongoing monitoring and periodic review
+  - csa-11-348-governance   # Governance for AI-supported decisions
+  - ciro-31-368-recordkeeping # Documentation and supervisory audit trail
 mitigates:
   - ri-24  # Agent Action Authorization Bypass
   - ri-25  # Tool Chain Manipulation and Injection
