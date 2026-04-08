@@ -1,0 +1,164 @@
+# Canada AI & Financial-Sector Regulatory References
+# Curated manually from Canadian federal and financial-sector regulator sources.
+# Format mirrors other datasets: normalized key -> title/url (+ concise requirement intent).
+
+# Office of the Superintendent of Financial Institutions (OSFI)
+osfi-e23:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "Guideline E-23: Model Risk Management"
+  requirement: "FRFIs should establish an enterprise-wide model risk management framework with clear governance, validation, and monitoring controls."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management"
+osfi-e23-p1:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 1: Accountability and Oversight"
+  requirement: "Senior management and boards are accountable for model risk governance, including roles, escalation, and oversight."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s3"
+osfi-e23-p2:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 2: Comprehensive Model Inventory"
+  requirement: "Maintain a complete model inventory with risk ratings, ownership, use-cases, and lifecycle status."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s4"
+osfi-e23-p3:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 3: Classification and Materiality"
+  requirement: "Classify models by risk/materiality to drive proportional control rigor and governance requirements."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s5"
+osfi-e23-p4:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 4: Sound Model Development and Approval"
+  requirement: "Require disciplined development, documentation, approval, and controlled deployment prior to production use."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s6"
+osfi-e23-p5:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 5: Independent Validation and Effective Challenge"
+  requirement: "Perform independent validation and robust challenge before and during model use."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s7"
+osfi-e23-p6:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 6: Ongoing Monitoring and Periodic Review"
+  requirement: "Continuously monitor model performance, limitations, drift, and outcomes; perform periodic reviews and remediation."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s8"
+osfi-e23-p7:
+  source_abbrev: osfi-e23
+  regulator: OSFI
+  title: "E-23 Principle 7: Enterprise-Wide Model Risk Function"
+  requirement: "Implement a second-line model risk function with authority to enforce standards across the institution."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management#s9"
+
+osfi-b13:
+  source_abbrev: osfi-b13
+  regulator: OSFI
+  title: "Guideline B-13: Technology and Cyber Risk Management"
+  requirement: "FRFIs should establish enterprise technology/cyber controls for governance, resilience, and security outcomes."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-b-13-technology-cyber-risk-management"
+osfi-b13-domain1:
+  source_abbrev: osfi-b13
+  regulator: OSFI
+  title: "B-13 Domain I: Governance and Risk Management"
+  requirement: "Define accountabilities, policies, risk appetite, and control frameworks for technology and cyber risk."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-b-13-technology-cyber-risk-management#s4"
+osfi-b13-domain2:
+  source_abbrev: osfi-b13
+  regulator: OSFI
+  title: "B-13 Domain II: Technology Operations and Resilience"
+  requirement: "Implement resilient operations, incident response, change management, and recovery capabilities."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-b-13-technology-cyber-risk-management#s5"
+osfi-b13-domain3:
+  source_abbrev: osfi-b13
+  regulator: OSFI
+  title: "B-13 Domain III: Cyber Security"
+  requirement: "Implement layered cyber controls across prevention, detection, response, and recovery."
+  url: "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-b-13-technology-cyber-risk-management#s6"
+
+# Federal privacy law (PIPEDA)
+pipeda:
+  source_abbrev: pipeda
+  regulator: OPC
+  title: "PIPEDA: Personal Information Protection and Electronic Documents Act"
+  requirement: "Organizations must manage personal information responsibly across collection, use, disclosure, and safeguards."
+  url: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+pipeda-schedule1:
+  source_abbrev: pipeda
+  regulator: OPC
+  title: "PIPEDA Schedule 1: Fair Information Principles"
+  requirement: "Apply accountability, consent, limiting collection/use, safeguards, openness, access, and challenge rights."
+  url: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html#h-417398"
+pipeda-consent:
+  source_abbrev: pipeda
+  regulator: OPC
+  title: "PIPEDA Principle 3: Consent"
+  requirement: "Obtain meaningful consent for collection, use, or disclosure of personal information, subject to legal exceptions."
+  url: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html#h-417406"
+pipeda-safeguards:
+  source_abbrev: pipeda
+  regulator: OPC
+  title: "PIPEDA Principle 7: Safeguards"
+  requirement: "Protect personal information with security safeguards appropriate to sensitivity."
+  url: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-8.html#h-417444"
+
+# Canadian Securities Administrators (CSA)
+csa-sn-11-348:
+  source_abbrev: csa-11-348
+  regulator: CSA
+  title: "CSA Staff Notice and Consultation 11-348: Applicability of Canadian Securities Laws and the use of AI Systems in Capital Markets"
+  requirement: "Firms using AI systems remain responsible for compliance with existing securities law obligations."
+  url: "https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-348/csa-staff-notice-and-consultation-11-348-applicability-canadian-securities-laws-and-use-artificial"
+csa-11-348-governance:
+  source_abbrev: csa-11-348
+  regulator: CSA
+  title: "CSA 11-348: Governance and Senior Accountability"
+  requirement: "Establish governance, supervision, and accountability for AI-driven decisions and controls."
+  url: "https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-348/csa-staff-notice-and-consultation-11-348-applicability-canadian-securities-laws-and-use-artificial"
+csa-11-348-fairness:
+  source_abbrev: csa-11-348
+  regulator: CSA
+  title: "CSA 11-348: Fairness, Bias, and Client Outcomes"
+  requirement: "Evaluate bias/discriminatory effects and ensure fair, suitable, and non-misleading outcomes."
+  url: "https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-348/csa-staff-notice-and-consultation-11-348-applicability-canadian-securities-laws-and-use-artificial"
+csa-11-348-disclosure:
+  source_abbrev: csa-11-348
+  regulator: CSA
+  title: "CSA 11-348: Transparency and Disclosure"
+  requirement: "Provide sufficient transparency/disclosure where AI usage affects decisions, recommendations, or client communications."
+  url: "https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-348/csa-staff-notice-and-consultation-11-348-applicability-canadian-securities-laws-and-use-artificial"
+
+# Canadian Investment Regulatory Organization (CIRO)
+ciro-csa-joint-31-368:
+  source_abbrev: ciro-31-368
+  regulator: CIRO
+  title: "Joint CSA/CIRO Staff Notice 31-368: Client Focused Reforms, KYC/KYP, and Suitability Guidance"
+  requirement: "Registered firms must evidence KYC/KYP/suitability compliance even when technology or automation supports recommendations."
+  url: "https://www.ciro.ca/newsroom/publications/joint-canadian-securities-administrators-canadian-investment-regulatory-organization-staff-notice-31-0"
+ciro-31-368-recordkeeping:
+  source_abbrev: ciro-31-368
+  regulator: CIRO
+  title: "CIRO/CSA 31-368: Documentation and Audit Trail Expectations"
+  requirement: "Maintain records demonstrating rationale, suitability analysis, and supervisory review for client-facing decisions."
+  url: "https://www.ciro.ca/newsroom/publications/joint-canadian-securities-administrators-canadian-investment-regulatory-organization-staff-notice-31-0"
+ciro-policy-initiatives:
+  source_abbrev: ciro
+  regulator: CIRO
+  title: "CIRO Policy Initiatives Update"
+  requirement: "Monitor evolving CIRO policy priorities affecting technology-enabled advisory and market conduct controls."
+  url: "https://www.ciro.ca/rules-and-enforcement/policy-initiatives"
+
+# Other Canadian references
+fcac-ai:
+  source_abbrev: fcac
+  regulator: FCAC
+  title: "FCAC: Artificial intelligence in financial services"
+  requirement: "Track consumer protection implications of AI deployment in financial products and channels."
+  url: "https://www.canada.ca/en/financial-consumer-agency/services/industry/research/artificial-intelligence-financial-services.html"
+cppa-aida-billc27:
+  source_abbrev: bill-c27
+  regulator: Parliament of Canada
+  title: "Bill C-27 (CPPA + AIDA proposal)"
+  requirement: "Monitor proposed federal AI governance/privacy reforms and readiness implications for future compliance."
+  url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-27"
