@@ -258,15 +258,21 @@ a:focus {
     outline-offset: 2px;
 }
 
-/* Print styles */
+/* Print styles to make single-page PDF-friendly */
 @media print {
-    .btn, 
-    .collapse-btn,
-    .form-control,
-    .form-select {
+    nav, .btn, .collapse-btn, .form-control, .form-select, .external-link-icon, footer {
         display: none !important;
     }
-    
+    body {
+        color: #000;
+        background: #fff;
+    }
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    article {
+        page-break-inside: avoid;
+    }
     .card {
         border: 1px solid #dee2e6 !important;
         box-shadow: none !important;
@@ -314,7 +320,7 @@ a:focus {
         line-clamp: 3;
         max-height: 4.2em; /* 3 lines * 1.4 line-height */
     }
-    
+
     .col-12 .description-text {
         -webkit-line-clamp: 5;
         line-clamp: 5;
@@ -328,7 +334,7 @@ a:focus {
         line-clamp: 2;
         max-height: 2.8em;
     }
-    
+
     .col-12 .description-text {
         -webkit-line-clamp: 4;
         line-clamp: 4;
