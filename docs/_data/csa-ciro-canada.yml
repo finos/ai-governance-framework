@@ -1,0 +1,149 @@
+# Canada — CSA / CIRO regulatory references for AI governance in securities markets
+# Schema mirrors docs/_data/eu-ai-act.yml and docs/_data/ffiec-itbooklets.yml.
+# Each entry is <key>: { title, url, issuer }. The `issuer` field is an
+# optional extension field analogous to `booklet_abbrev` in ffiec-itbooklets.yml
+# and denotes the publishing authority (CSA, CIRO, CSA/CIRO jointly, OSFI,
+# or IOSCO).
+#
+# Scope:
+#   Canada does not have a single horizontal AI statute applicable to capital
+#   markets participants. Obligations for firms registered with CSA members
+#   and/or CIRO are composed from (i) AI-specific staff guidance, (ii) general
+#   registration / conduct / recordkeeping rules that bind AI use cases as
+#   they would any other system, and (iii) analogous federal prudential
+#   guidance (OSFI) and international consensus material (IOSCO) that is not
+#   itself binding on securities registrants but is widely referenced as
+#   benchmark.
+#
+# Perimeter:
+#   - CIRO investment dealers (currently governed by the IDPC Rules, which
+#     succeeded the legacy IIROC Dealer Member Rules). CIRO's Rule
+#     Consolidation Project is complete in draft across Phases 1–5 (final
+#     phase published 2025-03-27, comment period closed 2025-06-25). The
+#     consolidated "Proposed CIRO Rules" (previously titled "DC Rules") will
+#     replace the IDPC Rules and the MFD Rules in a single unified rulebook
+#     once finalized, subject to updates in response to comments received
+#     before coming into force in combined form.
+#   - CSA-registered portfolio managers, investment fund managers, and
+#     exempt market dealers (non-CIRO registrants under NI 31-103).
+#   Mutual fund dealers (legacy MFDA rulebook) and marketplaces are
+#   intentionally out of scope for this initial mapping and may be added
+#   in follow-up contributions.
+
+
+# =============================================================================
+# Tier 1 — AI-specific Canadian regulatory guidance
+# =============================================================================
+
+csa-sn-11-348:
+  title: 'CSA Staff Notice and Consultation 11-348: Applicability of Canadian Securities Laws and the Use of Artificial Intelligence Systems in Capital Markets (2024-12-05)'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-348/csa-staff-notice-and-consultation-11-348-applicability-canadian-securities-laws-and-use-artificial
+  issuer: CSA
+
+csa-sn-11-348-pdf:
+  title: 'CSA Staff Notice and Consultation 11-348 (full text PDF, OSC hosted)'
+  url: https://www.osc.ca/sites/default/files/2024-12/csa_20241205_11-348_artificial-intelligence-systems-capital-markets.pdf
+  issuer: CSA
+
+ciro-acr-2026:
+  title: 'CIRO Compliance Report for 2026 — includes dedicated guidance on the use of artificial intelligence in dealer operations, FinOps examination posture, and the material-change notification trigger (2026-02-17)'
+  url: https://www.ciro.ca/newsroom/publications/ciro-compliance-report-2026-helping-dealers-compliance
+  issuer: CIRO
+
+
+# =============================================================================
+# Tier 2 — Canadian securities rules and staff notices binding on registrants
+# (apply to AI use cases as they apply to any other system or process)
+# =============================================================================
+
+ni-31-103:
+  title: 'National Instrument 31-103 Registration Requirements, Exemptions and Ongoing Registrant Obligations (unofficial consolidation, OSC) — key provisions for AI governance include s. 11.1 (compliance system), s. 11.5 (general records), s. 13.2 (know your client), s. 13.2.1 (know your product), s. 13.3 (suitability determination), and s. 13.4 (identifying and addressing material conflicts of interest)'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+  issuer: CSA
+
+ni-31-103cp:
+  title: 'Companion Policy 31-103CP Registration Requirements, Exemptions and Ongoing Registrant Obligations (unofficial consolidation, OSC) — interpretive guidance on compliance systems, outsourcing, and the Client Focused Reforms KYC/KYP/suitability/conflicts framework'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-companion-policy-31-103cp-registration-requirements-exemptions-and-1
+  issuer: CSA
+
+csa-ciro-sn-31-363:
+  title: 'Joint CSA / CIRO Staff Notice 31-363 Client Focused Reforms: Review of Registrants'' Conflicts of Interest Practices and Additional Guidance — directly relevant where AI introduces or amplifies material conflicts (e.g., model vendor incentives, auto-generated recommendations)'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-363/joint-canadian-securities-administrators-canadian-investment-regulatory-organization-staff-notice
+  issuer: CSA/CIRO
+
+csa-ciro-sn-31-368:
+  title: 'Joint CSA / CIRO Staff Notice 31-368 Client Focused Reforms: Review of Registrants'' Know Your Client, Know Your Product and Suitability Determination Practices and Additional Guidance — sets the supervisory benchmark for KYC/KYP/suitability processes, including those executed with AI support'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-368/joint-csaciro-staff-notice-31-368-client-focused-reforms-review-registrants-know-your-client-know
+  issuer: CSA/CIRO
+
+ni-33-109-f5:
+  title: 'National Instrument 33-109 Form 33-109F5 Change of Registration Information (unofficial consolidation, OSC) — the notification instrument CIRO has flagged as potentially triggered when a dealer''s adoption of AI constitutes a material business change'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/33-109/unofficial-consolidation-form-33-109f5-change-registration-information
+  issuer: CSA
+
+csa-sn-11-326:
+  title: 'CSA Staff Notice 11-326 Cyber Security (2013-09-26) — first CSA cross-sectoral guidance on cyber risk controls for issuers, registrants and regulated entities'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-326/csa-staff-notice-11-326-cyber-security
+  issuer: CSA
+
+csa-sn-11-332:
+  title: 'CSA Staff Notice 11-332 Cyber Security (2016-09-27) — follow-up notice updating cyber risk expectations and highlighting regulator initiatives'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-332/csa-staff-notice-11-332-cyber-security
+  issuer: CSA
+
+csa-sn-33-321:
+  title: 'CSA Staff Notice 33-321 Cyber Security and Social Media (2017-10-19) — survey-driven guidance for investment fund managers, portfolio managers and exempt market dealers on cyber policies, controls, training and incident response'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/33-321/csa-staff-notice-33-321-cyber-security-and-social-media
+  issuer: CSA
+
+ciro-idpc-rules:
+  title: 'CIRO Investment Dealer and Partially Consolidated (IDPC) Rules — currently operative rulebook for CIRO investment dealers, succeeding the legacy IIROC Dealer Member Rules. Rule 1500 addresses executive responsibilities; Rules 3100–3600 govern business conduct; Rule 3800 governs recordkeeping and client reporting; Rule 3900 governs supervision. All apply to AI-enabled activities. The Proposed CIRO Rules carry these numberings forward under the same rule numbers (see ciro-rules-proposed, ciro-rules-phase-4 and ciro-rules-phase-5 for the corresponding draft consolidated provisions). (Version dated 2024-02-22; remains the operative rulebook pending adoption of the consolidated Proposed CIRO Rules.)'
+  url: https://www.ciro.ca/sites/default/files/2024-02/IDPC-Rules-022224-EN.pdf
+  issuer: CIRO
+
+ciro-dealer-member-rules:
+  title: 'CIRO Dealer Member Rules landing page — entry point to the current IDPC rulebook, bulletins, and the Rule Consolidation Project materials covering Phases 1 through 5'
+  url: https://www.ciro.ca/rules-and-enforcement/dealer-member-rules
+  issuer: CIRO
+
+ciro-rules-proposed:
+  title: 'Rule Consolidation Project — Proposed CIRO Rules (formerly "DC Rules") — the full draft consolidated rulebook combining the IDPC Rules and the legacy MFD Rules into a single unified CIRO rulebook. Phase 5, the final phase of the consolidation, was published for comment on 2025-03-27 with the comment period closing 2025-06-25; the Proposed CIRO Rules aggregate Phases 1 through 5 together with further proposed amendments. Rule numbering is carried forward from the IDPC Rules: Rule 1500 (executive responsibilities), Rules 3100–3600 (business conduct), Rule 3800 (recordkeeping and client reporting), Rule 3900 (supervision). The draft rules are subject to updates in response to comments received before coming into force in combined form, and the IDPC Rules remain operative for CIRO investment dealers until that occurs.'
+  url: https://www.ciro.ca/newsroom/publications/rule-consolidation-project-proposed-ciro-rules
+  issuer: CIRO
+
+ciro-rules-consolidation-project:
+  title: 'CIRO Rule Consolidation Project landing page — project overview, phase-by-phase materials, bulletins, and the current status of the transition from IDPC Rules and legacy MFD Rules to the unified Proposed CIRO Rules'
+  url: https://www.ciro.ca/rules-and-enforcement/dealer-member-rules/rule-consolidation-project
+  issuer: CIRO
+
+ciro-rules-phase-4:
+  title: 'Rule Consolidation Project — Phase 4 (published 2024-10-17) — proposes the consolidated business conduct and supervision rules: proposed CIRO Rule 3100 (business conduct), Rules 3200–3600, and Rule 3900 (supervision). Includes a blackline to the IDPC Rules and a table of concordance. Of direct relevance to AI governance: proposed Rule 3900 carries forward a requirement that Dealer Members ensure relevant Supervisors understand how automated tasks and activities work — an explicit supervisory expectation for automated and AI-assisted systems.'
+  url: https://www.ciro.ca/newsroom/publications/rule-consolidation-project-phase-4
+  issuer: CIRO
+
+ciro-rules-phase-5:
+  title: 'Rule Consolidation Project — Phase 5 (published 2025-03-27, comment period closed 2025-06-25) — the final phase of the consolidation. Covers proposed CIRO Rule 3800 (recordkeeping and client reporting) along with outsourcing and service arrangements, continuing education, reporting and handling of complaints, internal investigations and other reportable matters, financial solvency (proposed DC Form 1), client asset use and custody, and financing arrangements. Subject to updates in response to comments received before coming into force.'
+  url: https://www.ciro.ca/newsroom/publications/rule-consolidation-project-phase-5
+  issuer: CIRO
+
+
+# =============================================================================
+# Tier 3 — Not binding on securities registrants, but broadly consistent with
+# or referenced alongside CSA / CIRO expectations. Useful where a control or
+# risk in the AIGF has no direct Canadian securities-law analogue.
+# =============================================================================
+
+osfi-e-23-2027:
+  title: 'OSFI Guideline E-23 Model Risk Management (2027) — final revised version published 2025-09-11, effective 2027-05-01. Applies to federally regulated financial institutions (banks, insurers, trust and loan companies) and expressly covers AI / machine learning models. Not binding on CSA or CIRO registrants as such, but the dominant Canadian benchmark for model risk governance, validation, and oversight.'
+  url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+  issuer: OSFI
+
+osfi-b-13:
+  title: 'OSFI Guideline B-13 Technology and Cyber Risk Management — effective 2024-01-01. Applies to federally regulated financial institutions. Sets expectations for technology governance, risk management, operations, resilience, and cyber security. Widely cited as the reference framework for AI-system hosting, data protection, and incident response even where not directly binding.'
+  url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/technology-cyber-risk-management
+  issuer: OSFI
+
+iosco-cr-01-2025:
+  title: 'IOSCO Consultation Report CR/01/2025 Artificial Intelligence in Capital Markets: Use Cases, Risks, and Challenges (2025-03, IOSCOPD788) — international consensus framing from IOSCO''s Fintech Task Force. CSA and CIRO approaches to AI in capital markets are inspired by and broadly consistent with the issues, risks and supervisory considerations catalogued in this report.'
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD788.pdf
+  issuer: IOSCO
