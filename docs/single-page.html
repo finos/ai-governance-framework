@@ -1,6 +1,13 @@
 ---
 layout: default
 title: "FINOS AI Governance Framework"
+risk_order:
+  - OP
+  - SEC
+  - RC
+mitigation_order:
+  - PREV
+  - DET
 ---
 
 <div class="container py-4">
@@ -23,15 +30,37 @@ title: "FINOS AI Governance Framework"
     <ul>
       <li><a href="#risks">Risk Catalogue</a>
         <ul>
-          {% for risk in site.risks %}
-            <li><a href="#{{ risk.id }}">{{ risk.title }}</a></li>
+          {% for order in page.risk_order %}
+            {% assign risk_group = site.risks | group_by: "type" | where: "name", order | first %}
+            {% if risk_group %}
+              <li>
+                <strong>{{ site.risk_classification[risk_group.name] }}</strong>
+                <ul>
+                  {% assign sorted_risks = risk_group.items | sort: "sequence" %}
+                  {% for risk in sorted_risks %}
+                    <li><a href="#{{ risk.id }}">{% include risk-id.html risk=risk %} &mdash; {{ risk.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </li>
       <li><a href="#mitigations">Mitigation Catalogue</a>
         <ul>
-          {% for mitigation in site.mitigations %}
-            <li><a href="#{{ mitigation.id }}">{{ mitigation.title }}</a></li>
+          {% for order in page.mitigation_order %}
+            {% assign mitigation_group = site.mitigations | group_by: "type" | where: "name", order | first %}
+            {% if mitigation_group %}
+              <li>
+                <strong>{{ site.mitigation_classification[mitigation_group.name] }}</strong>
+                <ul>
+                  {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
+                  {% for mitigation in sorted_mitigations %}
+                    <li><a href="#{{ mitigation.id }}">{% include mitigation-id.html mitigation=mitigation %} &mdash; {{ mitigation.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </li>
@@ -40,31 +69,43 @@ title: "FINOS AI Governance Framework"
 
   <section id="risks">
     <h2>Risk Catalogue</h2>
-    {% assign sorted_risks = site.risks | sort: 'sequence' %}
-    {% for risk in sorted_risks %}
-      <article id="{{ risk.id }}" class="mb-4">
-        <h3>{{ risk.title }}</h3>
-        <div class="text-muted mb-2 small">{{ risk.date | date: "%B %d, %Y" }}</div>
-        <div>
-          {{ risk.content }}
-        </div>
-        <hr/>
-      </article>
+    {% for order in page.risk_order %}
+      {% assign risk_group = site.risks | group_by: "type" | where: "name", order | first %}
+      {% if risk_group %}
+        <h3 class="mt-4">{{ site.risk_classification[risk_group.name] }}</h3>
+        {% assign sorted_risks = risk_group.items | sort: "sequence" %}
+        {% for risk in sorted_risks %}
+          <article id="{{ risk.id }}" class="mb-4">
+            <h4>{{ risk.title }}</h4>
+            <div class="text-muted mb-2 small">{% include risk-id.html risk=risk %}</div>
+            <div>
+              {{ risk.content }}
+            </div>
+            <hr/>
+          </article>
+        {% endfor %}
+      {% endif %}
     {% endfor %}
   </section>
 
   <section id="mitigations" class="mt-5">
     <h2>Mitigation Catalogue</h2>
-    {% assign sorted_mitigations = site.mitigations | sort: 'sequence' %}
-    {% for mitigation in sorted_mitigations %}
-      <article id="{{ mitigation.id }}" class="mb-4">
-        <h3>{{ mitigation.title }}</h3>
-        <div class="text-muted mb-2 small">{{ mitigation.date | date: "%B %d, %Y" }}</div>
-        <div>
-          {{ mitigation.content }}
-        </div>
-        <hr/>
-      </article>
+    {% for order in page.mitigation_order %}
+      {% assign mitigation_group = site.mitigations | group_by: "type" | where: "name", order | first %}
+      {% if mitigation_group %}
+        <h3 class="mt-4">{{ site.mitigation_classification[mitigation_group.name] }}</h3>
+        {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
+        {% for mitigation in sorted_mitigations %}
+          <article id="{{ mitigation.id }}" class="mb-4">
+            <h4>{{ mitigation.title }}</h4>
+            <div class="text-muted mb-2 small">{% include mitigation-id.html mitigation=mitigation %}</div>
+            <div>
+              {{ mitigation.content }}
+            </div>
+            <hr/>
+          </article>
+        {% endfor %}
+      {% endif %}
     {% endfor %}
   </section>
 
