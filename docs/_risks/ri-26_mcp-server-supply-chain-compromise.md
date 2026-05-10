@@ -4,6 +4,9 @@ title: MCP Server Supply Chain Compromise
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+atr_references:
+  - ATR-2026-00010  # Malicious Content in MCP Tool Response
+  - ATR-2026-00095  # MCP Server Supply Chain Poisoning
 related_risks:
   - ri-8   # Tampering with the Foundational Model
   - ri-9   # Data Poisoning

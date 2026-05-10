@@ -1,0 +1,54 @@
+# Agent Threat Rules (ATR)
+# Open detection standard for AI agent threats, Apache-2.0 licensed.
+# Source repo: https://github.com/Agent-Threat-Rule/agent-threat-rules
+# Rule references below cover agent-specific detection logic relevant to the
+# AI Governance Framework risks and mitigations. Each rule maps to MITRE ATLAS,
+# OWASP LLM Top 10, OWASP Agentic AI Top 10, and NIST AI RMF where applicable.
+
+ATR-2026-00010:
+  title: ATR-2026-00010 Malicious Content in MCP Tool Response
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/tool-poisoning/ATR-2026-00010-mcp-malicious-response.yaml
+
+ATR-2026-00011:
+  title: ATR-2026-00011 Instruction Injection via Tool Output
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/tool-poisoning/ATR-2026-00011-tool-output-injection.yaml
+
+ATR-2026-00012:
+  title: ATR-2026-00012 Unauthorized Tool Call
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/tool-poisoning/ATR-2026-00012-unauthorized-tool-call.yaml
+
+ATR-2026-00013:
+  title: ATR-2026-00013 Tool-Driven Server-Side Request Forgery
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/tool-poisoning/ATR-2026-00013-tool-ssrf.yaml
+
+ATR-2026-00030:
+  title: ATR-2026-00030 Cross-Agent Attack Detection
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/agent-manipulation/ATR-2026-00030-cross-agent-attack.yaml
+
+ATR-2026-00040:
+  title: ATR-2026-00040 Agent Privilege Escalation
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/privilege-escalation/ATR-2026-00040-privilege-escalation.yaml
+
+ATR-2026-00075:
+  title: ATR-2026-00075 Agent Memory Manipulation
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/context-exfiltration/ATR-2026-00075-agent-memory-manipulation.yaml
+
+ATR-2026-00076:
+  title: ATR-2026-00076 Insecure Inter-Agent Communication
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/agent-manipulation/ATR-2026-00076-inter-agent-message-spoofing.yaml
+
+ATR-2026-00095:
+  title: ATR-2026-00095 MCP Server Supply Chain Poisoning
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/tool-poisoning/ATR-2026-00095-supply-chain-poisoning.yaml
+
+ATR-2026-00098:
+  title: ATR-2026-00098 Unauthorized Financial Action by Agent
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/excessive-autonomy/ATR-2026-00098-unauthorized-financial-action.yaml
+
+ATR-2026-00113:
+  title: ATR-2026-00113 Credential Theft via Agent Channel
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/context-exfiltration/ATR-2026-00113-credential-theft.yaml
+
+ATR-2026-00118:
+  title: ATR-2026-00118 Human Approval Fatigue Exploitation
+  url: https://github.com/Agent-Threat-Rule/agent-threat-rules/blob/main/rules/agent-manipulation/ATR-2026-00118-approval-fatigue.yaml

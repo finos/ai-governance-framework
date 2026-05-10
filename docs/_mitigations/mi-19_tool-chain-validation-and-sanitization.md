@@ -8,6 +8,10 @@ nist-sp-800-53r5_references:
   - si-10  # SI-10 Information Input Validation
   - si-15  # SI-15 Information Output Filtering
   - sc-4   # SC-4 Information In Shared System Resources
+atr_references:
+  - ATR-2026-00011  # Instruction Injection via Tool Output
+  - ATR-2026-00012  # Unauthorized Tool Call
+  - ATR-2026-00013  # Tool-Driven Server-Side Request Forgery
 mitigates:
   - ri-25  # Tool Chain Manipulation and Injection
   - ri-10  # Prompt Injection

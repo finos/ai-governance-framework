@@ -9,6 +9,10 @@ nist-sp-800-53r5_references:
   - ac-2   # AC-2 Account Management
   - ac-3   # AC-3 Access Enforcement
   - ac-5   # AC-5 Separation of Duties
+atr_references:
+  - ATR-2026-00012  # Unauthorized Tool Call
+  - ATR-2026-00040  # Agent Privilege Escalation
+  - ATR-2026-00098  # Unauthorized Financial Action by Agent
 mitigates:
   - ri-24  # Agent Action Authorization Bypass
   - ri-18  # Model Overreach / Expanded Use

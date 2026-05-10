@@ -17,6 +17,9 @@ eu-ai-act_references:
   - c2-a5      # II.A5 Prohibited AI Practices
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s2-a14  # III.S2.A14: Human Oversight
+atr_references:
+  - ATR-2026-00010  # Malicious Content in MCP Tool Response (indirect prompt injection)
+  - ATR-2026-00011  # Instruction Injection via Tool Output
 related_risks:
   - ri-18  # Model Overreach / Expanded Use
   - ri-20  # Reputational Risk

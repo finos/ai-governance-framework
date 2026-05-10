@@ -7,6 +7,8 @@ type: SEC
 owasp-llm_references:
   - llm01-2025  # LLM01:2025 Prompt Injection
   - llm06-2025  # LLM06:2025 Excessive Agency
+atr_references:
+  - ATR-2026-00113  # Credential Theft via Agent Channel
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass

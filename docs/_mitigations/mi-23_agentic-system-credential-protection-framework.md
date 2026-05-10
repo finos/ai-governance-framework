@@ -9,6 +9,8 @@ nist-sp-800-53r5_references:
   - sc-28  # SC-28 Protection of Information at Rest
   - ac-3   # AC-3 Access Enforcement
   - au-6   # AU-6 Audit Review, Analysis, and Reporting
+atr_references:
+  - ATR-2026-00113  # Credential Theft via Agent Channel
 mitigates:
   - ri-29  # Agent-Mediated Credential Discovery and Harvesting
   - ri-24  # Agent Action Authorization Bypass
