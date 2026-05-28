@@ -33,10 +33,13 @@ related_mitigations:
   - mi-11  # Human Feedback Loop for AI Systems
   - mi-1   # AI Data Leakage Prevention and Detection
 iosco-supervisory-toolkit_references:
-  - t6-1            # Table 6.1: Documentation of AI Lifecycle Oversight
-  - t6-3            # Table 6.3: Documentation of AI-Generated Outcomes
-  - t6-5            # Table 6.5: Records on Incidents Relating to AI Products or Services
-  - t7-performance  # Table 7: AI System Performance Indicators
+  - t2-recordkeeping  # Table 2: Recordkeeping & Audit Trail
+  - t6-1              # Table 6.1: Documentation of AI Lifecycle Oversight
+  - t6-3              # Table 6.3: Documentation of AI-Generated Outcomes
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
+  - t7-adoption       # Table 7: AI Adoption Indicators
+  - t7-nature         # Table 7: Nature and Use Cases of AI Systems
+  - t7-performance    # Table 7: AI System Performance Indicators
 ---
 
 ## Purpose

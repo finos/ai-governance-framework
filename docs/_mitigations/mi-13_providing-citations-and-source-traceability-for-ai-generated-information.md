@@ -27,9 +27,10 @@ related_mitigations:
   - mi-6   # Data Quality & Classification/Sensitivity
   - mi-16  # Preserving Source Data Access Controls in AI Systems
 iosco-supervisory-toolkit_references:
-  - t5-1  # Table 5.1: Disclosure of AI Use in Products and Services to End-Users
-  - t6-4  # Table 6.4: Documentation of Explainability of AI Outputs
-  - t6-3  # Table 6.3: Documentation of AI-Generated Outcomes
+  - t2-recordkeeping  # Table 2: Recordkeeping & Audit Trail
+  - t5-1              # Table 5.1: Disclosure of AI Use in Products and Services to End-Users
+  - t6-4              # Table 6.4: Documentation of Explainability of AI Outputs
+  - t6-3              # Table 6.3: Documentation of AI-Generated Outcomes
 ---
 
 ## Purpose

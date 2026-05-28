@@ -158,6 +158,11 @@ t7-third-party:
 t7-performance:
   title: "Table 7: AI System Performance Indicators"
   url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=58
+# Sector-specific indicators (t7-sector-*): IOSCO surfaces these per-sector. AIGF
+# risks and mitigations are deliberately sector-agnostic, so these keys are
+# surfaced here for downstream consumers (e.g., broker-dealer or asset-manager
+# implementations) to reference but are not annotated on individual risks or
+# mitigations in this repo.
 t7-sector-broker-dealer:
   title: "Table 7: Sector-Specific Indicators — Broker-Dealers"
   url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=59

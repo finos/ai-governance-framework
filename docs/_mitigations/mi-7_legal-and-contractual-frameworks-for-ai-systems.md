@@ -32,8 +32,9 @@ related_mitigations:
   - mi-10  # AI Model Version Pinning
   - mi-6   # Data Quality & Classification/Sensitivity
 iosco-supervisory-toolkit_references:
-  - t4-1  # Table 4.1: Assessment of Risk-Proportionate Controls
-  - t4-7  # Table 4.7: Legal Framework and Accountability
+  - t4-1            # Table 4.1: Assessment of Risk-Proportionate Controls
+  - t4-7            # Table 4.7: Legal Framework and Accountability
+  - t7-third-party  # Table 7: Third-Party Dependencies and Concentrations
 ---
 
 ## Purpose
