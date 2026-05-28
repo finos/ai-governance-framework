@@ -18,6 +18,8 @@ eu-ai-act_references:
 related_risks:
   - ri-1   # Information Leaked To Hosted Model
   - ri-22  # Regulatory Compliance and Oversight
+iosco-supervisory-toolkit_references:
+  - t3-4  # Table 3.4: Data Governance
 ---
 
 ## Summary

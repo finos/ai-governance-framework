@@ -8,18 +8,18 @@ iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-6-2-8  # ISO 42001: AI system recording of event logs
 nist-sp-800-53r5_references:
-  - ac-2  # AC-2 Account Management
-  - au-2  # AU-2 Event Logging
-  - au-3  # AU-3 Content Of Audit Records
-  - au-6  # AU-6 Audit Record Review, Analysis, And Reporting
+  - ac-2   # AC-2 Account Management
+  - au-2   # AU-2 Event Logging
+  - au-3   # AU-3 Content Of Audit Records
+  - au-6   # AU-6 Audit Record Review, Analysis, And Reporting
   - au-11  # AU-11 Audit Record Retention
   - au-12  # AU-12 Audit Record Generation
-  - ca-7  # CA-7 Authorization
-  - ir-4  # IR-4 Incident Handling
-  - ir-5  # IR-5 Incident Monitoring
+  - ca-7   # CA-7 Authorization
+  - ir-4   # IR-4 Incident Handling
+  - ir-5   # IR-5 Incident Monitoring
   - ra-10  # RA-10 Threat Hunting
-  - si-4  # SI-4 System Monitoring
-  - si-7  # SI-7 Software, Firmware, And Information Integrity
+  - si-4   # SI-4 System Monitoring
+  - si-7   # SI-7 Software, Firmware, And Information Integrity
 mitigates:
   - ri-1   # Information Leaked To Hosted Model
   - ri-5   # Foundation Model Versioning
@@ -29,9 +29,14 @@ mitigates:
   - ri-18  # Model Overreach / Expanded Use
   - ri-19  # Data Quality and Drift
 related_mitigations:
-  - mi-9   # AI System Alerting and Denial of Wallet DoW Spend Monitoring
+  - mi-9   # AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring
   - mi-11  # Human Feedback Loop for AI Systems
   - mi-1   # AI Data Leakage Prevention and Detection
+iosco-supervisory-toolkit_references:
+  - t6-1            # Table 6.1: Documentation of AI Lifecycle Oversight
+  - t6-3            # Table 6.3: Documentation of AI-Generated Outcomes
+  - t6-5            # Table 6.5: Records on Incidents Relating to AI Products or Services
+  - t7-performance  # Table 7: AI System Performance Indicators
 ---
 
 ## Purpose

@@ -4,7 +4,6 @@ title: Lack of Explainability
 layout: risk
 doc-status: Approved-Specification
 type: OP
-# No direct OWASP LLM mapping - explainability is not covered in OWASP LLM Top 10
 ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
@@ -37,6 +36,10 @@ related_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination
   - ri-18  # Model Overreach / Expanded Use
+iosco-supervisory-toolkit_references:
+  - t2-disclosure  # Table 2: Disclosure & Transparency
+  - t5-1           # Table 5.1: Disclosure of AI Use in Products and Services to End-Users
+  - t6-4           # Table 6.4: Documentation of Explainability of AI Outputs
 ---
 
 ## Summary

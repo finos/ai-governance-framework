@@ -22,8 +22,11 @@ eu-ai-act_references:
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 related_risks:
-  - ri-9   # Data Poisoning
-  - ri-7   # Availability of Foundational Model
+  - ri-9  # Data Poisoning
+  - ri-7  # Availability of Foundational Model
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t4-4              # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Summary

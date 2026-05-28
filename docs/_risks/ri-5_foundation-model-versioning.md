@@ -21,6 +21,9 @@ eu-ai-act_references:
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
+iosco-supervisory-toolkit_references:
+  - t2-model-risk  # Table 2: Model Risk Management
+  - t3-6           # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary

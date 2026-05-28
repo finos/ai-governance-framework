@@ -11,11 +11,13 @@ nist-sp-800-53r5_references:
   - sa-12  # SA-12 Supply Chain Protection
 mitigates:
   - ri-26  # MCP Server Supply Chain Compromise
-  - ri-8   # Tampering with the Foundational Model
-  - ri-1   # Information Leaked to Hosted Model
+  - ri-8   # Tampering With the Foundational Model
+  - ri-1   # Information Leaked To Hosted Model
 related_mitigations:
-  - mi-7   # Legal and Contractual Frameworks for AI Systems
-  - mi-4   # AI System Observability
+  - mi-7  # Legal and Contractual Frameworks for AI Systems
+  - mi-4  # AI System Observability
+iosco-supervisory-toolkit_references:
+  - t4-4  # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Purpose

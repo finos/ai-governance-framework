@@ -15,6 +15,9 @@ mitigates:
 related_mitigations:
   - mi-3   # User/App/Model Firewalling/Filtering
   - mi-18  # Agent Authority Least Privilege Framework
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t4-4  # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Purpose

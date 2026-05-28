@@ -16,8 +16,12 @@ eu-ai-act_references:
   - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 related_risks:
-  - ri-5   # Foundation Model Versioning
-  - ri-8   # Tampering With the Foundational Model
+  - ri-5  # Foundation Model Versioning
+  - ri-8  # Tampering With the Foundational Model
+iosco-supervisory-toolkit_references:
+  - t2-reliability  # Table 2: System Reliability & Business Continuity Planning
+  - t4-5            # Table 4.5: Concentration Risk
+  - t4-6            # Table 4.6: Contingency Planning
 ---
 
 ## Summary

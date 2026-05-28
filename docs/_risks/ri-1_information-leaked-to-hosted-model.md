@@ -37,7 +37,10 @@ canada-regulations_references:
   - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — PIAs for AI processing, cross-border adequacy
 related_risks:
   - ri-2   # Information Leaked to Vector Store
-  - ri-23  # Intellectual Property and Copyright
+  - ri-23  # Intellectual Property (IP) and Copyright
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
 ---
 ## Summary
 

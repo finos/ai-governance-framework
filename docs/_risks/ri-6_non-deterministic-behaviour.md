@@ -16,6 +16,11 @@ eu-ai-act_references:
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-14  # Inadequate System Alignment
+iosco-supervisory-toolkit_references:
+  - t2-model-risk    # Table 2: Model Risk Management
+  - t2-market-risks  # Table 2: Market Risks
+  - t3-5             # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-6             # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary

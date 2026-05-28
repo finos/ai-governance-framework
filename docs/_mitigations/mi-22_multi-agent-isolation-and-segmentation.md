@@ -16,6 +16,8 @@ mitigates:
 related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-12  # Role-Based Access Control for AI Data
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
 ---
 
 ## Purpose
