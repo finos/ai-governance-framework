@@ -40,6 +40,8 @@ iosco-supervisory-toolkit_references:
   - t2-disclosure  # Table 2: Disclosure & Transparency
   - t5-1           # Table 5.1: Disclosure of AI Use in Products and Services to End-Users
   - t6-4           # Table 6.4: Documentation of Explainability of AI Outputs
+  - t3-7           # Table 3.7: Controls and Human Oversight of AI Systems
+  - t4-2           # Table 4.2: Transparency Measures
 ---
 
 ## Summary

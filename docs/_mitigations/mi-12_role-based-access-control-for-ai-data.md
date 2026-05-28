@@ -30,6 +30,8 @@ related_mitigations:
   - mi-14  # Encryption of AI Data at Rest
 iosco-supervisory-toolkit_references:
   - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
+  - t3-7              # Table 3.7: Controls and Human Oversight of AI Systems
 ---
 
 ## Purpose

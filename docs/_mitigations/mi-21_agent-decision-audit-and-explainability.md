@@ -29,6 +29,8 @@ iosco-supervisory-toolkit_references:
   - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
   - t6-1  # Table 6.1: Documentation of AI Lifecycle Oversight
   - t6-4  # Table 6.4: Documentation of Explainability of AI Outputs
+  - t6-3  # Table 6.3: Documentation of AI-Generated Outcomes
+  - t6-5  # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Purpose

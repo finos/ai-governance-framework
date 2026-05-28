@@ -22,6 +22,8 @@ related_mitigations:
   - mi-3  # User/App/Model Firewalling/Filtering
 iosco-supervisory-toolkit_references:
   - t7-performance  # Table 7: AI System Performance Indicators
+  - t2-reliability  # Table 2: System Reliability & Business Continuity Planning
+  - t6-5            # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Purpose

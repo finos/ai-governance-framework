@@ -22,6 +22,7 @@ iosco-supervisory-toolkit_references:
   - t2-reliability  # Table 2: System Reliability & Business Continuity Planning
   - t4-5            # Table 4.5: Concentration Risk
   - t4-6            # Table 4.6: Contingency Planning
+  - t2-outsourcing  # Table 2: Outsourcing & Third-Party Dependencies
 ---
 
 ## Summary

@@ -41,6 +41,8 @@ related_mitigations:
   - mi-14  # Encryption of AI Data at Rest
 iosco-supervisory-toolkit_references:
   - t3-4  # Table 3.4: Data Governance
+  - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
+  - t4-4  # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Purpose

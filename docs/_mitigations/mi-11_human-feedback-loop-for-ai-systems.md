@@ -33,6 +33,8 @@ related_mitigations:
   - mi-5   # System Acceptance Testing
 iosco-supervisory-toolkit_references:
   - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
+  - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
+  - t6-3  # Table 6.3: Documentation of AI-Generated Outcomes
 ---
 
 ## Purpose

@@ -1,135 +1,174 @@
 # IOSCO Supervisory Toolkit for AI Use in Capital Markets
-# FR/02/2026, May 2026
+# Document: FR/02/2026, May 2026
 # Source: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+# Citations herein are to the FR/02/2026 final report; an accompanying standalone
+# extract of the toolkit (for direct supervisory use) is referenced on p.6.
+# IOSCO is accepting feedback on the toolkit via short survey until 26 June 2026,
+# so table layouts and section numbering may evolve in subsequent IOSCO publications.
 
-# Table 2: Areas of Supervisory Consideration
+# Box 3: Measures from the 2021 IOSCO AI Report (cross-referenced in Table 2)
+box-3:
+  title: "Box 3: Measures from the 2021 IOSCO AI Report (FR06/2021)"
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=22
+
+# Table 2: Areas of Supervisory Consideration (high-level mapping to 2021 measures)
 t2-governance:
   title: "Table 2: AI Governance & Oversight"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=24
 t2-model-risk:
   title: "Table 2: Model Risk Management"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=24
 t2-advice:
   title: "Table 2: Investment Advice & Suitability"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=25
 t2-market-risks:
   title: "Table 2: Market Risks"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=26
 t2-reliability:
   title: "Table 2: System Reliability & Business Continuity Planning"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=26
 t2-cybersecurity:
   title: "Table 2: Cybersecurity & Data Privacy/Protection"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=27
 t2-outsourcing:
   title: "Table 2: Outsourcing & Third-Party Dependencies"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=27
 t2-disclosure:
   title: "Table 2: Disclosure & Transparency"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=28
 t2-recordkeeping:
   title: "Table 2: Recordkeeping & Audit Trail"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=28
 
 # Table 3: Evaluating Governance and Risk Management of AI Use
+# NOTE: t3-8 (Training and AI Literacy) is included for completeness but no current
+# AIGF risk or mitigation directly covers role-specific AI training/literacy as a control.
+# Surfaced for working group discussion (see PR description).
 t3-1:
   title: "Table 3.1: Oversight from Board or Governing Body"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=33
 t3-2:
   title: "Table 3.2: Senior Management Responsibilities"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=33
 t3-3:
   title: "Table 3.3: AI Risk Management Systems, Policies and Procedures"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=34
 t3-4:
   title: "Table 3.4: Data Governance"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=35
 t3-5:
   title: "Table 3.5: Risk Management of Advanced AI Systems"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=36
 t3-6:
   title: "Table 3.6: AI Model Validation, Testing and Monitoring"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=37
 t3-7:
   title: "Table 3.7: Controls and Human Oversight of AI Systems"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=37
 t3-8:
   title: "Table 3.8: Training and AI Literacy"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=38
 
 # Table 4: Evaluating Third-Party and Outsourcing Risks
+# NOTE: t4-8 (Capability Development) is included for completeness but covered by the
+# same training/literacy gap noted above for t3-8.
 t4-1:
   title: "Table 4.1: Assessment of Risk-Proportionate Controls"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=41
 t4-2:
   title: "Table 4.2: Transparency Measures"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=42
 t4-3:
   title: "Table 4.3: Fairness Due Diligence Assessment"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=42
 t4-4:
   title: "Table 4.4: Supply Chain Risk Assessment"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=43
 t4-5:
   title: "Table 4.5: Concentration Risk"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=43
 t4-6:
   title: "Table 4.6: Contingency Planning"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=44
 t4-7:
   title: "Table 4.7: Legal Framework and Accountability"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=44
 t4-8:
   title: "Table 4.8: Capability Development"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=45
 t4-9:
   title: "Table 4.9: Use of Complex AI Products"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=45
 
 # Table 5: Evaluating Disclosure of AI Use
+# NOTE: t5-3 (Disclosure and Consent) covers client consent/opt-out for AI use — an
+# investor-protection control area not currently represented in AIGF risks or
+# mitigations. Surfaced for working group discussion.
 t5-1:
   title: "Table 5.1: Disclosure of AI Use in Products and Services to End-Users"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=49
 t5-2:
   title: "Table 5.2: AI Governance and Strategy Disclosures"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=49
 t5-3:
   title: "Table 5.3: Disclosure and Consent"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=50
 t5-4:
   title: "Table 5.4: Identifying Misleading Claims"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=50
+
+# Box 4: AI-Washing example (referenced in Table 5.4)
+box-4:
+  title: "Box 4: Identifying Misleading, Inaccurate, or False Claims Relating to AI"
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=47
 
 # Table 6: Evaluating Recordkeeping and Reporting of AI Use
+# NOTE: t6-2 (Documentation of Business Objectives Related to AI) is included for
+# completeness; AIGF does not currently cover documentation of AI business case/
+# strategic alignment as a control. Surfaced for working group discussion.
 t6-1:
   title: "Table 6.1: Documentation of AI Lifecycle Oversight"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=54
 t6-2:
   title: "Table 6.2: Documentation of Business Objectives Related to AI"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=54
 t6-3:
   title: "Table 6.3: Documentation of AI-Generated Outcomes"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=54
 t6-4:
   title: "Table 6.4: Documentation of Explainability of AI Outputs"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=55
 t6-5:
   title: "Table 6.5: Records on Incidents Relating to AI Products or Services"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=55
 t6-6:
   title: "Table 6.6: Reporting"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=56
 
 # Table 7: Key Indicators for Supervisory Oversight of AI Use
 t7-adoption:
   title: "Table 7: AI Adoption Indicators"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=57
 t7-nature:
   title: "Table 7: Nature and Use Cases of AI Systems"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=58
 t7-third-party:
   title: "Table 7: Third-Party Dependencies and Concentrations"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=58
 t7-performance:
   title: "Table 7: AI System Performance Indicators"
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=58
+t7-sector-broker-dealer:
+  title: "Table 7: Sector-Specific Indicators — Broker-Dealers"
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=59
+t7-sector-asset-manager:
+  title: "Table 7: Sector-Specific Indicators — Asset Managers"
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=59
+t7-sector-exchanges:
+  title: "Table 7: Sector-Specific Indicators — Exchanges and Other FMIs"
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=59
+
+# Annex I: IOSCO Members' Survey Findings (jurisdictional evidence base)
+annex-1:
+  title: "Annex I: IOSCO Members' Survey Findings"
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf#page=63

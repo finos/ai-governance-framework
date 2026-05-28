@@ -61,6 +61,8 @@ iosco-supervisory-toolkit_references:
   - t3-2           # Table 3.2: Senior Management Responsibilities
   - t3-3           # Table 3.3: AI Risk Management Systems, Policies and Procedures
   - t6-6           # Table 6.6: Reporting
+  - t4-7           # Table 4.7: Legal Framework and Accountability
+  - t5-2           # Table 5.2: AI Governance and Strategy Disclosures
 ---
 
 ## Summary

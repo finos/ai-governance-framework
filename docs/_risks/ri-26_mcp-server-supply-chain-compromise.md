@@ -9,7 +9,9 @@ related_risks:
   - ri-9  # Data Poisoning
   - ri-1  # Information Leaked To Hosted Model
 iosco-supervisory-toolkit_references:
-  - t4-4  # Table 4.4: Supply Chain Risk Assessment
+  - t4-4              # Table 4.4: Supply Chain Risk Assessment
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
 ---
 
 ## Summary

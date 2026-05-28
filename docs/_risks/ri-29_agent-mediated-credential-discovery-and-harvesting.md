@@ -15,6 +15,7 @@ related_risks:
 iosco-supervisory-toolkit_references:
   - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
   - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Summary

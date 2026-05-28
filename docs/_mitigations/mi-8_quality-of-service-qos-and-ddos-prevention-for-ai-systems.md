@@ -24,6 +24,8 @@ related_mitigations:
   - mi-4   # AI System Observability
 iosco-supervisory-toolkit_references:
   - t2-reliability  # Table 2: System Reliability & Business Continuity Planning
+  - t4-6            # Table 4.6: Contingency Planning
+  - t7-performance  # Table 7: AI System Performance Indicators
 ---
 
 ## Purpose

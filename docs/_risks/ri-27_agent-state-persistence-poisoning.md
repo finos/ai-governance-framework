@@ -9,7 +9,9 @@ related_risks:
   - ri-24  # Agent Action Authorization Bypass
   - ri-9   # Data Poisoning
 iosco-supervisory-toolkit_references:
-  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Summary
