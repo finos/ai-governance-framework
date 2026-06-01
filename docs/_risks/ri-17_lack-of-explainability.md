@@ -14,6 +14,23 @@ eu-ai-act_references:
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c4-a50     # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
   - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
+csa-ciro-canada_references:
+  # Reasonable-basis doctrine
+  - csa-sn-11-348        # CSA SN 11-348: explainability/governance expectations for AI
+  - ni-31-103             # s. 13.3 (reasonable basis), s. 13.2.1 (KYP), s. 14.2 (relationship disclosure)
+  - csa-ciro-sn-31-368   # Joint CFR review — supervisory benchmark for demonstrating reasonable basis
+  - csa-sn-31-342         # Online advice — AR must remain decision-maker for registerable activities
+  # Supervision and oversight
+  - ciro-rules-phase-4    # Proposed Rule 3900/3907 — supervisors must understand automated tasks
+  - ciro-idpc-rules       # Operative Rule 3900 (supervision) — understanding processes being supervised
+  # Investment funds
+  - ni-81-102             # Offering document disclosure must clearly articulate how AI is used
+  # Statutory explanation right
+  - qc-p39-s12-1          # Quebec Law 25 s. 12.1 — only Canadian private-sector ADM explanation right
+  # Tier 3 benchmarks
+  - osfi-e-23-2027        # OSFI E-23 — model documentation/validation (FRFIs, 2027)
+  - qc-amf-ai-guideline   # AMF AI Guideline — lifecycle controls imply explainability (QC FIs, 2027)
+  - iosco-fr-02-2026      # IOSCO Toolkit Section 3.3 (Disclosure) — AI transparency
 related_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination

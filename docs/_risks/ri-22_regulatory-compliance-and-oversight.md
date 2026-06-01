@@ -17,6 +17,34 @@ eu-ai-act_references:
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
   - c3-s3-a21  # III.S3.A21: Cooperation with Competent Authorities
   - c3-s3-a27  # III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems
+csa-ciro-canada_references:
+  # AI-specific guidance
+  - csa-sn-11-348        # CSA SN 11-348: AI in Capital Markets — interpretive anchor
+  - ciro-acr-2026         # CIRO 2026 Compliance Report — AI section, FinOps posture
+  # Registration / conduct / suitability
+  - ni-31-103             # s. 11.1 (compliance/outsourcing), s. 13.2–13.4 (KYC/KYP/suitability/conflicts)
+  - ni-31-103cp           # CP Part 11 — outsourcing framework: due diligence, accountability, registerable-vs-support
+  - csa-ciro-sn-31-363   # Joint CFR review — conflicts of interest
+  - csa-ciro-sn-31-368   # Joint CFR review — KYC/KYP/suitability
+  - csa-sn-31-342         # Online advice — AR must remain decision-maker; AI cannot substitute
+  - ni-33-109-f5          # Form 33-109F5 — material business change notification
+  # Investment funds
+  - ni-81-102             # s. 5.1(1)(c) fundamental change trigger; Part 15 sales communications; AI washing
+  - ni-81-107             # IRC referral for AI-related conflicts (proprietary models, vendor incentives)
+  - ni-81-106             # Material change reporting for AI adoption in fund operations
+  # CIRO rules and outsourcing
+  - ciro-idpc-rules       # Business conduct (3100–3600), recordkeeping (3800), supervision (3900)
+  - ciro-rules-phase-4    # Proposed Rules 3900/3907 — supervision of automated tasks
+  - ciro-gn-2300-21-003   # Outsourcing Arrangements — due diligence, SLAs, monitoring, exit
+  # Tier 3 benchmarks
+  - osfi-e-23-2027        # OSFI E-23 Model Risk Management (FRFIs, eff. 2027)
+  - osfi-b-10             # OSFI B-10 Third-Party Risk Management (FRFIs) — concentration risk
+  - qc-amf-ai-guideline   # AMF AI Guideline (QC-regulated FIs, eff. 2027)
+  - iosco-fr-02-2026      # IOSCO Supervisory Toolkit for AI in Capital Markets
+  # Tier 4 adjacent compliance obligations
+  - pipeda                # Privacy compliance for AI deployment — SN 11-348 flags outsourcing/privacy intersection
+  - qc-p39-s12-1          # Quebec Law 25 s. 12.1 — ADM transparency obligation
+  - qc-p39-s3-3-s17       # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacy
 related_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability

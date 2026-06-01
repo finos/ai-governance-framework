@@ -18,6 +18,24 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
+csa-ciro-canada_references:
+  # Securities cyber and outsourcing
+  - csa-sn-11-348        # Privacy law implications for AI systems including embeddings/vector stores
+  - csa-sn-11-326         # CSA Cyber Security (2013)
+  - csa-sn-11-332         # CSA Cyber Security (2016)
+  - csa-sn-33-321         # CSA Cyber Security and Social Media (2017)
+  - ni-31-103             # s. 11.1 (compliance), s. 11.5 (records — including derived data)
+  - ni-31-103cp           # CP Part 11 — outsourcing accountability extends to derived data assets
+  - ciro-idpc-rules       # Rule 3800 — applies to derived data assets, not just source records
+  - ciro-gn-2300-21-003   # Outsourcing Arrangements — vector stores hosted by third parties
+  # Tier 3 benchmarks
+  - osfi-b-13             # Technology and cyber risk management — data confidentiality through lifecycle
+  - osfi-b-10             # Third-Party Risk Management — vector store hosting concentration and vendor oversight
+  - osfi-e-23-2027        # Model lifecycle includes derived artifacts (embeddings/vectors); validation and protection
+  - iosco-fr-02-2026      # Toolkit — third-party data security and model artifact considerations
+  # Tier 4 — primary privacy framework
+  - pipeda                # PIPEDA 4.5 (retention — embeddings persist), 4.7 (safeguards), s. 10.1 (breach)
+  - qc-p39-s3-3-s17       # Quebec Law 25 — PIAs for vector processing; cross-border adequacy
 related_risks:
   - ri-1   # Information Leaked To Hosted Model
   - ri-9   # Data Poisoning
