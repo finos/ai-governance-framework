@@ -13,7 +13,6 @@ This file lists the maintainers of this repository.
 | @chamindra | Chamindra de Silva | Sahana Foundation | *please add email* |
 | @d1gital-f | Francesco Beltramini | *please add organization* | *please add email* |
 | @hugo-calderon | Hugo | *please add organization* | *please add email* |
-| @lucaborella89 | Luca Borella | *please add organization* | *please add email* |
 
 For information about maintainer responsibilities and resources, see the [FINOS Maintainers Cheatsheet](https://community.finos.org/docs/finos-maintainers-cheatsheet).
 
