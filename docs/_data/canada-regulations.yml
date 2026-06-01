@@ -79,6 +79,11 @@ ni-31-103-s13-4:
   url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
   issuer: CSA
 
+ni-31-103-s14-2:
+  title: 'NI 31-103 s. 14.2: Relationship Disclosure Information'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+  issuer: CSA
+
 ni-31-103cp:
   title: 'Companion Policy 31-103CP to NI 31-103'
   url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-companion-policy-31-103cp-registration-requirements-exemptions-and-1
@@ -198,6 +203,66 @@ ciro-rules-phase-5:
     outsourcing, continuing education, complaints handling, financial solvency (proposed
     DC Form 1), client asset use and custody, and financing arrangements. Comment period
     closed 2025-06-25.
+
+ni-81-102:
+  title: 'NI 81-102: Investment Funds'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/8/81-102
+  issuer: CSA
+  description: >
+    Key provisions for AI governance: s. 5.1(1)(c) requires prior securityholder approval
+    where adopting AI as a material investment strategy constitutes a change to fundamental
+    investment objectives; Part 15 sales communications rules prohibit misleading AI claims
+    in marketing materials and offering documents. CSA SN 11-348 explicitly flags "AI washing"
+    as a compliance risk and expects IFMs to accurately disclose and clearly explain how AI
+    systems are used and integrated in a fund's operations.
+
+ni-81-106:
+  title: 'NI 81-106: Investment Fund Continuous Disclosure'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/8/81-106
+  issuer: CSA
+  description: >
+    s. 1.1 defines "material change" as a change in business, operations or affairs important
+    to a reasonable investor's hold/purchase decision. Adopting AI as a material part of fund
+    operations likely triggers material change reporting (Part 11), requiring a material change
+    report and press release. Complements the NI 81-102 offering document disclosure obligation.
+
+ni-81-107:
+  title: 'NI 81-107: Independent Review Committee for Investment Funds'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/8/81-107
+  issuer: CSA
+  description: >
+    s. 5.1 requires IFMs to refer AI-related conflicts of interest to the IRC before acting,
+    including use of proprietary or affiliated AI models and vendor relationships where the
+    manager has a financial interest in the AI provider; s. 5.2 requires prior IRC approval for
+    related-party AI transactions. CSA SN 11-348 identifies AI-specific conflict scenarios:
+    proprietary model use, vendor selection incentives, and AI systems that systematically
+    favour related-party assets.
+
+csa-sn-31-342:
+  title: 'CSA Staff Notice 31-342: Guidance for Portfolio Managers Regarding Online Advice (2015-09-24)'
+  url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-342/csa-staff-notice-31-342-guidance-portfolio-managers-regarding-online-advice
+  issuer: CSA
+  description: >
+    Establishes the human oversight floor for automated/AI-assisted portfolio management.
+    Advising representatives must remain actively responsible for suitability determinations —
+    AI cannot substitute for the AR as decision-maker. KYC via automated means is permissible
+    only where the AR reviews and validates sufficiency. Reinforced by CSA SN 11-348 (2024),
+    which states staff do not believe it is currently possible to use an AI system as a
+    substitute for an AR and consistently satisfy regulatory requirements.
+
+ciro-gn-2300-21-003:
+  title: 'CIRO Guidance Note GN-2300-21-003: Outsourcing Arrangements (2021-12-31)'
+  url: https://www.ciro.ca/newsroom/publications/outsourcing-arrangements-0
+  issuer: CIRO
+  description: >
+    Operative CIRO outsourcing framework for investment dealers. Requires due diligence in
+    selecting third-party service providers, legally binding written contracts with SLA
+    provisions, ongoing performance monitoring, exit/contingency planning, and enhanced due
+    diligence for cross-border material functions. Actively referenced by the CIRO 2026
+    Compliance Report in the context of third-party AI service providers. Remains in force
+    pending adoption of proposed DC Rules 2403/2407/2409 under the Rule Consolidation Project
+    (Phase 5). Read alongside NI 31-103 s. 11.1 and Companion Policy 31-103CP Part 11, which
+    set the CSA-level outsourcing obligations this guidance note implements for CIRO members.
 
 # ---------------------------------------------------------------------------
 # Tier 3 — Federal prudential and international guidance (analogous; not
@@ -321,14 +386,51 @@ osfi-b13-d3:
   issuer: OSFI
   description: 'Principles 14–17. Layered cyber controls across prevention, detection, response, and recovery.'
 
-iosco-cr-01-2025:
-  title: 'IOSCO CR/01/2025: AI in Capital Markets (2025-03)'
-  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD788.pdf
+iosco-fr-02-2026:
+  title: 'IOSCO Final Report FR/02/2026: Supervisory Toolkit for AI Use in Capital Markets (2026-05-25)'
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
   issuer: IOSCO
   description: >
-    International consensus framing from IOSCO's Fintech Task Force. CSA and CIRO approaches
-    to AI in capital markets are inspired by and broadly consistent with the issues, risks
-    and supervisory considerations catalogued in this report.
+    Practical, non-binding supervisory toolkit covering the full AI lifecycle across
+    traditional ML, Generative AI, and Agentic AI. Five areas of focus: (i) governance and
+    risk management, (ii) third-party and outsourcing risk management, (iii) disclosure,
+    (iv) recordkeeping and reporting, and (v) monitoring AI use. Supersedes the consultation
+    report CR/01/2025 (IOSCOPD788), which is retained above for lineage. CSA and CIRO
+    supervisory approaches to AI in capital markets are broadly consistent with the issues,
+    risks, and supervisory considerations in this toolkit.
+
+osfi-b-10:
+  title: 'OSFI Guideline B-10: Third-Party Risk Management'
+  url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/third-party-risk-management-guideline
+  issuer: OSFI
+  description: >
+    Published 2023-04-30 (category: Sound Business and Financial Practices), effective
+    2024-05-01. Applies to FRFIs (banks, foreign bank branches, foreign insurance branches,
+    life insurance and fraternal companies, P&C companies, trust and loan companies). A general
+    (not AI-specific) third-party risk management guideline governing all third-party
+    arrangements across their lifecycle — risk-based approach, due diligence, contractual
+    provisions, ongoing monitoring, business continuity, and exit. Structured as four sections
+    (1. Governance; 2. Management of third-party risk; 3. Special arrangements; 4. Technology
+    and cyber risk in third-party arrangements) plus two annexes. Defines institution-specific
+    and systemic concentration risk. AI and model vendors (e.g., cloud and hosted-inference
+    providers, "technology companies that deliver financial services") fall within its
+    third-party scope, and OSFI E-23 (2027) relies on B-10 for third-party model-vendor risk.
+    Binding only on FRFIs; for CSA/CIRO registrants it is persuasive federal-prudential practice
+    rather than a securities-law obligation (the binding outsourcing hooks for registrants are
+    NI 31-103 s. 11.1 and CIRO GN-2300-21-003).
+
+qc-amf-ai-guideline:
+  title: 'AMF Guideline for the Use of Artificial Intelligence (finalized 2026-03-30, effective 2027-05-01)'
+  url: https://lautorite.qc.ca/en/professionals/insurers/guidelines/use-of-models/guideline-for-the-use-of-artificial-intelligence
+  issuer: AMF
+  description: >
+    Applies to Quebec-authorized insurers, financial services cooperatives, deposit-taking
+    institutions, and trust companies. Requires lifecycle risk management, governance
+    mechanisms, and protection of client interests; covers biased outputs, discriminatory
+    proxies, ethical misalignment, and hallucinations. The AMF is also Quebec's securities
+    regulator (a CSA member), but this guideline applies to its prudential registrants, not
+    securities registrants under CSA/CIRO. Included as a peer benchmark to OSFI E-23 and the
+    most operationally specific Canadian AI instrument for financial services.
 
 # ---------------------------------------------------------------------------
 # Tier 4 — Federal privacy and consumer protection (cross-cutting)
@@ -354,6 +456,70 @@ fcac-ai:
   url: https://www.canada.ca/en/financial-consumer-agency/services/industry/research/artificial-intelligence-financial-services.html
   issuer: FCAC
   description: Consumer-protection framing of AI deployment in financial products and channels.
+
+qc-p39-s12-1:
+  title: 'Quebec Act respecting the protection of personal information in the private sector (CQLR c P-39.1) s. 12.1: Automated Decision-Making Transparency'
+  url: https://www.legisquebec.gouv.qc.ca/en/document/cs/P-39.1
+  issuer: CAI
+  description: >
+    Automated decision-making transparency (in force 2023-09-22, as amended by Law 25 /
+    2021, c 25). Where a decision is based exclusively on automated processing of personal
+    information, the organization must inform the individual at the time of the decision and,
+    on request, disclose the personal information used, the principal factors and parameters
+    of the decision, and the individual's right to have the information corrected and to submit
+    observations to a human decision-maker. The only Canadian private-sector statute imposing
+    an enforceable right to explanation for automated decisions. Penalties up to C$25 million
+    or 4% of worldwide turnover. (Issuer: enforced by Quebec's Commission d'accès à
+    l'information (CAI).)
+
+qc-p39-s3-3-s17:
+  title: 'Quebec Act respecting the protection of personal information in the private sector (CQLR c P-39.1) ss. 3.3 and 17: Privacy Impact Assessments and Cross-Border Transfers'
+  url: https://www.legisquebec.gouv.qc.ca/en/document/cs/P-39.1
+  issuer: CAI
+  description: >
+    Privacy impact assessments and cross-border transfers (in force 2023-09-22, as amended by
+    Law 25 / 2021, c 25). Section 3.3 requires a mandatory privacy impact assessment before any
+    processing presenting a significant privacy risk, including AI and automated decision-making
+    systems. Section 17 requires, before communicating personal information outside Quebec, a PIA
+    establishing that the receiving jurisdiction provides adequate protection based on generally
+    recognized principles, plus a written agreement with the recipient. Material compliance
+    obligation for Quebec-based firms using AI models hosted outside Canada. (Issuer: enforced
+    by Quebec's Commission d'accès à l'information (CAI).)
+
+chra-s3-s5:
+  title: 'Canadian Human Rights Act (RSC 1985, c H-6) ss. 3 and 5: Prohibited Grounds and Discriminatory Services'
+  url: https://laws-lois.justice.gc.ca/eng/acts/h-6/
+  issuer: CHRC
+  description: >
+    Federal anti-discrimination statute. Section 3(1) establishes prohibited grounds of
+    discrimination (race, national or ethnic origin, colour, religion, age, sex, sexual
+    orientation, gender identity or expression, marital status, family status, genetic
+    characteristics, disability). Section 5 makes it a discriminatory practice to deny or
+    differentiate adversely in the provision of services on a prohibited ground. Applies to
+    federally regulated entities only (chartered banks, federal Crown corporations, telecoms,
+    airlines). Does NOT apply to investment dealers or other provincially regulated securities
+    registrants — for those firms the applicable anti-discrimination framework is the human
+    rights code of each province in which the firm operates (see on-hrc-s1 for a representative
+    provincial provision). (Issuer: administered by the Canadian Human Rights Commission (CHRC);
+    published by the Department of Justice Canada.)
+
+on-hrc-s1:
+  title: 'Ontario Human Rights Code (RSO 1990, c H.19) s. 1: Equal Treatment in Services'
+  url: https://www.ontario.ca/laws/statute/90h19
+  issuer: OHRC
+  description: >
+    Equal treatment in services, goods, and facilities without discrimination on grounds
+    including race, ancestry, place of origin, colour, ethnic origin, citizenship, creed, sex,
+    sexual orientation, gender identity or expression, age, marital status, family status, and
+    disability (s. 1); extends to contract rights (s. 3). Representative of provincial human
+    rights legislation applicable to investment dealers and other securities registrants.
+    Equivalent provisions exist in Quebec (Charter of Human Rights and Freedoms, CQLR c C-12,
+    ss. 10, 12), British Columbia (Human Rights Code, RSBC 1996, c 210, s. 8), Alberta (Alberta
+    Human Rights Act, RSA 2000, c A-25.5, s. 4), and all other provinces and territories. No
+    Canadian provincial human rights code contains AI-specific provisions; the adverse-effect
+    discrimination doctrine (SCC, Ontario (Human Rights Commission) v. Simpsons-Sears Ltd.,
+    [1985] 2 SCR 536) applies to algorithmic outputs by extension. (Issuer: administered by the
+    Ontario Human Rights Commission (OHRC); published by the Government of Ontario.)
 
 # NOTE: Bill C-27 (Digital Charter Implementation Act, 2022) — including the proposed
 # Consumer Privacy Protection Act (CPPA) and Artificial Intelligence and Data Act (AIDA) —

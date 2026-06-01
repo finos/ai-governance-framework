@@ -14,6 +14,23 @@ eu-ai-act_references:
   - c3-s1-a6   # III.S1.A6: Classification Rules for High-Risk AI Systems
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
+canada-regulations_references:
+  # Scope control and notification
+  - csa-sn-11-348          # CSA SN 11-348: AI governance/scope expectations
+  - ni-33-109-f5           # Form 33-109F5 — material business change notification
+  - ni-81-102              # s. 5.1(1)(c) — AI as material strategy = fundamental change, securityholder approval
+  - ni-81-106              # Part 11 material change reporting — AI scope expansion as a material change in fund operations
+  # Supervision and human oversight
+  - ciro-rules-phase-4     # Proposed Rule 3900 — supervision of automated tasks
+  - ciro-acr-2026          # CIRO 2026 Compliance Report — AI operational controls and scope
+  - csa-sn-31-342          # AR must remain decision-maker — AI assists but cannot substitute
+  # Outsourcing / third-party oversight
+  - ni-31-103-s11-1        # s. 11.1 — outsourcing obligations; registrant accountable for third-party AI scope
+  - ni-31-103cp            # CP Part 11 — registerable-vs-support activity: AI may assist but not substitute
+  - ciro-gn-2300-21-003    # Outsourcing Arrangements — monitoring for scope expansion by service providers
+  # Tier 3 benchmarks
+  - osfi-e23-2027-p3-6     # OSFI E-23 Principle 3.6 — monitoring/decommission catches scope drift (FRFIs, 2027)
+  - osfi-b-10              # OSFI B-10 — third-party risk management and concentration (FRFIs)
 related_risks:
   - ri-10  # Prompt Injection
   - ri-17  # Lack of Explainability
