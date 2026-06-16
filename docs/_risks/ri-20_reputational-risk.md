@@ -14,6 +14,17 @@ eu-ai-act_references:
   - c2-a5      # II.A5 Prohibited AI Practices
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a14  # III.S2.A14: Human Oversight
+uk-regulations_references:
+  # AI governance, conduct and public-claim risk
+  - fca-ai-approach-2024 # FCA AI approach includes responsible innovation and consumer trust expectations
+  - boe-fca-ai-survey-2024 # Survey context on adoption levels and risk controls informs reputational exposure
+  - fca-prin # Principles set high-level conduct expectations underpinning trust
+  - fca-prin-2a # Consumer Duty failures can create significant public and supervisory scrutiny
+  - fca-cobs-4 # Financial promotions must be fair, clear and not misleading, including AI claims
+  - fca-smcr # Senior accountability can attach to visible AI governance failures
+  # Adjacent rights and privacy harms that amplify reputation damage
+  - equality-act-2010 # Discriminatory AI outcomes create legal and reputational exposure
+  - uk-gdpr-dpa-2018 # Personal-data misuse or breaches trigger notification and trust impacts
 related_risks:
   - ri-10  # Prompt Injection
   - ri-16  # Bias and Discrimination

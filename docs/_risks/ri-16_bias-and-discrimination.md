@@ -16,6 +16,17 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a27  # III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems
+uk-regulations_references:
+  # AI fairness and conduct expectations
+  - fca-ai-approach-2024 # FCA AI approach flags fairness, accountability and consumer outcomes
+  - fca-prin # Principles require integrity, skill/care/diligence and customers' interests
+  - fca-prin-2a # Consumer Duty requires good outcomes and avoidance of foreseeable harm
+  # Privacy, fairness and protected-characteristic law
+  - uk-gdpr-dpa-2018 # Fairness, special-category data and automated decision-making safeguards
+  - ico-guidance-ai-data-protection # ICO AI guidance addresses bias, fairness and statistical accuracy
+  - ico-ai-data-protection-toolkit # Toolkit includes bias/fairness checks for AI personal-data processing
+  - equality-act-2010 # Protected-characteristic discrimination baseline for services/employment
+  - consumer-credit-act-1974 # Consumer-credit protections relevant to AI credit decisions
 related_risks:
   - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight

@@ -17,6 +17,16 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
+uk-regulations_references:
+  # Systems, controls, outsourcing and third-party resilience
+  - fca-sysc # Systems and controls apply to confidential client data in AI workflows
+  - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted model providers
+  - pra-ss2-21-outsourcing # PRA outsourcing controls for material AI service providers
+  - boe-fca-pra-critical-third-parties-2024 # Systemic third-party services, including AI/cloud concentration
+  # Data protection and AI-specific privacy controls
+  - uk-gdpr-dpa-2018 # UK GDPR/DPA safeguards for personal data sent to hosted models
+  - ico-guidance-ai-data-protection # ICO AI guidance on controller accountability and security
+  - ico-ai-data-protection-toolkit # Toolkit prompts risk assessment of data leakage in AI systems
 related_risks:
   - ri-2   # Information Leaked to Vector Store
   - ri-23  # Intellectual Property and Copyright

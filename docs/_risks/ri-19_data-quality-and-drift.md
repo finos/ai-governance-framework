@@ -14,6 +14,18 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+uk-regulations_references:
+  # AI adoption, operations and model lifecycle controls
+  - fca-ai-approach-2024 # FCA AI approach identifies data quality and model performance as governance concerns
+  - boe-fca-ai-survey-2024 # Sector survey evidence on AI use cases, controls and monitoring practices
+  - fca-prin-2a # Consumer Duty requires monitoring outcomes that can degrade through drift
+  - fca-sysc # Systems and controls require effective risk management and operational oversight
+  - pra-ss1-23-mrm # Model validation, monitoring and change controls address data/concept drift
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion focuses on lifecycle and monitoring challenges
+  # Data protection accuracy and AI data-quality controls
+  - uk-gdpr-dpa-2018 # Accuracy, fairness and data-minimisation principles for personal-data inputs
+  - ico-guidance-ai-data-protection # ICO AI guidance covers data quality, accuracy and statistical validity
+  - ico-ai-data-protection-toolkit # Toolkit supports data-quality and drift-related risk assessment
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-16  # Bias and Discrimination

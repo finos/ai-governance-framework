@@ -14,6 +14,18 @@ eu-ai-act_references:
   - c3-s1-a6   # III.S1.A6: Classification Rules for High-Risk AI Systems
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
+uk-regulations_references:
+  # Scope, accountability and consumer-outcome controls
+  - fca-ai-approach-2024 # FCA AI approach frames safe and responsible adoption expectations
+  - fca-prin # Principles require appropriate skill, care and management of business risks
+  - fca-prin-2a # Consumer Duty constrains expanded AI use causing foreseeable harm
+  - fca-sysc # SYSC governance controls apply to material system changes and oversight
+  - fca-smcr # SMCR allocates senior accountability for AI use beyond approved scope
+  # Regulated advice and model-risk boundaries
+  - fca-cobs-9 # Suitability rules limit unsupported use in personal recommendations
+  - fca-cobs-9a # MiFID suitability requirements constrain portfolio/advice automation scope
+  - pra-ss1-23-mrm # Model inventory, tiering and change controls address model-use drift
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion emphasises governance of AI model use
 related_risks:
   - ri-10  # Prompt Injection
   - ri-17  # Lack of Explainability

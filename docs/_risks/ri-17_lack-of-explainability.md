@@ -14,6 +14,17 @@ eu-ai-act_references:
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c4-a50     # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
   - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
+uk-regulations_references:
+  # Explainability for consumer outcomes and regulated advice
+  - fca-ai-approach-2024 # FCA AI approach stresses accountability and explainability expectations
+  - fca-prin-2a # Consumer Duty requires firms to evidence and explain good outcomes
+  - fca-cobs-9 # Suitability rules require a reasonable basis for personal recommendations
+  - fca-cobs-9a # MiFID suitability rules require explainable advice and portfolio decisions
+  # Model risk and automated decision-making transparency
+  - pra-ss1-23-mrm # Model documentation, validation and governance for in-scope models
+  - uk-gdpr-dpa-2018 # UK GDPR safeguards for solely automated decisions and meaningful information
+  - ico-guidance-ai-data-protection # ICO AI guidance covers explaining AI-assisted decisions
+  - ico-ai-data-protection-toolkit # Toolkit supports explainability and accountability assessment
 related_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination
