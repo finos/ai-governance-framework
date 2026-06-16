@@ -46,11 +46,13 @@ AI detects unusual transaction patterns and identity anomalies in real-time, red
 
 ### 2.2 Credit Risk & Scoring
 **How AI Helps:**  
-ML augments traditional credit scoring with alternative data sources such as transaction histories, social patterns, or mobile usage. Continuous learning models adapt as borrower behavior changes.  
-**Techniques:** Gradient-boosted models, explainable AI (SHAP), ensemble methods.  
+ML augments traditional credit scoring with alternative data sources such as transaction histories, social patterns, or mobile usage. Continuous learning models adapt as borrower behavior changes. Agentic workflows can also coordinate document intelligence, fraud detection, compliance review, credit risk assessment, pricing, human review, agreement generation, and disbursement for end-to-end loan approval.  
+**Techniques:** Gradient-boosted models, explainable AI (SHAP), ensemble methods, document intelligence, anomaly detection, multi-agent orchestration, human-in-the-loop decisioning.  
 **Benefits:**  
 - Better credit decisions for thin-file or new-to-credit customers.  
-- Dynamic credit line management.  
+- Faster and more consistent loan approval workflows.  
+- Dynamic credit line management and risk-based pricing.  
+- Improved auditability for approval, rejection, pricing, and manual review decisions.  
 
 ### 2.3 Regulatory Compliance (RegTech)
 **How AI Helps:**  

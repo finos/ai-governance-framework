@@ -36,6 +36,20 @@ ai_deployment_model_taxonomy:
           description: >
             Distributed learning across multiple data sources without centralizing data.
 
+  - agentic_workflow_pattern:
+      - Sequential:
+          description: >
+            Agents or AI-enabled steps execute in a fixed sequence where each step depends on the output of the previous step.
+      - Parallel:
+          description: >
+            Multiple agents or AI-enabled tasks execute concurrently and their outputs are later aggregated or reconciled.
+      - Hierarchical:
+          description: >
+            A supervisor, planner, or orchestrator agent decomposes work, delegates tasks to specialist agents, and consolidates results.
+      - Hybrid_Hierarchical_Parallel:
+          description: >
+            A multi-agent workflow combining hierarchical orchestration with parallel specialist-agent execution.
+
   - deployment_type:
       - On_Premises:
           description: >

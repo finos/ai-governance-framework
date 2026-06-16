@@ -18,6 +18,7 @@ AI_use_cases:
       - Credit_Risk_and_Scoring:
           - Alternative_Data_Credit_Models
           - Continuous_Credit_Monitoring
+          - Loan_Approval_and_Underwriting
       - Regulatory_Compliance_RegTech:
           - AML_Surveillance_and_Sanctions_Screening
           - Transaction_Monitoring
