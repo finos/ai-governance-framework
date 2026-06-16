@@ -18,6 +18,14 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
+uk-regulations_references:
+  - fca-sysc
+  - fca-fg16-5-cloud
+  - pra-ss2-21-outsourcing
+  - uk-gdpr-dpa-2018
+  - ico-guidance-ai-data-protection
+  - ico-ai-data-protection-toolkit
+  - boe-fca-pra-critical-third-parties-2024
 related_risks:
   - ri-1   # Information Leaked To Hosted Model
   - ri-9   # Data Poisoning

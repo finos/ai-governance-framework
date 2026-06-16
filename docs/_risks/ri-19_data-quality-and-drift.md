@@ -14,6 +14,16 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+uk-regulations_references:
+  - fca-ai-approach-2024
+  - boe-fca-ai-survey-2024
+  - fca-prin-2a
+  - fca-sysc
+  - pra-ss1-23-mrm
+  - pra-ai-mrm-roundtable-2025
+  - uk-gdpr-dpa-2018
+  - ico-guidance-ai-data-protection
+  - ico-ai-data-protection-toolkit
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-16  # Bias and Discrimination

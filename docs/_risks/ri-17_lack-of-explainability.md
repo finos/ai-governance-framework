@@ -14,6 +14,15 @@ eu-ai-act_references:
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c4-a50     # IV.A50 Transparency Obligations for Providers and Deployers of Certain AI Systems
   - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
+uk-regulations_references:
+  - fca-ai-approach-2024
+  - fca-prin-2a
+  - fca-cobs-9
+  - fca-cobs-9a
+  - pra-ss1-23-mrm
+  - uk-gdpr-dpa-2018
+  - ico-guidance-ai-data-protection
+  - ico-ai-data-protection-toolkit
 related_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination

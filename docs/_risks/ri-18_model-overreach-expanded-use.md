@@ -14,6 +14,16 @@ eu-ai-act_references:
   - c3-s1-a6   # III.S1.A6: Classification Rules for High-Risk AI Systems
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
+uk-regulations_references:
+  - fca-ai-approach-2024
+  - fca-prin
+  - fca-prin-2a
+  - fca-sysc
+  - fca-smcr
+  - fca-cobs-9
+  - fca-cobs-9a
+  - pra-ss1-23-mrm
+  - pra-ai-mrm-roundtable-2025
 related_risks:
   - ri-10  # Prompt Injection
   - ri-17  # Lack of Explainability

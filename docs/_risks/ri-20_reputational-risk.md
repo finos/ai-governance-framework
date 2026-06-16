@@ -14,6 +14,15 @@ eu-ai-act_references:
   - c2-a5      # II.A5 Prohibited AI Practices
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a14  # III.S2.A14: Human Oversight
+uk-regulations_references:
+  - fca-ai-approach-2024
+  - boe-fca-ai-survey-2024
+  - fca-prin
+  - fca-prin-2a
+  - fca-cobs-4
+  - fca-smcr
+  - equality-act-2010
+  - uk-gdpr-dpa-2018
 related_risks:
   - ri-10  # Prompt Injection
   - ri-16  # Bias and Discrimination

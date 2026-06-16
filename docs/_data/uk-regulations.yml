@@ -1,0 +1,143 @@
+# UK financial-services regulatory references relevant to AI governance.
+# Curated for the AI Governance Framework risk catalogue; URLs verified against
+# canonical regulator / legislation sites on 2026-06-16.
+
+fca-ai-approach-2024:
+  title: FCA - AI and the FCA; our approach / AI Update (2024)
+  issuer: FCA
+  url: https://www.fca.org.uk/firms/innovation/ai-approach
+  status: Regulatory approach / supervisory context
+  scope: Cross-sector FCA-regulated financial services
+
+boe-fca-ai-survey-2024:
+  title: Bank of England and FCA - Artificial intelligence in UK financial services 2024
+  issuer: BoE/FCA
+  url: https://www.bankofengland.co.uk/report/2024/artificial-intelligence-in-uk-financial-services-2024
+  status: Supervisory research / market intelligence
+  scope: PRA- and FCA-regulated firms
+
+pra-ss1-23-mrm:
+  title: PRA SS1/23 - Model risk management principles for banks
+  issuer: PRA
+  url: https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss
+  status: Supervisory statement
+  scope: UK banks, building societies and PRA-designated investment firms in scope of SS1/23
+
+pra-ai-mrm-roundtable-2025:
+  title: PRA - Model risk management roundtable on AI and ML technologies (2025)
+  issuer: PRA
+  url: https://www.bankofengland.co.uk/prudential-regulation/publication/2025/november/pra-holds-model-risk-management-roundtable-on-ai
+  status: Supervisory engagement / good-practice discussion
+  scope: PRA-regulated firms using AI and ML in the context of SS1/23
+
+fca-prin:
+  title: FCA Handbook PRIN - Principles for Businesses, including Consumer Duty Principle 12
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/PRIN/
+  status: Binding FCA rules
+  scope: FCA-authorised firms
+
+fca-prin-2a:
+  title: FCA Handbook PRIN 2A - The Consumer Duty
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/PRIN/2A/
+  status: Binding FCA rules and guidance
+  scope: Retail-market business within Consumer Duty scope
+
+fca-sysc:
+  title: FCA Handbook SYSC - Senior Management Arrangements, Systems and Controls
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/SYSC/
+  status: Binding FCA rules and guidance
+  scope: FCA-authorised firms, subject to module-specific application provisions
+
+fca-smcr:
+  title: FCA - Senior Managers and Certification Regime
+  issuer: FCA
+  url: https://www.fca.org.uk/firms/senior-managers-certification-regime
+  status: Accountability regime
+  scope: FCA solo-regulated firms and dual-regulated firms, as applicable
+
+fca-cobs-4:
+  title: FCA Handbook COBS 4 - Communicating with clients, including financial promotions
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/COBS/4/
+  status: Binding FCA rules and guidance
+  scope: Investment business communications and financial promotions
+
+fca-cobs-9:
+  title: FCA Handbook COBS 9 - Suitability, including basic advice
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/COBS/9/
+  status: Binding FCA rules and guidance
+  scope: Investment advice and portfolio management suitability
+
+fca-cobs-9a:
+  title: FCA Handbook COBS 9A - Suitability, including MiFID provisions
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/COBS/9A/
+  status: Binding FCA rules and guidance
+  scope: MiFID investment advice and portfolio management suitability
+
+fca-mifidpru:
+  title: FCA Handbook MIFIDPRU - Prudential sourcebook for MiFID investment firms
+  issuer: FCA
+  url: https://www.handbook.fca.org.uk/handbook/MIFIDPRU/
+  status: Binding FCA rules and guidance
+  scope: FCA investment firms within IFPR/MIFIDPRU scope
+
+fca-fg16-5-cloud:
+  title: FCA FG16/5 - Guidance for firms outsourcing to the cloud and other third-party IT services
+  issuer: FCA
+  url: https://www.fca.org.uk/publication/finalised-guidance/fg16-5.pdf
+  status: Finalised guidance
+  scope: FCA-regulated firms using cloud and third-party IT services
+
+pra-ss2-21-outsourcing:
+  title: PRA SS2/21 - Outsourcing and third party risk management
+  issuer: PRA
+  url: https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/outsourcing-and-third-party-risk-management-ss
+  status: Supervisory statement
+  scope: PRA-regulated banks, building societies, PRA-designated investment firms and insurers
+
+boe-fca-pra-critical-third-parties-2024:
+  title: Bank of England, PRA and FCA - Operational resilience; critical third parties to the UK financial sector (2024 final policy)
+  issuer: BoE/PRA/FCA
+  url: https://www.bankofengland.co.uk/prudential-regulation/publication/2024/november/operational-resilience-critical-third-parties-uk-financial-sector-policy-statement
+  status: Final policy / rules for designated critical third parties
+  scope: Designated critical third parties and firms relying on systemic third-party services
+
+uk-gdpr-dpa-2018:
+  title: UK GDPR and Data Protection Act 2018 - data protection principles, special category data and automated decision-making
+  issuer: UK Parliament / ICO
+  url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/
+  status: Binding law and regulator guidance
+  scope: Personal data processing in the UK
+
+ico-ai-data-protection-toolkit:
+  title: ICO - AI and data protection risk toolkit
+  issuer: ICO
+  url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/
+  status: Regulator toolkit / guidance
+  scope: Organisations designing, procuring or deploying AI that processes personal data
+
+ico-guidance-ai-data-protection:
+  title: ICO - Guidance on AI and data protection
+  issuer: ICO
+  url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/
+  status: Regulator guidance
+  scope: AI systems processing personal data
+
+equality-act-2010:
+  title: Equality Act 2010 - protected characteristics and services discrimination prohibitions
+  issuer: UK Parliament
+  url: https://www.legislation.gov.uk/ukpga/2010/15/contents
+  status: Binding law
+  scope: Employment, services and public functions in Great Britain
+
+consumer-credit-act-1974:
+  title: Consumer Credit Act 1974 - regulated credit and consumer protections
+  issuer: UK Parliament
+  url: https://www.legislation.gov.uk/ukpga/1974/39/contents
+  status: Binding law
+  scope: Regulated consumer credit and hire

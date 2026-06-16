@@ -16,6 +16,15 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a27  # III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems
+uk-regulations_references:
+  - fca-ai-approach-2024
+  - fca-prin
+  - fca-prin-2a
+  - uk-gdpr-dpa-2018
+  - ico-guidance-ai-data-protection
+  - ico-ai-data-protection-toolkit
+  - equality-act-2010
+  - consumer-credit-act-1974
 related_risks:
   - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight

@@ -17,6 +17,27 @@ eu-ai-act_references:
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
   - c3-s3-a21  # III.S3.A21: Cooperation with Competent Authorities
   - c3-s3-a27  # III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems
+uk-regulations_references:
+  - fca-ai-approach-2024
+  - boe-fca-ai-survey-2024
+  - pra-ss1-23-mrm
+  - pra-ai-mrm-roundtable-2025
+  - fca-prin
+  - fca-prin-2a
+  - fca-sysc
+  - fca-smcr
+  - fca-cobs-4
+  - fca-cobs-9
+  - fca-cobs-9a
+  - fca-mifidpru
+  - fca-fg16-5-cloud
+  - pra-ss2-21-outsourcing
+  - boe-fca-pra-critical-third-parties-2024
+  - uk-gdpr-dpa-2018
+  - ico-guidance-ai-data-protection
+  - ico-ai-data-protection-toolkit
+  - equality-act-2010
+  - consumer-credit-act-1974
 related_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability
