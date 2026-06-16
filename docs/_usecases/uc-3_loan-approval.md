@@ -47,13 +47,6 @@ data_handling_aspects:
 eu-ai-act_references:
   - c3-s2-a10
 
-sr11-7_references:
-  - overview
-  - s2-dev
-  - s2-use
-  - s3
-  - s4-inventory
-
 regulatory_concerns:
   - name: "ECOA / Fair Lending"
     url: "https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/"
@@ -118,7 +111,6 @@ Because the workflow may involve multiple specialist agents and external APIs, d
 - **EU AI Act**: Loan approval and creditworthiness assessment may qualify as a high-risk AI system.
 - **Fair Lending / ECOA**: Credit decisions must avoid prohibited discrimination and support adverse action explanations.
 - **GDPR Article 22**: Automated decisions affecting individuals require appropriate safeguards, transparency, and rights to contest or obtain human review.
-- **SR 11-7**: Model risk management applies to AI models used in credit risk, fraud detection, pricing, and decisioning.
 
 ## AI Risks and Mitigations
 
