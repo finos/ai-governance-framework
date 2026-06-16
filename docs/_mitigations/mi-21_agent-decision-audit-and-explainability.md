@@ -164,6 +164,7 @@ The following sections provide detailed implementation guidance primarily for Ti
 
 * **Audit Trail Standards**:
   * **Immutable Records**: Implement cryptographic protection to ensure audit records cannot be altered after creation.
+  * **Independent Verifiability**: Distinguish tamper-resistance (records are hard to alter) from tamper-evidence (alteration is detectable by a third party). Audit records should be verifiable by a deployer, auditor, or competent authority without requiring privileged access to the provider's systems. Self-reported logs that only the operator can produce or attest to satisfy the form of Article 12 record-keeping but weaken its purpose: the external-reporting expectation under ISO/IEC 42001 A.8.3 and the deployer monitoring duty under Article 26(5) both assume records an independent party can check. Techniques such as cryptographic hash chaining, signed log segments, or anchoring digests to an append-only transparency log raise integrity from operator-asserted to independently auditable.
   * **Retention Policies**: Establish appropriate retention periods for audit records based on regulatory requirements.
   * **Access Controls**: Implement strict access controls for audit records with appropriate segregation of duties.
 
