@@ -32,8 +32,17 @@ canada-regulations_references:
   # Tier 3 benchmarks
   - osfi-e23-2027          # OSFI E-23 — model documentation/validation (FRFIs, 2027)
   - qc-amf-ai-guideline    # AMF AI Guideline — lifecycle controls imply explainability (QC FIs, 2027)
-  - iosco-fr-02-2026       # IOSCO Toolkit — disclosure / AI transparency
-related_risks:
+  - iosco-fr-02-2026       # IOSCO Toolkit — disclosure / AI transparencyuk-regulations_references:
+  # Explainability for consumer outcomes and regulated advice
+  - fca-ai-approach-2024 # FCA AI approach stresses accountability and explainability expectations
+  - fca-prin-2a # Consumer Duty requires firms to evidence and explain good outcomes
+  - fca-cobs-9 # Suitability rules require a reasonable basis for personal recommendations
+  - fca-cobs-9a # MiFID suitability rules require explainable advice and portfolio decisions
+  # Model risk and automated decision-making transparency
+  - pra-ss1-23-mrm # Model documentation, validation and governance for in-scope models
+  - uk-gdpr-dpa-2018 # UK GDPR safeguards for solely automated decisions and meaningful information
+  - ico-guidance-ai-data-protection # ICO AI guidance covers explaining AI-assisted decisions
+  - ico-ai-data-protection-toolkit # Toolkit supports explainability and accountability assessmentrelated_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination
   - ri-18  # Model Overreach / Expanded Use

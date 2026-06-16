@@ -30,8 +30,18 @@ canada-regulations_references:
   - qc-amf-ai-guideline    # Lifecycle risk management — data quality, hallucinations, drift (QC FIs, 2027)
   - iosco-fr-02-2026       # Toolkit — model validation and ongoing monitoring across AI lifecycle
   # Privacy accuracy obligation
-  - pipeda-schedule1       # PIPEDA Schedule 1 Principle 4.6 — accuracy of personal information used in AI models
-related_risks:
+  - pipeda-schedule1       # PIPEDA Schedule 1 Principle 4.6 — accuracy of personal information used in AI modelsuk-regulations_references:
+  # AI adoption, operations and model lifecycle controls
+  - fca-ai-approach-2024 # FCA AI approach identifies data quality and model performance as governance concerns
+  - boe-fca-ai-survey-2024 # Sector survey evidence on AI use cases, controls and monitoring practices
+  - fca-prin-2a # Consumer Duty requires monitoring outcomes that can degrade through drift
+  - fca-sysc # Systems and controls require effective risk management and operational oversight
+  - pra-ss1-23-mrm # Model validation, monitoring and change controls address data/concept drift
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion focuses on lifecycle and monitoring challenges
+  # Data protection accuracy and AI data-quality controls
+  - uk-gdpr-dpa-2018 # Accuracy, fairness and data-minimisation principles for personal-data inputs
+  - ico-guidance-ai-data-protection # ICO AI guidance covers data quality, accuracy and statistical validity
+  - ico-ai-data-protection-toolkit # Toolkit supports data-quality and drift-related risk assessmentrelated_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-16  # Bias and Discrimination
   - ri-9   # Data Poisoning

@@ -50,8 +50,31 @@ canada-regulations_references:
   # Tier 4 adjacent compliance obligations
   - pipeda                 # Privacy compliance for AI deployment — SN 11-348 flags privacy intersection
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency obligation
-  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacy
-related_risks:
+  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacyuk-regulations_references:
+  # AI-specific supervisory materials and market intelligence
+  - fca-ai-approach-2024 # FCA's AI approach is the UK conduct-regulator interpretive anchor
+  - boe-fca-ai-survey-2024 # Joint survey frames current AI use, controls and supervisory concerns
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM engagement informs supervisory discussion topics
+  # Model risk, governance, accountability and conduct
+  - pra-ss1-23-mrm # Model risk management principles for in-scope banks and PRA-designated firms
+  - fca-prin # Principles for Businesses apply regardless of AI or human delivery channel
+  - fca-prin-2a # Consumer Duty is central for retail AI outcomes and foreseeable harm
+  - fca-sysc # Systems and controls sourcebook anchors AI governance and operational oversight
+  - fca-smcr # Senior accountability and certification regime for AI control ownership
+  # Advice, communications, prudential and outsourcing controls
+  - fca-cobs-4 # Financial promotions and client communications, including AI-generated content
+  - fca-cobs-9 # Suitability requirements for non-MiFID personal recommendations
+  - fca-cobs-9a # MiFID suitability requirements for advice and portfolio management
+  - fca-mifidpru # Prudential governance context for FCA investment firms
+  - fca-fg16-5-cloud # Cloud and third-party IT guidance for AI service-provider arrangements
+  - pra-ss2-21-outsourcing # PRA outsourcing and third-party risk management expectations
+  - boe-fca-pra-critical-third-parties-2024 # Critical third-party policy for systemic service dependencies
+  # Cross-cutting data, equality and consumer-credit obligations
+  - uk-gdpr-dpa-2018 # Privacy, transparency and automated-decision safeguards
+  - ico-guidance-ai-data-protection # ICO AI guidance for personal-data processing in AI systems
+  - ico-ai-data-protection-toolkit # ICO toolkit for AI data-protection risk assessment
+  - equality-act-2010 # Equality and non-discrimination obligations for services and employment
+  - consumer-credit-act-1974 # Consumer-credit law relevant to AI-assisted lending decisionsrelated_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability
   - ri-18  # Model Overreach / Expanded Use
