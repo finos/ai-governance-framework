@@ -36,10 +36,8 @@ ai_deployment_model_taxonomy:
           description: >
             Distributed learning across multiple data sources without centralizing data.
 
-  # Workflows orchestrate LLMs and tools through predefined code paths; agents
-  # dynamically direct their own processes and tool usage. The two are kept as
-  # separate dimensions because they generally carry different risk ratings.
-  # See https://www.anthropic.com/engineering/building-effective-agents
+  # Workflow patterns and agent patterns kept separate.
+  # Inspired by https://www.anthropic.com/engineering/building-effective-agents
   - workflow_pattern:
       - Prompt_Chaining:
           description: >
