@@ -48,7 +48,5 @@ In a SaaS deployment context, organisations rely entirely on the integrity and t
 * [Poisoning Language Models During Instruction Tuning](https://arxiv.org/abs/2305.11491) – Explores how attackers can poison open-source models via instruction tuning.
 * [AI Supply Chain Security (CISA)](https://www.cisa.gov/resources-tools/resources/securing-artificial-intelligence-ai-supply-chain) – U.S. Cybersecurity & Infrastructure Security Agency guidance on securing the AI supply chain.
 * [Invisible Poison: Backdoor Attacks on NLP Models via Data Poisoning](https://arxiv.org/abs/2106.09132) – Demonstrates how malicious training data can inject backdoors into language models.
-* [Security Risks of ChatGPT and Other LLMs (MITRE ATLAS)](https://atlas.mitre.org/stories/llm-threats) – MITRE ATLAS write-up summarising threats and attack vectors related to LLMs.
+* [Careful Adoption of Agentic AI Services](https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services) – Guidance on LLM-based agentic AI security risks, including inherited LLM vulnerabilities, expanded attack surfaces, and system integrations.
 * [PyTorch Security Advisories](https://github.com/pytorch/pytorch/security/advisories) – Example of OSS dependency risks in foundational model supply chains.
-
-
