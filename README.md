@@ -36,10 +36,12 @@ We use the following channels:
 
 The project maintainers are
 - Colin Eberhardt - Scott Logic @ColinEberhardt (https://github.com/ColinEberhardt) Lead Maintainer
-- Vicente Herrera Garcia - ControlPlane @vicenteherrera (https://github.com/vicenteherrera) 
-- Alvin Shih - Morgan Stanley - @alvin-c-shih (https://github.com/alvin-c-shih)
+- Francesco Beltramini - ControlPlane @d1gital-f (https://github.com/d1gital-f) 
+- Alvin Shih - Morgan Stanley @alvin-c-shih (https://github.com/alvin-c-shih)
 - Chamindra de Silva - Citi @chamindra (https://github.com/chamindra)
 - Asad Ateeque – NatWest @aateeque (https://github.com/aateeque)
+- Naresh Babu Deenadayalan - RBC @iamravanan (https://github.com/iamravanan)
+- Hugo Calderon - Citi @hugo-calderon (https://github.com/hugo-calderon)
 
 ## Frequently Asked Questions
 
