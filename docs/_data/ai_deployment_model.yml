@@ -36,6 +36,33 @@ ai_deployment_model_taxonomy:
           description: >
             Distributed learning across multiple data sources without centralizing data.
 
+  # Workflow patterns and agent patterns kept separate.
+  # Inspired by https://www.anthropic.com/engineering/building-effective-agents
+  - workflow_pattern:
+      - Prompt_Chaining:
+          description: >
+            LLM-enabled steps execute in a fixed sequence where each step processes the output of the previous one, with optional programmatic gates between steps. Control flow is defined in code.
+      - Routing:
+          description: >
+            An input is classified and directed to a specialized follow-up task or handler, allowing prompts and tools to be optimized per category.
+      - Parallelization:
+          description: >
+            Multiple LLM-enabled tasks run concurrently and their outputs are aggregated, either by sectioning a task into independent subtasks or by voting across runs for higher confidence.
+      - Orchestrator_Workers:
+          description: >
+            A central LLM decomposes a task, delegates subtasks to worker LLMs, and synthesizes their results, while the orchestration logic remains in predefined code paths.
+      - Evaluator_Optimizer:
+          description: >
+            One LLM generates a response while another evaluates it against defined criteria and provides feedback in an iterative refinement loop.
+
+  - agent_pattern:
+      - Autonomous_Agent:
+          description: >
+            A single LLM dynamically directs its own processes and tool usage in a loop, planning and acting on environmental feedback until a stopping condition is met.
+      - Multi_Agent:
+          description: >
+            Multiple autonomous agents coordinate to accomplish a task, including agent-to-agent delegation and communication, where control flow emerges from agent decisions rather than predefined code.
+
   - deployment_type:
       - On_Premises:
           description: >
