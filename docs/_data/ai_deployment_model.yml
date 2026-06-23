@@ -36,19 +36,34 @@ ai_deployment_model_taxonomy:
           description: >
             Distributed learning across multiple data sources without centralizing data.
 
-  - agentic_workflow_pattern:
-      - Sequential:
+  # Workflows orchestrate LLMs and tools through predefined code paths; agents
+  # dynamically direct their own processes and tool usage. The two are kept as
+  # separate dimensions because they generally carry different risk ratings.
+  # See https://www.anthropic.com/engineering/building-effective-agents
+  - workflow_pattern:
+      - Prompt_Chaining:
           description: >
-            Agents or AI-enabled steps execute in a fixed sequence where each step depends on the output of the previous step.
-      - Parallel:
+            LLM-enabled steps execute in a fixed sequence where each step processes the output of the previous one, with optional programmatic gates between steps. Control flow is defined in code.
+      - Routing:
           description: >
-            Multiple agents or AI-enabled tasks execute concurrently and their outputs are later aggregated or reconciled.
-      - Hierarchical:
+            An input is classified and directed to a specialized follow-up task or handler, allowing prompts and tools to be optimized per category.
+      - Parallelization:
           description: >
-            A supervisor, planner, or orchestrator agent decomposes work, delegates tasks to specialist agents, and consolidates results.
-      - Hybrid_Hierarchical_Parallel:
+            Multiple LLM-enabled tasks run concurrently and their outputs are aggregated, either by sectioning a task into independent subtasks or by voting across runs for higher confidence.
+      - Orchestrator_Workers:
           description: >
-            A multi-agent workflow combining hierarchical orchestration with parallel specialist-agent execution.
+            A central LLM decomposes a task, delegates subtasks to worker LLMs, and synthesizes their results, while the orchestration logic remains in predefined code paths.
+      - Evaluator_Optimizer:
+          description: >
+            One LLM generates a response while another evaluates it against defined criteria and provides feedback in an iterative refinement loop.
+
+  - agent_pattern:
+      - Autonomous_Agent:
+          description: >
+            A single LLM dynamically directs its own processes and tool usage in a loop, planning and acting on environmental feedback until a stopping condition is met.
+      - Multi_Agent:
+          description: >
+            Multiple autonomous agents coordinate to accomplish a task, including agent-to-agent delegation and communication, where control flow emerges from agent decisions rather than predefined code.
 
   - deployment_type:
       - On_Premises:

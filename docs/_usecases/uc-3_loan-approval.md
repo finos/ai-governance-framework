@@ -89,7 +89,7 @@ Loan approval is document-heavy, manually intensive, and sensitive to inconsiste
 
 - **Faster Turnaround**: Automates document extraction, validation, risk scoring, decision routing, and agreement generation.
 - **Operational Efficiency**: Reduces manual effort across intake, fraud review, credit assessment, and document preparation.
-- **Consistent Decisioning**: Applies standardized underwriting thresholds and risk policies across applications.
+- **Consistent Policy Enforcement**: Deterministic decision logic applies standardized underwriting thresholds and risk policies uniformly across applications. AI agent outputs are probabilistic and are not guaranteed to be repeatable, so consistency is enforced by the deterministic policy gates rather than by the AI agents themselves.
 - **Improved Fraud Detection**: Flags suspicious patterns early in the workflow.
 - **Risk-Based Pricing**: Dynamically adjusts pricing based on credit risk, market data, and policy constraints.
 - **Auditability**: Produces traceable decision records linking application data, agent outputs, policy rules, human interventions, and final outcomes.
@@ -118,7 +118,7 @@ Because the workflow may involve multiple specialist agents and external APIs, d
 
 **Hallucination and Inaccurate Outputs:** Document intelligence and credit risk agents may extract incorrect values, fabricate missing information, or produce unsupported explanations. [Hallucination and Inaccurate Outputs](/risks/ri-4_hallucination-and-inaccurate-outputs/) should be mitigated with source citations, confidence thresholds, deterministic validation rules, and human review for low-confidence outputs.
 
-**Non-Deterministic Behaviour:** Multi-agent systems may produce different recommendations for similar applications if prompts, models, tools, or context vary. [Non-Deterministic Behaviour](/risks/ri-6_non-deterministic-behaviour/) should be managed through model version pinning, deterministic policy gates, workflow state capture, repeatability testing, and audit logs.
+**Non-Deterministic Behaviour:** Because LLMs sample from a distribution over possible outputs, and because of the added complexity of multi-agent interactions, multi-agent systems may produce different recommendations for similar applications even when prompts, models, tools, and context are held constant. [Non-Deterministic Behaviour](/risks/ri-6_non-deterministic-behaviour/) should be managed primarily through deterministic policy gates that bound AI outputs, supported by workflow state capture, repeatability testing, and audit logs. Model version pinning can reduce variability but offers limited durability, as hosted-model providers typically deprecate older versions with only a few months' notice; pipelines should therefore include regression and re-baselining testing whenever an underlying model changes.
 
 **System Alignment:** Agents may optimize for speed, approval rate, or pricing outcomes in ways that conflict with fair lending, risk appetite, or customer protection requirements. [Inadequate System Alignment](/risks/ri-14_inadequate-system-alignment/) should be mitigated by explicit policy constraints, supervisor-agent controls, human review thresholds, compliance gates, and model acceptance testing.
 
