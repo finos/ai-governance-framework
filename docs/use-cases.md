@@ -61,7 +61,7 @@ permalink: /use-cases/
                             {% assign max_rank = 0 %}
                             {% for dc_entry in usecase.data_classifications %}
                             {% assign dc_name = dc_entry.name | default: dc_entry %}
-                            {% assign dc = site.data.data_classification.financial_data_classification | where: "name", dc_name | first %}
+                            {% assign dc = site.data.references.data_classification.financial_data_classification | where: "name", dc_name | first %}
                             {% if dc %}
                             {% if dc.sensitivity == "Critical" %}{% assign rank = 4 %}{% elsif dc.sensitivity == "High" %}{% assign rank = 3 %}{% elsif dc.sensitivity == "Medium" %}{% assign rank = 2 %}{% else %}{% assign rank = 1 %}{% endif %}
                             {% if rank > max_rank %}{% assign max_rank = rank %}{% assign max_sensitivity = dc.sensitivity %}{% endif %}
