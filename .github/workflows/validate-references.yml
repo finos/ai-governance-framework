@@ -1,0 +1,28 @@
+name: Validate reference YAML files
+
+on:
+  push:
+    paths:
+      - "docs/_data/references/**.yml"
+      - "scripts/validate-references.py"
+  pull_request:
+    paths:
+      - "docs/_data/references/**.yml"
+      - "scripts/validate-references.py"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install PyYAML
+
+      - name: Validate reference YAML files
+        run: python scripts/validate-references.py
