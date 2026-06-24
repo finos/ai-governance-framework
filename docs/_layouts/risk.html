@@ -92,11 +92,14 @@ layout: default
                 <div class="card-body">
                     <h2 class="h4 mb-3">Regulatory &amp; Standards References</h2>
                     {% for ref in site.data.references %}
-                    {% assign key = ref[0] | append: "_references" %}
+                    {% assign _dataset = ref[0] %}
+                    {% assign _fm_key = ref[0] | append: "_references" %}
+                    {% assign _refs = page[_fm_key] %}
+                    {% assign _heading = ref[1].title %}
                     {% include reference-card.html
-                        references=page[key]
-                        dataset=ref[0]
-                        heading=ref[1].title %}
+                        references=_refs
+                        dataset=_dataset
+                        heading=_heading %}
                     {% endfor %}
                 </div>
             </div>
