@@ -106,22 +106,13 @@ layout: default
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="h4 mb-3">Regulatory &amp; Standards References</h2>
+                    {% for ref in site.data.references %}
+                    {% assign key = ref[0] | append: "_references" %}
                     {% include reference-card.html
-                        references=page.iso-42001_references
-                        dataset="iso-42001"
-                        heading="ISO 42001 References" %}
-                    {% include reference-card.html
-                        references=page.nist-sp-800-53r5_references
-                        dataset="nist-sp-800-53r5"
-                        heading="NIST SP 800-53r5 References" %}
-                    {% include reference-card.html
-                        references=page.nist-ai-600-1_references
-                        dataset="nist-ai-600-1"
-                        heading="NIST AI 600-1 References" %}
-                    {% include reference-card.html
-                        references=page.canada-regulations_references
-                        dataset="canada-regulations"
-                        heading="Canada Regulatory References" %}
+                        references=page[key]
+                        dataset=ref[0]
+                        heading=ref[1].title %}
+                    {% endfor %}
                 </div>
             </div>
 
