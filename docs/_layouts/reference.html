@@ -32,7 +32,6 @@ layout: default
 </header>
 
 <main class="container py-5">
-    <p class="text-muted mb-4">Only entries with at least one mapping to a risk or mitigation are shown.</p>
     {% for entry in _ref.entries %}
         {% assign _key = entry[0] %}
         {% assign _item = entry[1] %}
