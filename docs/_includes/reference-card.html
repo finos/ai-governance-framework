@@ -19,7 +19,7 @@
     <div class="collapse" id="{{ card_id }}">
         <div class="list-group mb-3">
             {% for id in references %}
-            {% assign item = site.data.references[include.dataset][id] %}
+            {% assign item = site.data.references[include.dataset].entries[id] %}
             {% if item %}
             <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                 {{ item.title }}
