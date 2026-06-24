@@ -1,0 +1,520 @@
+title: "Canada AI & Financial-Sector Regulatory References"
+description: "Canadian regulatory framework for AI in capital markets and financial services, spanning securities, prudential, privacy and human rights obligations."
+
+entries:
+  # ---------------------------------------------------------------------------
+  # Tier 1 — AI-specific Canadian regulatory guidance
+  # ---------------------------------------------------------------------------
+
+  csa-sn-11-348:
+    title: 'CSA Staff Notice and Consultation 11-348: AI Systems in Capital Markets (2024-12-05)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-348/csa-staff-notice-and-consultation-11-348-applicability-canadian-securities-laws-and-use-artificial
+    issuer: CSA
+    description: >
+      The CSA's authoritative view on how existing Canadian securities law applies to AI
+      systems used by market participants. Comment period closed 2025-03-31; CSA may publish
+      a response-to-comments or revised notice in future.
+
+  csa-sn-11-348-pdf:
+    title: 'CSA Staff Notice and Consultation 11-348 (full text PDF, OSC hosted)'
+    url: https://www.osc.ca/sites/default/files/2024-12/csa_20241205_11-348_artificial-intelligence-systems-capital-markets.pdf
+    issuer: CSA
+
+  ciro-acr-2026:
+    title: 'CIRO Annual Compliance Report 2026 (2026-02-17)'
+    url: https://www.ciro.ca/newsroom/publications/ciro-compliance-report-2026-helping-dealers-compliance
+    issuer: CIRO
+    description: >
+      Includes a dedicated AI section addressing operational controls and the material
+      business change notification trigger when AI adoption constitutes a material change.
+
+  # ---------------------------------------------------------------------------
+  # Tier 2 — Binding Canadian securities rules and CSA/CIRO staff notices
+  # ---------------------------------------------------------------------------
+
+  ni-31-103:
+    title: 'NI 31-103: Registration Requirements, Exemptions and Ongoing Registrant Obligations'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+    description: >
+      Core registration, conduct and suitability instrument. Key provisions for AI governance
+      are surfaced as separate entries below (s. 11.1, 11.5, 13.2, 13.2.1, 13.3, 13.4).
+
+  ni-31-103-s11-1:
+    title: 'NI 31-103 s. 11.1: Compliance System'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103-s11-5:
+    title: 'NI 31-103 s. 11.5: General Records'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103-s13-2:
+    title: 'NI 31-103 s. 13.2: Know Your Client (KYC)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103-s13-2-1:
+    title: 'NI 31-103 s. 13.2.1: Know Your Product (KYP)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103-s13-3:
+    title: 'NI 31-103 s. 13.3: Suitability Determination'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103-s13-4:
+    title: 'NI 31-103 s. 13.4: Identifying and Addressing Material Conflicts of Interest'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103-s14-2:
+    title: 'NI 31-103 s. 14.2: Relationship Disclosure Information'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-national-instrument-31-103-registration-requirements-exemptions-and
+    issuer: CSA
+
+  ni-31-103cp:
+    title: 'Companion Policy 31-103CP to NI 31-103'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-103/unofficial-consolidation-companion-policy-31-103cp-registration-requirements-exemptions-and-1
+    issuer: CSA
+    description: >
+      Interpretive guidance on compliance systems, outsourcing, and the Client Focused Reforms
+      KYC/KYP/suitability/conflicts framework.
+
+  csa-ciro-sn-31-363:
+    title: 'Joint CSA/CIRO Staff Notice 31-363: CFR Conflicts of Interest Review'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-363/joint-canadian-securities-administrators-canadian-investment-regulatory-organization-staff-notice
+    issuer: CSA/CIRO
+    description: >
+      Directly relevant where AI introduces or amplifies material conflicts (e.g., model vendor
+      incentives, auto-generated recommendations).
+
+  csa-ciro-sn-31-368:
+    title: 'Joint CSA/CIRO Staff Notice 31-368: CFR KYC/KYP/Suitability Review'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-368/joint-csaciro-staff-notice-31-368-client-focused-reforms-review-registrants-know-your-client-know
+    issuer: CSA/CIRO
+    description: >
+      Sets the supervisory benchmark for KYC/KYP/suitability processes, including those
+      executed with AI support.
+
+  ni-33-109-f5:
+    title: 'NI 33-109 Form 33-109F5: Change of Registration Information'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/33-109/unofficial-consolidation-form-33-109f5-change-registration-information
+    issuer: CSA
+    description: >
+      Notification instrument CIRO has flagged as potentially triggered when a dealer's
+      adoption of AI constitutes a material business change.
+
+  csa-sn-11-326:
+    title: 'CSA Staff Notice 11-326: Cyber Security (2013-09-26)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-326/csa-staff-notice-11-326-cyber-security
+    issuer: CSA
+    description: First CSA cross-sectoral guidance on cyber risk controls for issuers, registrants and regulated entities.
+
+  csa-sn-11-332:
+    title: 'CSA Staff Notice 11-332: Cyber Security (2016-09-27)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/1/11-332/csa-staff-notice-11-332-cyber-security
+    issuer: CSA
+    description: Follow-up notice updating cyber risk expectations and highlighting regulator initiatives.
+
+  csa-sn-33-321:
+    title: 'CSA Staff Notice 33-321: Cyber Security and Social Media (2017-10-19)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/33-321/csa-staff-notice-33-321-cyber-security-and-social-media
+    issuer: CSA
+    description: >
+      Survey-driven guidance for investment fund managers, portfolio managers and exempt
+      market dealers on cyber policies, controls, training and incident response.
+
+  ciro-idpc-rules:
+    title: 'CIRO Investment Dealer and Partially Consolidated (IDPC) Rules'
+    url: https://www.ciro.ca/sites/default/files/2024-02/IDPC-Rules-022224-EN.pdf
+    issuer: CIRO
+    description: >
+      Currently operative rulebook for CIRO investment dealers, succeeding the legacy IIROC
+      Dealer Member Rules (version dated 2024-02-22). Remains operative pending adoption of
+      the consolidated Proposed CIRO Rules.
+
+  ciro-idpc-rule-1500:
+    title: 'CIRO IDPC Rule 1500: Executive Responsibilities'
+    url: https://www.ciro.ca/sites/default/files/2024-02/IDPC-Rules-022224-EN.pdf
+    issuer: CIRO
+
+  ciro-idpc-rule-3100-3600:
+    title: 'CIRO IDPC Rules 3100–3600: Business Conduct'
+    url: https://www.ciro.ca/sites/default/files/2024-02/IDPC-Rules-022224-EN.pdf
+    issuer: CIRO
+
+  ciro-idpc-rule-3800:
+    title: 'CIRO IDPC Rule 3800: Recordkeeping and Client Reporting'
+    url: https://www.ciro.ca/sites/default/files/2024-02/IDPC-Rules-022224-EN.pdf
+    issuer: CIRO
+
+  ciro-idpc-rule-3900:
+    title: 'CIRO IDPC Rule 3900: Supervision'
+    url: https://www.ciro.ca/sites/default/files/2024-02/IDPC-Rules-022224-EN.pdf
+    issuer: CIRO
+
+  ciro-dealer-member-rules:
+    title: 'CIRO Dealer Member Rules (landing page)'
+    url: https://www.ciro.ca/rules-and-enforcement/dealer-member-rules
+    issuer: CIRO
+
+  ciro-rules-consolidation-project:
+    title: 'CIRO Rule Consolidation Project (landing page)'
+    url: https://www.ciro.ca/rules-and-enforcement/dealer-member-rules/rule-consolidation-project
+    issuer: CIRO
+
+  ciro-rules-proposed:
+    title: 'Proposed CIRO Rules (Rule Consolidation Project)'
+    url: https://www.ciro.ca/newsroom/publications/rule-consolidation-project-proposed-ciro-rules
+    issuer: CIRO
+    description: >
+      Full draft consolidated rulebook (formerly "DC Rules") combining the IDPC Rules and the
+      legacy MFD Rules. Phases 1–5 complete in draft; final phase published 2025-03-27, comment
+      period closed 2025-06-25. Subject to revision before coming into force. Rule numbering is
+      carried forward from the IDPC Rules.
+
+  ciro-rules-phase-4:
+    title: 'CIRO Rule Consolidation: Phase 4 (2024-10-17)'
+    url: https://www.ciro.ca/newsroom/publications/rule-consolidation-project-phase-4
+    issuer: CIRO
+    description: >
+      Proposed Rule 3100 (business conduct), Rules 3200–3600, and Rule 3900 (supervision).
+      Rule 3900 carries forward a requirement that Dealer Members ensure Supervisors understand
+      how automated tasks and activities work — an explicit AI-adjacent supervisory expectation.
+
+  ciro-rules-phase-5:
+    title: 'CIRO Rule Consolidation: Phase 5 (2025-03-27)'
+    url: https://www.ciro.ca/newsroom/publications/rule-consolidation-project-phase-5
+    issuer: CIRO
+    description: >
+      Final phase. Covers proposed Rule 3800 (recordkeeping and client reporting) plus
+      outsourcing, continuing education, complaints handling, financial solvency (proposed
+      DC Form 1), client asset use and custody, and financing arrangements. Comment period
+      closed 2025-06-25.
+
+  ni-81-102:
+    title: 'NI 81-102: Investment Funds'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/8/81-102
+    issuer: CSA
+    description: >
+      Key provisions for AI governance: s. 5.1(1)(c) requires prior securityholder approval
+      where adopting AI as a material investment strategy constitutes a change to fundamental
+      investment objectives; Part 15 sales communications rules prohibit misleading AI claims
+      in marketing materials and offering documents. CSA SN 11-348 explicitly flags "AI washing"
+      as a compliance risk and expects IFMs to accurately disclose and clearly explain how AI
+      systems are used and integrated in a fund's operations.
+
+  ni-81-106:
+    title: 'NI 81-106: Investment Fund Continuous Disclosure'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/8/81-106
+    issuer: CSA
+    description: >
+      s. 1.1 defines "material change" as a change in business, operations or affairs important
+      to a reasonable investor's hold/purchase decision. Adopting AI as a material part of fund
+      operations likely triggers material change reporting (Part 11), requiring a material change
+      report and press release. Complements the NI 81-102 offering document disclosure obligation.
+
+  ni-81-107:
+    title: 'NI 81-107: Independent Review Committee for Investment Funds'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/8/81-107
+    issuer: CSA
+    description: >
+      s. 5.1 requires IFMs to refer AI-related conflicts of interest to the IRC before acting,
+      including use of proprietary or affiliated AI models and vendor relationships where the
+      manager has a financial interest in the AI provider; s. 5.2 requires prior IRC approval for
+      related-party AI transactions. CSA SN 11-348 identifies AI-specific conflict scenarios:
+      proprietary model use, vendor selection incentives, and AI systems that systematically
+      favour related-party assets.
+
+  csa-sn-31-342:
+    title: 'CSA Staff Notice 31-342: Guidance for Portfolio Managers Regarding Online Advice (2015-09-24)'
+    url: https://www.osc.ca/en/securities-law/instruments-rules-policies/3/31-342/csa-staff-notice-31-342-guidance-portfolio-managers-regarding-online-advice
+    issuer: CSA
+    description: >
+      Establishes the human oversight floor for automated/AI-assisted portfolio management.
+      Advising representatives must remain actively responsible for suitability determinations —
+      AI cannot substitute for the AR as decision-maker. KYC via automated means is permissible
+      only where the AR reviews and validates sufficiency. Reinforced by CSA SN 11-348 (2024),
+      which states staff do not believe it is currently possible to use an AI system as a
+      substitute for an AR and consistently satisfy regulatory requirements.
+
+  ciro-gn-2300-21-003:
+    title: 'CIRO Guidance Note GN-2300-21-003: Outsourcing Arrangements (2021-12-31)'
+    url: https://www.ciro.ca/newsroom/publications/outsourcing-arrangements-0
+    issuer: CIRO
+    description: >
+      Operative CIRO outsourcing framework for investment dealers. Requires due diligence in
+      selecting third-party service providers, legally binding written contracts with SLA
+      provisions, ongoing performance monitoring, exit/contingency planning, and enhanced due
+      diligence for cross-border material functions. Actively referenced by the CIRO 2026
+      Compliance Report in the context of third-party AI service providers. Remains in force
+      pending adoption of proposed DC Rules 2403/2407/2409 under the Rule Consolidation Project
+      (Phase 5). Read alongside NI 31-103 s. 11.1 and Companion Policy 31-103CP Part 11, which
+      set the CSA-level outsourcing obligations this guidance note implements for CIRO members.
+
+  # ---------------------------------------------------------------------------
+  # Tier 3 — Federal prudential and international guidance (analogous; not
+  # directly binding on CSA or CIRO registrants but the dominant Canadian
+  # benchmarks in their respective domains)
+  # ---------------------------------------------------------------------------
+
+  osfi-e23-2027:
+    title: 'OSFI Guideline E-23: Model Risk Management (2027)'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: >
+      Final revised version published 2025-09-11, effective 2027-05-01. Applies to FRFIs
+      (banks, foreign bank branches, life insurance and fraternal companies, P&C companies,
+      trust and loan companies) and expressly covers AI/ML models including black-box
+      approaches, autonomous decision-making, model drift and explainability. Not binding on
+      CSA or CIRO registrants but the dominant Canadian benchmark for model risk governance,
+      validation and oversight. Structured as four sections (A. Overview; B. Enterprise-wide
+      model risk management; C. Risk-based approach to model risk management; D. Model
+      lifecycle management) containing 12 numbered principles.
+
+  osfi-e23-2027-p1-1:
+    title: 'OSFI E-23 (2027) Principle 1.1: Reporting Structures and Resourcing'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Effective reporting structures and proper resourcing should enable sound model governance.'
+
+  osfi-e23-2027-p1-2:
+    title: 'OSFI E-23 (2027) Principle 1.2: Strategy and Risk Appetite Alignment'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'The MRM framework should align risk-taking activities to strategic objectives and risk appetite.'
+
+  osfi-e23-2027-p1-3:
+    title: 'OSFI E-23 (2027) Principle 1.3: Fit for Business Purpose'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Models should be appropriate for their business purposes.'
+
+  osfi-e23-2027-p2-1:
+    title: 'OSFI E-23 (2027) Principle 2.1: Model Inventory and Tracking'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Institutions should identify and track all models in use or recently decommissioned.'
+
+  osfi-e23-2027-p2-2:
+    title: 'OSFI E-23 (2027) Principle 2.2: Model Risk Rating Approach'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Institutions should establish a model risk rating approach that assesses key dimensions of model risk.'
+
+  osfi-e23-2027-p2-3:
+    title: 'OSFI E-23 (2027) Principle 2.3: Proportional MRM Application'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'The scope, scale, and intensity of MRM should be commensurate with the risk introduced by the model.'
+
+  osfi-e23-2027-p3-1:
+    title: 'OSFI E-23 (2027) Principle 3.1: Lifecycle Policies, Procedures and Controls'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: >
+      MRM policies, procedures, and controls should be robust, flexible, and lead to effective
+      requirements applied across the model lifecycle.
+
+  osfi-e23-2027-p3-2:
+    title: 'OSFI E-23 (2027) Principle 3.2: Data Suitability'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Data used to develop the model should be suitable for the intended use.'
+
+  osfi-e23-2027-p3-3:
+    title: 'OSFI E-23 (2027) Principle 3.3: Model Development Standards'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Institutions should have model development processes that set clear standards.'
+
+  osfi-e23-2027-p3-4:
+    title: 'OSFI E-23 (2027) Principle 3.4: Independent Assessment of Conceptual Soundness and Performance'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Institutions should have a process to independently assess conceptual soundness and performance.'
+
+  osfi-e23-2027-p3-5:
+    title: 'OSFI E-23 (2027) Principle 3.5: Deployment, Quality and Change Control'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Models should be deployed in an environment with quality and change control processes.'
+
+  osfi-e23-2027-p3-6:
+    title: 'OSFI E-23 (2027) Principle 3.6: Monitoring and Decommissioning Standards'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027
+    issuer: OSFI
+    description: 'Institutions should have defined standards for model monitoring, and model decommission.'
+
+  osfi-b13:
+    title: 'OSFI Guideline B-13: Technology and Cyber Risk Management'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/technology-cyber-risk-management
+    issuer: OSFI
+    description: >
+      Published 2022-07-31, effective 2024-01-01. Applies to all FRFIs. Structured as three
+      domains containing 17 numbered principles (Domain 1: principles 1–3; Domain 2:
+      principles 4–13; Domain 3: principles 14–17). Widely cited as the reference framework
+      for AI-system hosting, data protection and incident response.
+
+  osfi-b13-d1:
+    title: 'OSFI B-13 Domain 1: Governance and Risk Management'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/technology-cyber-risk-management
+    issuer: OSFI
+    description: 'Principles 1–3. Governance accountabilities, policies, risk appetite, and control frameworks for technology and cyber risk.'
+
+  osfi-b13-d2:
+    title: 'OSFI B-13 Domain 2: Technology Operations and Resilience'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/technology-cyber-risk-management
+    issuer: OSFI
+    description: 'Principles 4–13. Resilient operations, incident response, change management, and recovery capabilities.'
+
+  osfi-b13-d3:
+    title: 'OSFI B-13 Domain 3: Cyber Security'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/technology-cyber-risk-management
+    issuer: OSFI
+    description: 'Principles 14–17. Layered cyber controls across prevention, detection, response, and recovery.'
+
+  iosco-fr-02-2026:
+    title: 'IOSCO Final Report FR/02/2026: Supervisory Toolkit for AI Use in Capital Markets (2026-05-25)'
+    url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+    issuer: IOSCO
+    description: >
+      Practical, non-binding supervisory toolkit covering the full AI lifecycle across
+      traditional ML, Generative AI, and Agentic AI. Five areas of focus: (i) governance and
+      risk management, (ii) third-party and outsourcing risk management, (iii) disclosure,
+      (iv) recordkeeping and reporting, and (v) monitoring AI use. Supersedes the consultation
+      report CR/01/2025 (IOSCOPD788), which is retained above for lineage. CSA and CIRO
+      supervisory approaches to AI in capital markets are broadly consistent with the issues,
+      risks, and supervisory considerations in this toolkit.
+
+  osfi-b-10:
+    title: 'OSFI Guideline B-10: Third-Party Risk Management'
+    url: https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/third-party-risk-management-guideline
+    issuer: OSFI
+    description: >
+      Published 2023-04-30 (category: Sound Business and Financial Practices), effective
+      2024-05-01. Applies to FRFIs (banks, foreign bank branches, foreign insurance branches,
+      life insurance and fraternal companies, P&C companies, trust and loan companies). A general
+      (not AI-specific) third-party risk management guideline governing all third-party
+      arrangements across their lifecycle — risk-based approach, due diligence, contractual
+      provisions, ongoing monitoring, business continuity, and exit. Structured as four sections
+      (1. Governance; 2. Management of third-party risk; 3. Special arrangements; 4. Technology
+      and cyber risk in third-party arrangements) plus two annexes. Defines institution-specific
+      and systemic concentration risk. AI and model vendors (e.g., cloud and hosted-inference
+      providers, "technology companies that deliver financial services") fall within its
+      third-party scope, and OSFI E-23 (2027) relies on B-10 for third-party model-vendor risk.
+      Binding only on FRFIs; for CSA/CIRO registrants it is persuasive federal-prudential practice
+      rather than a securities-law obligation (the binding outsourcing hooks for registrants are
+      NI 31-103 s. 11.1 and CIRO GN-2300-21-003).
+
+  qc-amf-ai-guideline:
+    title: 'AMF Guideline for the Use of Artificial Intelligence (finalized 2026-03-30, effective 2027-05-01)'
+    url: https://lautorite.qc.ca/en/professionals/insurers/guidelines/use-of-models/guideline-for-the-use-of-artificial-intelligence
+    issuer: AMF
+    description: >
+      Applies to Quebec-authorized insurers, financial services cooperatives, deposit-taking
+      institutions, and trust companies. Requires lifecycle risk management, governance
+      mechanisms, and protection of client interests; covers biased outputs, discriminatory
+      proxies, ethical misalignment, and hallucinations. The AMF is also Quebec's securities
+      regulator (a CSA member), but this guideline applies to its prudential registrants, not
+      securities registrants under CSA/CIRO. Included as a peer benchmark to OSFI E-23 and the
+      most operationally specific Canadian AI instrument for financial services.
+
+  # ---------------------------------------------------------------------------
+  # Tier 4 — Federal privacy and consumer protection (cross-cutting)
+  # ---------------------------------------------------------------------------
+
+  pipeda:
+    title: 'PIPEDA: Personal Information Protection and Electronic Documents Act'
+    url: https://laws-lois.justice.gc.ca/eng/acts/P-8.6/
+    issuer: OPC
+    description: >
+      Federal private-sector privacy law. Schedule 1 sets out 10 Fair Information Principles
+      (accountability; identifying purposes; consent; limiting collection; limiting use,
+      disclosure and retention; accuracy; safeguards; openness; individual access; challenging
+      compliance), numbered 4.1 through 4.10 in the statute.
+
+  pipeda-schedule1:
+    title: 'PIPEDA Schedule 1: Fair Information Principles'
+    url: https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html#h-417659
+    issuer: OPC
+
+  fcac-ai:
+    title: 'FCAC: Artificial Intelligence in Financial Services'
+    url: https://www.canada.ca/en/financial-consumer-agency/services/industry/research/artificial-intelligence-financial-services.html
+    issuer: FCAC
+    description: Consumer-protection framing of AI deployment in financial products and channels.
+
+  qc-p39-s12-1:
+    title: 'Quebec Act respecting the protection of personal information in the private sector (CQLR c P-39.1) s. 12.1: Automated Decision-Making Transparency'
+    url: https://www.legisquebec.gouv.qc.ca/en/document/cs/P-39.1
+    issuer: CAI
+    description: >
+      Automated decision-making transparency (in force 2023-09-22, as amended by Law 25 /
+      2021, c 25). Where a decision is based exclusively on automated processing of personal
+      information, the organization must inform the individual at the time of the decision and,
+      on request, disclose the personal information used, the principal factors and parameters
+      of the decision, and the individual's right to have the information corrected and to submit
+      observations to a human decision-maker. The only Canadian private-sector statute imposing
+      an enforceable right to explanation for automated decisions. Penalties up to C$25 million
+      or 4% of worldwide turnover. (Issuer: enforced by Quebec's Commission d'accès à
+      l'information (CAI).)
+
+  qc-p39-s3-3-s17:
+    title: 'Quebec Act respecting the protection of personal information in the private sector (CQLR c P-39.1) ss. 3.3 and 17: Privacy Impact Assessments and Cross-Border Transfers'
+    url: https://www.legisquebec.gouv.qc.ca/en/document/cs/P-39.1
+    issuer: CAI
+    description: >
+      Privacy impact assessments and cross-border transfers (in force 2023-09-22, as amended by
+      Law 25 / 2021, c 25). Section 3.3 requires a mandatory privacy impact assessment before any
+      processing presenting a significant privacy risk, including AI and automated decision-making
+      systems. Section 17 requires, before communicating personal information outside Quebec, a PIA
+      establishing that the receiving jurisdiction provides adequate protection based on generally
+      recognized principles, plus a written agreement with the recipient. Material compliance
+      obligation for Quebec-based firms using AI models hosted outside Canada. (Issuer: enforced
+      by Quebec's Commission d'accès à l'information (CAI).)
+
+  chra-s3-s5:
+    title: 'Canadian Human Rights Act (RSC 1985, c H-6) ss. 3 and 5: Prohibited Grounds and Discriminatory Services'
+    url: https://laws-lois.justice.gc.ca/eng/acts/h-6/
+    issuer: CHRC
+    description: >
+      Federal anti-discrimination statute. Section 3(1) establishes prohibited grounds of
+      discrimination (race, national or ethnic origin, colour, religion, age, sex, sexual
+      orientation, gender identity or expression, marital status, family status, genetic
+      characteristics, disability). Section 5 makes it a discriminatory practice to deny or
+      differentiate adversely in the provision of services on a prohibited ground. Applies to
+      federally regulated entities only (chartered banks, federal Crown corporations, telecoms,
+      airlines). Does NOT apply to investment dealers or other provincially regulated securities
+      registrants — for those firms the applicable anti-discrimination framework is the human
+      rights code of each province in which the firm operates (see on-hrc-s1 for a representative
+      provincial provision). (Issuer: administered by the Canadian Human Rights Commission (CHRC);
+      published by the Department of Justice Canada.)
+
+  on-hrc-s1:
+    title: 'Ontario Human Rights Code (RSO 1990, c H.19) s. 1: Equal Treatment in Services'
+    url: https://www.ontario.ca/laws/statute/90h19
+    issuer: OHRC
+    description: >
+      Equal treatment in services, goods, and facilities without discrimination on grounds
+      including race, ancestry, place of origin, colour, ethnic origin, citizenship, creed, sex,
+      sexual orientation, gender identity or expression, age, marital status, family status, and
+      disability (s. 1); extends to contract rights (s. 3). Representative of provincial human
+      rights legislation applicable to investment dealers and other securities registrants.
+      Equivalent provisions exist in Quebec (Charter of Human Rights and Freedoms, CQLR c C-12,
+      ss. 10, 12), British Columbia (Human Rights Code, RSBC 1996, c 210, s. 8), Alberta (Alberta
+      Human Rights Act, RSA 2000, c A-25.5, s. 4), and all other provinces and territories. No
+      Canadian provincial human rights code contains AI-specific provisions; the adverse-effect
+      discrimination doctrine (SCC, Ontario (Human Rights Commission) v. Simpsons-Sears Ltd.,
+      [1985] 2 SCR 536) applies to algorithmic outputs by extension. (Issuer: administered by the
+      Ontario Human Rights Commission (OHRC); published by the Government of Ontario.)
+
+  # NOTE: Bill C-27 (Digital Charter Implementation Act, 2022) — including the proposed
+  # Consumer Privacy Protection Act (CPPA) and Artificial Intelligence and Data Act (AIDA) —
+  # died on the order paper in the 44th Parliament (last activity at INDU committee
+  # 2024-09-26; Parliament prorogued and dissolved without further progress). Not yet
+  # reintroduced in the 45th Parliament. Re-add an entry here if and when a successor bill
+  # is introduced.

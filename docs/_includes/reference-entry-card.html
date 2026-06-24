@@ -1,0 +1,65 @@
+{% comment %}
+  Renders a card for a single reference entry, showing all risks and mitigations
+  that cite it. Produces no output if nothing is mapped to this entry.
+
+  Parameters:
+    include.dataset — the reference file key, e.g. "eu-ai-act"
+    include.key     — the entry key, e.g. "c1-a1"
+    include.item    — the entry object { title, url, ... }
+{% endcomment %}
+
+{% assign _frontmatter_key = include.dataset | append: "_references" %}
+
+{% assign _mapped_risks = "" | split: "" %}
+{% for risk in site.risks %}
+  {% if risk[_frontmatter_key] contains include.key %}
+    {% assign _mapped_risks = _mapped_risks | push: risk %}
+  {% endif %}
+{% endfor %}
+
+{% assign _mapped_mitigations = "" | split: "" %}
+{% for mitigation in site.mitigations %}
+  {% if mitigation[_frontmatter_key] contains include.key %}
+    {% assign _mapped_mitigations = _mapped_mitigations | push: mitigation %}
+  {% endif %}
+{% endfor %}
+
+{% if _mapped_risks.size > 0 or _mapped_mitigations.size > 0 %}
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <h3 class="h5 mb-0">{{ include.item.title }}</h3>
+      <a href="{{ include.item.url }}" target="_blank" rel="noopener noreferrer"
+         class="btn btn-outline-secondary btn-sm ms-3 flex-shrink-0">
+        View {% include external-link-icon.html %}
+      </a>
+    </div>
+    <div class="row g-3">
+      {% if _mapped_risks.size > 0 %}
+      <div class="{% if _mapped_mitigations.size > 0 %}col-md-6{% else %}col-12{% endif %}">
+        <p class="text-muted small fw-semibold text-uppercase mb-1">Risks</p>
+        <div class="list-group">
+          {% for risk in _mapped_risks %}
+          <a href="{{ risk.url }}" class="list-group-item list-group-item-action py-2">
+            <span class="risk-id me-2">{% include risk-id.html risk=risk %}</span>{{ risk.title }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      {% if _mapped_mitigations.size > 0 %}
+      <div class="{% if _mapped_risks.size > 0 %}col-md-6{% else %}col-12{% endif %}">
+        <p class="text-muted small fw-semibold text-uppercase mb-1">Mitigations</p>
+        <div class="list-group">
+          {% for mitigation in _mapped_mitigations %}
+          <a href="{{ mitigation.url }}" class="list-group-item list-group-item-action py-2">
+            <span class="mitigation-id me-2">{% include mitigation-id.html mitigation=mitigation %}</span>{{ mitigation.title }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
