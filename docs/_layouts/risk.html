@@ -88,40 +88,39 @@ layout: default
             </div>
             {% endif %}
 
-            {% include reference-card.html
-                references=page.owasp-llm_references
-                dataset="owasp-llm"
-                heading="OWASP LLM Top 10 References" %}
-
-            {% include reference-card.html
-                references=page.owasp-ml_references
-                dataset="owasp-ml"
-                heading="OWASP ML Top 10 References" %}
-
-            {% include reference-card.html
-                references=page.ffiec-itbooklets_references
-                dataset="ffiec-itbooklets"
-                heading="FFIEC References" %}
-
-            {% include reference-card.html
-                references=page.eu-ai-act_references
-                dataset="eu-ai-act"
-                heading="EU AI Act References" %}
-
-            {% include reference-card.html
-                references=page.nist-sp-800-53r5_references
-                dataset="nist-sp-800-53r5"
-                heading="NIST SP 800-53r5 References" %}
-
-            {% include reference-card.html
-                references=page.nist-ai-600-1_references
-                dataset="nist-ai-600-1"
-                heading="NIST AI 600-1 References" %}
-
-            {% include reference-card.html
-                references=page.canada-regulations_references
-                dataset="canada-regulations"
-                heading="Canada Regulatory References" %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Regulatory &amp; Standards References</h2>
+                    {% include reference-card.html
+                        references=page.owasp-llm_references
+                        dataset="owasp-llm"
+                        heading="OWASP LLM Top 10 References" %}
+                    {% include reference-card.html
+                        references=page.owasp-ml_references
+                        dataset="owasp-ml"
+                        heading="OWASP ML Top 10 References" %}
+                    {% include reference-card.html
+                        references=page.ffiec-itbooklets_references
+                        dataset="ffiec-itbooklets"
+                        heading="FFIEC References" %}
+                    {% include reference-card.html
+                        references=page.eu-ai-act_references
+                        dataset="eu-ai-act"
+                        heading="EU AI Act References" %}
+                    {% include reference-card.html
+                        references=page.nist-sp-800-53r5_references
+                        dataset="nist-sp-800-53r5"
+                        heading="NIST SP 800-53r5 References" %}
+                    {% include reference-card.html
+                        references=page.nist-ai-600-1_references
+                        dataset="nist-ai-600-1"
+                        heading="NIST AI 600-1 References" %}
+                    {% include reference-card.html
+                        references=page.canada-regulations_references
+                        dataset="canada-regulations"
+                        heading="Canada Regulatory References" %}
+                </div>
+            </div>
 
         </div>
     </div>
