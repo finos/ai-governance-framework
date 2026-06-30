@@ -50,7 +50,8 @@ canada-regulations_references:
   # Tier 4 adjacent compliance obligations
   - pipeda                 # Privacy compliance for AI deployment — SN 11-348 flags privacy intersection
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency obligation
-  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacyuk-regulations_references:
+  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacy
+uk-regulations_references:
   # AI-specific supervisory materials and market intelligence
   - fca-ai-approach-2024 # FCA's AI approach is the UK conduct-regulator interpretive anchor
   - boe-fca-ai-survey-2024 # Joint survey frames current AI use, controls and supervisory concerns

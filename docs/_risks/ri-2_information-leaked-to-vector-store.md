@@ -36,7 +36,8 @@ canada-regulations_references:
   - iosco-fr-02-2026       # Toolkit — third-party data security and model artifact considerations
   # Tier 4 — primary privacy framework
   - pipeda                 # PIPEDA 4.5 (retention — embeddings persist), 4.7 (safeguards), s. 10.1 (breach)
-  - qc-p39-s3-3-s17        # Quebec Law 25 — PIAs for vector processing; cross-border adequacyuk-regulations_references:
+  - qc-p39-s3-3-s17        # Quebec Law 25 — PIAs for vector processing; cross-border adequacy
+uk-regulations_references:
   # Systems, controls, outsourcing and third-party resilience
   - fca-sysc # Systems and controls cover derived records, embeddings and retrieval stores
   - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted vector databases

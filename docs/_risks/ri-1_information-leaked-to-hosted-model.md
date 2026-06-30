@@ -34,7 +34,8 @@ canada-regulations_references:
   # Tier 4 — primary privacy framework
   - pipeda                 # PIPEDA 4.1.3 (third-party accountability), 4.7 (safeguards), s. 10.1 (breach notification)
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency includes disclosing personal info used
-  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — PIAs for AI processing, cross-border adequacyuk-regulations_references:
+  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — PIAs for AI processing, cross-border adequacy
+uk-regulations_references:
   # Systems, controls, outsourcing and third-party resilience
   - fca-sysc # Systems and controls apply to confidential client data in AI workflows
   - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted model providers

@@ -26,7 +26,8 @@ canada-regulations_references:
   - ciro-acr-2026          # FinOps examination — operational AI failures examined
   - osfi-e23-2027          # E-23 explicitly frames bias/unfair outputs as reputational risk (FRFIs, 2027)
   # International benchmark
-  - iosco-fr-02-2026       # Toolkit — reputational risk across the AI lifecycleuk-regulations_references:
+  - iosco-fr-02-2026       # Toolkit — reputational risk across the AI lifecycle
+uk-regulations_references:
   # AI governance, conduct and public-claim risk
   - fca-ai-approach-2024 # FCA AI approach includes responsible innovation and consumer trust expectations
   - boe-fca-ai-survey-2024 # Survey context on adoption levels and risk controls informs reputational exposure

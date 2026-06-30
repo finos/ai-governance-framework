@@ -30,7 +30,8 @@ canada-regulations_references:
   - ciro-gn-2300-21-003    # Outsourcing Arrangements — monitoring for scope expansion by service providers
   # Tier 3 benchmarks
   - osfi-e23-2027-p3-6     # OSFI E-23 Principle 3.6 — monitoring/decommission catches scope drift (FRFIs, 2027)
-  - osfi-b-10              # OSFI B-10 — third-party risk management and concentration (FRFIs)uk-regulations_references:
+  - osfi-b-10              # OSFI B-10 — third-party risk management and concentration (FRFIs)
+uk-regulations_references:
   # Scope, accountability and consumer-outcome controls
   - fca-ai-approach-2024 # FCA AI approach frames safe and responsible adoption expectations
   - fca-prin # Principles require appropriate skill, care and management of business risks

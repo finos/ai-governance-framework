@@ -26,7 +26,8 @@ canada-regulations_references:
   - iosco-fr-02-2026       # IOSCO Toolkit — bias/fairness within AI governance
   # Tier 4 — operative anti-discrimination framework
   - on-hrc-s1              # Provincial human rights codes — equal treatment in services
-  - chra-s3-s5             # CHRA ss. 3, 5 — federal anti-discrimination (federally regulated FIs only)uk-regulations_references:
+  - chra-s3-s5             # CHRA ss. 3, 5 — federal anti-discrimination (federally regulated FIs only)
+uk-regulations_references:
   # AI fairness and conduct expectations
   - fca-ai-approach-2024 # FCA AI approach flags fairness, accountability and consumer outcomes
   - fca-prin # Principles require integrity, skill/care/diligence and customers' interests
