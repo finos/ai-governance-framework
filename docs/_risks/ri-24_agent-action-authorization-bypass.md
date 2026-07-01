@@ -10,6 +10,9 @@ related_risks:
   - ri-10  # Prompt Injection
   - ri-18  # Model Overreach / Expanded Use
   - ri-22  # Regulatory Compliance and Oversight
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
 ---
 
 ## Summary

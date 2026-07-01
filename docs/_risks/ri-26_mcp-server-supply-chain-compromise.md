@@ -5,9 +5,13 @@ layout: risk
 doc-status: Approved-Specification
 type: SEC
 related_risks:
-  - ri-8   # Tampering with the Foundational Model
-  - ri-9   # Data Poisoning
-  - ri-1   # Information Leaked to Hosted Model
+  - ri-8  # Tampering With the Foundational Model
+  - ri-9  # Data Poisoning
+  - ri-1  # Information Leaked To Hosted Model
+iosco-supervisory-toolkit_references:
+  - t4-4              # Table 4.4: Supply Chain Risk Assessment
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
 ---
 
 ## Summary

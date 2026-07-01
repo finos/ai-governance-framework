@@ -55,6 +55,14 @@ related_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability
   - ri-18  # Model Overreach / Expanded Use
+iosco-supervisory-toolkit_references:
+  - t2-governance  # Table 2: AI Governance & Oversight
+  - t3-1           # Table 3.1: Oversight from Board or Governing Body
+  - t3-2           # Table 3.2: Senior Management Responsibilities
+  - t3-3           # Table 3.3: AI Risk Management Systems, Policies and Procedures
+  - t6-6           # Table 6.6: Reporting
+  - t4-7           # Table 4.7: Legal Framework and Accountability
+  - t5-2           # Table 5.2: AI Governance and Strategy Disclosures
 ---
 
 ## Summary

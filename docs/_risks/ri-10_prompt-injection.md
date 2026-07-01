@@ -20,6 +20,9 @@ eu-ai-act_references:
 related_risks:
   - ri-18  # Model Overreach / Expanded Use
   - ri-20  # Reputational Risk
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
 ---
 ## Summary
 

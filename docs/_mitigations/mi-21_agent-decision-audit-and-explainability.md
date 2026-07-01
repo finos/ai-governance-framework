@@ -14,10 +14,10 @@ eu-ai-act_references:
   - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
   - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
 nist-sp-800-53r5_references:
-  - au-2   # AU-2 Event Logging
-  - au-3   # AU-3 Content of Audit Records
-  - au-6   # AU-6 Audit Record Review, Analysis, And Reporting
-  - ca-7   # CA-7 Authorization
+  - au-2  # AU-2 Event Logging
+  - au-3  # AU-3 Content Of Audit Records
+  - au-6  # AU-6 Audit Record Review, Analysis, And Reporting
+  - ca-7  # CA-7 Authorization
 mitigates:
   - ri-24  # Agent Action Authorization Bypass
   - ri-25  # Tool Chain Manipulation and Injection
@@ -25,6 +25,13 @@ mitigates:
 related_mitigations:
   - mi-4   # AI System Observability
   - mi-11  # Human Feedback Loop for AI Systems
+iosco-supervisory-toolkit_references:
+  - t2-recordkeeping  # Table 2: Recordkeeping & Audit Trail
+  - t3-7              # Table 3.7: Controls and Human Oversight of AI Systems
+  - t6-1              # Table 6.1: Documentation of AI Lifecycle Oversight
+  - t6-3              # Table 6.3: Documentation of AI-Generated Outcomes
+  - t6-4              # Table 6.4: Documentation of Explainability of AI Outputs
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Purpose

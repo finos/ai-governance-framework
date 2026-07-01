@@ -6,9 +6,9 @@ doc-status: Approved-Specification
 type: PREV
 nist-sp-800-53r5_references:
   - ia-5   # IA-5 Authenticator Management
-  - sc-28  # SC-28 Protection of Information at Rest
+  - sc-28  # SC-28 Protection Of Information AT Rest
   - ac-3   # AC-3 Access Enforcement
-  - au-6   # AU-6 Audit Review, Analysis, and Reporting
+  - au-6   # AU-6 Audit Record Review, Analysis, And Reporting
 mitigates:
   - ri-29  # Agent-Mediated Credential Discovery and Harvesting
   - ri-24  # Agent Action Authorization Bypass
@@ -17,6 +17,9 @@ related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-14  # Encryption of AI Data at Rest
   - mi-12  # Role-Based Access Control for AI Data
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
 ---
 
 ## Purpose

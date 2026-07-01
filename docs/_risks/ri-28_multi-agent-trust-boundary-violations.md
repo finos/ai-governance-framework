@@ -8,6 +8,10 @@ related_risks:
   - ri-24  # Agent Action Authorization Bypass
   - ri-27  # Agent State Persistence Poisoning
   - ri-20  # Reputational Risk
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
+  - t6-5  # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Summary
