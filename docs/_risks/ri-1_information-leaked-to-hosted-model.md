@@ -35,7 +35,16 @@ canada-regulations_references:
   - pipeda                 # PIPEDA 4.1.3 (third-party accountability), 4.7 (safeguards), s. 10.1 (breach notification)
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency includes disclosing personal info used
   - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — PIAs for AI processing, cross-border adequacy
-related_risks:
+uk-regulations_references:
+  # Systems, controls, outsourcing and third-party resilience
+  - fca-sysc # Systems and controls apply to confidential client data in AI workflows
+  - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted model providers
+  - pra-ss2-21-outsourcing # PRA outsourcing controls for material AI service providers
+  - boe-fca-pra-critical-third-parties-2024 # Systemic third-party services, including AI/cloud concentration
+  # Data protection and AI-specific privacy controls
+  - uk-gdpr-dpa-2018 # UK GDPR/DPA safeguards for personal data sent to hosted models
+  - ico-guidance-ai-data-protection # ICO AI guidance on controller accountability and security
+  - ico-ai-data-protection-toolkit # Toolkit prompts risk assessment of data leakage in AI systemsrelated_risks:
   - ri-2   # Information Leaked to Vector Store
   - ri-23  # Intellectual Property and Copyright
 ---

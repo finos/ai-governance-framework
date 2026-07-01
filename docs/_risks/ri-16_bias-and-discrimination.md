@@ -27,7 +27,17 @@ canada-regulations_references:
   # Tier 4 — operative anti-discrimination framework
   - on-hrc-s1              # Provincial human rights codes — equal treatment in services
   - chra-s3-s5             # CHRA ss. 3, 5 — federal anti-discrimination (federally regulated FIs only)
-related_risks:
+uk-regulations_references:
+  # AI fairness and conduct expectations
+  - fca-ai-approach-2024 # FCA AI approach flags fairness, accountability and consumer outcomes
+  - fca-prin # Principles require integrity, skill/care/diligence and customers' interests
+  - fca-prin-2a # Consumer Duty requires good outcomes and avoidance of foreseeable harm
+  # Privacy, fairness and protected-characteristic law
+  - uk-gdpr-dpa-2018 # Fairness, special-category data and automated decision-making safeguards
+  - ico-guidance-ai-data-protection # ICO AI guidance addresses bias, fairness and statistical accuracy
+  - ico-ai-data-protection-toolkit # Toolkit includes bias/fairness checks for AI personal-data processing
+  - equality-act-2010 # Protected-characteristic discrimination baseline for services/employment
+  - consumer-credit-act-1974 # Consumer-credit protections relevant to AI credit decisionsrelated_risks:
   - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight
 ---
