@@ -6,6 +6,11 @@ doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
   - llm06-2025  # LLM06:2025 Excessive Agency
+atr_references:
+  - ATR-2026-00012  # Unauthorized Tool Call
+  - ATR-2026-00040  # Agent Privilege Escalation
+  - ATR-2026-00098  # Unauthorized Financial Action by Agent
+  - ATR-2026-00118  # Human Approval Fatigue Exploitation
 related_risks:
   - ri-10  # Prompt Injection
   - ri-18  # Model Overreach / Expanded Use

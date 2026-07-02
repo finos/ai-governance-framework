@@ -4,6 +4,9 @@ title: Multi-Agent Trust Boundary Violations
 layout: risk
 doc-status: Approved-Specification
 type: OP
+atr_references:
+  - ATR-2026-00030  # Cross-Agent Attack Detection
+  - ATR-2026-00076  # Insecure Inter-Agent Communication
 related_risks:
   - ri-24  # Agent Action Authorization Bypass
   - ri-27  # Agent State Persistence Poisoning
