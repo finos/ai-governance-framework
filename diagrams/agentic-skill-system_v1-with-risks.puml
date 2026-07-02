@@ -1,0 +1,189 @@
+@startuml Agentic_Skill_System
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+' Global layout options for better arrow symmetry
+!define DIRECTION top to bottom direction
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 100
+skinparam minlen 2
+skinparam LabelFontSize 10
+skinparam ArrowFontSize 9
+
+title Agentic Skill-Based System Architecture\n(Coding Agent with Skills — No Skill Sandboxing)
+
+Person(user, "User / Developer", "Invokes agent via CLI\nor IDE extension")
+
+Enterprise_Boundary(org, "Organization") {
+
+    ' --- Tests & Guardrails ---
+    !$tests_desc  = "Pre-deploy evals, prompt tests, and policy compliance checks.\n"
+    !$tests_desc  = $tests_desc + "RI-5, RI-6, RI-14"
+    Container(tests, "Tests & Guardrails", "Evaluation Suite", $tests_desc)
+
+    System_Boundary(agent_env, "A) Agent Runtime Environment\n(User's Machine — Full Local Privileges)") {
+
+        ' --- User Interface ---
+        !$ui_desc  = "Accepts user prompts.\n"
+        !$ui_desc  = $ui_desc + "Displays responses and artifacts.\n"
+        !$ui_desc  = $ui_desc + "Requests tool-use approval.\n"
+        !$ui_desc  = $ui_desc + "RI-10, RI-18, RI-20"
+        Container(user_interface, "User Interface", "CLI / IDE Extension", $ui_desc)
+
+        ' --- Agent Orchestrator ---
+        !$orch_desc  = "Plans, reasons, and selects tools.\n"
+        !$orch_desc  = $orch_desc + "Skill content injected into system prompt with no isolation boundary.\n"
+        !$orch_desc  = $orch_desc + "RI-4, RI-10, RI-17, RI-24,\n"
+        !$orch_desc  = $orch_desc + "RI-25, RI-27, RI-28, RI-32"
+        Container(agent_orchestrator, "Agent Orchestrator", "Agentic Loop + Skill Context", $orch_desc)
+
+        ' --- Permission & Approval Layer ---
+        !$perm_desc  = "Prompts user before bash file writes, and MCP calls.\n"
+        !$perm_desc  = $perm_desc + "Only runtime guardrail for skill-initiated actions.\n"
+        !$perm_desc  = $perm_desc + "RI-24, RI-25, RI-29, RI-31"
+        Container(permission_layer, "Permission & Approval Layer", "User Consent Gate", $perm_desc)
+
+        ' --- Agent State & Memory ---
+        !$state_desc  = "Project instructions, conversation context, and learned preferences.\n"
+        !$state_desc  = $state_desc + "RI-27, RI-1, RI-2, RI-32"
+        ContainerDb(agent_state, "Agent State & Memory", "AGENTS.md / Session History", $state_desc)
+    }
+
+    System_Boundary(skill_env, "B) Skill & Plugin Supply Chain\n(No Sandbox — Dual Attack Surface)") {
+
+        ' --- Skill Loader ---
+        !$loader_desc  = "Reads SKILL.md on invocation.\n"
+        !$loader_desc  = $loader_desc + "Injects prompt content into agent context with no integrity verification or sandboxing.\n"
+        !$loader_desc  = $loader_desc + "RI-8, RI-9, RI-10, RI-26, RI-30, RI-32"
+        Container(skill_loader, "Skill Loader", "File Reader / Slash Command", $loader_desc)
+
+        ' --- Skill Prompt Content ---
+        !$prompts_desc  = "Markdown instructions that steer agent reasoning, tool selection and code generation patterns.\n"
+        !$prompts_desc  = $prompts_desc + "Untrusted text treated as system-level instructions.\n"
+        !$prompts_desc  = $prompts_desc + "RI-8, RI-9, RI-10, RI-23, RI-26, RI-30, RI-32"
+        ContainerDb(skill_prompts, "Skill Prompt Content", "SKILL.md / REFERENCE.md", $prompts_desc)
+
+        ' --- Skill Bundled Code ---
+        !$scripts_desc  = "Helper scripts executed via bash.\n"
+        !$scripts_desc  = $scripts_desc + "Shipped alongside SKILL.md with no code review, signing, or execution isolation.\n"
+        !$scripts_desc  = $scripts_desc + "RI-8, RI-9, RI-25, RI-26, RI-29, RI-30"
+        ContainerDb(skill_scripts, "Skill Bundled Code", "scripts/*.py, schemas, configs", $scripts_desc)
+
+        note right of skill_scripts
+            **DUAL ATTACK SURFACE (RI-30)**
+            Layer 1 — Prompt authority delegation
+            (RI-32): SKILL.md injected into system
+            prompt with full instruction authority,
+            indistinguishable from the agent's own.
+            Layer 2 — Code execution: Bundled
+            scripts run via bash unsandboxed.
+            Approval fatigue (RI-31) degrades
+            the only runtime guardrail.
+        end note
+    }
+
+    System_Boundary(mcp_env, "C) MCP Server Ecosystem\n(Local / Remote Services)") {
+
+        ' --- MCP Registry & Router ---
+        !$registry_desc  = "Discovers and routes to\n"
+        !$registry_desc  = $registry_desc + "MCP servers and connectors.\n"
+        !$registry_desc  = $registry_desc + "RI-26, RI-7"
+        Container(mcp_registry, "MCP Registry & Router", "Connector Hub", $registry_desc)
+
+        ' --- Local MCP Servers ---
+        !$mcp_local_desc  = "Access to local resources:\n"
+        !$mcp_local_desc  = $mcp_local_desc + "files, databases, repositories.\n"
+        !$mcp_local_desc  = $mcp_local_desc + "RI-1, RI-2, RI-29"
+        Container(mcp_server_local, "Local MCP Servers", "File System / DB / Git", $mcp_local_desc)
+
+        ' --- Remote MCP Servers ---
+        !$mcp_remote_desc  = "Access to external services:\n"
+        !$mcp_remote_desc  = $mcp_remote_desc + "Slack, Jira, GitHub, etc.\n"
+        !$mcp_remote_desc  = $mcp_remote_desc + "RI-1, RI-7, RI-22, RI-26, RI-29"
+        Container(mcp_server_remote, "Remote MCP Servers", "SaaS Integrations", $mcp_remote_desc)
+    }
+
+    System_Boundary(exec_env, "D) Local Execution Environment\n(User's Machine — No Sandbox)") {
+
+        ' --- Shell Execution ---
+        !$shell_desc  = "Runs commands on user's machine with user's full permissions.\n"
+        !$shell_desc  = $shell_desc + "No containerization or isolation.\n"
+        !$shell_desc  = $shell_desc + "Executes agent-generated and skill-bundled scripts alike.\n"
+        !$shell_desc  = $shell_desc + "RI-24, RI-29, RI-1"
+        Container(shell_exec, "Shell Execution", "Bash / System Shell", $shell_desc)
+
+        ' --- Project & System Files ---
+        !$fs_desc  = "Source code, configs, .env files, credentials, and build artifacts.\n"
+        !$fs_desc  = $fs_desc + "Full read/write access.\n"
+        !$fs_desc  = $fs_desc + "RI-1, RI-19, RI-23, RI-29"
+        ContainerDb(filesystem, "Project & System Files", "Local File System", $fs_desc)
+    }
+
+    System_Boundary(inference_env, "E) Inference Environment (SaaS)") {
+
+        ' --- Vendor API Endpoint ---
+        !$api_desc  = "Handles inference requests.\n"
+        !$api_desc  = $api_desc + "Meters usage and applies safety filters.\n"
+        !$api_desc  = $api_desc + "RI-1, RI-7, RI-8, RI-22"
+        Container(api_endpoint, "Vendor API Endpoint", "API Gateway", $api_desc)
+
+        ' --- Foundation Model ---
+        !$llm_desc  = "Generates reasoning, code, and tool calls.\n"
+        !$llm_desc  = $llm_desc + "Skill-injected instructions are indistinguishable from system prompt.\n"
+        !$llm_desc  = $llm_desc + "RI-4, RI-5, RI-6, RI-8, RI-16, RI-17"
+        ContainerDb(llm_model, "Foundation Model", "Large Language Model", $llm_desc)
+    }
+
+    ' Layout hints
+    agent_env -[hidden]down-> skill_env
+    skill_env -[hidden]right-> mcp_env
+    agent_env -[hidden]right-> exec_env
+    exec_env -[hidden]down-> inference_env
+}
+
+' === User Flow ===
+Rel(user, user_interface, "Prompt / slash command")
+Rel(user_interface, agent_orchestrator, "Parsed user input")
+Rel(user_interface, user, "Response / artifacts")
+
+' === Agent Core Loop ===
+Rel(agent_orchestrator, api_endpoint, "Inference request\n(system prompt + skill context\n+ conversation)", "HTTPS")
+Rel(api_endpoint, llm_model, "Generation request")
+Rel(llm_model, api_endpoint, "Generated response\n(text + tool calls)")
+Rel(api_endpoint, agent_orchestrator, "Model response", "HTTPS")
+
+' === Agent State ===
+Rel(agent_orchestrator, agent_state, "Read/write AGENTS.md\nand session context")
+
+' === Skill Injection — Layer 1: Prompt content into agent context ===
+Rel(agent_orchestrator, skill_loader, "Slash command or\nauto-trigger loads skill")
+Rel(skill_loader, skill_prompts, "Read SKILL.md /\nREFERENCE.md")
+Rel(skill_loader, agent_orchestrator, "Skill instructions injected\ninto system prompt")
+
+' === Skill Execution — Layer 2: Bundled scripts via shell ===
+Rel(skill_prompts, agent_orchestrator, "Instructions direct agent\nto run bundled scripts\n(e.g. python scripts/recalc.py)")
+Rel(shell_exec, skill_scripts, "Execute skill scripts\n(python scripts/*.py)")
+
+' === Tool Dispatch (skill-initiated actions use same path) ===
+Rel(agent_orchestrator, permission_layer, "Tool call requests\n(skill or user initiated)")
+Rel(permission_layer, agent_orchestrator, "Approved tool results")
+
+' === MCP Connections ===
+Rel(permission_layer, mcp_registry, "MCP tool call")
+Rel(mcp_registry, mcp_server_local, "Local resource access")
+Rel(mcp_registry, mcp_server_remote, "Remote service call", "HTTPS")
+Rel(mcp_server_local, mcp_registry, "Local results")
+Rel(mcp_server_remote, mcp_registry, "Remote results")
+Rel(mcp_registry, permission_layer, "MCP results")
+
+' === Shell / File Execution ===
+Rel(permission_layer, shell_exec, "Execute bash command\n(agent or skill initiated)")
+Rel(shell_exec, filesystem, "Read/write files,\nrun processes")
+Rel(shell_exec, permission_layer, "Execution results")
+
+' === Testing ===
+Rel(tests, user_interface, "Validated test prompts")
+Rel(user_interface, tests, "Test responses")
+
+SHOW_LEGEND()
+@enduml
