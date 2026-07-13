@@ -4,6 +4,9 @@ title: Agent Authority Least Privilege Framework
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+iso-42001_references:
+  - A-9-2    # ISO 42001: Processes for responsible use of AI systems
+  - A-6-2-6  # ISO 42001: AI system operation and monitoring
 nist-sp-800-53r5_references:
   - ac-6   # AC-6 Least Privilege
   - ac-2   # AC-2 Account Management
@@ -15,6 +18,7 @@ mitigates:
 related_mitigations:
   - mi-12  # Role-Based Access Control for AI Data
   - mi-3   # User/App/Model Firewalling/Filtering
+  - mi-20  # MCP Server Security Governance
 ---
 
 ## Purpose
@@ -128,6 +132,28 @@ Effective agent privilege management must address the dynamic and autonomous nat
   * Feed agent access logs into SIEM systems for correlation with other security events.
   * Implement security alerts for suspicious agent behavior or privilege violations.
   * Enable security operations teams to investigate agent-related security incidents.
+
+### 7. OS and Runtime-Layer Enforcement
+
+Least privilege applied only at the API gateway and tool manager leaves a second invocation surface ungoverned: the operating system and runtime beneath the agent. Agents that can execute commands, spawn processes, or reach a shell can bypass gateway-level controls entirely, so the same discipline must be enforced one layer down.
+
+* **Deny-by-Default Command Allow-Listing**:
+  * Define the exact commands, arguments, and resolved file paths the agent may execute; everything not named is denied as the resting state rather than as an exception.
+  * Match on the executed argument vector, never on a text line handed to a shell to interpret. With no shell in the path, command chaining and substitution characters are inert.
+  * Canonicalize file paths before the authorization check so that path traversal cannot bend a narrow grant (for example, read access to an application log directory) into a broad one.
+
+* **Reference-Monitor Placement**:
+  * The enforcement point (an execution broker, privileged-command proxy, or OS-level mandatory access control) must sit beneath the agent and be always invoked, tamper-resistant, and small enough to verify.
+  * A policy held only in the agent's own context, such as an instruction in its prompt, provides no assurance, because the model can be induced to disregard it.
+
+* **Sandbox and Capability Isolation**:
+  * Run agent processes in constrained sandboxes (for example, seccomp profiles, gVisor, or micro-VM isolation such as Firecracker) with filesystem, network, and process-capability restrictions matched to the agent's task scope, so that even an allowed command executes within a bounded blast radius.
+
+* **Framework Touchpoints**:
+  * The same deny-by-default model applies at the tool layer: MCP server tool allow-lists, agent-framework tool-permission scoping, and provider function-calling declarations should enumerate permitted operations rather than expose open-ended execution. Governance of the MCP server surface itself is addressed in AIR-PREV-020 (MCP Server Security Governance).
+
+* **Deny Events as Audit Signal**:
+  * Log every denied invocation, attributed to the agent's identity, and raise it to security monitoring. A denied command is a designed non-event, and the deny stream is direct evidence of both control operation and attempted overreach.
 
 ---
 
