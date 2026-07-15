@@ -23,7 +23,7 @@ Each risk is scored on two independent axes levels 1-5, and the matrix creates a
 **Likelihood scores of 1-5:** Rare → Unlikely → Possible → Likely → High Probability (Certainty).
 **Impact scores of 1-5:** Insignificant → Minor → Moderate → Major → Severe.
 
-Full descriptor anchors are on the *Scoring Approach* tab and visualized on the *Scoring Matrix* tab.
+Full descriptor anchors are on the *Scoring Approach* tab and visualized on the *Scoring Matrix* tab. The scoring matrix is to be changed - the lookup table will use the CVSS severty bands to align with industry available methodology
 
 ### Rating bands
 
