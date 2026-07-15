@@ -85,22 +85,25 @@ One of our key goals is to create a framework that makes it easy to follow whate
 
 ## Contributing
 
-### Using DCO to sign your commits
+### Using DCO to sign your commits (required)
 
-**All commits** must be signed with a DCO signature to avoid being flagged by the DCO Bot. This means that your commit log message must contain a line that looks like the following one, with your actual name and email address:
+**All commits** must include a DCO sign-off or the **DCO bot will block the PR**.
 
+```bash
+git commit -s -m "Describe your change"
+# message must end with:
+# Signed-off-by: Your Name <you@example.com>
 ```
-Signed-off-by: John Doe <john.doe@example.com>
-```
 
-Adding the `-s` flag to your `git commit` will add that line automatically. You can also add it manually as part of your commit log message or add it afterwards with `git commit --amend -s`.
+If the bot fails **after** you opened the PR: `git commit --amend -s --no-edit` (or rebase with `-s`), then `git push --force-with-lease`.
+
+Full before/after steps: **[CONTRIBUTING.md](./CONTRIBUTING.md)** (DCO section at the top).
 
 ### Helpful DCO Resources
-- [Git Tools - Signing Your Work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
-- [Signing commits
-](https://docs.github.com/en/github/authenticating-to-github/signing-commits)
+- [Developer Certificate of Origin](https://developercertificate.org/)
+- [GitHub: signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) (note: GPG sign ≠ DCO `-s`; this project needs the **Signed-off-by** line)
 
-See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for more information
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information
 
 ---
 

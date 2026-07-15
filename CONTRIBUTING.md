@@ -1,11 +1,50 @@
 # Contributing to AI Governance Framework
 
-AI Readiness is [CC-BY-4.0 licensed](LICENSE) and accepts contributions via git pull requests. Each commit must include a DCO line in the git commit message:
+AI Readiness is [CC-BY-4.0 licensed](LICENSE) and accepts contributions via git pull requests.
 
-`Signed-off-by: GitHub User Name <your.email@example.com>`
+## DCO (required before your PR can merge)
 
-This sign-off means you agree the commit satisfies the
-[Developer Certificate of Origin (DCO).](https://developercertificate.org/)
+Every commit on the PR must include a **Developer Certificate of Origin** sign-off line.  
+The DCO bot will **fail** the PR until this is present on **all** commits.
+
+### Before you open a PR
+
+1. Configure git with your real name and the email on your GitHub account:
+   ```bash
+   git config user.name "Your Name"
+   git config user.email "you@example.com"
+   ```
+2. Create each commit with the **`-s`** flag (adds `Signed-off-by` for you):
+   ```bash
+   git commit -s -m "Your change description"
+   ```
+3. Or add the line yourself as the last line of the commit message:
+   ```
+   Signed-off-by: Your Name <you@example.com>
+   ```
+4. Full legal text: [Developer Certificate of Origin](https://developercertificate.org/).
+
+### After the PR is open (if DCO fails)
+
+1. On GitHub, open the failed **DCO** check for the exact missing commits.
+2. Fix locally, then force-push the branch (history rewrite is normal for DCO repair):
+   ```bash
+   # single bad commit on tip
+   git commit --amend -s --no-edit
+   git push --force-with-lease
+
+   # several commits
+   git rebase HEAD~N -x "git commit --amend -s --no-edit"
+   # or interactive rebase and re-commit each with -s
+   git push --force-with-lease
+   ```
+3. Do **not** open a second PR to “add DCO later” — amend/rebase the same branch.
+
+### Quick check
+
+```bash
+git log -1 --format=%B   # last lines should include Signed-off-by:
+```
 
 ## Contributing Issues
 
