@@ -37,9 +37,22 @@ canada-regulations_references:
   # Tier 4 — primary privacy framework
   - pipeda                 # PIPEDA 4.5 (retention — embeddings persist), 4.7 (safeguards), s. 10.1 (breach)
   - qc-p39-s3-3-s17        # Quebec Law 25 — PIAs for vector processing; cross-border adequacy
+uk-regulations_references:
+  # Systems, controls, outsourcing and third-party resilience
+  - fca-sysc # Systems and controls cover derived records, embeddings and retrieval stores
+  - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted vector databases
+  - pra-ss2-21-outsourcing # PRA outsourcing expectations for material data stores
+  - boe-fca-pra-critical-third-parties-2024 # Critical third-party dependency risk for hosted retrieval infrastructure
+  # Data protection and AI-specific privacy controls
+  - uk-gdpr-dpa-2018 # UK GDPR/DPA applies where embeddings or metadata include personal data
+  - ico-guidance-ai-data-protection # ICO AI guidance covers security, minimisation and reuse controls
+  - ico-ai-data-protection-toolkit # Toolkit supports AI privacy risk assessment for retrieval storesrelated_risks:
 related_risks:
-  - ri-1   # Information Leaked To Hosted Model
-  - ri-9   # Data Poisoning
+  - ri-1  # Information Leaked To Hosted Model
+  - ri-9  # Data Poisoning
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
 ---
 
 ## Summary

@@ -4,10 +4,18 @@ title: Agent State Persistence Poisoning
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+owasp-asi_references:
+  - asi06-2026  # ASI06: Memory & Context Poisoning
+atr_references:
+  - ATR-2026-00075  # Agent Memory Manipulation
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass
   - ri-9   # Data Poisoning
+iosco-supervisory-toolkit_references:
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Summary

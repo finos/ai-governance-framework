@@ -4,7 +4,6 @@ title: Lack of Explainability
 layout: risk
 doc-status: Approved-Specification
 type: OP
-# No direct OWASP LLM mapping - explainability is not covered in OWASP LLM Top 10
 ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
@@ -33,10 +32,29 @@ canada-regulations_references:
   - osfi-e23-2027          # OSFI E-23 — model documentation/validation (FRFIs, 2027)
   - qc-amf-ai-guideline    # AMF AI Guideline — lifecycle controls imply explainability (QC FIs, 2027)
   - iosco-fr-02-2026       # IOSCO Toolkit — disclosure / AI transparency
+owasp-asi_references:
+  - asi09-2026  # ASI09: Human-Agent Trust Exploitation
 related_risks:
+uk-regulations_references:
+  # Explainability for consumer outcomes and regulated advice
+  - fca-ai-approach-2024 # FCA AI approach stresses accountability and explainability expectations
+  - fca-prin-2a # Consumer Duty requires firms to evidence and explain good outcomes
+  - fca-cobs-9 # Suitability rules require a reasonable basis for personal recommendations
+  - fca-cobs-9a # MiFID suitability rules require explainable advice and portfolio decisions
+  # Model risk and automated decision-making transparency
+  - pra-ss1-23-mrm # Model documentation, validation and governance for in-scope models
+  - uk-gdpr-dpa-2018 # UK GDPR safeguards for solely automated decisions and meaningful information
+  - ico-guidance-ai-data-protection # ICO AI guidance covers explaining AI-assisted decisions
+  - ico-ai-data-protection-toolkit # Toolkit supports explainability and accountability assessmentrelated_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination
   - ri-18  # Model Overreach / Expanded Use
+iosco-supervisory-toolkit_references:
+  - t2-disclosure  # Table 2: Disclosure & Transparency
+  - t5-1           # Table 5.1: Disclosure of AI Use in Products and Services to End-Users
+  - t6-4           # Table 6.4: Documentation of Explainability of AI Outputs
+  - t3-7           # Table 3.7: Controls and Human Oversight of AI Systems
+  - t4-2           # Table 4.2: Transparency Measures
 ---
 
 ## Summary

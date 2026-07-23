@@ -25,6 +25,10 @@ eu-ai-act_references:
 related_risks:
   - ri-8   # Tampering With the Foundational Model
   - ri-19  # Data Quality and Drift
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
+  - t4-4              # Table 4.4: Supply Chain Risk Assessment
 ---
 ## Summary
 

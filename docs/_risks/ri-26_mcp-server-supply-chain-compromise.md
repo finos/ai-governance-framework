@@ -4,10 +4,19 @@ title: MCP Server Supply Chain Compromise
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+owasp-asi_references:
+  - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
+atr_references:
+  - ATR-2026-00010  # Malicious Content in MCP Tool Response
+  - ATR-2026-00095  # MCP Server Supply Chain Poisoning
 related_risks:
-  - ri-8   # Tampering with the Foundational Model
-  - ri-9   # Data Poisoning
-  - ri-1   # Information Leaked to Hosted Model
+  - ri-8  # Tampering With the Foundational Model
+  - ri-9  # Data Poisoning
+  - ri-1  # Information Leaked To Hosted Model
+iosco-supervisory-toolkit_references:
+  - t4-4              # Table 4.4: Supply Chain Risk Assessment
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
 ---
 
 ## Summary

@@ -10,22 +10,24 @@ iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-4-4    # ISO 42001: Tooling resources
 nist-sp-800-53r5_references:
-  - cm-2  # CM-2 Baseline Configuration
-  - cm-3  # CM-3 Configuration Change Control
-  - cm-4  # CM-4 Impact Analyses
-  - cm-8  # CM-8 System Component Inventory
-  - au-2  # AU-2 Event Logging
-  - sa-4  # SA-4 Acquisition Process
+  - cm-2   # CM-2 Baseline Configuration
+  - cm-3   # CM-3 Configuration Change Control
+  - cm-4   # CM-4 Impact Analyses
+  - cm-8   # CM-8 System Component Inventory
+  - au-2   # AU-2 Event Logging
+  - sa-4   # SA-4 Acquisition Process
   - sa-10  # SA-10 Developer Configuration Management
   - sa-22  # SA-22 Unsupported System Components
-  - sr-4  # SR-4 Provenance
-  - sr-8  # SR-8 Notification Agreements
+  - sr-4   # SR-4 Provenance
+  - sr-8   # SR-8 Notification Agreements
 mitigates:
   - ri-5  # Foundation Model Versioning
   - ri-6  # Non-Deterministic Behaviour
 related_mitigations:
-  - mi-5   # System Acceptance Testing
-  - mi-4   # AI System Observability
+  - mi-5  # System Acceptance Testing
+  - mi-4  # AI System Observability
+iosco-supervisory-toolkit_references:
+  - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Purpose

@@ -11,18 +11,18 @@ iso-42001_references:
 eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
 nist-sp-800-53r5_references:
-  - ac-1  # AC-1 Policy And Procedures
-  - ac-4  # AC-4 Information Flow Enforcement
+  - ac-1   # AC-1 Policy And Procedures
+  - ac-4   # AC-4 Information Flow Enforcement
   - ac-16  # AC-16 Security And Privacy Attributes
-  - at-2  # AT-2 Literacy Training And Awareness
-  - at-3  # AT-3 Role-based Training
-  - ca-7  # CA-7 Authorization
+  - at-2   # AT-2 Literacy Training And Awareness
+  - at-3   # AT-3 Role-based Training
+  - ca-7   # CA-7 Authorization
   - cm-13  # CM-13 Data Action Mapping
   - pm-11  # PM-11 Mission And Business Process Definition
   - pm-22  # PM-22 Personally Identifiable Information Quality Management
   - pm-23  # PM-23 Data Governance Body
-  - ra-2  # RA-2 Security Categorization
-  - si-7  # SI-7 Software, Firmware, And Information Integrity
+  - ra-2   # RA-2 Security Categorization
+  - si-7   # SI-7 Software, Firmware, And Information Integrity
   - si-10  # SI-10 Information Input Validation
   - si-12  # SI-12 Information Management And Retention
   - si-18  # SI-18 Personally Identifiable Information Quality Operations
@@ -37,8 +37,12 @@ mitigates:
   - ri-23  # Intellectual Property (IP) and Copyright
 related_mitigations:
   - mi-2   # Data Filtering From External Knowledge Bases
-  - mi-12  # Role Based Access Control for AI Data
+  - mi-12  # Role-Based Access Control for AI Data
   - mi-14  # Encryption of AI Data at Rest
+iosco-supervisory-toolkit_references:
+  - t3-4  # Table 3.4: Data Governance
+  - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
+  - t4-4  # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Purpose

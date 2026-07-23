@@ -7,6 +7,24 @@ AI Readiness is [CC-BY-4.0 licensed](LICENSE) and accepts contributions via git 
 This sign-off means you agree the commit satisfies the
 [Developer Certificate of Origin (DCO).](https://developercertificate.org/)
 
+### Signing your commits
+
+Use the `-s` option when creating each commit. Git will add the required
+`Signed-off-by` line using your configured name and email address:
+
+```bash
+git commit -s -m "Add a concise commit message"
+```
+
+If you have already created an unsigned commit, add the sign-off before
+pushing it:
+
+```bash
+git commit --amend --signoff
+```
+
+Every commit included in a pull request must have a DCO sign-off.
+
 ## Contributing Issues
 
 ### Prerequisites

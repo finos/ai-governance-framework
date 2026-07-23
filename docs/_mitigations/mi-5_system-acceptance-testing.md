@@ -11,13 +11,13 @@ eu-ai-act_references:
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
 nist-sp-800-53r5_references:
-  - ca-2  # CA-2 Control Assessments
-  - ca-6  # CA-6 Authorization
-  - cm-4  # CM-4 Impact Analyses
-  - sa-4  # SA-4 Acquisition Process
+  - ca-2   # CA-2 Control Assessments
+  - ca-6   # CA-6 Authorization
+  - cm-4   # CM-4 Impact Analyses
+  - sa-4   # SA-4 Acquisition Process
   - sa-11  # SA-11 Developer Testing And Evaluation
-  - si-2  # SI-2 Flaw Remediation
-  - si-6  # SI-6 Security And Privacy Function Verification
+  - si-2   # SI-2 Flaw Remediation
+  - si-6   # SI-6 Security And Privacy Function Verification
 mitigates:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-5   # Foundation Model Versioning
@@ -26,9 +26,12 @@ mitigates:
   - ri-16  # Bias and Discrimination
   - ri-22  # Regulatory Compliance and Oversight
 related_mitigations:
-  - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
+  - mi-15  # Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)
   - mi-11  # Human Feedback Loop for AI Systems
   - mi-10  # AI Model Version Pinning
+iosco-supervisory-toolkit_references:
+  - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
+  - t4-1  # Table 4.1: Assessment of Risk-Proportionate Controls
 ---
 
 ## Purpose

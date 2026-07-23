@@ -13,14 +13,14 @@ eu-ai-act_references:
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c9-s1-a72  # IX.S1.A72: Post-Market Monitoring by Providers and Post-Market Monitoring Plan for High-Risk AI Systems
 nist-sp-800-53r5_references:
-  - ca-7  # CA-7 Authorization
-  - ir-6  # IR-6 Incident Reporting
+  - ca-7   # CA-7 Authorization
+  - ir-6   # IR-6 Incident Reporting
   - pm-26  # PM-26 Complaint Management
-  - ra-5  # RA-5 Vulnerability Monitoring And Scanning
-  - si-2  # SI-2 Flaw Remediation
-  - si-4  # SI-4 System Monitoring
-  - at-2  # AT-2 Literacy Training And Awareness
-  - ca-2  # CA-2 Control Assessments
+  - ra-5   # RA-5 Vulnerability Monitoring And Scanning
+  - si-2   # SI-2 Flaw Remediation
+  - si-4   # SI-4 System Monitoring
+  - at-2   # AT-2 Literacy Training And Awareness
+  - ca-2   # CA-2 Control Assessments
 mitigates:
   - ri-5   # Foundation Model Versioning
   - ri-6   # Non-Deterministic Behaviour
@@ -28,9 +28,13 @@ mitigates:
   - ri-16  # Bias and Discrimination
   - ri-20  # Reputational Risk
 related_mitigations:
-  - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
+  - mi-15  # Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)
   - mi-4   # AI System Observability
   - mi-5   # System Acceptance Testing
+iosco-supervisory-toolkit_references:
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
+  - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
+  - t6-3  # Table 6.3: Documentation of AI-Generated Outcomes
 ---
 
 ## Purpose

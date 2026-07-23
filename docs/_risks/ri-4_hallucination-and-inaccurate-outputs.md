@@ -23,6 +23,9 @@ related_risks:
   - ri-14  # Inadequate System Alignment
   - ri-6   # Non-Deterministic Behaviour
   - ri-19  # Data Quality and Drift
+iosco-supervisory-toolkit_references:
+  - t2-model-risk  # Table 2: Model Risk Management
+  - t3-6           # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary
