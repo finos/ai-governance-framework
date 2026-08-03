@@ -26,6 +26,7 @@ mitigates:
   - ri-6   # Non-Deterministic Behaviour
   - ri-14  # Inadequate System Alignment
   - ri-16  # Bias and Discrimination
+  - ri-18  # Model Overreach / Expanded Use
   - ri-20  # Reputational Risk
 related_mitigations:
   - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge

@@ -3,7 +3,7 @@ sequence: 4
 title: "Anti-Financial Crime Investigation"
 layout: usecase
 doc-status: Draft
-category: Risk_Management_and_Compliance
+category: Risk_and_Compliance
 
 description: "A GenAI assistant that supports L2 anti-financial-crime investigators across the AML investigation workflow, from alert triage and case enrichment through disposition to drafting the STR/SAR for MLRO/BSA officer review and filing."
 end_user: "L2 AML investigator, financial crime analyst, MLRO/BSA officer"
@@ -134,15 +134,15 @@ AML investigation is labor-intensive: investigators spend most case-handling tim
 
 This use case concentrates **Customer PII Data**, **Sensitive Financial Data**, and **Confidential Financial Data**, including draft and filed STRs/SARs and the fact that a customer is under investigation. It also concentrates **Internal Proprietary Data** — transaction monitoring scenarios, thresholds, and typology libraries — whose leakage would enable launderers to evade detection, a harm distinct from any privacy breach.
 
-Because STR/SAR confidentiality and tipping-off prohibitions apply, sending case content, draft narratives, or alert metadata to a third-party hosted model, or persisting it in shared vector stores or provider logs, must be treated as potential unlawful disclosure rather than a privacy incident. Case data must remain in access-controlled, encrypted systems on a need-to-know basis, with retrieval preserving source-system access controls.
+Because STR/SAR confidentiality and tipping-off prohibitions apply, sending case content, draft narratives, or alert metadata to a third-party hosted model, or persisting it in shared vector stores or provider logs, must be treated as potential unlawful disclosure rather than a privacy incident. Controls should still allow the disclosures authorized under `31 CFR § 1020.320(e)`, such as sharing with FinCEN, law enforcement, examining authorities, and permitted intra-organizational recipients. Case data must remain in access-controlled, encrypted systems on a need-to-know basis, with retrieval preserving source-system access controls.
 
 ## Regulatory Concerns
 
-- **BSA / FinCEN**: SAR filing obligation, 30-calendar-day timeframe from initial detection (60 where no suspect is identified), and SAR confidentiality (31 CFR § 1020.320)
-- **EU AML Package**: The AMLR (Regulation (EU) 2024/1624) harmonizes suspicious transaction reporting and carries the tipping-off prohibition forward from AMLD Article 39 as Article 73; AMLA (Regulation (EU) 2024/1620) will directly supervise selected high-risk cross-border institutions from 2028, including their governance of AI-assisted investigation and reporting
+- **BSA / FinCEN**: SAR filing obligation, 30-calendar-day timeframe from initial detection (60 where no suspect is identified), and SAR confidentiality (`31 CFR § 1020.320` for banks, with parallel sections for other institution types); FinCEN interprets initial detection as the point at which review determines the activity is suspicious, not the alert-generation date, a distinction that matters when AI compresses triage time
+- **EU AML Package**: The AMLR (Regulation (EU) 2024/1624), applicable from 10 July 2027, harmonizes suspicious transaction reporting and carries the tipping-off prohibition forward from AMLD Article 39 (operative until then) as Article 73, per the correlation table in Annex VI AMLR; AMLA (Regulation (EU) 2024/1620) will select up to 40 high-risk cross-border institutions in 2027 and directly supervise them from 1 January 2028, including their governance of AI-assisted investigation and reporting
 - **FATF Standards**: Recommendation 20 (prompt STR reporting) and Recommendation 21 (confidentiality and tipping-off)
-- **EU AI Act**: Not a listed Annex III high-risk use; Articles 10, 12, 13, and 14 (data governance, record-keeping, transparency, human oversight) provide the internal benchmark
-- **SR 11-7**: AML decision-support tools commonly meet the model definition and, where they do, require inventory, validation, and ongoing monitoring; per the 2021 interagency statement on model risk management for BSA/AML systems, the determination is bank-specific
+- **EU AI Act**: Not a listed Annex III high-risk use; point 6 (law enforcement) covers systems used by or on behalf of law enforcement authorities as defined in Article 3(45), and an obliged entity meeting its own AML obligations acts on its own behalf; Articles 10, 12, 13, and 14 (data governance, record-keeping, transparency, human oversight) provide the internal benchmark
+- **SR 11-7 / SR 26-2**: AML decision-support tools commonly meet the model definition and, where they do, require inventory, validation, and ongoing monitoring; the April 2021 interagency statement on model risk management for BSA/AML systems (SR 21-8) made the model-versus-tool determination bank-specific, and both SR 11-7 and SR 21-8 were superseded on 17 April 2026 by the revised interagency model risk management guidance (SR 26-2; OCC Bulletin 2026-13), which folds BSA/AML systems into the general framework
 
 ## AI Risks and Mitigations
 
