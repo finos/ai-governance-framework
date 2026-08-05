@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
-  - llm09-2025  # LLM09:2025 Misinformation
+  - llm07-2026  # LLM07:2026 Misinformation
 owasp-ml_references:
   - ml09-2023  # ML09:2023 Output Integrity Attack
 nist-ai-600-1_references:

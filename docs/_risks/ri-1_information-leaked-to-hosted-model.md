@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: RC
 owasp-llm_references:
-  - llm02-2025  # LLM02:2025 Sensitive Information Disclosure
+  - llm02-2026  # LLM02:2026 Sensitive Information Disclosure
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy
   - 2-9  # 2.9. Information Security
@@ -75,7 +75,7 @@ The risk profile can be further influenced by the provider's data handling pract
 
 Enterprise LLMs typically offer better protections (private endpoints, no training data usage, encryption) than free services, which often use input data for model improvements. Thorough due diligence on provider practices is essential.
 
-This risk is aligned with OWASP’s [LLM02:2025 Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm02-sensitive-information-disclosure/), which highlights the dangers of exposing proprietary or personally identifiable information (PII) through large-scale, externally hosted AI systems.
+This risk is aligned with OWASP’s [LLM02:2026 Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/), which highlights the dangers of exposing proprietary or personally identifiable information (PII) through large-scale, externally hosted AI systems.
 
 ### Consequences
 

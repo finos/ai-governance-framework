@@ -37,12 +37,12 @@ description: "The top ten security risks for LLM-based applications, published b
 source_url: "https://genai.owasp.org/"
 
 entries:
-  llm01-2025:
-    title: "LLM01:2025 Prompt Injection"
+  llm01-2026:
+    title: "LLM01:2026 Prompt Injection"
     url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
 
-  llm02-2025:
-    title: "LLM02:2025 Sensitive Information Disclosure"
+  llm02-2026:
+    title: "LLM02:2026 Sensitive Information Disclosure"
     url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
     description: "Risks of exposing sensitive data through LLM outputs."
 ```

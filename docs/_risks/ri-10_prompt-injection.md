@@ -5,10 +5,10 @@ layout: risk
 doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
-  - llm01-2025  # LLM01:2025 Prompt Injection
-  - llm04-2025  # LLM04: Data and Model Poisoning
-  - llm06-2025  # LLM06:2025 Excessive Agency
-  - llm10-2025  # LLM10:2025 Unbounded Consumption
+  - llm01-2026  # LLM01:2026 Prompt Injection
+  - llm03-2026  # LLM03:2026 Excessive Agency
+  - llm05-2026  # LLM05:2026 Data and Model Poisoning
+  - llm06-2026  # LLM06:2026 Unbounded Consumption
 owasp-asi_references:
   - asi01-2026  # ASI01: Agent Goal Hijack
 ffiec-itbooklets_references:

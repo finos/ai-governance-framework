@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
-  - llm03-2025  # LLM03:2025 Supply Chain
+  - llm04-2026  # LLM04:2026 Supply Chain
 owasp-ml_references:
   - ml05-2023  # ML05:2023 Model Theft
   - ml06-2023  # ML06:2023 ML Supply Chain Attacks
