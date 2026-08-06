@@ -98,5 +98,5 @@ Tool chain manipulation attacks can result in severe consequences for financial 
 
 ## Links
 
-- [OWASP LLM01:2026 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [OWASP LLM01:2026 Prompt Injection](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md)
 - [MITRE ATT&CK: Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)

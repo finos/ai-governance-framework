@@ -5,31 +5,31 @@ source_url: "https://genai.owasp.org/"
 entries:
   llm01-2026:
     title: LLM01:2026 Prompt Injection
-    url: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md
   llm02-2026:
     title: LLM02:2026 Sensitive Information Disclosure
-    url: https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM02_SensitiveInformationDisclosure.md
   llm03-2026:
     title: LLM03:2026 Excessive Agency
-    url: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md
   llm04-2026:
     title: LLM04:2026 Supply Chain
-    url: https://genai.owasp.org/llmrisk/llm032025-supply-chain/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM04_SupplyChain.md
   llm05-2026:
     title: LLM05:2026 Data and Model Poisoning
-    url: https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM05_DataModelPoisoning.md
   llm06-2026:
     title: LLM06:2026 Unbounded Consumption
-    url: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM06_UnboundedConsumption.md
   llm07-2026:
     title: LLM07:2026 Misinformation
-    url: https://genai.owasp.org/llmrisk/llm092025-misinformation/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM07_Misinformation.md
   llm08-2026:
     title: LLM08:2026 Hidden Context Exposure
-    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM08_HiddenContextExposure.md
   llm09-2026:
     title: LLM09:2026 Vector and Embedding Weaknesses
-    url: https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM09_VectorAndEmbeddingWeaknesses.md
   llm10-2026:
     title: LLM10:2026 Improper Output Handling
-    url: https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/
+    url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM10_ImproperOutputHandling.md

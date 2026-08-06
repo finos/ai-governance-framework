@@ -39,11 +39,11 @@ source_url: "https://genai.owasp.org/"
 entries:
   llm01-2026:
     title: "LLM01:2026 Prompt Injection"
-    url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+    url: "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md"
 
   llm02-2026:
     title: "LLM02:2026 Sensitive Information Disclosure"
-    url: "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/"
+    url: "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM02_SensitiveInformationDisclosure.md"
     description: "Risks of exposing sensitive data through LLM outputs."
 ```
 
