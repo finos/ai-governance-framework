@@ -54,5 +54,4 @@ The effects are often subtle and difficult to detect, potentially remaining hidd
 * [How to Poison the Data That Teach AI](https://www.scientificamerican.com/article/how-to-poison-the-data-that-teach-ai/) – Popular science article explaining data poisoning for general audiences.
 * [MITRE ATLAS – Training Data Poisoning](https://atlas.mitre.org/techniques/T0021) – Official MITRE page detailing poisoning techniques in adversarial AI scenarios.
 * [Poisoning Attacks Against Machine Learning – CSET](https://cset.georgetown.edu/publication/poisoning-attacks-against-machine-learning/) – Policy-focused report exploring implications of poisoning on national security and critical infrastructure.
-* [Clean-Label Backdoor Attacks](https://arxiv.org/abs/2008.04333) – Describes attacks where poisoned data looks legitimate to human reviewers but still misleads models.
-
+* [Clean-Label Backdoor Attacks](https://arxiv.org/abs/2407.10825) – Describes attacks where poisoned data looks legitimate to human reviewers but still misleads models.
