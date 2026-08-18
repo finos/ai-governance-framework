@@ -3,6 +3,7 @@ description: "The ten most critical security risks for applications built on lar
 source_url: "https://genai.owasp.org/"
 
 entries:
+  # 2026 edition (current)
   llm01-2026:
     title: LLM01:2026 Prompt Injection
     url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md
@@ -33,3 +34,46 @@ entries:
   llm10-2026:
     title: LLM10:2026 Improper Output Handling
     url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM10_ImproperOutputHandling.md
+
+  # 2025 edition (superseded by the 2026 release; keys are kept because
+  # entry keys are stable identifiers and must never be removed or renamed)
+  llm01-2025:
+    title: LLM01:2025 Prompt Injection
+    url: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
+    superseded_by: llm01-2026
+  llm02-2025:
+    title: LLM02:2025 Sensitive Information Disclosure
+    url: https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/
+    superseded_by: llm02-2026
+  llm03-2025:
+    title: LLM03:2025 Supply Chain
+    url: https://genai.owasp.org/llmrisk/llm032025-supply-chain/
+    superseded_by: llm04-2026
+  llm04-2025:
+    title: LLM04:2025 Data and Model Poisoning
+    url: https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/
+    superseded_by: llm05-2026
+  llm05-2025:
+    title: LLM05:2025 Improper Output Handling
+    url: https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/
+    superseded_by: llm10-2026
+  llm06-2025:
+    title: LLM06:2025 Excessive Agency
+    url: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
+    superseded_by: llm03-2026
+  llm07-2025:
+    title: LLM07:2025 System Prompt Leakage
+    url: https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/
+    superseded_by: llm08-2026
+  llm08-2025:
+    title: LLM08:2025 Vector and Embedding Weaknesses
+    url: https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/
+    superseded_by: llm09-2026
+  llm09-2025:
+    title: LLM09:2025 Misinformation
+    url: https://genai.owasp.org/llmrisk/llm092025-misinformation/
+    superseded_by: llm07-2026
+  llm10-2025:
+    title: LLM10:2025 Unbounded Consumption
+    url: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/
+    superseded_by: llm06-2026
