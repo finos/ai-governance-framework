@@ -28,10 +28,17 @@ mitigates:
   - ri-14  # Inadequate System Alignment
   - ri-18  # Model Overreach / Expanded Use
   - ri-19  # Data Quality and Drift
+  - ri-24  # Agent Action Authorization Bypass
+  - ri-25  # Tool Chain Manipulation and Injection
+  - ri-26  # MCP Server Supply Chain Compromise
+  - ri-27  # Agent State Persistence Poisoning
+  - ri-28  # Multi-Agent Trust Boundary Violations
+  - ri-29  # Agent-Mediated Credential Discovery and Harvesting
 related_mitigations:
   - mi-9   # AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring
   - mi-11  # Human Feedback Loop for AI Systems
   - mi-1   # AI Data Leakage Prevention and Detection
+  - mi-21  # Agent Decision Audit and Explainability
 iosco-supervisory-toolkit_references:
   - t2-recordkeeping  # Table 2: Recordkeeping & Audit Trail
   - t6-1              # Table 6.1: Documentation of AI Lifecycle Oversight
@@ -116,6 +123,9 @@ Comprehensive logging is fundamental (as per ISO 42001 A.6.2.8). Consider the fo
 
 ### 6. Ensure Regular Review and Iteration
 * Periodically review the effectiveness of the observability strategy, the relevance of data points being collected, the accuracy of alerting thresholds, and the utility of dashboards. Adapt and refine the observability setup as the AI system evolves, new risks are identified, or business and compliance requirements change.
+
+### 7. Standardize Agent Telemetry on an Open Semantic Convention
+The data points identified above are more portable and machine-comparable when emitted against a common, well-defined schema. Proprietary or per-vendor formats fragment agent telemetry and complicate the cross-system correlation needed to investigate agentic failures such as authorization bypass, tool chain manipulation, and credential harvesting, especially when an incident spans more than one vendor's tooling. Financial institutions should therefore standardize agent telemetry on an open, vendor-neutral semantic convention: one that names agent, model, and tool-call operations consistently, and that treats prompts and tool arguments as an explicit opt-in rather than a default, so structural traceability does not depend on capturing message content. The [OpenTelemetry GenAI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai) are one such convention and a reasonable, non-mandatory baseline; any equivalent open convention is acceptable. Because these conventions are still maturing, institutions should record the revision they adopt and reassess it on the review cadence in Section 6. Standardized telemetry is a detection and correlation *substrate*: it strengthens, but does not replace, the authoritative and durable audit record maintained under [MI-21 Agent Decision Audit and Explainability](#mi-21).
 
 ---
 ## Importance and Benefits
