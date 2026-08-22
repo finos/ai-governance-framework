@@ -107,6 +107,27 @@ opening of the next agenda.
 Offer each as a draft to review. Do not post to GitHub without being asked —
 these are public records under the user's name.
 
+## 7. Attribute the record
+
+Minutes are a governance record, so they name their source as well as the
+tool that drafted them. Both the agenda-issue body and the minutes comment
+end with:
+
+```markdown
+---
+*Reconstructed from the LFX/Zoom auto-summary for this session and cross-checked
+against the repository; every outcome recorded above was verified against the
+pull request or issue it refers to. Drafted with
+[Claude Code](https://claude.com/claude-code) (Claude <model>); posted and owned
+by @<handle>.*
+```
+
+If there was no recording summary and the minutes came from live notes, say
+that instead — the point of the line is that a reader can judge how much
+weight the record carries. Per-pull-request follow-up comments use the
+shorter form in `repo-hygiene`. Accountability stays with the person posting,
+as it does for the DCO; see `CONTRIBUTING.md`.
+
 ## Rules
 
 - Never write a decision you cannot locate in the transcript or the notes.
@@ -115,3 +136,5 @@ these are public records under the user's name.
 - Verify checkable claims against GitHub before writing them down.
 - Surface contradictions; do not resolve them silently.
 - Keep discussion, decision and action distinct.
+- Name the source of the record and the tool that drafted it, and never claim
+  a verification you did not actually run.

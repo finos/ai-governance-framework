@@ -113,3 +113,6 @@ Publish it with the Artifact tool and give the user the link.
   state of play and recommends; it does not record decisions.
 - **Check for movement immediately before the call.** Contributors often push
   the night before.
+- **Attribute anything that reaches the repository.** The run sheet is the
+  chair's own working document and needs no footer, but a comment posted from
+  it does — see `repo-hygiene` for the line and `CONTRIBUTING.md` for why.
