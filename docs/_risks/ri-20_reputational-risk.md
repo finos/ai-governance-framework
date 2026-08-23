@@ -37,7 +37,8 @@ uk-regulations_references:
   - fca-smcr # Senior accountability can attach to visible AI governance failures
   # Adjacent rights and privacy harms that amplify reputation damage
   - equality-act-2010 # Discriminatory AI outcomes create legal and reputational exposure
-  - uk-gdpr-dpa-2018 # Personal-data misuse or breaches trigger notification and trust impactsrelated_risks:
+  - uk-gdpr-dpa-2018 # Personal-data misuse or breaches trigger notification and trust impacts
+related_risks:
   - ri-10  # Prompt Injection
   - ri-16  # Bias and Discrimination
   - ri-4   # Hallucination and Inaccurate Outputs
