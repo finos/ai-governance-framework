@@ -29,3 +29,6 @@ https://zoom-lfx.platform.linuxfoundation.org/meeting/97158459687?password=62a83
 
 ## Agenda and minutes
 
+## Prior Minutes
+
+Click [this link](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue%20label%3A%22%F0%9F%93%86%20meeting%22) to query GitHub issues in this repository with the "📆 meeting" label.
