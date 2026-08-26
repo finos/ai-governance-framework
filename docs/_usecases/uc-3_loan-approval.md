@@ -3,7 +3,7 @@ sequence: 3
 title: "Loan Approval"
 layout: usecase
 doc-status: Draft
-category: Risk_and_Compliance
+category: Risk_Management_and_Compliance
 
 description: "A multi-agent loan approval workflow that automates document intake, fraud detection, credit risk assessment, decisioning, pricing, human review, agreement generation, e-signature, and disbursement."
 end_user: "Loan officer, credit risk analyst, compliance officer, applicant"
