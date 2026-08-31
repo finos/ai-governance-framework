@@ -51,6 +51,31 @@ canada-regulations_references:
   - pipeda                 # Privacy compliance for AI deployment — SN 11-348 flags privacy intersection
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency obligation
   - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacy
+us-regulations_references:
+  # AI-specific statutes and guidance
+  - colorado-ai-act           # First comprehensive US state AI statute — high-risk systems, consequential decisions
+  - ca-cppa-admt              # CPPA ADMT/risk-assessment/cyber-audit regulations
+  - nydfs-ai-cyber-letter     # NYDFS AI cybersecurity guidance under 23 NYCRR 500
+  - utah-ai-policy-act        # GenAI disclosure duties in consumer transactions
+  - finra-notice-24-09        # Technology-neutral rulebook applies in full to AI/GenAI
+  - treasury-ai-report-2024   # Treasury synthesis of AI governance gaps in financial services
+  # Fair lending and consumer protection
+  - ecoa-reg-b                # Adverse action and fair lending — binding constraint on AI credit decisions
+  - cfpb-circular-2022-03     # Black-box opacity is not a defense to specific-reasons requirement
+  - cfpb-circular-2023-03     # Stated reasons must reflect factors the model actually used
+  - fcra-adverse-action       # Consumer-report data in AI models — permissible purpose, adverse action
+  - ftc-act-s5-udap           # UDAP applied to AI claims and deployment
+  - sec-ai-washing-enforcement # AI capability claims tested under ordinary antifraud standards
+  # Third-party risk
+  - interagency-tprm-2023     # Lifecycle guidance governing AI vendor and hosted-model dependencies
+  # Privacy and data protection
+  - glba-safeguards           # Written infosec program covering NPI processed by AI systems
+  - hipaa-privacy-rule        # PHI obligations where health-adjacent data enters financial AI
+  - ccpa-cpra                 # Sensitive PI, minimization and consumer rights constraining AI data use
+  # Recordkeeping and supervision
+  - sec-17a-4                 # Retention obligations extend to AI-generated records
+  - finra-3110                # Supervisory system must cover deployed AI tools
+  - finra-2210                # Communications standards for AI-generated content and AI claims
 uk-regulations_references:
   # AI-specific supervisory materials and market intelligence
   - fca-ai-approach-2024 # FCA's AI approach is the UK conduct-regulator interpretive anchor

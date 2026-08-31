@@ -35,6 +35,17 @@ canada-regulations_references:
 owasp-asi_references:
   - asi09-2026  # ASI09: Human-Agent Trust Exploitation
 related_risks:
+us-regulations_references:
+  # Functional explainability requirements (adverse action)
+  - ecoa-reg-b                # Specific, accurate reasons required — a de facto explainability mandate
+  - cfpb-circular-2022-03     # "Black box" model complexity is not a defense
+  - cfpb-circular-2023-03     # Checklist reasons insufficient; must reflect actual model factors
+  - fcra-adverse-action       # s. 615 adverse-action reasons from consumer-report data
+  # Consumer notice and transparency
+  - colorado-ai-act           # Deployer notice and explanation duties for high-risk AI decisions
+  - ca-cppa-admt              # ADMT access rights — meaningful information about the logic applied
+  # Supervision requires understanding
+  - finra-notice-24-09        # Firms must understand the AI tools they supervise
 uk-regulations_references:
   # Explainability for consumer outcomes and regulated advice
   - fca-ai-approach-2024 # FCA AI approach stresses accountability and explainability expectations
