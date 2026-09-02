@@ -12,7 +12,7 @@ assignees: ColinEberhardt
 Click on the image and then on the item to view the related repo
 
 ## Date
-YYYYMMDD - time
+YYYYMMDD - 2pm GMT, 3pm BST, 10am EST 
 
 ## Zoom details
 https://zoom-lfx.platform.linuxfoundation.org/meeting/97158459687?password=62a83d0b-7b19-416d-8250-e5bcf9f7640b
@@ -28,6 +28,15 @@ https://zoom-lfx.platform.linuxfoundation.org/meeting/97158459687?password=62a83
 - FINOS project meetings may be recorded for use solely by the FINOS team for administration purposes. In very limited instances, and with explicit approval, recordings may be made more widely available.
 
 ## Agenda and minutes
+- Review [AIGF Open Pull Requests](https://github.com/finos/ai-governance-framework/pulls)
+  - PR Focus item1
+  - PR Focus item 2
+- Review [AIGF Open Issues](https://github.com/finos/ai-governance-framework/issues)
+  - Issue Item 1
+  - Issue Item 2
+- Discuss [New Ideas](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22💡%20Idea%22)
+- Agenda Item
+- Agenda Item
 
 ## Prior Minutes
 
