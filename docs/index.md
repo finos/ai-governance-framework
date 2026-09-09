@@ -15,6 +15,8 @@ AI, especially Generative AI, is reshaping financial services, enhancing product
 
 The following framework has been developed by [FINOS (Fintech Open Source Foundation)](https://www.finos.org/) members, providing a comprehensive catalogue of risks and associated mitigations. We suggest using our [heuristic risk identification framework](heuristic-assessment.html) to determine which risks are most relevant for a given use case. The framework also contains extensive mappings to regulations, standards and guidance — including the EU AI Act, NIST, OWASP, ISO 42001 and others — available via the [regulatory references index](references/).
 
+To see the risks and mitigations applied to real-world financial services scenarios, browse the [AI Use Cases Catalogue](use-cases/). *Note: the use case catalogue is currently in draft and under active development.*
+
 
 
 {% include catalogue.html %}
