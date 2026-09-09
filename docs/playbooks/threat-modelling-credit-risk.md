@@ -16,8 +16,8 @@ doc-status: Draft
 
 | Artefact | Role in this example |
 |---|---|
-| [Heuristic assessment](heuristic-assessment.html) | Guided questions to surface GenAI risks for a use case |
-| [Use case: Credit Risk Analysis](_usecases/uc-1_credit-risk-analysis.html) (`uc-1`) | Draft worked use case with related risks/mitigations |
+| [Heuristic assessment](/heuristic-assessment.html) | Guided questions to surface GenAI risks for a use case |
+| [Use case: Credit Risk Analysis](/usecase/uc-1_credit-risk-analysis/) (`uc-1`) | Draft worked use case with related risks/mitigations |
 | Risk catalogue (`docs/_risks/`) | e.g. `ri-1`, `ri-4`, `ri-16`, `ri-17`, `ri-19` |
 | Mitigation catalogue (`docs/_mitigations/`) | e.g. `mi-1`, `mi-4`, `mi-5`, `mi-13` |
 | [CALM governance learning path](https://calm.finos.org/learn/journeys/governance) | Optional architecture-as-code journey (pluggable — firms may use other AaC) |
@@ -54,13 +54,13 @@ Start from `uc-1` related risks, then **add** what the use case implies:
 
 | Risk ID | Title (short) | Why it appears here |
 |---|---|---|
-| [ri-1](_risks/ri-1_information-leaked-to-hosted-model.html) | Information leaked to hosted model | Application packs may leave the firm boundary |
-| [ri-4](_risks/ri-4_hallucination-and-inaccurate-outputs.html) | Hallucination / inaccurate outputs | Score reasons may invent support |
-| [ri-16](_risks/ri-16_bias-and-discrimination.html) | Bias and discrimination | Credit context — do not treat `uc-1` mapping as exhaustive |
-| [ri-17](_risks/ri-17_lack-of-explainability.html) | Lack of explainability | Officer must see source-linked reasons |
-| [ri-19](_risks/ri-19_data-quality-and-drift.html) | Data quality and drift | Statements and bureau feeds change |
+| [ri-1](/risks/ri-1_information-leaked-to-hosted-model/) | Information leaked to hosted model | Application packs may leave the firm boundary |
+| [ri-4](/risks/ri-4_hallucination-and-inaccurate-outputs/) | Hallucination / inaccurate outputs | Score reasons may invent support |
+| [ri-16](/risks/ri-16_bias-and-discrimination/) | Bias and discrimination | Credit context — do not treat `uc-1` mapping as exhaustive |
+| [ri-17](/risks/ri-17_lack-of-explainability/) | Lack of explainability | Officer must see source-linked reasons |
+| [ri-19](/risks/ri-19_data-quality-and-drift/) | Data quality and drift | Statements and bureau feeds change |
 
-Use the [heuristic assessment](heuristic-assessment.html) questions to challenge gaps (data, decision impact, regulatory mapping, security).
+Use the [heuristic assessment](/heuristic-assessment.html) questions to challenge gaps (data, decision impact, regulatory mapping, security).
 
 ### 3. Map risks → mitigations → owners → evidence
 
@@ -68,8 +68,8 @@ Example thread for **inaccurate output** (`ri-4`):
 
 | Element | Example (illustrative) |
 |---|---|
-| Mitigation | [mi-13](_mitigations/mi-13_providing-citations-and-source-traceability-for-ai-generated-information.html) citations / source traceability; [mi-5](_mitigations/mi-5_system-acceptance-testing.html) acceptance testing |
-| Observability | [mi-4](_mitigations/mi-4_ai-system-observability.html) |
+| Mitigation | [mi-13](/mitigations/mi-13_providing-citations-and-source-traceability-for-ai-generated-information/) citations / source traceability; [mi-5](/mitigations/mi-5_system-acceptance-testing/) acceptance testing |
+| Observability | [mi-4](/mitigations/mi-4_ai-system-observability/) |
 | Owner | Model risk / credit policy (firm-defined) |
 | Evidence | Versioned test set that reasons cite supporting passages; logs that the assistive boundary held |
 
@@ -101,5 +101,5 @@ Reassess on events, not only calendars: model/provider/data/policy/architecture/
 - Issue discussion: [#351](https://github.com/finos/ai-governance-framework/issues/351)
 - Related lifecycle proposal: [#353](https://github.com/finos/ai-governance-framework/issues/353)
 - Adopter one-pagers: [#251](https://github.com/finos/ai-governance-framework/issues/251)
-- Heuristic assessment: [heuristic-assessment](heuristic-assessment.html)
-- Use case index: [_usecases/uc-index](_usecases/uc-index.html)
+- Heuristic assessment: [heuristic-assessment](/heuristic-assessment.html)
+- Use case index: [uc-index](/usecase/uc-index/)
