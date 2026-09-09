@@ -37,7 +37,8 @@ uk-regulations_references:
   - ico-guidance-ai-data-protection # ICO AI guidance addresses bias, fairness and statistical accuracy
   - ico-ai-data-protection-toolkit # Toolkit includes bias/fairness checks for AI personal-data processing
   - equality-act-2010 # Protected-characteristic discrimination baseline for services/employment
-  - consumer-credit-act-1974 # Consumer-credit protections relevant to AI credit decisionsrelated_risks:
+  - consumer-credit-act-1974 # Consumer-credit protections relevant to AI credit decisions
+related_risks:
   - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight
 iosco-supervisory-toolkit_references:
