@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
-  - llm10-2025  # LLM10:2025 Unbounded Consumption
+  - llm06-2026  # LLM06:2026 Unbounded Consumption
 ffiec-itbooklets_references:
   - bcm-4  # BCM: IV Business Continuity Strategies
   - bcm-5  # BCM: V Business Continuity Plan

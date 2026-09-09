@@ -5,9 +5,9 @@ layout: risk
 doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
-  - llm03-2025  # LLM03:2025 Supply Chain
-  - llm04-2025  # LLM04: Data and Model Poisoning
-  - llm05-2025  # LLM05:2025 Improper Output Handling
+  - llm04-2026  # LLM04:2026 Supply Chain
+  - llm05-2026  # LLM05:2026 Data and Model Poisoning
+  - llm10-2026  # LLM10:2026 Improper Output Handling
 owasp-ml_references:
   - ml02-2023  # ML02:2023 Data Poisoning Attack
   - ml10-2023  # ML10:2023 Model Poisoning
