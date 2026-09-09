@@ -42,7 +42,8 @@ uk-regulations_references:
   - fca-cobs-9 # Suitability rules limit unsupported use in personal recommendations
   - fca-cobs-9a # MiFID suitability requirements constrain portfolio/advice automation scope
   - pra-ss1-23-mrm # Model inventory, tiering and change controls address model-use drift
-  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion emphasises governance of AI model userelated_risks:
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion emphasises governance of AI model use
+related_risks:
   - ri-10  # Prompt Injection
   - ri-17  # Lack of Explainability
   - ri-22  # Regulatory Compliance and Oversight

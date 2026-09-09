@@ -45,7 +45,8 @@ uk-regulations_references:
   - pra-ss1-23-mrm # Model documentation, validation and governance for in-scope models
   - uk-gdpr-dpa-2018 # UK GDPR safeguards for solely automated decisions and meaningful information
   - ico-guidance-ai-data-protection # ICO AI guidance covers explaining AI-assisted decisions
-  - ico-ai-data-protection-toolkit # Toolkit supports explainability and accountability assessmentrelated_risks:
+  - ico-ai-data-protection-toolkit # Toolkit supports explainability and accountability assessment
+related_risks:
   - ri-22  # Regulatory Compliance and Oversight
   - ri-16  # Bias and Discrimination
   - ri-18  # Model Overreach / Expanded Use

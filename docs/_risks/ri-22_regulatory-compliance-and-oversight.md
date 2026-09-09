@@ -75,7 +75,8 @@ uk-regulations_references:
   - ico-guidance-ai-data-protection # ICO AI guidance for personal-data processing in AI systems
   - ico-ai-data-protection-toolkit # ICO toolkit for AI data-protection risk assessment
   - equality-act-2010 # Equality and non-discrimination obligations for services and employment
-  - consumer-credit-act-1974 # Consumer-credit law relevant to AI-assisted lending decisionsrelated_risks:
+  - consumer-credit-act-1974 # Consumer-credit law relevant to AI-assisted lending decisions
+related_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability
   - ri-18  # Model Overreach / Expanded Use
