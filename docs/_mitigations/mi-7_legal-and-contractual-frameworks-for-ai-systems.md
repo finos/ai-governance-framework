@@ -31,6 +31,11 @@ related_mitigations:
   - mi-1   # AI Data Leakage Prevention and Detection
   - mi-10  # AI Model Version Pinning
   - mi-6   # Data Quality & Classification/Sensitivity
+us-regulations_references:
+  - interagency-tprm-2023     # Contracting-stage expectations for third-party AI relationships
+  - hipaa-privacy-rule        # Business-associate agreements where AI vendors touch PHI
+  - glba-safeguards           # Service-provider oversight obligations
+  - nydfs-ai-cyber-letter     # Third-party due diligence for AI supply-chain dependencies
 iosco-supervisory-toolkit_references:
   - t4-1            # Table 4.1: Assessment of Risk-Proportionate Controls
   - t4-7            # Table 4.7: Legal Framework and Accountability
