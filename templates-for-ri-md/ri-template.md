@@ -3,7 +3,7 @@ sequence: [NUMBER]
 title: [RISK_TITLE]
 layout: risk
 doc-status: Approved-Specification
-type: [SEC|RC|GOV]  # Security, Regulatory/Compliance, Governance
+type: [RC|OP|SEC]  # Regulatory and Compliance, Operational, Security (docs/_config.yml risk_classification)
 owasp-llm_references:
   - [OWASP_LLM_REFERENCE]  # e.g., llm01-2025
 owasp-asi_references:
