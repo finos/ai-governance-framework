@@ -1,0 +1,45 @@
+title: "OWASP Top 10 for Agentic Applications"
+description: "The ten most critical security risks for agentic AI applications, published by the OWASP Gen AI Security Project — Agentic Security Initiative (2026 edition)."
+source_url: "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+
+entries:
+  asi01-2026:
+    title: "ASI01: Agent Goal Hijack"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Attackers manipulate an agent's objectives, task selection, or decision pathways through prompt-based manipulation, deceptive tool outputs, malicious artefacts, forged agent-to-agent messages, or poisoned external data."
+  asi02-2026:
+    title: "ASI02: Tool Misuse and Exploitation"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Agents misuse legitimate tools due to prompt injection, misalignment, or unsafe delegation — leading to data exfiltration, tool output manipulation, or workflow hijacking within the agent's authorized privileges."
+  asi03-2026:
+    title: "ASI03: Identity and Privilege Abuse"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Exploitation of dynamic trust and delegation in agents to escalate access and bypass controls by manipulating delegation chains, role inheritance, cached credentials, or agent context."
+  asi04-2026:
+    title: "ASI04: Agentic Supply Chain Vulnerabilities"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Third-party agents, tools, MCP servers, registries, and related artefacts that are malicious, compromised, or tampered with introduce unsafe code, hidden instructions, or deceptive behaviors into the agent's execution chain."
+  asi05-2026:
+    title: "ASI05: Unexpected Code Execution (RCE)"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Attackers exploit code-generation features or embedded tool access to escalate actions into remote code execution, local misuse, or exploitation of internal systems."
+  asi06-2026:
+    title: "ASI06: Memory & Context Poisoning"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Adversaries corrupt or seed an agent's stored and retrievable context — memory, summaries, embeddings, and RAG stores — causing future reasoning, planning, or tool use to become biased, unsafe, or aid exfiltration."
+  asi07-2026:
+    title: "ASI07: Insecure Inter-Agent Communication"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Agent-to-agent exchanges lacking proper authentication, integrity, or semantic validation allow interception, spoofing, or manipulation of agent messages and intents."
+  asi08-2026:
+    title: "ASI08: Cascading Failures"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "A single fault — hallucination, malicious input, corrupted tool, or poisoned memory — propagates across autonomous agents, compounding into system-wide harm."
+  asi09-2026:
+    title: "ASI09: Human-Agent Trust Exploitation"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Adversaries or misaligned designs exploit human trust in agents — via authority bias, persuasive explainability, or anthropomorphism — to influence user decisions, extract sensitive information, or steer outcomes."
+  asi10-2026:
+    title: "ASI10: Rogue Agents"
+    url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    description: "Malicious or compromised AI agents deviate from their intended function or authorized scope, acting harmfully, deceptively, or parasitically within multi-agent or human-agent ecosystems."

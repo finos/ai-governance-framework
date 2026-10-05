@@ -9,24 +9,27 @@ iso-42001_references:
   - A-7-3  # ISO 42001: Acquisition of data
   - A-9-2  # ISO 42001: Processes for responsible use of AI systems
 nist-sp-800-53r5_references:
-  - ac-3  # AC-3 Access Enforcement
-  - ac-4  # AC-4 Information Flow Enforcement
-  - ac-6  # AC-6 Least Privilege
+  - ac-3   # AC-3 Access Enforcement
+  - ac-4   # AC-4 Information Flow Enforcement
+  - ac-6   # AC-6 Least Privilege
   - ac-16  # AC-16 Security And Privacy Attributes
   - ac-21  # AC-21 Information Sharing
-  - au-2  # AU-2 Event Logging
-  - au-6  # AU-6 Audit Record Review, Analysis, And Reporting
-  - ca-7  # CA-7 Authorization
-  - ca-8  # CA-8 Penetration Testing
-  - si-4  # SI-4 System Monitoring
-  - si-7  # SI-7 Software, Firmware, And Information Integrity
+  - au-2   # AU-2 Event Logging
+  - au-6   # AU-6 Audit Record Review, Analysis, And Reporting
+  - ca-7   # CA-7 Authorization
+  - ca-8   # CA-8 Penetration Testing
+  - si-4   # SI-4 System Monitoring
+  - si-7   # SI-7 Software, Firmware, And Information Integrity
 mitigates:
   - ri-2   # Information Leaked to Vector Store
   - ri-22  # Regulatory Compliance and Oversight
 related_mitigations:
-  - mi-12  # Role Based Access Control for AI Data
+  - mi-12  # Role-Based Access Control for AI Data
   - mi-2   # Data Filtering From External Knowledge Bases
   - mi-4   # AI System Observability
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
 ---
 
 ## Purpose

@@ -13,10 +13,10 @@ eu-ai-act_references:
   - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
 nist-sp-800-53r5_references:
   - au-10  # AU-10 Non-repudiation
-  - sa-8  # SA-8 Security And Privacy Engineering Principles
+  - sa-8   # SA-8 Security And Privacy Engineering Principles
   - ac-16  # AC-16 Security And Privacy Attributes
-  - si-7  # SI-7 Software, Firmware, And Information Integrity
-  - at-2  # AT-2 Literacy Training And Awareness
+  - si-7   # SI-7 Software, Firmware, And Information Integrity
+  - at-2   # AT-2 Literacy Training And Awareness
 mitigates:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-17  # Lack of Explainability
@@ -24,8 +24,13 @@ mitigates:
   - ri-22  # Regulatory Compliance and Oversight
 related_mitigations:
   - mi-4   # AI System Observability
-  - mi-6   # Data Quality Classification Sensitivity
+  - mi-6   # Data Quality & Classification/Sensitivity
   - mi-16  # Preserving Source Data Access Controls in AI Systems
+iosco-supervisory-toolkit_references:
+  - t2-recordkeeping  # Table 2: Recordkeeping & Audit Trail
+  - t5-1              # Table 5.1: Disclosure of AI Use in Products and Services to End-Users
+  - t6-4              # Table 6.4: Documentation of Explainability of AI Outputs
+  - t6-3              # Table 6.3: Documentation of AI-Generated Outcomes
 ---
 
 ## Purpose

@@ -53,6 +53,7 @@ REFERENCE_TYPES = [
     'eu-ai-act',
     'ffiec-itbooklets',
     'ffiec-itbooklets_v2',
+    'iosco-supervisory-toolkit',
     'iso-42001',
     'nist-ai-600-1',
     'nist-sp-800-53r5',

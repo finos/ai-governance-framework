@@ -71,6 +71,10 @@ Each reference links to the corresponding OWASP Machine Learning Security Top 10
 The `owasp-llm_references:` section references keys from `_data/owasp-llm.yml`.
 Each reference links to the corresponding OWASP LLM Security Top 10 risk.
 
+## OWASP Agentic Applications Top 10 References
+The `owasp-asi_references:` section references keys from `_data/references/owasp-asi.yml`.
+Each reference links to the corresponding OWASP Top 10 for Agentic Applications risk.
+
 ## EU AI Act References
 The `eu-ai-act_references:` section references keys from `_data/eu-ai-act.yml`.
 Each reference links to the corresponding EU AI Act article.

@@ -10,17 +10,19 @@ nist-sp-800-53r5_references:
   - sc-28  # SC-28 Protection Of Information AT Rest
   - sc-12  # SC-12 Cryptographic Key Establishment And Management
   - sc-13  # SC-13 Cryptographic Protection
-  - cp-9  # CP-9 System Backup
+  - cp-9   # CP-9 System Backup
   - ac-19  # AC-19 Access Control For Mobile Devices
-  - sa-9  # SA-9 External System Services
-  - cm-3  # CM-3 Configuration Change Control
+  - sa-9   # SA-9 External System Services
+  - cm-3   # CM-3 Configuration Change Control
 mitigates:
   - ri-2   # Information Leaked to Vector Store
   - ri-22  # Regulatory Compliance and Oversight
 related_mitigations:
-  - mi-6   # Data Quality Classification Sensitivity
-  - mi-12  # Role Based Access Control for AI Data
+  - mi-6   # Data Quality & Classification/Sensitivity
+  - mi-12  # Role-Based Access Control for AI Data
   - mi-1   # AI Data Leakage Prevention and Detection
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
 ---
 
 ## Purpose

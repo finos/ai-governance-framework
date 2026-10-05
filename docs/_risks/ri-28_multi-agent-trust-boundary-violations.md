@@ -4,10 +4,21 @@ title: Multi-Agent Trust Boundary Violations
 layout: risk
 doc-status: Approved-Specification
 type: OP
+owasp-asi_references:
+  - asi07-2026  # ASI07: Insecure Inter-Agent Communication
+  - asi08-2026  # ASI08: Cascading Failures
+  - asi10-2026  # ASI10: Rogue Agents
+atr_references:
+  - ATR-2026-00030  # Cross-Agent Attack Detection
+  - ATR-2026-00076  # Insecure Inter-Agent Communication
 related_risks:
   - ri-24  # Agent Action Authorization Bypass
   - ri-27  # Agent State Persistence Poisoning
   - ri-20  # Reputational Risk
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
+  - t6-5  # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Summary

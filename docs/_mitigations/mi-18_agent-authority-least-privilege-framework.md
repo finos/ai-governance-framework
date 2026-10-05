@@ -8,10 +8,14 @@ iso-42001_references:
   - A-9-2    # ISO 42001: Processes for responsible use of AI systems
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
 nist-sp-800-53r5_references:
-  - ac-6   # AC-6 Least Privilege
-  - ac-2   # AC-2 Account Management
-  - ac-3   # AC-3 Access Enforcement
-  - ac-5   # AC-5 Separation of Duties
+  - ac-6  # AC-6 Least Privilege
+  - ac-2  # AC-2 Account Management
+  - ac-3  # AC-3 Access Enforcement
+  - ac-5  # AC-5 Separation Of Duties
+atr_references:
+  - ATR-2026-00012  # Unauthorized Tool Call
+  - ATR-2026-00040  # Agent Privilege Escalation
+  - ATR-2026-00098  # Unauthorized Financial Action by Agent
 mitigates:
   - ri-24  # Agent Action Authorization Bypass
   - ri-18  # Model Overreach / Expanded Use
@@ -21,6 +25,9 @@ related_mitigations:
   - mi-19  # Tool Chain Validation and Sanitization
   - mi-20  # MCP Server Security Governance
   - mi-22  # Multi-Agent Isolation and Segmentation
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
 ---
 
 ## Purpose

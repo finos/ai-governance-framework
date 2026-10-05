@@ -9,10 +9,10 @@ iso-42001_references:
   - A-6-2-2  # ISO 42001: AI system requirements and specification
   - A-9-2    # ISO 42001: Processes for responsible use of AI systems
 nist-sp-800-53r5_references:
-  - ac-4  # AC-4 Information Flow Enforcement
-  - sc-5  # SC-5 Denial-of-service Protection
-  - sc-7  # SC-7 Boundary Protection
-  - si-4  # SI-4 System Monitoring
+  - ac-4   # AC-4 Information Flow Enforcement
+  - sc-5   # SC-5 Denial-of-service Protection
+  - sc-7   # SC-7 Boundary Protection
+  - si-4   # SI-4 System Monitoring
   - si-10  # SI-10 Information Input Validation
   - si-15  # SI-15 Information Output Filtering
 mitigates:
@@ -22,8 +22,11 @@ mitigates:
   - ri-20  # Reputational Risk
 related_mitigations:
   - mi-17  # AI Firewall Implementation and Management
-  - mi-8   # Quality of Service QoS and DDoS Prevention for AI Systems
-  - mi-15  # Using Large Language Models for Automated Evaluation LLM as a Judge
+  - mi-8   # Quality of Service (QoS) and DDoS Prevention for AI Systems
+  - mi-15  # Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-7              # Table 3.7: Controls and Human Oversight of AI Systems
 ---
 
 ## Purpose

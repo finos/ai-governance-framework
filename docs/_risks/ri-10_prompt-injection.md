@@ -9,6 +9,8 @@ owasp-llm_references:
   - llm04-2025  # LLM04: Data and Model Poisoning
   - llm06-2025  # LLM06:2025 Excessive Agency
   - llm10-2025  # LLM10:2025 Unbounded Consumption
+owasp-asi_references:
+  - asi01-2026  # ASI01: Agent Goal Hijack
 ffiec-itbooklets_references:
   - sec-3  # SEC: III Security Operations
   - dam-4  # DAM: IV Common Development, Acquisition, and Maintenance Risk Topics
@@ -17,9 +19,15 @@ eu-ai-act_references:
   - c2-a5      # II.A5 Prohibited AI Practices
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s2-a14  # III.S2.A14: Human Oversight
+atr_references:
+  - ATR-2026-00010  # Malicious Content in MCP Tool Response (indirect prompt injection)
+  - ATR-2026-00011  # Instruction Injection via Tool Output
 related_risks:
   - ri-18  # Model Overreach / Expanded Use
   - ri-20  # Reputational Risk
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
 ---
 ## Summary
 

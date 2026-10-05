@@ -9,6 +9,9 @@ nist-sp-800-53r5_references:
   - sc-32  # SC-32 System Partitioning
   - ac-4   # AC-4 Information Flow Enforcement
   - sc-3   # SC-3 Security Function Isolation
+atr_references:
+  - ATR-2026-00030  # Cross-Agent Attack Detection
+  - ATR-2026-00076  # Insecure Inter-Agent Communication
 mitigates:
   - ri-28  # Multi-Agent Trust Boundary Violations
   - ri-24  # Agent Action Authorization Bypass
@@ -16,6 +19,9 @@ mitigates:
 related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-12  # Role-Based Access Control for AI Data
+iosco-supervisory-toolkit_references:
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
 ---
 
 ## Purpose
