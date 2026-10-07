@@ -32,7 +32,7 @@ This mitigation does not aim to eliminate human-in-the-loop approval but rather 
 
 ## Key Principles
 
-Effective consent gate hardening applies lessons from alert fatigue research in clinical, aviation, and security operations domains:
+Effective consent gate hardening applies lessons from research on alert fatigue in clinical decision support and on habituation to security warnings:
 
 * **Risk-Proportional Friction**: The effort required to approve a tool call should be proportional to the risk of that tool call, not uniform across all actions.
 * **Anomaly-Triggered Escalation**: Automated systems should independently flag unusual tool calls for heightened review, rather than relying entirely on the user to detect anomalies.
@@ -55,7 +55,7 @@ Effective consent gate hardening applies lessons from alert fatigue research in 
     * **Medium risk** (project-scoped writes): File edits within the project directory, test execution, build commands. Standard approval with clear display of what changes.
     * **High risk** (system-scoped or irreversible): Shell commands accessing files outside the project directory, network requests (`curl`, `wget`), package installation (`pip install`, `npm install`), agent configuration file modifications (AGENTS.md, `.claude/`, `.cursor/`, `.env`), credential-adjacent operations. Require explicit confirmation with a distinct visual treatment (e.g., different color, warning icon, expanded detail).
     * **Critical risk** (privilege-modifying): Changes to agent configuration, auto-approve settings, security policies, or trust boundaries. Require additional friction such as typing a confirmation phrase or re-authenticating.
-  * **Visual Differentiation**: High-risk and critical-risk approvals are visually distinct from low-risk approvals — different colors, borders, or modal dialogs — so the user cannot approve them through rapid pattern-matching without noticing the risk change.
+  * **Visual Differentiation**: High-risk and critical-risk approvals are visually distinct from low-risk approvals — different colors, borders, or modal dialogs — so the user cannot approve them through rapid pattern-matching without noticing the risk change. Research on security warnings suggests that warnings whose appearance varies ("polymorphic" warnings) are less subject to habituation than warnings that look the same every time (Anderson et al., 2015).
   * **Expanded Detail for High-Risk Actions**: For high-risk tool calls, the approval interface shows not just the command string but a human-readable explanation of what the command will do (e.g., "This command will read your SSH private key and send its contents to an external URL").
 
 ### Tier 2: Session-Level Anomaly Detection

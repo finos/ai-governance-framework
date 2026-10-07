@@ -28,7 +28,7 @@ In agentic coding tools, the permission model is typically binary: the user sees
 ### Fatigue and Habituation Mechanisms
 
 * **Volume-Induced Fatigue**
-  Complex agentic tasks routinely generate 20–100+ sequential tool calls in a single session. Each requires a separate approval decision. Cognitive research on alert fatigue (well-documented in clinical, security, and aviation domains) demonstrates that decision quality degrades sharply as the volume of binary approve/reject decisions increases. After the first 10–15 approvals in a session, most users shift from evaluating each request to pattern-matching and rapid approval.
+  Complex agentic tasks routinely generate 20–100+ sequential tool calls in a single session. Each requires a separate approval decision. Research on alert fatigue and warning habituation shows that responsiveness falls as the number of alerts, and especially the number of repeated alerts, increases (Ancker et al., 2017), and that people habituate quickly to warnings that look the same each time (Anderson et al., 2015). Applied to agentic tools, the expectation is that as a session progresses users shift from evaluating each request to pattern-matching and rapid approval. The point at which this happens has not been established for agentic tools and will vary by user and task.
 
 * **Trust Habituation**
   When the first N tool calls in a session are benign and expected, users build a trust model for the session and begin applying that trust forward without re-evaluating subsequent calls. A malicious action positioned late in a sequence of legitimate actions benefits from this accumulated trust.
