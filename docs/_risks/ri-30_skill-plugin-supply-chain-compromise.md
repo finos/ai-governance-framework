@@ -138,8 +138,8 @@ Skill/plugin supply chain compromise can result in severe consequences:
 
 ## Links
 
-- [OWASP LLM03: Supply Chain](https://genai.owasp.org/llmrisk/llm03-supply-chain/)
-- [OWASP LLM06: Excessive Agency](https://genai.owasp.org/llmrisk/llm06-excessive-agency/)
+- [OWASP LLM03:2025 Supply Chain](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
+- [OWASP LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
 - [NIST Supply Chain Risk Management - SP 800-161](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final)
 - [Backstabber's Knife Collection: A Review of Open Source Software Supply Chain Attacks](https://arxiv.org/abs/2005.09535)
 - [Agent Skills Specification](https://agentskills.io/) — Emerging spec for skill metadata including capability declarations
