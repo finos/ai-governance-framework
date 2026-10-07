@@ -90,6 +90,6 @@ Human approval fatigue can result in:
 ## Links
 
 - [OWASP LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
-- [Alert Fatigue in Clinical Decision Support Systems — Systematic Review](https://doi.org/10.1093/jamia/ocx106)
-- [The Boy Who Cried Wolf: Reducing Alert Fatigue in Security Operations](https://doi.org/10.1145/3133956.3134029)
+- [Ancker et al. (2017), Effects of workload, work complexity, and repeated alerts on alert fatigue in a clinical decision support system — BMC Medical Informatics and Decision Making](https://doi.org/10.1186/s12911-017-0430-8)
+- [Anderson et al. (2015), How Polymorphic Warnings Reduce Habituation in the Brain: Insights from an fMRI Study — CHI 2015](https://doi.org/10.1145/2702123.2702322)
 - [EU AI Act Article 14: Human Oversight](https://artificialintelligenceact.eu/article/14/)

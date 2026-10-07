@@ -142,5 +142,5 @@ Implementing risk-tiered approval and consent gate hardening provides:
 
 ## Additional Resources
 
-* [Alert Fatigue in Clinical Decision Support — Systematic Review (JAMIA)](https://doi.org/10.1093/jamia/ocx106)
-* [The Psychology of Security Decision-Making Under Uncertainty (IEEE S&P)](https://doi.org/10.1109/MSP.2016.75)
+* [Ancker et al. (2017), Effects of workload, work complexity, and repeated alerts on alert fatigue in a clinical decision support system — BMC Medical Informatics and Decision Making](https://doi.org/10.1186/s12911-017-0430-8)
+* [Anderson et al. (2015), How Polymorphic Warnings Reduce Habituation in the Brain: Insights from an fMRI Study — CHI 2015](https://doi.org/10.1145/2702123.2702322)
