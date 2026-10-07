@@ -85,7 +85,7 @@ This enables intellectual property theft, enables future attacks, or facilitates
 ## Links
 
 * [OWASP Top 10 for LLM Applications (PDF)](https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf)
-* [MITRE Prompt Injection Technique](https://attack.mitre.org/techniques/T1055/)
+* [MITRE ATLAS – LLM Prompt Injection (AML.T0051)](https://atlas.mitre.org/techniques/AML.T0051)
 * [DPD Chatbot Swears at Customer – BBC](https://www.bbc.co.uk/news/technology-68025677)
 * [Indirect Prompt Injection – Simon Willison](https://simonwillison.net/2023/Apr/3/indirect-prompt-injection/) – Excellent technical explanation and examples of indirect prompt injection risks.
 * [Jailbreaking LLMs via Prompt Injection – ArXiv](https://arxiv.org/abs/2302.12173) – Research exploring how models can be jailbroken using carefully crafted prompts.
