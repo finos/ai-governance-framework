@@ -1,6 +1,6 @@
 ---
 sequence: 27
-title: Prompt Authority Scoping and Delegation Controls
+title: Instruction Source Hierarchy and Scoping
 layout: mitigation
 doc-status: Draft
 type: PREV
@@ -11,7 +11,7 @@ nist-sp-800-53r5_references:
 owasp-llm_references:
   - llm01-2025  # LLM01:2025 Prompt Injection
 mitigates:
-  - ri-32  # Architectural Prompt Authority Delegation
+  - ri-32  # Third-Party Content Loaded as Agent Instructions
   - ri-10  # Prompt Injection
   - ri-30  # Skill/Plugin Supply Chain Compromise
 related_mitigations:
@@ -22,7 +22,7 @@ related_mitigations:
 
 ## Purpose
 
-**Prompt Authority Scoping and Delegation Controls** establishes mechanisms to limit the authority that delegated content — skill instructions, project configuration files, community prompts — can exercise over an agent's behavior, even when that content is loaded into the agent's system prompt. This preventive control addresses the architectural challenge that current foundation models treat all system prompt content as equally authoritative, and introduces compensating controls at the application layer to enforce authority distinctions that the model itself cannot.
+**Instruction Source Hierarchy and Scoping** establishes mechanisms to limit the authority that delegated content — skill instructions, project configuration files, community prompts — can exercise over an agent's behavior, even when that content is loaded into the agent's system prompt. This preventive control addresses the architectural challenge that current foundation models treat all system prompt content as equally authoritative, and introduces compensating controls at the application layer to enforce authority distinctions that the model itself cannot.
 
 This mitigation recognizes that many agentic tools are designed to load third-party content into the system prompt — this is a feature, not a bug. The goal is not to prevent prompt delegation entirely but to ensure that delegated content operates within defined authority boundaries, that its provenance is tracked, and that conflicts with organizational policy are resolved in favor of the organization.
 
@@ -155,7 +155,7 @@ The organizational policy block is the most immediately implementable control an
 
 ## Importance and Benefits
 
-Implementing prompt authority scoping and delegation controls provides:
+Implementing an instruction source hierarchy and scoping provides:
 
 * **Policy Enforcement**: Organizational security policies are maintained even when skills or project configurations introduce conflicting instructions.
 * **Authority Separation**: Establishes a principled hierarchy rather than relying on model interpretation to resolve instruction conflicts.

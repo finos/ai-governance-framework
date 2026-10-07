@@ -1,6 +1,6 @@
 ---
 sequence: 32
-title: Architectural Prompt Authority Delegation
+title: Third-Party Content Loaded as Agent Instructions
 layout: risk
 doc-status: Draft
 type: SEC
@@ -22,13 +22,13 @@ Some agentic AI architectures are designed to load untrusted or semi-trusted thi
 
 ## Description
 
-**Architectural Prompt Authority Delegation** describes a class of security risk that emerges when an agentic system's design intentionally elevates untrusted or semi-trusted content to the same privilege level as the system prompt. This is distinct from prompt injection (RI-10) in a fundamental way: prompt injection is an attack that exploits an unintended boundary weakness, while prompt authority delegation is a feature that removes the boundary by design.
+**Third-Party Content Loaded as Agent Instructions** describes a class of security risk that emerges when an agentic system's design intentionally elevates untrusted or semi-trusted content to the same privilege level as the system prompt. This is distinct from prompt injection (RI-10) in a fundamental way: prompt injection is an attack that exploits an unintended boundary weakness, while prompt authority delegation is a feature that removes the boundary by design.
 
 ### The Instruction-Data Boundary Problem
 
 Foundation models (LLMs) do not enforce a hard technical boundary between instructions and data. In practice, systems create a *conventional* boundary by placing trusted instructions in the system prompt and treating user input as data to be processed according to those instructions. This conventional boundary is the foundation of most LLM security models.
 
-Architectural prompt authority delegation undermines this convention by placing untrusted content into the system prompt alongside trusted instructions. Once there, the model treats all content at that level as equally authoritative. There is no mechanism for the model to:
+Loading third-party content as agent instructions undermines this convention by placing untrusted content into the system prompt alongside trusted instructions. Once there, the model treats all content at that level as equally authoritative. There is no mechanism for the model to:
 
 * Distinguish between "original" system instructions and "delegated" third-party instructions
 * Apply different trust levels or capability restrictions to different portions of the system prompt
@@ -53,9 +53,9 @@ Architectural prompt authority delegation undermines this convention by placing 
 
 RI-10 describes a security vulnerability where an attacker subverts the system's intended behavior. Its mitigations focus on strengthening the boundary between instructions and data: input filtering, output validation, prompt hardening, and detection of injection attempts.
 
-Architectural prompt authority delegation is fundamentally different:
+Loading third-party content as agent instructions is fundamentally different:
 
-| Dimension | Prompt Injection (RI-10) | Prompt Authority Delegation (RI-32) |
+| Dimension | Prompt Injection (RI-10) | Third-Party Instructions (RI-32) |
 |-----------|--------------------------|--------------------------------------|
 | Nature | Attack exploiting a boundary weakness | Feature that removes the boundary by design |
 | Intent | Adversarial — attacker seeks to subvert the system | Functional — designed to extend agent capabilities |
@@ -100,7 +100,7 @@ Architectural prompt authority delegation is fundamentally different:
 
 ### Consequences
 
-Architectural prompt authority delegation can result in:
+Loading third-party content as agent instructions can result in:
 
 * **Invisible Privilege Escalation**: Third-party content gains the highest privilege level in the system without explicit authorization or visibility.
 * **Security Control Bypass**: Organizational policies, safety guidelines, and behavioral restrictions in the system prompt can be overridden by delegated content at the same privilege level.
