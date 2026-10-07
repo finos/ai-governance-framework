@@ -12,6 +12,7 @@ nist-sp-800-53r5_references:
   - ac-2  # AC-2 Account Management
   - ac-3  # AC-3 Access Enforcement
   - ac-5  # AC-5 Separation Of Duties
+  - cm-7  # CM-7 Least Functionality
 atr_references:
   - ATR-2026-00012  # Unauthorized Tool Call
   - ATR-2026-00040  # Agent Privilege Escalation
@@ -22,6 +23,7 @@ mitigates:
 related_mitigations:
   - mi-12  # Role-Based Access Control for AI Data
   - mi-3   # User/App/Model Firewalling/Filtering
+  - mi-1   # AI Data Leakage Prevention and Detection
   - mi-19  # Tool Chain Validation and Sanitization
   - mi-20  # MCP Server Security Governance
   - mi-22  # Multi-Agent Isolation and Segmentation
@@ -144,12 +146,13 @@ Effective agent privilege management must address the dynamic and autonomous nat
 
 ### 7. OS and Runtime-Layer Enforcement
 
-Least privilege applied only at the API gateway and tool manager leaves a second invocation surface ungoverned: the operating system and runtime beneath the agent. Agents that can execute commands, spawn processes, or reach a shell can bypass gateway-level controls entirely, so enforce the same discipline one layer down.
+Least privilege applied only at the API gateway and tool manager leaves a second invocation surface ungoverned: the operating system and runtime beneath the agent. Agents that can execute commands, spawn processes, or reach a shell can bypass gateway-level controls entirely, so enforce the same discipline one layer down. Command allow-listing constrains what an agent can execute, not what it can disclose: data returned by an allowed read command can still leave through any output or network channel the agent retains, so pair it with egress controls and data-leakage prevention ([MI-1](/mitigations/mi-1_ai-data-leakage-prevention-and-detection.html)).
 
 * **Deny-by-Default Command Allow-Listing**:
   * Define the exact commands, arguments, and resolved file paths the agent may execute; deny everything not named as the resting state rather than as an exception.
-  * Execute allowed commands directly as a program plus argument list, never as a text line handed to a shell to interpret, so that shell chaining and substitution characters cannot rewrite the authorized command. Validate arguments against the authorized scope; complementary input sanitization for tool parameters is covered in [AIR-PREV-019](./mi-19_tool-chain-validation-and-sanitization.md).
+  * Execute allowed commands directly as a program plus argument list, never as a text line handed to a shell to interpret, so that shell chaining and substitution characters cannot rewrite the authorized command. Validate arguments against the authorized scope; complementary input sanitization for tool parameters is covered in [MI-19](/mitigations/mi-19_tool-chain-validation-and-sanitization.html).
   * Do not allow-list executables that are themselves interpreters or subprocess launchers (shells, script runtimes, or commands with exec-style options) unless those capabilities are explicitly constrained; argument matching cannot see through a program that launches other programs.
+  * Pin allowed executables by version or hash and re-validate the allow-list whenever one changes; a new release can add options that launch other programs, which permissive argument patterns may admit, or change what an already-allowed option does.
   * Resolve file paths before the authorization check to defeat path traversal, and ensure the object checked is the object used (for example, by operating on the opened file handle or resolving within a restricted namespace) so that symlink swaps between check and use cannot redirect a narrow grant.
 
 * **Enforcement Point Placement**:
@@ -157,10 +160,10 @@ Least privilege applied only at the API gateway and tool manager leaves a second
   * Treat a policy held only in the agent's own context, such as an instruction in its prompt, as guidance rather than enforcement; the model can be induced to disregard it.
 
 * **Runtime Isolation**:
-  * Run agent processes inside restricted runtime environments so that even an allowed command executes within a bounded scope. Detailed isolation and sandboxing guidance is covered in [AIR-PREV-022](./mi-22_multi-agent-isolation-and-segmentation.md).
+  * Run agent processes inside restricted runtime environments so that even an allowed command executes within a bounded scope. Detailed isolation and sandboxing guidance is covered in [MI-22](/mitigations/mi-22_multi-agent-isolation-and-segmentation.html).
 
 * **Tool-Layer Alignment**:
-  * Apply the same deny-by-default model at the tool layer: MCP server tool allow-lists, agent-framework tool-permission scoping, and provider function-calling declarations should enumerate permitted operations rather than expose open-ended execution. Governance of the MCP server surface itself is covered in [AIR-PREV-020](./mi-20_mcp-server-security-governance.md).
+  * Apply the same deny-by-default model at the tool layer: MCP server tool allow-lists, agent-framework tool-permission scoping, and provider function-calling declarations should enumerate permitted operations rather than expose open-ended execution. Governance of the MCP server surface itself is covered in [MI-20](/mitigations/mi-20_mcp-server-security-governance.html).
 
 * **Deny-Event Monitoring**:
   * Log every denied invocation with the agent's identity and raise it to security monitoring; the denial stream provides direct evidence of both control operation and attempted overreach.
