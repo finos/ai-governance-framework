@@ -18,6 +18,7 @@ related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-19  # Tool Chain Validation and Sanitization
   - mi-4   # AI System Observability
+  - mi-21  # Agent Decision Audit and Explainability
   - mi-25  # Skill/Plugin Integrity and Governance
 ---
 
@@ -77,9 +78,8 @@ Effective consent gate hardening applies lessons from alert fatigue research in 
 * **Additional Controls**:
   * **Policy-Based Auto-Deny**: Define organizational policies that automatically deny specific tool call patterns regardless of user approval. For example: no exfiltration patterns (reading credential files followed by network requests), no modification of agent security settings, no global package installation without lockfile reference. These policies act as a backstop that the consent gate cannot override.
   * **Session Budgets**: Define per-session budgets for high-risk operations (e.g., maximum 3 network requests, maximum 1 package installation command). When the budget is exhausted, additional high-risk operations require supervisor approval or session restart.
-  * **Post-Session Audit**: After sessions involving high-risk operations, generate an audit report summarizing all tool calls, their risk classifications, approval times, and any anomaly flags. This report is available for security review and can be integrated with SIEM systems.
+  * **Post-Session Audit and Session Recording**: Record tool calls, approval decisions, and timing as specified in MI-21 (Agent Decision Audit and Explainability), which defines the audit, tamper-evidence, and retention requirements. Include the risk classification and any anomaly flags from this mitigation in those records, so that reviewers can see which high-risk actions were approved and how quickly.
   * **Dual Approval for Critical Actions**: For critical-risk actions (agent configuration changes, privilege modifications), require approval from both the user and a second party (e.g., a security team member or an automated policy engine).
-  * **Session Recording**: Record complete session transcripts (prompts, tool calls, approval decisions, timing) for forensic analysis. Recordings are retained according to the organization's audit policy.
 
 ---
 
