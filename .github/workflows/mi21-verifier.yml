@@ -1,0 +1,43 @@
+name: MI-21 receipt verifier
+
+on:
+  push:
+    paths:
+      - ".github/workflows/mi21-verifier.yml"
+      - "scripts/mi21-verifier.py"
+      - "scripts/check-mi21-report.py"
+      - "docs/_data/references/conformance-vectors.yml"
+      - "docs/_mitigations/mi-21_agent-decision-audit-and-explainability.md"
+  pull_request:
+    paths:
+      - ".github/workflows/mi21-verifier.yml"
+      - "scripts/mi21-verifier.py"
+      - "scripts/check-mi21-report.py"
+      - "docs/_data/references/conformance-vectors.yml"
+      - "docs/_mitigations/mi-21_agent-decision-audit-and-explainability.md"
+
+jobs:
+  receipt-verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install the pinned suite and verifier
+        run: |
+          python -m pip install agent-evidence-vectors==0.13.0
+          npm install --prefix .mi21-verify --no-save --no-audit --no-fund @veritasacta/verify@0.10.21
+      - name: Check signed receipt verification
+        run: |
+          export PATH="$PWD/.mi21-verify/node_modules/.bin:$PATH"
+          agent-evidence-vectors --corpus vectors-receipt-signature --verifier 'python scripts/mi21-verifier.py' --report mi21-report.json
+          python scripts/check-mi21-report.py mi21-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mi21-receipt-verifier-report
+          path: mi21-report.json
