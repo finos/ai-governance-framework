@@ -168,7 +168,7 @@ Implementing prompt authority scoping and delegation controls provides:
 
 ## Additional Resources
 
-* [Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions (OpenAI, 2024)](https://arxiv.org/abs/2404.13208)
+* [The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions (OpenAI, 2024)](https://arxiv.org/abs/2404.13208)
 * [Can LLMs Separate Instructions From Data? (2024)](https://arxiv.org/pdf/2403.06833v2)
 * [Agent Skills Specification](https://agentskills.io/) — Includes `allowed-tools` capability declaration field
 * [Cisco AI Defense Skill Scanner](https://github.com/cisco-ai-defense/skill-scanner) — Open-source multi-engine skill security scanner with description-behavior consistency checking
