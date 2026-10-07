@@ -60,7 +60,7 @@ Loading third-party content as agent instructions is fundamentally different:
 |-----------|--------------------------|--------------------------------------|
 | Nature | Attack exploiting a boundary weakness | Feature that removes the boundary by design |
 | Intent | Adversarial — attacker seeks to subvert the system | Functional — designed to extend agent capabilities |
-| Detection | In principle detectable as anomalous input | Not detectable — delegated content is loaded through the intended pathway |
+| Detection | In principle detectable as anomalous input | Not detectable by input-boundary injection detectors — delegated content is loaded through the intended pathway; it must instead be vetted before it is loaded (see MI-25) |
 | Mitigation approach | Strengthen the instruction-data boundary | Boundary does not exist for delegated content; fundamentally different controls needed |
 | User awareness | User is typically unaware injection is occurring | User explicitly loads the content, often without understanding the authority it inherits |
 | Attack surface | Input channels (user messages, documents, web content) | System prompt itself — the most privileged context position |
@@ -105,7 +105,7 @@ Loading third-party content as agent instructions can result in:
 
 * **Invisible Privilege Escalation**: Third-party content gains the highest privilege level in the system without explicit authorization or visibility.
 * **Security Control Bypass**: Organizational policies, safety guidelines, and behavioral restrictions in the system prompt can be overridden by delegated content at the same privilege level.
-* **Undetectable Manipulation**: Because delegated content flows through the intended loading pathway, it cannot be detected by injection-detection mechanisms designed for RI-10.
+* **Evasion of Injection Detection**: Because delegated content flows through the intended loading pathway, it is not caught by injection-detection mechanisms designed for RI-10 at the input boundary; it can only be caught by vetting the content before it is loaded.
 * **Erosion of Trust Model**: The system's security model assumes that system prompt content is trusted; delegation undermines this assumption without providing an alternative trust mechanism.
 * **Compliance and Governance Failures**: Organizations cannot guarantee that agent behavior complies with policy when unknown third-party instructions operate at the same authority level as policy instructions.
 * **Accountability Ambiguity**: When agent behavior is shaped by a mix of organizational instructions and delegated third-party instructions, attributing decisions and actions to specific authorities becomes impossible.
