@@ -39,6 +39,8 @@ Evaluate the data inputs and outputs of the AI, as data is a major source of ris
 
 This step often yields specific risks like “customer addresses are supplied to the GenAI model – privacy risk” or “the AI is trained on month-old market data – stale output risk.”
 
+**Worked example:** for a credit-risk *assistive* system walked through with catalogue links (threat-modelling on-ramp), see [playbooks/threat-modelling-credit-risk](playbooks/threat-modelling-credit-risk.html).
+
 ### C. Model and Technology
 
 Assess the type of model and technical setup:
