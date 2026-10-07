@@ -21,7 +21,7 @@ related_risks:
 
 ## Summary
 
-Agentic coding tools and AI assistants increasingly support community-authored "skills" or "plugins" — bundles of prompt instructions and executable code that extend agent capabilities. When loaded, skill prompt content is injected directly into the agent's system prompt with full instruction-level authority, while bundled scripts execute unsandboxed on the user's machine. A compromised or malicious skill therefore gains both the ability to steer the agent's reasoning and tool selection (prompt layer) and to execute arbitrary code with the user's full local privileges (code layer). Unlike MCP server compromise (RI-26), skills operate without network-level security controls, protocol authentication, or service isolation — they are local files treated as trusted instructions.
+Agentic coding tools and AI assistants increasingly support community-authored "skills" or "plugins" — bundles of prompt instructions and executable code that extend agent capabilities. When loaded, skill prompt content is injected directly into the agent's system prompt with full instruction-level authority, while bundled scripts execute unsandboxed on the user's machine. A compromised or malicious skill therefore gains both the ability to steer the agent's reasoning and tool selection (prompt layer) and to execute arbitrary code with the user's full local privileges (code layer). Unlike remote MCP servers (RI-26), skills operate without network-level security controls, protocol authentication, or service isolation — they are local files treated as trusted instructions.
 
 ## Description
 
@@ -106,17 +106,18 @@ Skills commonly bundle helper scripts that import third-party packages from publ
 
 ### Key Differentiators from RI-26 (MCP Server Supply Chain Compromise)
 
-While both risks involve supply chain compromise of agent-adjacent components, they differ fundamentally in attack surface and applicable controls:
+While both risks involve supply chain compromise of agent-adjacent components, they differ in attack surface and applicable controls. The comparison depends heavily on how the MCP server is deployed: many MCP servers today run locally over stdio (launched via `npx`, `uvx`, or similar), and a local MCP server shares most of the risk properties of a skill — no TLS, no authentication, and code running client-side with the user's full privileges. The controls in MI-20 should not be assumed to apply to local MCP servers simply because they use the MCP protocol.
 
-| Dimension | MCP Servers (RI-26) | Skills/Plugins (RI-30) |
-|-----------|---------------------|----------------------|
-| Trust boundary | Network service with protocol-level isolation | Local files injected directly into system prompt |
-| Communication | MCP protocol over TLS — inspectable, filterable | Filesystem read — no protocol to monitor |
-| Authentication | Mutual auth, API keys, OAuth applicable | None — file presence implies trust |
-| Code execution | Server-side, in provider's environment | Client-side, on user's machine, unsandboxed |
-| Integrity verification | Checksums, signatures, SBOMs applicable | Typically none |
-| Monitoring | Network traffic analysis, response validation | No established monitoring patterns |
-| Blast radius | Limited by MCP server's capabilities and data access | Full agent authority + user's local shell privileges |
+| Dimension | Remote MCP Servers (RI-26) | Local (stdio) MCP Servers (RI-26) | Skills/Plugins (RI-30) |
+|-----------|----------------------------|-----------------------------------|------------------------|
+| Trust boundary | Network service with protocol-level isolation | Local process; protocol boundary only | Local files injected directly into system prompt |
+| Communication | MCP protocol over TLS — inspectable, filterable | MCP protocol over stdio — inspectable only with local instrumentation | Filesystem read — no protocol to monitor |
+| Authentication | Mutual auth, API keys, OAuth applicable | Typically none | None — file presence implies trust |
+| Code execution | Server-side, in provider's environment | Client-side, on user's machine, with user privileges | Client-side, on user's machine, unsandboxed |
+| Integrity verification | Checksums, signatures, SBOMs applicable | Package-registry controls (checksums, signatures, lockfiles) where installed via a package manager | Typically none |
+| Monitoring | Network traffic analysis, response validation | Local process and stdio instrumentation only | No established monitoring patterns |
+| Influence on agent | Tool results and descriptions | Tool results and descriptions | Instruction-level authority in the system prompt |
+| Blast radius | Limited by MCP server's capabilities and data access | User's local privileges, plus tool influence on the agent | Full agent authority + user's local shell privileges |
 
 ### Consequences
 
