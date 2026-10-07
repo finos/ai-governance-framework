@@ -5,7 +5,9 @@ layout: mitigation
 doc-status: Draft
 type: PREV
 nist-sp-800-53r5_references:
-  - sa-12  # SA-12 Supply Chain Protection
+  - sr-3   # SR-3 Supply Chain Controls and Processes
+  - sr-4   # SR-4 Provenance
+  - sr-5   # SR-5 Acquisition Strategies, Tools, and Methods
   - si-7   # SI-7 Software, Firmware, and Information Integrity
   - cm-7   # CM-7 Least Functionality
 mitigates:
