@@ -7,6 +7,8 @@ type: SEC
 owasp-llm_references:
   - llm01-2025  # LLM01:2025 Prompt Injection
   - llm06-2025  # LLM06:2025 Excessive Agency
+owasp-asi_references:
+  - asi01-2026  # ASI01: Agent Goal Hijack
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass
@@ -39,7 +41,7 @@ Architectural prompt authority delegation undermines this convention by placing 
   Agentic coding tools load SKILL.md files into the system prompt when a skill is invoked. The skill content — authored by an unknown third party — becomes indistinguishable from the agent's core instructions. The skill can direct the agent to use any tool, generate any code, or access any resource the agent has authority over. (See also RI-30.)
 
 * **Project Configuration Files as Instructions**
-  Project-level agent configuration files — AGENTS.md, CLAUDE.md, .cursorrules, .github/copilot-instructions.md, and similar — are automatically loaded into the agent's context when it operates in a project directory. Anyone with write access to the repository — including compromised CI systems, malicious pull requests, or upstream dependencies — can modify these files to inject persistent instructions that affect all future agent sessions in that project.
+  Project-level agent configuration files — AGENTS.md, CLAUDE.md, .cursorrules, .github/copilot-instructions.md, and similar — are automatically loaded into the agent's context when it operates in a project directory. Anyone with write access to the repository — including compromised CI systems, malicious pull requests, or upstream dependencies — can modify these files to inject persistent instructions that affect all future agent sessions in that project. Pillar Security's 2025 "Rules File Backdoor" research demonstrated this against Cursor and GitHub Copilot rules files, using invisible Unicode characters to hide the injected instructions from reviewers.
 
 * **Community Prompt Libraries**
   Systems that allow users to import prompt templates, "system prompts," or "custom instructions" from community sources effectively delegate prompt authority to the community author. If these are loaded at the system prompt level, they carry full instruction authority.
@@ -121,4 +123,6 @@ Architectural prompt authority delegation can result in:
 - [OWASP LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
 - [Can LLMs Separate Instructions From Data? And What Do We Even Mean By That?](https://arxiv.org/pdf/2403.06833v2)
 - [The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions](https://arxiv.org/abs/2404.13208)
+- [Rules File Backdoor: New Vulnerability in GitHub Copilot and Cursor (Pillar Security, 2025)](https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents)
+- [OWASP Top 10 for Agentic Applications — ASI01: Agent Goal Hijack](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 - [Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)
