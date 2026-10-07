@@ -17,8 +17,6 @@ related_mitigations:
   - mi-19  # Tool Chain Validation and Sanitization
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-15  # Using LLMs for Automated Evaluation (LLM-as-a-Judge)
-  - mi-25  # Risk-Tiered Approval and Consent Gate Hardening
-  - mi-26  # Prompt Authority Scoping and Delegation Controls
 ---
 
 ## Purpose
