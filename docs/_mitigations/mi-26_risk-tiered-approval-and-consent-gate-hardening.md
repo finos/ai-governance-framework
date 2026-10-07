@@ -18,6 +18,7 @@ related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-19  # Tool Chain Validation and Sanitization
   - mi-4   # AI System Observability
+  - mi-25  # Skill/Plugin Integrity and Governance
 ---
 
 ## Purpose
