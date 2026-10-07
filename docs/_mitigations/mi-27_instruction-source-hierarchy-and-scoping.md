@@ -65,9 +65,7 @@ This mitigation recognizes that many agentic tools are designed to load third-pa
 
 * **All Tier 1 controls, plus:**
 * **Additional Controls**:
-  * **Skill Capability Declarations**: Each approved skill declares the capabilities it requires (e.g., "file read in project directory," "bash execution of bundled scripts," "write to output directory"). The application layer enforces these declarations:
-    * Tool calls initiated while a skill is active are checked against the skill's declared capabilities.
-    * Tool calls exceeding the skill's declared scope are blocked or escalated to the user with an explicit warning: "This skill is requesting access beyond its declared capabilities."
+  * **Skill Capability Declarations**: Each approved skill declares the capabilities it requires, and the application layer checks tool calls made while the skill is active against that declaration. Calls that exceed the declared scope are blocked or escalated to the user with an explicit warning. See Section 3 (Skill Authority Scoping) for the manifest format and enforcement mechanism.
   * **Prompt Assembly Validation**: Before the assembled system prompt is sent to the model, an automated validator checks for:
     * Contradictions between organizational policy and delegated content (e.g., skill instructions that contradict prohibited actions).
     * Escalation patterns (delegated content instructing the model to ignore other instructions, override safety guidelines, or treat the delegated content as highest priority).
@@ -140,7 +138,10 @@ The organizational policy block is the most immediately implementable control an
         - "wget *"
     mcp_servers: []
   ```
-* **Enforcement Mechanism**: Implement a validation layer between the agent's tool call generation and tool execution that checks each call against the active skill's capability manifest.
+* **Enforcement Mechanism**: Implement a validation layer between the agent's tool call generation and tool execution that checks each call against the active skill's capability manifest:
+  * Tool calls initiated while a skill is active are checked against the skill's declared capabilities.
+  * Tool calls exceeding the declared scope are blocked or escalated to the user with an explicit warning, e.g. "This skill is requesting access beyond its declared capabilities." Escalations should use the high-risk approval treatment described in MI-26.
+* **Pre-Load Validation**: The same manifest is used at review time: MI-25's description-behavior consistency check compares the declared capabilities against what the skill's instructions and bundled scripts actually do.
 
 ---
 
