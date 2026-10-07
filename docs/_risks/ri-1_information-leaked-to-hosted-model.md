@@ -35,6 +35,15 @@ canada-regulations_references:
   - pipeda                 # PIPEDA 4.1.3 (third-party accountability), 4.7 (safeguards), s. 10.1 (breach notification)
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency includes disclosing personal info used
   - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — PIAs for AI processing, cross-border adequacy
+us-regulations_references:
+  # Information security and third-party exposure
+  - glba-safeguards           # Safeguards program covers NPI sent to or processed by AI systems
+  - nydfs-ai-cyber-letter     # NPI exposure via AI tools and supply-chain dependencies
+  - interagency-tprm-2023     # Due diligence and monitoring of hosted-model providers
+  # Sector privacy obligations on the data itself
+  - hipaa-privacy-rule        # PHI to third-party AI implicates business-associate obligations
+  - hipaa-deidentification    # De-identification standard for data leaving the protected boundary
+  - ccpa-cpra                 # Minimization and retention limits on personal information in AI use
 uk-regulations_references:
   # Systems, controls, outsourcing and third-party resilience
   - fca-sysc # Systems and controls apply to confidential client data in AI workflows
