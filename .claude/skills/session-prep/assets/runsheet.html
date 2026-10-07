@@ -1,0 +1,1084 @@
+<title>AIGF Chair Desk</title>
+<style>
+  :root {
+    --ground:      #F1F4F7;
+    --surface:     #FFFFFF;
+    --surface-2:   #E9EEF3;
+    --ink:         #131A21;
+    --ink-2:       #46535F;
+    --ink-3:       #79868F;
+    --rule:        #D3DBE3;
+    --rule-strong: #A9B6C2;
+    --accent:      #14567F;
+    --accent-soft: #DCE9F2;
+    --go:          #2C6349;
+    --go-soft:     #DCEAE1;
+    --hold:        #8A5A11;
+    --hold-soft:   #F3E8D3;
+    --stop:        #99362D;
+    --stop-soft:   #F4DEDB;
+
+    --serif: "Iowan Old Style", "Charter", "Palatino Linotype", Georgia, ui-serif, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0D1319;
+      --surface:     #141C23;
+      --surface-2:   #1B242C;
+      --ink:         #E5ECF2;
+      --ink-2:       #A2AFBB;
+      --ink-3:       #74828D;
+      --rule:        #253039;
+      --rule-strong: #3A4855;
+      --accent:      #74B6DE;
+      --accent-soft: #16303F;
+      --go:          #74C29A;
+      --go-soft:     #17301F;
+      --hold:        #D9A852;
+      --hold-soft:   #33260F;
+      --stop:        #E2887B;
+      --stop-soft:   #3A1D1A;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0D1319;
+    --surface:     #141C23;
+    --surface-2:   #1B242C;
+    --ink:         #E5ECF2;
+    --ink-2:       #A2AFBB;
+    --ink-3:       #74828D;
+    --rule:        #253039;
+    --rule-strong: #3A4855;
+    --accent:      #74B6DE;
+    --accent-soft: #16303F;
+    --go:          #74C29A;
+    --go-soft:     #17301F;
+    --hold:        #D9A852;
+    --hold-soft:   #33260F;
+    --stop:        #E2887B;
+    --stop-soft:   #3A1D1A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .masthead-inner {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem 1.4rem;
+    padding-top: 0.85rem;
+  }
+
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .sessionline {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-left: auto;
+  }
+  .sessionline b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- tabs ---------- */
+
+  .tabs {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 0.7rem 1.5rem 0;
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+  }
+
+  .tab {
+    appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.85rem 0.6rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .tab .cnt { color: var(--ink-3); font-size: 0.68rem; }
+
+  /* ---------- layout ---------- */
+
+  main {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 2.2rem 1.5rem 5rem;
+  }
+
+  .panel { display: none; }
+  .panel.on { display: block; animation: fade 0.18s ease-out; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .panel.on { animation: none; }
+  }
+
+  h2.sec {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.3rem;
+    text-wrap: balance;
+  }
+
+  .sec-sub {
+    color: var(--ink-2);
+    max-width: 64ch;
+    margin: 0 0 2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 0.5rem;
+  }
+
+  hr.rule {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 2.4rem 0;
+  }
+
+  /* ---------- chips / stamps ---------- */
+
+  .stamp {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.16rem 0.45rem;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .s-go   { color: var(--go);   background: var(--go-soft); }
+  .s-hold { color: var(--hold); background: var(--hold-soft); }
+  .s-stop { color: var(--stop); background: var(--stop-soft); }
+  .s-mute { color: var(--ink-3); background: var(--surface-2); border-color: var(--rule-strong); }
+
+  code, .mono { font-family: var(--mono); font-size: 0.88em; }
+  code { background: var(--surface-2); padding: 0.08em 0.3em; }
+
+  /* ---------- brief: attention strip ---------- */
+
+  .attn {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 2.4rem;
+  }
+  .attn-item { background: var(--surface); padding: 1.05rem 1.15rem; }
+  .attn-item h4 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 650;
+    margin: 0.55rem 0 0.35rem;
+  }
+  .attn-item p { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+
+  /* ---------- roll call ---------- */
+
+  table.roll {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  table.roll th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    padding: 0 0.8rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  table.roll td {
+    padding: 0.68rem 0.8rem 0.68rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  table.roll td:last-child, table.roll th:last-child { padding-right: 0; }
+  .who { font-weight: 600; }
+  .who small { display: block; font-weight: 400; color: var(--ink-3); font-family: var(--mono); font-size: 0.72rem; }
+  .src { color: var(--ink-3); font-size: 0.85rem; }
+
+  .tablewrap { overflow-x: auto; }
+
+  /* ---------- PR dossier ---------- */
+
+  .pr {
+    border-top: 2px solid var(--rule-strong);
+    padding-top: 1.1rem;
+    margin-bottom: 3.2rem;
+    scroll-margin-top: 7.5rem;
+  }
+
+  .pr-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+  .pr-num {
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .pr-title {
+    font-family: var(--serif);
+    font-size: 1.42rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    margin: 0;
+    flex: 1 1 22rem;
+    text-wrap: balance;
+  }
+
+  .pr-meta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.75rem;
+    margin-bottom: 1.15rem;
+    padding-bottom: 1.15rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pr-meta span::after { content: " ·"; color: var(--rule-strong); }
+  .pr-meta span:last-child::after { content: ""; }
+
+  .pr-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 800px) {
+    .pr-body { grid-template-columns: 1fr; gap: 1.4rem; }
+  }
+
+  .block { margin-bottom: 1.5rem; }
+  .block:last-child { margin-bottom: 0; }
+  .block h5 {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    margin: 0 0 0.55rem;
+  }
+  .block p { margin: 0 0 0.7rem; }
+  .block p:last-child { margin-bottom: 0; }
+  .block ul { margin: 0; padding-left: 1.1rem; }
+  .block li { margin-bottom: 0.4rem; }
+  .block li:last-child { margin-bottom: 0; }
+
+  .side {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 1.15rem 1.25rem;
+    font-size: 0.92rem;
+    align-self: start;
+  }
+
+  .verdict {
+    border-top: 1px solid var(--rule);
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+  }
+  .verdict p { margin: 0.5rem 0 0; font-size: 0.92rem; }
+
+  .ask {
+    font-family: var(--serif);
+    font-size: 1.06rem;
+    line-height: 1.45;
+    font-style: italic;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 0.9rem;
+    margin: 0.9rem 0 0;
+  }
+
+  pre {
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    padding: 0.85rem 1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    line-height: 1.5;
+    margin: 0.6rem 0 0;
+  }
+  pre .add { color: var(--go); }
+  pre .cf  { color: var(--stop); font-weight: 600; }
+  pre .dim { color: var(--ink-3); }
+
+  .quote {
+    border-left: 2px solid var(--rule-strong);
+    padding-left: 0.9rem;
+    color: var(--ink-2);
+    font-size: 0.9rem;
+    margin: 0.6rem 0;
+  }
+  .quote cite {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 0.35rem;
+  }
+
+  /* ---------- script ---------- */
+
+  .runline {
+    display: grid;
+    grid-template-columns: 5.2rem 1fr;
+    gap: 0 1.3rem;
+    border-top: 1px solid var(--rule);
+    padding: 1.15rem 0;
+    align-items: start;
+  }
+  .runline:last-of-type { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 620px) {
+    .runline { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+
+  .clock {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+    letter-spacing: -0.01em;
+    padding-top: 0.15rem;
+  }
+  .clock b { display: block; color: var(--ink); font-weight: 600; }
+
+  .runline h4 {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 650;
+    margin: 0 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .runline p { margin: 0 0 0.5rem; font-size: 0.93rem; color: var(--ink-2); }
+  .runline p:last-child { margin-bottom: 0; }
+
+  .say {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--accent);
+    padding: 0.75rem 0.95rem;
+    margin: 0.55rem 0;
+  }
+  .say::before {
+    content: "SAY";
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+    margin-bottom: 0.3rem;
+  }
+
+  .tick {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    display: flex;
+    gap: 0.55rem;
+    align-items: baseline;
+    width: 100%;
+  }
+  .tick .box {
+    flex: 0 0 auto;
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 1px solid var(--rule-strong);
+    display: inline-block;
+    position: relative;
+    top: 0.1rem;
+  }
+  .runline.done .box { background: var(--accent); border-color: var(--accent); }
+  .runline.done .box::after {
+    content: "";
+    position: absolute;
+    left: 0.24rem; top: 0.03rem;
+    width: 0.24rem; height: 0.48rem;
+    border: solid var(--surface);
+    border-width: 0 2px 2px 0;
+    transform: rotate(42deg);
+  }
+  .runline.done > * { opacity: 0.45; }
+  .runline.done .clock { opacity: 0.45; }
+
+  /* ---------- context list ---------- */
+
+  .ctx {
+    border-top: 1px solid var(--rule);
+    padding: 1.1rem 0;
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 0 1.3rem;
+  }
+  .ctx:last-of-type { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 620px) { .ctx { grid-template-columns: 1fr; gap: 0.35rem; } }
+  .ctx .ref {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    padding-top: 0.1rem;
+  }
+  .ctx h4 { margin: 0 0 0.35rem; font-size: 0.98rem; font-weight: 650; }
+  .ctx p { margin: 0; color: var(--ink-2); font-size: 0.92rem; }
+
+  .footnote {
+    color: var(--ink-3);
+    font-size: 0.83rem;
+    font-family: var(--mono);
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- notes ---------- */
+
+  .tab-live .dot {
+    display: inline-block;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: var(--stop);
+    margin-right: 0.42rem;
+    position: relative;
+    top: -0.08rem;
+  }
+
+  .notes-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.7rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.7rem 0;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 5.6rem;
+    background: var(--ground);
+    z-index: 10;
+  }
+
+  .btn {
+    appearance: none;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--surface);
+    color: var(--ink-2);
+    border: 1px solid var(--rule-strong);
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--ink); border-color: var(--accent); }
+  .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+
+  .savestate {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-left: auto;
+  }
+  .savestate.flash { color: var(--go); }
+
+  .logged {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--accent);
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 2.4rem;
+  }
+  .logged > h4 {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    margin: 0 0 0.8rem;
+  }
+  .logged .empty { color: var(--ink-3); font-size: 0.9rem; margin: 0; }
+  .log-entry {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+  }
+  .log-entry:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  .log-entry h5 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+  }
+  .log-entry ul { margin: 0; padding-left: 1.1rem; font-size: 0.93rem; }
+  .log-entry li { margin-bottom: 0.3rem; }
+  .log-entry p { margin: 0; font-size: 0.93rem; }
+
+  .field { margin-bottom: 1.9rem; }
+  .field label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.7rem;
+    margin-bottom: 0.45rem;
+  }
+  .field .fname {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 650;
+  }
+  .field .fhint {
+    font-size: 0.85rem;
+    color: var(--ink-3);
+  }
+  .field textarea {
+    width: 100%;
+    min-height: 5.5rem;
+    resize: vertical;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    padding: 0.75rem 0.9rem;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .field textarea::placeholder { color: var(--ink-3); }
+  .field textarea:focus { border-color: var(--accent); outline: 1px solid var(--accent); outline-offset: -2px; }
+  .field textarea.tall { min-height: 8rem; }
+
+  #mdout { display: none; }
+  #mdout.on { display: block; }
+  #mdout pre { max-height: 32rem; white-space: pre-wrap; font-size: 0.8rem; }
+</style>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1 class="wordmark">AIGF Chair Desk</h1>
+    <div class="sessionline">
+      <span><b>DD Mmm YYYY</b> · 15:00 BST</span>
+      <span>Session note</span>
+      <span>Issue <b>#000</b></span>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Run sheet sections">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="p-brief" id="t-brief">Brief</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-prs" id="t-prs">Pull requests <span class="cnt">4</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-ra" id="t-ra">RA Library <span class="cnt">4</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-script" id="t-script">Run script</button>
+    <button class="tab tab-live" role="tab" aria-selected="false" aria-controls="p-notes" id="t-notes"><span class="dot" aria-hidden="true"></span>Notes</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-after" id="t-after">Post-meeting</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-ctx" id="t-ctx">Context</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ═══════════════════ BRIEF ═══════════════════ -->
+<section class="panel on" id="p-brief" role="tabpanel" aria-labelledby="t-brief">
+  <h2 class="sec">Session headline — what the chair walks in knowing</h2>
+  <p class="sec-sub">One paragraph on the shape of the session: what it is, who leads which part, anything unusual (combined session, moved session, absent presenter).</p>
+
+  <!-- Attention grid: three or four things needing action BEFORE the call.
+       Stamps: s-stop blocked · s-hold needs a decision · s-go free win · s-mute neutral -->
+  <div class="attn">
+    <div class="attn-item">
+      <span class="stamp s-stop">Blocked</span>
+      <h4>Headline of the problem</h4>
+      <p>What is blocked and who can unblock it.</p>
+    </div>
+  </div>
+
+  <!-- Roll call. Every attendance claim carries its source — the chair will be asked. -->
+  <p class="eyebrow">Roll call</p>
+  <div class="tablewrap">
+    <table class="roll">
+      <thead><tr><th>Who</th><th>Their item</th><th>Status</th><th>How you know</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="who">Name<small>@handle</small></td>
+          <td>#000 what they contributed</td>
+          <td><span class="stamp s-go">Confirmed</span></td>
+          <td class="src">Source and date for this claim</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule">
+
+  <!-- Optional: a thread running across several agenda items. Often the most valuable
+       section, because it turns three separate arguments into one decision. -->
+
+</section>
+
+<!-- ═══════════════════ PULL REQUESTS ═══════════════════ -->
+<section class="panel" id="p-prs" role="tabpanel" aria-labelledby="t-prs">
+  <h2 class="sec">Pull requests</h2>
+  <p class="sec-sub">In agenda order. Each one: what it actually changes, where it stands, what needs attention, the question that unblocks it.</p>
+
+  <article class="pr" id="pr000">
+    <div class="pr-head">
+      <span class="pr-num">#000</span>
+      <h3 class="pr-title">Title in plain words, not the commit subject</h3>
+      <span class="stamp s-go">Ready to merge</span>
+    </div>
+    <div class="pr-meta">
+      <span>@author</span><span>opened 1 Jan</span><span>+0 / −0</span><span>0 files</span><span>MERGEABLE · CLEAN</span><span>author on the call</span>
+    </div>
+
+    <div class="pr-body">
+      <div>
+        <div class="block">
+          <h5>What it adds</h5>
+          <p>The substance. Read the diff, not the description.</p>
+        </div>
+        <div class="block">
+          <h5>Where it stands</h5>
+          <ul><li>Review history, who went silent, how long.</li></ul>
+          <div class="quote">
+            Verbatim quote of the objection or approval that matters.
+            <cite>@handle · date</cite>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="block">
+          <h5>Your attention</h5>
+          <p>The one thing standing between this and a decision.</p>
+        </div>
+        <div class="verdict">
+          <h5 style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin:0 0 0.4rem;">Push for</h5>
+          <p><b>The recommendation.</b> Why.</p>
+        </div>
+      </aside>
+    </div>
+
+    <p class="ask">“The decision-forcing question, written the way the chair would say it out loud.”</p>
+  </article>
+
+  <!-- For a merge conflict, show the real hunk in a <pre>, using
+       <span class="cf"> for the markers and <span class="add"> for added lines. -->
+
+</section>
+
+<!-- ═══════════════════ RA LIBRARY ═══════════════════ -->
+<section class="panel" id="p-ra" role="tabpanel" aria-labelledby="t-ra">
+  <h2 class="sec">The other repository</h2>
+  <p class="sec-sub">Only when the session is combined. Same dossier pattern as the pull requests panel. Remove this tab otherwise.</p>
+
+</section>
+
+<!-- ═══════════════════ RUN SCRIPT ═══════════════════ -->
+<section class="panel" id="p-script" role="tabpanel" aria-labelledby="t-script">
+  <h2 class="sec">Run script</h2>
+  <p class="sec-sub">Timed to the agenda order. Click any item to strike it through during the call.</p>
+
+  <div class="runline">
+    <div class="clock"><b>15:00</b>3 min</div>
+    <div>
+      <button class="tick" type="button"><span class="box"></span><h4>Open · standing notices</h4></button>
+      <p>Not optional for a FINOS project lead.</p>
+      <div class="say">Before we start — this meeting is subject to the Linux Foundation antitrust policy and the FINOS community code of conduct, both linked from the agenda issue. Meetings may be recorded for FINOS administration. Please keep to the agenda.</div>
+    </div>
+  </div>
+
+  <div class="runline">
+    <div class="clock"><b>15:03</b>2 min</div>
+    <div>
+      <button class="tick" type="button"><span class="box"></span><h4>Agenda walk and absences</h4></button>
+      <p>Set expectations early so nobody waits for something that is not happening.</p>
+      <div class="say">What to say.</div>
+    </div>
+  </div>
+
+  <!-- One .runline per agenda item. Give each the decision it must land. -->
+
+  <p class="footnote">Post-call: minute the outcomes onto the agenda issue as a comment.</p>
+
+</section>
+
+<!-- ═══════════════════ NOTES ═══════════════════ -->
+<section class="panel" id="p-notes" role="tabpanel" aria-labelledby="t-notes">
+
+  <h2 class="sec">Live notes</h2>
+  <p class="sec-sub">Two ways in. Anything you type at me in the chat gets logged into the block below on the next republish. Anything you type into the fields here stays in this browser and survives a reload. <b>Export as Markdown</b> assembles both into a comment ready to paste onto issue #358.</p>
+
+  <div class="notes-bar">
+    <button class="btn" type="button" id="md-toggle" aria-pressed="false">Export as Markdown</button>
+    <button class="btn" type="button" id="md-copy">Copy</button>
+    <button class="btn" type="button" id="notes-clear">Clear my fields</button>
+    <span class="savestate" id="savestate">Saved in this browser</span>
+  </div>
+
+  <div id="mdout"><pre id="md-pre"></pre></div>
+
+  <div class="logged" id="loggedblock">
+    <h4>Logged from chat</h4>
+    <p class="empty">Nothing logged yet. Notes sent in chat during the call land here, filed against the agenda item they belong to.</p>
+  </div>
+
+  <div class="field">
+    <label for="n-decisions">
+      <span class="fname">Decisions and actions</span>
+      <span class="fhint">owner and date against each — this is the bit that has to survive the call</span>
+    </label>
+    <textarea id="n-decisions" class="tall" data-bucket="decisions" placeholder="e.g. #335 merged. Regulatory citations to be checked by — , by —.&#10;Approved-Spec amendment rule: — . CONTRIBUTING update owned by — ."></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-ra">
+      <span class="fname">AI Reference Architecture Library</span>
+      <span class="fhint">Ravanan · RA-lib #58 #54 #34 #59 · and whether the sessions merge</span>
+    </label>
+    <textarea id="n-ra" data-bucket="ra"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-335">
+      <span class="fname">#335 — uc-4 anti-financial crime</span>
+      <span class="fhint">is Chamindra's review a gate? merged or not?</span>
+    </label>
+    <textarea id="n-335" data-bucket="p335"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-338">
+      <span class="fname">#338 — mi-18 OS enforcement</span>
+      <span class="fhint">the amendment rule for Approved-Specification docs · rebase owner</span>
+    </label>
+    <textarea id="n-338" data-bucket="p338"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-339">
+      <span class="fname">#339 — mi-24 approval gate</span>
+      <span class="fhint">Alvin's auto-approve carve-out — exact wording agreed</span>
+    </label>
+    <textarea id="n-339" data-bucket="p339"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-347">
+      <span class="fname">#347 — mi-4 telemetry</span>
+      <span class="fhint">Alvin's verdict on the revision · anything to relay to Krishna offline</span>
+    </label>
+    <textarea id="n-347" data-bucket="p347"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-351">
+      <span class="fname">#351 — playbook slot</span>
+      <span class="fhint">was the Nexus demo · control definitions vs institution-owned evidence</span>
+    </label>
+    <textarea id="n-351" data-bucket="p351"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="n-aob">
+      <span class="fname">AOB and parking lot</span>
+      <span class="fhint">MCP server, #354/#357 sweep, anything raised that needs its own issue</span>
+    </label>
+    <textarea id="n-aob" data-bucket="aob"></textarea>
+  </div>
+
+</section>
+
+<!-- ═══════════════════ POST-MEETING ═══════════════════ -->
+<section class="panel" id="p-after" role="tabpanel" aria-labelledby="t-after">
+  <h2 class="sec">Post-meeting</h2>
+  <p class="sec-sub">Filled in after the call: notes worked up against the repository, what each contributor now owes, and what is still unrecorded. Mark anything taken from shorthand as such, and keep analysis visibly separate from what was said.</p>
+
+  <!-- A useful shape is a three-column table mapping each point raised in the room to
+       where the draft already stands, with a verdict stamp:
+       s-go covered · s-hold sharpen · s-stop real gap · s-mute needs confirming. -->
+
+  <article class="pr">
+    <div class="pr-head">
+      <span class="pr-num">TBC</span>
+      <h3 class="pr-title">Still missing</h3>
+      <span class="stamp s-stop">Unrecorded</span>
+    </div>
+    <div class="pr-body">
+      <div><div class="block">
+        <h5>No outcome captured yet for</h5>
+        <ul><li>Every agenda item with no recorded decision. Listing them is the point.</li></ul>
+      </div></div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ═══════════════════ CONTEXT ═══════════════════ -->
+<section class="panel" id="p-ctx" role="tabpanel" aria-labelledby="t-ctx">
+  <h2 class="sec">Context you may get asked about</h2>
+  <p class="sec-sub">Live threads not on the agenda, and what was agreed last time so the chair can hold people to it.</p>
+
+  <p class="eyebrow">Live threads</p>
+  <div class="ctx">
+    <div class="ref">#000</div>
+    <div>
+      <h4>Thread title</h4>
+      <p>What it is and why it might come up.</p>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+
+    function select(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle('on', p.id === tab.getAttribute('aria-controls'));
+      });
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'auto' : 'auto' });
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { select(tab); });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (next) { e.preventDefault(); next.focus(); select(next); }
+      });
+    });
+
+    document.querySelectorAll('.tick').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btn.closest('.runline').classList.toggle('done');
+      });
+    });
+
+    /* ---------- notes ---------- */
+
+    var KEY = 'aigf-SESSION-DATE:';
+    var fields = Array.prototype.slice.call(document.querySelectorAll('[data-bucket]'));
+    var state = document.getElementById('savestate');
+    var flashTimer = null;
+
+    function store(k, v) {
+      try { window.localStorage.setItem(KEY + k, v); return true; } catch (e) { return false; }
+    }
+    function load(k) {
+      try { return window.localStorage.getItem(KEY + k); } catch (e) { return null; }
+    }
+
+    fields.forEach(function (f) {
+      var saved = load(f.dataset.bucket);
+      if (saved) f.value = saved;
+      f.addEventListener('input', function () {
+        var ok = store(f.dataset.bucket, f.value);
+        state.textContent = ok ? 'Saved' : 'Not saved — storage blocked';
+        state.classList.toggle('flash', ok);
+        clearTimeout(flashTimer);
+        flashTimer = setTimeout(function () {
+          state.textContent = 'Saved in this browser';
+          state.classList.remove('flash');
+        }, 1400);
+      });
+    });
+
+    document.getElementById('notes-clear').addEventListener('click', function () {
+      fields.forEach(function (f) { f.value = ''; store(f.dataset.bucket, ''); });
+      state.textContent = 'Cleared';
+      state.classList.remove('flash');
+    });
+
+    /* markdown export — merges chat-logged entries with typed fields */
+
+    var ORDER = [
+      { bucket: 'decisions', heading: '### Decisions and actions', bare: true },
+      { bucket: 'ra',   heading: '- https://github.com/finos/ai-reference-architecture-library/issues/60' },
+      { bucket: 'p335', heading: '- https://github.com/finos/ai-governance-framework/pull/335' },
+      { bucket: 'p338', heading: '- https://github.com/finos/ai-governance-framework/pull/338' },
+      { bucket: 'p339', heading: '- https://github.com/finos/ai-governance-framework/pull/339' },
+      { bucket: 'p347', heading: '- https://github.com/finos/ai-governance-framework/pull/347' },
+      { bucket: 'p351', heading: '- https://github.com/finos/ai-governance-framework/issues/351' },
+      { bucket: 'aob',  heading: '- AOB' }
+    ];
+
+    function loggedFor(bucket) {
+      var el = document.querySelector('.log-entry[data-bucket="' + bucket + '"]');
+      if (!el) return [];
+      return Array.prototype.slice.call(el.querySelectorAll('li, p'))
+        .map(function (n) { return n.textContent.trim(); })
+        .filter(Boolean);
+    }
+
+    function typedFor(bucket) {
+      var el = document.querySelector('textarea[data-bucket="' + bucket + '"]');
+      if (!el || !el.value.trim()) return [];
+      return el.value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    }
+
+    function buildMarkdown() {
+      var out = ['## 13 August 2026 — minutes', ''];
+      var wroteAny = false;
+
+      ORDER.forEach(function (item) {
+        var lines = loggedFor(item.bucket).concat(typedFor(item.bucket));
+        if (!lines.length) return;
+        wroteAny = true;
+        out.push(item.heading);
+        if (item.bare) {
+          out.push('');
+          lines.forEach(function (l) { out.push('- ' + l.replace(/^[-*]\s*/, '')); });
+        } else {
+          lines.forEach(function (l) { out.push('  - ' + l.replace(/^[-*]\s*/, '')); });
+        }
+        out.push('');
+      });
+
+      if (!wroteAny) out.push('_No notes captured yet._');
+      return out.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
+    }
+
+    var mdout = document.getElementById('mdout');
+    var mdpre = document.getElementById('md-pre');
+    var mdtoggle = document.getElementById('md-toggle');
+
+    mdtoggle.addEventListener('click', function () {
+      var on = mdout.classList.toggle('on');
+      mdtoggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) mdpre.textContent = buildMarkdown();
+    });
+
+    document.getElementById('md-copy').addEventListener('click', function () {
+      var text = buildMarkdown();
+      mdpre.textContent = text;
+      mdout.classList.add('on');
+      mdtoggle.setAttribute('aria-pressed', 'true');
+
+      function selectIt() {
+        var r = document.createRange();
+        r.selectNodeContents(mdpre);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+        state.textContent = 'Selected — press Cmd+C';
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          state.textContent = 'Copied';
+          state.classList.add('flash');
+          clearTimeout(flashTimer);
+          flashTimer = setTimeout(function () {
+            state.textContent = 'Saved in this browser';
+            state.classList.remove('flash');
+          }, 1600);
+        }).catch(selectIt);
+      } else {
+        selectIt();
+      }
+    });
+  })();
+</script>
