@@ -1,5 +1,5 @@
 ---
-sequence: 24
+sequence: 25
 title: Skill/Plugin Integrity and Governance
 layout: mitigation
 doc-status: Draft
