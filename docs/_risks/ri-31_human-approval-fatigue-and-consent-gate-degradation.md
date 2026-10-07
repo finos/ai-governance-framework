@@ -89,7 +89,7 @@ Human approval fatigue can result in:
 
 ## Links
 
-- [OWASP LLM06: Excessive Agency](https://genai.owasp.org/llmrisk/llm06-excessive-agency/)
+- [OWASP LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
 - [Alert Fatigue in Clinical Decision Support Systems — Systematic Review](https://doi.org/10.1093/jamia/ocx106)
 - [The Boy Who Cried Wolf: Reducing Alert Fatigue in Security Operations](https://doi.org/10.1145/3133956.3134029)
 - [EU AI Act Article 14: Human Oversight](https://artificialintelligenceact.eu/article/14/)
