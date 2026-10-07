@@ -18,6 +18,7 @@ related_risks:
   - ri-27  # Agent State Persistence Poisoning
   - ri-29  # Agent-Mediated Credential Discovery and Harvesting
   - ri-31  # Human Approval Fatigue and Consent Gate Degradation
+  - ri-32  # Third-Party Content Loaded as Agent Instructions
 ---
 
 ## Summary

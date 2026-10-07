@@ -14,6 +14,7 @@ related_risks:
   - ri-24  # Agent Action Authorization Bypass
   - ri-27  # Agent State Persistence Poisoning
   - ri-30  # Skill/Plugin Supply Chain Compromise
+  - ri-31  # Human Approval Fatigue and Consent Gate Degradation
 ---
 
 ## Summary

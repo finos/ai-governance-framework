@@ -13,6 +13,7 @@ related_risks:
   - ri-25  # Tool Chain Manipulation and Injection
   - ri-18  # Model Overreach / Expanded Use
   - ri-30  # Skill/Plugin Supply Chain Compromise
+  - ri-32  # Third-Party Content Loaded as Agent Instructions
 ---
 
 ## Summary

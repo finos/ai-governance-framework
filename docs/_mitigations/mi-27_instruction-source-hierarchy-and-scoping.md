@@ -17,6 +17,7 @@ mitigates:
 related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-25  # Skill/Plugin Integrity and Governance
+  - mi-26  # Risk-Tiered Approval and Consent Gate Hardening
   - mi-19  # Tool Chain Validation and Sanitization
 ---
 

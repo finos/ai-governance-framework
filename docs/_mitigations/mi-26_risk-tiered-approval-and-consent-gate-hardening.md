@@ -20,6 +20,7 @@ related_mitigations:
   - mi-4   # AI System Observability
   - mi-21  # Agent Decision Audit and Explainability
   - mi-25  # Skill/Plugin Integrity and Governance
+  - mi-27  # Instruction Source Hierarchy and Scoping
 ---
 
 ## Purpose

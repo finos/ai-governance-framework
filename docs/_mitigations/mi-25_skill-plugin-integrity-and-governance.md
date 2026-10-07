@@ -12,6 +12,7 @@ nist-sp-800-53r5_references:
   - cm-7   # CM-7 Least Functionality
 mitigates:
   - ri-30  # Skill/Plugin Supply Chain Compromise
+  - ri-32  # Third-Party Content Loaded as Agent Instructions
   - ri-8   # Tampering with the Foundational Model
   - ri-9   # Data Poisoning
 related_mitigations:
@@ -20,6 +21,7 @@ related_mitigations:
   - mi-18  # Agent Authority Least Privilege Framework
   - mi-15  # Using LLMs for Automated Evaluation (LLM-as-a-Judge)
   - mi-26  # Risk-Tiered Approval and Consent Gate Hardening
+  - mi-27  # Instruction Source Hierarchy and Scoping
 ---
 
 ## Purpose
