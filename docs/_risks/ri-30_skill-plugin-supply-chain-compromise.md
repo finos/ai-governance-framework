@@ -15,6 +15,7 @@ related_risks:
   - ri-10  # Prompt Injection
   - ri-25  # Tool Chain Manipulation and Injection
   - ri-26  # MCP Server Supply Chain Compromise
+  - ri-27  # Agent State Persistence Poisoning
   - ri-29  # Agent-Mediated Credential Discovery and Harvesting
 ---
 
