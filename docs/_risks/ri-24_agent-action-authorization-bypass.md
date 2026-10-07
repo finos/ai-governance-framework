@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: SEC
 owasp-llm_references:
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm03-2026  # LLM03:2026 Excessive Agency
 owasp-asi_references:
   - asi02-2026  # ASI02: Tool Misuse and Exploitation
   - asi03-2026  # ASI03: Identity and Privilege Abuse
@@ -81,5 +81,5 @@ The consequences of agent action authorization bypass can be severe for financia
 
 ## Links
 
-- [OWASP LLM06: Excessive Agency](https://genai.owasp.org/llmrisk/llm06-excessive-agency/)
+- [OWASP LLM03:2026 Excessive Agency](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md)
 - [FFIEC IT Handbook - Information Security](https://ithandbook.ffiec.gov/it-booklets/information-security.aspx)

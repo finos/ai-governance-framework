@@ -19,6 +19,7 @@ Schema rules (see docs/_data/references/README.md):
     Optional entry fields (must be strings if present):
       description
       issuer
+      superseded_by — must reference another entry key in the same file
 
 Files that do not conform cause the script to exit with a non-zero status,
 making it suitable for use as a pre-commit hook or CI step.
@@ -44,7 +45,7 @@ OPTIONAL_TOP_LEVEL = ["source_url"]
 KNOWN_TOP_LEVEL = set(REQUIRED_TOP_LEVEL + OPTIONAL_TOP_LEVEL + ["entries"])
 
 REQUIRED_ENTRY_FIELDS = ["title", "url"]
-OPTIONAL_ENTRY_FIELDS = ["description", "issuer", "booklet_abbrev"]
+OPTIONAL_ENTRY_FIELDS = ["description", "issuer", "booklet_abbrev", "superseded_by"]
 
 
 def validate_file(path):
@@ -107,6 +108,13 @@ def validate_file(path):
                 value = entry.get(field)
                 if value is not None and not isinstance(value, str):
                     errors.append(f"{prefix}: optional field '{field}' must be a string")
+
+            # superseded_by must point at an existing entry in this file
+            successor = entry.get("superseded_by")
+            if isinstance(successor, str) and successor not in entries:
+                errors.append(
+                    f"{prefix}: 'superseded_by' references unknown entry '{successor}'"
+                )
 
     return errors
 

@@ -5,7 +5,7 @@ layout: risk
 doc-status: Approved-Specification
 type: OP
 owasp-llm_references:
-  - llm09-2025  # LLM09:2025 Misinformation
+  - llm07-2026  # LLM07:2026 Misinformation
 ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - bcm-3  # BCM: III Risk Management

@@ -20,7 +20,7 @@ related_risks:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-6  # Non-Deterministic Behaviour
 owasp-llm_references:
-  - llm07-2025  # LLM07:2025 System Prompt Leakage
+  - llm08-2026  # LLM08:2026 Hidden Context Exposure
 owasp-asi_references:
   - asi10-2026  # ASI10: Rogue Agents
 owasp-ml_references:
