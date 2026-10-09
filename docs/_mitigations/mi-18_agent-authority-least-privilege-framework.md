@@ -146,27 +146,65 @@ Effective agent privilege management must address the dynamic and autonomous nat
 
 ### 7. OS and Runtime-Layer Enforcement
 
-Least privilege applied only at the API gateway and tool manager leaves a second invocation surface ungoverned: the operating system and runtime beneath the agent. Agents that can execute commands, spawn processes, or reach a shell can bypass gateway-level controls entirely, so enforce the same discipline one layer down. Command allow-listing constrains what an agent can execute, not what it can disclose: data returned by an allowed read command can still leave through any output or network channel the agent retains, so pair it with egress controls and data-leakage prevention ([MI-1](/mitigations/mi-1_ai-data-leakage-prevention-and-detection.html)).
-
-* **Deny-by-Default Command Allow-Listing**:
-  * Define the exact commands, arguments, and resolved file paths the agent may execute; deny everything not named as the resting state rather than as an exception.
-  * Execute allowed commands directly as a program plus argument list, never as a text line handed to a shell to interpret, so that shell chaining and substitution characters cannot rewrite the authorized command. Validate arguments against the authorized scope; complementary input sanitization for tool parameters is covered in [MI-19](/mitigations/mi-19_tool-chain-validation-and-sanitization.html).
-  * Do not allow-list executables that are themselves interpreters or subprocess launchers (shells, script runtimes, or commands with exec-style options) unless those capabilities are explicitly constrained; argument matching cannot see through a program that launches other programs.
-  * Pin allowed executables by version or hash and re-validate the allow-list whenever one changes; a new release can add options that launch other programs, which permissive argument patterns may admit, or change what an already-allowed option does.
-  * Resolve file paths before the authorization check to defeat path traversal, and ensure the object checked is the object used (for example, by operating on the opened file handle or resolving within a restricted namespace) so that symlink swaps between check and use cannot redirect a narrow grant.
+An agent that can execute commands or reach a shell bypasses gateway and tool-manager controls, so enforce least privilege one layer down, in the operating system and runtime beneath the agent. Command allow-listing constrains what an agent can execute, not what it can disclose; pair it with egress controls and data-leakage prevention ([MI-1](/mitigations/mi-1_ai-data-leakage-prevention-and-detection.html)).
 
 * **Enforcement Point Placement**:
-  * Place the enforcement point (an execution broker, privileged-command proxy, or OS-level mandatory access control) beneath the agent, where it mediates every invocation, resists tampering by the agent, and is small enough to review. These are the classic reference-monitor properties.
-  * Treat a policy held only in the agent's own context, such as an instruction in its prompt, as guidance rather than enforcement; the model can be induced to disregard it.
+  * Place the enforcement point (an execution broker or OS-level mandatory access control) beneath the agent, where it mediates every invocation and resists tampering. A policy held only in the agent's prompt is guidance, not enforcement.
+  * Deny the agent process the ability to start programs directly, so the broker is the only path to process creation, and have the operating system enforce the executable allow-list independently of the broker, failing closed if the OS mechanism is unavailable.
+  * Keep the broker small and memory-safe, with no shell inside it and a strict request schema, and launch each program with only the privileges, handles, and capabilities its entry grants. Security-review and penetration-test it.
+  * Treat a tool gate as enforcement only if the agent cannot alter, restart, or bypass it; an MCP server the agent spawns or configures is advisory ([MI-20](/mitigations/mi-20_mcp-server-security-governance.html)).
 
-* **Runtime Isolation**:
-  * Run agent processes inside restricted runtime environments so that even an allowed command executes within a bounded scope. Detailed isolation and sandboxing guidance is covered in [MI-22](/mitigations/mi-22_multi-agent-isolation-and-segmentation.html).
+* **Deny-by-Default Command Allow-Listing**:
+  * Express each entry as an absolute executable path plus an argument schema, never a command-name pattern, and deny everything not named.
+  * Execute allowed commands directly as a program plus argument list, never as a text line handed to a shell.
+  * Do not allow-list interpreters or subprocess launchers. Denying flags such as `-c` or `-e` is not enough, because a runtime also takes code from files, standard input, module paths, environment variables, and configuration. Run these as sandboxed jobs instead.
+  * Pin allowed executables by hash, or by a version verified against the opened file, on storage the agent cannot modify, and re-validate the allow-list whenever one changes; a new release can add options that launch other programs.
+  * Resolve file paths before the authorization check, and ensure the object checked is the object used, so path traversal and symlink swaps cannot redirect a narrow grant.
 
-* **Tool-Layer Alignment**:
-  * Apply the same deny-by-default model at the tool layer: MCP server tool allow-lists, agent-framework tool-permission scoping, and provider function-calling declarations should enumerate permitted operations rather than expose open-ended execution. Governance of the MCP server surface itself is covered in [MI-20](/mitigations/mi-20_mcp-server-security-governance.html).
+* **Argument Schema and Injection Defenses**:
+  * Classify every option and positional argument as fixed (a literal value), constrained (an enumerated set or strict pattern), or not permitted, and reject everything else, including alternate spellings the target's parser accepts.
+  * Validate the complete argument vector against how the pinned program parses it (order, repetition, precedence, subcommands, encodings), with adversarial conformance tests per executable version. Individually valid arguments can combine into a forbidden command.
+  * Validate argument values, not only their shape: bound file paths to an authorized root and network destinations to an authorized host list. `rm -rf ./build` and `rm -rf /` have the same shape.
+  * Pass each value as exactly one argument element, never concatenated or split on whitespace. Insert the end-of-options marker (`--`) before untrusted values where the target supports it, otherwise reject values beginning with `-`. Reject control characters and NUL bytes, and cap argument length and count.
+  * Exclude options that accept a program or script (`find -exec`, `tar --to-command`, `git -c core.pager=...`, `ssh -o ProxyCommand=...`) and indirection such as `@file` response files or options naming a configuration file, plugin, or hook. Tool-parameter sanitization is covered in [MI-19](/mitigations/mi-19_tool-chain-validation-and-sanitization.html).
 
-* **Deny-Event Monitoring**:
-  * Log every denied invocation with the agent's identity and raise it to security monitoring; the denial stream provides direct evidence of both control operation and attempted overreach.
+* **Execution Environment**:
+  * Build each command's environment from an allow-list rather than inheriting the agent's. Variables such as `PATH`, `LD_PRELOAD`, `PYTHONPATH`, and `GIT_SSH_COMMAND` change what code runs without changing the command line.
+  * Keep the policy and any configuration that drives allowed commands (build files, package manifests, version-control hooks, CI configuration) outside the agent's writable set or pinned by content.
+  * Run every invocation in a fixed working directory with resource limits, a timeout, no terminal, and standard input closed. Place it, before it starts, in a kernel-tracked group its descendants cannot leave, and terminate the group when a limit is reached.
+  * Let an allowed program start a child directly only when the child is inert: its executable plus the sandbox, credentials, and configuration it inherits bound its authority. A child whose behavior depends on its own arguments, configuration, or destinations (a shell, `ssh`, a compiler) goes back through the broker.
+
+* **Sandboxed Jobs**:
+  * Run general-purpose runtimes, builds, tests, and model-written code as sandboxed jobs: short-lived, default-deny network, no credentials, resource limits, an immutable toolchain, and a pinned workspace snapshot as input. The boundary is governed, not each command inside it. See [MI-22](/mitigations/mi-22_multi-agent-isolation-and-segmentation.html).
+  * Have a job produce a proposal, not an effect: its output (a diff, a test report) leaves as bounded, validated data, and applying it anywhere is a separate brokered action that can be reviewed or gated.
+
+* **Deny and Persistence Logging**: Log every denied invocation with the agent's identity, and log agent writes to persistence locations (hooks, scheduled tasks, service definitions, CI configuration) as distinct high-signal events, so later out-of-session execution can be traced back.
+
+#### Implementation Notes (Illustrative)
+
+Illustrative, non-normative, accurate as of the cited versions; verify against your pinned kernel, runtime, and tool versions. Example tools are listed under Additional Resources.
+
+* **Linux**:
+  * Landlock can grant the execute right to individual files or directory trees. It authorizes the file object, not its contents, so keep allowed files non-writable. Query the Landlock ABI at runtime and fail closed if it is unavailable.
+  * Apply Landlock and seccomp before the process creates threads, or use their thread-synchronization options; restrictions then pass to all descendants and cannot be removed.
+  * A seccomp filter sees only raw system-call arguments, so it cannot safely inspect the path or argument strings passed to `execve`. Use it to allow only the system calls a process needs, and enforce executable and argument policy elsewhere.
+  * `no_new_privs` stops executed programs from gaining privilege through setuid binaries or file capabilities. It does not drop privilege the process already holds; drop that separately.
+  * fapolicyd trust checks compare content hashes only with the `sha256` or `ima` integrity setting, though explicit hash rules always do; fs-verity or IMA appraisal enforce content integrity at execution time.
+  * Open the executable with `openat2` and the confinement flags you need (for example `RESOLVE_BENEATH` and `RESOLVE_NO_SYMLINKS`), then run that descriptor with `execveat(fd, "", ..., AT_EMPTY_PATH)`, so the object resolved is the object executed.
+  * `noexec` on agent-writable mounts is friction, not a boundary: an allowed interpreter can still read and run a script there, and copying code into executable memory (for example `memfd_create` with `execveat`) bypasses it.
+  * Track and terminate descendants with a cgroup; a process can leave its process group.
+* **Windows**:
+  * Use App Control for Business for the executable allow-list. The child-process creation policy is effective only for sandboxed processes such as AppContainer, and accessible process handles can bypass it; job-object process limits cap concurrency rather than allow-list.
+  * Create each process suspended, assign it to a job that forbids breakaway, then resume it, so every descendant can be tracked and terminated.
+  * A program receives one command-line string and parses it itself, so an argument list is safe only when serialized for that program's parser.
+  * Batch files (`.bat`, `.cmd`) are interpreted by `cmd.exe`, whose quoting rules language runtimes have mishandled ([CVE-2024-24576](https://nvd.nist.gov/vuln/detail/CVE-2024-24576), then bypassed via trailing spaces and periods in [CVE-2024-43402](https://nvd.nist.gov/vuln/detail/CVE-2024-43402)). Normalize paths, then refuse batch-file targets.
+* **macOS**:
+  * Endpoint Security lets an entitled security client approve or deny each execution (`AUTH_EXEC` events), but the client must answer before each event's deadline, so design for availability and fail-safe behavior.
+* **Argument parsing**:
+  * Whether a program accepts abbreviated long options (`--out` for `--output`) or attached option values (`-ofile`) depends on the program and version, which is why schemas are tested against the pinned binary. Without a shell, wildcards are literal unless the program expands them itself.
+* **Broker hardening**:
+  * Authenticate requests per task rather than per connection, and check the caller's kernel-reported identity (such as its cgroup or security label) rather than a reusable process ID.
+  * Rate-limit denials per session and keep denial messages terse: a retry loop is a search of the policy, and detailed denials teach an adversarial prompt its shape.
 
 ---
 
@@ -175,6 +213,7 @@ Least privilege applied only at the API gateway and tool manager leaves a second
 * **Dynamic Privilege Complexity**: Managing context-aware privileges requires sophisticated authorization engines and may introduce performance overhead.
 * **Agent Functionality Balance**: Overly restrictive privileges may limit agent effectiveness, requiring careful balance between security and functionality.
 * **Cross-System Integration**: Implementing consistent privilege enforcement across multiple APIs and systems requires significant integration effort.
+* **Limits of Execution Control**: Process-execution controls do not cover code that runs without starting a new program, such as just-in-time compilation, dynamic library loading, or in-process script loading by an allowed runtime. Dependency installation (`npm install`, `pip install`) runs third-party code by design, so perform it in a controlled build step rather than inside the agent's session.
 * **Regulatory Compliance**: Ensuring privilege frameworks comply with various financial regulations and audit requirements.
 
 ---
@@ -197,3 +236,17 @@ Implementing comprehensive agent authority least privilege frameworks provides c
 * [NIST SP 800-53 Rev. 5 - AC-6 Least Privilege](https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/control?version=5.1&number=AC-6)
 * [ISO 27001:2013 - A.9.1.2 Access to networks and network services](https://www.iso.org/standard/54534.html)
 * [FFIEC IT Handbook - Information Security](https://ithandbook.ffiec.gov/it-booklets/information-security.aspx)
+* Background for the section 7 approach
+    * [NIST SP 800-167: Guide to Application Whitelisting](https://csrc.nist.gov/pubs/sp/800/167/final): NIST guidance on deny-by-default control of which applications may execute, identified by attributes such as path, hash, and digital signature.
+    * [OWASP Top 10 for LLM Applications 2025, LLM06: Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/): names an extension meant to run one specific shell command that fails to prevent other commands as a core example of excessive functionality, and recommends minimizing agent extensions and their permissions.
+    * [OWASP Top 10 for Agentic Applications 2026, ASI05: Unexpected Code Execution](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/): covers agents that execute prompt-supplied shell commands or generated code in ways the operator did not intend, and recommends sandboxed execution, a version-controlled allowlist for auto-execution, and separating code generation from execution with validation gates.
+* Example implementation options for OS and runtime-layer enforcement (section 7). These are illustrative only, not endorsements or an exhaustive list.
+    * Restricting which commands an agent can execute
+        * [Landlock](https://docs.kernel.org/userspace-api/landlock.html): Linux unprivileged sandboxing; its execute right limits which files or directory trees a process and its children may run programs from.
+        * [fapolicyd](https://github.com/linux-application-whitelisting/fapolicyd): Linux policy daemon that allows or denies each program execution against ordered rules and trust data; content hashes are checked by explicit hash rules, or for trust checks when its integrity setting enables them.
+        * [App Control for Business](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/): Windows policy-based allow-listing of applications by signer, path or hash.
+        * [Endpoint Security](https://developer.apple.com/documentation/endpointsecurity): macOS framework through which an entitled security client can authorize or deny each process execution.
+    * Preventing injection through command arguments
+        * [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html): invoking programs with structured argument lists instead of shell strings, and validating arguments against an allow-list.
+        * [CWE-88: Argument Injection](https://cwe.mitre.org/data/definitions/88.html): how attacker-supplied arguments, such as option flags, change the behavior of an otherwise allowed command.
+        * [GTFOBins](https://gtfobins.github.io/) (Unix) and [LOLBAS](https://lolbas-project.github.io/) (Windows): catalogs of common binaries whose options can spawn shells, read or write files, or reach the network; useful for deciding which executables and options must never be allow-listed.
