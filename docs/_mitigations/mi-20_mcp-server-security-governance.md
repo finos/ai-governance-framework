@@ -13,7 +13,6 @@ nist-sp-800-53r5_references:
   - sr-5   # SR-5 Acquisition Strategies, Tools, And Methods
 atr_references:
   - ATR-2026-00010  # Malicious Content in MCP Tool Response
-  - ATR-2026-00095  # MCP Server Supply Chain Poisoning
 mitigates:
   - ri-26  # MCP Server Supply Chain Compromise
   - ri-8   # Tampering With the Foundational Model

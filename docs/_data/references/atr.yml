@@ -1,5 +1,5 @@
 title: "Agent Threat Rules (ATR)"
-description: "Open detection standard for AI agent threats, Apache-2.0 licensed. Rules map to MITRE ATLAS, OWASP LLM Top 10, OWASP Agentic AI Top 10, and NIST AI RMF."
+description: "Open detection rule format for AI agent threats, MIT licensed. Rules map to MITRE ATLAS, OWASP LLM Top 10, OWASP Agentic AI Top 10, and NIST AI RMF."
 source_url: "https://github.com/Agent-Threat-Rule/agent-threat-rules"
 
 entries:

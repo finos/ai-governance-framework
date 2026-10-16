@@ -8,7 +8,6 @@ owasp-asi_references:
   - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
 atr_references:
   - ATR-2026-00010  # Malicious Content in MCP Tool Response
-  - ATR-2026-00095  # MCP Server Supply Chain Poisoning
 related_risks:
   - ri-8  # Tampering With the Foundational Model
   - ri-9  # Data Poisoning
