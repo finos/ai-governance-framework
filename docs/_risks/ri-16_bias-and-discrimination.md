@@ -27,6 +27,17 @@ canada-regulations_references:
   # Tier 4 — operative anti-discrimination framework
   - on-hrc-s1              # Provincial human rights codes — equal treatment in services
   - chra-s3-s5             # CHRA ss. 3, 5 — federal anti-discrimination (federally regulated FIs only)
+us-regulations_references:
+  # AI-specific anti-discrimination statutes
+  - colorado-ai-act           # Duty of reasonable care against algorithmic discrimination in consequential decisions
+  - ca-cppa-admt              # ADMT regulations — significant decisions incl. financial/lending services
+  # Fair lending framework
+  - ecoa-reg-b                # Prohibits credit discrimination on protected bases
+  - cfpb-circular-2022-03     # Complex algorithms do not excuse adverse-action specificity
+  - cfpb-circular-2023-03     # Reasons must reflect the model's actual factors
+  - fcra-adverse-action       # Accuracy and adverse-action duties on consumer-report data
+  - ftc-act-s5-udap           # Unfairness authority over biased or harmful automated decisions
+  - treasury-ai-report-2024   # Flags fair-lending implications of AI adoption
 uk-regulations_references:
   # AI fairness and conduct expectations
   - fca-ai-approach-2024 # FCA AI approach flags fairness, accountability and consumer outcomes
