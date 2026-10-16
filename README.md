@@ -42,6 +42,7 @@ The project maintainers are
 - Asad Ateeque – NatWest @aateeque (https://github.com/aateeque)
 - Naresh Babu Deenadayalan - RBC @iamravanan (https://github.com/iamravanan)
 - Hugo Calderon - Citi @hugo-calderon (https://github.com/hugo-calderon)
+- Stefano Amorelli - Qonto @stefanoamorelli (https://github.com/stefanoamorelli)
 
 ## Frequently Asked Questions
 
