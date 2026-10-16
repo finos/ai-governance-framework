@@ -119,6 +119,11 @@ Effective agent privilege management must address the dynamic and autonomous nat
   * Implement alerting for agents attempting to access unauthorized resources or exceeding normal usage patterns.
   * Use behavioral analytics to identify potentially compromised agents.
 
+* **Independently Verifiable Enforcement Evidence**:
+  * Where an enforcement point sits beneath the agent (an execution broker, a sandbox runtime, or OS-level mandatory access control), have it record each invocation it mediates, allowed or denied, as a signed statement that names the agent identity, the requested operation, the decision, and the observed effect on the host.
+  * Sign with a key the agent process cannot read and write the record outside the agent's reach, so a compromised or misdirected agent cannot alter or suppress the evidence of what it attempted.
+  * Make the records checkable by a party other than the operator: publish the statement format and the verification key, and verify the records with a verifier that meets the Verifier Conformance requirement of [MI-21](/mitigations/mi-21_agent-decision-audit-and-explainability.html), so an auditor can confirm that a privilege boundary held, not only that it was configured.
+
 * **Regular Privilege Reviews**:
   * Conduct periodic reviews of agent privilege assignments to ensure they remain appropriate and necessary.
   * Remove or reduce privileges that are no longer required for agent functionality.
