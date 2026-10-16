@@ -1,0 +1,20 @@
+title: "Conformance Test Vectors"
+description: "Published test vectors for verifiers of signed audit evidence, each entry pinned to a release or a commit."
+source_url: "https://github.com/probityai/agent-evidence-vectors"
+
+entries:
+  # Signed decision receipts (draft-farley-acta-signed-receipts)
+  agent-evidence-vectors-receipt-signature:
+    title: "agent-evidence-vectors 0.13.0: receipt-signature corpus"
+    url: "https://github.com/probityai/agent-evidence-vectors/tree/v0.13.0/vectors-receipt-signature"
+    description: "Release 0.13.0 carries thirteen vectors for signed decision receipts under draft-farley-acta-signed-receipts-03: seven that a conformant verifier must refuse and six that it must accept, each with its expected verdict and, for a refusal, its failure code."
+
+  agent-evidence-vectors-package:
+    title: "agent-evidence-vectors 0.13.0 (PyPI)"
+    url: "https://pypi.org/project/agent-evidence-vectors/0.13.0/"
+    description: "The released package runs the receipt-signature corpus against a verifier and reports the verdict the verifier reached on each vector."
+
+  agent-governance-testvectors-verifier-vectors:
+    title: "agent-governance-testvectors: verifier vectors at 56801e3"
+    url: "https://github.com/ScopeBlind/agent-governance-testvectors/tree/56801e37a0c9e668626959a267ac8cfa02e8c27d/verifier-vectors"
+    description: "The suite holds fixed receipts and key sets for draft-farley-acta-signed-receipts, each with the outcome a verifier must reach, covering key validity windows, revocation, timeliness, and the signing input."
