@@ -44,7 +44,8 @@ uk-regulations_references:
   # Data protection and AI-specific privacy controls
   - uk-gdpr-dpa-2018 # UK GDPR/DPA safeguards for personal data sent to hosted models
   - ico-guidance-ai-data-protection # ICO AI guidance on controller accountability and security
-  - ico-ai-data-protection-toolkit # Toolkit prompts risk assessment of data leakage in AI systemsrelated_risks:
+  - ico-ai-data-protection-toolkit # Toolkit prompts risk assessment of data leakage in AI systems
+related_risks:
   - ri-2   # Information Leaked to Vector Store
   - ri-23  # Intellectual Property (IP) and Copyright
 iosco-supervisory-toolkit_references:
