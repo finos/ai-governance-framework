@@ -1,0 +1,2 @@
+# Pinned conformance suite for the MI-21 receipt verifier check.
+agent-evidence-vectors==0.24.0

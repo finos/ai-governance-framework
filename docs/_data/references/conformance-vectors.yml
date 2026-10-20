@@ -5,13 +5,13 @@ source_url: "https://github.com/probityai/agent-evidence-vectors"
 entries:
   # Signed decision receipts (draft-farley-acta-signed-receipts)
   agent-evidence-vectors-receipt-signature:
-    title: "agent-evidence-vectors 0.13.0: receipt-signature corpus"
-    url: "https://github.com/probityai/agent-evidence-vectors/tree/v0.13.0/vectors-receipt-signature"
-    description: "Release 0.13.0 carries thirteen vectors for signed decision receipts under draft-farley-acta-signed-receipts-03: seven that a conformant verifier must refuse and six that it must accept, each with its expected verdict and, for a refusal, its failure code."
+    title: "agent-evidence-vectors 0.24.0: receipt-signature corpus"
+    url: "https://github.com/probityai/agent-evidence-vectors/tree/v0.24.0/vectors-receipt-signature"
+    description: "Release 0.24.0 carries twenty-five vectors for signed decision receipts under draft-farley-acta-signed-receipts-03: eight that a conformant verifier must refuse, twelve that it must accept, three SHOULD cases with both declared verdicts, and two that mark rules the draft does not yet define. Each carries its expected verdict and, for a refusal, its failure code."
 
   agent-evidence-vectors-package:
-    title: "agent-evidence-vectors 0.13.0 (PyPI)"
-    url: "https://pypi.org/project/agent-evidence-vectors/0.13.0/"
+    title: "agent-evidence-vectors 0.24.0 (PyPI)"
+    url: "https://pypi.org/project/agent-evidence-vectors/0.24.0/"
     description: "The released package runs the receipt-signature corpus against a verifier and reports the verdict the verifier reached on each vector."
 
   agent-governance-testvectors-verifier-vectors:

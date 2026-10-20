@@ -18,10 +18,10 @@ def check(report):
     totals = report["totals"]
     if report["suite"] != "vectors-receipt-signature" or report["rail"] != "external":
         return "wrong suite or rail"
-    if (totals["vectors"] != 13 or totals["conform"] != 13
+    if (totals["vectors"] != 25 or totals["conform"] != 25
             or totals["fail"] or totals["suiteRefusals"]
-            or report["verifier"]["vectorsExecuted"] != 13):
-        return "external verifier did not pass all 13 vectors"
+            or report["verifier"]["vectorsExecuted"] != 25):
+        return "external verifier did not pass all 25 vectors"
 
     rows = {row["id"]: row for row in report["vectors"]}
     for case, (windows, no_windows) in CASES.items():
@@ -39,4 +39,4 @@ if __name__ == "__main__":
     if error:
         print(error, file=sys.stderr)
         sys.exit(1)
-    print("MI-21: external verifier passed 13 vectors, including the three pinned cases")
+    print("MI-21: external verifier passed 25 vectors, including the three pinned cases")
