@@ -9,6 +9,8 @@ owasp-llm_references:
   - llm06-2025  # LLM06:2025 Excessive Agency
 owasp-asi_references:
   - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
+canada-regulations_references:
+  - osfi-trb-2026-07-resilience-third-party  # third-party risk management covers AI usage
 related_risks:
   - ri-8   # Tampering with the Foundational Model
   - ri-9   # Data Poisoning

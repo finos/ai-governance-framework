@@ -8,6 +8,9 @@ owasp-asi_references:
   - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
 atr_references:
   - ATR-2026-00010  # Malicious Content in MCP Tool Response
+canada-regulations_references:
+  - osfi-trb-2026-07-development-change      # tools as controlled technology assets
+  - osfi-trb-2026-07-resilience-third-party  # third-party risk management covers AI usage
 related_risks:
   - ri-8  # Tampering With the Foundational Model
   - ri-9  # Data Poisoning

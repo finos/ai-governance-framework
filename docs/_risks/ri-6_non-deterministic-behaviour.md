@@ -13,6 +13,8 @@ eu-ai-act_references:
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s2-a14  # III.S2.A14: Human Oversight
+canada-regulations_references:
+  - osfi-trb-2026-07-development-change  # change management; rigorous testing including edge cases
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-14  # Inadequate System Alignment

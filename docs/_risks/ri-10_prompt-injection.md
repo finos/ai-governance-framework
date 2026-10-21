@@ -19,6 +19,9 @@ eu-ai-act_references:
   - c2-a5      # II.A5 Prohibited AI Practices
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s2-a14  # III.S2.A14: Human Oversight
+canada-regulations_references:
+  - osfi-trb-2026-07-integrity      # trusted inputs; monitor prompts and outputs
+  - osfi-trb-2026-07-cyber-ops      # prompt injection in threat modelling and adversarial testing; prompt monitoring
 atr_references:
   - ATR-2026-00010  # Malicious Content in MCP Tool Response (indirect prompt injection)
   - ATR-2026-00011  # Instruction Injection via Tool Output
