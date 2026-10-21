@@ -399,11 +399,12 @@ entries:
       (osfi-trb-2026-07-*) list the measures in each area.
 
   osfi-trb-2026-07-governance:
-    title: 'OSFI TRB (July 2026) Area 1: Enhance Governance and Strategic Accountability'
+    title: 'OSFI TRB (July 2026): Enhance Governance and Strategic Accountability'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
-      Linked by OSFI to B-13 principles 1 to 3. Measures institutions can consider: strengthen senior management
+      Linked by OSFI to B-13 principles 1 to 3, with a pointer to OSFI's Corporate Governance
+      Guideline. Measures institutions can consider: strengthen senior management
       literacy; align AI strategy with risk appetite, with clear escalation triggers;
       integrate AI risks into the enterprise risk management framework (cyber, technology,
       model and third-party risks); ensure robust oversight of AI-related third-party
@@ -411,7 +412,7 @@ entries:
       autonomy; implement AI harnessing alongside human oversight.
 
   osfi-trb-2026-07-integrity:
-    title: 'OSFI TRB (July 2026) Area 2: Maintain Information and Decision Integrity'
+    title: 'OSFI TRB (July 2026): Maintain Information and Decision Integrity'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -425,7 +426,7 @@ entries:
       monitor prompts and outputs to detect anomalies and policy violations early.
 
   osfi-trb-2026-07-development-change:
-    title: 'OSFI TRB (July 2026) Area 3: Controlled Software Development and Changes'
+    title: 'OSFI TRB (July 2026): Controlled Software Development and Changes'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -440,7 +441,7 @@ entries:
       conditions, including AI edge cases.
 
   osfi-trb-2026-07-agent-access:
-    title: 'OSFI TRB (July 2026) Area 4: Control AI Agent Autonomy and Access'
+    title: 'OSFI TRB (July 2026): Control AI Agent Autonomy and Access'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -451,7 +452,7 @@ entries:
       review agent activity and tool usage, with periodic access recertification.
 
   osfi-trb-2026-07-cyber-ops:
-    title: 'OSFI TRB (July 2026) Area 5: Embed AI into Cyber Security Operations'
+    title: 'OSFI TRB (July 2026): Embed AI into Cyber Security Operations'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -463,7 +464,7 @@ entries:
       develop and test AI-focused incident response playbooks.
 
   osfi-trb-2026-07-resilience-third-party:
-    title: 'OSFI TRB (July 2026) Area 6: Increase Resilience and Manage Third-Party Risk'
+    title: 'OSFI TRB (July 2026): Increase Resilience and Manage Third-Party Risk'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
