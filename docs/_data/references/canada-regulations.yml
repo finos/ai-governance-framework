@@ -380,7 +380,7 @@ entries:
   # OSFI Technology Risk Bulletin, July 2026: generative and agentic AI.
   # Sound practices institutions "can consider"; complements B-13, B-10 and E-21.
   # One parent entry plus one entry per bulletin area. Measures are summarized in
-  # page order; OSFI does not number them, the area numbers are the contributor's.
+  # page order; OSFI does not number them.
 
   osfi-trb-2026-07:
     title: 'OSFI Technology Risk Bulletin: Generative and Agentic AI (July 2026)'
