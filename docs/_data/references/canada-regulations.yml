@@ -393,13 +393,14 @@ entries:
       "institutions". Six areas, each introduced with "institutions can consider the
       following risk control and mitigation measures". Framed as sound practices
       institutions "can consider", complementing existing expectations under Guidelines
-      B-13, B-10, and E-21. OSFI maps each area to B-13 principles (and area 6 to E-21 and
-      B-10 outcome expectations 2 to 4). Area 1 also points to OSFI's Corporate Governance
-      Guideline; Area 2 points to Guideline E-23 for model risk. The area entries below
-      (osfi-trb-2026-07-*) list the measures in each area.
+      B-13, B-10, and E-21. OSFI maps each area to B-13 principles; the resilience and
+      third-party area also to E-21 and to B-10 outcome expectations 2 to 4. The governance
+      area also points to OSFI's Corporate Governance Guideline; the information and
+      decision integrity area points to Guideline E-23 for model risk. The area entries
+      below (osfi-trb-2026-07-*) list the measures in each area.
 
   osfi-trb-2026-07-governance:
-    title: 'OSFI TRB (July 2026): Enhance Governance and Strategic Accountability'
+    title: 'OSFI Technology Risk Bulletin (July 2026): Enhance Governance and Strategic Accountability'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -412,7 +413,7 @@ entries:
       autonomy; implement AI harnessing alongside human oversight.
 
   osfi-trb-2026-07-integrity:
-    title: 'OSFI TRB (July 2026): Maintain Information and Decision Integrity'
+    title: 'OSFI Technology Risk Bulletin (July 2026): Maintain Information and Decision Integrity'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -426,7 +427,7 @@ entries:
       monitor prompts and outputs to detect anomalies and policy violations early.
 
   osfi-trb-2026-07-development-change:
-    title: 'OSFI TRB (July 2026): Controlled Software Development and Changes'
+    title: 'OSFI Technology Risk Bulletin (July 2026): Controlled Software Development and Changes'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -441,7 +442,7 @@ entries:
       conditions, including AI edge cases.
 
   osfi-trb-2026-07-agent-access:
-    title: 'OSFI TRB (July 2026): Control AI Agent Autonomy and Access'
+    title: 'OSFI Technology Risk Bulletin (July 2026): Control AI Agent Autonomy and Access'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -452,7 +453,7 @@ entries:
       review agent activity and tool usage, with periodic access recertification.
 
   osfi-trb-2026-07-cyber-ops:
-    title: 'OSFI TRB (July 2026): Embed AI into Cyber Security Operations'
+    title: 'OSFI Technology Risk Bulletin (July 2026): Embed AI into Cyber Security Operations'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
@@ -464,7 +465,7 @@ entries:
       develop and test AI-focused incident response playbooks.
 
   osfi-trb-2026-07-resilience-third-party:
-    title: 'OSFI TRB (July 2026): Increase Resilience and Manage Third-Party Risk'
+    title: 'OSFI Technology Risk Bulletin (July 2026): Increase Resilience and Manage Third-Party Risk'
     url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
     issuer: OSFI
     description: >
