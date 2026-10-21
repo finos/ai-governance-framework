@@ -377,6 +377,109 @@ entries:
     issuer: OSFI
     description: 'Principles 14–17. Layered cyber controls across prevention, detection, response, and recovery.'
 
+  # OSFI Technology Risk Bulletin, July 2026: generative and agentic AI.
+  # Sound practices institutions "can consider"; complements B-13, B-10 and E-21.
+  # One parent entry plus one entry per bulletin area. Measures are summarized in
+  # page order; OSFI does not number them, the area numbers are the contributor's.
+
+  osfi-trb-2026-07:
+    title: 'OSFI Technology Risk Bulletin: Generative and Agentic AI (July 2026)'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      "Generative and Agentic Artificial Intelligence: Implications for Technology, Cyber
+      Security, and Operational Resilience" (July 2026; issued 2026-07-10 per the page metadata).
+      Issued by OSFI, the federal prudential regulator; the bulletin refers to
+      "institutions". Six areas, each introduced with "institutions can consider the
+      following risk control and mitigation measures". Framed as sound practices
+      institutions "can consider", complementing existing expectations under Guidelines
+      B-13, B-10, and E-21. OSFI maps each area to B-13 principles (and area 6 to E-21 and
+      B-10 outcome expectations 2 to 4). Area 1 also points to OSFI's Corporate Governance
+      Guideline; Area 2 points to Guideline E-23 for model risk. The area entries below
+      (osfi-trb-2026-07-*) list the measures in each area.
+
+  osfi-trb-2026-07-governance:
+    title: 'OSFI TRB (July 2026) Area 1: Enhance Governance and Strategic Accountability'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      Linked by OSFI to B-13 principles 1 to 3. Measures institutions can consider: strengthen senior management
+      literacy; align AI strategy with risk appetite, with clear escalation triggers;
+      integrate AI risks into the enterprise risk management framework (cyber, technology,
+      model and third-party risks); ensure robust oversight of AI-related third-party
+      dependencies; define ownership across the AI lifecycle and establish limits on
+      autonomy; implement AI harnessing alongside human oversight.
+
+  osfi-trb-2026-07-integrity:
+    title: 'OSFI TRB (July 2026) Area 2: Maintain Information and Decision Integrity'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      Linked by OSFI to B-13 principles 3, 4, 5, 14 and 15, with a pointer to E-23 for
+      model risk. Measures institutions can consider: apply data classification and provenance controls; restrict AI
+      inputs to trusted and approved data sources; prohibit sensitive data use in public or
+      unapproved AI tools; treat AI-generated outputs as inputs to decision-making rather
+      than definitive outcomes; ensure human oversight with accountability for material or
+      high-impact decisions, with auditable documentation of how AI outputs inform analysis
+      and final outcomes;
+      monitor prompts and outputs to detect anomalies and policy violations early.
+
+  osfi-trb-2026-07-development-change:
+    title: 'OSFI TRB (July 2026) Area 3: Controlled Software Development and Changes'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      Linked by OSFI to B-13 principles 6 to 9. Measures institutions can consider: use
+      trusted data sources to train AI models; validate AI-generated code for
+      vulnerabilities and secure-coding infractions before production; implement AI
+      harnessing and monitor AI agent actions; enforce approval checkpoints for high-risk
+      actions; treat AI components, including models, data, tools and agents, as
+      controlled technology assets; embed security controls across the AI lifecycle; apply
+      enterprise secure development and change management controls to AI components;
+      conduct rigorous testing of AI models and workloads under normal and stressed
+      conditions, including AI edge cases.
+
+  osfi-trb-2026-07-agent-access:
+    title: 'OSFI TRB (July 2026) Area 4: Control AI Agent Autonomy and Access'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      Linked by OSFI to B-13 principles 5, 8 and 14 to 16. Measures institutions can consider: assign unique
+      non-human identities, enforce least privilege, apply scoped permissions, and use
+      just-in-time access with short-lived credentials; restrict tool usage via allow-lists
+      and API gateways and apply approval checkpoints for high-impact actions; log and
+      review agent activity and tool usage, with periodic access recertification.
+
+  osfi-trb-2026-07-cyber-ops:
+    title: 'OSFI TRB (July 2026) Area 5: Embed AI into Cyber Security Operations'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      Linked by OSFI to B-13 principles 14 to 17. Measures institutions can consider:
+      incorporate AI misuse scenarios (such as prompt injection) into threat modelling and
+      adversarial testing; use AI, including advanced frontier models, to prioritize risks and accelerate patching; enhance
+      AI-behavioural anomaly detection, prompt monitoring, output filtering and adaptive
+      access; feed AI telemetry into existing security operations and monitoring tools;
+      develop and test AI-focused incident response playbooks.
+
+  osfi-trb-2026-07-resilience-third-party:
+    title: 'OSFI TRB (July 2026) Area 6: Increase Resilience and Manage Third-Party Risk'
+    url: https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/generative-agentic-artificial-intelligence-implications-technology-cyber-security-operational
+    issuer: OSFI
+    description: >
+      Linked by OSFI to E-21, B-13 principles 11 to 13 and B-10 outcome expectations 2, 3
+      and 4. Measures institutions can consider: map AI
+      responsibilities and dependencies (internal and external) to critical operations,
+      for visibility into concentration risk; test AI failure and outage scenarios and
+      establish manual fallbacks and continuity measures; assess portability and
+      substitutability of AI services and report material concentration risks to senior
+      management and boards; enhance third-party risk management programs to include
+      governance and management of risks arising from AI usage; enforce an obligation on
+      third parties to notify if and how they use AI to deliver services. Also, where AI
+      increases the probability and potential severity of a disruption: reflect the
+      heightened risk in business continuity and disaster recovery testing scenarios,
+      including third-party contingency plans.
+
   iosco-fr-02-2026:
     title: 'IOSCO Final Report FR/02/2026: Supervisory Toolkit for AI Use in Capital Markets (2026-05-25)'
     url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
