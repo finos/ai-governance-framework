@@ -20,6 +20,9 @@ permalink: /use-cases/
                 </a>
             </div>
         </div>
+        <div class="alert alert-warning mt-3 mb-0" role="alert">
+            <strong>🚧 Draft:</strong> This use case catalogue is under active development. Content, categories, and mappings may change.
+        </div>
     </div>
 </header>
 
