@@ -48,7 +48,7 @@ Unlike human users who are constrained by user interfaces and explicit permissio
   The agent's interpretation of its granted permissions may evolve during operation, potentially leading to broader access than originally intended. This "permission creep" can occur without explicit reconfiguration.
 
 * **Mandate Scope Mismatch**
-  An agent can pass checks on its credentials, API permissions, transaction limit, mandate expiration and revocation while its resolved action falls outside the client's mandate. For example, a mandate permits up to $10,000 in fixed-income products. A $5,000 equity purchase is outside its scope.
+  An agent can pass checks on its credentials, API permissions, transaction limit, mandate expiration and revocation while its resolved action falls outside the client's mandate. For example, a mandate permits up to $10,000 in fixed-income products only. A $5,000 equity purchase is outside its scope.
 
 * **Stale Authority at Execution**
   Authorization checked when an instruction is created or queued can be out of date when the instruction is released for execution. In the meantime the mandate can expire or be revoked, or other actions can consume an applicable shared limit.
