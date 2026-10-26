@@ -28,6 +28,10 @@ related_mitigations:
   - mi-16  # Preserving Source Data Access Controls in AI Systems
   - mi-6   # Data Quality & Classification/Sensitivity
   - mi-14  # Encryption of AI Data at Rest
+us-regulations_references:
+  - glba-safeguards           # Access controls and least privilege are enumerated safeguards
+  - hipaa-privacy-rule        # Minimum-necessary standard — RBAC as its enforcement mechanism
+  - nydfs-ai-cyber-letter     # Access controls and monitoring recommended for AI-exposed NPI
 iosco-supervisory-toolkit_references:
   - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
   - t3-4              # Table 3.4: Data Governance

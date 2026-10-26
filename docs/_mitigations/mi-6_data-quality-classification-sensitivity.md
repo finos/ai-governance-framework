@@ -39,6 +39,12 @@ related_mitigations:
   - mi-2   # Data Filtering From External Knowledge Bases
   - mi-12  # Role-Based Access Control for AI Data
   - mi-14  # Encryption of AI Data at Rest
+us-regulations_references:
+  - glba-safeguards           # Risk assessment and classification of NPI underpin the safeguards program
+  - hipaa-privacy-rule        # PHI as a mandatory sensitivity classification where health data enters scope
+  - hipaa-deidentification    # Safe Harbor / Expert Determination — the defined de-identification bar
+  - ccpa-cpra                 # Sensitive personal information as a statutory data category
+  - ca-cppa-admt              # Mandatory risk assessments for high-risk processing
 iosco-supervisory-toolkit_references:
   - t3-4  # Table 3.4: Data Governance
   - t3-6  # Table 3.6: AI Model Validation, Testing and Monitoring
