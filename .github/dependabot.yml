@@ -1,0 +1,7 @@
+version: 2
+updates:
+  # Opens a pull request when the pinned MI-21 conformance suite publishes a new release.
+  - package-ecosystem: "pip"
+    directory: "/.github/mi21"
+    schedule:
+      interval: "weekly"
