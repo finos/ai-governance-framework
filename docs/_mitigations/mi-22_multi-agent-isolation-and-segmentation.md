@@ -136,6 +136,7 @@ Effective multi-agent isolation requires comprehensive security boundaries acros
 
 * **Circuit Breaker Implementation**:
   * **Agent Circuit Breakers**: Implement circuit breakers to isolate failing agents and prevent cascade failures.
+  * **Collective and Systemic Exposure Circuit Breakers**: Because multiple individually compliant agents (for example across investment, treasury liquidity, and lending desks) can concurrently take actions that are locally valid yet collectively breach institution-wide concentration, counterparty, or intraday liquidity thresholds ([RI-28](/risks/ri-28_multi-agent-trust-boundary-violations.html)), enforce shared sliding-window aggregate circuit breakers across concurrent agent fleets. When aggregate exposure or outflow velocity approaches a systemic ceiling, fail closed by rolling back uncommitted in-flight reservations and requiring dual-control human governance review before resetting.
   * **Service Degradation**: Design systems to continue operating with reduced capabilities when individual agents fail.
   * **Automatic Recovery**: Implement automatic recovery procedures for failed agents without affecting other system components.
 

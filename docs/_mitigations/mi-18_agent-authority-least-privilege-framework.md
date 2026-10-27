@@ -206,6 +206,25 @@ Illustrative, non-normative, accurate as of the cited versions; verify against y
   * Authenticate requests per task rather than per connection, and check the caller's kernel-reported identity (such as its cgroup or security label) rather than a reusable process ID.
   * Rate-limit denials per session and keep denial messages terse: a retry loop is a search of the policy, and detailed denials teach an adversarial prompt its shape.
 
+### 8. Commitment-Time Mandate Freshness, Atomic Shared-Limit Reservation, and Cross-Institutional Delegation
+
+When agents execute multi-step workflows, operate concurrently against shared budgets, or delegate subtasks across organizational boundaries, static point-of-entry authorization checks are insufficient. Organizations should enforce three additional runtime invariants:
+
+* **Commitment-Time Mandate Re-Verification and Uncertain-Outcome Hold**:
+  * **Point-of-Commitment Evaluation**: Re-verify the resolved action parameters, remaining budget ceiling, and mandate revocation/expiry freshness immediately prior to committing any state-mutating tool call or financial transaction—not solely when the task was planned or queued.
+  * **Hold-and-Reconcile on Uncertain Prior Outcomes**: If a prior execution or settlement attempt returns an ambiguous, timed-out, or unconfirmed state, block automatic retry and transition the mandate reservation into a `hold-and-reconcile` or human escalation state until the prior outcome is deterministically resolved, preventing duplicate execution or double-spend.
+
+* **Two-Phase Atomic Shared-Limit Reservation and Monotonic Delegation Attenuation**:
+  * **Atomic Pre-Execution Reservation**: Where multiple concurrent agents or sub-agents draw from a shared mandate or desk limit, enforce two-phase atomic reservation (`reserve -> commit/release`) so parallel evaluations cannot simultaneously pass a limit check and collectively breach the cap.
+  * **Strict-Subset Delegation Attenuation**: Whenever a parent agent delegates a subtask to a child agent, issue a scoped sub-mandate whose permitted actions, asset/data domains, expiry window, and reserved budget ceiling are a strict mathematical subset of the parent's remaining unreserved authority, with an explicit maximum delegation hop depth.
+
+* **Cross-Institutional Mandate Verification (Worked Financial Services Example)**:
+  * **Scenario**: A client authorizes a family-office orchestrator agent to allocate up to `$5,000,000` across fixed-income instruments within a 24-hour window. The orchestrator subdivides the order across two external executing institutions (`Institution A` for `$3,000,000` and `Institution B` for `$2,000,000`) via specialized execution sub-agents.
+  * **Receiver-Side Verification Requirements**: Before executing an instruction received from an external agent, each receiving institution (`Institution A` and `Institution B`) should independently verify:
+    1. **Principal-to-Agent Mandate Chain**: Cryptographic proof linking the calling agent's identity back to the authorizing client or originating institution's root mandate.
+    2. **Sub-Mandate Allocation and Non-Overlap**: A signed sub-mandate or atomic reservation token confirming the specific slice allocated to that institution (e.g., `$3,000,000` for `Institution A`) and binding the instruction to a unique idempotency identifier so revised or re-routed plans cannot replay or exceed the client's `$5,000,000` aggregate cap.
+    3. **Commitment-Time Freshness and Local Policy**: That the root and delegated mandates remain unexpired and unrevoked at commitment time, and that the requested trade satisfies the receiving institution's own counterparty, market-conduct, and regulatory controls.
+
 ---
 
 ## Challenges and Considerations
