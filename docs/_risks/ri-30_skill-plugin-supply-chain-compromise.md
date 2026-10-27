@@ -5,8 +5,8 @@ layout: risk
 doc-status: Draft
 type: SEC
 owasp-llm_references:
-  - llm03-2025  # LLM03:2025 Supply Chain
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm03-2026  # LLM03:2026 Excessive Agency
+  - llm04-2026  # LLM04:2026 Supply Chain
 owasp-asi_references:
   - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
 related_risks:
