@@ -14,6 +14,10 @@ atr_references:
   - ATR-2026-00011  # Instruction Injection via Tool Output
   - ATR-2026-00012  # Unauthorized Tool Call
   - ATR-2026-00013  # Tool-Driven Server-Side Request Forgery
+canada-regulations_references:
+  - osfi-trb-2026-07-development-change  # monitor AI agent actions
+  - osfi-trb-2026-07-agent-access        # tool allow-lists and API gateways
+  - osfi-trb-2026-07-cyber-ops           # AI misuse scenarios in threat modelling
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass

@@ -31,6 +31,10 @@ canada-regulations_references:
   # Tier 3 benchmarks
   - osfi-e23-2027-p3-6     # OSFI E-23 Principle 3.6 — monitoring/decommission catches scope drift (FRFIs, 2027)
   - osfi-b-10              # OSFI B-10 — third-party risk management and concentration (FRFIs)
+  # OSFI Technology Risk Bulletin (July 2026)
+  - osfi-trb-2026-07-governance          # limits on autonomy; harnessing alongside human oversight
+  - osfi-trb-2026-07-integrity           # AI outputs as inputs to decisions, not definitive outcomes
+  - osfi-trb-2026-07-development-change  # approval checkpoints for high-risk actions
 uk-regulations_references:
   # Scope, accountability and consumer-outcome controls
   - fca-ai-approach-2024 # FCA AI approach frames safe and responsible adoption expectations
