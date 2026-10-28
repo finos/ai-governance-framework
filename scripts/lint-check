@@ -6,8 +6,8 @@
 # in the governance framework. It performs the following checks:
 #
 # 1. Filename Convention Validation:
-#    - Risk files: Must match pattern ^ri-.*\.md$ in docs/_risks/
-#    - Mitigation files: Must match pattern ^mi-.*\.md$ in docs/_mitigations/
+#    - Risk files: Must match pattern ^ri-[0-9]+\.md$ in docs/_risks/
+#    - Mitigation files: Must match pattern ^mi-[0-9]+\.md$ in docs/_mitigations/
 #
 # 2. YAML Front Matter Validation:
 #    - Checks that all files contain required YAML keys:
@@ -96,10 +96,10 @@ process_files() {
 
 
 risk_folder="$SCRIPT_DIR/../docs/_risks" 
-risk_filename_regex="^ri-.*\.md$"
+risk_filename_regex="^ri-[0-9]+\.md$"
 
 mitigation_folder="$SCRIPT_DIR/../docs/_mitigations"
-mitigation_filename_regex="^mi-.*\.md$" 
+mitigation_filename_regex="^mi-[0-9]+\.md$" 
 
 risk_check_success=0
 mitigation_check_success=0

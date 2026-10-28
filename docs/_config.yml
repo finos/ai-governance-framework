@@ -60,3 +60,7 @@ collections:
   usecases:
     output: true
     permalink: /usecase/:name/
+
+# Redirect old risk and mitigation addresses (with title slugs) to the new ones
+plugins:
+  - jekyll-redirect-from
