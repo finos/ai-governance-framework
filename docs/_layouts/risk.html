@@ -47,6 +47,8 @@ layout: default
         </div>
 
         <div class="col-lg-4">
+            {% include item-tags.html item=page kind="risk" %}
+
             {% if page.related_risks and page.related_risks.size > 0 %}
             <div class="card mb-4">
                 <div class="card-body">

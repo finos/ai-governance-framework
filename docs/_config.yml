@@ -12,6 +12,11 @@ mitigation_type_labels:
   PREV: Preventative
   DET: Detective
 
+# Front matter fields shown as tags on each risk and mitigation page.
+# Display names come from <risk|mitigation>_<field>_labels above, if that map exists.
+risk_tags: [type]
+mitigation_tags: [type]
+
 usecase_categories:
   - Customer_Experience_and_Engagement
   - Risk_Management_and_Compliance
