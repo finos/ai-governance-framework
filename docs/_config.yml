@@ -12,10 +12,30 @@ mitigation_type_labels:
   PREV: Preventative
   DET: Detective
 
+# Domains proposed in #398, in display order
+risk_domain_labels:
+  components: Components
+  inputs: Inputs
+  leakage: Leakage
+  accuracy: Accuracy
+  alignment: Alignment
+  agency: Agency
+  vendor: Vendor
+  liability: Liability
+
+mitigation_domain_labels:
+  sourcing: Sourcing
+  filtering: Filtering
+  data: Data
+  access: Access
+  evaluation: Evaluation
+  oversight: Oversight
+  monitoring: Monitoring
+
 # Front matter fields shown as tags on each risk and mitigation page.
 # Display names come from <risk|mitigation>_<field>_labels above, if that map exists.
-risk_tags: [type]
-mitigation_tags: [type]
+risk_tags: [type, domain]
+mitigation_tags: [type, domain]
 
 usecase_categories:
   - Customer_Experience_and_Engagement
