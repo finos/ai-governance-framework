@@ -3,12 +3,12 @@ title: FINOS AI Readiness - AI Governance Framework
 version: v2
 release-date: 2025-10-20
 
-risk_classification:
+risk_type_labels:
   RC: Regulatory and Compliance
   OP: Operational
   SEC: Security
 
-mitigation_classification:
+mitigation_type_labels:
   PREV: Preventative
   DET: Detective
 
