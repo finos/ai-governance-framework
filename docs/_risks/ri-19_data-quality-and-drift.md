@@ -4,6 +4,7 @@ title: Data Quality and Drift
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: accuracy
 nist-ai-600-1_references:
   - 2-8  # 2.8. Information Integrity
 ffiec-itbooklets_references:

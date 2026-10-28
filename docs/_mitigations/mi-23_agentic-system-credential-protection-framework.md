@@ -4,6 +4,7 @@ title: Agentic System Credential Protection Framework
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: access
 nist-sp-800-53r5_references:
   - ia-5   # IA-5 Authenticator Management
   - sc-28  # SC-28 Protection Of Information AT Rest

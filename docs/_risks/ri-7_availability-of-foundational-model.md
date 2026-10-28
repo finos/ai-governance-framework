@@ -4,6 +4,7 @@ title: Availability of Foundational Model
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: vendor
 owasp-llm_references:
   - llm06-2026  # LLM06:2026 Unbounded Consumption
 ffiec-itbooklets_references:

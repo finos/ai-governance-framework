@@ -4,6 +4,7 @@ title: Skill/Plugin Integrity and Governance
 layout: mitigation
 doc-status: Draft
 type: PREV
+domain: sourcing
 nist-sp-800-53r5_references:
   - sr-3   # SR-3 Supply Chain Controls and Processes
   - sr-4   # SR-4 Provenance

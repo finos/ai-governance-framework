@@ -4,6 +4,7 @@ title: Providing Citations and Source Traceability for AI-Generated Information
 layout: mitigation
 doc-status: Approved-Specification
 type: DET
+domain: oversight
 iso-42001_references:
   - A-8-2    # ISO 42001: System documentation and information for users
   - A-6-1-2  # ISO 42001: Objectives for responsible development of AI systems
