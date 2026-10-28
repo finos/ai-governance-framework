@@ -47,6 +47,12 @@ Unlike human users who are constrained by user interfaces and explicit permissio
 * **Dynamic Privilege Interpretation**
   The agent's interpretation of its granted permissions may evolve during operation, potentially leading to broader access than originally intended. This "permission creep" can occur without explicit reconfiguration.
 
+* **Stale Authority at Commitment Time and Uncertain Execution Outcomes**
+  In multi-step or asynchronous workflows, an agent action may be authorized when planned or queued, but by the time the commitment is actually executed the underlying mandate may have expired, been revoked, or had its budget exhausted by another concurrent action. Similarly, if a prior execution attempt returns an ambiguous or timed-out state, an agent that automatically retries without first reconciling the prior outcome can trigger duplicate settlement or exceed cumulative transaction limits.
+
+* **Cross-Institutional Delegation and Subdivided Task Drift**
+  When an agent acting on behalf of a client subdivides an authorized objective across multiple sub-agents or external financial institutions, each receiving institution may verify local authentication and apply its own point-in-time checks, yet the combined or revised actions across institutions can drift outside the client's original aggregate mandate if delegated sub-mandates are not cryptographically bound and budget-attenuated against the root authorization.
+
 ### Financial Services Impact Scenarios
 
 * **Payment and Transfer Systems**

@@ -50,6 +50,9 @@ The fundamental challenge lies in balancing the operational need for agent coord
 * **Cascade Failure Propagation**
   Failures or compromises in one agent cause cascading failures in dependent agents, potentially bringing down entire business processes or decision-making chains.
 
+* **Emergent Collective and Systemic Risk from Individually Compliant Agents**
+  Even when no agent is compromised and every individual agent operates strictly within its assigned permissions, mandate scope, and per-agent risk limits, concurrent autonomous decisions across independent agents can interact to breach institution-wide risk tolerances. Because agentic workflows execute at machine speed across shared balance-sheet, liquidity, or counterparty boundaries, correlated responses to common market signals can accumulate unacceptable sector concentration or rapid intraday liquidity drawdowns before periodic or end-of-day enterprise risk aggregation detects the aggregate exposure.
+
 ### Financial Services Multi-Agent Scenarios
 
 * **Customer Service to Risk Assessment Cascade**
@@ -66,6 +69,9 @@ The fundamental challenge lies in balancing the operational need for agent coord
 
 * **Customer Verification to Account Management**
   A compromised customer verification agent provides false identity confirmations that enable account management agents to perform unauthorized actions on customer accounts.
+
+* **Uncoordinated Multi-Desk Concentration and Intraday Liquidity Depletion**
+  A bank deploys separate autonomous agents across investment management, treasury liquidity, and commercial lending. Each agent remains fully compliant with its local mandate and desk limit, but in response to the same macro event all three simultaneously increase exposure to the same industry sector or draw against shared intraday liquidity buffers, creating an unapproved aggregate concentration or systemic liquidity squeeze across the institution.
 
 ### Attack Propagation Patterns
 
