@@ -86,6 +86,7 @@ All reference types are displayed as separate cards in the risk layout sidebar.
 
 - Risks and mitigations are grouped by their `type` attribute and
   sorted by their `sequence` attribute in the index pages.
+- The front page has a "Group by" switch. "Domain" regroups both catalogues by the `domain` attribute, in the order of `risk_domain_labels` and `mitigation_domain_labels`, with icons from `risk_domain_icons` and `mitigation_domain_icons` in `_config.yml`. `?groupby=domain` in the URL opens the page in that view.
 
 ## Tags
 

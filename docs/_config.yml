@@ -32,6 +32,26 @@ mitigation_domain_labels:
   oversight: Oversight
   monitoring: Monitoring
 
+# Bootstrap Icons for the domain headings on the front page
+risk_domain_icons:
+  components: bi-boxes
+  inputs: bi-box-arrow-in-right
+  leakage: bi-droplet
+  accuracy: bi-bullseye
+  alignment: bi-compass
+  agency: bi-robot
+  vendor: bi-building
+  liability: bi-briefcase
+
+mitigation_domain_icons:
+  sourcing: bi-box-seam
+  filtering: bi-funnel
+  data: bi-database
+  access: bi-key
+  evaluation: bi-clipboard-check
+  oversight: bi-person-check
+  monitoring: bi-activity
+
 # Front matter fields shown as tags on each risk and mitigation page.
 # Display names come from <risk|mitigation>_<field>_labels above, if that map exists.
 risk_tags: [type, domain]
