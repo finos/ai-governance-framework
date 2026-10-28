@@ -25,7 +25,7 @@ Each reference file has one lens. The lens says which question the standard answ
 | `obligation` | Which rule requires me to address it? | EU AI Act, FFIEC, IOSCO, Canada, UK, SR 11-7 |
 | `control` | How do I implement and evidence it? | NIST SP 800-53, ISO/IEC 42001 |
 
-Risk and mitigation pages group their references by lens. Display names and order come from `reference_lens_labels` in `_config.yml`.
+Risk and mitigation pages group their references by lens. Display names, questions, icons, colours and order come from `reference_lenses` in `_config.yml`.
 
 ### Entry fields
 

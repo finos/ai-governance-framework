@@ -52,6 +52,26 @@ ffiec_itbooklet_abbreviations:
   supervision-of-technology-service-providers: tsp
   wholesale-payment-systems: wps
 
+# Display name, question, icon, colour and order for the lens of each
+# reference file (see docs/_data/references/README.md).
+# color is a Bootstrap theme colour; icon is a Bootstrap Icons class.
+reference_lenses:
+  threat:
+    label: Threat
+    question: What is this called elsewhere?
+    icon: bi-exclamation-triangle
+    color: primary
+  obligation:
+    label: Obligation
+    question: Which rule requires me to address it?
+    icon: bi-bank
+    color: dark
+  control:
+    label: Control
+    question: How do I implement and evidence it?
+    icon: bi-shield-check
+    color: success
+
 collections:
   risks:
     output: true
