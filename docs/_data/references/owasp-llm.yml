@@ -1,6 +1,7 @@
 title: "OWASP LLM Top 10"
 description: "The ten most critical security risks for applications built on large language models, published by OWASP."
 source_url: "https://genai.owasp.org/"
+lens: threat
 
 entries:
   # 2026 edition (current)

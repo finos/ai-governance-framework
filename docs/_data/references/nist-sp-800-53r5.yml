@@ -1,6 +1,7 @@
 title: "NIST SP 800-53 Rev 5"
 description: "NIST's catalogue of security and privacy controls for information systems and organisations."
 source_url: "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf"
+lens: control
 
 entries:
   ac-1:

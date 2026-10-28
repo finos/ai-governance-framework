@@ -1,6 +1,7 @@
 title: "SR 11-7: Model Risk Management"
 description: "Federal Reserve and OCC supervisory guidance on model risk management, covering development, validation, and governance of models."
 source_url: "https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm"
+lens: obligation
 
 entries:
   overview:

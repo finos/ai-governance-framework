@@ -1,6 +1,7 @@
 title: "OWASP Top 10 for Agentic Applications"
 description: "The ten most critical security risks for agentic AI applications, published by the OWASP Gen AI Security Project — Agentic Security Initiative (2026 edition)."
 source_url: "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+lens: threat
 
 entries:
   asi01-2026:

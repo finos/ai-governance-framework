@@ -1,6 +1,7 @@
 title: "IOSCO Supervisory Toolkit for AI Use in Capital Markets"
 description: "IOSCO's supervisory toolkit (FR/02/2026) providing structured assessment tables for AI governance, third-party risk, disclosure, and recordkeeping in capital markets."
 source_url: "https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf"
+lens: obligation
 
 entries:
   # Box 3: Measures from the 2021 IOSCO AI Report (cross-referenced in Table 2)
