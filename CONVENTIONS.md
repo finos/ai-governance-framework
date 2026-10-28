@@ -41,9 +41,10 @@ related_mitigations:
 ```
 
 ## Numbering Convention
-- The `risk-id.html` and `mitigation-id.html` templates enforce a numbering convention where risks and mitigations are prefixed with `AIR-*`.
-  - For risks, the numbering follows the format `AIR-<risk_type>-<number>`.
-  - For mitigations, the numbering follows the format `AIR-<mitigation_type>-<number>`.
+- The `risk-id.html` and `mitigation-id.html` templates show each item's ID from its `sequence`, padded to two digits.
+  - Risks use the format `RI-<NN>`, for example `RI-04` for `ri-4_*.md`.
+  - Mitigations use the format `MI-<NN>`, for example `MI-10` for `mi-10_*.md`.
+- The ID does not include the type. The type is shown by the group that the item appears in. New tags for grouping risks and mitigations, and lenses for references, are expected to be added as separate fields (see [#398](https://github.com/finos/ai-governance-framework/issues/398) and [#426](https://github.com/finos/ai-governance-framework/issues/426)), so the ID does not need to change again.
 
 Risk and Mitigation types are defined in `_config.yml`.
 
@@ -87,7 +88,7 @@ All reference types are displayed as separate cards in the risk layout sidebar.
   sorted by their `sequence` attribute in the index pages.
 
 ## Templates
-- The `_includes/risk-id.html` and `_includes/mitigation-id.html` templates dynamically generate the `AIR-*` identifiers based on the file's metadata.
+- The `_includes/risk-id.html` and `_includes/mitigation-id.html` templates generate the `RI-<NN>` and `MI-<NN>` identifiers from the file's `sequence`.
 - The `_layouts/risk.html` and `_layouts/mitigation.html` templates format the `_risks/ri-*.md`  and `_mitigations/mi-*.md` as HTML, including backlinks.
 
 ## Local Development

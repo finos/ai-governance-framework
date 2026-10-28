@@ -1,2 +1,2 @@
-{% assign padded_number = "00" | append: include.risk.sequence | slice: -3, 3 %}
-AIR-{{ include.risk.type }}-{{ padded_number }}
+{% assign padded_number = "0" | append: include.risk.sequence | slice: -2, 2 %}
+RI-{{ padded_number }}
