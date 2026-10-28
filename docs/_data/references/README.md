@@ -13,6 +13,19 @@ This directory contains YAML files defining external regulatory references and f
 | `title` | Yes | Full name of the regulation, framework, or standard |
 | `description` | Yes | One or two sentence description of scope and purpose |
 | `source_url` | No | URL this file was generated from, or a canonical index page |
+| `lens` | Yes | What the reference tells a reader about an item: `threat`, `obligation` or `control` (see below) |
+
+### Lens
+
+Each reference file has one lens. The lens says which question the standard answers for a risk or mitigation ([#426](https://github.com/finos/ai-governance-framework/issues/426)):
+
+| Lens | Question it answers | Standards |
+|------|---------------------|-----------|
+| `threat` | What is this called elsewhere? | OWASP LLM / ML / ASI, ATR, NIST AI 600-1 |
+| `obligation` | Which rule requires me to address it? | EU AI Act, FFIEC, IOSCO, Canada, UK, SR 11-7 |
+| `control` | How do I implement and evidence it? | NIST SP 800-53, ISO/IEC 42001 |
+
+Risk and mitigation pages group their references by lens. Display names and order come from `reference_lens_labels` in `_config.yml`.
 
 ### Entry fields
 
