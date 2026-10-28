@@ -4,6 +4,7 @@ title: Non-Deterministic Behaviour
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: accuracy
 owasp-llm_references:
   - llm07-2026  # LLM07:2026 Misinformation
 ffiec-itbooklets_references:

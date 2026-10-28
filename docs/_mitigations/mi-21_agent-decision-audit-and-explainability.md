@@ -4,6 +4,7 @@ title: Agent Decision Audit and Explainability
 layout: mitigation
 doc-status: Approved-Specification
 type: DET
+domain: monitoring
 iso-42001_references:
   - A-8-3    # ISO 42001: External reporting
   - A-6-2-6  # ISO 42001: AI system operation and monitoring

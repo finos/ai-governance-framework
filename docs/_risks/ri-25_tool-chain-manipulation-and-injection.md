@@ -4,6 +4,7 @@ title: Tool Chain Manipulation and Injection
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: inputs
 owasp-llm_references:
   - llm01-2026  # LLM01:2026 Prompt Injection
 owasp-asi_references:

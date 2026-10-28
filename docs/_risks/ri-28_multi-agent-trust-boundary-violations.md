@@ -4,6 +4,7 @@ title: Multi-Agent Trust Boundary Violations
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: agency
 owasp-asi_references:
   - asi07-2026  # ASI07: Insecure Inter-Agent Communication
   - asi08-2026  # ASI08: Cascading Failures

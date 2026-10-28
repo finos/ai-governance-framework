@@ -4,6 +4,7 @@ title: Agent Authority Least Privilege Framework
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: access
 iso-42001_references:
   - A-9-2    # ISO 42001: Processes for responsible use of AI systems
   - A-6-2-6  # ISO 42001: AI system operation and monitoring

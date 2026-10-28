@@ -4,6 +4,7 @@ title: Legal and Contractual Frameworks for AI Systems
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: sourcing
 iso-42001_references:
   - A-2-3   # ISO 42001: Alignment with other organizational policies
   - A-10-2  # ISO 42001: Allocating responsibilities

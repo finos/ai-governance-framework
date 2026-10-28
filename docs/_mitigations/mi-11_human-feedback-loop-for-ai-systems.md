@@ -4,6 +4,7 @@ title: Human Feedback Loop for AI Systems
 layout: mitigation
 doc-status: Approved-Specification
 type: DET
+domain: oversight
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-8-2    # ISO 42001: System documentation and information for users

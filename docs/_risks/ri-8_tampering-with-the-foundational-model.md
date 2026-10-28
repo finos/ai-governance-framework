@@ -4,6 +4,7 @@ title: Tampering With the Foundational Model
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: components
 owasp-llm_references:
   - llm04-2026  # LLM04:2026 Supply Chain
 owasp-ml_references:
