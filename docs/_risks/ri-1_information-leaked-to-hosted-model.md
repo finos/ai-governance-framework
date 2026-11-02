@@ -4,6 +4,7 @@ title: Information Leaked To Hosted Model
 layout: risk
 doc-status: Approved-Specification
 type: RC
+domain: leakage
 owasp-llm_references:
   - llm02-2026  # LLM02:2026 Sensitive Information Disclosure
 nist-ai-600-1_references:

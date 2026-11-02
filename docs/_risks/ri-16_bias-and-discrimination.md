@@ -4,6 +4,7 @@ title: Bias and Discrimination
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: alignment
 nist-ai-600-1_references:
   - 2-6  # 2.6. Harmful Bias and Homogenization
 ffiec-itbooklets_references:

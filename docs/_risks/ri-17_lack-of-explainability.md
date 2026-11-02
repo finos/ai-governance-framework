@@ -4,6 +4,7 @@ title: Lack of Explainability
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: alignment
 ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing

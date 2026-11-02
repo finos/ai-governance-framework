@@ -4,6 +4,7 @@ title: MCP Server Supply Chain Compromise
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: components
 owasp-asi_references:
   - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
 atr_references:

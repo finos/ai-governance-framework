@@ -4,6 +4,7 @@ title: Data Poisoning
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: inputs
 owasp-llm_references:
   - llm04-2026  # LLM04:2026 Supply Chain
   - llm05-2026  # LLM05:2026 Data and Model Poisoning

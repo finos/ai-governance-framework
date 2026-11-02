@@ -4,6 +4,7 @@ title: AI Model Version Pinning
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: sourcing
 iso-42001_references:
   - A-6-2-3  # ISO 42001: Documentation of AI system design and development
   - A-6-2-5  # ISO 42001: AI system deployment

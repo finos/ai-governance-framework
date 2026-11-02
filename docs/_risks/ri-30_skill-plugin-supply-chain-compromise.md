@@ -4,6 +4,7 @@ title: Skill/Plugin Supply Chain Compromise
 layout: risk
 doc-status: Draft
 type: SEC
+domain: components
 owasp-llm_references:
   - llm03-2025  # LLM03:2025 Supply Chain
   - llm06-2025  # LLM06:2025 Excessive Agency

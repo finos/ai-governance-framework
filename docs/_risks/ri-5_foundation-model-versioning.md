@@ -4,6 +4,7 @@ title: Foundation Model Versioning
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: vendor
 related_risks:
   - ri-7  # Availability of Foundational Model
   - ri-8  # Tampering With the Foundational Model

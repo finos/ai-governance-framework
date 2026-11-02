@@ -4,6 +4,7 @@ title: Encryption of AI Data at Rest
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: data
 iso-42001_references:
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system
 nist-sp-800-53r5_references:

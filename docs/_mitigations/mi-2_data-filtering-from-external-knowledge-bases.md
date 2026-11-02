@@ -4,6 +4,7 @@ title: Data Filtering From External Knowledge Bases
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: filtering
 iso-42001_references:
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system
   - A-7-3  # ISO 42001: Acquisition of data

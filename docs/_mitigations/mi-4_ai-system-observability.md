@@ -4,6 +4,7 @@ title: AI System Observability
 layout: mitigation
 doc-status: Approved-Specification
 type: DET
+domain: monitoring
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-6-2-8  # ISO 42001: AI system recording of event logs

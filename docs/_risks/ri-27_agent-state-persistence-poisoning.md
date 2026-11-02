@@ -4,6 +4,7 @@ title: Agent State Persistence Poisoning
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: inputs
 owasp-asi_references:
   - asi06-2026  # ASI06: Memory & Context Poisoning
 atr_references:

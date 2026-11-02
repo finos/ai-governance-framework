@@ -90,6 +90,17 @@
     </div>
 </div>
 
+<!-- Group-by switch -->
+<div class="d-flex justify-content-end align-items-center mb-3" id="groupByControl">
+    <span class="small text-muted me-2">Group by</span>
+    <div class="btn-group btn-group-sm" role="group" aria-label="Group the catalogues by">
+        <input type="radio" class="btn-check" name="groupBy" id="groupByType" value="type" autocomplete="off" checked>
+        <label class="btn btn-outline-secondary" for="groupByType">Type</label>
+        <input type="radio" class="btn-check" name="groupBy" id="groupByDomain" value="domain" autocomplete="off">
+        <label class="btn btn-outline-secondary" for="groupByDomain">Domain</label>
+    </div>
+</div>
+
 <!-- Main Catalogue Cards -->
 <div class="row mb-5" id="catalogueRow">
     <div class="col-md-6">
@@ -108,6 +119,7 @@
                 <div class="card-body">
                     <p class="text-muted mb-4">Identify potential risks in your AI implementation across operational, security, and regulatory dimensions.</p>
                     
+                    <div class="catalogue-view" data-view="type">
                     {% for order in page.risk_order %}
                       {% assign risk_group = site.risks | group_by: "type" | where: "name", order | first %}
                       {% if risk_group %}
@@ -128,7 +140,7 @@
                           <div class="row g-2" data-category="{{ order }}" data-type="risk">
                               {% assign sorted_risks = risk_group.items | sort: "sequence" %}
                               {% for risk in sorted_risks %}
-                              <div class="col-12 risk-item" data-title="{{ risk.title | downcase }}" data-content="{{ risk.content | strip_html | strip_newlines | downcase | escape_once }}">
+                              <div class="col-12 risk-item" data-type-key="{{ risk.type }}" data-domain="{{ risk.domain }}" data-sequence="{{ risk.sequence }}" data-title="{{ risk.title | downcase }}" data-content="{{ risk.content | strip_html | strip_newlines | downcase | escape_once }}">
                                   <div class="card border-start border-primary border-3 h-100 card-hover" onclick="window.location.href='{{ risk.id }}.html'" style="cursor: pointer;">
                                       <div class="card-body py-2">
                                           <div class="d-flex justify-content-between align-items-start">
@@ -165,6 +177,24 @@
                       </div>
                       {% endif %}
                     {% endfor %}
+                    </div>
+
+                    <div class="catalogue-view" data-view="domain" style="display: none;">
+                    {% for domain in site.risk_domain_labels %}
+                      {% assign members = site.risks | where: "domain", domain[0] %}
+                      {% if members.size > 0 %}
+                      <div class="mb-4">
+                          <div class="d-flex justify-content-between align-items-center mb-2">
+                              <h3 class="h5 mb-0 text-primary">
+                                  <i class="bi {{ site.risk_domain_icons[domain[0]] | default: 'bi-collection' }} me-2"></i>{{ domain[1] }}
+                              </h3>
+                              <span class="badge bg-primary">{{ members.size }} risks</span>
+                          </div>
+                          <div class="row g-2" data-category="{{ domain[0] }}" data-type="risk"></div>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,6 +216,7 @@
                 <div class="card-body">
                     <p class="text-muted mb-4">Discover preventative and detective controls to mitigate identified risks in your AI systems.</p>
                     
+                    <div class="catalogue-view" data-view="type">
                     {% for order in page.mitigation_order %}
                       {% assign mitigation_group = site.mitigations | group_by: "type" | where: "name", order | first %}
                       {% if mitigation_group %}
@@ -204,7 +235,7 @@
                           <div class="row g-2" data-category="{{ order }}" data-type="mitigation">
                               {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
                               {% for mitigation in sorted_mitigations %}
-                              <div class="col-12 mitigation-item" data-title="{{ mitigation.title | downcase }}" data-content="{{ mitigation.content | strip_html | strip_newlines | downcase | escape_once }}">
+                              <div class="col-12 mitigation-item" data-type-key="{{ mitigation.type }}" data-domain="{{ mitigation.domain }}" data-sequence="{{ mitigation.sequence }}" data-title="{{ mitigation.title | downcase }}" data-content="{{ mitigation.content | strip_html | strip_newlines | downcase | escape_once }}">
                                   <div class="card border-start border-success border-3 h-100 card-hover" onclick="window.location.href='{{ mitigation.id }}.html'" style="cursor: pointer;">
                                       <div class="card-body py-2">
                                           <div class="d-flex justify-content-between align-items-start">
@@ -246,6 +277,24 @@
                       </div>
                       {% endif %}
                     {% endfor %}
+                    </div>
+
+                    <div class="catalogue-view" data-view="domain" style="display: none;">
+                    {% for domain in site.mitigation_domain_labels %}
+                      {% assign members = site.mitigations | where: "domain", domain[0] %}
+                      {% if members.size > 0 %}
+                      <div class="mb-4">
+                          <div class="d-flex justify-content-between align-items-center mb-2">
+                              <h3 class="h5 mb-0 text-success">
+                                  <i class="bi {{ site.mitigation_domain_icons[domain[0]] | default: 'bi-collection' }} me-2"></i>{{ domain[1] }}
+                              </h3>
+                              <span class="badge bg-success">{{ members.size }} mitigations</span>
+                          </div>
+                          <div class="row g-2" data-category="{{ domain[0] }}" data-type="mitigation"></div>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -358,8 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll(`.${type}-item`).forEach(item => {
                 const title = item.getAttribute('data-title') || '';
                 const content = item.getAttribute('data-content') || '';
-                const parentSection = item.closest('[data-category]');
-                const itemCategory = parentSection?.getAttribute('data-category') || '';
+                const itemCategory = item.getAttribute('data-type-key') || '';
                 
                 const matchesSearch = !searchTerm || title.includes(searchTerm) || content.includes(searchTerm);
                 const matchesType = !selectedType || selectedType === type;
@@ -381,12 +429,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update category section visibility and badges
         document.querySelectorAll('[data-category]').forEach(section => {
-            const categoryType = section.getAttribute('data-category');
             const sectionType = section.getAttribute('data-type');
             const visibleItems = section.querySelectorAll(`.${sectionType}-item:not([style*="display: none"])`);
             
-            const shouldShow = (!selectedType || selectedType === sectionType) && 
-                             (selectedCategories.length === 0 || selectedCategories.includes(categoryType)) &&
+            const shouldShow = (!selectedType || selectedType === sectionType) &&
                              visibleItems.length > 0;
             
             const container = section.closest('.mb-4');
@@ -529,6 +575,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Move each item into the section for the chosen grouping, in sequence order
+    function setGroupBy(mode) {
+        [['risk', riskCatalogue], ['mitigation', mitigationCatalogue]].forEach(([type, catalogue]) => {
+            const items = Array.from(catalogue.querySelectorAll(`.${type}-item`))
+                .sort((a, b) => Number(a.dataset.sequence) - Number(b.dataset.sequence));
+            items.forEach(item => {
+                const key = mode === 'domain' ? item.dataset.domain : item.dataset.typeKey;
+                const target = catalogue.querySelector(`.catalogue-view[data-view="${mode}"] [data-category="${key}"]`);
+                if (target) target.appendChild(item);
+            });
+            catalogue.querySelectorAll('.catalogue-view').forEach(view => {
+                view.style.display = view.dataset.view === mode ? '' : 'none';
+            });
+        });
+
+        document.getElementById(mode === 'domain' ? 'groupByDomain' : 'groupByType').checked = true;
+
+        const url = new URL(window.location);
+        if (mode === 'domain') {
+            url.searchParams.set('groupby', 'domain');
+        } else {
+            url.searchParams.delete('groupby');
+        }
+        history.replaceState(null, '', url);
+
+        filterItems();
+    }
+
+    document.querySelectorAll('input[name="groupBy"]').forEach(radio => {
+        radio.addEventListener('change', () => setGroupBy(radio.value));
+    });
+
     // Event listeners
     searchInput.addEventListener('input', filterItems);
     typeFilter.addEventListener('change', function() {
@@ -546,7 +624,11 @@ document.addEventListener('DOMContentLoaded', function() {
         checkbox.addEventListener('change', filterItems);
     });
     
-    // Initial filter to set up counts on page load
-    filterItems();
+    // Initial grouping and filter to set up counts on page load
+    if (new URLSearchParams(window.location.search).get('groupby') === 'domain') {
+        setGroupBy('domain');
+    } else {
+        filterItems();
+    }
 });
 </script>

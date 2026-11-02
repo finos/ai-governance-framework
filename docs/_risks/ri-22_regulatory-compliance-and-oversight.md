@@ -4,6 +4,7 @@ title: Regulatory Compliance and Oversight
 layout: risk
 doc-status: Approved-Specification
 type: RC
+domain: liability
 nist-ai-600-1_references:
   - 2-9  # 2.9. Information Security
 ffiec-itbooklets_references:

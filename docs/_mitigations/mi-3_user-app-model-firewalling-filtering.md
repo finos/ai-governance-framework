@@ -4,6 +4,7 @@ title: User/App/Model Firewalling/Filtering
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: filtering
 iso-42001_references:
   - A-6-1-3  # ISO 42001: Processes for responsible AI system design and development
   - A-6-2-2  # ISO 42001: AI system requirements and specification

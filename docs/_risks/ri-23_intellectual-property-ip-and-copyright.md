@@ -4,6 +4,7 @@ title: Intellectual Property (IP) and Copyright
 layout: risk
 doc-status: Approved-Specification
 type: RC
+domain: liability
 nist-ai-600-1_references:
   - 2-10  # 2.10. Intellectual Property
 ffiec-itbooklets_references:

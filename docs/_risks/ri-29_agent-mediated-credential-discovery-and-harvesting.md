@@ -4,6 +4,7 @@ title: Agent-Mediated Credential Discovery and Harvesting
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: leakage
 owasp-llm_references:
   - llm01-2026  # LLM01:2026 Prompt Injection
   - llm03-2026  # LLM03:2026 Excessive Agency

@@ -4,6 +4,7 @@ title: Information Leaked to Vector Store
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: leakage
 owasp-llm_references:
   - llm02-2026  # LLM02:2026 Sensitive Information Disclosure
   - llm09-2026  # LLM09:2026 Vector and Embedding Weaknesses

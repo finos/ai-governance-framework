@@ -4,6 +4,7 @@ title: Human-in-the-Loop Action Approval Gate
 layout: mitigation
 doc-status: Draft
 type: PREV
+domain: oversight
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-9-2    # ISO 42001: Processes for responsible use of AI systems

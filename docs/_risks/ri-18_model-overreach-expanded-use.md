@@ -4,6 +4,7 @@ title: Model Overreach / Expanded Use
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: agency
 owasp-llm_references:
   - llm03-2026  # LLM03:2026 Excessive Agency
 ffiec-itbooklets_references:

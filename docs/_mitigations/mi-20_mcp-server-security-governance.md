@@ -4,6 +4,7 @@ title: MCP Server Security Governance
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: sourcing
 nist-sp-800-53r5_references:
   - sa-9   # SA-9 External System Services
   - sc-8   # SC-8 Transmission Confidentiality And Integrity

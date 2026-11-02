@@ -4,6 +4,7 @@ title: Prompt Injection
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: inputs
 owasp-llm_references:
   - llm01-2026  # LLM01:2026 Prompt Injection
   - llm03-2026  # LLM03:2026 Excessive Agency

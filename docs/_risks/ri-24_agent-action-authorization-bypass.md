@@ -4,6 +4,7 @@ title: Agent Action Authorization Bypass
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: agency
 owasp-llm_references:
   - llm03-2026  # LLM03:2026 Excessive Agency
 owasp-asi_references:

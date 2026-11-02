@@ -4,6 +4,7 @@ title: System Acceptance Testing
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: evaluation
 iso-42001_references:
   - A-6-2-4  # ISO 42001: AI system verification and validation
   - A-6-2-5  # ISO 42001: AI system deployment

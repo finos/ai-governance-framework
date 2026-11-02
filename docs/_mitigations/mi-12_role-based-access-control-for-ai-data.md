@@ -4,6 +4,7 @@ title: Role-Based Access Control for AI Data
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: access
 iso-42001_references:
   - A-3-2  # ISO 42001: AI roles and responsibilities
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system

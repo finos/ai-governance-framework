@@ -4,6 +4,7 @@ title: Data Quality & Classification/Sensitivity
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: data
 iso-42001_references:
   - A-7-4  # ISO 42001: Quality of data for AI systems
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system

@@ -4,6 +4,7 @@ title: Inadequate System Alignment
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: alignment
 ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - dam-5  # DAM: V Development

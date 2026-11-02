@@ -4,6 +4,7 @@ title: Multi-Agent Isolation and Segmentation
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: access
 nist-sp-800-53r5_references:
   - sc-7   # SC-7 Boundary Protection
   - sc-32  # SC-32 System Partitioning

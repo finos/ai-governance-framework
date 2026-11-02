@@ -4,6 +4,7 @@ title: Tool Chain Validation and Sanitization
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: filtering
 nist-sp-800-53r5_references:
   - si-10  # SI-10 Information Input Validation
   - si-15  # SI-15 Information Output Filtering
