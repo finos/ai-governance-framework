@@ -17,6 +17,8 @@ related_risks:
   - ri-26  # MCP Server Supply Chain Compromise
   - ri-27  # Agent State Persistence Poisoning
   - ri-29  # Agent-Mediated Credential Discovery and Harvesting
+  - ri-31  # Human Approval Fatigue and Consent Gate Degradation
+  - ri-32  # Third-Party Content Loaded as Agent Instructions
 ---
 
 ## Summary
@@ -31,7 +33,7 @@ The fundamental security challenge is that skills present a **dual attack surfac
 
 ### Deceptive Metadata and Tool Poisoning
 
-A skill's externally visible metadata — its name, description, and declared capabilities — may deliberately misrepresent what the skill actually does. A skill named `safe-code-analyzer` with a description of "read-only static analysis" and an `allowed-tools: [Read, Grep, Glob]` declaration may bundle scripts that write files, make network requests, or access credentials. This deceptive metadata serves two purposes: it passes superficial review by human and automated screeners, and it socially engineers the user into trusting the skill. Existing skill scanning tools such as Cisco's skill-scanner classify this as "tool poisoning" — a form of supply chain attack where the deception is in the metadata layer rather than (or in addition to) the code layer.
+A skill's externally visible metadata — its name, description, and declared capabilities — may deliberately misrepresent what the skill actually does. A skill named `safe-code-analyzer` with a description of "read-only static analysis" and an `allowed-tools: [Read, Grep, Glob]` declaration may bundle scripts that write files, make network requests, or access credentials. This deceptive metadata serves two purposes: it passes superficial review by human and automated screeners, and it socially engineers the user into trusting the skill (see also RI-31 on approval fatigue). Existing skill scanning tools such as Cisco's skill-scanner classify this as "tool poisoning" — a form of supply chain attack where the deception is in the metadata layer rather than (or in addition to) the code layer.
 
 ### Layer 1: Prompt Injection via Skill Instructions
 
@@ -79,7 +81,7 @@ A compromised skill can therefore ship trojanized scripts alongside innocuous-lo
 Skills commonly bundle helper scripts that import third-party packages from public registries (PyPI, npm). Skill instruction files (SKILL.md) routinely direct the agent to install these dependencies via `pip install` or `npm install` commands before executing bundled scripts. This introduces a third layer to the attack surface beyond prompt instructions and bundled code:
 
 * **Agent-Executed Package Installation**
-  Skill instructions direct the agent to run commands like `pip install pypdf openpyxl pdfplumber` or `npm install -g docx pptxgenjs`. The agent generates these commands through the same unsandboxed shell execution path, and they are subject to the same approval fatigue dynamics as any other tool call. The user is unlikely to audit the transitive dependency tree of each package before approving the install command.
+  Skill instructions direct the agent to run commands like `pip install pypdf openpyxl pdfplumber` or `npm install -g docx pptxgenjs`. The agent generates these commands through the same unsandboxed shell execution path, and they are subject to the same approval fatigue dynamics as any other tool call (see RI-31). The user is unlikely to audit the transitive dependency tree of each package before approving the install command.
 
 * **Transitive Dependency Compromise**
   A skill may be authored in good faith, with clean SKILL.md instructions and audited bundled scripts, yet still introduce compromised code through its third-party dependencies. Each `pip install` or `npm install` command pulls in not just the named package but its entire transitive dependency tree — potentially dozens of packages, any of which could be compromised through established supply chain attacks (dependency confusion, typosquatting, maintainer account takeover). This is the same category of risk documented in traditional software supply chain literature, but amplified by the fact that the installation is triggered by an AI agent following untrusted instructions, and occurs on the developer's own machine outside of any project-level lockfile or reproducible build environment.
