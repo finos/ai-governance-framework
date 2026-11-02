@@ -46,6 +46,13 @@ This directory contains scripts for downloading external references, processing 
    - Checks that files follow expected naming patterns.
    - Usage: `./lint-check`
 
+## review-pr.py
+   - Runs the mechanical pre-review checks on a pull request: merge state and the files that collide, CI and DCO, whether it amends an `Approved-Specification` document, sequence collisions for new `ri-N`/`mi-N`, front matter ids that do not resolve, cross-links that break `CONVENTIONS.md`, and reviewers who were asked but never replied.
+   - Ids resolve against the tree being examined, so a pull request that updates a reference file and the ids pointing at it validates as one consistent change. Findings are reported as a delta against the merge base, so a contributor is judged on what they introduce rather than what they inherit from `main`.
+   - `--tree` audits a branch rather than a pull request, which makes it usable as a standing catalogue check.
+   - Requires: `pip install PyYAML` and an authenticated [`gh`](https://cli.github.com/).
+   - Usage: `python review-pr.py 354`, `python review-pr.py --agenda 358`, or `python review-pr.py --tree origin/main`
+
 ---
 
 ## Legacy Scripts
