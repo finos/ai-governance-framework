@@ -121,7 +121,7 @@
                                   {% elsif order == 'RC' %}
                                       <i class="bi bi-clipboard2-check-fill me-2"></i>
                                   {% endif %}
-                                  {{ site.risk_classification[risk_group.name] }}
+                                  {{ site.risk_type_labels[risk_group.name] }}
                               </h3>
                               <span class="badge bg-primary">{{ risk_group.items | size }} risks</span>
                           </div>
@@ -197,7 +197,7 @@
                                   {% elsif order == 'DET' %}
                                       <i class="bi bi-eye-fill me-2"></i>
                                   {% endif %}
-                                  {{ site.mitigation_classification[mitigation_group.name] }}
+                                  {{ site.mitigation_type_labels[mitigation_group.name] }}
                               </h3>
                               <span class="badge bg-success">{{ mitigation_group.items | size }} mitigations</span>
                           </div>

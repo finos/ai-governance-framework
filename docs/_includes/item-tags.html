@@ -1,0 +1,32 @@
+{% comment %}
+  Shows an item's tags in a sidebar card, one row per field.
+  item: the risk or mitigation page
+  kind: "risk" or "mitigation"
+  The fields come from site.<kind>_tags, and display names from
+  site.<kind>_<field>_labels. A field can hold one value or a list.
+{% endcomment %}
+{%- assign tags_key = include.kind | append: "_tags" -%}
+{%- capture rows -%}
+  {%- for field in site[tags_key] -%}
+    {%- if include.item[field] -%}
+      {%- assign labels_key = include.kind | append: "_" | append: field | append: "_labels" -%}
+      {%- assign labels = site[labels_key] -%}
+      <div class="d-flex align-items-baseline mb-1">
+        <div class="small text-muted flex-shrink-0 me-2" style="width: 4.5rem;">{{ field | replace: "_", " " | capitalize }}</div>
+        <div class="d-flex flex-wrap gap-1">
+          {%- for value in include.item[field] -%}
+            <span class="badge rounded-pill text-bg-light border" title="{{ field }}: {{ value }}">{{ labels[value] | default: value }}</span>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if rows != "" -%}
+<div class="card mb-4 item-tags">
+    <div class="card-body">
+        <h2 class="h4 mb-3">Tags</h2>
+        {{ rows }}
+    </div>
+</div>
+{%- endif -%}
