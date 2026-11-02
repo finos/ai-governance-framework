@@ -5,14 +5,11 @@
   - The `type` attribute is scalar and specifies the Risk or Mitigation classification.
 
 ## File Naming Conventions
-- Risk files are named using the prefix `ri-*` (e.g., `ri-1.md`, `ri-2.md`).
-- Mitigation files are named using the prefix `mi-*` (e.g., `mi-1.md`, `mi-2.md`).
-- The title may be appended by converting to lower case and converting
-  runs of nonalphanumeric characters to a single hyphen.
-- The `scripts/rename-with-titles.sh` script can rename the
-  `_risks/ri-*.md` or `_mitigations/mi-*.md` files based on the
-  sequence number and title in the YAML header.
-- The cross-linking between the Risk and Mitigation pages works 
+- Risk files are named `ri-N.md`, where `N` is the `sequence` number (e.g., `ri-1.md`, `ri-2.md`).
+- Mitigation files are named `mi-N.md` in the same way (e.g., `mi-1.md`, `mi-2.md`).
+- Do not add the title to the file name. The title lives in the `title` front matter field, so changing it does not rename the file or change the page address.
+- Page addresses follow the file name: `/risks/ri-N.html` and `/mitigations/mi-N.html`.
+- Files that used to have the title in their name keep their old address in a `redirect_from` front matter field, so existing links still work. See ADR-0003.
 
 # Cross-Linking
 
