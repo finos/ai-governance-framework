@@ -94,6 +94,7 @@ Effective agent privilege management must address the dynamic and autonomous nat
     * Apply each limit using its owner's units, currency, periods and exposure rules; a client-mandate limit does not replace other applicable limits.
     * A check-only response does not enforce the limit at commitment. If neither atomic mechanism is available, do not release the action through the agent path.
     * Keep pending or uncertain commitments counted until reconciliation establishes their outcome; elapsed time alone does not confirm failure. Update reserved or booked exposure on confirmed outcomes according to the applicable limit rules.
+    * When authority is renewed or replaced for the same logical action, preserve its existing commitment and reconciliation state. A new authority record alone does not establish that earlier capacity is unused.
   * Reject and log an action outside the mandate or whose current mandate cannot be verified, even when identity, role and API permissions allow it. Record an unambiguous mandate reference and version, the check time and result, or why verification failed.
   * Reject and log any attempts to access unauthorized tools or APIs, including the agent identity for audit purposes.
 
