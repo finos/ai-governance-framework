@@ -11,6 +11,8 @@ owasp-asi_references:
   - asi03-2026  # ASI03: Identity and Privilege Abuse
 atr_references:
   - ATR-2026-00113  # Credential Theft via Agent Channel
+canada-regulations_references:
+  - osfi-trb-2026-07-agent-access   # unique non-human identities, short-lived credentials
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass

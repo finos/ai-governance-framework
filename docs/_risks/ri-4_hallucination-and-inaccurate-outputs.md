@@ -19,6 +19,9 @@ eu-ai-act_references:
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
   - c3-s2-a9   # III.S2.A9: Risk Management System
+canada-regulations_references:
+  - osfi-trb-2026-07-integrity           # AI outputs as inputs to decisions, not definitive outcomes
+  - osfi-trb-2026-07-development-change  # testing under normal and stressed conditions, edge cases
 related_risks:
   - ri-14  # Inadequate System Alignment
   - ri-6   # Non-Deterministic Behaviour

@@ -14,6 +14,10 @@ atr_references:
   - ATR-2026-00040  # Agent Privilege Escalation
   - ATR-2026-00098  # Unauthorized Financial Action by Agent
   - ATR-2026-00118  # Human Approval Fatigue Exploitation
+canada-regulations_references:
+  - osfi-trb-2026-07-governance          # limits on autonomy
+  - osfi-trb-2026-07-development-change  # monitor agent actions; approval checkpoints
+  - osfi-trb-2026-07-agent-access        # non-human identities, least privilege, allow-lists, logging
 related_risks:
   - ri-10  # Prompt Injection
   - ri-18  # Model Overreach / Expanded Use

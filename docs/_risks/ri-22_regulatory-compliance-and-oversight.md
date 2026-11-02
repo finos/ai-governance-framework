@@ -47,6 +47,10 @@ canada-regulations_references:
   - osfi-b-10              # OSFI B-10 Third-Party Risk Management (FRFIs) — concentration risk
   - qc-amf-ai-guideline    # AMF AI Guideline (QC-regulated FIs, eff. 2027)
   - iosco-fr-02-2026       # IOSCO Supervisory Toolkit for AI in Capital Markets
+  # OSFI Technology Risk Bulletin (July 2026)
+  - osfi-trb-2026-07                         # Bulletin: sound practices institutions can consider; complements B-13, B-10, E-21
+  - osfi-trb-2026-07-governance              # senior management literacy, risk appetite, ERM integration, third-party oversight
+  - osfi-trb-2026-07-integrity               # accountable human oversight with auditable documentation
   # Tier 4 adjacent compliance obligations
   - pipeda                 # Privacy compliance for AI deployment — SN 11-348 flags privacy intersection
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency obligation

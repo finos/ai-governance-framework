@@ -29,6 +29,7 @@ canada-regulations_references:
   - osfi-e23-2027-p3-6     # E-23 Principle 3.6 Monitoring/Decommission — ongoing monitoring, drift detection (FRFIs, 2027)
   - qc-amf-ai-guideline    # Lifecycle risk management — data quality, hallucinations, drift (QC FIs, 2027)
   - iosco-fr-02-2026       # Toolkit — model validation and ongoing monitoring across AI lifecycle
+  - osfi-trb-2026-07-integrity      # data classification and provenance controls
   # Privacy accuracy obligation
   - pipeda-schedule1       # PIPEDA Schedule 1 Principle 4.6 — accuracy of personal information used in AI models
 uk-regulations_references:

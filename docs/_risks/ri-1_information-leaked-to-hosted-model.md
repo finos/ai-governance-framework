@@ -31,6 +31,9 @@ canada-regulations_references:
   # Tier 3 benchmarks
   - osfi-b13-d3            # OSFI B-13 Domain 3 Cyber Security — data confidentiality controls (FRFIs)
   - iosco-fr-02-2026       # Toolkit — third-party data security considerations
+  # OSFI Technology Risk Bulletin (July 2026)
+  - osfi-trb-2026-07-integrity      # prohibit sensitive data in unapproved AI tools; monitor prompts and outputs
+  - osfi-trb-2026-07-cyber-ops      # prompt monitoring and output filtering
   # Tier 4 — primary privacy framework
   - pipeda                 # PIPEDA 4.1.3 (third-party accountability), 4.7 (safeguards), s. 10.1 (breach notification)
   - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency includes disclosing personal info used

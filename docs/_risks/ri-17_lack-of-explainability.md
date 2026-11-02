@@ -32,6 +32,8 @@ canada-regulations_references:
   - osfi-e23-2027          # OSFI E-23 — model documentation/validation (FRFIs, 2027)
   - qc-amf-ai-guideline    # AMF AI Guideline — lifecycle controls imply explainability (QC FIs, 2027)
   - iosco-fr-02-2026       # IOSCO Toolkit — disclosure / AI transparency
+  # OSFI Technology Risk Bulletin (July 2026)
+  - osfi-trb-2026-07-integrity      # auditable documentation of how AI outputs inform outcomes
 owasp-asi_references:
   - asi09-2026  # ASI09: Human-Agent Trust Exploitation
 related_risks:
