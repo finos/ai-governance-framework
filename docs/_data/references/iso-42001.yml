@@ -1,6 +1,7 @@
 title: "ISO/IEC 42001"
 description: "International standard specifying requirements for establishing, implementing, maintaining and continually improving an AI management system."
 source_url: "https://www.iso.org/standard/81230.html"
+lens: control
 
 entries:
   A-2-3:

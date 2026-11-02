@@ -1,0 +1,28 @@
+{% comment %}
+  Shows an item's references grouped by the lens of each reference file.
+  item: the risk or mitigation page
+  Lens names and order come from site.reference_lenses.
+{% endcomment %}
+{% for lens in site.reference_lenses %}
+{% capture _cards %}
+{% for ref in site.data.references %}
+{% if ref[1].lens == lens[0] %}
+{% assign _dataset = ref[0] %}
+{% assign _fm_key = ref[0] | append: "_references" %}
+{% assign _refs = include.item[_fm_key] %}
+{% assign _heading = ref[1].title %}
+{% include reference-card.html
+    references=_refs
+    dataset=_dataset
+    heading=_heading %}
+{% endif %}
+{% endfor %}
+{% endcapture %}
+{% assign _cards_text = _cards | strip %}
+{% if _cards_text != "" %}
+<div class="mb-3">
+    <h3 class="small text-uppercase text-muted fw-semibold mb-1" title="{{ lens[1].question }}">{{ lens[1].label }}</h3>
+    {{ _cards }}
+</div>
+{% endif %}
+{% endfor %}

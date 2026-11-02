@@ -7,6 +7,7 @@ Schema rules (see docs/_data/references/README.md):
   Top-level (required):
     title       — non-empty string
     description — non-empty string
+    lens        — one of: threat, obligation, control
 
   Top-level (optional):
     source_url  — string
@@ -40,7 +41,8 @@ REFERENCES_DIR = os.path.join(
     "docs", "_data", "references",
 )
 
-REQUIRED_TOP_LEVEL = ["title", "description"]
+REQUIRED_TOP_LEVEL = ["title", "description", "lens"]
+LENSES = ["threat", "obligation", "control"]
 OPTIONAL_TOP_LEVEL = ["source_url"]
 KNOWN_TOP_LEVEL = set(REQUIRED_TOP_LEVEL + OPTIONAL_TOP_LEVEL + ["entries"])
 
@@ -67,6 +69,10 @@ def validate_file(path):
             errors.append(f"Missing or empty required top-level field: '{field}'")
         elif not isinstance(value, str):
             errors.append(f"Top-level field '{field}' must be a string")
+
+    lens = data.get("lens")
+    if isinstance(lens, str) and lens and lens not in LENSES:
+        errors.append(f"Top-level field 'lens' must be one of: {', '.join(LENSES)}")
 
     # --- Top-level optional fields ---
     for field in OPTIONAL_TOP_LEVEL:

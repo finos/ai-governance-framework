@@ -1,6 +1,7 @@
 title: "UK Financial Services AI Regulations"
 description: "UK financial-services regulatory references relevant to AI governance, covering FCA, PRA, BoE guidance, data protection law, and sector-specific requirements."
 source_url: "https://www.fca.org.uk/firms/innovation/ai-approach"
+lens: obligation
 
 entries:
   fca-ai-approach-2024:

@@ -1,6 +1,7 @@
 title: "FFIEC IT Examination Handbook"
 description: "The FFIEC IT Examination Handbook booklets covering architecture, development, management, and security of financial institution IT systems."
 source_url: "https://ithandbook.ffiec.gov/it-booklets"
+lens: obligation
 
 entries:
   aio:

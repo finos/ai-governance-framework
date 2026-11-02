@@ -1,6 +1,7 @@
 title: "OWASP ML Security Top 10"
 description: "The ten most critical security risks for machine learning systems, published by OWASP."
 source_url: "https://owasp.org/www-project-machine-learning-security-top-10/"
+lens: threat
 
 entries:
   ml01-2023:

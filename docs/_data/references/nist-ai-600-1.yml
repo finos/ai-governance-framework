@@ -1,6 +1,7 @@
 title: "NIST AI 600-1"
 description: "NIST's framework for managing risks specific to generative AI, covering twelve risk categories from CBRN information to value chain integrity."
 source_url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+lens: threat
 
 entries:
   2-1:
