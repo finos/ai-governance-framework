@@ -5,6 +5,8 @@ on:
     paths:
       - ".github/workflows/mi21-verifier.yml"
       - ".github/mi21/requirements.txt"
+      - ".github/mi21/package.json"
+      - ".github/mi21/package-lock.json"
       - "scripts/mi21-verifier.py"
       - "scripts/check-mi21-report.py"
       - "docs/_data/references/conformance-vectors.yml"
@@ -13,6 +15,8 @@ on:
     paths:
       - ".github/workflows/mi21-verifier.yml"
       - ".github/mi21/requirements.txt"
+      - ".github/mi21/package.json"
+      - ".github/mi21/package-lock.json"
       - "scripts/mi21-verifier.py"
       - "scripts/check-mi21-report.py"
       - "docs/_data/references/conformance-vectors.yml"
@@ -32,10 +36,10 @@ jobs:
       - name: Install the pinned suite and verifier
         run: |
           python -m pip install -r .github/mi21/requirements.txt
-          npm install --prefix .mi21-verify --no-save --no-audit --no-fund @veritasacta/verify@0.10.26
+          npm ci --prefix .github/mi21 --no-audit --no-fund
       - name: Check signed receipt verification
         run: |
-          export PATH="$PWD/.mi21-verify/node_modules/.bin:$PATH"
+          export PATH="$PWD/.github/mi21/node_modules/.bin:$PATH"
           agent-evidence-vectors --corpus vectors-receipt-signature --verifier 'python scripts/mi21-verifier.py' --report mi21-report.json
           python scripts/check-mi21-report.py mi21-report.json
       - uses: actions/upload-artifact@v4
