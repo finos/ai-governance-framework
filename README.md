@@ -101,7 +101,7 @@ Adding the `-s` flag to your `git commit` will add that line automatically. You 
 - [Signing commits
 ](https://docs.github.com/en/github/authenticating-to-github/signing-commits)
 
-See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for more information
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 
 ---
 
