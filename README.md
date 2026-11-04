@@ -34,6 +34,8 @@ We use the following channels:
  - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%93%86%20meeting%22).
  - Meetings are held bi-weekly, with details found on the [FINOS community calendar](https://www.finos.org/calendar)
 
+## Maintainers
+
 The project maintainers are
 - Colin Eberhardt - Scott Logic @ColinEberhardt (https://github.com/ColinEberhardt) Lead Maintainer
 - Francesco Beltramini - ControlPlane @d1gital-f (https://github.com/d1gital-f) 
