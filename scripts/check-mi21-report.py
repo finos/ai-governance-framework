@@ -11,6 +11,9 @@ CASES = {
     "v5397adb77c3e6754": (
         "invalid signature_in_signing_input", "invalid signature_in_signing_input"
     ),
+    "vb27b15aa51e9da9b": ("invalid malformed_chain_link", "invalid malformed_chain_link"),
+    "v967bcffede491026": ("invalid chain_link_mismatch", "invalid chain_link_mismatch"),
+    "v429ea40212de7b5d": ("undecidable window_not_applicable", "valid"),
 }
 
 
@@ -18,10 +21,10 @@ def check(report):
     totals = report["totals"]
     if report["suite"] != "vectors-receipt-signature" or report["rail"] != "external":
         return "wrong suite or rail"
-    if (totals["vectors"] != 25 or totals["conform"] != 25
+    if (totals["vectors"] < 29 or totals["conform"] != totals["vectors"]
             or totals["fail"] or totals["suiteRefusals"]
-            or report["verifier"]["vectorsExecuted"] != 25):
-        return "external verifier did not pass all 25 vectors"
+            or report["verifier"]["vectorsExecuted"] != totals["vectors"]):
+        return "external verifier did not pass every vector of a corpus of at least 29"
 
     rows = {row["id"]: row for row in report["vectors"]}
     for case, (windows, no_windows) in CASES.items():
@@ -35,8 +38,10 @@ def check(report):
 
 if __name__ == "__main__":
     with open(sys.argv[1], encoding="utf-8") as source:
-        error = check(json.load(source))
+        report = json.load(source)
+    error = check(report)
     if error:
         print(error, file=sys.stderr)
         sys.exit(1)
-    print("MI-21: external verifier passed 25 vectors, including the three pinned cases")
+    print(f"MI-21: external verifier passed {report['totals']['vectors']} vectors, "
+          "including the pinned cases")

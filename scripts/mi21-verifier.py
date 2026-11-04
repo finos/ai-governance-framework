@@ -32,8 +32,8 @@ def main():
     code = report.get("error")
     if isinstance(code, dict):
         code = code.get("code")
-    if code == "invalid_signature":
-        code = "signature_invalid"
+    code = {"invalid_signature": "signature_invalid",
+            "key_window_unverifiable": "window_not_applicable"}.get(code, code)
 
     status = result.returncode
     if status == 0 and os.getenv("AEV_RECEIPT_CONTEXT"):
