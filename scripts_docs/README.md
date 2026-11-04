@@ -46,6 +46,12 @@ This directory contains scripts for downloading external references, processing 
    - Checks that files follow expected naming patterns.
    - Usage: `./lint-check`
 
+## validate-items.py
+   - Checks that each risk and mitigation's `type` and `domain` are keys in the labels maps in `docs/_config.yml`, and that every domain has an icon.
+   - A missing `domain` is a warning until the domains are agreed (#398). Runs in CI and as a pre-commit hook.
+   - Requires: `pip install PyYAML`
+   - Usage: `python scripts/validate-items.py` (or pass file paths to check only those)
+
 ---
 
 ## Legacy Scripts
