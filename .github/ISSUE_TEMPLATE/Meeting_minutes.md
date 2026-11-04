@@ -7,9 +7,7 @@ assignees: ColinEberhardt
 ---
 
 ## Overview
-![FINOS AI Governance Framework - December 2025](https://github.com/user-attachments/assets/d00a97f9-fa92-44c6-8277-bbb45c1a83f5)
-
-Click on the image and then on the item to view the related repo
+![FINOS AI governance workflow: Define, use-case taxonomy, Architect, Control, Orchestrate, Observe](https://raw.githubusercontent.com/finos/ai-governance-framework/main/docs/finos-ai-governance-workflow.png)
 
 ## Date
 YYYYMMDD - 2pm GMT, 3pm BST, 10am EST 
