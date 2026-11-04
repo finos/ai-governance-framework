@@ -9,7 +9,7 @@
 - Mitigation files are named `mi-N.md` in the same way (e.g., `mi-1.md`, `mi-2.md`).
 - Do not add the title to the file name. The title lives in the `title` front matter field, so changing it does not rename the file or change the page address.
 - Page addresses follow the file name: `/risks/ri-N.html` and `/mitigations/mi-N.html`.
-- Files that used to have the title in their name keep their old address in a `redirect_from` front matter field, so existing links still work. See ADR-0003.
+- Files that used to have the title in their name keep their old address in a `redirect_from` front matter field, so existing links still work. See ADR-0004.
 
 # Cross-Linking
 
