@@ -1,0 +1,34 @@
+name: Validate risk and mitigation fields
+
+on:
+  push:
+    paths:
+      - "docs/_risks/**.md"
+      - "docs/_mitigations/**.md"
+      - "docs/_config.yml"
+      - "scripts/validate-items.py"
+      - ".github/workflows/validate-items.yml"
+  pull_request:
+    paths:
+      - "docs/_risks/**.md"
+      - "docs/_mitigations/**.md"
+      - "docs/_config.yml"
+      - "scripts/validate-items.py"
+      - ".github/workflows/validate-items.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install PyYAML
+
+      - name: Validate risk and mitigation fields
+        run: python scripts/validate-items.py
