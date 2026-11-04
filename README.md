@@ -46,6 +46,8 @@ The project maintainers are
 - Hugo Calderon - Citi @hugo-calderon (https://github.com/hugo-calderon)
 - Stefano Amorelli - Qonto @stefanoamorelli (https://github.com/stefanoamorelli)
 
+Planning a contribution? See [Getting a quick review](CONTRIBUTING.md#getting-a-quick-review).
+
 ## Frequently Asked Questions
 
 ### What will the Governance Framework look like?
