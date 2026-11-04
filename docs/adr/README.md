@@ -64,3 +64,4 @@ What becomes easier, what becomes harder, and what follow-up work is needed.
 | ADR | Title | Status |
 | --- | --- | --- |
 | [0001](0001-adopt-architecture-decision-records.md) | Adopt Architecture Decision Records | Proposed |
+| [0002](0002-displayed-ids.md) | Displayed IDs for risks and mitigations | Proposed |
