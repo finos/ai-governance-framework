@@ -25,6 +25,24 @@ git commit --amend --signoff
 
 Every commit included in a pull request must have a DCO sign-off.
 
+## Getting a quick review
+
+Before you start, read [the maintainers' bios](README.md#maintainers) to see whether your topic matches a maintainer's interests. Maintainers review contributions alongside their day jobs, so put the most important thing first:
+
+1. **Start with why it matters, in plain words.** In one or two sentences, say what problem your change addresses and who it affects. Say it once.
+2. **Show that the problem is real.** Link to a news story, court ruling or regulator's statement about a case where it happened. A real case with real consequences gets attention faster than a hypothetical one. Choose a reliable source, and describe it accurately, without overstating it. If it hasn't happened yet, say what makes it likely, such as a regulator's warning or published research.
+3. **Then give the details:** what you changed, your sources, and any terms that a non-specialist may not know.
+
+This matters most if your topic isn't among the maintainers' interests, because a reviewer will need to learn the area first.
+
+For example, a pull request could start like this:
+
+> **Why it matters:** A firm's chatbot can promise a customer something the firm's own policy doesn't allow, and the firm can be held to that promise.
+>
+> **It has happened:** In February 2024, a Canadian tribunal ordered Air Canada to pay a passenger, after its chatbot wrongly told him he could claim a bereavement fare after booking ([Daily Hive](https://dailyhive.com/canada/air-canada-chatbot-decision)).
+>
+> **The change:** Adds the case to ri-4 (Hallucination and Inaccurate Outputs), as evidence that the risk has real costs.
+
 ## Contributing Issues
 
 ### Prerequisites
