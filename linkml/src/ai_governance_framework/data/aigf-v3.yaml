@@ -20,7 +20,7 @@ reference_lenses:
   icon: bi-shield-check
   color: success
 reference_indexes:
-- reference_name: atr
+- reference_file: atr
   lens: threat
   entry_keys:
   - ATR-2026-00010
@@ -35,7 +35,7 @@ reference_indexes:
   - ATR-2026-00098
   - ATR-2026-00113
   - ATR-2026-00118
-- reference_name: canada-regulations
+- reference_file: canada-regulations
   lens: obligation
   entry_keys:
   - csa-sn-11-348
@@ -98,7 +98,7 @@ reference_indexes:
   - qc-p39-s3-3-s17
   - chra-s3-s5
   - on-hrc-s1
-- reference_name: eu-ai-act
+- reference_file: eu-ai-act
   lens: obligation
   entry_keys:
   - c1-a1
@@ -407,7 +407,7 @@ reference_indexes:
   - recital-178
   - recital-179
   - recital-180
-- reference_name: ffiec-itbooklets
+- reference_file: ffiec-itbooklets
   lens: obligation
   entry_keys:
   - aio
@@ -519,7 +519,7 @@ reference_indexes:
   - wps-d
   - wps-e
   - wps-f
-- reference_name: iosco-supervisory-toolkit
+- reference_file: iosco-supervisory-toolkit
   lens: obligation
   entry_keys:
   - box-3
@@ -568,7 +568,7 @@ reference_indexes:
   - t7-sector-asset-manager
   - t7-sector-exchanges
   - annex-1
-- reference_name: iso-42001
+- reference_file: iso-42001
   lens: control
   entry_keys:
   - A-2-3
@@ -598,7 +598,7 @@ reference_indexes:
   - A-9-2
   - A-10-2
   - A-10-3
-- reference_name: nist-ai-600-1
+- reference_file: nist-ai-600-1
   lens: threat
   entry_keys:
   - 2-1
@@ -613,7 +613,7 @@ reference_indexes:
   - 2-10
   - 2-11
   - 2-12
-- reference_name: nist-sp-800-53r5
+- reference_file: nist-sp-800-53r5
   lens: control
   entry_keys:
   - ac-1
@@ -936,7 +936,7 @@ reference_indexes:
   - sr-10
   - sr-11
   - sr-12
-- reference_name: owasp-asi
+- reference_file: owasp-asi
   lens: threat
   entry_keys:
   - asi01-2026
@@ -949,7 +949,7 @@ reference_indexes:
   - asi08-2026
   - asi09-2026
   - asi10-2026
-- reference_name: owasp-llm
+- reference_file: owasp-llm
   lens: threat
   entry_keys:
   - llm01-2026
@@ -972,7 +972,7 @@ reference_indexes:
   - llm08-2025
   - llm09-2025
   - llm10-2025
-- reference_name: owasp-ml
+- reference_file: owasp-ml
   lens: threat
   entry_keys:
   - ml01-2023
@@ -985,7 +985,7 @@ reference_indexes:
   - ml08-2023
   - ml09-2023
   - ml10-2023
-- reference_name: sr11-7
+- reference_file: sr11-7
   lens: obligation
   entry_keys:
   - overview
@@ -1003,7 +1003,7 @@ reference_indexes:
   - s4-inventory
   - s4-audit
   - s4-incentives
-- reference_name: uk-regulations
+- reference_file: uk-regulations
   lens: obligation
   entry_keys:
   - fca-ai-approach-2024

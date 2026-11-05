@@ -2,7 +2,7 @@ export type AigfItemItemId = string;
 export type AigfRiskItemId = string;
 export type AigfMitigationItemId = string;
 export type AigfUseCaseItemId = string;
-export type AigfReferenceEntryEntryKey = string;
+export type AigfReferenceEntryReferenceKey = string;
 /**
 * How far a page has been approved, from document_status in docs/_config.yml.
 */
@@ -337,7 +337,7 @@ export interface AigfReferenceFile {
     /** Which question a reference file answers for a page. */
     lens: string,
     /** The file's citable items, keyed by the key a page cites them by. */
-    entries: {[index: AigfReferenceEntryEntryKey]: AigfReferenceEntry },
+    entries: {[index: AigfReferenceEntryReferenceKey]: AigfReferenceEntry },
 }
 
 
@@ -346,7 +346,7 @@ export interface AigfReferenceFile {
  */
 export interface AigfReferenceEntry {
     /** The stable key a page cites the entry by. */
-    entry_key: string,
+    reference_key: string,
     /** The name FINOS gives the page, file or framework. */
     title: string,
     /** The address of the element. */
@@ -367,7 +367,7 @@ export interface AigfReferenceEntry {
  */
 export interface AigfReferenceIndex {
     /** The reference file's stem. */
-    reference_name: string,
+    reference_file: string,
     /** Which question a reference file answers for a page. */
     lens: string,
     /** The keys the reference file holds. */

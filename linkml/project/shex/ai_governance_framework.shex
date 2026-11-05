@@ -187,7 +187,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <AigfReferenceEntry> CLOSED {
-    (  $<AigfReferenceEntry_tes> (  <entry_key> @linkml:String ;
+    (  $<AigfReferenceEntry_tes> (  <reference_key> @linkml:String ;
           schema1:name @linkml:String ;
           <url> @linkml:String ;
           schema1:description @linkml:String ? ;
@@ -213,7 +213,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <AigfReferenceIndex> CLOSED {
-    (  $<AigfReferenceIndex_tes> (  <reference_name> @linkml:String ;
+    (  $<AigfReferenceIndex_tes> (  <reference_file> @linkml:String ;
           <lens> [ <https://w3id.org/lmodel/ai-governance-framework/AigfLens#threat>
              <https://w3id.org/lmodel/ai-governance-framework/AigfLens#obligation>
              <https://w3id.org/lmodel/ai-governance-framework/AigfLens#control> ] ;

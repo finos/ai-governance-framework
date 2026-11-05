@@ -91,7 +91,7 @@ class AigfUseCaseItemId(AigfItemItemId):
     pass
 
 
-class AigfReferenceEntryEntryKey(extended_str):
+class AigfReferenceEntryReferenceKey(extended_str):
     pass
 
 
@@ -152,7 +152,7 @@ class AigfCatalogue(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="reference_lenses", slot_type=AigfReferenceLens, key_name="lens", keyed=False)
 
-        self._normalize_inlined_as_list(slot_name="reference_indexes", slot_type=AigfReferenceIndex, key_name="reference_name", keyed=False)
+        self._normalize_inlined_as_list(slot_name="reference_indexes", slot_type=AigfReferenceIndex, key_name="reference_file", keyed=False)
 
         self._normalize_inlined_as_list(slot_name="use_cases", slot_type=AigfUseCase, key_name="item_id", keyed=True)
 
@@ -897,7 +897,7 @@ class AigfReferenceFile(YAMLRoot):
     title: str = None
     description: str = None
     lens: Union[str, "AigfLens"] = None
-    entries: Union[dict[Union[str, AigfReferenceEntryEntryKey], Union[dict, "AigfReferenceEntry"]], list[Union[dict, "AigfReferenceEntry"]]] = empty_dict()
+    entries: Union[dict[Union[str, AigfReferenceEntryReferenceKey], Union[dict, "AigfReferenceEntry"]], list[Union[dict, "AigfReferenceEntry"]]] = empty_dict()
     source_url: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -918,7 +918,7 @@ class AigfReferenceFile(YAMLRoot):
 
         if self._is_empty(self.entries):
             self.MissingRequiredField("entries")
-        self._normalize_inlined_as_dict(slot_name="entries", slot_type=AigfReferenceEntry, key_name="entry_key", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=AigfReferenceEntry, key_name="reference_key", keyed=True)
 
         if self.source_url is not None and not isinstance(self.source_url, str):
             self.source_url = str(self.source_url)
@@ -938,7 +938,7 @@ class AigfReferenceEntry(YAMLRoot):
     class_name: ClassVar[str] = "AigfReferenceEntry"
     class_model_uri: ClassVar[URIRef] = AI_GOVERNANCE_FRAMEWORK.AigfReferenceEntry
 
-    entry_key: Union[str, AigfReferenceEntryEntryKey] = None
+    reference_key: Union[str, AigfReferenceEntryReferenceKey] = None
     title: str = None
     url: str = None
     description: Optional[str] = None
@@ -947,10 +947,10 @@ class AigfReferenceEntry(YAMLRoot):
     superseded_by: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.entry_key):
-            self.MissingRequiredField("entry_key")
-        if not isinstance(self.entry_key, AigfReferenceEntryEntryKey):
-            self.entry_key = AigfReferenceEntryEntryKey(self.entry_key)
+        if self._is_empty(self.reference_key):
+            self.MissingRequiredField("reference_key")
+        if not isinstance(self.reference_key, AigfReferenceEntryReferenceKey):
+            self.reference_key = AigfReferenceEntryReferenceKey(self.reference_key)
 
         if self._is_empty(self.title):
             self.MissingRequiredField("title")
@@ -989,15 +989,15 @@ class AigfReferenceIndex(YAMLRoot):
     class_name: ClassVar[str] = "AigfReferenceIndex"
     class_model_uri: ClassVar[URIRef] = AI_GOVERNANCE_FRAMEWORK.AigfReferenceIndex
 
-    reference_name: str = None
+    reference_file: str = None
     lens: Union[str, "AigfLens"] = None
     entry_keys: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.reference_name):
-            self.MissingRequiredField("reference_name")
-        if not isinstance(self.reference_name, str):
-            self.reference_name = str(self.reference_name)
+        if self._is_empty(self.reference_file):
+            self.MissingRequiredField("reference_file")
+        if not isinstance(self.reference_file, str):
+            self.reference_file = str(self.reference_file)
 
         if self._is_empty(self.lens):
             self.MissingRequiredField("lens")
@@ -1519,10 +1519,10 @@ slots.source_url = Slot(uri=AI_GOVERNANCE_FRAMEWORK.source_url, name="source_url
                    model_uri=AI_GOVERNANCE_FRAMEWORK.source_url, domain=None, range=Optional[str])
 
 slots.entries = Slot(uri=AI_GOVERNANCE_FRAMEWORK.entries, name="entries", curie=AI_GOVERNANCE_FRAMEWORK.curie('entries'),
-                   model_uri=AI_GOVERNANCE_FRAMEWORK.entries, domain=None, range=Optional[Union[dict[Union[str, AigfReferenceEntryEntryKey], Union[dict, AigfReferenceEntry]], list[Union[dict, AigfReferenceEntry]]]])
+                   model_uri=AI_GOVERNANCE_FRAMEWORK.entries, domain=None, range=Optional[Union[dict[Union[str, AigfReferenceEntryReferenceKey], Union[dict, AigfReferenceEntry]], list[Union[dict, AigfReferenceEntry]]]])
 
-slots.entry_key = Slot(uri=AI_GOVERNANCE_FRAMEWORK.entry_key, name="entry_key", curie=AI_GOVERNANCE_FRAMEWORK.curie('entry_key'),
-                   model_uri=AI_GOVERNANCE_FRAMEWORK.entry_key, domain=None, range=URIRef)
+slots.reference_key = Slot(uri=AI_GOVERNANCE_FRAMEWORK.reference_key, name="reference_key", curie=AI_GOVERNANCE_FRAMEWORK.curie('reference_key'),
+                   model_uri=AI_GOVERNANCE_FRAMEWORK.reference_key, domain=None, range=URIRef)
 
 slots.issuer = Slot(uri=AI_GOVERNANCE_FRAMEWORK.issuer, name="issuer", curie=AI_GOVERNANCE_FRAMEWORK.curie('issuer'),
                    model_uri=AI_GOVERNANCE_FRAMEWORK.issuer, domain=None, range=Optional[str])
@@ -1533,8 +1533,8 @@ slots.booklet_abbrev = Slot(uri=AI_GOVERNANCE_FRAMEWORK.booklet_abbrev, name="bo
 slots.superseded_by = Slot(uri=AI_GOVERNANCE_FRAMEWORK.superseded_by, name="superseded_by", curie=AI_GOVERNANCE_FRAMEWORK.curie('superseded_by'),
                    model_uri=AI_GOVERNANCE_FRAMEWORK.superseded_by, domain=None, range=Optional[str])
 
-slots.reference_name = Slot(uri=AI_GOVERNANCE_FRAMEWORK.reference_name, name="reference_name", curie=AI_GOVERNANCE_FRAMEWORK.curie('reference_name'),
-                   model_uri=AI_GOVERNANCE_FRAMEWORK.reference_name, domain=None, range=str)
+slots.reference_file = Slot(uri=AI_GOVERNANCE_FRAMEWORK.reference_file, name="reference_file", curie=AI_GOVERNANCE_FRAMEWORK.curie('reference_file'),
+                   model_uri=AI_GOVERNANCE_FRAMEWORK.reference_file, domain=None, range=str)
 
 slots.entry_keys = Slot(uri=AI_GOVERNANCE_FRAMEWORK.entry_keys, name="entry_keys", curie=AI_GOVERNANCE_FRAMEWORK.curie('entry_keys'),
                    model_uri=AI_GOVERNANCE_FRAMEWORK.entry_keys, domain=None, range=Optional[Union[str, list[str]]])
@@ -1634,7 +1634,7 @@ slots.AigfReferenceFile_lens = Slot(uri=AI_GOVERNANCE_FRAMEWORK.lens, name="Aigf
                    model_uri=AI_GOVERNANCE_FRAMEWORK.AigfReferenceFile_lens, domain=AigfReferenceFile, range=Union[str, "AigfLens"])
 
 slots.AigfReferenceFile_entries = Slot(uri=AI_GOVERNANCE_FRAMEWORK.entries, name="AigfReferenceFile_entries", curie=AI_GOVERNANCE_FRAMEWORK.curie('entries'),
-                   model_uri=AI_GOVERNANCE_FRAMEWORK.AigfReferenceFile_entries, domain=AigfReferenceFile, range=Union[dict[Union[str, AigfReferenceEntryEntryKey], Union[dict, "AigfReferenceEntry"]], list[Union[dict, "AigfReferenceEntry"]]])
+                   model_uri=AI_GOVERNANCE_FRAMEWORK.AigfReferenceFile_entries, domain=AigfReferenceFile, range=Union[dict[Union[str, AigfReferenceEntryReferenceKey], Union[dict, "AigfReferenceEntry"]], list[Union[dict, "AigfReferenceEntry"]]])
 
 slots.AigfReferenceEntry_title = Slot(uri=SCHEMA.name, name="AigfReferenceEntry_title", curie=SCHEMA.curie('name'),
                    model_uri=AI_GOVERNANCE_FRAMEWORK.AigfReferenceEntry_title, domain=AigfReferenceEntry, range=str)

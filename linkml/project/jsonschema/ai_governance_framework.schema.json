@@ -733,16 +733,16 @@
                         "null"
                     ]
                 },
-                "entry_key": {
-                    "description": "The stable key a page cites the entry by.",
-                    "type": "string"
-                },
                 "issuer": {
                     "description": "The body that issued the entry.",
                     "type": [
                         "string",
                         "null"
                     ]
+                },
+                "reference_key": {
+                    "description": "The stable key a page cites the entry by.",
+                    "type": "string"
                 },
                 "superseded_by": {
                     "description": "The key of the entry in the same file that replaces this one in a newer edition.",
@@ -762,7 +762,7 @@
                 }
             },
             "required": [
-                "entry_key",
+                "reference_key",
                 "title",
                 "url"
             ],
@@ -787,16 +787,16 @@
                         "null"
                     ]
                 },
-                "entry_key": {
-                    "description": "The stable key a page cites the entry by.",
-                    "type": "string"
-                },
                 "issuer": {
                     "description": "The body that issued the entry.",
                     "type": [
                         "string",
                         "null"
                     ]
+                },
+                "reference_key": {
+                    "description": "The stable key a page cites the entry by.",
+                    "type": "string"
                 },
                 "superseded_by": {
                     "description": "The key of the entry in the same file that replaces this one in a newer edition.",
@@ -880,13 +880,13 @@
                     "$ref": "#/$defs/AigfLens",
                     "description": "Which question a reference file answers for a page."
                 },
-                "reference_name": {
+                "reference_file": {
                     "description": "The reference file's stem.",
                     "type": "string"
                 }
             },
             "required": [
-                "reference_name",
+                "reference_file",
                 "lens"
             ],
             "title": "AigfReferenceIndex",

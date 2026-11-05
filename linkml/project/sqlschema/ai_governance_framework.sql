@@ -85,7 +85,7 @@
 --     * Slot: source_url Description: The address the file was generated from, or a canonical index page.
 --     * Slot: lens Description: Which question a reference file answers for a page.
 -- # Class: AigfReferenceEntry Description: One citable item of a reference file, under the key a page cites it by.
---     * Slot: entry_key Description: The stable key a page cites the entry by.
+--     * Slot: reference_key Description: The stable key a page cites the entry by.
 --     * Slot: title Description: The name FINOS gives the page, file or framework.
 --     * Slot: url Description: The address of the element.
 --     * Slot: description Description: FINOS's description of the element.
@@ -95,7 +95,7 @@
 --     * Slot: AigfReferenceFile_id Description: Autocreated FK slot
 -- # Class: AigfReferenceIndex Description: The keys one reference file holds, so that a catalogue's citations resolve within it.
 --     * Slot: id
---     * Slot: reference_name Description: The reference file's stem.
+--     * Slot: reference_file Description: The reference file's stem.
 --     * Slot: lens Description: Which question a reference file answers for a page.
 --     * Slot: AigfCatalogue_id Description: Autocreated FK slot
 -- # Class: AigfUseCaseDomain Description: A top level of the use case taxonomy in docs/_data/ai_use_cases.yml.
@@ -416,7 +416,7 @@ CREATE TABLE "AigfReferenceLens" (
 CREATE INDEX "ix_AigfReferenceLens_id" ON "AigfReferenceLens" (id);
 
 CREATE TABLE "AigfReferenceEntry" (
-	entry_key TEXT NOT NULL,
+	reference_key TEXT NOT NULL,
 	title TEXT NOT NULL,
 	url TEXT NOT NULL,
 	description TEXT,
@@ -424,8 +424,8 @@ CREATE TABLE "AigfReferenceEntry" (
 	booklet_abbrev TEXT,
 	superseded_by TEXT,
 	"AigfReferenceFile_id" INTEGER,
-	PRIMARY KEY (entry_key, title, url, description, issuer, booklet_abbrev, superseded_by, "AigfReferenceFile_id"),
-	UNIQUE ("AigfReferenceFile_id", entry_key),
+	PRIMARY KEY (reference_key, title, url, description, issuer, booklet_abbrev, superseded_by, "AigfReferenceFile_id"),
+	UNIQUE ("AigfReferenceFile_id", reference_key),
 	FOREIGN KEY("AigfReferenceFile_id") REFERENCES "AigfReferenceFile" (id)
 );
 CREATE INDEX "ix_AigfReferenceEntry_title" ON "AigfReferenceEntry" (title);
@@ -433,14 +433,14 @@ CREATE INDEX "ix_AigfReferenceEntry_issuer" ON "AigfReferenceEntry" (issuer);
 CREATE INDEX "ix_AigfReferenceEntry_booklet_abbrev" ON "AigfReferenceEntry" (booklet_abbrev);
 CREATE INDEX "ix_AigfReferenceEntry_description" ON "AigfReferenceEntry" (description);
 CREATE INDEX "ix_AigfReferenceEntry_superseded_by" ON "AigfReferenceEntry" (superseded_by);
-CREATE INDEX "AigfReferenceEntry_AigfReferenceFile_id_entry_key_idx" ON "AigfReferenceEntry" ("AigfReferenceFile_id", entry_key);
+CREATE INDEX "AigfReferenceEntry_AigfReferenceFile_id_reference_key_idx" ON "AigfReferenceEntry" ("AigfReferenceFile_id", reference_key);
 CREATE INDEX "ix_AigfReferenceEntry_AigfReferenceFile_id" ON "AigfReferenceEntry" ("AigfReferenceFile_id");
 CREATE INDEX "ix_AigfReferenceEntry_url" ON "AigfReferenceEntry" (url);
-CREATE INDEX "ix_AigfReferenceEntry_entry_key" ON "AigfReferenceEntry" (entry_key);
+CREATE INDEX "ix_AigfReferenceEntry_reference_key" ON "AigfReferenceEntry" (reference_key);
 
 CREATE TABLE "AigfReferenceIndex" (
 	id INTEGER NOT NULL,
-	reference_name TEXT NOT NULL,
+	reference_file TEXT NOT NULL,
 	lens VARCHAR(10) NOT NULL,
 	"AigfCatalogue_id" INTEGER,
 	PRIMARY KEY (id),
@@ -481,8 +481,8 @@ CREATE TABLE "AigfReferenceCitations_atr_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", atr_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_atr_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_atr_references" ("AigfReferenceCitations_id");
 CREATE INDEX "ix_AigfReferenceCitations_atr_references_atr_references" ON "AigfReferenceCitations_atr_references" (atr_references);
+CREATE INDEX "ix_AigfReferenceCitations_atr_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_atr_references" ("AigfReferenceCitations_id");
 
 CREATE TABLE "AigfReferenceCitations_canada_regulations_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -490,8 +490,8 @@ CREATE TABLE "AigfReferenceCitations_canada_regulations_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", canada_regulations_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_canada_regulations_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_canada_regulations_references" ("AigfReferenceCitations_id");
 CREATE INDEX "ix_AigfReferenceCitations_canada_regulations_references_canada_regulations_references" ON "AigfReferenceCitations_canada_regulations_references" (canada_regulations_references);
+CREATE INDEX "ix_AigfReferenceCitations_canada_regulations_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_canada_regulations_references" ("AigfReferenceCitations_id");
 
 CREATE TABLE "AigfReferenceCitations_eu_ai_act_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -499,8 +499,8 @@ CREATE TABLE "AigfReferenceCitations_eu_ai_act_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", eu_ai_act_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_eu_ai_act_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_eu_ai_act_references" ("AigfReferenceCitations_id");
 CREATE INDEX "ix_AigfReferenceCitations_eu_ai_act_references_eu_ai_act_references" ON "AigfReferenceCitations_eu_ai_act_references" (eu_ai_act_references);
+CREATE INDEX "ix_AigfReferenceCitations_eu_ai_act_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_eu_ai_act_references" ("AigfReferenceCitations_id");
 
 CREATE TABLE "AigfReferenceCitations_ffiec_itbooklets_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -508,8 +508,8 @@ CREATE TABLE "AigfReferenceCitations_ffiec_itbooklets_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", ffiec_itbooklets_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_ffiec_itbooklets_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_ffiec_itbooklets_references" ("AigfReferenceCitations_id");
 CREATE INDEX "ix_AigfReferenceCitations_ffiec_itbooklets_references_ffiec_itbooklets_references" ON "AigfReferenceCitations_ffiec_itbooklets_references" (ffiec_itbooklets_references);
+CREATE INDEX "ix_AigfReferenceCitations_ffiec_itbooklets_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_ffiec_itbooklets_references" ("AigfReferenceCitations_id");
 
 CREATE TABLE "AigfReferenceCitations_iosco_supervisory_toolkit_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -517,8 +517,8 @@ CREATE TABLE "AigfReferenceCitations_iosco_supervisory_toolkit_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", iosco_supervisory_toolkit_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_iosco_supervisory_toolkit_references_iosco_supervisory_toolkit_references" ON "AigfReferenceCitations_iosco_supervisory_toolkit_references" (iosco_supervisory_toolkit_references);
 CREATE INDEX "ix_AigfReferenceCitations_iosco_supervisory_toolkit_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_iosco_supervisory_toolkit_references" ("AigfReferenceCitations_id");
+CREATE INDEX "ix_AigfReferenceCitations_iosco_supervisory_toolkit_references_iosco_supervisory_toolkit_references" ON "AigfReferenceCitations_iosco_supervisory_toolkit_references" (iosco_supervisory_toolkit_references);
 
 CREATE TABLE "AigfReferenceCitations_iso_42001_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -526,8 +526,8 @@ CREATE TABLE "AigfReferenceCitations_iso_42001_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", iso_42001_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_iso_42001_references_iso_42001_references" ON "AigfReferenceCitations_iso_42001_references" (iso_42001_references);
 CREATE INDEX "ix_AigfReferenceCitations_iso_42001_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_iso_42001_references" ("AigfReferenceCitations_id");
+CREATE INDEX "ix_AigfReferenceCitations_iso_42001_references_iso_42001_references" ON "AigfReferenceCitations_iso_42001_references" (iso_42001_references);
 
 CREATE TABLE "AigfReferenceCitations_nist_ai_600_1_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -535,8 +535,8 @@ CREATE TABLE "AigfReferenceCitations_nist_ai_600_1_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", nist_ai_600_1_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_nist_ai_600_1_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_nist_ai_600_1_references" ("AigfReferenceCitations_id");
 CREATE INDEX "ix_AigfReferenceCitations_nist_ai_600_1_references_nist_ai_600_1_references" ON "AigfReferenceCitations_nist_ai_600_1_references" (nist_ai_600_1_references);
+CREATE INDEX "ix_AigfReferenceCitations_nist_ai_600_1_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_nist_ai_600_1_references" ("AigfReferenceCitations_id");
 
 CREATE TABLE "AigfReferenceCitations_nist_sp_800_53r5_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -562,8 +562,8 @@ CREATE TABLE "AigfReferenceCitations_owasp_llm_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", owasp_llm_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_owasp_llm_references_owasp_llm_references" ON "AigfReferenceCitations_owasp_llm_references" (owasp_llm_references);
 CREATE INDEX "ix_AigfReferenceCitations_owasp_llm_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_owasp_llm_references" ("AigfReferenceCitations_id");
+CREATE INDEX "ix_AigfReferenceCitations_owasp_llm_references_owasp_llm_references" ON "AigfReferenceCitations_owasp_llm_references" (owasp_llm_references);
 
 CREATE TABLE "AigfReferenceCitations_owasp_ml_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -571,8 +571,8 @@ CREATE TABLE "AigfReferenceCitations_owasp_ml_references" (
 	PRIMARY KEY ("AigfReferenceCitations_id", owasp_ml_references),
 	FOREIGN KEY("AigfReferenceCitations_id") REFERENCES "AigfReferenceCitations" (id)
 );
-CREATE INDEX "ix_AigfReferenceCitations_owasp_ml_references_owasp_ml_references" ON "AigfReferenceCitations_owasp_ml_references" (owasp_ml_references);
 CREATE INDEX "ix_AigfReferenceCitations_owasp_ml_references_AigfReferenceCitations_id" ON "AigfReferenceCitations_owasp_ml_references" ("AigfReferenceCitations_id");
+CREATE INDEX "ix_AigfReferenceCitations_owasp_ml_references_owasp_ml_references" ON "AigfReferenceCitations_owasp_ml_references" (owasp_ml_references);
 
 CREATE TABLE "AigfReferenceCitations_sr11_7_references" (
 	"AigfReferenceCitations_id" INTEGER,
@@ -669,8 +669,8 @@ CREATE TABLE "AigfRisk_canada_regulations_references" (
 	PRIMARY KEY ("AigfRisk_item_id", canada_regulations_references),
 	FOREIGN KEY("AigfRisk_item_id") REFERENCES "AigfRisk" (item_id)
 );
-CREATE INDEX "ix_AigfRisk_canada_regulations_references_AigfRisk_item_id" ON "AigfRisk_canada_regulations_references" ("AigfRisk_item_id");
 CREATE INDEX "ix_AigfRisk_canada_regulations_references_canada_regulations_references" ON "AigfRisk_canada_regulations_references" (canada_regulations_references);
+CREATE INDEX "ix_AigfRisk_canada_regulations_references_AigfRisk_item_id" ON "AigfRisk_canada_regulations_references" ("AigfRisk_item_id");
 
 CREATE TABLE "AigfRisk_eu_ai_act_references" (
 	"AigfRisk_item_id" TEXT,
@@ -687,8 +687,8 @@ CREATE TABLE "AigfRisk_ffiec_itbooklets_references" (
 	PRIMARY KEY ("AigfRisk_item_id", ffiec_itbooklets_references),
 	FOREIGN KEY("AigfRisk_item_id") REFERENCES "AigfRisk" (item_id)
 );
-CREATE INDEX "ix_AigfRisk_ffiec_itbooklets_references_ffiec_itbooklets_references" ON "AigfRisk_ffiec_itbooklets_references" (ffiec_itbooklets_references);
 CREATE INDEX "ix_AigfRisk_ffiec_itbooklets_references_AigfRisk_item_id" ON "AigfRisk_ffiec_itbooklets_references" ("AigfRisk_item_id");
+CREATE INDEX "ix_AigfRisk_ffiec_itbooklets_references_ffiec_itbooklets_references" ON "AigfRisk_ffiec_itbooklets_references" (ffiec_itbooklets_references);
 
 CREATE TABLE "AigfRisk_iosco_supervisory_toolkit_references" (
 	"AigfRisk_item_id" TEXT,
@@ -732,8 +732,8 @@ CREATE TABLE "AigfRisk_owasp_asi_references" (
 	PRIMARY KEY ("AigfRisk_item_id", owasp_asi_references),
 	FOREIGN KEY("AigfRisk_item_id") REFERENCES "AigfRisk" (item_id)
 );
-CREATE INDEX "ix_AigfRisk_owasp_asi_references_owasp_asi_references" ON "AigfRisk_owasp_asi_references" (owasp_asi_references);
 CREATE INDEX "ix_AigfRisk_owasp_asi_references_AigfRisk_item_id" ON "AigfRisk_owasp_asi_references" ("AigfRisk_item_id");
+CREATE INDEX "ix_AigfRisk_owasp_asi_references_owasp_asi_references" ON "AigfRisk_owasp_asi_references" (owasp_asi_references);
 
 CREATE TABLE "AigfRisk_owasp_llm_references" (
 	"AigfRisk_item_id" TEXT,
@@ -768,8 +768,8 @@ CREATE TABLE "AigfRisk_uk_regulations_references" (
 	PRIMARY KEY ("AigfRisk_item_id", uk_regulations_references),
 	FOREIGN KEY("AigfRisk_item_id") REFERENCES "AigfRisk" (item_id)
 );
-CREATE INDEX "ix_AigfRisk_uk_regulations_references_AigfRisk_item_id" ON "AigfRisk_uk_regulations_references" ("AigfRisk_item_id");
 CREATE INDEX "ix_AigfRisk_uk_regulations_references_uk_regulations_references" ON "AigfRisk_uk_regulations_references" (uk_regulations_references);
+CREATE INDEX "ix_AigfRisk_uk_regulations_references_AigfRisk_item_id" ON "AigfRisk_uk_regulations_references" ("AigfRisk_item_id");
 
 CREATE TABLE "AigfMitigation_mitigates" (
 	"AigfMitigation_item_id" TEXT,
@@ -815,8 +815,8 @@ CREATE TABLE "AigfMitigation_eu_ai_act_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", eu_ai_act_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_eu_ai_act_references_AigfMitigation_item_id" ON "AigfMitigation_eu_ai_act_references" ("AigfMitigation_item_id");
 CREATE INDEX "ix_AigfMitigation_eu_ai_act_references_eu_ai_act_references" ON "AigfMitigation_eu_ai_act_references" (eu_ai_act_references);
+CREATE INDEX "ix_AigfMitigation_eu_ai_act_references_AigfMitigation_item_id" ON "AigfMitigation_eu_ai_act_references" ("AigfMitigation_item_id");
 
 CREATE TABLE "AigfMitigation_ffiec_itbooklets_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -833,8 +833,8 @@ CREATE TABLE "AigfMitigation_iosco_supervisory_toolkit_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", iosco_supervisory_toolkit_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_iosco_supervisory_toolkit_references_iosco_supervisory_toolkit_references" ON "AigfMitigation_iosco_supervisory_toolkit_references" (iosco_supervisory_toolkit_references);
 CREATE INDEX "ix_AigfMitigation_iosco_supervisory_toolkit_references_AigfMitigation_item_id" ON "AigfMitigation_iosco_supervisory_toolkit_references" ("AigfMitigation_item_id");
+CREATE INDEX "ix_AigfMitigation_iosco_supervisory_toolkit_references_iosco_supervisory_toolkit_references" ON "AigfMitigation_iosco_supervisory_toolkit_references" (iosco_supervisory_toolkit_references);
 
 CREATE TABLE "AigfMitigation_iso_42001_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -860,8 +860,8 @@ CREATE TABLE "AigfMitigation_nist_sp_800_53r5_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", nist_sp_800_53r5_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_nist_sp_800_53r5_references_nist_sp_800_53r5_references" ON "AigfMitigation_nist_sp_800_53r5_references" (nist_sp_800_53r5_references);
 CREATE INDEX "ix_AigfMitigation_nist_sp_800_53r5_references_AigfMitigation_item_id" ON "AigfMitigation_nist_sp_800_53r5_references" ("AigfMitigation_item_id");
+CREATE INDEX "ix_AigfMitigation_nist_sp_800_53r5_references_nist_sp_800_53r5_references" ON "AigfMitigation_nist_sp_800_53r5_references" (nist_sp_800_53r5_references);
 
 CREATE TABLE "AigfMitigation_owasp_asi_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -869,8 +869,8 @@ CREATE TABLE "AigfMitigation_owasp_asi_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", owasp_asi_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_owasp_asi_references_AigfMitigation_item_id" ON "AigfMitigation_owasp_asi_references" ("AigfMitigation_item_id");
 CREATE INDEX "ix_AigfMitigation_owasp_asi_references_owasp_asi_references" ON "AigfMitigation_owasp_asi_references" (owasp_asi_references);
+CREATE INDEX "ix_AigfMitigation_owasp_asi_references_AigfMitigation_item_id" ON "AigfMitigation_owasp_asi_references" ("AigfMitigation_item_id");
 
 CREATE TABLE "AigfMitigation_owasp_llm_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -878,8 +878,8 @@ CREATE TABLE "AigfMitigation_owasp_llm_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", owasp_llm_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_owasp_llm_references_AigfMitigation_item_id" ON "AigfMitigation_owasp_llm_references" ("AigfMitigation_item_id");
 CREATE INDEX "ix_AigfMitigation_owasp_llm_references_owasp_llm_references" ON "AigfMitigation_owasp_llm_references" (owasp_llm_references);
+CREATE INDEX "ix_AigfMitigation_owasp_llm_references_AigfMitigation_item_id" ON "AigfMitigation_owasp_llm_references" ("AigfMitigation_item_id");
 
 CREATE TABLE "AigfMitigation_owasp_ml_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -887,8 +887,8 @@ CREATE TABLE "AigfMitigation_owasp_ml_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", owasp_ml_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_owasp_ml_references_owasp_ml_references" ON "AigfMitigation_owasp_ml_references" (owasp_ml_references);
 CREATE INDEX "ix_AigfMitigation_owasp_ml_references_AigfMitigation_item_id" ON "AigfMitigation_owasp_ml_references" ("AigfMitigation_item_id");
+CREATE INDEX "ix_AigfMitigation_owasp_ml_references_owasp_ml_references" ON "AigfMitigation_owasp_ml_references" (owasp_ml_references);
 
 CREATE TABLE "AigfMitigation_sr11_7_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -896,8 +896,8 @@ CREATE TABLE "AigfMitigation_sr11_7_references" (
 	PRIMARY KEY ("AigfMitigation_item_id", sr11_7_references),
 	FOREIGN KEY("AigfMitigation_item_id") REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfMitigation_sr11_7_references_AigfMitigation_item_id" ON "AigfMitigation_sr11_7_references" ("AigfMitigation_item_id");
 CREATE INDEX "ix_AigfMitigation_sr11_7_references_sr11_7_references" ON "AigfMitigation_sr11_7_references" (sr11_7_references);
+CREATE INDEX "ix_AigfMitigation_sr11_7_references_AigfMitigation_item_id" ON "AigfMitigation_sr11_7_references" ("AigfMitigation_item_id");
 
 CREATE TABLE "AigfMitigation_uk_regulations_references" (
 	"AigfMitigation_item_id" TEXT,
@@ -925,8 +925,8 @@ CREATE TABLE "AigfUseCase_related_mitigations" (
 	FOREIGN KEY("AigfUseCase_item_id") REFERENCES "AigfUseCase" (item_id),
 	FOREIGN KEY(related_mitigations_item_id) REFERENCES "AigfMitigation" (item_id)
 );
-CREATE INDEX "ix_AigfUseCase_related_mitigations_AigfUseCase_item_id" ON "AigfUseCase_related_mitigations" ("AigfUseCase_item_id");
 CREATE INDEX "ix_AigfUseCase_related_mitigations_related_mitigations_item_id" ON "AigfUseCase_related_mitigations" (related_mitigations_item_id);
+CREATE INDEX "ix_AigfUseCase_related_mitigations_AigfUseCase_item_id" ON "AigfUseCase_related_mitigations" ("AigfUseCase_item_id");
 
 CREATE TABLE "AigfUseCase_data_handling_aspects" (
 	"AigfUseCase_item_id" TEXT,
@@ -934,8 +934,8 @@ CREATE TABLE "AigfUseCase_data_handling_aspects" (
 	PRIMARY KEY ("AigfUseCase_item_id", data_handling_aspects),
 	FOREIGN KEY("AigfUseCase_item_id") REFERENCES "AigfUseCase" (item_id)
 );
-CREATE INDEX "ix_AigfUseCase_data_handling_aspects_AigfUseCase_item_id" ON "AigfUseCase_data_handling_aspects" ("AigfUseCase_item_id");
 CREATE INDEX "ix_AigfUseCase_data_handling_aspects_data_handling_aspects" ON "AigfUseCase_data_handling_aspects" (data_handling_aspects);
+CREATE INDEX "ix_AigfUseCase_data_handling_aspects_AigfUseCase_item_id" ON "AigfUseCase_data_handling_aspects" ("AigfUseCase_item_id");
 
 CREATE TABLE "AigfUseCase_atr_references" (
 	"AigfUseCase_item_id" TEXT,
@@ -970,8 +970,8 @@ CREATE TABLE "AigfUseCase_ffiec_itbooklets_references" (
 	PRIMARY KEY ("AigfUseCase_item_id", ffiec_itbooklets_references),
 	FOREIGN KEY("AigfUseCase_item_id") REFERENCES "AigfUseCase" (item_id)
 );
-CREATE INDEX "ix_AigfUseCase_ffiec_itbooklets_references_AigfUseCase_item_id" ON "AigfUseCase_ffiec_itbooklets_references" ("AigfUseCase_item_id");
 CREATE INDEX "ix_AigfUseCase_ffiec_itbooklets_references_ffiec_itbooklets_references" ON "AigfUseCase_ffiec_itbooklets_references" (ffiec_itbooklets_references);
+CREATE INDEX "ix_AigfUseCase_ffiec_itbooklets_references_AigfUseCase_item_id" ON "AigfUseCase_ffiec_itbooklets_references" ("AigfUseCase_item_id");
 
 CREATE TABLE "AigfUseCase_iosco_supervisory_toolkit_references" (
 	"AigfUseCase_item_id" TEXT,
@@ -1006,8 +1006,8 @@ CREATE TABLE "AigfUseCase_nist_sp_800_53r5_references" (
 	PRIMARY KEY ("AigfUseCase_item_id", nist_sp_800_53r5_references),
 	FOREIGN KEY("AigfUseCase_item_id") REFERENCES "AigfUseCase" (item_id)
 );
-CREATE INDEX "ix_AigfUseCase_nist_sp_800_53r5_references_AigfUseCase_item_id" ON "AigfUseCase_nist_sp_800_53r5_references" ("AigfUseCase_item_id");
 CREATE INDEX "ix_AigfUseCase_nist_sp_800_53r5_references_nist_sp_800_53r5_references" ON "AigfUseCase_nist_sp_800_53r5_references" (nist_sp_800_53r5_references);
+CREATE INDEX "ix_AigfUseCase_nist_sp_800_53r5_references_AigfUseCase_item_id" ON "AigfUseCase_nist_sp_800_53r5_references" ("AigfUseCase_item_id");
 
 CREATE TABLE "AigfUseCase_owasp_asi_references" (
 	"AigfUseCase_item_id" TEXT,
@@ -1015,8 +1015,8 @@ CREATE TABLE "AigfUseCase_owasp_asi_references" (
 	PRIMARY KEY ("AigfUseCase_item_id", owasp_asi_references),
 	FOREIGN KEY("AigfUseCase_item_id") REFERENCES "AigfUseCase" (item_id)
 );
-CREATE INDEX "ix_AigfUseCase_owasp_asi_references_AigfUseCase_item_id" ON "AigfUseCase_owasp_asi_references" ("AigfUseCase_item_id");
 CREATE INDEX "ix_AigfUseCase_owasp_asi_references_owasp_asi_references" ON "AigfUseCase_owasp_asi_references" (owasp_asi_references);
+CREATE INDEX "ix_AigfUseCase_owasp_asi_references_AigfUseCase_item_id" ON "AigfUseCase_owasp_asi_references" ("AigfUseCase_item_id");
 
 CREATE TABLE "AigfUseCase_owasp_llm_references" (
 	"AigfUseCase_item_id" TEXT,

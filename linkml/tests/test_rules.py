@@ -13,7 +13,7 @@ from aigf_rules import (
 
 BASE = {
     "reference_indexes": [
-        {"reference_name": "owasp-llm", "lens": "threat", "entry_keys": ["llm01-2026"]}
+        {"reference_file": "owasp-llm", "lens": "threat", "entry_keys": ["llm01-2026"]}
     ],
     "financial_data_classification": [{"name": "Customer_PII_Data"}],
     "ai_deployment_model_taxonomy": [

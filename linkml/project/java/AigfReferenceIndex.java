@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class AigfReferenceIndex  {
 
-  private String referenceName;
+  private String referenceFile;
   private String lens;
   private List<String> entryKeys;
 

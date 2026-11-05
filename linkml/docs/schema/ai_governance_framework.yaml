@@ -1023,7 +1023,7 @@ slots:
     aliases:
     - nist-ai-600-1_references
     related_mappings:
-    - nist_ai_600_1:GaiRisk
+    - nist_ai_600_1:Risk
     slot_uri: ai_governance_framework:nist_ai_600_1_references
     owner: AigfReferenceCitations
     domain_of:
@@ -1291,12 +1291,12 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: false
-  entry_key:
-    name: entry_key
-    definition_uri: https://w3id.org/lmodel/ai-governance-framework/entry_key
+  reference_key:
+    name: reference_key
+    definition_uri: https://w3id.org/lmodel/ai-governance-framework/reference_key
     description: The stable key a page cites the entry by.
     from_schema: https://w3id.org/lmodel/ai-governance-framework
-    slot_uri: ai_governance_framework:entry_key
+    slot_uri: ai_governance_framework:reference_key
     key: true
     owner: AigfReferenceEntry
     domain_of:
@@ -1334,12 +1334,12 @@ slots:
     domain_of:
     - AigfReferenceEntry
     range: string
-  reference_name:
-    name: reference_name
-    definition_uri: https://w3id.org/lmodel/ai-governance-framework/reference_name
+  reference_file:
+    name: reference_file
+    definition_uri: https://w3id.org/lmodel/ai-governance-framework/reference_file
     description: The reference file's stem.
     from_schema: https://w3id.org/lmodel/ai-governance-framework
-    slot_uri: ai_governance_framework:reference_name
+    slot_uri: ai_governance_framework:reference_file
     owner: AigfReferenceIndex
     domain_of:
     - AigfReferenceIndex
@@ -2266,7 +2266,7 @@ classes:
       it by.
     from_schema: https://w3id.org/lmodel/ai-governance-framework
     slots:
-    - entry_key
+    - reference_key
     - AigfReferenceEntry_title
     - AigfReferenceEntry_url
     - description
@@ -2288,7 +2288,7 @@ classes:
       resolve within it.
     from_schema: https://w3id.org/lmodel/ai-governance-framework
     slots:
-    - reference_name
+    - reference_file
     - AigfReferenceIndex_lens
     - entry_keys
     slot_usage:
@@ -2335,6 +2335,6 @@ classes:
     class_uri: ai_governance_framework:AigfDeploymentOption
 metamodel_version: 1.12.0
 source_file: ai_governance_framework.yaml
-source_file_date: '2026-11-05T13:57:21'
-source_file_size: 22167
+source_file_date: '2026-11-05T14:11:41'
+source_file_size: 22172
 

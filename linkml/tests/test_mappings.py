@@ -28,7 +28,7 @@ def _catalogue():
     return yaml.safe_load(CATALOGUE.read_text(encoding="utf-8"))
 
 
-STEMS = [i["reference_name"] for i in yaml.safe_load(CATALOGUE.read_text())["reference_indexes"]]
+STEMS = [i["reference_file"] for i in yaml.safe_load(CATALOGUE.read_text())["reference_indexes"]]
 
 
 def _set(stem):

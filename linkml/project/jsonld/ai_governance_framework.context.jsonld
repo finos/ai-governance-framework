@@ -78,9 +78,6 @@
          "@type": "@id",
          "@id": "entries"
       },
-      "entry_key": {
-         "@id": "entry_key"
-      },
       "entry_keys": {
          "@id": "entry_keys"
       },
@@ -179,16 +176,19 @@
       "question": {
          "@id": "question"
       },
+      "reference_file": {
+         "@id": "reference_file"
+      },
       "reference_indexes": {
          "@type": "@id",
          "@id": "reference_indexes"
       },
+      "reference_key": {
+         "@id": "reference_key"
+      },
       "reference_lenses": {
          "@type": "@id",
          "@id": "reference_lenses"
-      },
-      "reference_name": {
-         "@id": "reference_name"
       },
       "references": {
          "@type": "@id",

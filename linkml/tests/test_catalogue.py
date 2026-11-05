@@ -72,7 +72,7 @@ def test_the_catalogue_holds_no_reference_entry_titles():
     """A reference entry appears by key alone, since a file's titles may be another
     publisher's headings."""
     for index in _catalogue()["reference_indexes"]:
-        assert set(index) == {"reference_name", "lens", "entry_keys"}
+        assert set(index) == {"reference_file", "lens", "entry_keys"}
         assert all(isinstance(key, str) for key in index["entry_keys"])
 
 

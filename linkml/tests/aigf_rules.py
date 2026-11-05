@@ -70,7 +70,7 @@ def citation_faults(catalogue: dict) -> list[str]:
     """A page cites a key its reference file does not hold."""
     faults = []
     for index in catalogue.get("reference_indexes") or []:
-        slot = citation_slot(index["reference_name"])
+        slot = citation_slot(index["reference_file"])
         keys = set(index["entry_keys"])
         for item in items(catalogue):
             for key in item.get(slot) or []:

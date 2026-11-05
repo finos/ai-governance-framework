@@ -1258,7 +1258,7 @@
         "nist-ai-600-1_references"
       ],
       "related_mappings": [
-        "https://w3id.org/lmodel/nist-ai-600-1/GaiRisk"
+        "https://w3id.org/lmodel/nist-ai-600-1/Risk"
       ],
       "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/nist_ai_600_1_references",
       "owner": "AigfReferenceCitations",
@@ -1602,11 +1602,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "entry_key",
-      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/entry_key",
+      "name": "reference_key",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_key",
       "description": "The stable key a page cites the entry by.",
       "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
-      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/entry_key",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_key",
       "key": true,
       "owner": "AigfReferenceEntry",
       "domain_of": [
@@ -1656,11 +1656,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "reference_name",
-      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_name",
+      "name": "reference_file",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_file",
       "description": "The reference file's stem.",
       "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
-      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_name",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_file",
       "owner": "AigfReferenceIndex",
       "domain_of": [
         "AigfReferenceIndex"
@@ -2649,7 +2649,7 @@
       "description": "One citable item of a reference file, under the key a page cites it by.",
       "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
       "slots": [
-        "entry_key",
+        "reference_key",
         "AigfReferenceEntry_title",
         "AigfReferenceEntry_url",
         "description",
@@ -2667,7 +2667,7 @@
       "description": "The keys one reference file holds, so that a catalogue's citations resolve within it.",
       "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
       "slots": [
-        "reference_name",
+        "reference_file",
         "AigfReferenceIndex_lens",
         "entry_keys"
       ],
@@ -2730,8 +2730,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "ai_governance_framework.yaml",
-  "source_file_date": "2026-11-05T13:57:21",
-  "source_file_size": 22167,
+  "source_file_date": "2026-11-05T14:11:41",
+  "source_file_size": 22172,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ai_governance_framework.context.jsonld",

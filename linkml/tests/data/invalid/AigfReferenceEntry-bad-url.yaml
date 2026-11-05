@@ -1,5 +1,5 @@
 # Fails at: /url
-entry_key: llm01-2026
+reference_key: llm01-2026
 title: LLM01:2026 Prompt Injection
 url: example.org
 description: An attacker manipulates a model through crafted input.

@@ -1,5 +1,5 @@
 # Fails at: /lens
-reference_name: owasp-llm
+reference_file: owasp-llm
 lens: hazard
 entry_keys:
 - llm01-2026

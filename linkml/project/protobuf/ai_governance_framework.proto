@@ -174,7 +174,7 @@ message AigfReferenceCitations {
 // One citable item of a reference file, under the key a page cites it by.
 message AigfReferenceEntry {
   // The stable key a page cites the entry by.
-  string entry_key = 1;
+  string reference_key = 1;
   // The name FINOS gives the page, file or framework.
   string title = 2;
   // The address of the element.
@@ -204,7 +204,7 @@ message AigfReferenceFile {
 // The keys one reference file holds, so that a catalogue's citations resolve within it.
 message AigfReferenceIndex {
   // The reference file's stem.
-  string reference_name = 1;
+  string reference_file = 1;
   // Which question a reference file answers for a page.
   AigfLens lens = 2;
   // The keys the reference file holds.

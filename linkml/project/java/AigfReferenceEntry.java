@@ -16,7 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper=false)
 public class AigfReferenceEntry  {
 
-  private String entryKey;
+  private String referenceKey;
   private String title;
   private String url;
   private String description;

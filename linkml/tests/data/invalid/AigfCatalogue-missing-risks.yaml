@@ -10,7 +10,7 @@ reference_lenses:
   icon: bi-exclamation-triangle
   color: primary
 reference_indexes:
-- reference_name: owasp-llm
+- reference_file: owasp-llm
   lens: threat
   entry_keys:
   - llm01-2026

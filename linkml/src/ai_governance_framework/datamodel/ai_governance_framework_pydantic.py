@@ -324,7 +324,7 @@ class AigfReferenceCitations(ConfiguredBaseModel):
     iso_42001_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/iso-42001.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['iso-42001_references'], 'domain_of': ['AigfReferenceCitations']} })
     nist_ai_600_1_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-ai-600-1.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-ai-600-1_references'],
          'domain_of': ['AigfReferenceCitations'],
-         'related_mappings': ['nist_ai_600_1:GaiRisk']} })
+         'related_mappings': ['nist_ai_600_1:Risk']} })
     nist_sp_800_53r5_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-sp-800-53r5.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-sp-800-53r5_references'],
          'domain_of': ['AigfReferenceCitations'],
          'related_mappings': ['nist_sp_800_53:Control']} })
@@ -362,7 +362,7 @@ class AigfRisk(AigfReferenceCitations, AigfItem):
     iso_42001_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/iso-42001.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['iso-42001_references'], 'domain_of': ['AigfReferenceCitations']} })
     nist_ai_600_1_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-ai-600-1.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-ai-600-1_references'],
          'domain_of': ['AigfReferenceCitations'],
-         'related_mappings': ['nist_ai_600_1:GaiRisk']} })
+         'related_mappings': ['nist_ai_600_1:Risk']} })
     nist_sp_800_53r5_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-sp-800-53r5.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-sp-800-53r5_references'],
          'domain_of': ['AigfReferenceCitations'],
          'related_mappings': ['nist_sp_800_53:Control']} })
@@ -440,7 +440,7 @@ class AigfMitigation(AigfReferenceCitations, AigfItem):
     iso_42001_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/iso-42001.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['iso-42001_references'], 'domain_of': ['AigfReferenceCitations']} })
     nist_ai_600_1_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-ai-600-1.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-ai-600-1_references'],
          'domain_of': ['AigfReferenceCitations'],
-         'related_mappings': ['nist_ai_600_1:GaiRisk']} })
+         'related_mappings': ['nist_ai_600_1:Risk']} })
     nist_sp_800_53r5_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-sp-800-53r5.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-sp-800-53r5_references'],
          'domain_of': ['AigfReferenceCitations'],
          'related_mappings': ['nist_sp_800_53:Control']} })
@@ -526,7 +526,7 @@ class AigfUseCase(AigfReferenceCitations, AigfItem):
     iso_42001_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/iso-42001.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['iso-42001_references'], 'domain_of': ['AigfReferenceCitations']} })
     nist_ai_600_1_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-ai-600-1.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-ai-600-1_references'],
          'domain_of': ['AigfReferenceCitations'],
-         'related_mappings': ['nist_ai_600_1:GaiRisk']} })
+         'related_mappings': ['nist_ai_600_1:Risk']} })
     nist_sp_800_53r5_references: Optional[list[str]] = Field(default=None, description="""Keys of docs/_data/references/nist-sp-800-53r5.yml.""", json_schema_extra = { "linkml_meta": {'aliases': ['nist-sp-800-53r5_references'],
          'domain_of': ['AigfReferenceCitations'],
          'related_mappings': ['nist_sp_800_53:Control']} })
@@ -743,7 +743,7 @@ class AigfReferenceEntry(ConfiguredBaseModel):
          'slot_usage': {'title': {'name': 'title', 'required': True},
                         'url': {'name': 'url', 'required': True}}})
 
-    entry_key: str = Field(default=..., description="""The stable key a page cites the entry by.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfReferenceEntry']} })
+    reference_key: str = Field(default=..., description="""The stable key a page cites the entry by.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfReferenceEntry']} })
     title: str = Field(default=..., description="""The name FINOS gives the page, file or framework.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfCatalogue',
                        'AigfItem',
                        'AigfReferenceFile',
@@ -783,7 +783,7 @@ class AigfReferenceIndex(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/ai-governance-framework',
          'slot_usage': {'lens': {'name': 'lens', 'required': True}}})
 
-    reference_name: str = Field(default=..., description="""The reference file's stem.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfReferenceIndex']} })
+    reference_file: str = Field(default=..., description="""The reference file's stem.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfReferenceIndex']} })
     lens: AigfLens = Field(default=..., description="""Which question a reference file answers for a page.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfReferenceLens', 'AigfReferenceFile', 'AigfReferenceIndex']} })
     entry_keys: Optional[list[str]] = Field(default=None, description="""The keys the reference file holds.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AigfReferenceIndex']} })
 

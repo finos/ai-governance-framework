@@ -254,7 +254,7 @@ classes:
   AigfReferenceEntry:
     description: One citable item of a reference file, under the key a page cites it by.
     slots:
-    - entry_key
+    - reference_key
     - title
     - aigf_url
     - description
@@ -272,7 +272,7 @@ classes:
   AigfReferenceIndex:
     description: The keys one reference file holds, so that a catalogue's citations resolve within it.
     slots:
-    - reference_name
+    - reference_file
     - lens
     - entry_keys
     slot_usage:
@@ -478,7 +478,7 @@ slots:
     multivalued: true
     description: Keys of docs/_data/references/nist-ai-600-1.yml.
     related_mappings:
-    - nist_ai_600_1:GaiRisk
+    - nist_ai_600_1:Risk
   nist_sp_800_53r5_references:
     aliases:
     - nist-sp-800-53r5_references
@@ -566,7 +566,7 @@ slots:
     inlined: true
     range: AigfReferenceEntry
     description: The file's citable items, keyed by the key a page cites them by.
-  entry_key:
+  reference_key:
     key: true
     description: The stable key a page cites the entry by.
   issuer:
@@ -575,7 +575,7 @@ slots:
     description: The abbreviation of the FFIEC booklet the entry belongs to.
   superseded_by:
     description: The key of the entry in the same file that replaces this one in a newer edition.
-  reference_name:
+  reference_file:
     required: true
     description: The reference file's stem.
   entry_keys:

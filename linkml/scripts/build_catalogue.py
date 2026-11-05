@@ -158,7 +158,7 @@ def catalogue(schema: dict) -> dict:
         ],
         "reference_indexes": [
             {
-                "reference_name": stem,
+                "reference_file": stem,
                 "lens": data["lens"],
                 "entry_keys": list(data["entries"]),
             }
