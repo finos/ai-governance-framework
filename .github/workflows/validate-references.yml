@@ -4,11 +4,19 @@ on:
   push:
     paths:
       - "docs/_data/references/**.yml"
+      - "docs/_risks/**"
+      - "docs/_mitigations/**"
+      - "docs/_usecases/**"
       - "scripts/validate-references.py"
+      - "scripts/validate-item-references.py"
   pull_request:
     paths:
       - "docs/_data/references/**.yml"
+      - "docs/_risks/**"
+      - "docs/_mitigations/**"
+      - "docs/_usecases/**"
       - "scripts/validate-references.py"
+      - "scripts/validate-item-references.py"
 
 jobs:
   validate:
@@ -26,3 +34,8 @@ jobs:
 
       - name: Validate reference YAML files
         run: python scripts/validate-references.py
+
+      - name: Validate item references (floor, cap, reverse coverage)
+        # Report-only for now: ri-24 to ri-30 are still below the floor (#426).
+        # Drop --warn once those items are backfilled so the check fails the build.
+        run: python scripts/validate-item-references.py --warn
