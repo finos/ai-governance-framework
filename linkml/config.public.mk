@@ -14,7 +14,7 @@ LINKML_SCHEMA_SOURCE_DIR="src/ai_governance_framework/schema"
 ###### linkml generator variables, used by justfile
 
 ## gen-project configuration file
-LINKML_GENERATORS_CONFIG_YAML=config.yaml
+LINKML_GENERATORS_CONFIG_YAML=.linkml/generators.yaml
 
 ## pass args if gendoc ignores config.yaml (i.e. --no-mergeimports)
 LINKML_GENERATORS_DOC_ARGS=
