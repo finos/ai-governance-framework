@@ -1,0 +1,561 @@
+name: Knowledge Registrar
+
+# The registrar's job: keep the LOKF knowledge bundle's records well-formed and
+# provenanced. It never judges whether their content is true; that is the
+# curator's job. It validates the bundle whenever it (or its tooling) changes,
+# and on a weekly schedule.
+#
+# How to read this file. Three jobs, and none of them can write to the
+# repository: each runs with a read-only token, keeps no credential on disk,
+# and runs no LLM or agent. An auditor can follow a run top to bottom:
+#
+#   validate      every run       `lokf validate --check-refs`, which checks
+#                                 the schema and every relation target; then
+#                                 the conventions script, which checks dates,
+#                                 event shape and open questions.
+#
+#   provenance    pull requests   for each new `human:<id>` event in the diff:
+#                                   approved this pull request    -> ok
+#                                   signed the commit, per GitHub -> ok
+#                                   neither                       -> unbacked
+#                                 With keys in .lokf/curators/, a second check
+#                                 verifies the same signatures with plain git.
+#
+#   attestation   unbacked only   pauses until a reviewer of the configured
+#                                 environment clicks Approve; the click is
+#                                 logged with the run.
+#
+# The evidence is GitHub's own record of approvals and signature checks,
+# never the pull request's text. What this file does not prove is that the
+# named person read the source. The skills repository's docs/three-lines.md
+# places this job as the second line of defence and says what remains open:
+# https://w3id.org/ktl/docs/three-lines/
+on:
+  pull_request:
+    paths:
+      - ".lokf/**"
+      - "knowledge_bundle/**" # the bundle's second name: a link by default, a real folder on a host rearranged by hand
+      - ".github/workflows/knowledge-registrar.yaml"
+  schedule:
+    - cron: "0 6 * * 1" # Mondays at 06:00 UTC
+  workflow_dispatch:
+
+# Least-privilege default: no token scope unless a job opts in, the
+# same default knowledge-librarian.yaml already sets. Each job below names
+# exactly what it needs.
+permissions: {}
+
+# Cancel superseded runs on the same ref to save runner time.
+concurrency:
+  group: knowledge-registrar-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate the LOKF bundle
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Nothing in this job pushes, so the token never needs to reach the
+          # checkout's credential helper, where any later step could read it.
+          persist-credentials: false
+          # Full history: knowledge-conventions.sh resolves each `revision`
+          # against the tree, and reports a shallow clone instead of passing it.
+          fetch-depth: 0
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          python-version: "3.12"
+
+      # --locked installs what .lokf/uv.lock names, each file checked against
+      # the hash recorded there, and fails when the lock is missing or behind
+      # pyproject.toml. So this gate runs the toolkit a person reviewed, never
+      # whatever resolves on the day. When the step fails, run `uv lock` in
+      # .lokf/ and commit the lock with the change that moved the floor.
+      - name: Install the lokf sidecar
+        run: uv sync --locked
+        working-directory: .lokf
+
+      # A typed relation whose target is no concept in the bundle is still a
+      # well-formed IRI, so schema validation alone passes it. --check-refs
+      # resolves every target in the bundle's own namespace, taking the
+      # relation slots from the schema. It is part of `lokf validate`, so it
+      # rides on this step rather than validating the same bundle twice. A
+      # host with a domain schema names it as `schema :=` in the justfile, and
+      # the recipe passes it; the workflow runs the recipe so no host edits this line.
+      - name: Validate the knowledge bundle and its relation targets
+        # just from uv.lock, checked against its hash, where the host's
+        # pyproject.toml names rust-just; else uvx fetches the same version.
+        run: |
+          if grep -qx 'name = "rust-just"' uv.lock; then uv run --locked just lokf-check-refs
+          else uvx --from rust-just==1.47.0 just lokf-check-refs; fi
+        working-directory: .lokf
+
+      # `lokf validate` reads a concept body as an opaque string and never
+      # opens log.md. So the conventions the skills and both Obsidian plugins
+      # rely on are checked by the script the sidecar installs beside the
+      # agent wrapper. Those are one ISO-date heading per day, quoted
+      # timestamps, `verified` as a list with one librarian event, and open
+      # questions in the shape the curator reads. Each of them has been broken
+      # by an agent that had the rule in prose. On a pull request, rule 14
+      # reads each of its commits too: one that records a person's
+      # confirmation changes only the verdict. The base is the merge-base of
+      # the pull request, as the provenance job uses, so a commit the base
+      # branch gained after the pull request opened is not read as the pull
+      # request's. The SHAs enter through env:, never interpolated, and a
+      # scheduled run has none, so it skips rule 14.
+      - name: Check the conventions lokf validate cannot see
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          since=""
+          if [ -n "$BASE_SHA" ]; then since="$(git merge-base "$BASE_SHA" "$HEAD_SHA")"; fi
+          bash scripts/knowledge-conventions.sh knowledge ${since:+--since "$since"}
+        working-directory: .lokf
+
+  provenance:
+    name: Check new human confirmations
+    # A `human:<id>` verification claims that a named person checked a concept
+    # against its source. Nothing in the bundle's own format proves one. Any
+    # writer can type the string (an agent steered by another agent, a script,
+    # a careless merge), and `lokf validate` sees a perfectly well-formed
+    # event. This job ties such a claim back to a person, using the only
+    # evidence the forge holds: who approved the pull request, and who signed
+    # the commits.
+    #
+    # When the confirming person also opens the pull request: GitHub will not
+    # let anyone approve their own pull request, so their signature on the
+    # commits is the path here. It is also the stronger claim, being
+    # cryptographic and checkable long after a review could be dismissed.
+    # One-time setup with the SSH key already used to push:
+    #
+    #   git config --global gpg.format ssh
+    #   git config --global user.signingkey ~/.ssh/id_ed25519.pub
+    #   git config --global commit.gpgsign true
+    #
+    # then add that same key again at github.com/settings/keys as a
+    # *signing* key. GitHub keeps auth and signing keys in separate
+    # lists, this check reads GitHub's own verdict, and a key registered
+    # only for auth leaves every commit Unverified. The commit email must
+    # also be a verified email on the account.
+    #
+    # If you cannot sign, see the `attestation` job below.
+    #
+    # SECURITY SCANNER NOTE: Snyk W011 "third-party content exposure /
+    # indirect prompt injection" is a FALSE POSITIVE for this job.
+    # This job reads github.event.pull_request fields and the pull request's
+    # reviews and commits from the GitHub API for one purpose. It verifies that
+    # each person a new `human:<id>` confirmation names either approved this
+    # pull request or signed the commit that records it. That is the
+    # provenance and attestation check described above. It is a shell script
+    # only: no LLM, AI agent, or AI tool runs in this job, and nothing it
+    # reads is ever passed to one. So there is no prompt for injected content
+    # to reach. Untrusted input is also contained on its own terms:
+    #   - event fields reach the shell through `env:`, never by `${{ }}`
+    #     interpolation into a script (no script injection);
+    #   - API replies are reduced by `--jq` to logins, SHAs and a boolean;
+    #   - the one author-controlled string, `human:<id>` in a concept's
+    #     frontmatter, must match a login pattern before any use, and is
+    #     compared by fixed string only;
+    #   - token scope is read-only and no credential is persisted.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      verdict: ${{ steps.check.outputs.verdict }}
+      actors: ${{ steps.check.outputs.actors }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # This job only reads and compares history; it never pushes.
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Every new human confirmation must come from that person
+        id: check
+        # Pull-request data read here is covered by the SECURITY SCANNER NOTE
+        # on this job: no LLM or agent consumes it.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          # Optional, and off unless you set it: the name of an Environment
+          # whose required reviewers must approve an otherwise unbacked
+          # confirmation. See the `attestation` job.
+          ATTEST_ENV: ${{ vars.KNOWLEDGE_CURATION_ENVIRONMENT }}
+        run: |
+          set -euo pipefail
+          # Byte-oriented awk, sort and comm, so the frontmatter reader below
+          # strips a byte order mark by its bytes on any awk, and sort agrees
+          # with comm. A UTF-8 gawk would otherwise read the three BOM bytes as
+          # one character, see no "---", read no events, and pass a forged
+          # unsigned confirmation that every YAML parser reads. Matches
+          # knowledge-provenance.sh.
+          export LC_ALL=C
+
+          # A claim is an event in a concept's frontmatter: a `verified`
+          # entry, or the `generated` record the curator's Correct writes as
+          # `human:<id>`. It is read whole as
+          # `<id>\t<by>\t<at>\t<revision>\t<kind>`, whatever its YAML layout,
+          # and keyed by the concept's id so a rename keeps its events and a
+          # copy does not. An added line would not do: a re-dated `at`, a moved
+          # `revision` or a flow-style event adds no `by:` line, and a
+          # `by: human:` in a body code fence or a send-back note is not an
+          # event.
+          #
+          # Any event present at head and absent at base names an actor who
+          # must stand behind it. So does a `verified` event present at base
+          # and absent at head: a person's record is never removed without
+          # that person, whether the event is struck out or its concept
+          # deleted. Same extractor as knowledge-provenance.sh; the id is taken
+          # as the schema takes it, so one this job cannot look up is refused
+          # below, never skipped.
+          human_events() {
+            awk -v path="$1" '
+            function val(s) { sub(/^[^:]*:[[:space:]]*/, "", s); gsub(/["'"'"']/, "", s); sub(/[[:space:]]+$/, "", s); return s }
+            # Nothing this reader cannot follow is taken for no event. The schema gives
+            # an event `by`, `at` and `revision` and no other key, so any other key is a
+            # spelling it cannot follow: a quoted `by`, a merge, an alias. Such an event,
+            # and one whose actor is outside the shape the schema allows, comes out as the actor
+            # (unreadable), which is no login, so each gate refuses it as it refuses any
+            # id it cannot check.
+            function kv(l,  k) { k = l; sub(/:.*/, "", k); sub(/^[[:space:]]+/, "", k)
+              if (k == "by") by = val(l); else if (k == "at") at = val(l); else if (k == "revision") rev = val(l); else odd = 1 }
+            function actor(a) { return a !~ /\\/ && (a ~ /^(human|process):[^[:space:]]+$/ || a ~ "^[^[:space:]/]+/[^[:space:]/]+$") }
+            # Two revisions of a file must differ here whenever they differ in what a
+            # parser could read, or an edit inside an unreadable block passes unseen.
+            # So a file holds one unreadable line, and that line carries everything up
+            # to the closing delimiter, with control bytes YAML forbids in place of
+            # its tabs and line ends.
+            function unread() { bad = 1 }
+            function emit() { if (inev && (odd || !actor(by))) { bad = 1; by = "" }
+              if (inev && by ~ /^human:/) { sub(/^human:/, "", by); out = out (cid ? cid : path) "\t" by "\t" at "\t" rev "\t" kind "\n" }
+              inev = 0; odd = 0; by = ""; at = ""; rev = "" }
+            function flow(s,  n, parts, i) { emit(); inev = 1; gsub(/[{}]/, "", s); n = split(s, parts, ",")
+              for (i = 1; i <= n; i++) if (parts[i] !~ /^[[:space:]]*$/) kv(parts[i]); emit() }
+            # A flow verified/generated may span lines: valid YAML a
+            # block-only reader skips, which would let a forged confirmation
+            # past the gate. Accumulate to the closing bracket, then parse: a
+            # sequence into its events, a mapping as one. Matches
+            # knowledge-provenance.sh.
+            function flushflow(  b, n, items, i) { b = flowbuf
+              if (b ~ /(^|[[:space:]])#/) unread()
+              if (flowseq) { sub(/^\[/, "", b); sub(/\].*/, "", b) } else { sub(/^\{/, "", b); sub(/\}.*/, "", b) }
+              sub(/^[[:space:]]+/, "", b); sub(/[[:space:]]+$/, "", b)
+              if (b != "") { if (flowseq) { n = split(b, items, /\}[[:space:]]*,/); for (i = 1; i <= n; i++) if (items[i] !~ /^[[:space:]]*$/) flow(items[i]) } else flow(b) }
+              inflow = 0; flowbuf = "" }
+            BEGIN { fm = 0; inv = 0; inev = 0; inflow = 0; cid = ""; out = ""; odd = 0; bad = 0; plain = 0; dashes = 0; seen = 0 }
+            { sub(/\r$/, ""); line = $0; gsub(/\t/, "\002", line); raw[NR] = line }
+            # A byte order mark or CRLF on the opener would make a block-only
+            # reader see no "---", read no events, and wave a forged unsigned
+            # event past the gate, though every YAML parser strips both and
+            # sees it. Strip them (bytes, under LC_ALL=C). Matches
+            # knowledge-provenance.sh.
+            NR == 1 { sub(/^\357\273\277/, ""); if ($0 == "---") { fm = 1; next } else plain = 1 }
+            # The toolkit opens a block at the first `---` in the file, on any line, with
+            # anything before it. So a file that opens any other way may still hold
+            # events this reader never sees. log.md holds none.
+            plain { dashes += gsub(/---/, "&"); next }
+            # A parser ends a line at a bare carriage return, U+0085, U+2028 and U+2029,
+            # and this reader does not, so an event can sit inside one line it reads.
+            /\r|\302\205|\342\200[\250\251]/ { unread() }
+            inflow && $0 == "---" { flushflow(); exit }
+            inflow { flowbuf = flowbuf " " $0; if (index($0, flowseq ? "]" : "}")) flushflow(); next }
+            fm && $0 == "---" { emit(); exit }
+            # A block indented whole, and a top-level key no plain `key:` spells, such as
+            # a quoted key, `? key`, `<<:` or a flow mapping, can each hold an event.
+            !seen && /[^[:space:]]/ && !/^[[:space:]]*#/ { seen = 1; if (/^[[:space:]]/) unread() }
+            /^["'"'"'?{[<!&*:|>]/ || /^(verified|generated)[[:space:]]+:/ { emit(); inv = 0; unread(); next }
+            /^id:/ { cid = val($0) }
+            /^(verified|generated):/ { emit(); inv = 1; kind = $0; sub(/:.*/, "", kind); rest = $0; sub(/^(verified|generated):[[:space:]]*/, "", rest); sub(/[[:space:]]+$/, "", rest)
+              if (rest ~ /^\{/) { flowseq = 0; flowbuf = rest; inv = 0; if (index(rest, "}")) flushflow(); else inflow = 1 }
+              else if (rest ~ /^\[/) { flowseq = 1; flowbuf = rest; inv = 0; if (index(rest, "]")) flushflow(); else inflow = 1 }
+              else if (rest != "" && rest !~ /^#/ && rest !~ /^(null|~)$/) unread()
+              next }
+            inv && /^[^[:space:]-]/ { emit(); inv = 0 }
+            inv && /^[[:space:]]*-[[:space:]]*(#.*)?$/ { emit(); inev = 1; next }
+            inv && /^[[:space:]]*-[[:space:]]*\{/ { rest = $0; sub(/^[[:space:]]*-[[:space:]]*/, "", rest); flow(rest); next }
+            inv && /^[[:space:]]*-[[:space:]]+/ { emit(); inev = 1; rest = $0; sub(/^[[:space:]]*-[[:space:]]+/, "", rest); kv(rest); next }
+            inv && /^[[:space:]]+[a-z_]+:/ { inev = 1; kv($0); next }
+            inv && /^[[:space:]]+[^[:space:]#]/ { inev = 1; odd = 1; next }
+            END { if (plain && dashes >= 2 && path !~ /(^|\/)log\.md$/) unread(); emit(); printf "%s", out; if (bad) { printf "%s\t(unreadable)\t\t", cid ? cid : path; for (i = 1; i <= NR; i++) if (i in raw) printf "%s\001", raw[i]; printf "\tverified\n" } }'
+          }
+          paths="$(mktemp)"
+          listed="$(mktemp)"  # every path git named under the bundle, quoted or not
+          now_events="$(mktemp)"
+          every_events="$(mktemp)"
+          events_in() {  # ref, paths on stdin -> the human events of those paths at that ref, sorted
+            { while IFS= read -r f; do git show "$1:$f" 2>/dev/null | human_events "$f" || true; done | sort; } || true
+          }
+          # core.quotePath off: on, git C-quotes a name with a byte above
+          # 0x7f, `.md$` missed it and its events went unread. Git still
+          # quotes a name holding `"`, `\` or a control character, which no
+          # line reader can hold; $listed keeps every name so a quoted one
+          # is refused below rather than skipped.
+          changed_actors() {  # base head -> actors of events at head that base does not hold
+            { git -c core.quotePath=false diff --name-only "$1" "$2" -- .lokf/knowledge knowledge_bundle | tee -a "$listed" | grep '\.md$' | sort -u > "$paths"
+              events_in "$2" < "$paths" | comm -13 <(events_in "$1" < "$paths") - | cut -f2; } || true
+          }
+          # Against every parent: a merge that brings in another curator's
+          # confirmation claims nothing, and one that adds an event neither
+          # side held is read like any other commit. Without -m, git lists no
+          # paths for a merge.
+          new_in_commit() {  # sha -> actors of events at sha that none of its parents holds
+            { git -c core.quotePath=false diff-tree --no-commit-id --name-only -r -m "$1" -- .lokf/knowledge knowledge_bundle | tee -a "$listed" | grep '\.md$' | sort -u > "$paths"
+              events_in "$1" < "$paths" | comm -13 <(for p in $(git rev-parse "$1^@"); do events_in "$p" < "$paths"; done | sort -u) - | cut -f2; } || true
+          }
+          # A removal is a claim too. Of the events that went, a `verified`
+          # one always needs its person. A person's `generated` record may
+          # be replaced by another person's, the curator's Correct, whose
+          # actor is already checked above as an addition. So it counts only
+          # when no person's `generated` record stands in its place.
+          needs_its_person() {  # removed events on stdin, the file of events that remain -> those whose actor must back the removal
+            awk -F'\t' -v now="$1" '
+              BEGIN { while ((getline line < now) > 0) { split(line, f, "\t"); if (f[5] == "generated") kept[f[1]] = 1 } }
+              $5 == "verified" || !($1 in kept)'
+          }
+          removed_actors() {  # base head -> actors of events base holds that head does not
+            { git -c core.quotePath=false diff --name-only "$1" "$2" -- .lokf/knowledge knowledge_bundle | tee -a "$listed" | grep '\.md$' | sort -u > "$paths"
+              events_in "$2" < "$paths" > "$now_events"
+              events_in "$1" < "$paths" | comm -23 - "$now_events" | needs_its_person "$now_events" | cut -f2; } || true
+          }
+          # Against every parent again: what a merge lacks because one side
+          # never held it is no removal, and a root commit removes nothing.
+          gone_in_commit() {  # sha -> actors of events every parent holds that sha does not
+            { git -c core.quotePath=false diff-tree --no-commit-id --name-only -r -m "$1" -- .lokf/knowledge knowledge_bundle | tee -a "$listed" | grep '\.md$' | sort -u > "$paths"
+              events_in "$1" < "$paths" > "$now_events"
+              first=1
+              for p in $(git rev-parse "$1^@"); do
+                if [ "$first" -eq 1 ]; then events_in "$p" < "$paths" > "$every_events"; first=0
+                else events_in "$p" < "$paths" | comm -12 "$every_events" - > "$every_events.next"; mv "$every_events.next" "$every_events"; fi
+              done
+              [ "$first" -eq 1 ] || comm -23 "$every_events" "$now_events" | needs_its_person "$now_events" | cut -f2; } || true
+          }
+
+          base="$(git merge-base "$BASE_SHA" "$HEAD_SHA")"
+
+          mapfile -t actors < <({ changed_actors "$base" "$HEAD_SHA"; removed_actors "$base" "$HEAD_SHA"; } | sed '/^$/d' | sort -u)
+
+          if grep -q '^"' "$listed"; then
+            echo "unreadable: git had to quote these bundle paths, so this gate cannot read them:"
+            grep '^"' "$listed" | sort -u | sed 's/^/  /'
+            echo "Rename them: no double quote, backslash or control character in a concept's path."
+            exit 1
+          fi
+
+          # The toolkit reads a symbolic link as the file it points at, and git
+          # holds it as the path it names. So a concept that is a link onto a
+          # file outside the bundle carries events this job never sees. The
+          # bundle's two names may be links onto each other, as the doorway and
+          # a host rearranged by hand have them. `.lokf` itself is always asked
+          # about: as a link it takes the whole bundle out of the paths this
+          # job lists. Matches knowledge-provenance.sh.
+          linked="$({ cat "$listed"; echo .lokf; } | sort -u | while IFS= read -r f; do
+            [ -n "$f" ] || continue
+            case "$(git ls-tree "$HEAD_SHA" -- "$f" 2>/dev/null)" in 120000\ *) ;; *) continue ;; esac
+            case "$f:$(git show "$HEAD_SHA:$f" 2>/dev/null)" in
+              ".lokf/knowledge:../knowledge_bundle"|"knowledge_bundle:.lokf/knowledge") ;;
+              *) printf '%s\n' "$f" ;;
+            esac
+          done)"
+          if [ -n "$linked" ]; then
+            echo "unreadable: these bundle paths are symbolic links, so this gate cannot read them:"
+            printf '%s\n' "$linked" | sed 's/^/  /'
+            echo "A concept is a file of its own: replace each link with the file."
+            exit 1
+          fi
+
+          if [ "${#actors[@]}" -eq 0 ]; then
+            echo "No human confirmation is added, changed or removed in this pull request."
+            echo "verdict=ok" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          approvers="$(
+            gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/reviews" --paginate \
+              --jq '.[] | select(.state == "APPROVED") | .user.login'
+          )"
+
+          # Signature status has to come from GitHub, not from `git log %G?`.
+          # A runner has no GPG keyring and no `gpg.ssh.allowedSignersFile`,
+          # so locally every signature here reads as unverifiable (`N`) no
+          # matter how good it is. GitHub checks each signature against the
+          # keys registered to an account, which is also what ties the
+          # signature to a person, rather than merely proving one exists.
+          commits="$(mktemp)"
+          gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/commits" --paginate \
+            --jq '.[] | [.sha, (.commit.verification.verified | tostring), (.author.login // "-")] | @tsv' \
+            > "$commits"
+
+          mapfile -t bundle_shas < <(
+            git log --format='%H' "${base}..${HEAD_SHA}" -- .lokf/knowledge knowledge_bundle
+          )
+
+          unbacked=()
+          for actor in "${actors[@]}"; do
+            if [ "$actor" = "(unreadable)" ]; then
+              echo "unbacked: this pull request changes frontmatter this gate cannot read, which may hold a person's record. Spell it as conventions rule 10 asks."
+              unbacked+=("$actor")
+              continue
+            fi
+            # A GitHub login is letters, digits and hyphens; the schema's actor
+            # pattern accepts more, and an id nobody can be looked up under
+            # must not read as a person's confirmation.
+            if ! printf '%s\n' "$actor" | grep -qE '^[A-Za-z0-9][A-Za-z0-9._-]*$'; then
+              echo "unbacked: human:${actor} is not a login this gate can check (letters, digits, . _ - only)."
+              unbacked+=("$actor")
+              continue
+            fi
+            if printf '%s\n' "$approvers" | grep -qxF -- "$actor"; then
+              echo "ok: human:${actor} approved this pull request."
+              continue
+            fi
+
+            # No approval from them. The remaining evidence is their own
+            # signature on each commit that introduced or removed the event.
+            # It is the only route when they opened the pull request
+            # themselves, since GitHub will not let anyone approve their own
+            # pull request.
+            introducing=()
+            for sha in "${bundle_shas[@]}"; do
+              if new_in_commit "$sha" | grep -qxF -- "$actor" || gone_in_commit "$sha" | grep -qxF -- "$actor"; then
+                introducing+=("$sha")
+              fi
+            done
+
+            if [ "${#introducing[@]}" -eq 0 ]; then
+              echo "unbacked: a confirmation by human:${actor} is added, changed or removed here, but no commit in this pull request does it."
+              unbacked+=("$actor")
+              continue
+            fi
+
+            backed=yes
+            for sha in "${introducing[@]}"; do
+              info="$(awk -v s="$sha" '$1 == s { print $2, $3 }' "$commits")"
+              verified="${info%% *}"
+              signer="${info##* }"
+              if [ "$verified" = "true" ] && [ "$signer" = "$actor" ]; then
+                continue
+              fi
+              backed=no
+              echo "unbacked: commit ${sha:0:8} adds, changes or removes a confirmation by human:${actor} but GitHub reports it" \
+                   "verified=${verified:-unknown}, attributed to ${signer:-unknown}."
+            done
+
+            if [ "$backed" = yes ]; then
+              echo "ok: human:${actor} signed each commit that adds, changes or removes their own confirmation."
+            else
+              unbacked+=("$actor")
+            fi
+          done
+
+          if [ "${#unbacked[@]}" -eq 0 ]; then
+            echo "verdict=ok" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "verdict=unbacked" >> "$GITHUB_OUTPUT"
+          echo "actors=${unbacked[*]}" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### Confirmations nothing stands behind"
+            echo ""
+            echo "This pull request adds, changes or removes a confirmation by each of"
+            echo "these people, and neither an approval nor a signature of theirs backs"
+            echo "it:"
+            echo ""
+            # An id that failed the login pattern may hold a backtick, which
+            # would close this code span; the log line has it verbatim.
+            for actor in "${unbacked[@]}"; do
+              printf -- "- \`human:%s\`\n" "${actor//\`/}"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ -n "$ATTEST_ENV" ]; then
+            echo ""
+            echo "Waiting on a reviewer of the '${ATTEST_ENV}' environment to attest to these."
+            exit 0
+          fi
+
+          echo ""
+          echo "A 'human:' verification says a named person checked that concept"
+          echo "against its source. Ask that person to approve this pull request,"
+          echo "or - if it is their own, which GitHub will not let them approve -"
+          echo "have them sign their commits (see this job's comments). If nobody"
+          echo "actually checked it, remove the event: an unchecked concept is"
+          echo "supposed to read as unchecked. A person's record is never removed"
+          echo "without that person either: if this pull request strikes one out or"
+          echo "deletes its concept, put it back, or ask them to approve or sign."
+          exit 1
+
+      # Second opinion where the repository carries curator keys: the same
+      # signature check with plain git, gpg and ssh-keygen against the keys
+      # on file (<id>.asc or <id>.pub) rather than GitHub's verdict. So a
+      # signature from a key not on file for that id fails even when GitHub
+      # shows it as Verified. A repository with no .lokf/curators/ never runs
+      # it; the script itself says so and passes if run by hand. Installed by
+      # ktl-sidecar Step 5.
+      - name: Verify signatures against the keys on file
+        if: hashFiles('.lokf/curators/*.asc', '.lokf/curators/*.pub') != ''
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: bash .lokf/scripts/knowledge-provenance.sh "$BASE_SHA" "$HEAD_SHA"
+
+  attestation:
+    name: Attest to an unbacked confirmation
+    # The fallback for a repository that cannot sign commits and has nobody
+    # else available to approve.
+    #
+    # It is NOT a switch that turns the check off. A permanent
+    # "provenance: off" setting gets set for one urgent afternoon and never
+    # reset, and the bundle then claims confirmations it cannot support. This asks instead for a fresh human action on every pull
+    # request that needs one: the run pauses, GitHub emails the environment's
+    # reviewers, and someone clicks Approve in a browser. Unlike a pull
+    # request review, an environment reviewer MAY be the person who opened
+    # the pull request. That is what makes this work when the same person
+    # opens the pull request and attests.
+    # The click is recorded in the deployment log, so it stays auditable.
+    #
+    # To enable, both steps are required:
+    #   1. Settings -> Environments -> New environment (for example "knowledge-curation"),
+    #      tick "Required reviewers", and add the people allowed to attest.
+    #   2. Settings -> Secrets and variables -> Actions -> Variables: set
+    #      KNOWLEDGE_CURATION_ENVIRONMENT to that environment's name.
+    #
+    # Step 1 is what does the work. An environment with no required reviewers
+    # approves itself instantly, so setting the variable while skipping the
+    # reviewers silently disables the whole gate.
+    needs: provenance
+    if: needs.provenance.outputs.verdict == 'unbacked'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: {}
+    environment: ${{ vars.KNOWLEDGE_CURATION_ENVIRONMENT }}
+    steps:
+      - name: Record what was attested to
+        env:
+          ACTORS: ${{ needs.provenance.outputs.actors }}
+        run: |
+          set -euo pipefail
+          echo "Attested by a reviewer of this environment, for: $ACTORS"
+          echo "This records that a person vouched for these confirmations out of band."
+          echo "It is not evidence that the concepts were checked - only that someone"
+          echo "with access to this repository's settings said they were."

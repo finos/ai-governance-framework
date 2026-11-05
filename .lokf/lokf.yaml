@@ -1,0 +1,2226 @@
+id: https://w3id.org/lokf/schema
+name: lokf
+title: Linked Open Knowledge Format (LOKF)
+description: >-
+  LOKF is a semantic, ontology-grounded profile of the Google Open Knowledge
+  Format (OKF v0.2). It preserves OKF's authoring model — a directory of
+  markdown files, each with a small YAML frontmatter block describing one
+  concept — but binds every concept, field, and relationship to established
+  web vocabularies (schema.org, W3C DCAT, and W3C PROV-O). Because the
+  frontmatter keys are LinkML slots mapped to IRIs, a LOKF concept file, once
+  a LinkML-generated JSON-LD @context is attached, is simultaneously
+  human-readable markdown AND valid JSON-LD that expands losslessly to RDF
+  triples. The entire format is defined in this single LinkML schema, from
+  which the JSON-LD context, JSON Schema, SHACL shapes, and an OWL ontology
+  are generated.
+license: https://creativecommons.org/licenses/by/4.0/
+version: 0.9.0
+
+# ---------------------------------------------------------------------------
+# Namespaces
+# ---------------------------------------------------------------------------
+prefixes:
+  lokf: https://w3id.org/lokf/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  dcat: http://www.w3.org/ns/dcat#
+  dcterms: http://purl.org/dc/terms/
+  prov: http://www.w3.org/ns/prov#
+  skos: http://www.w3.org/2004/02/skos/core#
+  foaf: http://xmlns.com/foaf/0.1/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  owl: http://www.w3.org/2002/07/owl#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  pav: http://purl.org/pav/
+  org: http://www.w3.org/ns/org#
+  vivo: http://vivoweb.org/ontology/core#
+  adms: http://www.w3.org/ns/adms#
+  adms_status: http://purl.org/adms/status/
+  lrmi: http://purl.org/dcx/lrmi-terms/
+  spdx: http://spdx.org/rdf/terms#
+
+default_prefix: lokf
+default_range: string
+
+imports:
+  - linkml:types
+
+# ---------------------------------------------------------------------------
+# Subsets — used to tag which parts are OKF-compatible vs. LOKF extensions
+# ---------------------------------------------------------------------------
+subsets:
+  okf_core:
+    description: >-
+      Fields and structural rules that already exist in OKF v0.1. A bundle
+      using only okf_core features is a valid OKF bundle.
+  lokf_semantic:
+    description: >-
+      Extensions LOKF layers on top of OKF to achieve JSON-LD / RDF grounding,
+      typed relationships, and ontology alignment.
+  okf_v02:
+    description: >-
+      Fields and structural rules introduced by OKF v0.2 — the provenance
+      (`sources`, `usage_window`), trust (`generated`, `verified`), lifecycle
+      (`status`, `stale_after`), and attested-computation (`runtime`,
+      `parameters`, `computation`, `executor`, `attester`) families. A bundle
+      using okf_core + okf_v02 features is a valid OKF v0.2 bundle; okf_core
+      alone remains the OKF v0.1 surface, so v0.1 compatibility stays
+      checkable. okf_core is deliberately not widened.
+
+# ---------------------------------------------------------------------------
+# Classes
+# ---------------------------------------------------------------------------
+types:
+  HexBinary:
+    description: Binary data written as hexadecimal digits; maps to xsd:hexBinary.
+    typeof: string
+    base: str
+    uri: xsd:hexBinary
+
+  NonNegativeInteger:
+    description: A whole number, 0 or more; maps to xsd:nonNegativeInteger.
+    typeof: integer
+    base: int
+    uri: xsd:nonNegativeInteger
+    minimum_value: 0
+
+classes:
+  KnowledgeBundle:
+    description: >-
+      A self-contained, hierarchical collection of concept documents — the unit
+      of distribution (a git repo, tarball, or subdirectory). Maps to a DCAT
+      Catalog. When a whole bundle is serialized as a single JSON-LD document,
+      this class is the tree root; individual concept files validate against
+      Concept (or a subclass).
+    class_uri: lokf:KnowledgeBundle
+    close_mappings:
+      - dcat:Catalog
+      - schema:Collection
+    tree_root: true
+    slots:
+      - lokf_version
+      - okf_version
+      - base_iri
+      - context
+      - title
+      - description
+      - license
+      - publisher
+      - concepts
+
+  Concept:
+    abstract: true
+    description: >-
+      A single unit of knowledge within a bundle, represented as one markdown
+      document. The abstract base of every LOKF type. Its own IRI (`id`) is the
+      RDF subject; the markdown body and typed relations become triples about
+      that subject.
+    class_uri: lokf:Concept
+    broad_mappings:
+      - schema:CreativeWork
+      - prov:Entity
+    slots:
+      - id
+      - type
+      - title
+      - description
+      - resource
+      - tags
+      - timestamp
+      - created
+      - version
+      - license
+      - author
+      - body
+      - citations
+      - relations
+      - isPartOf
+      - hasPart
+      - references
+      - dependsOn
+      - derivedFrom
+      - isReplacedBy
+      - about
+      - sameAs
+      - relatedTo
+      - definedBy
+      - source
+      - genre
+      - sources
+      - exclusions
+      - usage_window
+      - generated
+      - revised
+      - verified
+      - refuted
+      - status
+      - stale_after
+      - additionalType
+      - audience
+      - typicalAgeRange
+      - educationalLevel
+
+  Dataset:
+    is_a: Concept
+    description: A collection of data, published or curated for access and reuse.
+    class_uri: schema:Dataset
+    exact_mappings:
+      - dcat:Dataset
+    slots:
+      - distribution
+      - fields
+
+  Table:
+    is_a: Dataset
+    description: >-
+      A structured, tabular dataset (e.g. a warehouse table or view) whose
+      columns are described by Field objects under `fields`.
+    class_uri: lokf:Table
+    close_mappings:
+      - schema:Dataset
+      - dcat:Dataset
+
+  Metric:
+    is_a: Concept
+    description: >-
+      A precisely defined, measurable quantity — the canonical definition of a
+      business or operational metric.
+    class_uri: lokf:Metric
+    close_mappings:
+      - schema:Observation
+      - skos:Concept
+    slots:
+      - unit
+      - formula
+      - measures
+    slot_usage:
+      unit:
+        recommended: true
+      formula:
+        recommended: true
+      measures:
+        recommended: true
+
+  Service:
+    is_a: Concept
+    description: A callable service or API endpoint.
+    class_uri: schema:WebAPI
+    close_mappings:
+      - schema:SoftwareApplication
+    slots:
+      - endpoint
+      - http_method
+      - documentation
+    slot_usage:
+      endpoint:
+        recommended: true
+      documentation:
+        recommended: true
+      # http_method stays optional: its own description says "if applicable",
+      # and a GraphQL, gRPC, or whole-REST-API Service has no single verb.
+
+  Playbook:
+    is_a: Concept
+    description: >-
+      A procedure or runbook — an ordered set of steps to accomplish a task or
+      respond to an event. Serves the Diátaxis how-to (goal-oriented) mode.
+    class_uri: lokf:Playbook
+    exact_mappings:
+      - schema:HowTo
+    aliases:
+      - runbook
+      - how-to guide
+    see_also:
+      - https://diataxis.fr/how-to-guides/
+    comments:
+      - >-
+        Pair with `genre: how-to`. Assumes competence and targets one specific
+        goal; to teach a beginner use a Tutorial, and keep background in an
+        Explanation linked via `references`/`about` rather than explaining
+        inline.
+
+  Tutorial:
+    is_a: Concept
+    description: >-
+      A learning-oriented lesson: a guided, end-to-end practical activity
+      through which a reader acquires a skill by doing. The Diátaxis tutorial
+      mode as a first-class concept type; typically links to the reference and
+      explanation it draws on with `references`.
+    class_uri: lokf:Tutorial
+    close_mappings:
+      - schema:LearningResource
+      - schema:HowTo
+    aliases:
+      - lesson
+      - getting started guide
+    see_also:
+      - https://diataxis.fr/tutorials/
+    comments:
+      - >-
+        Pair with `genre: tutorial`. Unlike a Playbook/how-to it assumes no
+        prior competence and aims at learning, not completing a particular
+        task.
+
+  Explanation:
+    is_a: Concept
+    description: >-
+      An understanding-oriented, discursive treatment of a topic that permits
+      reflection. The Diátaxis explanation mode as a first-class concept type;
+      typically links to its subject matter with `about`.
+    class_uri: lokf:Explanation
+    close_mappings:
+      - schema:Article
+      - schema:CreativeWork
+    aliases:
+      - discussion
+      - background
+      - conceptual guide
+      - topics
+    see_also:
+      - https://diataxis.fr/explanation/
+    comments:
+      - >-
+        Pair with `genre: explanation`. Keep task steps and reference facts
+        out - link those rather than folding them in.
+
+  Policy:
+    is_a: Concept
+    description: A governance, compliance, or operational policy document.
+    class_uri: lokf:Policy
+    close_mappings:
+      - schema:DigitalDocument
+      - schema:CreativeWork
+
+  GlossaryTerm:
+    is_a: Concept
+    description: >-
+      A defined term in a controlled vocabulary or glossary. Maps to
+      schema:DefinedTerm and skos:Concept.
+    class_uri: schema:DefinedTerm
+    exact_mappings:
+      - skos:Concept
+    slots:
+      - definition
+      - abbreviation
+    slot_usage:
+      definition:
+        recommended: true
+
+  Reference:
+    is_a: Concept
+    description: >-
+      A concept that mirrors an external source (a page, paper, or document) as
+      a first-class citizen of the bundle so it can be cited and linked.
+    class_uri: lokf:Reference
+    close_mappings:
+      - schema:CreativeWork
+      - schema:WebPage
+
+  Document:
+    is_a: Concept
+    description: A general knowledge document that does not fit a more specific type.
+    class_uri: lokf:Document
+    close_mappings:
+      - schema:DigitalDocument
+
+  Role:
+    is_a: Concept
+    description: >-
+      A role an agent holds within an organization over a period of time — a
+      job, appointment, or position. Reifies the agent–organization link so it
+      can carry a title (roleName) and a start/end interval, following the
+      schema.org Role and W3C ORG Membership patterns.
+    class_uri: schema:OrganizationRole
+    close_mappings:
+      - schema:Role
+      - org:Role
+      - vivo:Position
+    slots:
+      - roleName
+      - startDate
+      - endDate
+      - memberOf
+      - holder
+
+  AttestedComputation:
+    is_a: Concept
+    description: >-
+      A sanctioned, immutable recipe for computing a value (OKF v0.2 §10),
+      carried as its own concept type. The frontmatter is the contract: the
+      agent may only bind the declared `parameters`, the `executor` runs the
+      bound computation and returns a receipt, and the `attester`
+      deterministically compares what actually ran against this recipe. The
+      computation text lives in the body's `# Computation` fenced block or in
+      the file named by `computation`. Semantically a prov:Plan with an
+      attestation contract layered on.
+    class_uri: lokf:AttestedComputation
+    broad_mappings:
+      - prov:Plan
+    close_mappings:
+      - schema:HowTo
+    aliases:
+      - Attested Computation
+    comments:
+      - >-
+        Plain OKF writes `type: Attested Computation` (with a space). LOKF
+        loaders MUST normalize the spaced form to this class name when
+        resolving the type designator (the alias records the written form);
+        LOKF-authored bundles SHOULD write `type: AttestedComputation`.
+    slots:
+      - runtime
+      - parameters
+      - computation
+      - executor
+      - attester
+
+  # --- Value / supporting classes ------------------------------------------
+
+  Agent:
+    abstract: true
+    description: A person or organization responsible for a concept.
+    class_uri: prov:Agent
+    close_mappings:
+      - schema:Agent
+      - foaf:Agent
+    slots:
+      - type
+      - id
+      - name
+      - email
+
+  Person:
+    is_a: Agent
+    mixins:
+      - Concept
+    description: >-
+      An individual person. Usable both as an inline Agent value (author,
+      publisher) and as a standalone Concept document with a body and typed
+      relations.
+    class_uri: schema:Person
+    exact_mappings:
+      - foaf:Person
+      - prov:Person
+
+  Organization:
+    is_a: Agent
+    mixins:
+      - Concept
+    description: >-
+      An organization, team, or group. Usable both as an inline Agent value
+      (publisher) and as a standalone Concept document with a body and typed
+      relations.
+    class_uri: schema:Organization
+    exact_mappings:
+      - foaf:Organization
+      - prov:Organization
+
+  Field:
+    description: >-
+      A single column / property within a Table or Dataset schema. Maps to
+      schema:PropertyValue.
+    class_uri: schema:PropertyValue
+    slots:
+      - name
+      - datatype
+      - description
+      - unit
+      - is_key
+      - constraints
+
+  Distribution:
+    description: >-
+      A specific accessible form of a Dataset (a file, feed, or endpoint).
+      Maps to dcat:Distribution.
+    class_uri: dcat:Distribution
+    slots:
+      - name
+      - description
+      - access_url
+      - media_type
+      - checksum
+      - byte_size
+
+  Checksum:
+    description: >-
+      A digest of a distribution's bytes, which a consumer recomputes before
+      trusting them. Maps to spdx:Checksum, as DCAT 3 attaches it.
+    class_uri: spdx:Checksum
+    slots:
+      - algorithm
+      - checksum_value
+    slot_usage:
+      algorithm:
+        required: true
+      checksum_value:
+        required: true
+    rules:
+      - description: A md5 digest has 32 hex digits.
+        preconditions:
+          slot_conditions:
+            algorithm:
+              equals_string_in: [md5]
+        postconditions:
+          slot_conditions:
+            checksum_value:
+              pattern: '^[0-9a-f]{32}$'
+      - description: A sha1 digest has 40 hex digits.
+        preconditions:
+          slot_conditions:
+            algorithm:
+              equals_string_in: [sha1]
+        postconditions:
+          slot_conditions:
+            checksum_value:
+              pattern: '^[0-9a-f]{40}$'
+      - description: A sha224 digest has 56 hex digits.
+        preconditions:
+          slot_conditions:
+            algorithm:
+              equals_string_in: [sha224]
+        postconditions:
+          slot_conditions:
+            checksum_value:
+              pattern: '^[0-9a-f]{56}$'
+      - description: A sha256, sha3_256, blake2b256 digest has 64 hex digits.
+        preconditions:
+          slot_conditions:
+            algorithm:
+              equals_string_in: [sha256, sha3_256, blake2b256]
+        postconditions:
+          slot_conditions:
+            checksum_value:
+              pattern: '^[0-9a-f]{64}$'
+      - description: A sha384, sha3_384, blake2b384 digest has 96 hex digits.
+        preconditions:
+          slot_conditions:
+            algorithm:
+              equals_string_in: [sha384, sha3_384, blake2b384]
+        postconditions:
+          slot_conditions:
+            checksum_value:
+              pattern: '^[0-9a-f]{96}$'
+      - description: A sha512, sha3_512, blake2b512 digest has 128 hex digits.
+        preconditions:
+          slot_conditions:
+            algorithm:
+              equals_string_in: [sha512, sha3_512, blake2b512]
+        postconditions:
+          slot_conditions:
+            checksum_value:
+              pattern: '^[0-9a-f]{128}$'
+
+  Relation:
+    description: >-
+      A typed, reified relationship from the containing concept to a target,
+      used when a predicate is not covered by one of the named relation slots.
+      Modeled as an rdf:Statement (subject = the containing concept).
+    class_uri: rdf:Statement
+    slots:
+      - predicate
+      - target
+      - relation_label
+
+  Citation:
+    description: >-
+      A reference to an external source supporting a claim in a concept's body.
+      Attached via the schema:citation predicate.
+    deprecated: >-
+      Superseded in OKF v0.2 by Source (attached via `sources`). Remains
+      functional for v0.1 documents.
+    class_uri: schema:CreativeWork
+    close_mappings:
+      - dcterms:BibliographicResource
+    slots:
+      - title
+      - url
+      - description
+
+  Source:
+    description: >-
+      A material a concept derives from (OKF v0.2 §5.1) — a pointer
+      (`resource`) plus objective per-source credibility signals (`author`,
+      `usage_count`, `last_modified`) from which consumers infer trust; OKF
+      stores signals, never a score. Markdown footnotes whose label equals
+      `id` attribute individual claims to this entry. Supersedes Citation.
+    class_uri: schema:CreativeWork
+    close_mappings:
+      - prov:Entity
+      - dcterms:BibliographicResource
+    attributes:
+      id:
+        description: >-
+          Optional stable key joining markdown footnote labels to this entry
+          (e.g. `ga4-schema`).
+        range: string
+        slot_uri: schema:identifier
+        comments:
+          - >-
+            Declared as a class-local attribute rather than the global
+            identifier slot so it stays optional (LinkML's falsy-merge
+            silently drops an `identifier: false` slot_usage override and
+            generation then fails).
+          - >-
+            Under the published flat context `id` maps to @id, so the value
+            resolves against the bundle base and mints the source node's
+            IRI — the same id used across concepts merges into one RDF
+            node; schema:identifier applies only on the LinkML RDF-dump
+            path.
+    slots:
+      - resource
+      - title
+      - author
+      - usage_count
+      - last_modified
+      - usage_window
+      - excerpt
+    slot_usage:
+      resource:
+        required: true
+        range: string
+        description: >-
+          REQUIRED. An absolute URL, a bundle-relative path, or a
+          population/scope descriptor string (e.g. "all queries in BigQuery
+          project X"). Range is widened to string to admit scope
+          descriptors; non-URI values are lossy on the RDF projection
+          (they serialize as xsd:anyURI-typed literals).
+        implements:
+          - dcterms:source
+      author:
+        range: string
+        multivalued: false
+        inlined_as_list: false
+        pattern: '^[^\s:/]+:\S+$|^[^\s/]+/[^\s/]+$'
+        description: >-
+          Who or what produced the source, as an actor string (e.g.
+          `team:analytics`, `human:jsmith@acme`, `ga4-docs/v2`) — an authority
+          signal carried as a plain literal, not an inlined Agent object.
+          Deliberately looser than `by`: source authorship is commonly a team
+          or an org, so any `<prefix>:<id>` is admitted, where `by` stays
+          confined to the §7 provenance actors the trust tiers read.
+
+  Exclusion:
+    description: >-
+      A material the concept's author looked at and left out on purpose, with
+      the reason: a test suite, a generated file, a retelling of another page.
+      With it a checker can tell "nobody looked at this" from "someone looked
+      and set it aside", and a reviewer can see who decided.
+    notes:
+      - It is not a source, so it never projects as schema:isBasedOn.
+    class_uri: lokf:Exclusion
+    slots:
+      - resource
+      - reason
+      - by
+    slot_usage:
+      reason:
+        required: true
+      resource:
+        required: true
+        range: string
+        description: >-
+          REQUIRED. What was left out, written as a Source's `resource` is:
+          an absolute URL, a bundle-relative path, or a scope descriptor.
+      by:
+        description: >-
+          The actor who decided to leave it out, as an OKF §7 actor string
+          (`human:<id>`, `process:<id>`, `<producer>/<version>`).
+
+  Audience:
+    description: >-
+      The readers a concept is written for, as schema.org's PeopleAudience
+      describes them: a kind of reader and an age range. Set on a concept
+      written for narrower readers than the bundle's own, such as a version
+      of another concept for younger readers.
+    class_uri: schema:PeopleAudience
+    close_mappings:
+      - dcterms:AgentClass
+    slots:
+      - audienceType
+      - suggestedMinAge
+      - suggestedMaxAge
+
+  UsageWindow:
+    description: >-
+      The `{ from, to }` date range framing every `usage_count` signal
+      (OKF v0.2 §5.1). Written once as a sibling of `sources`; a single
+      Source entry MAY carry its own override.
+    class_uri: dcterms:PeriodOfTime
+    slots:
+      - from
+      - to
+
+  Generation:
+    description: >-
+      How and when the current content was produced (OKF v0.2 `generated`,
+      §5.2). Modeled as the PROV activity that generated the concept, so
+      "who wrote this, when" is a one-hop join from the concept via
+      prov:wasGeneratedBy, with both slots keeping PROV's activity-side
+      semantics (prov:wasAssociatedWith, prov:endedAtTime) — domain/range
+      correct with no reasoner or subproperty entailment required.
+    class_uri: prov:Activity
+    close_mappings:
+      - schema:CreateAction
+    slots:
+      - by
+      - at
+      - revision
+    slot_usage:
+      by:
+        required: true
+
+  Revision:
+    description: >-
+      The latest in-place edit of the content, for a producer that keeps
+      `generated` as the production event: who changed it last, and when.
+      One mapping, never a list; a later edit overwrites it. PROV has no
+      class for it, so the class IRI is lokf-minted and the generated
+      ontology declares it a subclass of prov:Activity.
+    class_uri: lokf:Revision
+    close_mappings:
+      - prov:Activity
+      - schema:UpdateAction
+    slots:
+      - by
+      - at
+      - revision
+    slot_usage:
+      by:
+        required: true
+
+  Verification:
+    description: >-
+      One verification event (OKF v0.2 `verified`, §5.2): an actor confirmed
+      the content against its sources or resource at a time. Independent
+      checks accumulate as separate events; trust tiers (unverified /
+      machine-confirmed / human-reviewed) are derived from the actors, never
+      stored. PROV has no Verification class, so the class IRI is honestly
+      lokf-minted; the generated ontology declares it a subclass of
+      prov:Activity.
+    class_uri: lokf:Verification
+    close_mappings:
+      - prov:Activity
+      - schema:CheckAction
+    slots:
+      - by
+      - at
+      - revision
+    slot_usage:
+      by:
+        required: true
+        notes:
+          - >-
+            Required by LOKF, though OKF does not mark it so: trust tiers are
+            derived from it.
+
+  Refutation:
+    description: >-
+      One refutation event: an actor found the content wrong against its
+      sources or resource, at a time, for a reason. The negative counterpart
+      of a Verification, so a person's no is recorded where their yes is.
+      It is active while it is not older than the last meaningful change
+      (`generated.at` or `revised.at`); an edit after it leaves it on record
+      as history. It never changes the trust tier, which OKF derives from
+      `verified` alone. PROV has no class for it, so the class IRI is
+      lokf-minted and the generated ontology declares it a subclass of
+      prov:Activity.
+    class_uri: lokf:Refutation
+    close_mappings:
+      - prov:Activity
+      - schema:DisagreeAction
+    slots:
+      - by
+      - at
+      - reason
+      - revision
+    slot_usage:
+      by:
+        required: true
+      reason:
+        required: true
+        description: >-
+          REQUIRED. What was found wrong, in a sentence a reviewer can check.
+
+  Parameter:
+    description: >-
+      A typed, named hole in an Attested Computation that the agent may fill
+      (OKF v0.2 §10.2). Binding semantics (SQL bind variable, dbt var,
+      Python argument) follow the concept's `runtime`. The `type` key
+      deliberately shares the global JSON-LD @type alias — see the attribute
+      comment for the exact triple that results.
+    class_uri: lokf:Parameter
+    close_mappings:
+      - schema:PropertyValueSpecification
+    attributes:
+      type:
+        description: >-
+          The parameter's datatype, written with the authoring key `type`
+          verbatim and drawn from ParameterType.
+        range: ParameterType
+        slot_uri: rdf:type
+        comments:
+          - >-
+            Declared as a class-local attribute rather than slot_usage over
+            the global type slot, because LinkML's falsy-merge silently
+            drops a `designates_type: false` override and gen-python then
+            hard-fails.
+          - >-
+            Because the flat context aliases `type` to @type, the value
+            expands as the node's rdf:type; every ParameterType value
+            therefore means a designed lokf Parameter-kind class, so
+            `type: integer` yields the true, OWL-DL-safe triple
+            `_:p rdf:type lokf:IntegerParameter`. slot_uri rdf:type makes
+            the LinkML RDF-dump path emit the same triple (enum meanings
+            expand to their IRIs).
+    slots:
+      - name
+      - required
+    slot_usage:
+      name:
+        required: true
+        description: The parameter's name, as the runtime addresses it.
+
+  Executor:
+    description: >-
+      How an Attested Computation is run (OKF v0.2 §10.2): `resource` names
+      run instructions or code a runner follows; `receipt` declares the
+      field names a run must return — the evidence surface the attester
+      inspects. No established vocabulary has an execution-interface class,
+      so the IRI is honestly lokf-minted; schema:EntryPoint (an invocation
+      specification) is the nearest real term.
+    class_uri: lokf:Executor
+    close_mappings:
+      - schema:EntryPoint
+    slots:
+      - resource
+      - receipt
+    slot_usage:
+      resource:
+        required: true
+        description: Path or URL to the run instructions or code.
+
+  Attester:
+    description: >-
+      The deterministic, non-LLM check for an Attested Computation (OKF v0.2
+      §10.2): `resource` names code that takes a run's receipt and returns a
+      verdict, run consumer-side. Honestly lokf-minted.
+    class_uri: lokf:Attester
+    close_mappings:
+      - schema:SoftwareSourceCode
+      - schema:EntryPoint
+    slots:
+      - resource
+    slot_usage:
+      resource:
+        required: true
+        description: Path or URL to the deterministic verdict code.
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+slots:
+  # --- Identity & core OKF fields ------------------------------------------
+  id:
+    description: >-
+      The concept's stable IRI. By convention it is the bundle base IRI joined
+      with the Concept ID (the file path within the bundle, minus the `.md`
+      suffix). Becomes the JSON-LD @id / RDF subject.
+    identifier: true
+    range: uriorcurie
+    slot_uri: schema:identifier
+    notes:
+      - >-
+        The schema requires an id, unlike OKF. A concept file may leave it
+        out, since the toolkit fills it from the base IRI and the Concept ID.
+    in_subset:
+      - lokf_semantic
+
+  type:
+    description: >-
+      The concept's type - OKF's single required field. SHOULD name a LOKF
+      class (e.g. Metric, Dataset, Table, Playbook, GlossaryTerm).
+    designates_type: true
+    required: true
+    range: string
+    comments:
+      - >-
+        Designates the JSON-LD @type / rdf:type. Consumers MUST tolerate
+        unknown values by treating the concept as a generic lokf:Concept.
+    in_subset:
+      - okf_core
+
+  title:
+    description: Human-readable display name.
+    slot_uri: schema:name
+    close_mappings:
+      - dcterms:title
+      - rdfs:label
+    in_subset:
+      - okf_core
+
+  description:
+    description: A single-sentence summary of the concept.
+    slot_uri: schema:description
+    close_mappings:
+      - dcterms:description
+    in_subset:
+      - okf_core
+
+  resource:
+    description: >-
+      A URI that uniquely identifies the underlying real-world asset the
+      concept describes (a table console URL, an API base URL, etc.). Absent
+      for purely abstract concepts.
+    range: uriorcurie
+    slot_uri: schema:url
+    close_mappings:
+      - dcat:landingPage
+      - prov:specializationOf
+    in_subset:
+      - okf_core
+
+  tags:
+    description: Short cross-cutting keywords for categorization.
+    multivalued: true
+    slot_uri: schema:keywords
+    close_mappings:
+      - dcat:keyword
+    in_subset:
+      - okf_core
+
+  timestamp:
+    description: ISO 8601 datetime of the last meaningful change.
+    deprecated: >-
+      Superseded in OKF v0.2 by `generated.at` (the `at` of the Generation
+      event attached via `generated`). Remains functional; consumers MAY
+      fall back to `timestamp` when `generated` is absent.
+    range: datetime
+    slot_uri: schema:dateModified
+    exact_mappings:
+      - dcterms:modified
+    in_subset:
+      - okf_core
+
+  created:
+    description: ISO 8601 datetime the concept was created.
+    range: datetime
+    slot_uri: schema:dateCreated
+    exact_mappings:
+      - dcterms:created
+    in_subset:
+      - lokf_semantic
+
+  version:
+    description: A version string for the concept's content.
+    slot_uri: schema:version
+    close_mappings:
+      - pav:version
+    in_subset:
+      - lokf_semantic
+
+  license:
+    description: The license under which the concept or bundle is offered.
+    range: uriorcurie
+    slot_uri: schema:license
+    in_subset:
+      - lokf_semantic
+
+  author:
+    description: The agent(s) responsible for authoring the concept.
+    range: Agent
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: schema:author
+    close_mappings:
+      - dcterms:creator
+      - prov:wasAttributedTo
+    in_subset:
+      - lokf_semantic
+
+  publisher:
+    description: The agent responsible for making the bundle available.
+    range: Agent
+    inlined: true
+    slot_uri: schema:publisher
+    close_mappings:
+      - dcterms:publisher
+    in_subset:
+      - lokf_semantic
+
+  body:
+    description: >-
+      The markdown body of the concept document (everything after the
+      frontmatter). Mapped to schema:text; carried as a field only in the
+      JSON-LD / JSON serialization, not duplicated in the frontmatter.
+    slot_uri: schema:text
+    close_mappings:
+      - lokf:body
+    in_subset:
+      - okf_core
+
+  citations:
+    description: External sources supporting claims in the body.
+    deprecated: >-
+      Superseded in OKF v0.2 by `sources`, which adds the stable `id`
+      footnote-join key and per-source credibility signals (author,
+      usage_count, last_modified). Remains functional; consumers SHOULD
+      read `sources` and MAY still parse `citations` for v0.1 documents.
+    range: Citation
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: schema:citation
+    in_subset:
+      - lokf_semantic
+
+  concepts:
+    description: The concepts contained in a bundle.
+    range: Concept
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: dcat:dataset
+    in_subset:
+      - lokf_semantic
+
+  # --- Named typed relations (LOKF's core upgrade over OKF's untyped links) -
+  relations:
+    description: >-
+      Typed relationships whose predicate is not covered by a named relation
+      slot. Each entry is a reified Relation (predicate + target).
+    range: Relation
+    multivalued: true
+    inlined_as_list: true
+    in_subset:
+      - lokf_semantic
+
+  isPartOf:
+    description: The target concept that this concept is a part of.
+    range: Concept
+    multivalued: true
+    slot_uri: dcterms:isPartOf
+    close_mappings:
+      - schema:isPartOf
+    in_subset:
+      - lokf_semantic
+
+  hasPart:
+    description: A concept that is a part of this concept.
+    range: Concept
+    multivalued: true
+    slot_uri: schema:hasPart
+    close_mappings:
+      - dcterms:hasPart
+    in_subset:
+      - lokf_semantic
+
+  references:
+    description: A concept or resource this concept refers to.
+    range: Concept
+    multivalued: true
+    slot_uri: dcterms:references
+    in_subset:
+      - lokf_semantic
+
+  dependsOn:
+    description: A concept this concept depends on.
+    range: Concept
+    multivalued: true
+    slot_uri: dcterms:requires
+    close_mappings:
+      - lokf:dependsOn
+    in_subset:
+      - lokf_semantic
+
+  derivedFrom:
+    description: An entity this concept was derived from (provenance).
+    range: Concept
+    multivalued: true
+    slot_uri: prov:wasDerivedFrom
+    in_subset:
+      - lokf_semantic
+
+  isReplacedBy:
+    description: A concept that supersedes this one, without asserting equivalence.
+    range: Concept
+    multivalued: true
+    slot_uri: dcterms:isReplacedBy
+    in_subset:
+      - lokf_semantic
+
+  about:
+    description: The subject matter this concept is about.
+    range: Concept
+    multivalued: true
+    slot_uri: schema:about
+    close_mappings:
+      - foaf:primaryTopic
+    in_subset:
+      - lokf_semantic
+
+  sameAs:
+    description: An IRI asserting this concept is the same entity as another.
+    range: Concept
+    multivalued: true
+    slot_uri: schema:sameAs
+    close_mappings:
+      - owl:sameAs
+    in_subset:
+      - lokf_semantic
+
+  relatedTo:
+    description: A generic association to another concept.
+    range: Concept
+    multivalued: true
+    slot_uri: dcterms:relation
+    close_mappings:
+      - skos:related
+    in_subset:
+      - lokf_semantic
+
+  definedBy:
+    description: A resource that formally defines this concept.
+    range: Concept
+    multivalued: true
+    slot_uri: rdfs:isDefinedBy
+    in_subset:
+      - lokf_semantic
+
+  source:
+    description: A resource from which this concept is derived or sourced.
+    range: Concept
+    multivalued: true
+    slot_uri: dcterms:source
+    in_subset:
+      - lokf_semantic
+
+  # --- Documentation genre (Diátaxis) --------------------------------------
+  genre:
+    description: >-
+      The Diátaxis documentation mode of the concept's markdown body
+      (tutorial, how-to, reference, or explanation). An optional facet
+      orthogonal to `type`: `type` says what the concept is *about*, `genre`
+      says how its prose *serves the reader*.
+    range: DiataxisMode
+    slot_uri: schema:genre
+    aliases:
+      - diataxis_mode
+      - documentation_mode
+    see_also:
+      - https://diataxis.fr/
+    comments:
+      - Consumers MUST tolerate absent or unknown values.
+      - >-
+        Orthogonal to `type`, so the same subject can appear in several modes:
+        a `Dataset` whose body lists its columns is `genre: reference`, while
+        an `Explanation` *about* that dataset is `genre: explanation`. Keep one
+        mode per concept - if a body drifts between teaching, task steps, and
+        background, split it and link the parts with `references`/`about`.
+    examples:
+      - value: tutorial
+        description: A Tutorial whose body walks a newcomer end-to-end through authoring their first concept.
+      - value: how-to
+        description: A Playbook whose body walks through resolving a data-freshness incident.
+      - value: reference
+        description: A Table whose body austerely describes each column.
+      - value: explanation
+        description: An Explanation discussing why a metric is defined the way it is.
+    in_subset:
+      - lokf_semantic
+
+  # --- Relation (reified) fields -------------------------------------------
+  predicate:
+    description: The relationship type. SHOULD be drawn from the RelationType vocabulary.
+    range: RelationType
+    required: true
+    slot_uri: rdf:predicate
+    in_subset:
+      - lokf_semantic
+
+  target:
+    description: The IRI (or Concept ID) of the relationship's object.
+    range: Concept
+    required: true
+    slot_uri: rdf:object
+    in_subset:
+      - lokf_semantic
+
+  relation_label:
+    description: An optional human-readable label for the relationship.
+    slot_uri: rdfs:label
+    in_subset:
+      - lokf_semantic
+
+  # --- Dataset / Table / Field fields --------------------------------------
+  distribution:
+    description: Accessible forms of the dataset.
+    range: Distribution
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: dcat:distribution
+    in_subset:
+      - lokf_semantic
+
+  fields:
+    description: The columns / properties that make up a dataset's schema.
+    range: Field
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: lokf:field
+    in_subset:
+      - lokf_semantic
+
+  name:
+    description: A name.
+    slot_uri: schema:name
+    in_subset:
+      - lokf_semantic
+
+  email:
+    description: Contact email address.
+    pattern: '^[^@\s]+@[^@\s]+\.[^@\s]+$'
+    slot_uri: schema:email
+    close_mappings:
+      - foaf:mbox
+    in_subset:
+      - lokf_semantic
+
+  datatype:
+    description: The data type of a field.
+    range: FieldType
+    slot_uri: lokf:datatype
+    close_mappings:
+      - schema:rangeIncludes
+    in_subset:
+      - lokf_semantic
+
+  unit:
+    description: The unit of measurement (e.g. USD, seconds, count).
+    slot_uri: schema:unitText
+    in_subset:
+      - lokf_semantic
+
+  is_key:
+    description: Whether the field is (part of) the primary key.
+    range: boolean
+    slot_uri: lokf:isKey
+    in_subset:
+      - lokf_semantic
+
+  constraints:
+    description: Free-text or expression describing constraints on a field.
+    slot_uri: lokf:constraints
+    in_subset:
+      - lokf_semantic
+
+  access_url:
+    description: A URL that gives access to a distribution.
+    range: uriorcurie
+    slot_uri: dcat:accessURL
+    in_subset:
+      - lokf_semantic
+
+  media_type:
+    description: The media (MIME) type of a distribution.
+    slot_uri: dcat:mediaType
+    in_subset:
+      - lokf_semantic
+
+  checksum:
+    description: A digest of the distribution's bytes, for checking a download.
+    range: Checksum
+    inlined: true
+    slot_uri: spdx:checksum
+    in_subset:
+      - lokf_semantic
+
+  byte_size:
+    description: The size of the distribution in bytes.
+    range: NonNegativeInteger
+    slot_uri: dcat:byteSize
+    in_subset:
+      - lokf_semantic
+
+  algorithm:
+    description: The algorithm that computed a checksum.
+    range: ChecksumAlgorithm
+    slot_uri: spdx:algorithm
+    in_subset:
+      - lokf_semantic
+
+  checksum_value:
+    description: >-
+      The checksum as lowercase hexadecimal digits, as many as the
+      algorithm's digest has: 32 (md5), 40 (sha1), 56 (sha224), 64 (the
+      256-bit digests), 96 (the 384-bit ones) or 128 (the 512-bit ones).
+    range: HexBinary
+    pattern: '^([0-9a-f]{32}|[0-9a-f]{40}|[0-9a-f]{56}|[0-9a-f]{64}|[0-9a-f]{96}|[0-9a-f]{128})$'
+    slot_uri: spdx:checksumValue
+    in_subset:
+      - lokf_semantic
+
+  # --- Metric fields --------------------------------------------------------
+  formula:
+    description: The calculation or definition expression for a metric.
+    slot_uri: lokf:formula
+    in_subset:
+      - lokf_semantic
+
+  measures:
+    description: What the metric measures (a concept IRI or description).
+    range: Concept
+    multivalued: true
+    slot_uri: lokf:measures
+    in_subset:
+      - lokf_semantic
+
+  # --- Service fields -------------------------------------------------------
+  endpoint:
+    description: The base URL or invocation endpoint of a service.
+    range: uriorcurie
+    slot_uri: schema:url
+    close_mappings:
+      - schema:contentUrl
+    in_subset:
+      - lokf_semantic
+
+  http_method:
+    description: The HTTP method used to invoke the service, if applicable.
+    range: HttpMethod
+    slot_uri: schema:httpMethod
+    in_subset:
+      - lokf_semantic
+
+  documentation:
+    description: A link to the service's documentation.
+    range: uriorcurie
+    slot_uri: schema:documentation
+    in_subset:
+      - lokf_semantic
+
+  # --- GlossaryTerm fields --------------------------------------------------
+  definition:
+    description: The formal definition of a term.
+    slot_uri: skos:definition
+    in_subset:
+      - lokf_semantic
+
+  abbreviation:
+    description: A short form or acronym for a term.
+    slot_uri: schema:alternateName
+    close_mappings:
+      - skos:altLabel
+    in_subset:
+      - lokf_semantic
+
+  # --- Role fields (schema.org OrganizationRole + W3C ORG) ------------------
+  roleName:
+    description: The name/title of the role held (e.g. a job title).
+    slot_uri: schema:roleName
+    in_subset:
+      - lokf_semantic
+
+  startDate:
+    description: The date the role began (ISO 8601 date or year).
+    slot_uri: schema:startDate
+    close_mappings:
+      - org:memberDuring
+    in_subset:
+      - lokf_semantic
+
+  endDate:
+    description: The date the role ended; omit for a role still held.
+    slot_uri: schema:endDate
+    in_subset:
+      - lokf_semantic
+
+  memberOf:
+    description: The organization within which the role is held.
+    range: Concept
+    multivalued: true
+    slot_uri: schema:memberOf
+    close_mappings:
+      - org:organization
+    in_subset:
+      - lokf_semantic
+
+  holder:
+    description: The agent (typically a Person) who holds the role.
+    range: Concept
+    multivalued: true
+    slot_uri: org:member
+    close_mappings:
+      - schema:member
+    in_subset:
+      - lokf_semantic
+
+  # --- Citation fields ------------------------------------------------------
+  url:
+    description: A URL.
+    range: uriorcurie
+    slot_uri: schema:url
+    in_subset:
+      - lokf_semantic
+
+  excerpt:
+    description: >-
+      A verbatim copy of the passage in `resource` that the concept relies
+      on, taken as retrieved. Lets a claim be re-checked against its source
+      without re-reading the whole of it.
+    range: string
+    slot_uri: lokf:excerpt
+    aliases:
+      - supporting_text
+    notes:
+      - >-
+        Proposed for OKF §5.1 as GoogleCloudPlatform/knowledge-catalog#438,
+        under this name. Kept in lokf_semantic until OKF adopts it, then
+        moved to okf_v02. Shipped as `supporting_text` in 0.8.0 only.
+      - >-
+        `implements: linkml:excerpt` marks the slot as text a reference
+        validator can look for in `resource`; it does not make it required.
+      - >-
+        `lokf validate --check-excerpts` finds it in a local `resource`,
+        whitespace collapsed and case folded, `...` joining at most two
+        spans in source order inside one heading section (SPEC §9).
+    see_also:
+      - https://github.com/linkml/linkml-reference-validator
+      - https://github.com/GoogleCloudPlatform/knowledge-catalog/issues/438
+    implements:
+      - linkml:excerpt
+    in_subset:
+      - lokf_semantic
+
+  additionalType:
+    description: The producer's own `type` string when it names no LOKF class.
+    range: string
+    slot_uri: schema:additionalType
+    comments:
+      - >-
+        The concept is then typed `lokf:Concept` (SPEC §8) and the original
+        spelling is kept here, so an OKF type such as `BigQuery Table`
+        survives the RDF projection.
+      - >-
+        Set by the RDF projection, not normally authored. `lokf validate`
+        still rejects an undeclared `type`; this slot is how the permissive
+        consumers (`convert`, `query`, `serve`) honour OKF §11.
+    in_subset:
+      - lokf_semantic
+
+  # --- Who a concept is written for (schema.org, Dublin Core, LRMI) ---------
+  audience:
+    description: >-
+      The readers this concept is written for, such as readers aged 13 to
+      18, as an inlined Audience. Absent means the bundle's own readers.
+    range: Audience
+    inlined: true
+    slot_uri: schema:audience
+    exact_mappings:
+      - dcterms:audience
+    in_subset:
+      - lokf_semantic
+
+  audienceType:
+    description: The kind of reader, in words, such as `students` or `dyslexic readers`.
+    slot_uri: schema:audienceType
+    in_subset:
+      - lokf_semantic
+
+  suggestedMinAge:
+    description: The youngest age, in years, the concept is written for.
+    range: integer
+    minimum_value: 0
+    slot_uri: schema:suggestedMinAge
+    in_subset:
+      - lokf_semantic
+
+  suggestedMaxAge:
+    description: The oldest age, in years, the concept is written for.
+    range: integer
+    minimum_value: 0
+    slot_uri: schema:suggestedMaxAge
+    in_subset:
+      - lokf_semantic
+
+  typicalAgeRange:
+    description: >-
+      The typical age range of the concept's readers, as schema.org writes
+      it: `8-12`, or `13-` for 13 and over.
+    range: string
+    pattern: '^[0-9]{1,3}-([0-9]{1,3})?$'
+    slot_uri: schema:typicalAgeRange
+    exact_mappings:
+      - lrmi:typicalAgeRange
+    in_subset:
+      - lokf_semantic
+
+  educationalLevel:
+    description: >-
+      The level of education the concept is written for, in words or as the
+      IRI of a level in a published framework, such as a level of ISCED 2011.
+    range: string
+    slot_uri: schema:educationalLevel
+    close_mappings:
+      - dcterms:educationLevel
+      - lrmi:educationalLevel
+    in_subset:
+      - lokf_semantic
+
+  # --- Bundle metadata ------------------------------------------------------
+  lokf_version:
+    description: The LOKF version the bundle targets (e.g. "0.2").
+    slot_uri: lokf:lokfVersion
+    in_subset:
+      - lokf_semantic
+
+  okf_version:
+    description: The OKF version the bundle remains compatible with (e.g. "0.2").
+    slot_uri: lokf:okfVersion
+    in_subset:
+      - okf_core
+
+  base_iri:
+    description: >-
+      The base IRI against which Concept IDs are resolved to produce each
+      concept's stable `id`. An identifier namespace, not a hyperlink.
+      Absolute http(s), ending in `/` or `#` so ids mint by plain
+      concatenation and prefix routing respects segment boundaries
+      (`…/team/` never captures `…/team-archive/`).
+    range: uri
+    pattern: '^https?://\S+[/#]$'
+    slot_uri: lokf:baseIri
+    see_also:
+      - https://www.w3.org/Provider/Style/URI
+    comments:
+      - >-
+        It need not resolve to a live page (a 404 is valid) — only a
+        well-formed absolute IRI with an authority is required. A
+        resolvable "Cool URI" is the ideal, not a requirement.
+    in_subset:
+      - lokf_semantic
+
+  context:
+    description: >-
+      The URL of the JSON-LD @context to attach to this bundle's concepts to
+      interpret their frontmatter as Linked Data.
+    range: uri
+    slot_uri: lokf:context
+    in_subset:
+      - lokf_semantic
+
+  # --- Provenance (OKF v0.2 §5.1) -------------------------------------------
+  sources:
+    description: >-
+      The materials this concept derives from, each carrying objective
+      credibility signals. Markdown footnotes join to entries via
+      `sources[].id`. Supersedes `citations` and the body `# Citations`
+      convention.
+    range: Source
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: schema:isBasedOn
+    close_mappings:
+      - dcterms:source
+      - prov:wasDerivedFrom
+    comments:
+      - >-
+        schema:isBasedOn is primary rather than prov:wasDerivedFrom because
+        the existing `derivedFrom` slot already owns that predicate; two
+        frontmatter keys sharing one IRI would make JSON-LD compaction and
+        round-tripping ambiguous. prov:wasDerivedFrom is recorded as a
+        close mapping, and the derivation reading stays queryable via it.
+    in_subset:
+      - okf_v02
+
+  exclusions:
+    description: >-
+      The materials this concept's author considered and left out on
+      purpose, each with its reason. A sibling of `sources`: a material
+      listed here was not derived from, and a material used by one concept
+      may be left out by another.
+    range: Exclusion
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: lokf:excludes
+    in_subset:
+      - lokf_semantic
+
+  reason:
+    description: >-
+      The grounds for a decision, in a sentence a reviewer can check: why a
+      material was left out, or what a refutation found wrong.
+    range: string
+    slot_uri: lokf:reason
+    in_subset:
+      - lokf_semantic
+
+  usage_window:
+    description: >-
+      The `{ from, to }` date range framing every `usage_count`. Attached
+      both to Concept (the shared window, sibling of `sources`) and to
+      Source (a per-entry override).
+    range: UsageWindow
+    inlined: true
+    slot_uri: lokf:usageWindow
+    close_mappings:
+      - dcterms:temporal
+    comments:
+      - >-
+        Minted in lokf: dcterms:temporal (and schema:temporalCoverage)
+        assert the resource's own temporal coverage, not the measurement
+        window of its usage signals — borrowing either would be a category
+        error. dcterms:temporal is the nearest real term, kept as a close
+        mapping.
+    in_subset:
+      - okf_v02
+
+  from:
+    description: >-
+      Start (inclusive) of a usage window, an ISO 8601 datetime. A bare
+      YYYY-MM-DD is read as that day at 00:00:00Z.
+    range: datetime
+    slot_uri: dcat:startDate
+    close_mappings:
+      - schema:startDate
+    comments:
+      - >-
+        dcat:startDate is defined by DCAT 2 precisely for
+        dcterms:PeriodOfTime — exactly this shape. `from` is a Python
+        reserved word: the authored YAML key and JSON-LD term stay `from`,
+        but generated Python needs the induced attribute aliased. LinkML
+        currently generates `from_` without mapping the authored `from` key
+        when loading dataclasses (https://github.com/linkml/linkml/pull/4083).
+        LOKF's build patches its own generated module; domain schemas importing
+        LOKF and generating their own dataclasses do not receive that patch.
+        Keep the authored key `from`; after an upstream release fixes loading,
+        update the LinkML minimum and remove the local workaround and expected
+        failure in tests/test_keyword_dataclasses.py.
+    in_subset:
+      - okf_v02
+
+  to:
+    description: >-
+      End (inclusive) of a usage window, an ISO 8601 datetime. A bare
+      YYYY-MM-DD is read as that day at 00:00:00Z.
+    range: datetime
+    slot_uri: dcat:endDate
+    close_mappings:
+      - schema:endDate
+    in_subset:
+      - okf_v02
+
+  usage_count:
+    description: >-
+      How often the source's resource was exercised (views, executions,
+      reads) over the governing usage_window. An adoption/liveness signal
+      read as order-of-magnitude and trend, not a score.
+    range: integer
+    slot_uri: lokf:usageCount
+    close_mappings:
+      - schema:userInteractionCount
+    comments:
+      - >-
+        Minted in lokf: no established vocabulary has a bare-integer usage
+        property (schema:userInteractionCount is domained to the
+        InteractionCounter reification).
+    in_subset:
+      - okf_v02
+
+  last_modified:
+    description: >-
+      When the SOURCE itself last changed, an ISO 8601 datetime (a bare
+      YYYY-MM-DD is read as that day at 00:00:00Z). A recency signal about
+      the source, distinct from `generated.at`, which records when this
+      concept's content was produced. Same predicate as the deprecated
+      `timestamp`, on a different subject node (source vs concept).
+    range: datetime
+    slot_uri: schema:dateModified
+    exact_mappings:
+      - dcterms:modified
+    in_subset:
+      - okf_v02
+
+  # --- Trust (OKF v0.2 §5.2) ------------------------------------------------
+  generated:
+    description: >-
+      How and when the current content was produced: `by` (REQUIRED actor)
+      and `at` (ISO 8601 datetime). Supersedes the v0.1 `timestamp` field;
+      consumers MAY fall back to `timestamp` when `generated` is absent.
+    range: Generation
+    inlined: true
+    slot_uri: prov:wasGeneratedBy
+    in_subset:
+      - okf_v02
+
+  revised:
+    description: >-
+      The latest in-place edit of the content, as `{by, at}`, kept apart
+      from `generated`, which then stays the production event and is never
+      rewritten. A single mapping; a later edit overwrites it. The last
+      meaningful change a consumer reads is the later of `revised.at` and
+      `generated.at`, so a bundle that restamps `generated.at` on each edit
+      instead, as 0.8.0 bundles do, reads as before.
+    range: Revision
+    inlined: true
+    slot_uri: lokf:revised
+    close_mappings:
+      - prov:wasInfluencedBy
+    notes:
+      - >-
+        Proposed for OKF §5.2 as GoogleCloudPlatform/open-knowledge-format#28,
+        which settles `generated` as the immutable production event, under
+        this name. Kept in lokf_semantic until OKF adopts it, then moved to
+        okf_v02.
+    comments:
+      - >-
+        Minted in lokf: PROV relates a revised entity to the one it revises
+        (prov:wasRevisionOf), not an entity to the activity that revised it
+        in place.
+      - >-
+        `lokf validate` rejects a `revised.at` earlier than `generated.at`:
+        an edit cannot come before production.
+    see_also:
+      - https://github.com/GoogleCloudPlatform/open-knowledge-format/issues/28
+    in_subset:
+      - lokf_semantic
+
+  verified:
+    description: >-
+      Verification events confirming the content against its sources or
+      resource. Independent of `generated`: who wrote a concept need not be
+      who confirmed it. Trust tiers derive from the actors: absent =
+      unverified; only non-human actors = machine-confirmed; any `human:<id>`
+      actor = human-reviewed.
+    range: Verification
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: lokf:verified
+    close_mappings:
+      - prov:wasInfluencedBy
+    comments:
+      - >-
+        A bare `{ by, at }` mapping MUST be read as a one-element list; the
+        LOKF loader normalizes the bare form before LinkML validation.
+      - >-
+        Minted in lokf: no established vocabulary has an
+        entity-to-verification-event property.
+    in_subset:
+      - okf_v02
+
+  refuted:
+    description: >-
+      Refutation events: an actor found the content wrong against its
+      sources or resource, with the reason. The negative counterpart of
+      `verified`, accumulated the same way. A refutation is active while it
+      is not older than the last meaningful change (`generated.at` or
+      `revised.at`); it never changes the trust tier, which OKF derives from
+      `verified` alone, and a consumer surfaces it beside the tier.
+    range: Refutation
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: lokf:refuted
+    close_mappings:
+      - prov:wasInfluencedBy
+    notes:
+      - >-
+        Proposed for OKF §5.2 as GoogleCloudPlatform/open-knowledge-format#13,
+        under this name. Kept in lokf_semantic until OKF adopts it, then
+        moved to okf_v02.
+    comments:
+      - >-
+        A bare `{ by, at, reason }` mapping is read as a one-element list, as
+        `verified` is; the LOKF loader normalizes it before validation.
+      - Minted in lokf, as `verified` is.
+    see_also:
+      - https://github.com/GoogleCloudPlatform/open-knowledge-format/issues/13
+    in_subset:
+      - lokf_semantic
+
+  by:
+    description: >-
+      The actor that performed the event, as a plain OKF §7 actor string
+      (`<producer>/<version>`, `human:<id>`, `process:<id>`) — a literal,
+      never an IRI. Trust tiers derive from the `human:` prefix via string
+      inspection (SPARQL STRSTARTS). Required on a generation, revision,
+      verification or refutation event, optional on an exclusion.
+    range: string
+    pattern: '^(human|process):\S+$|^[^\s/]+/[^\s/]+$'
+    slot_uri: prov:wasAssociatedWith
+    close_mappings:
+      - schema:agent
+    comments:
+      - >-
+        prov:wasAssociatedWith is an object property (range prov:Agent);
+        carrying a literal actor designator is a documented, RDF-consistent
+        pragmatic flattening — chosen over coined actor IRIs because a flat
+        JSON-LD context cannot rewrite strings into IRIs, and
+        "reference_agent/gemini-2.5-pro" (no colon) would resolve as an
+        unstable document-base-relative IRI, while "human:kliu" would
+        silently become an absolute IRI in an unregistered URI scheme.
+    in_subset:
+      - okf_v02
+
+  at:
+    description: ISO 8601 datetime at which the event completed.
+    range: datetime
+    slot_uri: prov:endedAtTime
+    close_mappings:
+      - prov:atTime
+      - schema:endTime
+    in_subset:
+      - okf_v02
+
+  revision:
+    description: >-
+      The state of the resource this event refers to: a commit id, an ETag
+      or version label, or a content digest of the resource as retrieved
+      (`<algorithm>:<hex>`). Absent means unrecorded, never unchanged.
+    range: string
+    slot_uri: lokf:revision
+    notes:
+      - >-
+        Proposed for OKF §5.2 as GoogleCloudPlatform/knowledge-catalog#437,
+        under this name. Kept in lokf_semantic until OKF adopts it, then
+        moved to okf_v02. A per-source `checked: [{ resource, revision }]`
+        list, for a concept with several sources, waits on that design.
+    comments:
+      - >-
+        A literal on the event, not prov:used: the value is an opaque
+        version token, not the IRI of an entity. pav:version describes the
+        resource itself; here the subject is the act of checking it.
+      - >-
+        Quote it in YAML. An all-digit commit id (`1234567`) is otherwise
+        read as a number and fails the string range, and an ETag carries
+        its own double quotes.
+    see_also:
+      - https://github.com/GoogleCloudPlatform/knowledge-catalog/issues/437
+    in_subset:
+      - lokf_semantic
+
+  # --- Lifecycle (OKF v0.2 §5.4, §5.5) --------------------------------------
+  status:
+    description: >-
+      Lifecycle status of the concept: draft | stable | deprecated. Absent
+      means stable. Advisory, never access control.
+    range: ConceptStatus
+    slot_uri: schema:creativeWorkStatus
+    close_mappings:
+      - adms:status
+    comments:
+      - >-
+        Absence is deliberately distinguishable from an explicit
+        `status: stable` (a consumer-side default), so no `ifabsent` is set.
+      - >-
+        schema:creativeWorkStatus is text-valued by design, so the flat
+        JSON-LD context path emitting the literal is exactly conformant
+        schema.org usage; the enum's ADMS meaning IRIs surface on the
+        LinkML RDF/OWL/SHACL path.
+    in_subset:
+      - okf_v02
+
+  stale_after:
+    description: >-
+      The absolute instant on or after which the concept is stale (OKF
+      §5.5: stale when now >= stale_after), an ISO 8601 datetime. A bare
+      YYYY-MM-DD is read as that day at 00:00:00Z.
+    range: datetime
+    slot_uri: schema:expires
+    close_mappings:
+      - dcterms:valid
+    comments:
+      - >-
+        schema:expires is the exact concept — a planned future expiry;
+        prov:invalidatedAtTime would falsely assert the entity WAS
+        invalidated, and dcterms:valid names a validity period only
+        ambiguously.
+    in_subset:
+      - okf_v02
+
+  # --- Attested Computation contract (OKF v0.2 §10) -------------------------
+  runtime:
+    description: >-
+      REQUIRED on an Attested Computation. How to run the computation
+      (bigquery | postgres | dbt | python | Looker | ...); defines what
+      `parameters` mean and how the executor and attester interpret the
+      contract.
+    required: true
+    range: string
+    slot_uri: schema:runtimePlatform
+    in_subset:
+      - okf_v02
+
+  parameters:
+    description: >-
+      The typed, named holes the agent may fill — the ONLY surface the agent
+      may bind. Binding semantics follow `runtime`.
+    range: Parameter
+    multivalued: true
+    inlined_as_list: true
+    slot_uri: lokf:parameter
+    comments:
+      - >-
+        Minted in lokf, mirroring the existing `fields` -> lokf:field idiom:
+        schema.org attaches PropertyValueSpecifications only through the
+        Actions -input/-output annotation syntax, which is not a reusable
+        property.
+    in_subset:
+      - okf_v02
+
+  required:
+    description: Whether a value for the parameter must be supplied.
+    range: boolean
+    slot_uri: schema:valueRequired
+    in_subset:
+      - okf_v02
+
+  computation:
+    description: >-
+      Optional path to a file holding the computation; absent means the
+      body's `# Computation` fenced block IS the computation. Minted in
+      lokf: schema:contentUrl is the nearest real property but is scoped to
+      MediaObject bytes.
+    range: uriorcurie
+    slot_uri: lokf:computation
+    close_mappings:
+      - schema:contentUrl
+    in_subset:
+      - okf_v02
+
+  executor:
+    description: How the computation is run and what evidence a run must return.
+    range: Executor
+    inlined: true
+    slot_uri: lokf:executor
+    in_subset:
+      - okf_v02
+
+  receipt:
+    description: >-
+      The field names a run must return (e.g. job_id, executed_sql,
+      result) — the evidence the attester inspects. Receipts themselves are
+      runtime artifacts, never stored in the bundle. Minted in lokf: no
+      established vocabulary describes a receipt-shape declaration.
+    multivalued: true
+    range: string
+    slot_uri: lokf:receipt
+    in_subset:
+      - okf_v02
+
+  attester:
+    description: The deterministic, non-LLM verdict check over a receipt.
+    range: Attester
+    inlined: true
+    slot_uri: lokf:attester
+    in_subset:
+      - okf_v02
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+enums:
+  RelationType:
+    description: >-
+      The recommended controlled vocabulary of relationship predicates for
+      reified Relations. Each value carries a `meaning` mapping to its RDF
+      predicate in schema.org, Dublin Core Terms, PROV-O, RDFS, or OWL.
+    permissible_values:
+      isPartOf:
+        description: The concept is a part of the target.
+        meaning: dcterms:isPartOf
+      hasPart:
+        description: The target is a part of the concept.
+        meaning: schema:hasPart
+      references:
+        description: The concept refers to the target.
+        meaning: dcterms:references
+      dependsOn:
+        description: The concept depends on the target.
+        meaning: dcterms:requires
+      derivedFrom:
+        description: The concept was derived from the target.
+        meaning: prov:wasDerivedFrom
+      isReplacedBy:
+        description: The concept is superseded by the target.
+        meaning: dcterms:isReplacedBy
+      wasRevisionOf:
+        description: >-
+          The concept is a revised version of the target: a derivation that
+          keeps substantial content of the original.
+        meaning: prov:wasRevisionOf
+      about:
+        description: The concept is about the target.
+        meaning: schema:about
+      sameAs:
+        description: The concept is the same entity as the target.
+        meaning: owl:sameAs
+      relatedTo:
+        description: The concept is generically related to the target.
+        meaning: dcterms:relation
+      wasAttributedTo:
+        description: The concept was attributed to the target agent.
+        meaning: prov:wasAttributedTo
+      definedBy:
+        description: The concept is formally defined by the target.
+        meaning: rdfs:isDefinedBy
+      measures:
+        description: The concept (a metric) measures the target.
+        meaning: lokf:measures
+      joinsWith:
+        description: The concept (a table) is joined with the target.
+        meaning: lokf:joinsWith
+      source:
+        description: The concept is sourced from the target.
+        meaning: dcterms:source
+      memberOf:
+        description: The concept (a role) is held within the target organization.
+        meaning: schema:memberOf
+      holder:
+        description: The target agent holds this concept (a role).
+        meaning: org:member
+
+  DiataxisMode:
+    description: >-
+      The Diátaxis documentation mode of a concept's body - an orthogonal facet
+      describing *how* the prose serves the reader, distinct from the concept's
+      `type` (what it is *about*). Each value maps to a schema.org term.
+      Optional: an absent value simply means the mode is unclassified, and
+      consumers MUST treat an unknown value the same way rather than fail.
+    see_also:
+      - https://diataxis.fr/
+    comments:
+      - >-
+        Diátaxis is a widely-adopted framework that sorts documentation into
+        four modes along two axes: action vs. cognition (doing vs. thinking)
+        and acquisition vs. application (studying vs. working). Each
+        permissible value carries its quadrant as machine-readable
+        annotations (`diataxis_action_cognition`,
+        `diataxis_acquisition_application`) so tools can reason about the
+        map - e.g. a reader who is working and doing needs `how-to`.
+    permissible_values:
+      tutorial:
+        description: Learning-oriented; a lesson that lets a beginner acquire a skill by doing.
+        meaning: schema:LearningResource
+        aliases:
+          - lesson
+          - getting started
+        see_also:
+          - https://diataxis.fr/tutorials/
+        annotations:
+          diataxis_action_cognition: action
+          diataxis_acquisition_application: acquisition
+        notes:
+          - Answers "Can you teach me to…?" - reader is *studying* by *doing*. Choose over how-to when the reader is a novice and the aim is learning, not a specific task. A tutorial is not the place for explanation - link an Explanation instead.
+      how-to:
+        description: >-
+          Goal-oriented; directions that guide an already-competent reader
+          through a problem or towards a result.
+        meaning: schema:HowTo
+        aliases:
+          - guide
+          - recipe
+          - runbook
+        see_also:
+          - https://diataxis.fr/how-to-guides/
+        annotations:
+          diataxis_action_cognition: action
+          diataxis_acquisition_application: application
+        notes:
+          - Answers "How do I…?" - reader is *working* by *doing*. A recipe, not a lesson; it assumes competence and solves one real-world problem.
+      reference:
+        description: Information-oriented; austere, authoritative description of the machinery.
+        meaning: schema:APIReference
+        aliases:
+          - specification
+          - technical description
+        see_also:
+          - https://diataxis.fr/reference/
+        annotations:
+          diataxis_action_cognition: cognition
+          diataxis_acquisition_application: application
+        notes:
+          - Answers "What is…?" - reader is *working* by *thinking*, consulting facts rather than performing steps - describe and only describe, no teaching or opinion.
+          - >-
+            schema.org has no genre for reference documentation in general;
+            schema:APIReference is the nearest term but is narrower than the
+            Diátaxis mode, which covers any technical description of the
+            machinery, not only APIs.
+      explanation:
+        description: >-
+          Understanding-oriented; discursive treatment of a subject, that
+          permits reflection and deepens comprehension.
+        meaning: schema:Article
+        aliases:
+          - discussion
+          - background
+          - conceptual guide
+          - topics
+        see_also:
+          - https://diataxis.fr/explanation/
+        annotations:
+          diataxis_action_cognition: cognition
+          diataxis_acquisition_application: acquisition
+        notes:
+          - Answers "Why…?" / "Can you tell me about…?" - reader is *studying* by *thinking*. The mode you can read away from the keyboard, and the place for alternatives, counter-examples, and context.
+
+  FieldType:
+    description: >-
+      Datatypes for dataset/table fields, each mapped to its XSD (or RDF) type.
+    permissible_values:
+      string:
+        meaning: xsd:string
+      integer:
+        meaning: xsd:integer
+      number:
+        meaning: xsd:decimal
+      boolean:
+        meaning: xsd:boolean
+      date:
+        meaning: xsd:date
+      datetime:
+        meaning: xsd:dateTime
+      time:
+        meaning: xsd:time
+      uri:
+        meaning: xsd:anyURI
+      json:
+        meaning: rdf:JSON
+
+  ConceptStatus:
+    description: >-
+      Lifecycle status of a concept (OKF v0.2 §5.4). Absent means stable.
+      Each value maps to a real IRI in the ADMS status controlled vocabulary
+      (http://purl.org/adms/status/, the vocabulary DCAT-AP mandates for
+      adms:status). On the flat-context path the value serializes as a text
+      literal — sanctioned usage of schema:creativeWorkStatus, which is
+      deliberately text-valued; the IRIs surface on the LinkML RDF/OWL path.
+    permissible_values:
+      draft:
+        description: Not yet reviewed; possibly incomplete.
+        meaning: adms_status:UnderDevelopment
+        notes:
+          - >-
+            Nearest real term, not an exact synonym: ADMS has no "draft"
+            member, and UnderDevelopment (still being worked on, not yet
+            complete) is the closest governed IRI. Treat ADMS round-trips
+            as lossy.
+      stable:
+        description: The default; ready for consumption.
+        meaning: adms_status:Completed
+      deprecated:
+        description: Kept for links and history; no longer current.
+        meaning: adms_status:Deprecated
+
+  ParameterType:
+    description: >-
+      Datatypes for Attested Computation parameters. The permissible values
+      mirror FieldType's authoring surface exactly (one datatype vocabulary
+      for authors), but the meanings deliberately diverge: ParameterType
+      values are written under the `type` key, whose flat-context alias is
+      @type, so each value means a designed lokf Parameter-kind CLASS
+      rather than an XSD datatype — `_:p rdf:type xsd:integer` would
+      falsely type a non-literal node with a datatype (a class of
+      literals), while `_:p rdf:type lokf:IntegerParameter` is true and
+      OWL-DL-safe. Each value's XSD value space is carried as an annotation
+      and asserted in the generated ontology, where every Parameter-kind
+      class is declared a subclass of lokf:Parameter.
+    permissible_values:
+      string:
+        meaning: lokf:StringParameter
+        annotations:
+          xsd_value_space: xsd:string
+      integer:
+        meaning: lokf:IntegerParameter
+        annotations:
+          xsd_value_space: xsd:integer
+      number:
+        meaning: lokf:NumberParameter
+        annotations:
+          xsd_value_space: xsd:decimal
+      boolean:
+        meaning: lokf:BooleanParameter
+        annotations:
+          xsd_value_space: xsd:boolean
+      date:
+        meaning: lokf:DateParameter
+        annotations:
+          xsd_value_space: xsd:date
+      datetime:
+        meaning: lokf:DatetimeParameter
+        annotations:
+          xsd_value_space: xsd:dateTime
+      time:
+        meaning: lokf:TimeParameter
+        annotations:
+          xsd_value_space: xsd:time
+      uri:
+        meaning: lokf:UriParameter
+        annotations:
+          xsd_value_space: xsd:anyURI
+      json:
+        meaning: lokf:JsonParameter
+        annotations:
+          xsd_value_space: rdf:JSON
+
+  HttpMethod:
+    description: >-
+      The IANA HTTP request method registry, restricted to the methods a
+      LOKF Service is realistically documented as being invoked with.
+      Permissible value names are uppercase (unlike this schema's other
+      enums) because the method name is a case-sensitive wire token, not an
+      authoring convenience label.
+    permissible_values:
+      GET:
+        description: Retrieve a representation of the resource.
+      POST:
+        description: Submit data to be processed, often creating a resource.
+      PUT:
+        description: Replace the resource with the supplied representation.
+      PATCH:
+        description: Apply a partial modification to the resource.
+      DELETE:
+        description: Remove the resource.
+      HEAD:
+        description: Like GET, but returns headers only, no body.
+      OPTIONS:
+        description: Describe the communication options for the resource.
+
+  ChecksumAlgorithm:
+    description: >-
+      Digest algorithms for a Checksum, each mapped to its SPDX individual.
+      Prefer sha256 or stronger; sha1 and md5 identify bytes but no longer
+      resist tampering.
+    permissible_values:
+      sha1:
+        description: SHA-1 (FIPS 180-4); identifies bytes but no longer resists tampering.
+        meaning: spdx:checksumAlgorithm_sha1
+      sha224:
+        description: SHA-224 (FIPS 180-4).
+        meaning: spdx:checksumAlgorithm_sha224
+      sha256:
+        description: SHA-256 (FIPS 180-4).
+        meaning: spdx:checksumAlgorithm_sha256
+      sha384:
+        description: SHA-384 (FIPS 180-4).
+        meaning: spdx:checksumAlgorithm_sha384
+      sha512:
+        description: SHA-512 (FIPS 180-4).
+        meaning: spdx:checksumAlgorithm_sha512
+      sha3_256:
+        description: SHA3-256 (FIPS 202).
+        meaning: spdx:checksumAlgorithm_sha3_256
+      sha3_384:
+        description: SHA3-384 (FIPS 202).
+        meaning: spdx:checksumAlgorithm_sha3_384
+      sha3_512:
+        description: SHA3-512 (FIPS 202).
+        meaning: spdx:checksumAlgorithm_sha3_512
+      blake2b256:
+        description: BLAKE2b with a 256-bit digest (RFC 7693).
+        meaning: spdx:checksumAlgorithm_blake2b256
+      blake2b384:
+        description: BLAKE2b with a 384-bit digest (RFC 7693).
+        meaning: spdx:checksumAlgorithm_blake2b384
+      blake2b512:
+        description: BLAKE2b with a 512-bit digest (RFC 7693).
+        meaning: spdx:checksumAlgorithm_blake2b512
+      md5:
+        description: MD5 (RFC 1321); identifies bytes but no longer resists tampering.
+        meaning: spdx:checksumAlgorithm_md5

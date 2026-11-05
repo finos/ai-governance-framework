@@ -1,0 +1,37 @@
+# Python sidecar artifacts (do not commit)
+.venv/
+__pycache__/
+*.pyc
+lokf-tables/
+
+# Obsidian's workspace state, not bundle content. Obsidian writes it into
+# knowledge/ (not this directory) when the bundle is opened as a vault,
+# directly or through the root knowledge_bundle link (Step 2).
+.obsidian/
+
+# knowledge-feedback.sh rewrites feedback.md through a temporary file and a
+# lock directory beside it; a run killed outright can leave either behind.
+feedback.md.*
+
+# The librarian's patch file: ktl-librarian writes its operations here and
+# knowledge-apply.sh applies and removes it. A run that stopped midway can
+# leave it behind, and it is never bundle content.
+patch.yaml
+
+# knowledge-federate.py keeps .cache/federation/validators.json here on a
+# domain host: what each served member's site last served, for a conditional
+# request. It downloads the release zips it checks to a temporary folder,
+# which it removes.
+# knowledge-ingest.py keeps the mirror of a confidential entry under
+# .cache/mirror/, which is never committed.
+.cache/
+
+# The knowledge website's sync writes the domain schema's pages here with
+# gen-doc when no other gen-doc recipe exists. They are built, not written.
+docs/elements/
+
+# knowledge-apply.sh stages the concepts it is about to write here for lokf
+# validate, and removes the folder after. A pen killed during the check can
+# leave it behind. The scheduled librarian refuses any run that changed a
+# file git sees.
+.pen-check-*/

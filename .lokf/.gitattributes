@@ -1,0 +1,7 @@
+# Keep everything under .lokf/ on LF, whatever the machine's core.autocrlf
+# says. Git for Windows defaults to CRLF checkouts, and the conventions
+# script, the Obsidian plugins and the toolkit must read the same bytes on
+# every machine. A Windows checkout used to disagree with CI over the same
+# bundle. `text=auto` leaves any binary alone. Installed by ktl-sidecar
+# Step 1; inert on a host without git.
+* text=auto eol=lf

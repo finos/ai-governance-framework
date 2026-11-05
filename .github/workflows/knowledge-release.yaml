@@ -1,0 +1,564 @@
+name: Knowledge Release
+
+# Attaches the LOKF knowledge bundle to a GitHub release as a zip file, so a
+# reader can take the bundle as it stood at that release without cloning the
+# repository, and open it with any operating system's own tools. Beside it,
+# when the host has installed .lokf/m365/, one Microsoft 365 Copilot skill
+# zip per instructions file there, for a person with nothing installed to
+# upload to Agent Builder. When the host's .lokf/justfile names a domain
+# schema on its `schema :=` line, that file goes beside the bundle too, as
+# schema-<tag>-<name>.yaml with its own .sha256, so a federation that admits
+# this bundle can validate it on its own terms. It runs no LLM or agent, and
+# it never commits or pushes.
+#
+# Two ways to start it:
+#
+#   workflow_dispatch   always runs. Name an existing release's tag. A person
+#                       starting it by hand is the decision to publish.
+#
+#   release published   runs only once the KNOWLEDGE_RELEASE_ENABLED
+#                       repository variable is "true" (Repository variables,
+#                       not an environment's, which this job's `if:` cannot
+#                       see). Unset, every release
+#                       shows this run as skipped, so the workflow is inert
+#                       until someone turns it on.
+#
+# GitHub starts no workflow for a release created with the default
+# GITHUB_TOKEN. If your release job makes the release that way, the release
+# trigger never fires. Have that job dispatch this workflow instead:
+#   gh workflow run knowledge-release.yaml --ref "$TAG" -f tag="$TAG"
+# with `actions: write` on that job.
+#
+# A release whose bundle and domain schema are unchanged gets no zip. `pack`
+# compares the bundle's git tree at this tag with its tree at the newest
+# other published release that carries a knowledge bundle, as a zip or as the
+# tarball earlier releases attached. It compares the justfile's `schema :=`
+# line and the schema's files the same way. When both match, the run ends
+# green with a notice and uploads nothing. The `force` input of a manual run
+# skips the comparison, for repairing a release's assets.
+#
+# Two jobs, for least privilege. `pack` installs the lokf toolkit (third-party
+# packages), validates the bundle and builds the zip under a read-only
+# token. `attach` holds the write token, runs no third-party packages, checks
+# the zip against its checksum and uploads both to the release.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag of an existing release to attach the bundle to, e.g. v1.4.0"
+        required: true
+        type: string
+      force:
+        description: "Attach even when the bundle matches the last release's"
+        required: false
+        default: false
+        type: boolean
+
+permissions: {} # deny by default; each job requests only the scopes it needs
+
+concurrency:
+  group: knowledge-release-${{ inputs.tag || github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  pack:
+    name: Validate and pack the bundle (read-only)
+    if: github.event_name == 'workflow_dispatch' || vars.KNOWLEDGE_RELEASE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.compare.outputs.changed }}
+      asset: ${{ steps.pack.outputs.asset }}
+    env:
+      TAG: ${{ inputs.tag || github.event.release.tag_name }}
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      # The bundle as it stood at the tag, not at the branch head.
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: refs/tags/${{ env.TAG }}
+          persist-credentials: false
+          # Full history: knowledge-conventions.sh resolves each `revision`
+          # against the tree, and reports a shallow clone instead of passing it.
+          fetch-depth: 0
+
+      # Runs before anything is installed, so the read-only token this step
+      # holds never shares a step with third-party packages. The bundle lives
+      # at `.lokf/knowledge`, or at `knowledge_bundle` on a host rearranged by
+      # hand, where `.lokf/knowledge` is a link and git stores it as a blob.
+      # The step picks whichever of the two is a tree at each release.
+      #
+      # SECURITY SCANNER NOTE: Snyk W011 "third-party content exposure /
+      # indirect prompt injection" does not apply to this job. It reads the
+      # repository's own release list from the GitHub API for one purpose: to
+      # find the newest release that already carries a knowledge bundle. No
+      # LLM, AI agent or AI tool runs anywhere in this workflow, so nothing it
+      # reads can reach a prompt. The reply is reduced by `--jq` to tag names,
+      # and each tag name is used only as a quoted `refs/tags/` revision in
+      # git commands, never interpolated into a script by `${{ }}`.
+      - name: Compare with the last released bundle
+        id: compare
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          FORCE: ${{ inputs.force || false }}
+        run: |
+          set -euo pipefail
+          bundle_tree() {
+            local ref="$1" path
+            for path in .lokf/knowledge knowledge_bundle; do
+              if [ "$(git cat-file -t "refs/tags/$ref:$path" 2>/dev/null)" = tree ]; then
+                printf '%s %s\n' "$(git rev-parse "refs/tags/$ref:$path")" "$path"
+                return 0
+              fi
+            done
+            return 1
+          }
+          # The schema the `schema :=` line of .lokf/justfile names at a tag.
+          schema_at() {
+            git show "refs/tags/$1:.lokf/justfile" 2>/dev/null | sed -n 's/^schema := "\([^"]*\)"$/\1/p' | head -n 1 || true
+          }
+          # The domain schema and the local files it imports in turn, as paths
+          # in the repository. lokf.yaml is left out, because the released copy
+          # imports it by name. Nothing is installed yet, so python3 reads the
+          # import lines as text, whether a block list or a flow list.
+          schema_files() {
+            [ -n "$1" ] || return 0
+            python3 -I - "$1" <<'PY'
+          import pathlib
+          import re
+          import sys
+
+          repo = pathlib.Path.cwd().resolve()
+          core = (repo / ".lokf" / "lokf.yaml").resolve()
+          todo, seen = [(repo / ".lokf" / sys.argv[1]).resolve()], set()
+          while todo:
+              path = todo.pop()
+              if path in seen or path == core or not path.is_relative_to(repo) or not path.is_file():
+                  continue
+              seen.add(path)
+              print(path.relative_to(repo))
+              lines = [re.sub(r"(^|\s+)#.*$", "", line) for line in path.read_text(encoding="utf-8").splitlines()]
+              entries = []
+              for i, line in enumerate(lines):
+                  if not line.startswith("imports:"):
+                      continue
+                  rest = line[len("imports:") :].strip()
+                  if rest.startswith("["):
+                      for more in lines[i + 1 :]:
+                          if "]" in rest:
+                              break
+                          rest += " " + more.strip()
+                      entries += rest[1:].split("]")[0].split(",")
+                      continue
+                  for item in lines[i + 1 :]:
+                      if item.strip():
+                          if not (block := re.match(r"\s*-\s*(.+)", item)):
+                              break
+                          entries.append(block.group(1))
+              for entry in entries:
+                  entry = entry.strip().strip("\"'")
+                  if entry and entry != "lokf" and ":" not in entry:
+                      todo.append((path.parent / (entry if entry.endswith((".yaml", ".yml")) else entry + ".yaml")).resolve())
+          PY
+          }
+          # Both tags are spelt in full, so a name is never read as an option
+          # or as a branch of the same name.
+          gh release view "$TAG" --json tagName --jq .tagName >/dev/null \
+            || { echo "::error::No release exists for tag $TAG. Create the release first, then run this workflow again."; exit 1; }
+          read -r tree path < <(bundle_tree "$TAG") || { echo "::error::No bundle folder at $TAG"; exit 1; }
+          # A command substitution stops the step when schema_files fails,
+          # where a process substitution would hide the failure.
+          schema="$(schema_at "$TAG")"
+          list="$(schema_files "$schema")" \
+            || { echo "::error::The domain schema $schema, or a file it imports, could not be read at $TAG"; exit 1; }
+          files=()
+          [ -z "$list" ] || mapfile -t files <<< "$list"
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+          # Newest first. Drafts are left out, since nobody has published them.
+          # The tag is filtered in the shell, so no tag name reaches jq's source.
+          # The `knowledge-<tag>.tar.gz` that earlier releases attached counts too.
+          tags="$(gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
+            --jq '.[] | select(.draft | not)
+                  | select(any(.assets[]; .name | startswith("knowledge-") and (endswith(".zip") or endswith(".tar.gz"))))
+                  | .tag_name')"
+          prev="$(printf '%s\n' "$tags" | grep -vxF -- "$TAG" | sed -n 1p || true)"
+          if [ "$FORCE" = true ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::force is set, so the bundle is attached without comparing it."
+          elif [ -z "$prev" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "No earlier release carries a knowledge bundle; this is the first."
+          elif ! read -r prev_tree _ < <(bundle_tree "$prev"); then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::$prev carries a bundle but its tag holds no bundle folder here; attaching without a comparison."
+          elif [ "$tree" != "$prev_tree" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "The bundle changed since $prev: $(git diff --shortstat "refs/tags/$prev" "refs/tags/$TAG" -- "$path")"
+          elif [ "$(schema_at "$prev")" != "$schema" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "The bundle is the one $prev released, but .lokf/justfile now names ${schema:-no domain schema}."
+          elif [ "${#files[@]}" -gt 0 ] && ! git --literal-pathspecs diff --quiet "refs/tags/$prev" "refs/tags/$TAG" -- "${files[@]}"; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "The bundle is the one $prev released, but its domain schema changed: $(git --literal-pathspecs diff --shortstat "refs/tags/$prev" "refs/tags/$TAG" -- "${files[@]}")"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::The bundle and domain schema at $TAG are identical to the ones released with $prev (tree ${tree:0:12}), so no zip is attached."
+          fi
+
+      - name: Set up uv
+        if: steps.compare.outputs.changed == 'true'
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          python-version: "3.12"
+
+      # --locked, as the registrar's gate installs it: what .lokf/uv.lock
+      # names, each file checked against its recorded hash.
+      - name: Install the lokf sidecar
+        if: steps.compare.outputs.changed == 'true'
+        run: uv sync --locked
+        working-directory: .lokf
+
+      # The registrar's two checks, run as its gate runs them, so a release
+      # never carries a bundle that gate would fail. The recipe passes the
+      # domain schema the justfile's `schema` line names.
+      - name: Validate the knowledge bundle and its relation targets
+        if: steps.compare.outputs.changed == 'true'
+        # just from uv.lock, checked against its hash, where the host's
+        # pyproject.toml names rust-just; else uvx fetches the same version.
+        run: |
+          if grep -qx 'name = "rust-just"' uv.lock; then uv run --locked just lokf-check-refs
+          else uvx --from rust-just==1.47.0 just lokf-check-refs; fi
+        working-directory: .lokf
+
+      - name: Check the conventions lokf validate cannot see
+        if: steps.compare.outputs.changed == 'true'
+        run: bash scripts/knowledge-conventions.sh knowledge
+        working-directory: .lokf
+
+      # The same bundle always gives the same bytes. The bundle is copied to
+      # a staging folder, where modes are fixed and every file takes the time
+      # of the last commit that touched the bundle. Names go to zip sorted.
+      # `-X` leaves out the uid, gid and extended-time fields, and TZ=UTC fixes
+      # the one time zip keeps, which it stores as local time. A reader can
+      # rebuild the zip from the tag and compare checksums, and an unchanged
+      # bundle has the same checksum at every release.
+      #
+      # The path is the one the compare step found, resolved to the real
+      # folder in case it is a link (see the sidecar's references/portability.md).
+      # The archive root is always `knowledge/`.
+      # A link inside the bundle is copied as a link (`cp -P`) and stored as
+      # a link (`zip -y`), never followed, so nothing outside the bundle can
+      # reach the zip. A bundle normally carries none; this is a guard. Only
+      # tracked files are packed, because the checkout holds nothing else.
+      # The name carries the repository, so zips downloaded from several
+      # repositories stay apart. A host whose published name differs from
+      # its repository's (a package renamed for PyPI, say) sets it in the
+      # KNOWLEDGE_RELEASE_NAME repository variable.
+      - name: Pack the bundle
+        id: pack
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          BUNDLE_PATH: ${{ steps.compare.outputs.path }}
+          RELEASE_NAME: ${{ vars.KNOWLEDGE_RELEASE_NAME }}
+        run: |
+          set -euo pipefail
+          name="${RELEASE_NAME:-${GITHUB_REPOSITORY#*/}}"
+          if [[ ! "$name" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]]; then
+            echo "::error::KNOWLEDGE_RELEASE_NAME must be letters, digits, '.', '_' or '-', starting with a letter or digit."
+            exit 1
+          fi
+          asset="knowledge-${TAG//\//-}-$name.zip"
+          src="$(cd "$BUNDLE_PATH" && pwd -P)"
+          mtime="$(git log -1 --format=%ct -- "$BUNDLE_PATH")"
+          stage="$RUNNER_TEMP/stage"
+          mkdir -p "$stage" "$RUNNER_TEMP/release"
+          cp -R -P "$src" "$stage/knowledge"
+          chmod -R u=rwX,go=rX "$stage/knowledge"
+          find "$stage/knowledge" -exec touch -h -d "@$mtime" {} +
+          (cd "$stage" && find knowledge \( -type f -o -type l \) -print | LC_ALL=C sort | TZ=UTC zip -q -X -y -@ "$RUNNER_TEMP/release/$asset")
+          (cd "$RUNNER_TEMP/release" && sha256sum "$asset" > "$asset.sha256")
+          echo "asset=$asset" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "Packed $(unzip -Z1 "$RUNNER_TEMP/release/$asset" | wc -l) files into $asset"
+
+      # The domain schema, when the justfile names one: the file, under a name
+      # that carries the tag and the host, and its checksum. The line is read
+      # as text, relative to .lokf/ as the justfile's recipes read it. It may
+      # name a file beside the bundle, or one in a linkml-sidecar project
+      # elsewhere in the repository, never one outside it.
+      #
+      # A domain that admits this bundle puts the released schema beside the
+      # bundle with LOKF's own lokf.yaml, so the released copy must import
+      # LOKF core by the name `lokf`. A linkml-sidecar schema imports it by a
+      # relative path to .lokf/lokf.yaml, and the step rewrites that one import
+      # in the copy.
+      #
+      # Any other local file would not resolve beside the bundle, so a schema
+      # that imports one, such as a host's composite of two `lokf adapt`
+      # copies, is released with each such file merged into it. The merge
+      # writes out every merged element's IRI and carries each file's
+      # settings, so the copy validates and projects as the composite does.
+      # It stops on a name two files define differently, since LinkML would
+      # keep the last one without a word. It also stops on an import from
+      # outside the repository.
+      - name: Pack the domain schema
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          NAME: ${{ steps.pack.outputs.name }}
+        run: |
+          set -euo pipefail
+          schema="$(sed -n 's/^schema := "\([^"]*\)"$/\1/p' .lokf/justfile 2>/dev/null | head -n 1)"
+          if [ -z "$schema" ]; then
+            echo "No domain schema is named in .lokf/justfile, so none is attached."
+            exit 0
+          fi
+          repo="$(pwd -P)"
+          if ! path="$(cd .lokf && realpath -e -- "$schema" 2>/dev/null)" || [ ! -f "$path" ]; then
+            echo "::error::.lokf/justfile names the schema $schema, which is not a file"
+            exit 1
+          fi
+          case "$path" in
+            "$repo"/*) ;;
+            *) echo "::error::.lokf/justfile names the schema $schema, which is outside this repository"; exit 1 ;;
+          esac
+          asset="schema-${TAG//\//-}-$NAME.yaml"
+          .lokf/.venv/bin/python -I - "$path" "$repo/.lokf/lokf.yaml" "$RUNNER_TEMP/release/$asset" <<'PY'
+          import copy
+          import pathlib
+          import re
+          import sys
+
+          import yaml
+
+          source, core, target = (pathlib.Path(p) for p in sys.argv[1:])
+          core, repo = core.resolve(), pathlib.Path.cwd().resolve()
+          text = source.read_text(encoding="utf-8")
+          doc = yaml.safe_load(text)
+          imports = (doc.get("imports") or []) if isinstance(doc, dict) else []
+          KINDS = {"types": "type", "enums": "enum", "subsets": "subset", "slots": "slot", "classes": "class"}
+
+
+          def stop(message):
+              print(f"::error::{message}")
+              sys.exit(1)
+
+
+          def local(base, entry):
+              # A domain resolves `lokf` by name. A CURIE such as linkml:types,
+              # or a URL, resolves anywhere.
+              if not isinstance(entry, str) or entry == "lokf" or ":" in entry:
+                  return None
+              return (base.parent / (entry if entry.endswith((".yaml", ".yml")) else entry + ".yaml")).resolve()
+
+
+          def load(path, base):
+              part = yaml.safe_load(path.read_text(encoding="utf-8")) if path.is_file() else None
+              if not isinstance(part, dict):
+                  stop(f"{base.name} imports {path.name}, which is not a LinkML schema file")
+              return part
+
+
+          # LinkML's camelcase and underscore, from linkml_runtime.utils.formatutils.
+          def camel(name):
+              return "".join(w[0].upper() + w[1:] for w in re.sub(r"_+", " ", name.strip().replace(",", "")).split())
+
+
+          def under(name):
+              return re.sub(r"\s+", "_", name.strip()).replace(",", "").replace("-", "_")
+
+
+          def pin_iris(part):
+              # An element takes its IRI from the default prefix of the schema
+              # that defines it, which is a prefix name or an IRI, or from the
+              # schema's id when it has none. Once merged, it would take this
+              # file's, so each IRI is written out first, as LinkML's
+              # SchemaLoader derives it. Each element is copied, so two that a
+              # YAML alias shares get an IRI each.
+              prefix = str(part.get("default_prefix") or "")
+              if not prefix:
+                  prefix = str(part.get("id", ""))
+                  prefix += "" if prefix.endswith(("/", "#", "_", ":")) else "/"
+              stem = prefix if ":/" in prefix else prefix + ":"
+              for kind, key, form in (("classes", "class_uri", camel), ("slots", "slot_uri", under), ("enums", "enum_uri", camel)):
+                  for name in list(part.get(kind) or {}):
+                      element = copy.deepcopy(part[kind][name]) if isinstance(part[kind][name], dict) else {}
+                      element.setdefault(key, stem + form(name))
+                      for attr in list(element.get("attributes") or {}) if kind == "classes" else []:
+                          if not isinstance(element["attributes"][attr], dict):
+                              element["attributes"][attr] = {}
+                          element["attributes"][attr].setdefault("slot_uri", stem + under(attr))
+                      part[kind][name] = element
+
+
+          parts = []
+          for entry in imports:
+              path = local(source, entry)
+              if path is None:
+                  continue
+              if path != core:
+                  parts.append(path)
+                  continue
+              line = re.compile(r"^(\s*-\s*)([\"']?)" + re.escape(entry) + r"\2(\s*(#.*)?)$", re.M)
+              text, count = line.subn(lambda m: m.group(1) + "lokf" + m.group(3), text)
+              if count != 1:
+                  stop(f"{source.name} imports {entry} in a form this step cannot rewrite; list it on a line of its own under imports:")
+          if not parts:
+              target.write_text(text, encoding="utf-8")
+              sys.exit(0)
+
+          doc = yaml.safe_load(text)
+          known = {kind: dict(doc.get(kind) or {}) for kind in KINDS}
+          prefixes, settings = dict(doc.get("prefixes") or {}), dict(doc.get("settings") or {})
+          curi_maps = list(doc.get("default_curi_maps") or [])
+          core_doc = load(core, source)
+          kept, seen = [], {source.resolve(), core}
+          queue = [(source, entry) for entry in doc.get("imports") or []]
+          while queue:
+              base, entry = queue.pop(0)
+              path = local(base, entry)
+              if path is None or path == core:
+                  name = "lokf" if path == core else entry
+                  if name not in kept:
+                      kept.append(name)
+                  continue
+              if path in seen:
+                  continue
+              if not path.is_relative_to(repo):
+                  stop(f"{base.name} imports {entry}, which is outside this repository")
+              seen.add(path)
+              part = load(path, base)
+              pin_iris(part)
+              queue += [(path, nested) for nested in part.get("imports") or []]
+              for prefix, iri in (part.get("prefixes") or {}).items():
+                  have = prefixes.get(prefix, (core_doc.get("prefixes") or {}).get(prefix))
+                  if have is not None and have != iri:
+                      stop(f"{path.name} maps the prefix {prefix} to {iri}, and LOKF core or an earlier file maps it to {have}")
+                  prefixes[prefix] = iri
+              # LinkML resolves a structured pattern with the settings of the
+              # file that defines it, and adds every file's CURIE maps.
+              for name, value in (part.get("settings") or {}).items():
+                  if settings.get(name, value) != value:
+                      stop(f"{path.name} sets {name} to {value}, and an earlier file sets it to {settings[name]}")
+                  settings[name] = value
+              curi_maps += [m for m in part.get("default_curi_maps") or [] if m not in curi_maps]
+              for kind, word in KINDS.items():
+                  for name, element in (part.get(kind) or {}).items():
+                      if name in (core_doc.get(kind) or {}):
+                          stop(f"{path.name} defines the {word} {name}, which LOKF core defines too")
+                      if name in known[kind] and known[kind][name] != element:
+                          stop(f"{path.name} defines the {word} {name}, which an earlier file defines differently")
+                      known[kind][name] = element
+              print(f"Merged {path.relative_to(source.parent) if path.is_relative_to(source.parent) else path.name} into the released copy")
+          doc["prefixes"] = prefixes
+          doc["imports"] = kept
+          doc.update({key: value for key, value in (("settings", settings), ("default_curi_maps", curi_maps)) if value})
+          doc.update({kind: known[kind] for kind in KINDS if known[kind]})
+          target.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=1000), encoding="utf-8")
+          PY
+          (cd "$RUNNER_TEMP/release" && sha256sum "$asset" > "$asset.sha256")
+          echo "Packed $schema into $asset"
+
+      # Build one Copilot skill per .lokf/m365/*.md with the host's
+      # knowledge-m365.sh, dated at the bundle's commit so each zip is
+      # reproducible. If the builder is missing or refuses the bundle, the
+      # step posts a notice and the release carries the bundle zip alone.
+      - name: Pack the Copilot skills
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          BUNDLE_PATH: ${{ steps.compare.outputs.path }}
+          NAME: ${{ steps.pack.outputs.name }}
+        run: |
+          set -euo pipefail
+          if [ ! -f .lokf/m365/knowledge-m365.sh ]; then
+            echo "::notice::.lokf/m365/knowledge-m365.sh is not laid down here, so no Copilot skill is attached; ktl-sidecar's repair path adds it."
+            exit 0
+          fi
+          epoch="$(git log -1 --format=%ct -- "$BUNDLE_PATH")"
+          if ! SOURCE_DATE_EPOCH="$epoch" bash .lokf/m365/knowledge-m365.sh \
+               --repo-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" --ref "$TAG" \
+               "$RUNNER_TEMP/stage/knowledge" "$RUNNER_TEMP/m365"; then
+            echo "::warning::knowledge-m365.sh refused this bundle (its output above says why), so no Copilot skill is attached to $TAG."
+            exit 0
+          fi
+          shopt -s nullglob
+          for zip in "$RUNNER_TEMP"/m365/*.zip; do
+            asset="$(basename "$zip" .zip)-${TAG//\//-}-$NAME.zip"
+            cp "$zip" "$RUNNER_TEMP/release/$asset"
+            (cd "$RUNNER_TEMP/release" && sha256sum "$asset" > "$asset.sha256")
+            echo "Packed a Copilot skill into $asset"
+          done
+
+      - name: Upload the zip
+        if: steps.compare.outputs.changed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: knowledge-release
+          path: ${{ runner.temp }}/release/
+          retention-days: 1
+          if-no-files-found: error
+
+  attach:
+    name: Attach the zip to the release (privileged)
+    needs: pack
+    if: needs.pack.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # upload release assets
+      id-token: write # sign the build-provenance attestation
+      attestations: write # store the attestation
+    env:
+      TAG: ${{ inputs.tag || github.event.release.tag_name }}
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - name: Download the zip
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: knowledge-release
+          path: ${{ runner.temp }}/release
+
+      # Every .sha256 the pack job wrote: the bundle's, the schema's and the
+      # Copilot skill's when they were packed.
+      - name: Check each file against its checksum
+        run: sha256sum -c -- *.sha256
+        working-directory: ${{ runner.temp }}/release
+
+      # A signed record of which workflow run, commit and repository built
+      # each zip. Anyone can check one with `gh attestation verify <file> -R
+      # <owner>/<repo>`. GitHub stores attestations for public repositories on
+      # every plan; a private repository needs GitHub Enterprise Cloud, so the
+      # step skips itself there.
+      - name: Attest build provenance
+        if: ${{ !github.event.repository.private }}
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          # A line that matches nothing is skipped; the zip always matches.
+          subject-path: |
+            ${{ runner.temp }}/release/*.zip
+            ${{ runner.temp }}/release/*.yaml
+
+      # `--clobber` replaces an earlier upload of the same name, so running the
+      # workflow again for one tag repairs its assets instead of failing. With
+      # nullglob, a pattern no file matches (no schema) is dropped, not passed.
+      - name: Upload to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          shopt -s nullglob
+          gh release upload "$TAG" ./*.zip ./*.yaml ./*.sha256 --clobber
+        working-directory: ${{ runner.temp }}/release

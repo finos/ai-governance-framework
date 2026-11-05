@@ -1,0 +1,666 @@
+name: Knowledge sync
+
+# Keeps this host's sidecar copies and skills pin at the newest release of
+# Knowledge Trust Ladder, the repository that publishes the skills. Each week
+# it reads the pin in knowledge-librarian.yaml and the newest release there.
+# When the pin is behind, it runs this host's own copy of
+# .lokf/scripts/knowledge-sync.sh. That script clones the release and reads
+# its knowledge-sync.manifest, the list of each template, its copy and the
+# rule for it, so the release is data to it. It copies the release's
+# templates over the host's copies, moves the pin and writes the changelog
+# entry. Then this workflow opens one pull request with the diff. It runs no
+# LLM or agent, and no code from the release. It never pushes to the default
+# branch and never merges.
+#
+# One pull request at a time, refreshed until it is merged. The pull request
+# comes from this workflow's own branch, knowledge-sync. While it is open, a
+# later run that finds a newer release replaces the branch's commits with a
+# sync to that release, and sets the title and body to match, so the week's
+# releases fold into one pull request. A pull request a person added a commit
+# to is left alone, and so is the branch when it holds a commit of a
+# person's and no pull request. A tag whose pull request a person closed without merging
+# is not proposed again by the schedule. A run a person starts from the
+# Actions tab may name a tag, and goes ahead in every case but one: a pull
+# request that proposes that tag and is still open.
+#
+# Three jobs, for least privilege, and two more a host may turn on.
+# `earlier` reads the pin, the release and the state of this workflow's
+# branch and last pull request under a token that can read the repository
+# and its pull requests, and nothing else. `sync` runs the host's own sync
+# script under a read-only token with no git credentials on disk, and hands
+# the change to `publish` as a patch artifact.
+#
+# `publish` runs the copy of the same script on the default branch with
+# --apply. That copy refuses any path or change a sync may not make. It
+# keeps every workflow as it is here but for the pin, which it sets from the
+# tag and the commit it read at the skills repository. Then it writes the pull request's body from that patch
+# and nothing the `sync` job wrote, and opens or refreshes the pull request.
+# The pull request's own checks run the synced scripts and site files with a
+# read-only token, as they run on any change here.
+#
+# The workflow changes a release brings are held, not pushed. A workflow on
+# a branch pushed with a token runs on that push, can read every repository
+# secret, and can raise its own token with a permissions: key. So the
+# pushed branch carries no workflow the release wrote. The held changes are
+# attached to the run as `knowledge-sync-workflows`, shown in the pull
+# request, and applied by a person who has read them. Or, with the
+# repository variable KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT naming an
+# Environment with required reviewers, `review` waits for one of them and
+# `push-workflows` then pushes the changes as a second commit.
+#
+# The pin is under .github/workflows/, which the job's own GITHUB_TOKEN may
+# not push. So `publish` pushes and opens the pull request with the
+# KNOWLEDGE_SYNC_TOKEN secret. The secret is a fine-grained personal access
+# token for this repository alone, with Contents, Pull requests and Workflows set to read
+# and write, or a GitHub App's installation token made in a step of your
+# own. Keep it in the knowledge-sync Environment, limited to the default
+# branch, so no workflow on another branch can read it; a repository secret
+# of that name still works, with no such limit. A pull request opened with
+# it starts this repository's checks, as one opened with GITHUB_TOKEN would
+# not. Without the secret the workflow still runs: it attaches the patch to
+# the run, writes the summary, and opens nothing. The sidecar's
+# references/automation.md says how to set the token and the Environments up.
+#
+# SECURITY SCANNER NOTE. No LLM, AI agent or AI tool runs in this workflow,
+# so a finding about third-party content reaching a model (Snyk W011,
+# indirect prompt injection) does not apply: there is no prompt. Three other
+# findings are expected, and the skills repository's docs/threat-model.md
+# answers each under "The sync workflow":
+#   - a repository fetched at run time: `sync` clones the release as data,
+#     a manifest and the templates it names, under contents: read, with no
+#     credential on disk. It clones only after the tag was found at the
+#     address this repository's own librarian workflow names. The script that reads it is
+#     this repository's own, reviewed and merged here, and the pull request
+#     shows every byte the sync proposes;
+#   - a token that can write workflows: KNOWLEDGE_SYNC_TOKEN is scoped to
+#     this repository and to the default branch's knowledge-sync
+#     Environment, and reaches `publish` and `push-workflows` alone. It
+#     pushes one branch and opens or edits one pull request; the jobs' own token
+#     keeps contents: read;
+#   - a forced push: only to knowledge-sync, this workflow's own branch,
+#     leased to the commit the run read, and only over this workflow's own
+#     commits there.
+on:
+  schedule:
+    - cron: "10 4 * * 1" # Mondays at 04:10 UTC, so the librarian's Monday run follows a current pin once the pull request is merged
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "A release tag of Knowledge Trust Ladder to sync to, such as v0.47.0; empty for the newest release"
+        required: false
+        type: string
+
+permissions: {} # deny by default; each job requests only the scopes it needs
+
+concurrency:
+  group: knowledge-sync
+  cancel-in-progress: false
+
+jobs:
+  earlier:
+    name: Read the pin, the newest release and the last pull request (read-only)
+    # The repository that publishes the skills has nothing to sync to.
+    # Repository identity is the switch, not a file in the tree, as in the
+    # librarian workflow's install step. A fork that develops the skills
+    # changes the name in both places.
+    if: github.repository != 'noelmcloughlin/knowledge-trust-ladder'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read # read the pin out of the librarian workflow, here and on the sync branch
+      pull-requests: read # read this workflow's pull requests
+    outputs:
+      tag: ${{ steps.read.outputs.tag }}
+      from: ${{ steps.read.outputs.from }}
+      repo: ${{ steps.read.outputs.repo }}
+      open: ${{ steps.read.outputs.open }}
+      open_tag: ${{ steps.read.outputs.open_tag }}
+      declined: ${{ steps.read.outputs.declined }}
+      branch: ${{ steps.read.outputs.branch }}
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # The pin and the address of the skills repository come from the
+      # librarian workflow's copy here, so there is one place to move them.
+      # The newest release is what that repository's API calls its latest:
+      # published, not a draft and not a pre-release. When the pin is there
+      # already the step ends after that one read.
+      #
+      # Otherwise it reads the pull requests from two branches of this
+      # repository, each by exact name: knowledge-sync, this workflow's own,
+      # and sync-<tag>, the branch the sync script makes by hand. A fork's
+      # branch of the same name does not count, since anyone can open a pull
+      # request from one. From each it takes the newest pull request's
+      # number, state, head commit and commit count. It reads the pin out
+      # of the librarian workflow at that commit, which says what the pull
+      # request proposed whether or not its branch still exists. A title,
+      # body or comment is never read. The input is read through `env:` and
+      # held to the shape of a tag.
+      - name: Read the pin, the newest release and the last pull request
+        id: read
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WANTED: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          wf=.github/workflows/knowledge-librarian.yaml
+          repo=""; pin=""
+          if [ -f "$wf" ]; then
+            repo="$(grep -oE 'TRUST_LADDER_SKILLS_REPO: *[^ ]+' "$wf" | head -n 1 | sed -E 's/^TRUST_LADDER_SKILLS_REPO: *//' || true)"
+            pin="$(grep -oE 'TRUST_LADDER_SKILLS_REF: v[0-9]+\.[0-9]+\.[0-9]+' "$wf" | head -n 1 | sed 's/^TRUST_LADDER_SKILLS_REF: //' || true)"
+          fi
+          [ -n "$repo" ] || repo="https://github.com/noelmcloughlin/knowledge-trust-ladder"
+          case "$repo" in
+            https://github.com/*) ;;
+            *) echo "::error::The librarian workflow names '$repo' as the skills repository. This workflow reads releases and tags from a GitHub repository over https."; exit 1 ;;
+          esac
+          slug="${repo#https://github.com/}"; slug="${slug%.git}"; slug="${slug%/}"
+          if [ -n "$WANTED" ]; then
+            if ! printf '%s\n' "$WANTED" | grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+              echo "::error::'$WANTED' is not a release tag (vMAJOR.MINOR.PATCH)."
+              exit 1
+            fi
+            tag="$WANTED"
+          else
+            if ! tag="$(gh api "repos/$slug/releases/latest" --jq .tag_name 2>/dev/null)"; then
+              echo "::error::The newest release of $slug could not be read. A private skills repository is not readable with the job's token."
+              exit 1
+            fi
+            if ! printf '%s\n' "$tag" | grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+              echo "::error::The newest release of $slug is '$tag', which is not a release tag this workflow can sync to."
+              exit 1
+            fi
+          fi
+          if [ -z "$WANTED" ] && [ -n "$pin" ] && [ "$(printf '%s\n%s\n' "$pin" "$tag" | sort -V | tail -n 1)" = "$pin" ]; then
+            echo "::notice::The pin is at $pin and the newest release is $tag, so there is nothing to sync."
+            tag=""
+          fi
+          # The newest pull request from a branch of this repository, as
+          # one line: number, state, merged or not, head commit.
+          newest() {
+            gh api "repos/${GITHUB_REPOSITORY}/pulls?head=${GITHUB_REPOSITORY_OWNER}:$1&state=all&sort=created&direction=desc&per_page=5" \
+              --jq '.[] | [.number, .state, (.merged_at != null), .head.sha, (.head.repo.full_name // "-")] | @tsv' \
+              | awk -F'\t' -v repo="$GITHUB_REPOSITORY" '$1 ~ /^[0-9]+$/ && $4 ~ /^[0-9a-f]{40}$/ && $5 == repo { print; exit }'
+          }
+          # The pin the librarian workflow carries at a commit, or nothing.
+          pin_at() {
+            gh api "repos/${GITHUB_REPOSITORY}/contents/$wf?ref=$1" --jq .content 2>/dev/null | tr -d '\n' | base64 -d 2>/dev/null \
+              | grep -oE 'TRUST_LADDER_SKILLS_REF: v[0-9]+\.[0-9]+\.[0-9]+' | head -n 1 | sed 's/^TRUST_LADDER_SKILLS_REF: //' || true
+          }
+          open=""; open_tag=""; declined=""; branch=""
+          if [ -n "$tag" ]; then
+            mine="$(newest knowledge-sync)"
+            hand="$(newest "sync-$tag")"
+            if [ -n "$mine" ]; then
+              n="$(printf '%s' "$mine" | cut -f1)"; state="$(printf '%s' "$mine" | cut -f2)"; merged="$(printf '%s' "$mine" | cut -f3)"; sha="$(printf '%s' "$mine" | cut -f4)"
+              proposed="$(pin_at "$sha")"
+              if [ "$state" = open ]; then
+                if [ "$proposed" = "$tag" ]; then
+                  echo "::notice::Pull request #$n from this workflow already proposes $tag and is still open, so this run stops here."
+                  tag=""
+                else
+                  # Only this workflow's own commits are replaced: the sync,
+                  # and the held workflow changes a reviewer approved. A
+                  # person's commit on the branch is a change in review.
+                  others="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/$n/commits?per_page=100" --jq '[.[] | select(.commit.committer.name != "knowledge-sync[bot]")] | length')"
+                  if [ "$others" = 0 ]; then
+                    open="$n"; open_tag="$proposed"; branch="$sha"
+                    echo "Pull request #$n from this workflow proposes ${proposed:-an unknown release} and is still open, so this run refreshes it to $tag."
+                  else
+                    echo "::notice::Pull request #$n from this workflow is still open and carries a commit a person added, so this run leaves it alone and stops here. Merge or close it first."
+                    tag=""
+                  fi
+                fi
+              elif [ "$merged" = false ] && [ "$proposed" = "$tag" ]; then
+                declined="$n"
+              fi
+            fi
+            if [ -n "$tag" ] && [ -n "$hand" ]; then
+              n="$(printf '%s' "$hand" | cut -f1)"; state="$(printf '%s' "$hand" | cut -f2)"; merged="$(printf '%s' "$hand" | cut -f3)"
+              if [ "$state" = open ]; then
+                echo "::notice::Pull request #$n, opened by hand from sync-$tag, already proposes $tag and is still open, so this run stops here."
+                tag=""
+              elif [ "$merged" = false ]; then
+                declined="$n"
+              fi
+            fi
+            # With no open pull request, a branch of that name may still
+            # hold commits: a person's after a merge, or one with no pull
+            # request. It is written over only when every commit on it
+            # that the default branch lacks is this workflow's own. The
+            # push is leased to the commit read here, so a commit added
+            # since is never lost.
+            if [ -n "$tag" ] && [ -z "$open" ]; then
+              tip="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/knowledge-sync" --jq .object.sha 2>/dev/null || true)"
+              if printf '%s' "$tip" | grep -qE '^[0-9a-f]{40}$'; then
+                base="$(gh api "repos/${GITHUB_REPOSITORY}" --jq .default_branch)"
+                others="$(gh api "repos/${GITHUB_REPOSITORY}/compare/$base...$tip" --jq '[.commits[] | select(.commit.committer.name != "knowledge-sync[bot]")] | length')"
+                if [ "$others" != 0 ]; then
+                  echo "::notice::The knowledge-sync branch holds a commit this workflow did not make and has no open pull request, so this run leaves it alone and stops here. Merge it or delete the branch first."
+                  tag=""
+                else
+                  branch="$tip"
+                fi
+              fi
+            fi
+            if [ -n "$tag" ] && [ -n "$declined" ] && [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+              echo "::notice::A person closed pull request #$declined, which proposed $tag, without merging. A scheduled run proposes it no more. A run a person starts takes it up again."
+              tag=""
+            fi
+          fi
+          {
+            echo "tag=$tag"
+            echo "from=$pin"
+            echo "repo=$repo"
+            echo "open=$open"
+            echo "open_tag=$open_tag"
+            echo "declined=$declined"
+            echo "branch=$branch"
+          } >> "$GITHUB_OUTPUT"
+          [ -z "$tag" ] || echo "Syncing to $tag, from ${pin:-no pin}."
+
+  sync:
+    name: Sync the copies and the pin (read-only)
+    needs: earlier
+    if: needs.earlier.outputs.tag != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read # read the repository only; no write token near the clone of the release
+    outputs:
+      changed: ${{ steps.run.outputs.changed }}
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false # keep GITHUB_TOKEN off disk while the release is cloned
+
+      # The host's own copy of the script clones the release and reads its
+      # manifest. The sidecar's checks are skipped here: the pull request's
+      # own checks run the synced copies, on the pull request, as they run
+      # on any change. Exit 2 means the tag could not be used, which fails
+      # the run. The script's own lines go to this job's summary and no
+      # further.
+      - name: Run the sync script
+        id: run
+        env:
+          TAG: ${{ needs.earlier.outputs.tag }}
+        run: |
+          set -euo pipefail
+          script=.lokf/scripts/knowledge-sync.sh
+          if [ ! -f "$script" ]; then
+            echo "::error::No $script here. ktl-sidecar's Step 5 installs it beside this workflow."
+            exit 1
+          fi
+          bash "$script" --no-checks --changed "$RUNNER_TEMP/changed.txt" --report "$RUNNER_TEMP/report.md" "$TAG"
+          if [ -s "$RUNNER_TEMP/changed.txt" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            { echo "## Knowledge sync to $TAG"; echo; cat "$RUNNER_TEMP/report.md"; } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::The copies and the pin match $TAG already, so there is nothing to sync."
+          fi
+
+      # Hand the change to the privileged job as a patch: the files the
+      # script changed or added, by name, and nothing else.
+      - name: Package the change
+        if: steps.run.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          # The script refuses a copy into .git, and git is told here, too, to
+          # run no command a configuration could name.
+          g() { git -c core.fsmonitor=false -c core.hooksPath=/dev/null -c diff.external= "$@"; }
+          while IFS= read -r path; do
+            [ -n "$path" ] && g add -- "$path"
+          done < "$RUNNER_TEMP/changed.txt"
+          g diff --cached --binary --no-ext-diff --no-textconv > "$RUNNER_TEMP/sync.patch"
+
+      - name: Upload the patch
+        if: steps.run.outputs.changed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: knowledge-sync-patch
+          path: |
+            ${{ runner.temp }}/sync.patch
+            ${{ runner.temp }}/report.md
+          retention-days: 7
+          if-no-files-found: error
+
+  publish:
+    name: Open or refresh the review pull request (privileged)
+    needs: [earlier, sync]
+    if: needs.sync.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # KNOWLEDGE_SYNC_TOKEN belongs in this Environment, limited to the
+    # default branch, so a workflow on any other branch cannot read it. It
+    # records no deployment.
+    environment:
+      name: knowledge-sync
+      deployment: false
+    permissions:
+      contents: read # the push and the pull request use the sync token, not this one
+    outputs:
+      held: ${{ steps.check.outputs.held }}
+      commit: ${{ steps.push.outputs.commit }}
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Download the patch
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: knowledge-sync-patch
+          path: ${{ runner.temp }}
+
+      # Trust nothing the `sync` job decided on its own: it read a release
+      # nobody here has reviewed. The pin's commit is read here, from the
+      # skills repository itself. Then this checkout's own copy of the sync
+      # script, from the default branch, puts the patch on. It refuses any
+      # path or change a sync may not make, and keeps every workflow as it is
+      # here but for the pin. It holds the workflow changes the release
+      # brought in a patch of their own, for a person to read and apply.
+      - name: Check the patch and apply it
+        id: check
+        env:
+          TAG: ${{ needs.earlier.outputs.tag }}
+          REPO: ${{ needs.earlier.outputs.repo }}
+        run: |
+          set -euo pipefail
+          # An annotated tag lists its commit on a second, peeled line.
+          sha="$(git ls-remote --tags "$REPO" "refs/tags/$TAG" "refs/tags/$TAG^{}" | tail -n 1 | cut -f1)"
+          if ! printf '%s' "$sha" | grep -qE '^[0-9a-f]{40}$'; then
+            echo "::error::$TAG names no commit at $REPO."
+            exit 1
+          fi
+          bash .lokf/scripts/knowledge-sync.sh --apply "$RUNNER_TEMP/sync.patch" --held "$RUNNER_TEMP/workflows.patch" --pin-sha "$sha" "$TAG"
+          if [ -s "$RUNNER_TEMP/workflows.patch" ]; then echo "held=true" >> "$GITHUB_OUTPUT"; else echo "held=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Attach the held workflow changes
+        if: steps.check.outputs.held == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: knowledge-sync-workflows
+          path: ${{ runner.temp }}/workflows.patch
+          retention-days: 30
+          if-no-files-found: error
+
+      # The body is written here, from the patch this job applied and from
+      # this checkout, and from nothing the `sync` job wrote: the files the
+      # patch changes, the workflow changes it held and the pin it sets.
+      # Then comes the pull request template as the default branch has it,
+      # whose checklist is the reviewer's. The commit is made under a bot
+      # identity, which the AI covenant asks of a repository's own
+      # automation, and carries no trailer. The push and the pull request
+      # use the sync token (see the header), and the push is leased to the
+      # commit the `earlier` job read, so a commit added since is never
+      # lost. Without the token the run ends here, green, with the patches
+      # attached and the summary written.
+      - name: Commit, push and open or refresh the pull request
+        id: push
+        env:
+          SYNC_TOKEN: ${{ secrets.KNOWLEDGE_SYNC_TOKEN }}
+          TAG: ${{ needs.earlier.outputs.tag }}
+          FROM: ${{ needs.earlier.outputs.from }}
+          REPO: ${{ needs.earlier.outputs.repo }}
+          OPEN_PR: ${{ needs.earlier.outputs.open }}
+          OPEN_TAG: ${{ needs.earlier.outputs.open_tag }}
+          DECLINED_PR: ${{ needs.earlier.outputs.declined }}
+          LEASE: ${{ needs.earlier.outputs.branch }}
+          HELD: ${{ steps.check.outputs.held }}
+          REVIEW_ENV: ${{ vars.KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT }}
+        run: |
+          set -euo pipefail
+          branch="knowledge-sync"
+          subject="security(sidecar): sync copies and skills pin from $TAG"
+          held="$RUNNER_TEMP/workflows.patch"
+          bt="$(printf '\140')" # a backtick, for the code spans below
+          # The held workflow changes, as the summary and the body show them.
+          heldmd="$RUNNER_TEMP/held.md"
+          : > "$heldmd"
+          if [ "$HELD" = true ]; then
+            {
+              echo "### Workflow changes held for a person"
+              echo
+              echo "This release also changes these workflows. They are not on the branch: a workflow pushed with a token runs on that push, with this repository's secrets, before anyone has read it."
+              echo
+              git -c core.quotePath=false apply --numstat "$held" | cut -f3- | sed "s/.*/- ${bt}&${bt}/"
+              echo
+              if [ "$(wc -c < "$held")" -le 50000 ]; then
+                # A fence longer than any run of backticks in the diff, so
+                # the release's text cannot close it and write the body.
+                fence='````'
+                while grep -qF "$fence" "$held"; do fence="$fence$bt"; done
+                echo "<details><summary>The held diff</summary>"
+                echo
+                echo "${fence}diff"
+                cat "$held"
+                echo "$fence"
+                echo
+                echo "</details>"
+              else
+                echo "The diff is too long to show here. It is the run's ${bt}knowledge-sync-workflows${bt} artifact."
+              fi
+              echo
+              echo "Once you have read them, apply them on this branch:"
+              echo
+              echo '```sh'
+              echo "gh run download ${GITHUB_RUN_ID} --repo ${GITHUB_REPOSITORY} --name knowledge-sync-workflows"
+              echo "git switch $branch && git pull"
+              echo "git apply workflows.patch && git add .github/workflows"
+              echo "git commit -m \"security(sidecar): sync workflows from $TAG\" && git push"
+              echo '```'
+              echo
+              echo "Without gh, the artifact is on the run's page: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}."
+              if [ -n "$REVIEW_ENV" ]; then
+                echo
+                echo "Or approve the run's ${bt}Approve the held workflow changes${bt} job as a reviewer of the ${bt}${REVIEW_ENV}${bt} Environment, and the workflow pushes them here as a second commit."
+              fi
+            } > "$heldmd"
+            cat "$heldmd" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -z "$SYNC_TOKEN" ]; then
+            {
+              echo "## No pull request opened"
+              echo
+              echo "This workflow opens the pull request with the secret ${bt}KNOWLEDGE_SYNC_TOKEN${bt}, which is not set in the ${bt}knowledge-sync${bt} Environment or the repository. The change is attached to this run as ${bt}sync.patch${bt}. To open it by hand, run ${bt}.lokf/scripts/knowledge-sync.sh --pr $TAG${bt} in a clone; to let the workflow open it, set the secret as the sidecar's references/automation.md says."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning::KNOWLEDGE_SYNC_TOKEN is not set, so no pull request was opened; the patch is attached to this run."
+            exit 0
+          fi
+          link="$REPO/blob/$TAG/CHANGELOG.md"
+          if [ -n "$FROM" ] && [ "$FROM" != "$TAG" ]; then link="$REPO/compare/$FROM...$TAG"; fi
+          wf=.github/workflows/knowledge-librarian.yaml
+          # Every workflow on the branch differs from the default branch by
+          # the pin alone, so the copies listed are the other files.
+          copies="$(git -c core.quotePath=false diff --cached --name-status | awk -F'\t' '$1 == "M" && $2 != "CHANGELOG.md" && $2 !~ /^\.github\/workflows\// { print $2 }')"
+          added="$(git -c core.quotePath=false diff --cached --name-status | awk -F'\t' '$1 == "A" { print $2 }')"
+          body="$RUNNER_TEMP/body.md"
+          {
+            if [ -n "$FROM" ] && [ "$FROM" != "$TAG" ]; then
+              echo "Brings the sidecar copies and the skills pin of this repository to Knowledge Trust Ladder [$TAG]($link), from $FROM."
+            else
+              echo "Brings the sidecar copies and the skills pin of this repository to Knowledge Trust Ladder [$TAG]($link)."
+            fi
+            if [ -n "$OPEN_PR" ]; then
+              echo
+              echo "**Refreshed on $(date -u +%Y-%m-%d).** This pull request proposed ${OPEN_TAG:-an earlier release} before. This run replaced its commits with a sync to $TAG, so read the diff again."
+            fi
+            if [ -n "$copies" ]; then
+              echo; echo "The release changed these copies:"; echo
+              printf '%s\n' "$copies" | sed "s/.*/- ${bt}&${bt}/"
+            fi
+            if [ -n "$added" ]; then
+              echo; echo "Added, because a file here needs it:"; echo
+              printf '%s\n' "$added" | sed "s/.*/- ${bt}&${bt}/"
+            fi
+            echo
+            if [ -f "$wf" ]; then
+              sha="$(grep -oE 'TRUST_LADDER_SKILLS_SHA: [0-9a-f]{40}' "$wf" | head -n 1 | sed 's/^TRUST_LADDER_SKILLS_SHA: //')"
+              echo "The skills pin moves from ${FROM:-none} to $TAG, commit ${bt}$sha${bt}."
+            else
+              echo "There is no knowledge-librarian.yaml here, so no scheduled librarian to pin."
+            fi
+            if [ -s "$heldmd" ]; then
+              echo
+              cat "$heldmd"
+            fi
+            echo
+            echo "This repository's own checks run on this pull request, on the synced copies, with a read-only token. A failure there is a bundle to fix in this pull request, or the gate fails on it after the merge."
+            echo
+            if git diff --cached --name-only | grep -qx 'CHANGELOG.md'; then
+              echo "CHANGELOG.md has the entry under its Unreleased heading and Security."
+            else
+              echo "CHANGELOG.md is unchanged: it has the entry already, or it has no Unreleased heading, in which case add the entry by hand."
+            fi
+            echo
+            if [ -n "$DECLINED_PR" ]; then
+              echo "Pull request #$DECLINED_PR proposed this release and was closed without merging. A person started this run, so it proposes the release again."
+              echo
+            fi
+            git show HEAD:.github/PULL_REQUEST_TEMPLATE/knowledge-sync.md 2>/dev/null || true
+          } > "$body"
+          git config user.name "knowledge-sync[bot]"
+          git config user.email "knowledge-sync[bot]@users.noreply.github.com"
+          git checkout --quiet -b "$branch"
+          git commit --quiet -m "$subject"
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          # The branch is this workflow's own: a refresh writes over the
+          # last run's commits, and so does a run a person starts after a
+          # declined pull request. An empty lease means the branch must not
+          # exist yet. The token travels in the push address, which GitHub
+          # masks in the log.
+          if ! git push --quiet --force-with-lease="refs/heads/$branch:$LEASE" "https://x-access-token:${SYNC_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:refs/heads/$branch"; then
+            echo "::error::The push was refused. Either the branch moved since this run read it, or KNOWLEDGE_SYNC_TOKEN lacks Contents and Workflows set to read and write on this repository; the pin is under .github/workflows/, which needs the second."
+            exit 1
+          fi
+          if [ -n "$OPEN_PR" ]; then
+            GH_TOKEN="$SYNC_TOKEN" gh pr edit "$OPEN_PR" --title "$subject" --body-file "$body" >/dev/null
+            url="$(GH_TOKEN="$SYNC_TOKEN" gh pr view "$OPEN_PR" --json url --jq .url)"
+            echo "Refreshed $url"
+          else
+            base="$(GH_TOKEN="$SYNC_TOKEN" gh api "repos/${GITHUB_REPOSITORY}" --jq .default_branch)"
+            url="$(GH_TOKEN="$SYNC_TOKEN" gh pr create --title "$subject" --body-file "$body" --head "$branch" --base "$base")"
+            echo "Opened $url"
+          fi
+          { echo; echo "Pull request: $url"; } >> "$GITHUB_STEP_SUMMARY"
+
+  # The optional route for the held workflow changes. With the repository
+  # variable KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT set to the name of an
+  # Environment with required reviewers, this job waits for one of them.
+  # The run's summary shows the held diff they approve. Then the next job
+  # pushes those changes onto the pull request's branch as a second commit,
+  # and they run from that push on. Set the Environment up under Settings ->
+  # Environments: add required reviewers and limit it to the default
+  # branch. It holds no secret. "Prevent self-review" helps only where a
+  # second person can approve. An Environment with no required reviewers
+  # would approve itself, so the next job checks for them before it pushes
+  # anything.
+  review:
+    name: Approve the held workflow changes
+    needs: [publish]
+    if: needs.publish.outputs.held == 'true' && needs.publish.outputs.commit != '' && vars.KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    environment:
+      name: ${{ vars.KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT }}
+      deployment: false
+    steps:
+      - name: Record the approval
+        env:
+          REVIEW_ENV: ${{ vars.KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT }}
+        run: echo "A reviewer of the '${REVIEW_ENV}' Environment approved the held workflow changes."
+
+  push-workflows:
+    name: Push the approved workflow changes (privileged)
+    needs: [earlier, publish, review]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: knowledge-sync
+      deployment: false
+    permissions:
+      actions: read # read the review Environment's protection rules
+      contents: read # the push uses the sync token, not this one
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      # An approval means something only from an Environment that needs a
+      # reviewer, so one with none pushes nothing.
+      - name: Check the review Environment has required reviewers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEW_ENV: ${{ vars.KNOWLEDGE_SYNC_REVIEW_ENVIRONMENT }}
+        run: |
+          set -euo pipefail
+          name="$(jq -rn --arg e "$REVIEW_ENV" '$e | @uri')"
+          n="$(gh api "repos/${GITHUB_REPOSITORY}/environments/${name}" --jq '[.protection_rules[]? | select(.type == "required_reviewers") | .reviewers[]?] | length' 2>/dev/null || echo 0)"
+          if [ "$n" = 0 ]; then
+            echo "::error::The '${REVIEW_ENV}' Environment has no required reviewers, so its approval proves nothing. Nothing is pushed; apply the held changes by hand as the pull request says."
+            exit 1
+          fi
+
+      - name: Checkout the pull request's commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.publish.outputs.commit }}
+          persist-credentials: false
+
+      - name: Download the held workflow changes
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: knowledge-sync-workflows
+          path: ${{ runner.temp }}
+
+      # The held patch touches workflows and nothing else, and only edits
+      # and adds plain files. The push is leased to the commit the publish
+      # job pushed, so a branch that moved since is left alone.
+      - name: Commit and push the workflow changes
+        env:
+          SYNC_TOKEN: ${{ secrets.KNOWLEDGE_SYNC_TOKEN }}
+          TAG: ${{ needs.earlier.outputs.tag }}
+          LEASE: ${{ needs.publish.outputs.commit }}
+        run: |
+          set -euo pipefail
+          held="$RUNNER_TEMP/workflows.patch"
+          wrong="$(git -c core.quotePath=false apply --numstat "$held" | cut -f3- | grep -Ev '^\.github/workflows/knowledge-[a-z]+\.yaml$' || true)"
+          wrong+=$'\n'"$(git apply --summary "$held" | grep -E '^ (delete mode|rename|copy|mode change) ' || true)"
+          wrong+=$'\n'"$(git apply --summary "$held" | grep -E '^ create mode ' | grep -vE '^ create mode 100644 ' || true)"
+          if [ -n "${wrong//[$'\n\t ']/}" ]; then
+            echo "::error::The held patch does more than edit and add workflows:"
+            printf '%s\n' "$wrong" | sed '/^$/d; s/^/  /'
+            exit 1
+          fi
+          git apply --index "$held"
+          git config user.name "knowledge-sync[bot]"
+          git config user.email "knowledge-sync[bot]@users.noreply.github.com"
+          git commit --quiet -m "security(sidecar): sync workflows from $TAG"
+          if ! git push --quiet --force-with-lease="refs/heads/knowledge-sync:$LEASE" "https://x-access-token:${SYNC_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:refs/heads/knowledge-sync"; then
+            echo "::error::The push was refused: the branch moved since the pull request was opened, or KNOWLEDGE_SYNC_TOKEN cannot write workflows."
+            exit 1
+          fi
+          echo "Pushed the workflow changes from $TAG onto knowledge-sync." >> "$GITHUB_STEP_SUMMARY"

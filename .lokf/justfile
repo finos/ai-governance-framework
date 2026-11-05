@@ -1,0 +1,70 @@
+# LOKF knowledge-bundle recipes for ai-governance-framework.
+#
+# The `lokf` toolkit is a Python sidecar (see pyproject.toml); these recipes
+# drive it against the knowledge/ bundle. Run `just --list` to see them.
+
+bundle := "knowledge"
+
+# A domain schema the validator checks beside LOKF's: a LinkML file that
+# imports the pinned lokf.yaml and adds the host's own classes
+# (ktl-librarian/references/domain-schema.md), as a path relative to this
+# folder: "<slug>.yaml" beside the bundle, or
+# "../.linkml/src/<slug>/schema/<slug>.yaml" in a linkml-sidecar project.
+# Leave it empty for the core vocabulary alone. The validate, convert and
+# serve recipes pass it as --schema (lokf 0.9.0 or later), and the workflows,
+# the release and the website read this line, so a host names its schema here
+# and nowhere else. A lokf command given no --schema, a recipe included,
+# reads `[tool.lokf] schema` in pyproject.toml: set it to the same path or
+# leave it out. The preflight warns when the two differ.
+schema := "ai-governance-framework.yaml"
+_schema := if schema == "" { "" } else { "--schema " + quote(schema) }
+
+# List available recipes
+default:
+    @just --list
+
+# Install the lokf sidecar toolkit into a local .venv
+lokf-install:
+    uv sync
+
+# Assemble and validate the knowledge bundle against the LOKF schema (and the domain schema `schema` names)
+lokf-validate:
+    uv run lokf validate {{ _schema }} {{ bundle }}
+
+# Project the bundle (or a concept file) to RDF (Turtle) on stdout
+lokf-convert FILE=bundle:
+    uv run lokf convert {{ _schema }} --format ttl {{ FILE }}
+
+# Serve the bundle locally: SPARQL endpoint + live graph explorer
+lokf-serve:
+    uv run lokf serve {{ _schema }} {{ bundle }}
+
+# Audit: every typed-relation target must resolve to a concept in the bundle.
+# Schema validation alone reads a fabricated or stale IRI as a valid string.
+# --check-refs (lokf 0.8.0+) takes the relation slots from the schema, so
+# reified `relations` entries and a domain schema's own slots are covered too.
+# Targets outside base_iri are left alone: `source` and `definedBy` are
+# documented as taking an external resource. --check-excerpts (lokf 0.9.0+)
+# finds each `sources[].excerpt` in its local file, so a quote that drifted
+# from its source fails here too; an excerpt on a URL is counted, not fetched.
+lokf-check-refs:
+    uv run lokf validate {{ _schema }} --check-refs --check-excerpts {{ bundle }}
+
+# The knowledge_bundle doorway: the bundle under an ordinary, visible name at the
+# host root, for folder pickers and file managers that hide dot-folders and, for
+# Obsidian users, its "Open folder as vault" (open the link itself, never the host root).
+# Git carries the link; a sync service such as OneDrive does not, so a machine
+# may need it recreated. POSIX only; on Windows, run mklink /J knowledge_bundle .lokf\knowledge
+
+# Create (or recreate) the knowledge_bundle -> .lokf/knowledge doorway link at the host root
+lokf-link:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [ -L knowledge ]; then echo "knowledge is itself a link onto $(readlink knowledge) - that folder is already the visible name; nothing to do"; exit 0; fi
+    if [ ! -d knowledge ]; then echo "no knowledge/ folder here to link to" >&2; exit 1; fi
+    if [ -L ../knowledge_bundle ]; then
+      if [ "$(readlink ../knowledge_bundle)" = ".lokf/knowledge" ]; then echo "knowledge_bundle already present - nothing to link"; exit 0; fi
+      echo "../knowledge_bundle is a link elsewhere ($(readlink ../knowledge_bundle)) - remove it and re-run" >&2; exit 1
+    fi
+    if [ -e ../knowledge_bundle ]; then echo "../knowledge_bundle exists and is not a link - leaving it alone" >&2; exit 1; fi
+    ln -s .lokf/knowledge ../knowledge_bundle && echo "linked knowledge_bundle -> .lokf/knowledge"

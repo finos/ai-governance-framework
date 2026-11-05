@@ -1,0 +1,75 @@
+# Sourced from: ktl-sidecar/templates/ingest.yaml
+# What the ingest mirrors from outside this repository. knowledge-ingest.sh
+# reads this file, fetches each entry, converts it to Markdown and writes it
+# under .lokf/mirror/<entry id>/; ingest.lock.yaml records what was fetched.
+# No token goes here: an auth block names environment variables starting
+# KNOWLEDGE_INGEST_, and the workflow hands over the secrets of those names.
+# Copy .lokf/ingest.yaml.sample to .lokf/ingest.yaml and replace the examples.
+# The ingest reads only .lokf/ingest.yaml, and mirrors nothing without it.
+# An entry taken out of this file loses its mirror folder on the next run.
+
+ingest_version: "1"
+max_total_bytes: 50000000        # the whole mirror; an item that would pass it is refused
+allow_private_addresses: false   # true permits intranet addresses, http:// sites and local git paths
+
+services:                        # a site and its credential, written once
+  confluence:
+    kind: confluence
+    site: https://acme.atlassian.net   # as a person knows it; api: datacenter for Data Center
+    auth:
+      scheme: basic                    # basic, bearer or header; values come from the environment
+      user_env: KNOWLEDGE_INGEST_ATLASSIAN_USER
+      env: KNOWLEDGE_INGEST_ATLASSIAN_TOKEN
+  github:
+    kind: git
+    auth:
+      scheme: basic                    # a fine-grained token with Contents read
+      env: KNOWLEDGE_INGEST_GITHUB_TOKEN
+
+defaults:                        # what an entry inherits
+  sensitivity: internal          # public: committed anywhere; internal: a private repository only;
+                                 # confidential: never committed, kept under the ignored .lokf/.cache/mirror/
+  max_items: 200                 # a selector over this is refused whole, never mirrored in part
+  max_item_bytes: 1000000        # each body fetched, and the Markdown written from it
+  authors: true                  # false leaves account ids out of the headers
+  lock_details: false            # true records a confidential entry's items, titles and addresses included,
+                                 # in the committed lock; false keeps them in the ignored .lokf/.cache/
+
+entries:
+  - id: platform-runbooks        # lowercase letters, digits and hyphens: it names the folder
+    service: confluence
+    select:                      # one of: label with an optional space, space, page, tree, cql
+      label: ktl
+      space: PLAT
+    owner: team:platform         # the author the concept's source names
+    why: the runbooks the on-call rota follows   # the entry's row in the source map
+
+  - id: ops-wiki                 # a GitHub or GitLab wiki is a git repository
+    service: github
+    url: https://github.com/acme/platform.wiki.git   # https; http and local paths need allow_private_addresses
+    ref: master                  # a branch, a tag or a commit; the commit is the version
+    path: runbooks
+    include: ["*.md"]            # the default; a binary file that matches is skipped and named
+    exclude: ["draft-*"]
+    owner: team:ops
+    why: the on-call wiki, which lives beside the repository
+
+  - id: vendor-protocol
+    kind: http                   # HTML, Markdown, text or PDF; ETag and Last-Modified when given
+    urls:
+      - https://vendor.example/spec/v3.pdf
+    convert: pdf-text            # html-markdown, pdf-text or text, when the content type does not say
+    sensitivity: public
+    license: https://vendor.example/terms
+    owner: vendor-example/v3
+    reference: true              # --patch drafts a Reference concept per mirrored file
+    why: the wire protocol the gateway implements
+
+  - id: schema-dump
+    kind: command                # a tracked command's output is the text; its own digest is recorded too
+    command: .lokf/ingest/schema-dump.sh
+    args: ["--format", "markdown"]
+    timeout: 120
+    owner: team:data
+    disabled: true               # pauses the entry and keeps its mirror
+    why: the live database schema
