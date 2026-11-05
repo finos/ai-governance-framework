@@ -1,0 +1,12 @@
+# Workflows
+
+* [Build and test (main.yaml)](main.md) - The test workflow on each pull request and on `main`: on five Python versions in `linkml/`, it runs `just test`, and on one it runs the lint and the adapt check.
+* [Lint and docs (lint-and-docs.yaml)](lint-and-docs.md) - The static checks on pull requests, on `main` and every Monday: ShellCheck, actionlint, word budgets, markdownlint, lychee and codespell, over this project's files and never FINOS's.
+* [Semantic release (semantic-release.yml)](semantic-release.md) - The release workflow: it previews each pull request, and on `main` it promotes `linkml/CHANGELOG.md`, tags the commit, publishes the release and dispatches the knowledge release.
+* [Upstream watch (upstream-watch.yaml)](upstream-watch.md) - The weekly check that `linkml/scripts/check_upstream_release.py` runs: a drifted copy, a changed file the schema reads, a changed licence or a new FINOS tag fails the run and opens or updates an issue.
+* [Validate references (validate-references.yml)](validate-references.md) - FINOS's own workflow, which stays as FINOS writes it: it runs `scripts/validate-references.py` when a reference file changes.
+* [Knowledge librarian (knowledge-librarian.yaml)](knowledge-librarian.md) - The sidecar's scheduled agent run that keeps the bundle in step with its sources and opens a pull request. It stays inert until the repository variable `KNOWLEDGE_LIBRARIAN_ENABLED` is `true`.
+* [Knowledge registrar (knowledge-registrar.yaml)](knowledge-registrar.md) - The gate on the bundle: it validates the bundle and runs the conventions script on each pull request that touches `.lokf/`, and checks the provenance of a person's confirmation.
+* [Knowledge release (knowledge-release.yaml)](knowledge-release.md) - The workflow that attaches the schema's adapt copy, the bundle zip and a Copilot skill zip to a release, each with a checksum and an attestation, when the bundle or the schema has changed.
+* [Knowledge sync (knowledge-sync.yaml)](knowledge-sync.md) - The weekly workflow that keeps the sidecar's copies and the skills pin at the newest release of the KTL skills repository, and opens one pull request when the pin is behind.
+* [Knowledge website (knowledge-website.yaml)](knowledge-website.md) - The workflow that builds `website/` on each pull request that touches its inputs and weekly, and deploys to GitHub Pages once `KNOWLEDGE_WEBSITE_ENABLED` is `true`.
