@@ -1,4 +1,5 @@
 # Fails at: /
 reference_key: llm01-2026
-url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md
+url: >-
+  https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md
 description: An attacker manipulates a model through crafted input.

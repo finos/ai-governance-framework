@@ -6,9 +6,11 @@ title: Credit Risk Analysis
 layout: risk
 doc_status: Draft
 category: Risk_Management_and_Compliance
-description: An agent that performs credit risk analysis for small business loan applications
+description: >-
+  An agent that performs credit risk analysis for small business loan applications
 end_user: Risk analyst, loan officer
-business_value: Reduces loan approval times from days to hours while standardizing risk assessment
+business_value: >-
+  Reduces loan approval times from days to hours while standardizing risk assessment
 related_risks:
   - ri-1
   - ri-4
@@ -27,7 +29,8 @@ sr11_7_references:
   - overview
 regulatory_concerns:
   - name: ECOA / Fair Lending
-    url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
+    url: >-
+      https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
     jurisdiction: US
 further_reading:
   - name: AI and Machine Learning in Capital Markets (2021)
