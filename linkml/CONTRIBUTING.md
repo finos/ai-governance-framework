@@ -43,7 +43,7 @@ npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes  
 
 - **Leave FINOS's files alone.** A change to one goes to [FINOS](https://github.com/finos/ai-governance-framework). `linkml/tests/test_upstream_tree.py` holds every file `linkml/tests/upstream_tree.tsv` lists to its hash.
 - **Edit the schema, then regenerate.** From `linkml/`, run `just gen-project`, `just gen-doc`, `just build-catalogue`, `just build-mappings` and `just lokf-adapt`, and commit the output.
-- **Follow FINOS's keys and lists.** A key FINOS writes differently goes under the slot's `aliases`, and `linkml/tests/test_upstream_tree.py` holds the renaming one to one and each enum to `docs/_config.yml`. No rule of your own.
+- **Follow FINOS's keys and lists.** A key FINOS writes differently goes under the slot's `aliases`, and `linkml/tests/test_upstream_tree.py` holds the renaming one to one and each enum to `docs/_config.yml`. Add no rule of your own.
 - **A departure is reported, not hidden.** `linkml/tests/departures.yaml` lists where FINOS's files break a statement of FINOS's own. Add to it only with a report to FINOS.
 - **A row of an SSSOM set is a citation FINOS wrote.** It is not an equivalence, and no row is written by hand.
 - **A class mapping is read at its source.** `linkml/tests/test_schema_rules.py` holds each one to a released neighbour copy. A term with no sure match stays unmapped.
@@ -77,7 +77,7 @@ Use the [issue tracker](https://github.com/lmodel/ai-governance-framework/issues
 ## Releasing (maintainers)
 
 - Write `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md) as you go. The release job refuses an empty one (`.github/scripts/changelog-release.mjs check`).
-- Type the commit ([Conventional Commits](https://www.conventionalcommits.org/)) for what the change *is*. Only `feat:`, `fix:`, `security:` and a breaking `!` start a release, FINOS's commits in a merge among them. A pull request that would release must carry a releasing type in its title.
+- Type the commit ([Conventional Commits](https://www.conventionalcommits.org/)) for what the change *is*. Only `feat:`, `fix:`, `security:` and a breaking `!` start a release, and FINOS's commits in a merge count too. A pull request that would release must carry a releasing type in its title.
 - On merge, [`semantic-release.yml`](../.github/workflows/semantic-release.yml) retitles the section to `## [X.Y.Z] - YYYY-MM-DD`, commits `linkml/CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. Once `KNOWLEDGE_RELEASE_ENABLED` is `true`, it dispatches `.github/workflows/knowledge-release.yaml`, which attaches the schema copy and the bundle when either changed.
 - That step runs behind the `release` GitHub Environment. Configure required reviewers on it in Settings → Environments, or every qualifying merge is released unattended.
 - Below 1.0.0: the `v0.0.0` baseline tag sits on the merge of FINOS's tree, so FINOS's older commits do not count. `.releaserc.json` maps `breaking: true` to `minor`.

@@ -18,6 +18,6 @@ status: draft
 
 # Semantic release (semantic-release.yml)
 
-A merge of FINOS's main brings FINOS's commits into the range this job reads, and some carry a `feat` or `fix` type.[^semantic-release.yml] The tags FINOS writes, `v1` and `v2`, are not versions it reads.[^semantic-release.yml]
+A merge of FINOS's main brings FINOS's commits into the range this job reads, and some carry a `feat` or `fix` type.[^semantic-release.yml] The tags FINOS writes, `v1` and `v2`, are not versions this job reads.[^semantic-release.yml]
 
 [^semantic-release.yml]: .github/workflows/semantic-release.yml

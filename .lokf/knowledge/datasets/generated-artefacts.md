@@ -25,7 +25,7 @@ status: draft
 
 # Generated artefacts
 
-These files are written by the recipes and are never edited by hand.[^contributing.md] `linkml/.linkml/generators.yaml` holds the generators' settings.[^config.public.mk]
+The recipes write these files, and they are never edited by hand.[^contributing.md] `linkml/.linkml/generators.yaml` holds the generators' settings.[^config.public.mk]
 
 [^contributing.md]: linkml/CONTRIBUTING.md, What this project is
 [^config.public.mk]: linkml/config.public.mk

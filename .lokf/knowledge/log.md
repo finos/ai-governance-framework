@@ -2,6 +2,7 @@
 
 ## 2026-11-05
 
+* **Prose**: reworded 3 concept bodies in plain English. No fact, link, number or frontmatter changed.
 * **Added**: FINOS AI Governance Framework.
 * **Added**: FINOS's tree.
 * **Added**: ai-governance-framework LinkML schema.

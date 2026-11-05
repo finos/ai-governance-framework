@@ -18,7 +18,7 @@ It releases a LinkML schema and the Python datamodel generated from it. Nothing 
 
 The catalogue's text and the addresses it names are FINOS's, and this repository treats them as data: tests validate them and nothing executes or renders them, beyond the website's listing of its pages. The schema describes the framework's shape and takes no position on whether a mitigation is sufficient.
 
-FINOS's own Jekyll site and scripts sit at the repository's root, unchanged. No workflow here builds or runs them but `validate-references.yml`, FINOS's own, and a test that runs `scripts/validate-references.py`.
+FINOS's Jekyll site and scripts sit at the repository's root, unchanged. No workflow here builds or runs them, apart from FINOS's own `validate-references.yml` and a test that runs `scripts/validate-references.py`.
 
 ## What executes here
 

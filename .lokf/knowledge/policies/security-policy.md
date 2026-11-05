@@ -21,6 +21,6 @@ status: draft
 
 Report through GitHub's private vulnerability reporting. Only the latest release receives fixes.[^security.md]
 
-FINOS's Jekyll site and scripts sit at the root, unchanged. No workflow here builds or runs them but `validate-references.yml`, FINOS's own, and a test that runs `scripts/validate-references.py`.[^security.md]
+FINOS's Jekyll site and scripts sit at the root, unchanged. No workflow here builds or runs them, apart from FINOS's own `validate-references.yml` and a test that runs `scripts/validate-references.py`.[^security.md]
 
 [^security.md]: .github/SECURITY.md
