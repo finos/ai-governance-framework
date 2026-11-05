@@ -41,12 +41,25 @@ project, and its use of them does not imply FINOS's endorsement.
 The framework cites other publishers' works
 -------------------------------------------
 
-FINOS's reference files, under docs/_data/references/, name other publishers' works,
-such as the EU AI Act, NIST SP 800-53, the OWASP Top 10 lists and ISO/IEC 42001. Each
-work keeps its owner's rights. The titles in docs/_data/references/iso-42001.yml may be
-ISO's headings, so this project's catalogue and its SSSOM set for that file name each
-entry by FINOS's key alone. A citation of an ISO standard by number gives no right to
-its text.
+FINOS's reference files, under docs/_data/references/, name other publishers' works.
+Each work keeps its owner's rights, and FINOS's CC-BY-4.0 covers FINOS's files, not
+those works. This project's catalogue names each entry by FINOS's key alone. An SSSOM
+set carries an entry's title as its label only where the cited work's terms, read on
+2026-11-05, allow a copy of the entry's name; LABEL_POSITIONS in
+scripts/build_sssom_mappings.py records the position for each file, and a test holds
+every file to one. No set carries an entry's description.
+
+- Carried: atr (MIT); ffiec-itbooklets, nist-ai-600-1, nist-sp-800-53r5 and sr11-7
+  (United States government works, 17 U.S.C. 105); eu-ai-act (the regulation's
+  article headings, which the Commission's Decision 2011/833/EU leaves free to
+  reuse); owasp-asi, owasp-llm and owasp-ml (CC BY-SA 4.0, the entries' names, with
+  OWASP named as the source in this notice and the file's address in each row);
+  canada-regulations and uk-regulations (the names of Crown and regulators'
+  documents, as FINOS cites them).
+- Not carried: iso-42001, whose titles may be ISO's headings, and
+  iosco-supervisory-toolkit, whose terms could not be read, since IOSCO's site
+  refuses scripts. A citation of an ISO standard by number gives no right to its
+  text, and no ISO publication was read in making this project.
 
 linkml-project-copier
 ---------------------

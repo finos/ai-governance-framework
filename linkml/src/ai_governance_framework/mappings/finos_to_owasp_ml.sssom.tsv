@@ -10,12 +10,12 @@
 #   aigf_owasp_ml: https://w3id.org/lmodel/ai-governance-framework/references/owasp-ml/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
-ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_owasp_ml:ml09-2023	ML09:2023 Output Integrity Attack	semapv:ManualMappingCuration
-ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_owasp_ml:ml07-2023	ML07:2023 Transfer Learning Attack	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_ml:ml05-2023	ML05:2023 Model Theft	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_ml:ml06-2023	ML06:2023 ML Supply Chain Attacks	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_ml:ml10-2023	ML10:2023 Model Poisoning	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_ml:ml02-2023	ML02:2023 Data Poisoning Attack	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_ml:ml10-2023	ML10:2023 Model Poisoning	semapv:ManualMappingCuration
-ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_owasp_ml:ml08-2023	ML08:2023 Model Skewing	semapv:ManualMappingCuration
+subject_id	subject_label	predicate_id	object_id	object_label	object_source	mapping_justification
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_owasp_ml:ml09-2023	ML09:2023 Output Integrity Attack	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_owasp_ml:ml07-2023	ML07:2023 Transfer Learning Attack	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_ml:ml05-2023	ML05:2023 Model Theft	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_ml:ml06-2023	ML06:2023 ML Supply Chain Attacks	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_ml:ml10-2023	ML10:2023 Model Poisoning	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_ml:ml02-2023	ML02:2023 Data Poisoning Attack	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_ml:ml10-2023	ML10:2023 Model Poisoning	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration
+ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_owasp_ml:ml08-2023	ML08:2023 Model Skewing	https://owasp.org/www-project-machine-learning-security-top-10/	semapv:ManualMappingCuration

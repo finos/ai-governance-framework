@@ -10,57 +10,57 @@
 #   aigf_iso_42001: https://w3id.org/lmodel/ai-governance-framework/references/iso-42001/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-subject_id	subject_label	predicate_id	object_id	mapping_justification
-ai_governance_framework:mi-1	AI Data Leakage Prevention and Detection	skos:relatedMatch	aigf_iso_42001:A-7-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-1	AI Data Leakage Prevention and Detection	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-1	AI Data Leakage Prevention and Detection	skos:relatedMatch	aigf_iso_42001:A-5-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-4	semapv:ManualMappingCuration
-ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-3	User/App/Model Firewalling/Filtering	skos:relatedMatch	aigf_iso_42001:A-6-1-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-3	User/App/Model Firewalling/Filtering	skos:relatedMatch	aigf_iso_42001:A-6-2-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-3	User/App/Model Firewalling/Filtering	skos:relatedMatch	aigf_iso_42001:A-9-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-4	AI System Observability	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-4	AI System Observability	skos:relatedMatch	aigf_iso_42001:A-6-2-8	semapv:ManualMappingCuration
-ai_governance_framework:mi-5	System Acceptance Testing	skos:relatedMatch	aigf_iso_42001:A-6-2-4	semapv:ManualMappingCuration
-ai_governance_framework:mi-5	System Acceptance Testing	skos:relatedMatch	aigf_iso_42001:A-6-2-5	semapv:ManualMappingCuration
-ai_governance_framework:mi-6	Data Quality & Classification/Sensitivity	skos:relatedMatch	aigf_iso_42001:A-7-4	semapv:ManualMappingCuration
-ai_governance_framework:mi-6	Data Quality & Classification/Sensitivity	skos:relatedMatch	aigf_iso_42001:A-7-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-6	Data Quality & Classification/Sensitivity	skos:relatedMatch	aigf_iso_42001:A-4-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-2-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-10-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-10-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-8-5	semapv:ManualMappingCuration
-ai_governance_framework:mi-8	Quality of Service (QoS) and DDoS Prevention for AI Systems	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-8	Quality of Service (QoS) and DDoS Prevention for AI Systems	skos:relatedMatch	aigf_iso_42001:A-4-5	semapv:ManualMappingCuration
-ai_governance_framework:mi-9	AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-9	AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring	skos:relatedMatch	aigf_iso_42001:A-4-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-6-2-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-6-2-5	semapv:ManualMappingCuration
-ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-4-4	semapv:ManualMappingCuration
-ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-8-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-8-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-3-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-12	Role-Based Access Control for AI Data	skos:relatedMatch	aigf_iso_42001:A-3-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-12	Role-Based Access Control for AI Data	skos:relatedMatch	aigf_iso_42001:A-7-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-13	Providing Citations and Source Traceability for AI-Generated Information	skos:relatedMatch	aigf_iso_42001:A-8-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-13	Providing Citations and Source Traceability for AI-Generated Information	skos:relatedMatch	aigf_iso_42001:A-6-1-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-13	Providing Citations and Source Traceability for AI-Generated Information	skos:relatedMatch	aigf_iso_42001:A-6-2-7	semapv:ManualMappingCuration
-ai_governance_framework:mi-14	Encryption of AI Data at Rest	skos:relatedMatch	aigf_iso_42001:A-7-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-15	Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)	skos:relatedMatch	aigf_iso_42001:A-6-2-4	semapv:ManualMappingCuration
-ai_governance_framework:mi-15	Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-16	Preserving Source Data Access Controls in AI Systems	skos:relatedMatch	aigf_iso_42001:A-7-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-16	Preserving Source Data Access Controls in AI Systems	skos:relatedMatch	aigf_iso_42001:A-7-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-16	Preserving Source Data Access Controls in AI Systems	skos:relatedMatch	aigf_iso_42001:A-9-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-17	AI Firewall Implementation and Management	skos:relatedMatch	aigf_iso_42001:A-6-1-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-17	AI Firewall Implementation and Management	skos:relatedMatch	aigf_iso_42001:A-6-2-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-17	AI Firewall Implementation and Management	skos:relatedMatch	aigf_iso_42001:A-9-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_iso_42001:A-9-2	semapv:ManualMappingCuration
-ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-21	Agent Decision Audit and Explainability	skos:relatedMatch	aigf_iso_42001:A-8-3	semapv:ManualMappingCuration
-ai_governance_framework:mi-21	Agent Decision Audit and Explainability	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-24	Human-in-the-Loop Action Approval Gate	skos:relatedMatch	aigf_iso_42001:A-6-2-6	semapv:ManualMappingCuration
-ai_governance_framework:mi-24	Human-in-the-Loop Action Approval Gate	skos:relatedMatch	aigf_iso_42001:A-9-2	semapv:ManualMappingCuration
+subject_id	subject_label	predicate_id	object_id	object_source	mapping_justification
+ai_governance_framework:mi-1	AI Data Leakage Prevention and Detection	skos:relatedMatch	aigf_iso_42001:A-7-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-1	AI Data Leakage Prevention and Detection	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-1	AI Data Leakage Prevention and Detection	skos:relatedMatch	aigf_iso_42001:A-5-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-4	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-2	Data Filtering From External Knowledge Bases	skos:relatedMatch	aigf_iso_42001:A-7-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-3	User/App/Model Firewalling/Filtering	skos:relatedMatch	aigf_iso_42001:A-6-1-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-3	User/App/Model Firewalling/Filtering	skos:relatedMatch	aigf_iso_42001:A-6-2-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-3	User/App/Model Firewalling/Filtering	skos:relatedMatch	aigf_iso_42001:A-9-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-4	AI System Observability	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-4	AI System Observability	skos:relatedMatch	aigf_iso_42001:A-6-2-8	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-5	System Acceptance Testing	skos:relatedMatch	aigf_iso_42001:A-6-2-4	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-5	System Acceptance Testing	skos:relatedMatch	aigf_iso_42001:A-6-2-5	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-6	Data Quality & Classification/Sensitivity	skos:relatedMatch	aigf_iso_42001:A-7-4	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-6	Data Quality & Classification/Sensitivity	skos:relatedMatch	aigf_iso_42001:A-7-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-6	Data Quality & Classification/Sensitivity	skos:relatedMatch	aigf_iso_42001:A-4-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-2-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-10-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-10-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-7	Legal and Contractual Frameworks for AI Systems	skos:relatedMatch	aigf_iso_42001:A-8-5	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-8	Quality of Service (QoS) and DDoS Prevention for AI Systems	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-8	Quality of Service (QoS) and DDoS Prevention for AI Systems	skos:relatedMatch	aigf_iso_42001:A-4-5	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-9	AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-9	AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring	skos:relatedMatch	aigf_iso_42001:A-4-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-6-2-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-6-2-5	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-10	AI Model Version Pinning	skos:relatedMatch	aigf_iso_42001:A-4-4	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-8-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-8-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-11	Human Feedback Loop for AI Systems	skos:relatedMatch	aigf_iso_42001:A-3-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-12	Role-Based Access Control for AI Data	skos:relatedMatch	aigf_iso_42001:A-3-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-12	Role-Based Access Control for AI Data	skos:relatedMatch	aigf_iso_42001:A-7-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-13	Providing Citations and Source Traceability for AI-Generated Information	skos:relatedMatch	aigf_iso_42001:A-8-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-13	Providing Citations and Source Traceability for AI-Generated Information	skos:relatedMatch	aigf_iso_42001:A-6-1-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-13	Providing Citations and Source Traceability for AI-Generated Information	skos:relatedMatch	aigf_iso_42001:A-6-2-7	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-14	Encryption of AI Data at Rest	skos:relatedMatch	aigf_iso_42001:A-7-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-15	Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)	skos:relatedMatch	aigf_iso_42001:A-6-2-4	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-15	Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-16	Preserving Source Data Access Controls in AI Systems	skos:relatedMatch	aigf_iso_42001:A-7-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-16	Preserving Source Data Access Controls in AI Systems	skos:relatedMatch	aigf_iso_42001:A-7-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-16	Preserving Source Data Access Controls in AI Systems	skos:relatedMatch	aigf_iso_42001:A-9-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-17	AI Firewall Implementation and Management	skos:relatedMatch	aigf_iso_42001:A-6-1-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-17	AI Firewall Implementation and Management	skos:relatedMatch	aigf_iso_42001:A-6-2-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-17	AI Firewall Implementation and Management	skos:relatedMatch	aigf_iso_42001:A-9-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_iso_42001:A-9-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-21	Agent Decision Audit and Explainability	skos:relatedMatch	aigf_iso_42001:A-8-3	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-21	Agent Decision Audit and Explainability	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-24	Human-in-the-Loop Action Approval Gate	skos:relatedMatch	aigf_iso_42001:A-6-2-6	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration
+ai_governance_framework:mi-24	Human-in-the-Loop Action Approval Gate	skos:relatedMatch	aigf_iso_42001:A-9-2	https://www.iso.org/standard/81230.html	semapv:ManualMappingCuration

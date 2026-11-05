@@ -28,6 +28,11 @@ def _catalogue():
     return yaml.safe_load(CATALOGUE.read_text(encoding="utf-8"))
 
 
+@lru_cache(maxsize=1)
+def _reference_files():
+    return _script()._builder().reference_files()
+
+
 STEMS = [
     i["reference_file"]
     for i in yaml.safe_load(CATALOGUE.read_text())["reference_indexes"]
@@ -90,8 +95,38 @@ def test_each_set_says_what_a_row_is(stem):
     }
 
 
-def test_the_iso_set_carries_no_label():
-    """iso-42001's titles may be ISO's headings, so its set names each entry by key."""
-    _, rows = _set("iso-42001")
+def test_every_reference_file_has_a_label_position():
+    """A set carries the entries' titles only where the builder records that the
+    cited work's terms allow it, so a file FINOS adds is decided before its set is
+    written, and the two decisions below hold."""
+    assert set(STEMS) == set(_script().LABEL_POSITIONS)
+    assert {
+        stem for stem, position in _script().LABEL_POSITIONS.items() if position is None
+    } == {"iso-42001", "iosco-supervisory-toolkit"}
+
+
+@pytest.mark.parametrize("stem", STEMS)
+def test_a_set_carries_a_label_only_where_its_position_allows(stem):
+    _, rows = _set(stem)
     assert rows
-    assert "object_label" not in rows[0]
+    labelled = _script().LABEL_POSITIONS[stem] is not None
+    assert ("object_label" in rows[0]) == labelled
+    if labelled:
+        assert all(row["object_label"] for row in rows)
+
+
+@pytest.mark.parametrize("stem", STEMS)
+def test_each_row_names_the_file_it_cites(stem):
+    """object_source is the address the reference file was generated from, or
+    empty when the file names none."""
+    _, rows = _set(stem)
+    source = _reference_files()[stem].get("source_url") or ""
+    assert {row["object_source"] for row in rows} == {source}
+
+
+def test_a_field_with_a_tab_is_refused():
+    with pytest.raises(ValueError):
+        _script().cell("a\tb")
+    with pytest.raises(ValueError):
+        _script().cell("a\nb")
+    assert _script().cell("a b") == "a b"

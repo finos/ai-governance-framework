@@ -10,18 +10,18 @@
 #   aigf_owasp_asi: https://w3id.org/lmodel/ai-governance-framework/references/owasp-asi/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
-ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_owasp_asi:asi01-2026	ASI01: Agent Goal Hijack	semapv:ManualMappingCuration
-ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_owasp_asi:asi10-2026	ASI10: Rogue Agents	semapv:ManualMappingCuration
-ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_owasp_asi:asi09-2026	ASI09: Human-Agent Trust Exploitation	semapv:ManualMappingCuration
-ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_owasp_asi:asi02-2026	ASI02: Tool Misuse and Exploitation	semapv:ManualMappingCuration
-ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_owasp_asi:asi03-2026	ASI03: Identity and Privilege Abuse	semapv:ManualMappingCuration
-ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_owasp_asi:asi02-2026	ASI02: Tool Misuse and Exploitation	semapv:ManualMappingCuration
-ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_owasp_asi:asi05-2026	ASI05: Unexpected Code Execution (RCE)	semapv:ManualMappingCuration
-ai_governance_framework:ri-26	MCP Server Supply Chain Compromise	skos:relatedMatch	aigf_owasp_asi:asi04-2026	ASI04: Agentic Supply Chain Vulnerabilities	semapv:ManualMappingCuration
-ai_governance_framework:ri-27	Agent State Persistence Poisoning	skos:relatedMatch	aigf_owasp_asi:asi06-2026	ASI06: Memory & Context Poisoning	semapv:ManualMappingCuration
-ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_owasp_asi:asi07-2026	ASI07: Insecure Inter-Agent Communication	semapv:ManualMappingCuration
-ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_owasp_asi:asi08-2026	ASI08: Cascading Failures	semapv:ManualMappingCuration
-ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_owasp_asi:asi10-2026	ASI10: Rogue Agents	semapv:ManualMappingCuration
-ai_governance_framework:ri-29	Agent-Mediated Credential Discovery and Harvesting	skos:relatedMatch	aigf_owasp_asi:asi03-2026	ASI03: Identity and Privilege Abuse	semapv:ManualMappingCuration
-ai_governance_framework:ri-30	Skill/Plugin Supply Chain Compromise	skos:relatedMatch	aigf_owasp_asi:asi04-2026	ASI04: Agentic Supply Chain Vulnerabilities	semapv:ManualMappingCuration
+subject_id	subject_label	predicate_id	object_id	object_label	object_source	mapping_justification
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_owasp_asi:asi01-2026	ASI01: Agent Goal Hijack	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_owasp_asi:asi10-2026	ASI10: Rogue Agents	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_owasp_asi:asi09-2026	ASI09: Human-Agent Trust Exploitation	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_owasp_asi:asi02-2026	ASI02: Tool Misuse and Exploitation	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_owasp_asi:asi03-2026	ASI03: Identity and Privilege Abuse	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_owasp_asi:asi02-2026	ASI02: Tool Misuse and Exploitation	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_owasp_asi:asi05-2026	ASI05: Unexpected Code Execution (RCE)	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-26	MCP Server Supply Chain Compromise	skos:relatedMatch	aigf_owasp_asi:asi04-2026	ASI04: Agentic Supply Chain Vulnerabilities	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-27	Agent State Persistence Poisoning	skos:relatedMatch	aigf_owasp_asi:asi06-2026	ASI06: Memory & Context Poisoning	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_owasp_asi:asi07-2026	ASI07: Insecure Inter-Agent Communication	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_owasp_asi:asi08-2026	ASI08: Cascading Failures	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_owasp_asi:asi10-2026	ASI10: Rogue Agents	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-29	Agent-Mediated Credential Discovery and Harvesting	skos:relatedMatch	aigf_owasp_asi:asi03-2026	ASI03: Identity and Privilege Abuse	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration
+ai_governance_framework:ri-30	Skill/Plugin Supply Chain Compromise	skos:relatedMatch	aigf_owasp_asi:asi04-2026	ASI04: Agentic Supply Chain Vulnerabilities	https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/	semapv:ManualMappingCuration

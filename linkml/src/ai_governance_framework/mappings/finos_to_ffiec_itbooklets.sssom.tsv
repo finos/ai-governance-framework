@@ -10,60 +10,60 @@
 #   aigf_ffiec_itbooklets: https://w3id.org/lmodel/ai-governance-framework/references/ffiec-itbooklets/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
-ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_ffiec_itbooklets:sec-2	SEC: II Information Security Program Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	semapv:ManualMappingCuration
-ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	semapv:ManualMappingCuration
-ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_ffiec_itbooklets:sec-4	SEC: IV Information Security Program Effectiveness	semapv:ManualMappingCuration
-ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_ffiec_itbooklets:dam-7	DAM: VII Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-6	Non-Deterministic Behaviour	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-6	Non-Deterministic Behaviour	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:bcm-4	BCM: IV Business Continuity Strategies	semapv:ManualMappingCuration
-ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:bcm-5	BCM: V Business Continuity Plan	semapv:ManualMappingCuration
-ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:aio-6	AIO: VI Operations	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:dam-6	DAM: VI Acquisition	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	semapv:ManualMappingCuration
-ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_ffiec_itbooklets:dam-4	DAM: IV Common Development, Acquisition, and Maintenance Risk Topics	semapv:ManualMappingCuration
-ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_ffiec_itbooklets:dam-5	DAM: V Development	semapv:ManualMappingCuration
-ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_ffiec_itbooklets:dam-5	DAM: V Development	semapv:ManualMappingCuration
-ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-1	MGT: I   Governance	semapv:ManualMappingCuration
-ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_ffiec_itbooklets:dam-7	DAM: VII Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_ffiec_itbooklets:bcm-3	BCM: III Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-1	MGT: I   Governance	semapv:ManualMappingCuration
-ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:aud-3	AUD: Internal Audit Program	semapv:ManualMappingCuration
-ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	semapv:ManualMappingCuration
-ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-1	MGT: I   Governance	semapv:ManualMappingCuration
-ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	semapv:ManualMappingCuration
-ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:dam-6	DAM: VI Acquisition	semapv:ManualMappingCuration
-ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	semapv:ManualMappingCuration
-ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	semapv:ManualMappingCuration
+subject_id	subject_label	predicate_id	object_id	object_label	object_source	mapping_justification
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_ffiec_itbooklets:sec-2	SEC: II Information Security Program Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_ffiec_itbooklets:sec-4	SEC: IV Information Security Program Effectiveness	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_ffiec_itbooklets:dam-7	DAM: VII Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-6	Non-Deterministic Behaviour	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-6	Non-Deterministic Behaviour	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:bcm-4	BCM: IV Business Continuity Strategies	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:bcm-5	BCM: V Business Continuity Plan	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:aio-6	AIO: VI Operations	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_ffiec_itbooklets:dam-6	DAM: VI Acquisition	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_ffiec_itbooklets:sec-3	SEC: III Security Operations	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_ffiec_itbooklets:dam-4	DAM: IV Common Development, Acquisition, and Maintenance Risk Topics	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_ffiec_itbooklets:dam-5	DAM: V Development	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_ffiec_itbooklets:dam-5	DAM: V Development	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-17	Lack of Explainability	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-1	MGT: I   Governance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_ffiec_itbooklets:dam-7	DAM: VII Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_ffiec_itbooklets:bcm-3	BCM: III Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-1	MGT: I   Governance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:aud-3	AUD: Internal Audit Program	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_ffiec_itbooklets:aud-4	AUD: Risk Assessment and Risk-Based Auditing	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-1	MGT: I   Governance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:ots-2	OTS: Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_ffiec_itbooklets:dam-6	DAM: VI Acquisition	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_ffiec_itbooklets:dam-3	DAM: III Risk Management of Development, Acquisition, and Maintenance	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_ffiec_itbooklets:mgt-2	MGT: II Risk Management	https://ithandbook.ffiec.gov/it-booklets	semapv:ManualMappingCuration

@@ -22,7 +22,7 @@ A reference file validates unchanged. A page's front matter validates once its k
 
 ## Mappings
 
-* **FINOS's citations**: [src/ai_governance_framework/mappings/](src/ai_governance_framework/mappings) holds one SSSOM set per reference file, with `skos:relatedMatch`. A row says that a page of the framework cites an entry, as the page's front matter states: a citation, not an equivalence. `tests/test_mappings.py` holds each set to the front matter both ways.
+* **FINOS's citations**: [src/ai_governance_framework/mappings/](src/ai_governance_framework/mappings) holds one SSSOM set per reference file, with `skos:relatedMatch`. A row says that a page of the framework cites an entry, as the page's front matter states: a citation, not an equivalence. A row carries the entry's title only where the cited work's terms allow it, as [NOTICE](NOTICE) lists. `tests/test_mappings.py` holds each set to the front matter both ways.
 * **[lmodel/nist-sp-800-53](https://github.com/lmodel/nist-sp-800-53)**: `related_mappings` on `nist_sp_800_53r5_references`. `tests/test_schema_rules.py` checks it against the released copy.
 * **[lmodel/nist-ai-600-1](https://github.com/lmodel/nist-ai-600-1)**: `related_mappings` on `nist_ai_600_1_references`. `tests/test_schema_rules.py` checks it against the released copy.
 * **[AIRO](https://w3id.org/airo) and [AI Atlas Nexus](https://github.com/IBM/ai-atlas-nexus)**: `close_mappings` on the risk and the mitigation, and `related_mappings` on the mitigation.

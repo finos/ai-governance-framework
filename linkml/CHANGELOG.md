@@ -20,6 +20,7 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 - **The SSSOM sets now hold FINOS's citations.** There is one set per reference file, written from the front matter at the pinned commit, with `semapv:ManualMappingCuration` and FINOS as the provider. A row is a citation, not an equivalence. The sets named v2's `AIR-*` identifiers and called the rows LLM-based.
 - **Pin linkml and linkml-runtime at 1.12.1.** PyPI publishing and the docs preview stay off.
+- **A set carries an entry's title only where the cited work's terms allow it.** `LABEL_POSITIONS` in `scripts/build_sssom_mappings.py` records the position for each reference file, `iosco-supervisory-toolkit` joins `iso-42001` in naming each entry by key alone, every row names the file's address as `object_source`, and NOTICE lists the positions.
 
 ### Removed
 

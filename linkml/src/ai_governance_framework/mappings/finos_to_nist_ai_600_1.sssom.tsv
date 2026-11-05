@@ -10,21 +10,21 @@
 #   aigf_nist_ai_600_1: https://w3id.org/lmodel/ai-governance-framework/references/nist-ai-600-1/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
-ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	semapv:ManualMappingCuration
-ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	semapv:ManualMappingCuration
-ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	semapv:ManualMappingCuration
-ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	semapv:ManualMappingCuration
-ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_nist_ai_600_1:2-2	2.2. Confabulation	semapv:ManualMappingCuration
-ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
-ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
-ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_nist_ai_600_1:2-12	2.12. Value Chain and Component Integration	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
-ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_nist_ai_600_1:2-12	2.12. Value Chain and Component Integration	semapv:ManualMappingCuration
-ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_nist_ai_600_1:2-6	2.6. Harmful Bias and Homogenization	semapv:ManualMappingCuration
-ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
-ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	semapv:ManualMappingCuration
-ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_nist_ai_600_1:2-10	2.10. Intellectual Property	semapv:ManualMappingCuration
-ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-2	2.2. Confabulation	semapv:ManualMappingCuration
-ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	semapv:ManualMappingCuration
-ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
+subject_id	subject_label	predicate_id	object_id	object_label	object_source	mapping_justification
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_nist_ai_600_1:2-2	2.2. Confabulation	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_nist_ai_600_1:2-12	2.12. Value Chain and Component Integration	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_nist_ai_600_1:2-12	2.12. Value Chain and Component Integration	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_nist_ai_600_1:2-6	2.6. Harmful Bias and Homogenization	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_nist_ai_600_1:2-10	2.10. Intellectual Property	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-2	2.2. Confabulation	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf	semapv:ManualMappingCuration

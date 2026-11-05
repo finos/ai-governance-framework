@@ -9,8 +9,11 @@ Each row says that a page of the framework cites an entry of that file, as the
 page's front matter states. FINOS's maintainers wrote the citations, so the rows
 are curated, and FINOS is their provider. A citation is not an equivalence, so
 every predicate is skos:relatedMatch. Each object keeps the key FINOS's file gives
-it, under a namespace this project binds for that file. Rows of iso-42001 leave the
-label out, because that file's titles may be ISO's headings.
+it, under a namespace this project binds for that file, and object_source names the
+address the file was generated from. A row carries the entry's title as its label
+only where LABEL_POSITIONS records that the publisher's terms allow it: a file whose
+titles may be another publisher's headings, or whose terms could not be read, names
+each entry by key alone.
 
 Usage::
 
@@ -28,13 +31,34 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MAPPINGS = ROOT / "src" / "ai_governance_framework" / "mappings"
 NAMESPACE = "https://w3id.org/lmodel/ai-governance-framework/"
-NO_LABELS = {"iso-42001"}
+# Whether a set carries each entry's title as object_label, by reference file, with
+# the terms read on 2026-11-05 that decide it. FINOS publishes every file under
+# CC-BY-4.0, and the catalogue holds the keys alone; a label here is a copy of the
+# cited work's own name, so the cited work's terms decide. None means the set names
+# the entry by key alone. tests/test_mappings.py holds every reference file to an
+# entry here, so a file FINOS adds is decided before its set is written.
+LABEL_POSITIONS = {
+    "atr": "MIT; the rules' own identifiers and names",
+    "canada-regulations": "the names of Crown and regulators' documents, as FINOS cites them",
+    "eu-ai-act": "the regulation's article headings; EU law is free to reuse (Decision 2011/833/EU)",
+    "ffiec-itbooklets": "a United States government work (17 U.S.C. 105)",
+    "iosco-supervisory-toolkit": None,  # IOSCO's; its terms could not be read on 2026-11-05
+    "iso-42001": None,  # the titles may be ISO's headings
+    "nist-ai-600-1": "a United States government work (17 U.S.C. 105)",
+    "nist-sp-800-53r5": "a United States government work (17 U.S.C. 105)",
+    "owasp-asi": "CC BY-SA 4.0; the entries' names, with OWASP named as the source",
+    "owasp-llm": "CC BY-SA 4.0; the entries' names, with OWASP named as the source",
+    "owasp-ml": "CC BY-SA 4.0; the entries' names, with OWASP named as the source",
+    "sr11-7": "a United States government work (17 U.S.C. 105)",
+    "uk-regulations": "the names of Crown and regulators' documents, as FINOS cites them",
+}
 COLUMNS = (
     "subject_id",
     "subject_label",
     "predicate_id",
     "object_id",
     "object_label",
+    "object_source",
     "mapping_justification",
 )
 LICENSE = "https://creativecommons.org/licenses/by/4.0/"
@@ -57,6 +81,15 @@ def object_prefix(stem: str) -> str:
 
 def set_path(stem: str) -> Path:
     return MAPPINGS / f"finos_to_{stem.replace('-', '_')}.sssom.tsv"
+
+
+def cell(value: object) -> str:
+    """One field of a row. A tab or a line break would split the row, so a value
+    that holds one is refused rather than written."""
+    text = str(value)
+    if "\t" in text or "\n" in text or "\r" in text:
+        raise ValueError(f"a tab or a line break in an SSSOM field: {text!r}")
+    return text
 
 
 def citations(catalogue: dict, stem: str):
@@ -96,7 +129,7 @@ def render(catalogue: dict, stem: str, reference: dict) -> str:
         ("skos", "http://www.w3.org/2004/02/skos/core#"),
     ):
         lines.append(f"#   {key}: {value}")
-    labelled = stem not in NO_LABELS
+    labelled = LABEL_POSITIONS[stem] is not None
     lines.append("\t".join(c for c in COLUMNS if labelled or c != "object_label"))
     for record, key in citations(catalogue, stem):
         row = [
@@ -105,9 +138,10 @@ def render(catalogue: dict, stem: str, reference: dict) -> str:
             "skos:relatedMatch",
             f"{prefix}:{key}",
             *([reference["entries"][key]["title"]] if labelled else []),
+            reference.get("source_url") or "",
             "semapv:ManualMappingCuration",
         ]
-        lines.append("\t".join(row))
+        lines.append("\t".join(cell(value) for value in row))
     return "\n".join(lines) + "\n"
 
 
