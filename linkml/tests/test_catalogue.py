@@ -77,7 +77,9 @@ def test_the_catalogue_holds_no_reference_entry_titles():
 
 
 def test_the_dataclasses_load_the_catalogue():
-    loaded = yaml_loader.load(str(CATALOGUE), target_class=dataclasses_model.AigfCatalogue)
+    loaded = yaml_loader.load(
+        str(CATALOGUE), target_class=dataclasses_model.AigfCatalogue
+    )
     assert len(loaded.risks) == COUNTS["risks"]
 
 

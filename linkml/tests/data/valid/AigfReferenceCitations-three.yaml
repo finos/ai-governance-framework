@@ -1,6 +1,6 @@
 atr_references:
-- ATR-2026-00010
+  - ATR-2026-00010
 eu_ai_act_references:
-- c2-a5
+  - c2-a5
 iosco_supervisory_toolkit_references:
-- t2-cybersecurity
+  - t2-cybersecurity

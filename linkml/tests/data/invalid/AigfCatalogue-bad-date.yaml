@@ -4,110 +4,110 @@ version: v3
 release_date: October 2026
 source_commit: 67b8c3257695d5ede09d262798bf28a0e58d4740
 reference_lenses:
-- lens: threat
-  label: Threat
-  question: What is this called elsewhere?
-  icon: bi-exclamation-triangle
-  color: primary
+  - lens: threat
+    label: Threat
+    question: What is this called elsewhere?
+    icon: bi-exclamation-triangle
+    color: primary
 reference_indexes:
-- reference_file: owasp-llm
-  lens: threat
-  entry_keys:
-  - llm01-2026
-  - llm02-2026
+  - reference_file: owasp-llm
+    lens: threat
+    entry_keys:
+      - llm01-2026
+      - llm02-2026
 risks:
-- item_id: ri-10
-  source_file: docs/_risks/ri-10_prompt-injection.md
-  sequence: 10
-  title: Prompt Injection
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: inputs
-  owasp_llm_references:
-  - llm01-2026
-  owasp_asi_references:
-  - asi01-2026
-  related_risks:
-  - ri-18
-  - ri-20
+  - item_id: ri-10
+    source_file: docs/_risks/ri-10_prompt-injection.md
+    sequence: 10
+    title: Prompt Injection
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: inputs
+    owasp_llm_references:
+      - llm01-2026
+    owasp_asi_references:
+      - asi01-2026
+    related_risks:
+      - ri-18
+      - ri-20
 mitigations:
-- item_id: mi-10
-  source_file: docs/_mitigations/mi-10_ai-model-version-pinning.md
-  sequence: 10
-  title: AI Model Version Pinning
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: sourcing
-  nist_sp_800_53r5_references:
-  - cm-2
-  - cm-3
-  mitigates:
-  - ri-5
-  - ri-6
-  related_mitigations:
-  - mi-5
-  - mi-4
+  - item_id: mi-10
+    source_file: docs/_mitigations/mi-10_ai-model-version-pinning.md
+    sequence: 10
+    title: AI Model Version Pinning
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: sourcing
+    nist_sp_800_53r5_references:
+      - cm-2
+      - cm-3
+    mitigates:
+      - ri-5
+      - ri-6
+    related_mitigations:
+      - mi-5
+      - mi-4
 use_cases:
-- item_id: uc-1
-  source_file: docs/_usecases/uc-1_credit-risk-analysis.md
-  sequence: 1
-  title: Credit Risk Analysis
-  layout: usecase
-  doc_status: Draft
-  category: Risk_Management_and_Compliance
-  description: An agent that performs credit risk analysis for small business loan applications
-  end_user: Risk analyst, loan officer
-  business_value: Reduces loan approval times from days to hours while standardizing risk
-    assessment
-  related_risks:
-  - ri-1
-  - ri-4
-  related_mitigations:
-  - mi-1
-  data_classifications:
-  - name: Customer_PII_Data
-    data_types:
-    - Credit applicant identity and contact information
-  data_handling_aspects:
-  - Centralized
-  - Privacy_Preserving
-  eu_ai_act_references:
-  - c3-s2-a10
-  sr11_7_references:
-  - overview
-  regulatory_concerns:
-  - name: ECOA / Fair Lending
-    url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
-    jurisdiction: US
-  further_reading:
-  - name: AI and Machine Learning in Capital Markets (2021)
-    url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD658.pdf
-    source: IOSCO
+  - item_id: uc-1
+    source_file: docs/_usecases/uc-1_credit-risk-analysis.md
+    sequence: 1
+    title: Credit Risk Analysis
+    layout: usecase
+    doc_status: Draft
+    category: Risk_Management_and_Compliance
+    description: An agent that performs credit risk analysis for small business loan applications
+    end_user: Risk analyst, loan officer
+    business_value: Reduces loan approval times from days to hours while standardizing risk
+      assessment
+    related_risks:
+      - ri-1
+      - ri-4
+    related_mitigations:
+      - mi-1
+    data_classifications:
+      - name: Customer_PII_Data
+        data_types:
+          - Credit applicant identity and contact information
+    data_handling_aspects:
+      - Centralized
+      - Privacy_Preserving
+    eu_ai_act_references:
+      - c3-s2-a10
+    sr11_7_references:
+      - overview
+    regulatory_concerns:
+      - name: ECOA / Fair Lending
+        url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
+        jurisdiction: US
+    further_reading:
+      - name: AI and Machine Learning in Capital Markets (2021)
+        url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD658.pdf
+        source: IOSCO
 financial_data_classification:
-- name: Public_Financial_Data
-  sensitivity: Low
-  description: Data that is publicly available and poses minimal risk if disclosed.
-  examples:
-  - Public market prices and exchange rates
-  storage_location: Public cloud, CDN
-  regulations: None specific
-  references:
-  - name: 'BCBS 239 P3: Accuracy and Integrity'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
+  - name: Public_Financial_Data
+    sensitivity: Low
+    description: Data that is publicly available and poses minimal risk if disclosed.
+    examples:
+      - Public market prices and exchange rates
+    storage_location: Public cloud, CDN
+    regulations: None specific
+    references:
+      - name: 'BCBS 239 P3: Accuracy and Integrity'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
 ai_use_cases:
-- name: Customer_and_Relationship_Management
-  use_case_areas:
-  - name: Personalized_Financial_Services
-    use_case_names:
-    - Adaptive_Product_Recommendations
-    - Dynamic_Pricing_and_Offers
+  - name: Customer_and_Relationship_Management
+    use_case_areas:
+      - name: Personalized_Financial_Services
+        use_case_names:
+          - Adaptive_Product_Recommendations
+          - Dynamic_Pricing_and_Offers
 cross_cutting_capabilities:
-- MLOps_and_Model_Lifecycle
+  - MLOps_and_Model_Lifecycle
 ai_deployment_model_taxonomy:
-- name: data_handling
-  options:
-  - name: Centralized
-    description: Data is held and processed in one place.
+  - name: data_handling
+    options:
+      - name: Centralized
+        description: Data is held and processed in one place.

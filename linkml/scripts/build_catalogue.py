@@ -32,7 +32,9 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 TREE = ROOT.parent
-SCHEMA = ROOT / "src" / "ai_governance_framework" / "schema" / "ai_governance_framework.yaml"
+SCHEMA = (
+    ROOT / "src" / "ai_governance_framework" / "schema" / "ai_governance_framework.yaml"
+)
 DOCS = TREE / "docs"
 COLLECTIONS = {
     "AigfRisk": "_risks",
@@ -107,7 +109,9 @@ def reference_files() -> dict[str, dict]:
 def named_list(items: list[dict], child: str, leaf) -> list[dict]:
     """A list of one-key mappings as a list of records named by that key."""
     return [
-        {"name": name, child: leaf(value)} for item in items for name, value in item.items()
+        {"name": name, child: leaf(value)}
+        for item in items
+        for name, value in item.items()
     ]
 
 
@@ -154,7 +158,8 @@ def catalogue(schema: dict) -> dict:
         "release_date": str(config["release-date"]),
         "source_commit": schema["annotations"]["upstream_commit"],
         "reference_lenses": [
-            {"lens": lens, **values} for lens, values in config["reference_lenses"].items()
+            {"lens": lens, **values}
+            for lens, values in config["reference_lenses"].items()
         ],
         "reference_indexes": [
             {
@@ -184,10 +189,17 @@ def catalogue(schema: dict) -> dict:
     }
 
 
+class _Dumper(yaml.SafeDumper):
+    """Indents a list under its key, as the repository's YAML lint asks."""
+
+    def increase_indent(self, flow=False, indentless=False):
+        return super().increase_indent(flow, False)
+
+
 def render(data: dict) -> str:
     return (
         "# Written by scripts/build_catalogue.py from FINOS's files. Do not edit it.\n"
-        + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=88)
+        + yaml.dump(data, Dumper=_Dumper, sort_keys=False, allow_unicode=True, width=88)
     )
 
 
@@ -203,7 +215,9 @@ def main(argv: list[str] | None = None) -> int:
     path = catalogue_path(data["version"])
     if args.check:
         if not path.is_file() or path.read_text(encoding="utf-8") != text:
-            print(f"{path.relative_to(ROOT)} differs from FINOS's files.", file=sys.stderr)
+            print(
+                f"{path.relative_to(ROOT)} differs from FINOS's files.", file=sys.stderr
+            )
             return 1
         print(f"{path.relative_to(ROOT)} matches FINOS's files.")
         return 0

@@ -1,4 +1,4 @@
 # Fails at: /
 use_case_names:
-- Adaptive_Product_Recommendations
-- Dynamic_Pricing_and_Offers
+  - Adaptive_Product_Recommendations
+  - Dynamic_Pricing_and_Offers

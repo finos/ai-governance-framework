@@ -68,6 +68,11 @@ skip = [
   "src/ai_governance_framework/data/*",
   "src/ai_governance_framework/mappings/*",
   "tests/neighbours/*",
+  # Copied in by the KTL sidecar sync or written by npm, not by hand.
+  ".lokf/scripts/*",
+  ".lokf/lokf.yaml",
+  "website/package-lock.json",
+  ".github/release/package-lock.json",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
@@ -89,4 +94,8 @@ extend-exclude = [
   "src/ai_governance_framework/data/*",
   "src/ai_governance_framework/mappings/*",
   "tests/neighbours/*",
+  ".lokf/scripts/*",
+  ".lokf/lokf.yaml",
+  "website/package-lock.json",
+  ".github/release/package-lock.json",
 ]

@@ -4,3451 +4,3455 @@ version: v3
 release_date: '2026-10-26'
 source_commit: 67b8c3257695d5ede09d262798bf28a0e58d4740
 reference_lenses:
-- lens: threat
-  label: Threat
-  question: What is this called elsewhere?
-  icon: bi-exclamation-triangle
-  color: primary
-- lens: obligation
-  label: Obligation
-  question: Which rule requires me to address it?
-  icon: bi-bank
-  color: dark
-- lens: control
-  label: Control
-  question: How do I implement and evidence it?
-  icon: bi-shield-check
-  color: success
+  - lens: threat
+    label: Threat
+    question: What is this called elsewhere?
+    icon: bi-exclamation-triangle
+    color: primary
+  - lens: obligation
+    label: Obligation
+    question: Which rule requires me to address it?
+    icon: bi-bank
+    color: dark
+  - lens: control
+    label: Control
+    question: How do I implement and evidence it?
+    icon: bi-shield-check
+    color: success
 reference_indexes:
-- reference_file: atr
-  lens: threat
-  entry_keys:
-  - ATR-2026-00010
-  - ATR-2026-00011
-  - ATR-2026-00012
-  - ATR-2026-00013
-  - ATR-2026-00030
-  - ATR-2026-00040
-  - ATR-2026-00075
-  - ATR-2026-00076
-  - ATR-2026-00095
-  - ATR-2026-00098
-  - ATR-2026-00113
-  - ATR-2026-00118
-- reference_file: canada-regulations
-  lens: obligation
-  entry_keys:
-  - csa-sn-11-348
-  - csa-sn-11-348-pdf
-  - ciro-acr-2026
-  - ni-31-103
-  - ni-31-103-s11-1
-  - ni-31-103-s11-5
-  - ni-31-103-s13-2
-  - ni-31-103-s13-2-1
-  - ni-31-103-s13-3
-  - ni-31-103-s13-4
-  - ni-31-103-s14-2
-  - ni-31-103cp
-  - csa-ciro-sn-31-363
-  - csa-ciro-sn-31-368
-  - ni-33-109-f5
-  - csa-sn-11-326
-  - csa-sn-11-332
-  - csa-sn-33-321
-  - ciro-idpc-rules
-  - ciro-idpc-rule-1500
-  - ciro-idpc-rule-3100-3600
-  - ciro-idpc-rule-3800
-  - ciro-idpc-rule-3900
-  - ciro-dealer-member-rules
-  - ciro-rules-consolidation-project
-  - ciro-rules-proposed
-  - ciro-rules-phase-4
-  - ciro-rules-phase-5
-  - ni-81-102
-  - ni-81-106
-  - ni-81-107
-  - csa-sn-31-342
-  - ciro-gn-2300-21-003
-  - osfi-e23-2027
-  - osfi-e23-2027-p1-1
-  - osfi-e23-2027-p1-2
-  - osfi-e23-2027-p1-3
-  - osfi-e23-2027-p2-1
-  - osfi-e23-2027-p2-2
-  - osfi-e23-2027-p2-3
-  - osfi-e23-2027-p3-1
-  - osfi-e23-2027-p3-2
-  - osfi-e23-2027-p3-3
-  - osfi-e23-2027-p3-4
-  - osfi-e23-2027-p3-5
-  - osfi-e23-2027-p3-6
-  - osfi-b13
-  - osfi-b13-d1
-  - osfi-b13-d2
-  - osfi-b13-d3
-  - iosco-fr-02-2026
-  - osfi-b-10
-  - qc-amf-ai-guideline
-  - pipeda
-  - pipeda-schedule1
-  - fcac-ai
-  - qc-p39-s12-1
-  - qc-p39-s3-3-s17
-  - chra-s3-s5
-  - on-hrc-s1
-- reference_file: eu-ai-act
-  lens: obligation
-  entry_keys:
-  - c1-a1
-  - c1-a2
-  - c1-a3
-  - c1-a4
-  - c2-a5
-  - c3-s1-a6
-  - c3-s1-a7
-  - c3-s2-a8
-  - c3-s2-a9
-  - c3-s2-a10
-  - c3-s2-a11
-  - c3-s2-a12
-  - c3-s2-a13
-  - c3-s2-a14
-  - c3-s2-a15
-  - c3-s3-a16
-  - c3-s3-a17
-  - c3-s3-a18
-  - c3-s3-a19
-  - c3-s3-a20
-  - c3-s3-a21
-  - c3-s3-a22
-  - c3-s3-a23
-  - c3-s3-a24
-  - c3-s3-a25
-  - c3-s3-a26
-  - c3-s3-a27
-  - c3-s4-a28
-  - c3-s4-a29
-  - c3-s4-a30
-  - c3-s4-a31
-  - c3-s4-a32
-  - c3-s4-a33
-  - c3-s4-a34
-  - c3-s4-a35
-  - c3-s4-a36
-  - c3-s4-a37
-  - c3-s4-a38
-  - c3-s4-a39
-  - c3-s5-a40
-  - c3-s5-a41
-  - c3-s5-a42
-  - c3-s5-a43
-  - c3-s5-a44
-  - c3-s5-a45
-  - c3-s5-a46
-  - c3-s5-a47
-  - c3-s5-a48
-  - c3-s5-a49
-  - c4-a50
-  - c5-s1-a51
-  - c5-s1-a52
-  - c5-s2-a53
-  - c5-s2-a54
-  - c5-s3-a55
-  - c5-s4-a56
-  - c6-a57
-  - c6-a58
-  - c6-a59
-  - c6-a60
-  - c6-a61
-  - c6-a62
-  - c6-a63
-  - c7-s1-a64
-  - c7-s1-a65
-  - c7-s1-a66
-  - c7-s1-a67
-  - c7-s1-a68
-  - c7-s1-a69
-  - c7-s2-a70
-  - c8-a71
-  - c9-s1-a72
-  - c9-s2-a73
-  - c9-s3-a74
-  - c9-s3-a75
-  - c9-s3-a76
-  - c9-s3-a77
-  - c9-s3-a78
-  - c9-s3-a79
-  - c9-s3-a80
-  - c9-s3-a81
-  - c9-s3-a82
-  - c9-s3-a83
-  - c9-s3-a84
-  - c9-s4-a85
-  - c9-s4-a86
-  - c9-s4-a87
-  - c9-s5-a88
-  - c9-s5-a89
-  - c9-s5-a90
-  - c9-s5-a91
-  - c9-s5-a92
-  - c9-s5-a93
-  - c9-s5-a94
-  - c10-a95
-  - c10-a96
-  - c11-a97
-  - c11-a98
-  - c12-a99
-  - c12-a100
-  - c12-a101
-  - c13-a102
-  - c13-a103
-  - c13-a104
-  - c13-a105
-  - c13-a106
-  - c13-a107
-  - c13-a108
-  - c13-a109
-  - c13-a110
-  - c13-a111
-  - c13-a112
-  - c13-a113
-  - annex-1
-  - annex-2
-  - annex-3
-  - annex-4
-  - annex-5
-  - annex-6
-  - annex-7
-  - annex-8
-  - annex-9
-  - annex-10
-  - annex-11
-  - annex-12
-  - annex-13
-  - recital-1
-  - recital-2
-  - recital-3
-  - recital-4
-  - recital-5
-  - recital-6
-  - recital-7
-  - recital-8
-  - recital-9
-  - recital-10
-  - recital-11
-  - recital-12
-  - recital-13
-  - recital-14
-  - recital-15
-  - recital-16
-  - recital-17
-  - recital-18
-  - recital-19
-  - recital-20
-  - recital-21
-  - recital-22
-  - recital-23
-  - recital-24
-  - recital-25
-  - recital-26
-  - recital-27
-  - recital-28
-  - recital-29
-  - recital-30
-  - recital-31
-  - recital-32
-  - recital-33
-  - recital-34
-  - recital-35
-  - recital-36
-  - recital-37
-  - recital-38
-  - recital-39
-  - recital-40
-  - recital-41
-  - recital-42
-  - recital-43
-  - recital-44
-  - recital-45
-  - recital-46
-  - recital-47
-  - recital-48
-  - recital-49
-  - recital-50
-  - recital-51
-  - recital-52
-  - recital-53
-  - recital-54
-  - recital-55
-  - recital-56
-  - recital-57
-  - recital-58
-  - recital-59
-  - recital-60
-  - recital-61
-  - recital-62
-  - recital-63
-  - recital-64
-  - recital-65
-  - recital-66
-  - recital-67
-  - recital-68
-  - recital-69
-  - recital-70
-  - recital-71
-  - recital-72
-  - recital-73
-  - recital-74
-  - recital-75
-  - recital-76
-  - recital-77
-  - recital-78
-  - recital-79
-  - recital-80
-  - recital-81
-  - recital-82
-  - recital-83
-  - recital-84
-  - recital-85
-  - recital-86
-  - recital-87
-  - recital-88
-  - recital-89
-  - recital-90
-  - recital-91
-  - recital-92
-  - recital-93
-  - recital-94
-  - recital-95
-  - recital-96
-  - recital-97
-  - recital-98
-  - recital-99
-  - recital-100
-  - recital-101
-  - recital-102
-  - recital-103
-  - recital-104
-  - recital-105
-  - recital-106
-  - recital-107
-  - recital-108
-  - recital-109
-  - recital-110
-  - recital-111
-  - recital-112
-  - recital-113
-  - recital-114
-  - recital-115
-  - recital-116
-  - recital-117
-  - recital-118
-  - recital-119
-  - recital-120
-  - recital-121
-  - recital-122
-  - recital-123
-  - recital-124
-  - recital-125
-  - recital-126
-  - recital-127
-  - recital-128
-  - recital-129
-  - recital-130
-  - recital-131
-  - recital-132
-  - recital-133
-  - recital-134
-  - recital-135
-  - recital-136
-  - recital-137
-  - recital-138
-  - recital-139
-  - recital-140
-  - recital-141
-  - recital-142
-  - recital-143
-  - recital-144
-  - recital-145
-  - recital-146
-  - recital-147
-  - recital-148
-  - recital-149
-  - recital-150
-  - recital-151
-  - recital-152
-  - recital-153
-  - recital-154
-  - recital-155
-  - recital-156
-  - recital-157
-  - recital-158
-  - recital-159
-  - recital-160
-  - recital-161
-  - recital-162
-  - recital-163
-  - recital-164
-  - recital-165
-  - recital-166
-  - recital-167
-  - recital-168
-  - recital-169
-  - recital-170
-  - recital-171
-  - recital-172
-  - recital-173
-  - recital-174
-  - recital-175
-  - recital-176
-  - recital-177
-  - recital-178
-  - recital-179
-  - recital-180
-- reference_file: ffiec-itbooklets
-  lens: obligation
-  entry_keys:
-  - aio
-  - aio-0
-  - aio-1
-  - aio-2
-  - aio-3
-  - aio-4
-  - aio-5
-  - aio-6
-  - aio-7
-  - aio-a
-  - aio-b
-  - aio-c
-  - aio-d
-  - arc
-  - aud
-  - aud-0
-  - aud-1
-  - aud-2
-  - aud-3
-  - aud-4
-  - aud-5
-  - aud-6
-  - aud-7
-  - aud-a
-  - aud-b
-  - aud-c
-  - bcm
-  - bcm-0
-  - bcm-1
-  - bcm-2
-  - bcm-3
-  - bcm-4
-  - bcm-5
-  - bcm-6
-  - bcm-7
-  - bcm-8
-  - bcm-9
-  - bcm-a
-  - bcm-b
-  - bcm-c
-  - bcm-d
-  - dam
-  - dam-0
-  - dam-1
-  - dam-2
-  - dam-3
-  - dam-4
-  - dam-5
-  - dam-6
-  - dam-7
-  - dam-a
-  - dam-b
-  - dam-c
-  - dam-d
-  - mgt
-  - mgt-0
-  - mgt-1
-  - mgt-2
-  - mgt-3
-  - mgt-a
-  - mgt-b
-  - mgt-c
-  - ots
-  - ots-0
-  - ots-1
-  - ots-2
-  - ots-3
-  - ots-a
-  - ots-b
-  - ots-c
-  - ots-d
-  - rps
-  - rps-0
-  - rps-1
-  - rps-2
-  - rps-3
-  - rps-a
-  - rps-b
-  - rps-c
-  - rps-d
-  - rps-e
-  - sec
-  - sec-0
-  - sec-1
-  - sec-2
-  - sec-3
-  - sec-4
-  - sec-a
-  - sec-b
-  - sec-c
-  - tsp
-  - tsp-0
-  - tsp-1
-  - tsp-2
-  - tsp-3
-  - tsp-4
-  - tsp-a
-  - wps
-  - wps-0
-  - wps-1
-  - wps-2
-  - wps-3
-  - wps-4
-  - wps-a
-  - wps-b
-  - wps-c
-  - wps-d
-  - wps-e
-  - wps-f
-- reference_file: iosco-supervisory-toolkit
-  lens: obligation
-  entry_keys:
-  - box-3
-  - t2-governance
-  - t2-model-risk
-  - t2-advice
-  - t2-market-risks
-  - t2-reliability
-  - t2-cybersecurity
-  - t2-outsourcing
-  - t2-disclosure
-  - t2-recordkeeping
-  - t3-1
-  - t3-2
-  - t3-3
-  - t3-4
-  - t3-5
-  - t3-6
-  - t3-7
-  - t3-8
-  - t4-1
-  - t4-2
-  - t4-3
-  - t4-4
-  - t4-5
-  - t4-6
-  - t4-7
-  - t4-8
-  - t4-9
-  - t5-1
-  - t5-2
-  - t5-3
-  - t5-4
-  - box-4
-  - t6-1
-  - t6-2
-  - t6-3
-  - t6-4
-  - t6-5
-  - t6-6
-  - t7-adoption
-  - t7-nature
-  - t7-third-party
-  - t7-performance
-  - t7-sector-broker-dealer
-  - t7-sector-asset-manager
-  - t7-sector-exchanges
-  - annex-1
-- reference_file: iso-42001
-  lens: control
-  entry_keys:
-  - A-2-3
-  - A-3-2
-  - A-3-3
-  - A-4-2
-  - A-4-3
-  - A-4-4
-  - A-4-5
-  - A-5-2
-  - A-6-1-2
-  - A-6-1-3
-  - A-6-2-2
-  - A-6-2-3
-  - A-6-2-4
-  - A-6-2-5
-  - A-6-2-6
-  - A-6-2-7
-  - A-6-2-8
-  - A-7-2
-  - A-7-3
-  - A-7-4
-  - A-7-6
-  - A-8-2
-  - A-8-3
-  - A-8-5
-  - A-9-2
-  - A-10-2
-  - A-10-3
-- reference_file: nist-ai-600-1
-  lens: threat
-  entry_keys:
-  - 2-1
-  - 2-2
-  - 2-3
-  - 2-4
-  - 2-5
-  - 2-6
-  - 2-7
-  - 2-8
-  - 2-9
-  - 2-10
-  - 2-11
-  - 2-12
-- reference_file: nist-sp-800-53r5
-  lens: control
-  entry_keys:
-  - ac-1
-  - ac-2
-  - ac-3
-  - ac-4
-  - ac-5
-  - ac-6
-  - ac-7
-  - ac-8
-  - ac-9
-  - ac-10
-  - ac-11
-  - ac-12
-  - ac-13
-  - ac-14
-  - ac-15
-  - ac-16
-  - ac-17
-  - ac-18
-  - ac-19
-  - ac-20
-  - ac-21
-  - ac-22
-  - ac-23
-  - ac-24
-  - ac-25
-  - at-1
-  - at-2
-  - at-3
-  - at-4
-  - at-5
-  - at-6
-  - au-1
-  - au-2
-  - au-3
-  - au-4
-  - au-5
-  - au-6
-  - au-7
-  - au-8
-  - au-9
-  - au-10
-  - au-11
-  - au-12
-  - au-13
-  - au-14
-  - au-15
-  - au-16
-  - ca-1
-  - ca-2
-  - ca-3
-  - ca-4
-  - ca-5
-  - ca-6
-  - ca-7
-  - ca-8
-  - ca-9
-  - cm-1
-  - cm-2
-  - cm-3
-  - cm-4
-  - cm-5
-  - cm-6
-  - cm-7
-  - cm-8
-  - cm-9
-  - cm-10
-  - cm-11
-  - cm-12
-  - cm-13
-  - cm-14
-  - cp-1
-  - cp-2
-  - cp-3
-  - cp-4
-  - cp-5
-  - cp-6
-  - cp-7
-  - cp-8
-  - cp-9
-  - cp-10
-  - cp-11
-  - cp-12
-  - cp-13
-  - ia-1
-  - ia-2
-  - ia-3
-  - ia-4
-  - ia-5
-  - ia-6
-  - ia-7
-  - ia-8
-  - ia-9
-  - ia-10
-  - ia-11
-  - ia-12
-  - ir-1
-  - ir-2
-  - ir-3
-  - ir-4
-  - ir-5
-  - ir-6
-  - ir-7
-  - ir-8
-  - ir-9
-  - ma-1
-  - ma-2
-  - ma-3
-  - ma-4
-  - ma-5
-  - ma-6
-  - ma-7
-  - mp-1
-  - mp-2
-  - mp-3
-  - mp-4
-  - mp-5
-  - mp-6
-  - mp-7
-  - mp-8
-  - pe-1
-  - pe-2
-  - pe-3
-  - pe-4
-  - pe-5
-  - pe-6
-  - pe-7
-  - pe-8
-  - pe-9
-  - pe-10
-  - pe-11
-  - pe-12
-  - pe-13
-  - pe-14
-  - pe-15
-  - pe-16
-  - pe-17
-  - pe-18
-  - pe-19
-  - pe-20
-  - pe-21
-  - pe-22
-  - pe-23
-  - pl-1
-  - pl-2
-  - pl-3
-  - pl-4
-  - pl-5
-  - pl-6
-  - pl-7
-  - pl-8
-  - pl-9
-  - pl-10
-  - pl-11
-  - pm-1
-  - pm-2
-  - pm-3
-  - pm-4
-  - pm-5
-  - pm-6
-  - pm-7
-  - pm-8
-  - pm-9
-  - pm-10
-  - pm-11
-  - pm-12
-  - pm-13
-  - pm-14
-  - pm-15
-  - pm-16
-  - pm-17
-  - pm-18
-  - pm-19
-  - pm-20
-  - pm-21
-  - pm-22
-  - pm-23
-  - pm-24
-  - pm-25
-  - pm-26
-  - pm-27
-  - pm-28
-  - pm-29
-  - pm-30
-  - pm-31
-  - pm-32
-  - ps-1
-  - ps-2
-  - ps-3
-  - ps-4
-  - ps-5
-  - ps-6
-  - ps-7
-  - ps-8
-  - ps-9
-  - pt-1
-  - pt-2
-  - pt-3
-  - pt-4
-  - pt-5
-  - pt-6
-  - pt-7
-  - pt-8
-  - ra-1
-  - ra-2
-  - ra-3
-  - ra-4
-  - ra-5
-  - ra-6
-  - ra-7
-  - ra-8
-  - ra-9
-  - ra-10
-  - sa-1
-  - sa-2
-  - sa-3
-  - sa-4
-  - sa-5
-  - sa-6
-  - sa-7
-  - sa-8
-  - sa-9
-  - sa-10
-  - sa-11
-  - sa-13
-  - sa-14
-  - sa-15
-  - sa-16
-  - sa-17
-  - sa-18
-  - sa-19
-  - sa-20
-  - sa-21
-  - sa-22
-  - sa-23
-  - sc-1
-  - sc-2
-  - sc-3
-  - sc-4
-  - sc-5
-  - sc-6
-  - sc-7
-  - sc-8
-  - sc-9
-  - sc-10
-  - sc-11
-  - sc-12
-  - sc-13
-  - sc-14
-  - sc-15
-  - sc-16
-  - sc-17
-  - sc-18
-  - sc-19
-  - sc-20
-  - sc-21
-  - sc-22
-  - sc-23
-  - sc-24
-  - sc-25
-  - sc-26
-  - sc-27
-  - sc-28
-  - sc-29
-  - sc-30
-  - sc-31
-  - sc-32
-  - sc-33
-  - sc-34
-  - sc-35
-  - sc-36
-  - sc-37
-  - sc-38
-  - sc-39
-  - sc-40
-  - sc-41
-  - sc-42
-  - sc-43
-  - sc-44
-  - sc-45
-  - sc-46
-  - sc-47
-  - sc-48
-  - sc-49
-  - sc-50
-  - sc-51
-  - si-1
-  - si-2
-  - si-3
-  - si-4
-  - si-5
-  - si-6
-  - si-7
-  - si-8
-  - si-9
-  - si-10
-  - si-11
-  - si-12
-  - si-13
-  - si-14
-  - si-15
-  - si-16
-  - si-17
-  - si-18
-  - si-19
-  - si-20
-  - si-21
-  - si-22
-  - si-23
-  - sr-1
-  - sr-2
-  - sr-3
-  - sr-4
-  - sr-5
-  - sr-6
-  - sr-7
-  - sr-8
-  - sr-9
-  - sr-10
-  - sr-11
-  - sr-12
-- reference_file: owasp-asi
-  lens: threat
-  entry_keys:
-  - asi01-2026
-  - asi02-2026
-  - asi03-2026
-  - asi04-2026
-  - asi05-2026
-  - asi06-2026
-  - asi07-2026
-  - asi08-2026
-  - asi09-2026
-  - asi10-2026
-- reference_file: owasp-llm
-  lens: threat
-  entry_keys:
-  - llm01-2026
-  - llm02-2026
-  - llm03-2026
-  - llm04-2026
-  - llm05-2026
-  - llm06-2026
-  - llm07-2026
-  - llm08-2026
-  - llm09-2026
-  - llm10-2026
-  - llm01-2025
-  - llm02-2025
-  - llm03-2025
-  - llm04-2025
-  - llm05-2025
-  - llm06-2025
-  - llm07-2025
-  - llm08-2025
-  - llm09-2025
-  - llm10-2025
-- reference_file: owasp-ml
-  lens: threat
-  entry_keys:
-  - ml01-2023
-  - ml02-2023
-  - ml03-2023
-  - ml04-2023
-  - ml05-2023
-  - ml06-2023
-  - ml07-2023
-  - ml08-2023
-  - ml09-2023
-  - ml10-2023
-- reference_file: sr11-7
-  lens: obligation
-  entry_keys:
-  - overview
-  - s2
-  - s2-dev
-  - s2-impl
-  - s2-use
-  - s3
-  - s3-conceptual
-  - s3-monitoring
-  - s3-outcomes
-  - s4
-  - s4-board
-  - s4-policies
-  - s4-inventory
-  - s4-audit
-  - s4-incentives
-- reference_file: uk-regulations
-  lens: obligation
-  entry_keys:
-  - fca-ai-approach-2024
-  - boe-fca-ai-survey-2024
-  - pra-ss1-23-mrm
-  - pra-ai-mrm-roundtable-2025
-  - fca-prin
-  - fca-prin-2a
-  - fca-sysc
-  - fca-smcr
-  - fca-cobs-4
-  - fca-cobs-9
-  - fca-cobs-9a
-  - fca-mifidpru
-  - fca-fg16-5-cloud
-  - pra-ss2-21-outsourcing
-  - boe-fca-pra-critical-third-parties-2024
-  - uk-gdpr-dpa-2018
-  - ico-ai-data-protection-toolkit
-  - ico-guidance-ai-data-protection
-  - equality-act-2010
-  - consumer-credit-act-1974
+  - reference_file: atr
+    lens: threat
+    entry_keys:
+      - ATR-2026-00010
+      - ATR-2026-00011
+      - ATR-2026-00012
+      - ATR-2026-00013
+      - ATR-2026-00030
+      - ATR-2026-00040
+      - ATR-2026-00075
+      - ATR-2026-00076
+      - ATR-2026-00095
+      - ATR-2026-00098
+      - ATR-2026-00113
+      - ATR-2026-00118
+  - reference_file: canada-regulations
+    lens: obligation
+    entry_keys:
+      - csa-sn-11-348
+      - csa-sn-11-348-pdf
+      - ciro-acr-2026
+      - ni-31-103
+      - ni-31-103-s11-1
+      - ni-31-103-s11-5
+      - ni-31-103-s13-2
+      - ni-31-103-s13-2-1
+      - ni-31-103-s13-3
+      - ni-31-103-s13-4
+      - ni-31-103-s14-2
+      - ni-31-103cp
+      - csa-ciro-sn-31-363
+      - csa-ciro-sn-31-368
+      - ni-33-109-f5
+      - csa-sn-11-326
+      - csa-sn-11-332
+      - csa-sn-33-321
+      - ciro-idpc-rules
+      - ciro-idpc-rule-1500
+      - ciro-idpc-rule-3100-3600
+      - ciro-idpc-rule-3800
+      - ciro-idpc-rule-3900
+      - ciro-dealer-member-rules
+      - ciro-rules-consolidation-project
+      - ciro-rules-proposed
+      - ciro-rules-phase-4
+      - ciro-rules-phase-5
+      - ni-81-102
+      - ni-81-106
+      - ni-81-107
+      - csa-sn-31-342
+      - ciro-gn-2300-21-003
+      - osfi-e23-2027
+      - osfi-e23-2027-p1-1
+      - osfi-e23-2027-p1-2
+      - osfi-e23-2027-p1-3
+      - osfi-e23-2027-p2-1
+      - osfi-e23-2027-p2-2
+      - osfi-e23-2027-p2-3
+      - osfi-e23-2027-p3-1
+      - osfi-e23-2027-p3-2
+      - osfi-e23-2027-p3-3
+      - osfi-e23-2027-p3-4
+      - osfi-e23-2027-p3-5
+      - osfi-e23-2027-p3-6
+      - osfi-b13
+      - osfi-b13-d1
+      - osfi-b13-d2
+      - osfi-b13-d3
+      - iosco-fr-02-2026
+      - osfi-b-10
+      - qc-amf-ai-guideline
+      - pipeda
+      - pipeda-schedule1
+      - fcac-ai
+      - qc-p39-s12-1
+      - qc-p39-s3-3-s17
+      - chra-s3-s5
+      - on-hrc-s1
+  - reference_file: eu-ai-act
+    lens: obligation
+    entry_keys:
+      - c1-a1
+      - c1-a2
+      - c1-a3
+      - c1-a4
+      - c2-a5
+      - c3-s1-a6
+      - c3-s1-a7
+      - c3-s2-a8
+      - c3-s2-a9
+      - c3-s2-a10
+      - c3-s2-a11
+      - c3-s2-a12
+      - c3-s2-a13
+      - c3-s2-a14
+      - c3-s2-a15
+      - c3-s3-a16
+      - c3-s3-a17
+      - c3-s3-a18
+      - c3-s3-a19
+      - c3-s3-a20
+      - c3-s3-a21
+      - c3-s3-a22
+      - c3-s3-a23
+      - c3-s3-a24
+      - c3-s3-a25
+      - c3-s3-a26
+      - c3-s3-a27
+      - c3-s4-a28
+      - c3-s4-a29
+      - c3-s4-a30
+      - c3-s4-a31
+      - c3-s4-a32
+      - c3-s4-a33
+      - c3-s4-a34
+      - c3-s4-a35
+      - c3-s4-a36
+      - c3-s4-a37
+      - c3-s4-a38
+      - c3-s4-a39
+      - c3-s5-a40
+      - c3-s5-a41
+      - c3-s5-a42
+      - c3-s5-a43
+      - c3-s5-a44
+      - c3-s5-a45
+      - c3-s5-a46
+      - c3-s5-a47
+      - c3-s5-a48
+      - c3-s5-a49
+      - c4-a50
+      - c5-s1-a51
+      - c5-s1-a52
+      - c5-s2-a53
+      - c5-s2-a54
+      - c5-s3-a55
+      - c5-s4-a56
+      - c6-a57
+      - c6-a58
+      - c6-a59
+      - c6-a60
+      - c6-a61
+      - c6-a62
+      - c6-a63
+      - c7-s1-a64
+      - c7-s1-a65
+      - c7-s1-a66
+      - c7-s1-a67
+      - c7-s1-a68
+      - c7-s1-a69
+      - c7-s2-a70
+      - c8-a71
+      - c9-s1-a72
+      - c9-s2-a73
+      - c9-s3-a74
+      - c9-s3-a75
+      - c9-s3-a76
+      - c9-s3-a77
+      - c9-s3-a78
+      - c9-s3-a79
+      - c9-s3-a80
+      - c9-s3-a81
+      - c9-s3-a82
+      - c9-s3-a83
+      - c9-s3-a84
+      - c9-s4-a85
+      - c9-s4-a86
+      - c9-s4-a87
+      - c9-s5-a88
+      - c9-s5-a89
+      - c9-s5-a90
+      - c9-s5-a91
+      - c9-s5-a92
+      - c9-s5-a93
+      - c9-s5-a94
+      - c10-a95
+      - c10-a96
+      - c11-a97
+      - c11-a98
+      - c12-a99
+      - c12-a100
+      - c12-a101
+      - c13-a102
+      - c13-a103
+      - c13-a104
+      - c13-a105
+      - c13-a106
+      - c13-a107
+      - c13-a108
+      - c13-a109
+      - c13-a110
+      - c13-a111
+      - c13-a112
+      - c13-a113
+      - annex-1
+      - annex-2
+      - annex-3
+      - annex-4
+      - annex-5
+      - annex-6
+      - annex-7
+      - annex-8
+      - annex-9
+      - annex-10
+      - annex-11
+      - annex-12
+      - annex-13
+      - recital-1
+      - recital-2
+      - recital-3
+      - recital-4
+      - recital-5
+      - recital-6
+      - recital-7
+      - recital-8
+      - recital-9
+      - recital-10
+      - recital-11
+      - recital-12
+      - recital-13
+      - recital-14
+      - recital-15
+      - recital-16
+      - recital-17
+      - recital-18
+      - recital-19
+      - recital-20
+      - recital-21
+      - recital-22
+      - recital-23
+      - recital-24
+      - recital-25
+      - recital-26
+      - recital-27
+      - recital-28
+      - recital-29
+      - recital-30
+      - recital-31
+      - recital-32
+      - recital-33
+      - recital-34
+      - recital-35
+      - recital-36
+      - recital-37
+      - recital-38
+      - recital-39
+      - recital-40
+      - recital-41
+      - recital-42
+      - recital-43
+      - recital-44
+      - recital-45
+      - recital-46
+      - recital-47
+      - recital-48
+      - recital-49
+      - recital-50
+      - recital-51
+      - recital-52
+      - recital-53
+      - recital-54
+      - recital-55
+      - recital-56
+      - recital-57
+      - recital-58
+      - recital-59
+      - recital-60
+      - recital-61
+      - recital-62
+      - recital-63
+      - recital-64
+      - recital-65
+      - recital-66
+      - recital-67
+      - recital-68
+      - recital-69
+      - recital-70
+      - recital-71
+      - recital-72
+      - recital-73
+      - recital-74
+      - recital-75
+      - recital-76
+      - recital-77
+      - recital-78
+      - recital-79
+      - recital-80
+      - recital-81
+      - recital-82
+      - recital-83
+      - recital-84
+      - recital-85
+      - recital-86
+      - recital-87
+      - recital-88
+      - recital-89
+      - recital-90
+      - recital-91
+      - recital-92
+      - recital-93
+      - recital-94
+      - recital-95
+      - recital-96
+      - recital-97
+      - recital-98
+      - recital-99
+      - recital-100
+      - recital-101
+      - recital-102
+      - recital-103
+      - recital-104
+      - recital-105
+      - recital-106
+      - recital-107
+      - recital-108
+      - recital-109
+      - recital-110
+      - recital-111
+      - recital-112
+      - recital-113
+      - recital-114
+      - recital-115
+      - recital-116
+      - recital-117
+      - recital-118
+      - recital-119
+      - recital-120
+      - recital-121
+      - recital-122
+      - recital-123
+      - recital-124
+      - recital-125
+      - recital-126
+      - recital-127
+      - recital-128
+      - recital-129
+      - recital-130
+      - recital-131
+      - recital-132
+      - recital-133
+      - recital-134
+      - recital-135
+      - recital-136
+      - recital-137
+      - recital-138
+      - recital-139
+      - recital-140
+      - recital-141
+      - recital-142
+      - recital-143
+      - recital-144
+      - recital-145
+      - recital-146
+      - recital-147
+      - recital-148
+      - recital-149
+      - recital-150
+      - recital-151
+      - recital-152
+      - recital-153
+      - recital-154
+      - recital-155
+      - recital-156
+      - recital-157
+      - recital-158
+      - recital-159
+      - recital-160
+      - recital-161
+      - recital-162
+      - recital-163
+      - recital-164
+      - recital-165
+      - recital-166
+      - recital-167
+      - recital-168
+      - recital-169
+      - recital-170
+      - recital-171
+      - recital-172
+      - recital-173
+      - recital-174
+      - recital-175
+      - recital-176
+      - recital-177
+      - recital-178
+      - recital-179
+      - recital-180
+  - reference_file: ffiec-itbooklets
+    lens: obligation
+    entry_keys:
+      - aio
+      - aio-0
+      - aio-1
+      - aio-2
+      - aio-3
+      - aio-4
+      - aio-5
+      - aio-6
+      - aio-7
+      - aio-a
+      - aio-b
+      - aio-c
+      - aio-d
+      - arc
+      - aud
+      - aud-0
+      - aud-1
+      - aud-2
+      - aud-3
+      - aud-4
+      - aud-5
+      - aud-6
+      - aud-7
+      - aud-a
+      - aud-b
+      - aud-c
+      - bcm
+      - bcm-0
+      - bcm-1
+      - bcm-2
+      - bcm-3
+      - bcm-4
+      - bcm-5
+      - bcm-6
+      - bcm-7
+      - bcm-8
+      - bcm-9
+      - bcm-a
+      - bcm-b
+      - bcm-c
+      - bcm-d
+      - dam
+      - dam-0
+      - dam-1
+      - dam-2
+      - dam-3
+      - dam-4
+      - dam-5
+      - dam-6
+      - dam-7
+      - dam-a
+      - dam-b
+      - dam-c
+      - dam-d
+      - mgt
+      - mgt-0
+      - mgt-1
+      - mgt-2
+      - mgt-3
+      - mgt-a
+      - mgt-b
+      - mgt-c
+      - ots
+      - ots-0
+      - ots-1
+      - ots-2
+      - ots-3
+      - ots-a
+      - ots-b
+      - ots-c
+      - ots-d
+      - rps
+      - rps-0
+      - rps-1
+      - rps-2
+      - rps-3
+      - rps-a
+      - rps-b
+      - rps-c
+      - rps-d
+      - rps-e
+      - sec
+      - sec-0
+      - sec-1
+      - sec-2
+      - sec-3
+      - sec-4
+      - sec-a
+      - sec-b
+      - sec-c
+      - tsp
+      - tsp-0
+      - tsp-1
+      - tsp-2
+      - tsp-3
+      - tsp-4
+      - tsp-a
+      - wps
+      - wps-0
+      - wps-1
+      - wps-2
+      - wps-3
+      - wps-4
+      - wps-a
+      - wps-b
+      - wps-c
+      - wps-d
+      - wps-e
+      - wps-f
+  - reference_file: iosco-supervisory-toolkit
+    lens: obligation
+    entry_keys:
+      - box-3
+      - t2-governance
+      - t2-model-risk
+      - t2-advice
+      - t2-market-risks
+      - t2-reliability
+      - t2-cybersecurity
+      - t2-outsourcing
+      - t2-disclosure
+      - t2-recordkeeping
+      - t3-1
+      - t3-2
+      - t3-3
+      - t3-4
+      - t3-5
+      - t3-6
+      - t3-7
+      - t3-8
+      - t4-1
+      - t4-2
+      - t4-3
+      - t4-4
+      - t4-5
+      - t4-6
+      - t4-7
+      - t4-8
+      - t4-9
+      - t5-1
+      - t5-2
+      - t5-3
+      - t5-4
+      - box-4
+      - t6-1
+      - t6-2
+      - t6-3
+      - t6-4
+      - t6-5
+      - t6-6
+      - t7-adoption
+      - t7-nature
+      - t7-third-party
+      - t7-performance
+      - t7-sector-broker-dealer
+      - t7-sector-asset-manager
+      - t7-sector-exchanges
+      - annex-1
+  - reference_file: iso-42001
+    lens: control
+    entry_keys:
+      - A-2-3
+      - A-3-2
+      - A-3-3
+      - A-4-2
+      - A-4-3
+      - A-4-4
+      - A-4-5
+      - A-5-2
+      - A-6-1-2
+      - A-6-1-3
+      - A-6-2-2
+      - A-6-2-3
+      - A-6-2-4
+      - A-6-2-5
+      - A-6-2-6
+      - A-6-2-7
+      - A-6-2-8
+      - A-7-2
+      - A-7-3
+      - A-7-4
+      - A-7-6
+      - A-8-2
+      - A-8-3
+      - A-8-5
+      - A-9-2
+      - A-10-2
+      - A-10-3
+  - reference_file: nist-ai-600-1
+    lens: threat
+    entry_keys:
+      - 2-1
+      - 2-2
+      - 2-3
+      - 2-4
+      - 2-5
+      - 2-6
+      - 2-7
+      - 2-8
+      - 2-9
+      - 2-10
+      - 2-11
+      - 2-12
+  - reference_file: nist-sp-800-53r5
+    lens: control
+    entry_keys:
+      - ac-1
+      - ac-2
+      - ac-3
+      - ac-4
+      - ac-5
+      - ac-6
+      - ac-7
+      - ac-8
+      - ac-9
+      - ac-10
+      - ac-11
+      - ac-12
+      - ac-13
+      - ac-14
+      - ac-15
+      - ac-16
+      - ac-17
+      - ac-18
+      - ac-19
+      - ac-20
+      - ac-21
+      - ac-22
+      - ac-23
+      - ac-24
+      - ac-25
+      - at-1
+      - at-2
+      - at-3
+      - at-4
+      - at-5
+      - at-6
+      - au-1
+      - au-2
+      - au-3
+      - au-4
+      - au-5
+      - au-6
+      - au-7
+      - au-8
+      - au-9
+      - au-10
+      - au-11
+      - au-12
+      - au-13
+      - au-14
+      - au-15
+      - au-16
+      - ca-1
+      - ca-2
+      - ca-3
+      - ca-4
+      - ca-5
+      - ca-6
+      - ca-7
+      - ca-8
+      - ca-9
+      - cm-1
+      - cm-2
+      - cm-3
+      - cm-4
+      - cm-5
+      - cm-6
+      - cm-7
+      - cm-8
+      - cm-9
+      - cm-10
+      - cm-11
+      - cm-12
+      - cm-13
+      - cm-14
+      - cp-1
+      - cp-2
+      - cp-3
+      - cp-4
+      - cp-5
+      - cp-6
+      - cp-7
+      - cp-8
+      - cp-9
+      - cp-10
+      - cp-11
+      - cp-12
+      - cp-13
+      - ia-1
+      - ia-2
+      - ia-3
+      - ia-4
+      - ia-5
+      - ia-6
+      - ia-7
+      - ia-8
+      - ia-9
+      - ia-10
+      - ia-11
+      - ia-12
+      - ir-1
+      - ir-2
+      - ir-3
+      - ir-4
+      - ir-5
+      - ir-6
+      - ir-7
+      - ir-8
+      - ir-9
+      - ma-1
+      - ma-2
+      - ma-3
+      - ma-4
+      - ma-5
+      - ma-6
+      - ma-7
+      - mp-1
+      - mp-2
+      - mp-3
+      - mp-4
+      - mp-5
+      - mp-6
+      - mp-7
+      - mp-8
+      - pe-1
+      - pe-2
+      - pe-3
+      - pe-4
+      - pe-5
+      - pe-6
+      - pe-7
+      - pe-8
+      - pe-9
+      - pe-10
+      - pe-11
+      - pe-12
+      - pe-13
+      - pe-14
+      - pe-15
+      - pe-16
+      - pe-17
+      - pe-18
+      - pe-19
+      - pe-20
+      - pe-21
+      - pe-22
+      - pe-23
+      - pl-1
+      - pl-2
+      - pl-3
+      - pl-4
+      - pl-5
+      - pl-6
+      - pl-7
+      - pl-8
+      - pl-9
+      - pl-10
+      - pl-11
+      - pm-1
+      - pm-2
+      - pm-3
+      - pm-4
+      - pm-5
+      - pm-6
+      - pm-7
+      - pm-8
+      - pm-9
+      - pm-10
+      - pm-11
+      - pm-12
+      - pm-13
+      - pm-14
+      - pm-15
+      - pm-16
+      - pm-17
+      - pm-18
+      - pm-19
+      - pm-20
+      - pm-21
+      - pm-22
+      - pm-23
+      - pm-24
+      - pm-25
+      - pm-26
+      - pm-27
+      - pm-28
+      - pm-29
+      - pm-30
+      - pm-31
+      - pm-32
+      - ps-1
+      - ps-2
+      - ps-3
+      - ps-4
+      - ps-5
+      - ps-6
+      - ps-7
+      - ps-8
+      - ps-9
+      - pt-1
+      - pt-2
+      - pt-3
+      - pt-4
+      - pt-5
+      - pt-6
+      - pt-7
+      - pt-8
+      - ra-1
+      - ra-2
+      - ra-3
+      - ra-4
+      - ra-5
+      - ra-6
+      - ra-7
+      - ra-8
+      - ra-9
+      - ra-10
+      - sa-1
+      - sa-2
+      - sa-3
+      - sa-4
+      - sa-5
+      - sa-6
+      - sa-7
+      - sa-8
+      - sa-9
+      - sa-10
+      - sa-11
+      - sa-13
+      - sa-14
+      - sa-15
+      - sa-16
+      - sa-17
+      - sa-18
+      - sa-19
+      - sa-20
+      - sa-21
+      - sa-22
+      - sa-23
+      - sc-1
+      - sc-2
+      - sc-3
+      - sc-4
+      - sc-5
+      - sc-6
+      - sc-7
+      - sc-8
+      - sc-9
+      - sc-10
+      - sc-11
+      - sc-12
+      - sc-13
+      - sc-14
+      - sc-15
+      - sc-16
+      - sc-17
+      - sc-18
+      - sc-19
+      - sc-20
+      - sc-21
+      - sc-22
+      - sc-23
+      - sc-24
+      - sc-25
+      - sc-26
+      - sc-27
+      - sc-28
+      - sc-29
+      - sc-30
+      - sc-31
+      - sc-32
+      - sc-33
+      - sc-34
+      - sc-35
+      - sc-36
+      - sc-37
+      - sc-38
+      - sc-39
+      - sc-40
+      - sc-41
+      - sc-42
+      - sc-43
+      - sc-44
+      - sc-45
+      - sc-46
+      - sc-47
+      - sc-48
+      - sc-49
+      - sc-50
+      - sc-51
+      - si-1
+      - si-2
+      - si-3
+      - si-4
+      - si-5
+      - si-6
+      - si-7
+      - si-8
+      - si-9
+      - si-10
+      - si-11
+      - si-12
+      - si-13
+      - si-14
+      - si-15
+      - si-16
+      - si-17
+      - si-18
+      - si-19
+      - si-20
+      - si-21
+      - si-22
+      - si-23
+      - sr-1
+      - sr-2
+      - sr-3
+      - sr-4
+      - sr-5
+      - sr-6
+      - sr-7
+      - sr-8
+      - sr-9
+      - sr-10
+      - sr-11
+      - sr-12
+  - reference_file: owasp-asi
+    lens: threat
+    entry_keys:
+      - asi01-2026
+      - asi02-2026
+      - asi03-2026
+      - asi04-2026
+      - asi05-2026
+      - asi06-2026
+      - asi07-2026
+      - asi08-2026
+      - asi09-2026
+      - asi10-2026
+  - reference_file: owasp-llm
+    lens: threat
+    entry_keys:
+      - llm01-2026
+      - llm02-2026
+      - llm03-2026
+      - llm04-2026
+      - llm05-2026
+      - llm06-2026
+      - llm07-2026
+      - llm08-2026
+      - llm09-2026
+      - llm10-2026
+      - llm01-2025
+      - llm02-2025
+      - llm03-2025
+      - llm04-2025
+      - llm05-2025
+      - llm06-2025
+      - llm07-2025
+      - llm08-2025
+      - llm09-2025
+      - llm10-2025
+  - reference_file: owasp-ml
+    lens: threat
+    entry_keys:
+      - ml01-2023
+      - ml02-2023
+      - ml03-2023
+      - ml04-2023
+      - ml05-2023
+      - ml06-2023
+      - ml07-2023
+      - ml08-2023
+      - ml09-2023
+      - ml10-2023
+  - reference_file: sr11-7
+    lens: obligation
+    entry_keys:
+      - overview
+      - s2
+      - s2-dev
+      - s2-impl
+      - s2-use
+      - s3
+      - s3-conceptual
+      - s3-monitoring
+      - s3-outcomes
+      - s4
+      - s4-board
+      - s4-policies
+      - s4-inventory
+      - s4-audit
+      - s4-incentives
+  - reference_file: uk-regulations
+    lens: obligation
+    entry_keys:
+      - fca-ai-approach-2024
+      - boe-fca-ai-survey-2024
+      - pra-ss1-23-mrm
+      - pra-ai-mrm-roundtable-2025
+      - fca-prin
+      - fca-prin-2a
+      - fca-sysc
+      - fca-smcr
+      - fca-cobs-4
+      - fca-cobs-9
+      - fca-cobs-9a
+      - fca-mifidpru
+      - fca-fg16-5-cloud
+      - pra-ss2-21-outsourcing
+      - boe-fca-pra-critical-third-parties-2024
+      - uk-gdpr-dpa-2018
+      - ico-ai-data-protection-toolkit
+      - ico-guidance-ai-data-protection
+      - equality-act-2010
+      - consumer-credit-act-1974
 risks:
-- item_id: ri-1
-  source_file: docs/_risks/ri-1_information-leaked-to-hosted-model.md
-  sequence: 1
-  title: Information Leaked To Hosted Model
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: RC
-  risk_domain: leakage
-  owasp_llm_references:
-  - llm02-2026
-  nist_ai_600_1_references:
-  - 2-4
-  - 2-9
-  ffiec_itbooklets_references:
-  - sec-2
-  - sec-3
-  - ots-2
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a13
-  - c5-s2-a53
-  canada_regulations_references:
-  - csa-sn-11-348
-  - csa-sn-11-326
-  - csa-sn-11-332
-  - csa-sn-33-321
-  - ni-31-103-s11-1
-  - ni-31-103-s11-5
-  - ni-31-103cp
-  - ciro-idpc-rule-3800
-  - ciro-gn-2300-21-003
-  - osfi-b13-d3
-  - iosco-fr-02-2026
-  - pipeda
-  - qc-p39-s12-1
-  - qc-p39-s3-3-s17
-  uk_regulations_references:
-  - fca-sysc
-  - fca-fg16-5-cloud
-  - pra-ss2-21-outsourcing
-  - boe-fca-pra-critical-third-parties-2024
-  - uk-gdpr-dpa-2018
-  - ico-guidance-ai-data-protection
-  - ico-ai-data-protection-toolkit
-  related_risks:
-  - ri-2
-  - ri-23
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-4
-- item_id: ri-2
-  source_file: docs/_risks/ri-2_information-leaked-to-vector-store.md
-  sequence: 2
-  title: Information Leaked to Vector Store
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: leakage
-  owasp_llm_references:
-  - llm02-2026
-  - llm09-2026
-  nist_ai_600_1_references:
-  - 2-4
-  - 2-9
-  ffiec_itbooklets_references:
-  - sec-3
-  - sec-4
-  - aud-4
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a15
-  - c3-s3-a16
-  canada_regulations_references:
-  - csa-sn-11-348
-  - csa-sn-11-326
-  - csa-sn-11-332
-  - csa-sn-33-321
-  - ni-31-103-s11-1
-  - ni-31-103-s11-5
-  - ni-31-103cp
-  - ciro-idpc-rule-3800
-  - ciro-gn-2300-21-003
-  - osfi-b13-d3
-  - osfi-b-10
-  - osfi-e23-2027
-  - iosco-fr-02-2026
-  - pipeda
-  - qc-p39-s3-3-s17
-  uk_regulations_references:
-  - fca-sysc
-  - fca-fg16-5-cloud
-  - pra-ss2-21-outsourcing
-  - boe-fca-pra-critical-third-parties-2024
-  - uk-gdpr-dpa-2018
-  - ico-guidance-ai-data-protection
-  - ico-ai-data-protection-toolkit
-  related_risks:
-  - ri-1
-  - ri-9
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-4
-- item_id: ri-4
-  source_file: docs/_risks/ri-4_hallucination-and-inaccurate-outputs.md
-  sequence: 4
-  title: Hallucination and Inaccurate Outputs
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: accuracy
-  owasp_llm_references:
-  - llm07-2026
-  owasp_ml_references:
-  - ml09-2023
-  nist_ai_600_1_references:
-  - 2-2
-  - 2-8
-  ffiec_itbooklets_references:
-  - dam-3
-  - aud-4
-  - mgt-2
-  eu_ai_act_references:
-  - c3-s2-a15
-  - c3-s2-a13
-  - c3-s2-a9
-  related_risks:
-  - ri-14
-  - ri-6
-  - ri-19
-  iosco_supervisory_toolkit_references:
-  - t2-model-risk
-  - t3-6
-- item_id: ri-5
-  source_file: docs/_risks/ri-5_foundation-model-versioning.md
-  sequence: 5
-  title: Foundation Model Versioning
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: vendor
-  related_risks:
-  - ri-7
-  - ri-8
-  owasp_llm_references:
-  - llm07-2026
-  owasp_ml_references:
-  - ml07-2023
-  nist_ai_600_1_references:
-  - 2-8
-  ffiec_itbooklets_references:
-  - ots-2
-  - dam-7
-  - aud-4
-  eu_ai_act_references:
-  - c3-s2-a9
-  - c3-s2-a15
-  - c5-s2-a53
-  iosco_supervisory_toolkit_references:
-  - t2-model-risk
-  - t3-6
-- item_id: ri-6
-  source_file: docs/_risks/ri-6_non-deterministic-behaviour.md
-  sequence: 6
-  title: Non-Deterministic Behaviour
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: accuracy
-  owasp_llm_references:
-  - llm07-2026
-  ffiec_itbooklets_references:
-  - dam-3
-  - aud-4
-  eu_ai_act_references:
-  - c3-s2-a9
-  - c3-s2-a15
-  - c3-s2-a14
-  related_risks:
-  - ri-4
-  - ri-14
-  iosco_supervisory_toolkit_references:
-  - t2-model-risk
-  - t2-market-risks
-  - t3-5
-  - t3-6
-- item_id: ri-7
-  source_file: docs/_risks/ri-7_availability-of-foundational-model.md
-  sequence: 7
-  title: Availability of Foundational Model
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: vendor
-  owasp_llm_references:
-  - llm06-2026
-  ffiec_itbooklets_references:
-  - bcm-4
-  - bcm-5
-  - ots-2
-  - aio-6
-  eu_ai_act_references:
-  - c3-s2-a15
-  - c3-s3-a26
-  - c5-s2-a53
-  related_risks:
-  - ri-5
-  - ri-8
-  iosco_supervisory_toolkit_references:
-  - t2-reliability
-  - t4-5
-  - t4-6
-  - t2-outsourcing
-- item_id: ri-8
-  source_file: docs/_risks/ri-8_tampering-with-the-foundational-model.md
-  sequence: 8
-  title: Tampering With the Foundational Model
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: components
-  owasp_llm_references:
-  - llm04-2026
-  owasp_ml_references:
-  - ml05-2023
-  - ml06-2023
-  - ml10-2023
-  nist_ai_600_1_references:
-  - 2-12
-  ffiec_itbooklets_references:
-  - sec-3
-  - ots-2
-  - dam-3
-  - dam-6
-  eu_ai_act_references:
-  - c3-s2-a15
-  - c3-s3-a16
-  - c5-s2-a53
-  related_risks:
-  - ri-9
-  - ri-7
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t4-4
-- item_id: ri-9
-  source_file: docs/_risks/ri-9_data-poisoning.md
-  sequence: 9
-  title: Data Poisoning
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: inputs
-  owasp_llm_references:
-  - llm04-2026
-  - llm05-2026
-  - llm10-2026
-  owasp_ml_references:
-  - ml02-2023
-  - ml10-2023
-  nist_ai_600_1_references:
-  - 2-8
-  - 2-12
-  ffiec_itbooklets_references:
-  - sec-3
-  - dam-3
-  - aud-4
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a15
-  - c5-s2-a53
-  related_risks:
-  - ri-8
-  - ri-19
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-4
-  - t4-4
-- item_id: ri-10
-  source_file: docs/_risks/ri-10_prompt-injection.md
-  sequence: 10
-  title: Prompt Injection
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: inputs
-  owasp_llm_references:
-  - llm01-2026
-  - llm03-2026
-  - llm05-2026
-  - llm06-2026
-  owasp_asi_references:
-  - asi01-2026
-  ffiec_itbooklets_references:
-  - sec-3
-  - dam-4
-  - dam-5
-  eu_ai_act_references:
-  - c2-a5
-  - c3-s2-a15
-  - c3-s2-a14
-  atr_references:
-  - ATR-2026-00010
-  - ATR-2026-00011
-  related_risks:
-  - ri-18
-  - ri-20
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-5
-- item_id: ri-14
-  source_file: docs/_risks/ri-14_inadequate-system-alignment.md
-  sequence: 14
-  title: Inadequate System Alignment
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: alignment
-  ffiec_itbooklets_references:
-  - dam-3
-  - dam-5
-  - aud-4
-  eu_ai_act_references:
-  - c2-a5
-  - c3-s2-a9
-  - c3-s2-a14
-  nist_sp_800_53r5_references:
-  - sa-11
-  - ra-3
-  - ca-6
-  related_risks:
-  - ri-4
-  - ri-6
-  owasp_llm_references:
-  - llm08-2026
-  owasp_asi_references:
-  - asi10-2026
-  owasp_ml_references:
-  - ml08-2023
-  iosco_supervisory_toolkit_references:
-  - t2-advice
-  - t3-5
-  - t3-6
-- item_id: ri-16
-  source_file: docs/_risks/ri-16_bias-and-discrimination.md
-  sequence: 16
-  title: Bias and Discrimination
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: alignment
-  nist_ai_600_1_references:
-  - 2-6
-  ffiec_itbooklets_references:
-  - mgt-2
-  - dam-3
-  - aud-4
-  eu_ai_act_references:
-  - c2-a5
-  - c3-s2-a9
-  - c3-s2-a10
-  - c3-s2-a14
-  - c3-s3-a27
-  canada_regulations_references:
-  - csa-sn-11-348
-  - ni-81-107
-  - osfi-e23-2027-p3-2
-  - qc-amf-ai-guideline
-  - iosco-fr-02-2026
-  - on-hrc-s1
-  - chra-s3-s5
-  uk_regulations_references:
-  - fca-ai-approach-2024
-  - fca-prin
-  - fca-prin-2a
-  - uk-gdpr-dpa-2018
-  - ico-guidance-ai-data-protection
-  - ico-ai-data-protection-toolkit
-  - equality-act-2010
-  - consumer-credit-act-1974
-  related_risks:
-  - ri-19
-  - ri-22
-  iosco_supervisory_toolkit_references:
-  - t2-advice
-  - t3-6
-  - t4-3
-- item_id: ri-17
-  source_file: docs/_risks/ri-17_lack-of-explainability.md
-  sequence: 17
-  title: Lack of Explainability
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: alignment
-  ffiec_itbooklets_references:
-  - mgt-2
-  - aud-4
-  - dam-3
-  eu_ai_act_references:
-  - c3-s2-a13
-  - c3-s2-a14
-  - c4-a50
-  - c9-s4-a86
-  canada_regulations_references:
-  - csa-sn-11-348
-  - ni-31-103-s13-3
-  - ni-31-103-s13-2-1
-  - ni-31-103-s14-2
-  - csa-ciro-sn-31-368
-  - csa-sn-31-342
-  - ciro-rules-phase-4
-  - ciro-idpc-rule-3900
-  - ni-81-102
-  - qc-p39-s12-1
-  - osfi-e23-2027
-  - qc-amf-ai-guideline
-  - iosco-fr-02-2026
-  owasp_asi_references:
-  - asi09-2026
-  related_risks:
-  - ri-22
-  - ri-16
-  - ri-18
-  uk_regulations_references:
-  - fca-ai-approach-2024
-  - fca-prin-2a
-  - fca-cobs-9
-  - fca-cobs-9a
-  - pra-ss1-23-mrm
-  - uk-gdpr-dpa-2018
-  - ico-guidance-ai-data-protection
-  - ico-ai-data-protection-toolkit
-  iosco_supervisory_toolkit_references:
-  - t2-disclosure
-  - t5-1
-  - t6-4
-  - t3-7
-  - t4-2
-- item_id: ri-18
-  source_file: docs/_risks/ri-18_model-overreach-expanded-use.md
-  sequence: 18
-  title: Model Overreach / Expanded Use
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: agency
-  owasp_llm_references:
-  - llm03-2026
-  ffiec_itbooklets_references:
-  - mgt-1
-  - mgt-2
-  - aud-4
-  eu_ai_act_references:
-  - c3-s1-a6
-  - c3-s2-a14
-  - c3-s3-a26
-  canada_regulations_references:
-  - csa-sn-11-348
-  - ni-33-109-f5
-  - ni-81-102
-  - ni-81-106
-  - ciro-rules-phase-4
-  - ciro-acr-2026
-  - csa-sn-31-342
-  - ni-31-103-s11-1
-  - ni-31-103cp
-  - ciro-gn-2300-21-003
-  - osfi-e23-2027-p3-6
-  - osfi-b-10
-  uk_regulations_references:
-  - fca-ai-approach-2024
-  - fca-prin
-  - fca-prin-2a
-  - fca-sysc
-  - fca-smcr
-  - fca-cobs-9
-  - fca-cobs-9a
-  - pra-ss1-23-mrm
-  - pra-ai-mrm-roundtable-2025
-  related_risks:
-  - ri-10
-  - ri-17
-  - ri-22
-  iosco_supervisory_toolkit_references:
-  - t2-advice
-  - t3-5
-  - t3-7
-  - t4-9
-- item_id: ri-19
-  source_file: docs/_risks/ri-19_data-quality-and-drift.md
-  sequence: 19
-  title: Data Quality and Drift
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: accuracy
-  nist_ai_600_1_references:
-  - 2-8
-  ffiec_itbooklets_references:
-  - dam-3
-  - dam-7
-  - aud-4
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a9
-  - c3-s2-a15
-  canada_regulations_references:
-  - csa-sn-11-348
-  - ni-31-103-s11-5
-  - ciro-idpc-rule-3800
-  - ciro-acr-2026
-  - ni-31-103cp
-  - ciro-gn-2300-21-003
-  - osfi-b13-d2
-  - osfi-e23-2027-p3-2
-  - osfi-e23-2027-p3-6
-  - qc-amf-ai-guideline
-  - iosco-fr-02-2026
-  - pipeda-schedule1
-  uk_regulations_references:
-  - fca-ai-approach-2024
-  - boe-fca-ai-survey-2024
-  - fca-prin-2a
-  - fca-sysc
-  - pra-ss1-23-mrm
-  - pra-ai-mrm-roundtable-2025
-  - uk-gdpr-dpa-2018
-  - ico-guidance-ai-data-protection
-  - ico-ai-data-protection-toolkit
-  related_risks:
-  - ri-4
-  - ri-16
-  - ri-9
-  iosco_supervisory_toolkit_references:
-  - t2-model-risk
-  - t3-4
-  - t3-6
-- item_id: ri-20
-  source_file: docs/_risks/ri-20_reputational-risk.md
-  sequence: 20
-  title: Reputational Risk
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: liability
-  owasp_llm_references:
-  - llm07-2026
-  ffiec_itbooklets_references:
-  - mgt-2
-  - bcm-3
-  - aud-4
-  eu_ai_act_references:
-  - c2-a5
-  - c3-s2-a9
-  - c3-s2-a14
-  canada_regulations_references:
-  - csa-sn-11-348
-  - ni-81-102
-  - ni-31-103-s13-4
-  - csa-ciro-sn-31-363
-  - ni-81-107
-  - ciro-acr-2026
-  - osfi-e23-2027
-  - iosco-fr-02-2026
-  uk_regulations_references:
-  - fca-ai-approach-2024
-  - boe-fca-ai-survey-2024
-  - fca-prin
-  - fca-prin-2a
-  - fca-cobs-4
-  - fca-smcr
-  - equality-act-2010
-  - uk-gdpr-dpa-2018
-  related_risks:
-  - ri-10
-  - ri-16
-  - ri-4
-  iosco_supervisory_toolkit_references:
-  - t2-disclosure
-  - t5-4
-- item_id: ri-22
-  source_file: docs/_risks/ri-22_regulatory-compliance-and-oversight.md
-  sequence: 22
-  title: Regulatory Compliance and Oversight
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: RC
-  risk_domain: liability
-  nist_ai_600_1_references:
-  - 2-9
-  ffiec_itbooklets_references:
-  - mgt-1
-  - mgt-2
-  - aud-3
-  - aud-4
-  eu_ai_act_references:
-  - c3-s2-a8
-  - c3-s2-a10
-  - c3-s3-a16
-  - c3-s3-a21
-  - c3-s3-a27
-  canada_regulations_references:
-  - csa-sn-11-348
-  - ciro-acr-2026
-  - ni-31-103-s11-1
-  - ni-31-103-s13-2
-  - ni-31-103-s13-2-1
-  - ni-31-103-s13-3
-  - ni-31-103-s13-4
-  - ni-31-103cp
-  - csa-ciro-sn-31-363
-  - csa-ciro-sn-31-368
-  - csa-sn-31-342
-  - ni-33-109-f5
-  - ni-81-102
-  - ni-81-107
-  - ni-81-106
-  - ciro-idpc-rule-3100-3600
-  - ciro-idpc-rule-3800
-  - ciro-idpc-rule-3900
-  - ciro-rules-phase-4
-  - ciro-gn-2300-21-003
-  - osfi-e23-2027
-  - osfi-b-10
-  - qc-amf-ai-guideline
-  - iosco-fr-02-2026
-  - pipeda
-  - qc-p39-s12-1
-  - qc-p39-s3-3-s17
-  uk_regulations_references:
-  - fca-ai-approach-2024
-  - boe-fca-ai-survey-2024
-  - pra-ai-mrm-roundtable-2025
-  - pra-ss1-23-mrm
-  - fca-prin
-  - fca-prin-2a
-  - fca-sysc
-  - fca-smcr
-  - fca-cobs-4
-  - fca-cobs-9
-  - fca-cobs-9a
-  - fca-mifidpru
-  - fca-fg16-5-cloud
-  - pra-ss2-21-outsourcing
-  - boe-fca-pra-critical-third-parties-2024
-  - uk-gdpr-dpa-2018
-  - ico-guidance-ai-data-protection
-  - ico-ai-data-protection-toolkit
-  - equality-act-2010
-  - consumer-credit-act-1974
-  related_risks:
-  - ri-16
-  - ri-17
-  - ri-18
-  iosco_supervisory_toolkit_references:
-  - t2-governance
-  - t3-1
-  - t3-2
-  - t3-3
-  - t6-6
-  - t4-7
-  - t5-2
-- item_id: ri-23
-  source_file: docs/_risks/ri-23_intellectual-property-ip-and-copyright.md
-  sequence: 23
-  title: Intellectual Property (IP) and Copyright
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: RC
-  risk_domain: liability
-  nist_ai_600_1_references:
-  - 2-10
-  ffiec_itbooklets_references:
-  - mgt-1
-  - mgt-2
-  - ots-2
-  - dam-6
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a11
-  - c5-s2-a53
-  related_risks:
-  - ri-1
-  - ri-22
-  iosco_supervisory_toolkit_references:
-  - t3-4
-  - t4-4
-- item_id: ri-24
-  source_file: docs/_risks/ri-24_agent-action-authorization-bypass.md
-  sequence: 24
-  title: Agent Action Authorization Bypass
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: agency
-  owasp_llm_references:
-  - llm03-2026
-  owasp_asi_references:
-  - asi02-2026
-  - asi03-2026
-  atr_references:
-  - ATR-2026-00012
-  - ATR-2026-00040
-  - ATR-2026-00098
-  - ATR-2026-00118
-  related_risks:
-  - ri-10
-  - ri-18
-  - ri-22
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t3-7
-- item_id: ri-25
-  source_file: docs/_risks/ri-25_tool-chain-manipulation-and-injection.md
-  sequence: 25
-  title: Tool Chain Manipulation and Injection
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: inputs
-  owasp_llm_references:
-  - llm01-2026
-  owasp_asi_references:
-  - asi02-2026
-  - asi05-2026
-  atr_references:
-  - ATR-2026-00010
-  - ATR-2026-00011
-  - ATR-2026-00012
-  - ATR-2026-00013
-  related_risks:
-  - ri-10
-  - ri-24
-  - ri-4
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t3-7
-- item_id: ri-26
-  source_file: docs/_risks/ri-26_mcp-server-supply-chain-compromise.md
-  sequence: 26
-  title: MCP Server Supply Chain Compromise
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: components
-  owasp_asi_references:
-  - asi04-2026
-  atr_references:
-  - ATR-2026-00010
-  related_risks:
-  - ri-8
-  - ri-9
-  - ri-1
-  iosco_supervisory_toolkit_references:
-  - t4-4
-  - t2-cybersecurity
-  - t3-5
-- item_id: ri-27
-  source_file: docs/_risks/ri-27_agent-state-persistence-poisoning.md
-  sequence: 27
-  title: Agent State Persistence Poisoning
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: inputs
-  owasp_asi_references:
-  - asi06-2026
-  atr_references:
-  - ATR-2026-00075
-  related_risks:
-  - ri-10
-  - ri-24
-  - ri-9
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t2-cybersecurity
-  - t6-5
-- item_id: ri-28
-  source_file: docs/_risks/ri-28_multi-agent-trust-boundary-violations.md
-  sequence: 28
-  title: Multi-Agent Trust Boundary Violations
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: OP
-  risk_domain: agency
-  owasp_asi_references:
-  - asi07-2026
-  - asi08-2026
-  - asi10-2026
-  atr_references:
-  - ATR-2026-00030
-  - ATR-2026-00076
-  related_risks:
-  - ri-24
-  - ri-27
-  - ri-20
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t3-7
-  - t6-5
-- item_id: ri-29
-  source_file: docs/_risks/ri-29_agent-mediated-credential-discovery-and-harvesting.md
-  sequence: 29
-  title: Agent-Mediated Credential Discovery and Harvesting
-  layout: risk
-  doc_status: Approved-Specification
-  risk_type: SEC
-  risk_domain: leakage
-  owasp_llm_references:
-  - llm01-2026
-  - llm03-2026
-  owasp_asi_references:
-  - asi03-2026
-  atr_references:
-  - ATR-2026-00113
-  related_risks:
-  - ri-10
-  - ri-24
-  - ri-25
-  - ri-26
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-5
-  - t6-5
-- item_id: ri-30
-  source_file: docs/_risks/ri-30_skill-plugin-supply-chain-compromise.md
-  sequence: 30
-  title: Skill/Plugin Supply Chain Compromise
-  layout: risk
-  doc_status: Draft
-  risk_type: SEC
-  risk_domain: components
-  owasp_llm_references:
-  - llm03-2025
-  - llm06-2025
-  owasp_asi_references:
-  - asi04-2026
-  related_risks:
-  - ri-8
-  - ri-9
-  - ri-10
-  - ri-25
-  - ri-26
-  - ri-27
-  - ri-29
+  - item_id: ri-1
+    source_file: docs/_risks/ri-1_information-leaked-to-hosted-model.md
+    sequence: 1
+    title: Information Leaked To Hosted Model
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: RC
+    risk_domain: leakage
+    owasp_llm_references:
+      - llm02-2026
+    nist_ai_600_1_references:
+      - 2-4
+      - 2-9
+    ffiec_itbooklets_references:
+      - sec-2
+      - sec-3
+      - ots-2
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a13
+      - c5-s2-a53
+    canada_regulations_references:
+      - csa-sn-11-348
+      - csa-sn-11-326
+      - csa-sn-11-332
+      - csa-sn-33-321
+      - ni-31-103-s11-1
+      - ni-31-103-s11-5
+      - ni-31-103cp
+      - ciro-idpc-rule-3800
+      - ciro-gn-2300-21-003
+      - osfi-b13-d3
+      - iosco-fr-02-2026
+      - pipeda
+      - qc-p39-s12-1
+      - qc-p39-s3-3-s17
+    uk_regulations_references:
+      - fca-sysc
+      - fca-fg16-5-cloud
+      - pra-ss2-21-outsourcing
+      - boe-fca-pra-critical-third-parties-2024
+      - uk-gdpr-dpa-2018
+      - ico-guidance-ai-data-protection
+      - ico-ai-data-protection-toolkit
+    related_risks:
+      - ri-2
+      - ri-23
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-4
+  - item_id: ri-2
+    source_file: docs/_risks/ri-2_information-leaked-to-vector-store.md
+    sequence: 2
+    title: Information Leaked to Vector Store
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: leakage
+    owasp_llm_references:
+      - llm02-2026
+      - llm09-2026
+    nist_ai_600_1_references:
+      - 2-4
+      - 2-9
+    ffiec_itbooklets_references:
+      - sec-3
+      - sec-4
+      - aud-4
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a15
+      - c3-s3-a16
+    canada_regulations_references:
+      - csa-sn-11-348
+      - csa-sn-11-326
+      - csa-sn-11-332
+      - csa-sn-33-321
+      - ni-31-103-s11-1
+      - ni-31-103-s11-5
+      - ni-31-103cp
+      - ciro-idpc-rule-3800
+      - ciro-gn-2300-21-003
+      - osfi-b13-d3
+      - osfi-b-10
+      - osfi-e23-2027
+      - iosco-fr-02-2026
+      - pipeda
+      - qc-p39-s3-3-s17
+    uk_regulations_references:
+      - fca-sysc
+      - fca-fg16-5-cloud
+      - pra-ss2-21-outsourcing
+      - boe-fca-pra-critical-third-parties-2024
+      - uk-gdpr-dpa-2018
+      - ico-guidance-ai-data-protection
+      - ico-ai-data-protection-toolkit
+    related_risks:
+      - ri-1
+      - ri-9
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-4
+  - item_id: ri-4
+    source_file: docs/_risks/ri-4_hallucination-and-inaccurate-outputs.md
+    sequence: 4
+    title: Hallucination and Inaccurate Outputs
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: accuracy
+    owasp_llm_references:
+      - llm07-2026
+    owasp_ml_references:
+      - ml09-2023
+    nist_ai_600_1_references:
+      - 2-2
+      - 2-8
+    ffiec_itbooklets_references:
+      - dam-3
+      - aud-4
+      - mgt-2
+    eu_ai_act_references:
+      - c3-s2-a15
+      - c3-s2-a13
+      - c3-s2-a9
+    related_risks:
+      - ri-14
+      - ri-6
+      - ri-19
+    iosco_supervisory_toolkit_references:
+      - t2-model-risk
+      - t3-6
+  - item_id: ri-5
+    source_file: docs/_risks/ri-5_foundation-model-versioning.md
+    sequence: 5
+    title: Foundation Model Versioning
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: vendor
+    related_risks:
+      - ri-7
+      - ri-8
+    owasp_llm_references:
+      - llm07-2026
+    owasp_ml_references:
+      - ml07-2023
+    nist_ai_600_1_references:
+      - 2-8
+    ffiec_itbooklets_references:
+      - ots-2
+      - dam-7
+      - aud-4
+    eu_ai_act_references:
+      - c3-s2-a9
+      - c3-s2-a15
+      - c5-s2-a53
+    iosco_supervisory_toolkit_references:
+      - t2-model-risk
+      - t3-6
+  - item_id: ri-6
+    source_file: docs/_risks/ri-6_non-deterministic-behaviour.md
+    sequence: 6
+    title: Non-Deterministic Behaviour
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: accuracy
+    owasp_llm_references:
+      - llm07-2026
+    ffiec_itbooklets_references:
+      - dam-3
+      - aud-4
+    eu_ai_act_references:
+      - c3-s2-a9
+      - c3-s2-a15
+      - c3-s2-a14
+    related_risks:
+      - ri-4
+      - ri-14
+    iosco_supervisory_toolkit_references:
+      - t2-model-risk
+      - t2-market-risks
+      - t3-5
+      - t3-6
+  - item_id: ri-7
+    source_file: docs/_risks/ri-7_availability-of-foundational-model.md
+    sequence: 7
+    title: Availability of Foundational Model
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: vendor
+    owasp_llm_references:
+      - llm06-2026
+    ffiec_itbooklets_references:
+      - bcm-4
+      - bcm-5
+      - ots-2
+      - aio-6
+    eu_ai_act_references:
+      - c3-s2-a15
+      - c3-s3-a26
+      - c5-s2-a53
+    related_risks:
+      - ri-5
+      - ri-8
+    iosco_supervisory_toolkit_references:
+      - t2-reliability
+      - t4-5
+      - t4-6
+      - t2-outsourcing
+  - item_id: ri-8
+    source_file: docs/_risks/ri-8_tampering-with-the-foundational-model.md
+    sequence: 8
+    title: Tampering With the Foundational Model
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: components
+    owasp_llm_references:
+      - llm04-2026
+    owasp_ml_references:
+      - ml05-2023
+      - ml06-2023
+      - ml10-2023
+    nist_ai_600_1_references:
+      - 2-12
+    ffiec_itbooklets_references:
+      - sec-3
+      - ots-2
+      - dam-3
+      - dam-6
+    eu_ai_act_references:
+      - c3-s2-a15
+      - c3-s3-a16
+      - c5-s2-a53
+    related_risks:
+      - ri-9
+      - ri-7
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t4-4
+  - item_id: ri-9
+    source_file: docs/_risks/ri-9_data-poisoning.md
+    sequence: 9
+    title: Data Poisoning
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: inputs
+    owasp_llm_references:
+      - llm04-2026
+      - llm05-2026
+      - llm10-2026
+    owasp_ml_references:
+      - ml02-2023
+      - ml10-2023
+    nist_ai_600_1_references:
+      - 2-8
+      - 2-12
+    ffiec_itbooklets_references:
+      - sec-3
+      - dam-3
+      - aud-4
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a15
+      - c5-s2-a53
+    related_risks:
+      - ri-8
+      - ri-19
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-4
+      - t4-4
+  - item_id: ri-10
+    source_file: docs/_risks/ri-10_prompt-injection.md
+    sequence: 10
+    title: Prompt Injection
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: inputs
+    owasp_llm_references:
+      - llm01-2026
+      - llm03-2026
+      - llm05-2026
+      - llm06-2026
+    owasp_asi_references:
+      - asi01-2026
+    ffiec_itbooklets_references:
+      - sec-3
+      - dam-4
+      - dam-5
+    eu_ai_act_references:
+      - c2-a5
+      - c3-s2-a15
+      - c3-s2-a14
+    atr_references:
+      - ATR-2026-00010
+      - ATR-2026-00011
+    related_risks:
+      - ri-18
+      - ri-20
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-5
+  - item_id: ri-14
+    source_file: docs/_risks/ri-14_inadequate-system-alignment.md
+    sequence: 14
+    title: Inadequate System Alignment
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: alignment
+    ffiec_itbooklets_references:
+      - dam-3
+      - dam-5
+      - aud-4
+    eu_ai_act_references:
+      - c2-a5
+      - c3-s2-a9
+      - c3-s2-a14
+    nist_sp_800_53r5_references:
+      - sa-11
+      - ra-3
+      - ca-6
+    related_risks:
+      - ri-4
+      - ri-6
+    owasp_llm_references:
+      - llm08-2026
+    owasp_asi_references:
+      - asi10-2026
+    owasp_ml_references:
+      - ml08-2023
+    iosco_supervisory_toolkit_references:
+      - t2-advice
+      - t3-5
+      - t3-6
+  - item_id: ri-16
+    source_file: docs/_risks/ri-16_bias-and-discrimination.md
+    sequence: 16
+    title: Bias and Discrimination
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: alignment
+    nist_ai_600_1_references:
+      - 2-6
+    ffiec_itbooklets_references:
+      - mgt-2
+      - dam-3
+      - aud-4
+    eu_ai_act_references:
+      - c2-a5
+      - c3-s2-a9
+      - c3-s2-a10
+      - c3-s2-a14
+      - c3-s3-a27
+    canada_regulations_references:
+      - csa-sn-11-348
+      - ni-81-107
+      - osfi-e23-2027-p3-2
+      - qc-amf-ai-guideline
+      - iosco-fr-02-2026
+      - on-hrc-s1
+      - chra-s3-s5
+    uk_regulations_references:
+      - fca-ai-approach-2024
+      - fca-prin
+      - fca-prin-2a
+      - uk-gdpr-dpa-2018
+      - ico-guidance-ai-data-protection
+      - ico-ai-data-protection-toolkit
+      - equality-act-2010
+      - consumer-credit-act-1974
+    related_risks:
+      - ri-19
+      - ri-22
+    iosco_supervisory_toolkit_references:
+      - t2-advice
+      - t3-6
+      - t4-3
+  - item_id: ri-17
+    source_file: docs/_risks/ri-17_lack-of-explainability.md
+    sequence: 17
+    title: Lack of Explainability
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: alignment
+    ffiec_itbooklets_references:
+      - mgt-2
+      - aud-4
+      - dam-3
+    eu_ai_act_references:
+      - c3-s2-a13
+      - c3-s2-a14
+      - c4-a50
+      - c9-s4-a86
+    canada_regulations_references:
+      - csa-sn-11-348
+      - ni-31-103-s13-3
+      - ni-31-103-s13-2-1
+      - ni-31-103-s14-2
+      - csa-ciro-sn-31-368
+      - csa-sn-31-342
+      - ciro-rules-phase-4
+      - ciro-idpc-rule-3900
+      - ni-81-102
+      - qc-p39-s12-1
+      - osfi-e23-2027
+      - qc-amf-ai-guideline
+      - iosco-fr-02-2026
+    owasp_asi_references:
+      - asi09-2026
+    related_risks:
+      - ri-22
+      - ri-16
+      - ri-18
+    uk_regulations_references:
+      - fca-ai-approach-2024
+      - fca-prin-2a
+      - fca-cobs-9
+      - fca-cobs-9a
+      - pra-ss1-23-mrm
+      - uk-gdpr-dpa-2018
+      - ico-guidance-ai-data-protection
+      - ico-ai-data-protection-toolkit
+    iosco_supervisory_toolkit_references:
+      - t2-disclosure
+      - t5-1
+      - t6-4
+      - t3-7
+      - t4-2
+  - item_id: ri-18
+    source_file: docs/_risks/ri-18_model-overreach-expanded-use.md
+    sequence: 18
+    title: Model Overreach / Expanded Use
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: agency
+    owasp_llm_references:
+      - llm03-2026
+    ffiec_itbooklets_references:
+      - mgt-1
+      - mgt-2
+      - aud-4
+    eu_ai_act_references:
+      - c3-s1-a6
+      - c3-s2-a14
+      - c3-s3-a26
+    canada_regulations_references:
+      - csa-sn-11-348
+      - ni-33-109-f5
+      - ni-81-102
+      - ni-81-106
+      - ciro-rules-phase-4
+      - ciro-acr-2026
+      - csa-sn-31-342
+      - ni-31-103-s11-1
+      - ni-31-103cp
+      - ciro-gn-2300-21-003
+      - osfi-e23-2027-p3-6
+      - osfi-b-10
+    uk_regulations_references:
+      - fca-ai-approach-2024
+      - fca-prin
+      - fca-prin-2a
+      - fca-sysc
+      - fca-smcr
+      - fca-cobs-9
+      - fca-cobs-9a
+      - pra-ss1-23-mrm
+      - pra-ai-mrm-roundtable-2025
+    related_risks:
+      - ri-10
+      - ri-17
+      - ri-22
+    iosco_supervisory_toolkit_references:
+      - t2-advice
+      - t3-5
+      - t3-7
+      - t4-9
+  - item_id: ri-19
+    source_file: docs/_risks/ri-19_data-quality-and-drift.md
+    sequence: 19
+    title: Data Quality and Drift
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: accuracy
+    nist_ai_600_1_references:
+      - 2-8
+    ffiec_itbooklets_references:
+      - dam-3
+      - dam-7
+      - aud-4
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a9
+      - c3-s2-a15
+    canada_regulations_references:
+      - csa-sn-11-348
+      - ni-31-103-s11-5
+      - ciro-idpc-rule-3800
+      - ciro-acr-2026
+      - ni-31-103cp
+      - ciro-gn-2300-21-003
+      - osfi-b13-d2
+      - osfi-e23-2027-p3-2
+      - osfi-e23-2027-p3-6
+      - qc-amf-ai-guideline
+      - iosco-fr-02-2026
+      - pipeda-schedule1
+    uk_regulations_references:
+      - fca-ai-approach-2024
+      - boe-fca-ai-survey-2024
+      - fca-prin-2a
+      - fca-sysc
+      - pra-ss1-23-mrm
+      - pra-ai-mrm-roundtable-2025
+      - uk-gdpr-dpa-2018
+      - ico-guidance-ai-data-protection
+      - ico-ai-data-protection-toolkit
+    related_risks:
+      - ri-4
+      - ri-16
+      - ri-9
+    iosco_supervisory_toolkit_references:
+      - t2-model-risk
+      - t3-4
+      - t3-6
+  - item_id: ri-20
+    source_file: docs/_risks/ri-20_reputational-risk.md
+    sequence: 20
+    title: Reputational Risk
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: liability
+    owasp_llm_references:
+      - llm07-2026
+    ffiec_itbooklets_references:
+      - mgt-2
+      - bcm-3
+      - aud-4
+    eu_ai_act_references:
+      - c2-a5
+      - c3-s2-a9
+      - c3-s2-a14
+    canada_regulations_references:
+      - csa-sn-11-348
+      - ni-81-102
+      - ni-31-103-s13-4
+      - csa-ciro-sn-31-363
+      - ni-81-107
+      - ciro-acr-2026
+      - osfi-e23-2027
+      - iosco-fr-02-2026
+    uk_regulations_references:
+      - fca-ai-approach-2024
+      - boe-fca-ai-survey-2024
+      - fca-prin
+      - fca-prin-2a
+      - fca-cobs-4
+      - fca-smcr
+      - equality-act-2010
+      - uk-gdpr-dpa-2018
+    related_risks:
+      - ri-10
+      - ri-16
+      - ri-4
+    iosco_supervisory_toolkit_references:
+      - t2-disclosure
+      - t5-4
+  - item_id: ri-22
+    source_file: docs/_risks/ri-22_regulatory-compliance-and-oversight.md
+    sequence: 22
+    title: Regulatory Compliance and Oversight
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: RC
+    risk_domain: liability
+    nist_ai_600_1_references:
+      - 2-9
+    ffiec_itbooklets_references:
+      - mgt-1
+      - mgt-2
+      - aud-3
+      - aud-4
+    eu_ai_act_references:
+      - c3-s2-a8
+      - c3-s2-a10
+      - c3-s3-a16
+      - c3-s3-a21
+      - c3-s3-a27
+    canada_regulations_references:
+      - csa-sn-11-348
+      - ciro-acr-2026
+      - ni-31-103-s11-1
+      - ni-31-103-s13-2
+      - ni-31-103-s13-2-1
+      - ni-31-103-s13-3
+      - ni-31-103-s13-4
+      - ni-31-103cp
+      - csa-ciro-sn-31-363
+      - csa-ciro-sn-31-368
+      - csa-sn-31-342
+      - ni-33-109-f5
+      - ni-81-102
+      - ni-81-107
+      - ni-81-106
+      - ciro-idpc-rule-3100-3600
+      - ciro-idpc-rule-3800
+      - ciro-idpc-rule-3900
+      - ciro-rules-phase-4
+      - ciro-gn-2300-21-003
+      - osfi-e23-2027
+      - osfi-b-10
+      - qc-amf-ai-guideline
+      - iosco-fr-02-2026
+      - pipeda
+      - qc-p39-s12-1
+      - qc-p39-s3-3-s17
+    uk_regulations_references:
+      - fca-ai-approach-2024
+      - boe-fca-ai-survey-2024
+      - pra-ai-mrm-roundtable-2025
+      - pra-ss1-23-mrm
+      - fca-prin
+      - fca-prin-2a
+      - fca-sysc
+      - fca-smcr
+      - fca-cobs-4
+      - fca-cobs-9
+      - fca-cobs-9a
+      - fca-mifidpru
+      - fca-fg16-5-cloud
+      - pra-ss2-21-outsourcing
+      - boe-fca-pra-critical-third-parties-2024
+      - uk-gdpr-dpa-2018
+      - ico-guidance-ai-data-protection
+      - ico-ai-data-protection-toolkit
+      - equality-act-2010
+      - consumer-credit-act-1974
+    related_risks:
+      - ri-16
+      - ri-17
+      - ri-18
+    iosco_supervisory_toolkit_references:
+      - t2-governance
+      - t3-1
+      - t3-2
+      - t3-3
+      - t6-6
+      - t4-7
+      - t5-2
+  - item_id: ri-23
+    source_file: docs/_risks/ri-23_intellectual-property-ip-and-copyright.md
+    sequence: 23
+    title: Intellectual Property (IP) and Copyright
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: RC
+    risk_domain: liability
+    nist_ai_600_1_references:
+      - 2-10
+    ffiec_itbooklets_references:
+      - mgt-1
+      - mgt-2
+      - ots-2
+      - dam-6
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a11
+      - c5-s2-a53
+    related_risks:
+      - ri-1
+      - ri-22
+    iosco_supervisory_toolkit_references:
+      - t3-4
+      - t4-4
+  - item_id: ri-24
+    source_file: docs/_risks/ri-24_agent-action-authorization-bypass.md
+    sequence: 24
+    title: Agent Action Authorization Bypass
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: agency
+    owasp_llm_references:
+      - llm03-2026
+    owasp_asi_references:
+      - asi02-2026
+      - asi03-2026
+    atr_references:
+      - ATR-2026-00012
+      - ATR-2026-00040
+      - ATR-2026-00098
+      - ATR-2026-00118
+    related_risks:
+      - ri-10
+      - ri-18
+      - ri-22
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t3-7
+  - item_id: ri-25
+    source_file: docs/_risks/ri-25_tool-chain-manipulation-and-injection.md
+    sequence: 25
+    title: Tool Chain Manipulation and Injection
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: inputs
+    owasp_llm_references:
+      - llm01-2026
+    owasp_asi_references:
+      - asi02-2026
+      - asi05-2026
+    atr_references:
+      - ATR-2026-00010
+      - ATR-2026-00011
+      - ATR-2026-00012
+      - ATR-2026-00013
+    related_risks:
+      - ri-10
+      - ri-24
+      - ri-4
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t3-7
+  - item_id: ri-26
+    source_file: docs/_risks/ri-26_mcp-server-supply-chain-compromise.md
+    sequence: 26
+    title: MCP Server Supply Chain Compromise
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: components
+    owasp_asi_references:
+      - asi04-2026
+    atr_references:
+      - ATR-2026-00010
+    related_risks:
+      - ri-8
+      - ri-9
+      - ri-1
+    iosco_supervisory_toolkit_references:
+      - t4-4
+      - t2-cybersecurity
+      - t3-5
+  - item_id: ri-27
+    source_file: docs/_risks/ri-27_agent-state-persistence-poisoning.md
+    sequence: 27
+    title: Agent State Persistence Poisoning
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: inputs
+    owasp_asi_references:
+      - asi06-2026
+    atr_references:
+      - ATR-2026-00075
+    related_risks:
+      - ri-10
+      - ri-24
+      - ri-9
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t2-cybersecurity
+      - t6-5
+  - item_id: ri-28
+    source_file: docs/_risks/ri-28_multi-agent-trust-boundary-violations.md
+    sequence: 28
+    title: Multi-Agent Trust Boundary Violations
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: OP
+    risk_domain: agency
+    owasp_asi_references:
+      - asi07-2026
+      - asi08-2026
+      - asi10-2026
+    atr_references:
+      - ATR-2026-00030
+      - ATR-2026-00076
+    related_risks:
+      - ri-24
+      - ri-27
+      - ri-20
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t3-7
+      - t6-5
+  - item_id: ri-29
+    source_file: docs/_risks/ri-29_agent-mediated-credential-discovery-and-harvesting.md
+    sequence: 29
+    title: Agent-Mediated Credential Discovery and Harvesting
+    layout: risk
+    doc_status: Approved-Specification
+    risk_type: SEC
+    risk_domain: leakage
+    owasp_llm_references:
+      - llm01-2026
+      - llm03-2026
+    owasp_asi_references:
+      - asi03-2026
+    atr_references:
+      - ATR-2026-00113
+    related_risks:
+      - ri-10
+      - ri-24
+      - ri-25
+      - ri-26
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-5
+      - t6-5
+  - item_id: ri-30
+    source_file: docs/_risks/ri-30_skill-plugin-supply-chain-compromise.md
+    sequence: 30
+    title: Skill/Plugin Supply Chain Compromise
+    layout: risk
+    doc_status: Draft
+    risk_type: SEC
+    risk_domain: components
+    owasp_llm_references:
+      - llm03-2025
+      - llm06-2025
+    owasp_asi_references:
+      - asi04-2026
+    related_risks:
+      - ri-8
+      - ri-9
+      - ri-10
+      - ri-25
+      - ri-26
+      - ri-27
+      - ri-29
 mitigations:
-- item_id: mi-1
-  source_file: docs/_mitigations/mi-1_ai-data-leakage-prevention-and-detection.md
-  sequence: 1
-  title: AI Data Leakage Prevention and Detection
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: monitoring
-  iso_42001_references:
-  - A-7-2
-  - A-6-2-6
-  - A-5-2
-  nist_sp_800_53r5_references:
-  - ac-4
-  - ac-20
-  - au-13
-  - ca-3
-  - ca-7
-  - ir-4
-  - ir-9
-  - mp-6
-  - sa-9
-  - sc-7
-  - sc-8
-  - sc-28
-  - si-4
-  - si-20
-  mitigates:
-  - ri-1
-  related_mitigations:
-  - mi-2
-  - mi-4
-  - mi-14
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-- item_id: mi-2
-  source_file: docs/_mitigations/mi-2_data-filtering-from-external-knowledge-bases.md
-  sequence: 2
-  title: Data Filtering From External Knowledge Bases
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: filtering
-  iso_42001_references:
-  - A-7-2
-  - A-7-3
-  - A-7-4
-  - A-7-6
-  nist_sp_800_53r5_references:
-  - ac-4
-  - ac-22
-  - mp-6
-  - pt-2
-  - si-4
-  - si-12
-  - si-15
-  - si-19
-  mitigates:
-  - ri-1
-  - ri-9
-  related_mitigations:
-  - mi-1
-  - mi-6
-  - mi-16
-  iosco_supervisory_toolkit_references:
-  - t3-4
-- item_id: mi-3
-  source_file: docs/_mitigations/mi-3_user-app-model-firewalling-filtering.md
-  sequence: 3
-  title: User/App/Model Firewalling/Filtering
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: filtering
-  iso_42001_references:
-  - A-6-1-3
-  - A-6-2-2
-  - A-9-2
-  nist_sp_800_53r5_references:
-  - ac-4
-  - sc-5
-  - sc-7
-  - si-4
-  - si-10
-  - si-15
-  mitigates:
-  - ri-7
-  - ri-10
-  - ri-18
-  - ri-20
-  related_mitigations:
-  - mi-17
-  - mi-8
-  - mi-15
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-7
-- item_id: mi-4
-  source_file: docs/_mitigations/mi-4_ai-system-observability.md
-  sequence: 4
-  title: AI System Observability
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: monitoring
-  iso_42001_references:
-  - A-6-2-6
-  - A-6-2-8
-  nist_sp_800_53r5_references:
-  - ac-2
-  - au-2
-  - au-3
-  - au-6
-  - au-11
-  - au-12
-  - ca-7
-  - ir-4
-  - ir-5
-  - ra-10
-  - si-4
-  - si-7
-  mitigates:
-  - ri-1
-  - ri-5
-  - ri-6
-  - ri-7
-  - ri-14
-  - ri-18
-  - ri-19
-  - ri-24
-  - ri-25
-  - ri-26
-  - ri-27
-  - ri-28
-  - ri-29
-  related_mitigations:
-  - mi-9
-  - mi-11
-  - mi-1
-  - mi-21
-  iosco_supervisory_toolkit_references:
-  - t2-recordkeeping
-  - t6-1
-  - t6-3
-  - t6-5
-  - t7-adoption
-  - t7-nature
-  - t7-performance
-- item_id: mi-5
-  source_file: docs/_mitigations/mi-5_system-acceptance-testing.md
-  sequence: 5
-  title: System Acceptance Testing
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: evaluation
-  iso_42001_references:
-  - A-6-2-4
-  - A-6-2-5
-  eu_ai_act_references:
-  - c3-s2-a9
-  - c3-s2-a15
-  nist_sp_800_53r5_references:
-  - ca-2
-  - ca-6
-  - cm-4
-  - sa-4
-  - sa-11
-  - si-2
-  - si-6
-  mitigates:
-  - ri-4
-  - ri-5
-  - ri-6
-  - ri-14
-  - ri-16
-  - ri-22
-  related_mitigations:
-  - mi-15
-  - mi-11
-  - mi-10
-  iosco_supervisory_toolkit_references:
-  - t3-6
-  - t4-1
-- item_id: mi-6
-  source_file: docs/_mitigations/mi-6_data-quality-classification-sensitivity.md
-  sequence: 6
-  title: Data Quality & Classification/Sensitivity
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: data
-  iso_42001_references:
-  - A-7-4
-  - A-7-2
-  - A-4-3
-  eu_ai_act_references:
-  - c3-s2-a10
-  nist_sp_800_53r5_references:
-  - ac-1
-  - ac-4
-  - ac-16
-  - at-2
-  - at-3
-  - ca-7
-  - cm-13
-  - pm-11
-  - pm-22
-  - pm-23
-  - ra-2
-  - si-7
-  - si-10
-  - si-12
-  - si-18
-  mitigates:
-  - ri-1
-  - ri-2
-  - ri-4
-  - ri-9
-  - ri-16
-  - ri-19
-  - ri-22
-  - ri-23
-  related_mitigations:
-  - mi-2
-  - mi-12
-  - mi-14
-  iosco_supervisory_toolkit_references:
-  - t3-4
-  - t3-6
-  - t4-4
-- item_id: mi-7
-  source_file: docs/_mitigations/mi-7_legal-and-contractual-frameworks-for-ai-systems.md
-  sequence: 7
-  title: Legal and Contractual Frameworks for AI Systems
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: sourcing
-  iso_42001_references:
-  - A-2-3
-  - A-10-2
-  - A-10-3
-  - A-8-5
-  nist_sp_800_53r5_references:
-  - ac-20
-  - ca-3
-  - ir-6
-  - pm-30
-  - ps-7
-  - sa-4
-  - sa-9
-  - sr-2
-  - sr-3
-  - sr-5
-  - sr-8
-  mitigates:
-  - ri-1
-  - ri-8
-  - ri-20
-  - ri-22
-  - ri-23
-  related_mitigations:
-  - mi-1
-  - mi-10
-  - mi-6
-  iosco_supervisory_toolkit_references:
-  - t4-1
-  - t4-7
-  - t7-third-party
-- item_id: mi-8
-  source_file: docs/_mitigations/mi-8_quality-of-service-qos-and-ddos-prevention-for-ai-systems.md
-  sequence: 8
-  title: Quality of Service (QoS) and DDoS Prevention for AI Systems
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: filtering
-  iso_42001_references:
-  - A-6-2-6
-  - A-4-5
-  nist_sp_800_53r5_references:
-  - sc-5
-  - sc-6
-  - sc-7
-  - si-4
-  - si-10
-  - si-13
-  - ir-4
-  - ca-7
-  mitigates:
-  - ri-7
-  related_mitigations:
-  - mi-9
-  - mi-17
-  - mi-4
-  iosco_supervisory_toolkit_references:
-  - t2-reliability
-  - t4-6
-  - t7-performance
-- item_id: mi-9
-  source_file: docs/_mitigations/mi-9_ai-system-alerting-and-denial-of-wallet-dow-spend-monitoring.md
-  sequence: 9
-  title: AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: monitoring
-  iso_42001_references:
-  - A-6-2-6
-  - A-4-2
-  nist_sp_800_53r5_references:
-  - ac-2
-  - ca-7
-  - ir-4
-  - sc-5
-  - sc-6
-  - si-4
-  mitigates:
-  - ri-7
-  related_mitigations:
-  - mi-8
-  - mi-4
-  - mi-3
-  iosco_supervisory_toolkit_references:
-  - t7-performance
-  - t2-reliability
-  - t6-5
-- item_id: mi-10
-  source_file: docs/_mitigations/mi-10_ai-model-version-pinning.md
-  sequence: 10
-  title: AI Model Version Pinning
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: sourcing
-  iso_42001_references:
-  - A-6-2-3
-  - A-6-2-5
-  - A-6-2-6
-  - A-4-4
-  nist_sp_800_53r5_references:
-  - cm-2
-  - cm-3
-  - cm-4
-  - cm-8
-  - au-2
-  - sa-4
-  - sa-10
-  - sa-22
-  - sr-4
-  - sr-8
-  mitigates:
-  - ri-5
-  - ri-6
-  related_mitigations:
-  - mi-5
-  - mi-4
-  iosco_supervisory_toolkit_references:
-  - t3-6
-- item_id: mi-11
-  source_file: docs/_mitigations/mi-11_human-feedback-loop-for-ai-systems.md
-  sequence: 11
-  title: Human Feedback Loop for AI Systems
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: oversight
-  iso_42001_references:
-  - A-6-2-6
-  - A-8-2
-  - A-8-3
-  - A-3-3
-  eu_ai_act_references:
-  - c3-s2-a14
-  - c9-s1-a72
-  nist_sp_800_53r5_references:
-  - ca-7
-  - ir-6
-  - pm-26
-  - ra-5
-  - si-2
-  - si-4
-  - at-2
-  - ca-2
-  mitigates:
-  - ri-5
-  - ri-6
-  - ri-14
-  - ri-16
-  - ri-18
-  - ri-20
-  related_mitigations:
-  - mi-15
-  - mi-4
-  - mi-5
-  iosco_supervisory_toolkit_references:
-  - t3-7
-  - t3-6
-  - t6-3
-- item_id: mi-12
-  source_file: docs/_mitigations/mi-12_role-based-access-control-for-ai-data.md
-  sequence: 12
-  title: Role-Based Access Control for AI Data
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: access
-  iso_42001_references:
-  - A-3-2
-  - A-7-2
-  nist_sp_800_53r5_references:
-  - ac-1
-  - ac-2
-  - ac-3
-  - ac-5
-  - ac-6
-  - ac-16
-  - au-2
-  - au-6
-  - ia-2
-  - ia-4
-  - ia-5
-  - cm-12
-  mitigates:
-  - ri-1
-  - ri-8
-  - ri-9
-  related_mitigations:
-  - mi-16
-  - mi-6
-  - mi-14
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-4
-  - t3-7
-- item_id: mi-13
-  source_file: docs/_mitigations/mi-13_providing-citations-and-source-traceability-for-ai-generated-information.md
-  sequence: 13
-  title: Providing Citations and Source Traceability for AI-Generated Information
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: oversight
-  iso_42001_references:
-  - A-8-2
-  - A-6-1-2
-  - A-6-2-7
-  eu_ai_act_references:
-  - c3-s2-a13
-  - c9-s4-a86
-  nist_sp_800_53r5_references:
-  - au-10
-  - sa-8
-  - ac-16
-  - si-7
-  - at-2
-  mitigates:
-  - ri-4
-  - ri-17
-  - ri-20
-  - ri-22
-  related_mitigations:
-  - mi-4
-  - mi-6
-  - mi-16
-  iosco_supervisory_toolkit_references:
-  - t2-recordkeeping
-  - t5-1
-  - t6-4
-  - t6-3
-- item_id: mi-14
-  source_file: docs/_mitigations/mi-14_encryption-of-ai-data-at-rest.md
-  sequence: 14
-  title: Encryption of AI Data at Rest
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: data
-  iso_42001_references:
-  - A-7-2
-  nist_sp_800_53r5_references:
-  - sc-28
-  - sc-12
-  - sc-13
-  - cp-9
-  - ac-19
-  - sa-9
-  - cm-3
-  mitigates:
-  - ri-2
-  - ri-22
-  related_mitigations:
-  - mi-6
-  - mi-12
-  - mi-1
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-- item_id: mi-15
-  source_file: docs/_mitigations/mi-15_using-large-language-models-for-automated-evaluation-llm-as-a-judge-.md
-  sequence: 15
-  title: Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: evaluation
-  iso_42001_references:
-  - A-6-2-4
-  - A-6-2-6
-  nist_sp_800_53r5_references:
-  - ca-2
-  - ca-7
-  - au-6
-  - ra-10
-  - sa-11
-  - si-4
-  - si-7
-  - si-15
-  mitigates:
-  - ri-1
-  - ri-4
-  - ri-5
-  - ri-6
-  - ri-14
-  - ri-16
-  - ri-19
-  related_mitigations:
-  - mi-11
-  - mi-5
-  - mi-3
-  iosco_supervisory_toolkit_references:
-  - t3-6
-- item_id: mi-16
-  source_file: docs/_mitigations/mi-16_preserving-source-data-access-controls-in-ai-systems.md
-  sequence: 16
-  title: Preserving Source Data Access Controls in AI Systems
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: data
-  iso_42001_references:
-  - A-7-2
-  - A-7-3
-  - A-9-2
-  nist_sp_800_53r5_references:
-  - ac-3
-  - ac-4
-  - ac-6
-  - ac-16
-  - ac-21
-  - au-2
-  - au-6
-  - ca-7
-  - ca-8
-  - si-4
-  - si-7
-  mitigates:
-  - ri-2
-  - ri-22
-  related_mitigations:
-  - mi-12
-  - mi-2
-  - mi-4
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-4
-- item_id: mi-17
-  source_file: docs/_mitigations/mi-17_ai-firewall-implementation-and-management.md
-  sequence: 17
-  title: AI Firewall Implementation and Management
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: filtering
-  iso_42001_references:
-  - A-6-1-3
-  - A-6-2-2
-  - A-9-2
-  nist_sp_800_53r5_references:
-  - ac-4
-  - sc-5
-  - sc-7
-  - si-3
-  - si-4
-  - si-10
-  - si-15
-  mitigates:
-  - ri-7
-  - ri-10
-  - ri-18
-  - ri-20
-  related_mitigations:
-  - mi-3
-  - mi-8
-  - mi-15
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-- item_id: mi-18
-  source_file: docs/_mitigations/mi-18_agent-authority-least-privilege-framework.md
-  sequence: 18
-  title: Agent Authority Least Privilege Framework
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: access
-  iso_42001_references:
-  - A-9-2
-  - A-6-2-6
-  nist_sp_800_53r5_references:
-  - ac-6
-  - ac-2
-  - ac-3
-  - ac-5
-  - cm-7
-  atr_references:
-  - ATR-2026-00012
-  - ATR-2026-00040
-  - ATR-2026-00098
-  mitigates:
-  - ri-24
-  - ri-18
-  related_mitigations:
-  - mi-12
-  - mi-3
-  - mi-1
-  - mi-19
-  - mi-20
-  - mi-22
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t3-7
-- item_id: mi-19
-  source_file: docs/_mitigations/mi-19_tool-chain-validation-and-sanitization.md
-  sequence: 19
-  title: Tool Chain Validation and Sanitization
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: filtering
-  nist_sp_800_53r5_references:
-  - si-10
-  - si-15
-  - sc-4
-  atr_references:
-  - ATR-2026-00011
-  - ATR-2026-00012
-  - ATR-2026-00013
-  mitigates:
-  - ri-25
-  - ri-10
-  - ri-24
-  related_mitigations:
-  - mi-3
-  - mi-18
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t4-4
-- item_id: mi-20
-  source_file: docs/_mitigations/mi-20_mcp-server-security-governance.md
-  sequence: 20
-  title: MCP Server Security Governance
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: sourcing
-  nist_sp_800_53r5_references:
-  - sa-9
-  - sc-8
-  - si-4
-  - sr-3
-  - sr-4
-  - sr-5
-  atr_references:
-  - ATR-2026-00010
-  mitigates:
-  - ri-26
-  - ri-8
-  - ri-1
-  related_mitigations:
-  - mi-7
-  - mi-4
-  iosco_supervisory_toolkit_references:
-  - t4-4
-- item_id: mi-21
-  source_file: docs/_mitigations/mi-21_agent-decision-audit-and-explainability.md
-  sequence: 21
-  title: Agent Decision Audit and Explainability
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: DET
-  mitigation_domain: monitoring
-  iso_42001_references:
-  - A-8-3
-  - A-6-2-6
-  eu_ai_act_references:
-  - c3-s2-a12
-  - c3-s3-a26
-  - c9-s1-a72
-  - c3-s2-a13
-  - c9-s4-a86
-  nist_sp_800_53r5_references:
-  - au-2
-  - au-3
-  - au-6
-  - ca-7
-  mitigates:
-  - ri-24
-  - ri-25
-  - ri-22
-  related_mitigations:
-  - mi-4
-  - mi-11
-  iosco_supervisory_toolkit_references:
-  - t2-recordkeeping
-  - t3-7
-  - t6-1
-  - t6-3
-  - t6-4
-  - t6-5
-- item_id: mi-22
-  source_file: docs/_mitigations/mi-22_multi-agent-isolation-and-segmentation.md
-  sequence: 22
-  title: Multi-Agent Isolation and Segmentation
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: access
-  nist_sp_800_53r5_references:
-  - sc-7
-  - sc-32
-  - ac-4
-  - sc-3
-  atr_references:
-  - ATR-2026-00030
-  - ATR-2026-00076
-  mitigates:
-  - ri-28
-  - ri-24
-  - ri-27
-  related_mitigations:
-  - mi-18
-  - mi-12
-  iosco_supervisory_toolkit_references:
-  - t3-5
-  - t2-cybersecurity
-- item_id: mi-23
-  source_file: docs/_mitigations/mi-23_agentic-system-credential-protection-framework.md
-  sequence: 23
-  title: Agentic System Credential Protection Framework
-  layout: mitigation
-  doc_status: Approved-Specification
-  mitigation_type: PREV
-  mitigation_domain: access
-  nist_sp_800_53r5_references:
-  - ia-5
-  - sc-28
-  - ac-3
-  - au-6
-  atr_references:
-  - ATR-2026-00113
-  mitigates:
-  - ri-29
-  - ri-24
-  - ri-26
-  related_mitigations:
-  - mi-18
-  - mi-14
-  - mi-12
-  iosco_supervisory_toolkit_references:
-  - t2-cybersecurity
-  - t3-5
-- item_id: mi-24
-  source_file: docs/_mitigations/mi-24_human-in-the-loop-action-approval-gate.md
-  sequence: 24
-  title: Human-in-the-Loop Action Approval Gate
-  layout: mitigation
-  doc_status: Draft
-  mitigation_type: PREV
-  mitigation_domain: oversight
-  iso_42001_references:
-  - A-6-2-6
-  - A-9-2
-  eu_ai_act_references:
-  - c3-s2-a14
-  nist_sp_800_53r5_references:
-  - ac-3
-  - ac-5
-  - ac-6
-  - au-10
-  - si-4
-  mitigates:
-  - ri-24
-  - ri-18
-  - ri-22
-  related_mitigations:
-  - mi-18
-  - mi-11
-  - mi-21
-- item_id: mi-25
-  source_file: docs/_mitigations/mi-25_skill-plugin-integrity-and-governance.md
-  sequence: 25
-  title: Skill/Plugin Integrity and Governance
-  layout: mitigation
-  doc_status: Draft
-  mitigation_type: PREV
-  mitigation_domain: sourcing
-  nist_sp_800_53r5_references:
-  - sr-3
-  - sr-4
-  - sr-5
-  - si-7
-  - cm-7
-  mitigates:
-  - ri-30
-  - ri-8
-  - ri-9
-  related_mitigations:
-  - mi-20
-  - mi-19
-  - mi-18
-  - mi-15
+  - item_id: mi-1
+    source_file: docs/_mitigations/mi-1_ai-data-leakage-prevention-and-detection.md
+    sequence: 1
+    title: AI Data Leakage Prevention and Detection
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: monitoring
+    iso_42001_references:
+      - A-7-2
+      - A-6-2-6
+      - A-5-2
+    nist_sp_800_53r5_references:
+      - ac-4
+      - ac-20
+      - au-13
+      - ca-3
+      - ca-7
+      - ir-4
+      - ir-9
+      - mp-6
+      - sa-9
+      - sc-7
+      - sc-8
+      - sc-28
+      - si-4
+      - si-20
+    mitigates:
+      - ri-1
+    related_mitigations:
+      - mi-2
+      - mi-4
+      - mi-14
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+  - item_id: mi-2
+    source_file: docs/_mitigations/mi-2_data-filtering-from-external-knowledge-bases.md
+    sequence: 2
+    title: Data Filtering From External Knowledge Bases
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: filtering
+    iso_42001_references:
+      - A-7-2
+      - A-7-3
+      - A-7-4
+      - A-7-6
+    nist_sp_800_53r5_references:
+      - ac-4
+      - ac-22
+      - mp-6
+      - pt-2
+      - si-4
+      - si-12
+      - si-15
+      - si-19
+    mitigates:
+      - ri-1
+      - ri-9
+    related_mitigations:
+      - mi-1
+      - mi-6
+      - mi-16
+    iosco_supervisory_toolkit_references:
+      - t3-4
+  - item_id: mi-3
+    source_file: docs/_mitigations/mi-3_user-app-model-firewalling-filtering.md
+    sequence: 3
+    title: User/App/Model Firewalling/Filtering
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: filtering
+    iso_42001_references:
+      - A-6-1-3
+      - A-6-2-2
+      - A-9-2
+    nist_sp_800_53r5_references:
+      - ac-4
+      - sc-5
+      - sc-7
+      - si-4
+      - si-10
+      - si-15
+    mitigates:
+      - ri-7
+      - ri-10
+      - ri-18
+      - ri-20
+    related_mitigations:
+      - mi-17
+      - mi-8
+      - mi-15
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-7
+  - item_id: mi-4
+    source_file: docs/_mitigations/mi-4_ai-system-observability.md
+    sequence: 4
+    title: AI System Observability
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: monitoring
+    iso_42001_references:
+      - A-6-2-6
+      - A-6-2-8
+    nist_sp_800_53r5_references:
+      - ac-2
+      - au-2
+      - au-3
+      - au-6
+      - au-11
+      - au-12
+      - ca-7
+      - ir-4
+      - ir-5
+      - ra-10
+      - si-4
+      - si-7
+    mitigates:
+      - ri-1
+      - ri-5
+      - ri-6
+      - ri-7
+      - ri-14
+      - ri-18
+      - ri-19
+      - ri-24
+      - ri-25
+      - ri-26
+      - ri-27
+      - ri-28
+      - ri-29
+    related_mitigations:
+      - mi-9
+      - mi-11
+      - mi-1
+      - mi-21
+    iosco_supervisory_toolkit_references:
+      - t2-recordkeeping
+      - t6-1
+      - t6-3
+      - t6-5
+      - t7-adoption
+      - t7-nature
+      - t7-performance
+  - item_id: mi-5
+    source_file: docs/_mitigations/mi-5_system-acceptance-testing.md
+    sequence: 5
+    title: System Acceptance Testing
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: evaluation
+    iso_42001_references:
+      - A-6-2-4
+      - A-6-2-5
+    eu_ai_act_references:
+      - c3-s2-a9
+      - c3-s2-a15
+    nist_sp_800_53r5_references:
+      - ca-2
+      - ca-6
+      - cm-4
+      - sa-4
+      - sa-11
+      - si-2
+      - si-6
+    mitigates:
+      - ri-4
+      - ri-5
+      - ri-6
+      - ri-14
+      - ri-16
+      - ri-22
+    related_mitigations:
+      - mi-15
+      - mi-11
+      - mi-10
+    iosco_supervisory_toolkit_references:
+      - t3-6
+      - t4-1
+  - item_id: mi-6
+    source_file: docs/_mitigations/mi-6_data-quality-classification-sensitivity.md
+    sequence: 6
+    title: Data Quality & Classification/Sensitivity
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: data
+    iso_42001_references:
+      - A-7-4
+      - A-7-2
+      - A-4-3
+    eu_ai_act_references:
+      - c3-s2-a10
+    nist_sp_800_53r5_references:
+      - ac-1
+      - ac-4
+      - ac-16
+      - at-2
+      - at-3
+      - ca-7
+      - cm-13
+      - pm-11
+      - pm-22
+      - pm-23
+      - ra-2
+      - si-7
+      - si-10
+      - si-12
+      - si-18
+    mitigates:
+      - ri-1
+      - ri-2
+      - ri-4
+      - ri-9
+      - ri-16
+      - ri-19
+      - ri-22
+      - ri-23
+    related_mitigations:
+      - mi-2
+      - mi-12
+      - mi-14
+    iosco_supervisory_toolkit_references:
+      - t3-4
+      - t3-6
+      - t4-4
+  - item_id: mi-7
+    source_file: docs/_mitigations/mi-7_legal-and-contractual-frameworks-for-ai-systems.md
+    sequence: 7
+    title: Legal and Contractual Frameworks for AI Systems
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: sourcing
+    iso_42001_references:
+      - A-2-3
+      - A-10-2
+      - A-10-3
+      - A-8-5
+    nist_sp_800_53r5_references:
+      - ac-20
+      - ca-3
+      - ir-6
+      - pm-30
+      - ps-7
+      - sa-4
+      - sa-9
+      - sr-2
+      - sr-3
+      - sr-5
+      - sr-8
+    mitigates:
+      - ri-1
+      - ri-8
+      - ri-20
+      - ri-22
+      - ri-23
+    related_mitigations:
+      - mi-1
+      - mi-10
+      - mi-6
+    iosco_supervisory_toolkit_references:
+      - t4-1
+      - t4-7
+      - t7-third-party
+  - item_id: mi-8
+    source_file: docs/_mitigations/mi-8_quality-of-service-qos-and-ddos-prevention-for-ai-systems.md
+    sequence: 8
+    title: Quality of Service (QoS) and DDoS Prevention for AI Systems
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: filtering
+    iso_42001_references:
+      - A-6-2-6
+      - A-4-5
+    nist_sp_800_53r5_references:
+      - sc-5
+      - sc-6
+      - sc-7
+      - si-4
+      - si-10
+      - si-13
+      - ir-4
+      - ca-7
+    mitigates:
+      - ri-7
+    related_mitigations:
+      - mi-9
+      - mi-17
+      - mi-4
+    iosco_supervisory_toolkit_references:
+      - t2-reliability
+      - t4-6
+      - t7-performance
+  - item_id: mi-9
+    source_file: docs/_mitigations/mi-9_ai-system-alerting-and-denial-of-wallet-dow-spend-monitoring.md
+    sequence: 9
+    title: AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: monitoring
+    iso_42001_references:
+      - A-6-2-6
+      - A-4-2
+    nist_sp_800_53r5_references:
+      - ac-2
+      - ca-7
+      - ir-4
+      - sc-5
+      - sc-6
+      - si-4
+    mitigates:
+      - ri-7
+    related_mitigations:
+      - mi-8
+      - mi-4
+      - mi-3
+    iosco_supervisory_toolkit_references:
+      - t7-performance
+      - t2-reliability
+      - t6-5
+  - item_id: mi-10
+    source_file: docs/_mitigations/mi-10_ai-model-version-pinning.md
+    sequence: 10
+    title: AI Model Version Pinning
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: sourcing
+    iso_42001_references:
+      - A-6-2-3
+      - A-6-2-5
+      - A-6-2-6
+      - A-4-4
+    nist_sp_800_53r5_references:
+      - cm-2
+      - cm-3
+      - cm-4
+      - cm-8
+      - au-2
+      - sa-4
+      - sa-10
+      - sa-22
+      - sr-4
+      - sr-8
+    mitigates:
+      - ri-5
+      - ri-6
+    related_mitigations:
+      - mi-5
+      - mi-4
+    iosco_supervisory_toolkit_references:
+      - t3-6
+  - item_id: mi-11
+    source_file: docs/_mitigations/mi-11_human-feedback-loop-for-ai-systems.md
+    sequence: 11
+    title: Human Feedback Loop for AI Systems
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: oversight
+    iso_42001_references:
+      - A-6-2-6
+      - A-8-2
+      - A-8-3
+      - A-3-3
+    eu_ai_act_references:
+      - c3-s2-a14
+      - c9-s1-a72
+    nist_sp_800_53r5_references:
+      - ca-7
+      - ir-6
+      - pm-26
+      - ra-5
+      - si-2
+      - si-4
+      - at-2
+      - ca-2
+    mitigates:
+      - ri-5
+      - ri-6
+      - ri-14
+      - ri-16
+      - ri-18
+      - ri-20
+    related_mitigations:
+      - mi-15
+      - mi-4
+      - mi-5
+    iosco_supervisory_toolkit_references:
+      - t3-7
+      - t3-6
+      - t6-3
+  - item_id: mi-12
+    source_file: docs/_mitigations/mi-12_role-based-access-control-for-ai-data.md
+    sequence: 12
+    title: Role-Based Access Control for AI Data
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: access
+    iso_42001_references:
+      - A-3-2
+      - A-7-2
+    nist_sp_800_53r5_references:
+      - ac-1
+      - ac-2
+      - ac-3
+      - ac-5
+      - ac-6
+      - ac-16
+      - au-2
+      - au-6
+      - ia-2
+      - ia-4
+      - ia-5
+      - cm-12
+    mitigates:
+      - ri-1
+      - ri-8
+      - ri-9
+    related_mitigations:
+      - mi-16
+      - mi-6
+      - mi-14
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-4
+      - t3-7
+  - item_id: mi-13
+    source_file: docs/_mitigations/mi-13_providing-citations-and-source-traceability-for-ai-generated-information.md
+    sequence: 13
+    title: Providing Citations and Source Traceability for AI-Generated Information
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: oversight
+    iso_42001_references:
+      - A-8-2
+      - A-6-1-2
+      - A-6-2-7
+    eu_ai_act_references:
+      - c3-s2-a13
+      - c9-s4-a86
+    nist_sp_800_53r5_references:
+      - au-10
+      - sa-8
+      - ac-16
+      - si-7
+      - at-2
+    mitigates:
+      - ri-4
+      - ri-17
+      - ri-20
+      - ri-22
+    related_mitigations:
+      - mi-4
+      - mi-6
+      - mi-16
+    iosco_supervisory_toolkit_references:
+      - t2-recordkeeping
+      - t5-1
+      - t6-4
+      - t6-3
+  - item_id: mi-14
+    source_file: docs/_mitigations/mi-14_encryption-of-ai-data-at-rest.md
+    sequence: 14
+    title: Encryption of AI Data at Rest
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: data
+    iso_42001_references:
+      - A-7-2
+    nist_sp_800_53r5_references:
+      - sc-28
+      - sc-12
+      - sc-13
+      - cp-9
+      - ac-19
+      - sa-9
+      - cm-3
+    mitigates:
+      - ri-2
+      - ri-22
+    related_mitigations:
+      - mi-6
+      - mi-12
+      - mi-1
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+  - item_id: mi-15
+    source_file: docs/_mitigations/mi-15_using-large-language-models-for-automated-evaluation-llm-as-a-judge-.md
+    sequence: 15
+    title: Using Large Language Models for Automated Evaluation (LLM-as-a-Judge)
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: evaluation
+    iso_42001_references:
+      - A-6-2-4
+      - A-6-2-6
+    nist_sp_800_53r5_references:
+      - ca-2
+      - ca-7
+      - au-6
+      - ra-10
+      - sa-11
+      - si-4
+      - si-7
+      - si-15
+    mitigates:
+      - ri-1
+      - ri-4
+      - ri-5
+      - ri-6
+      - ri-14
+      - ri-16
+      - ri-19
+    related_mitigations:
+      - mi-11
+      - mi-5
+      - mi-3
+    iosco_supervisory_toolkit_references:
+      - t3-6
+  - item_id: mi-16
+    source_file: docs/_mitigations/mi-16_preserving-source-data-access-controls-in-ai-systems.md
+    sequence: 16
+    title: Preserving Source Data Access Controls in AI Systems
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: data
+    iso_42001_references:
+      - A-7-2
+      - A-7-3
+      - A-9-2
+    nist_sp_800_53r5_references:
+      - ac-3
+      - ac-4
+      - ac-6
+      - ac-16
+      - ac-21
+      - au-2
+      - au-6
+      - ca-7
+      - ca-8
+      - si-4
+      - si-7
+    mitigates:
+      - ri-2
+      - ri-22
+    related_mitigations:
+      - mi-12
+      - mi-2
+      - mi-4
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-4
+  - item_id: mi-17
+    source_file: docs/_mitigations/mi-17_ai-firewall-implementation-and-management.md
+    sequence: 17
+    title: AI Firewall Implementation and Management
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: filtering
+    iso_42001_references:
+      - A-6-1-3
+      - A-6-2-2
+      - A-9-2
+    nist_sp_800_53r5_references:
+      - ac-4
+      - sc-5
+      - sc-7
+      - si-3
+      - si-4
+      - si-10
+      - si-15
+    mitigates:
+      - ri-7
+      - ri-10
+      - ri-18
+      - ri-20
+    related_mitigations:
+      - mi-3
+      - mi-8
+      - mi-15
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+  - item_id: mi-18
+    source_file: docs/_mitigations/mi-18_agent-authority-least-privilege-framework.md
+    sequence: 18
+    title: Agent Authority Least Privilege Framework
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: access
+    iso_42001_references:
+      - A-9-2
+      - A-6-2-6
+    nist_sp_800_53r5_references:
+      - ac-6
+      - ac-2
+      - ac-3
+      - ac-5
+      - cm-7
+    atr_references:
+      - ATR-2026-00012
+      - ATR-2026-00040
+      - ATR-2026-00098
+    mitigates:
+      - ri-24
+      - ri-18
+    related_mitigations:
+      - mi-12
+      - mi-3
+      - mi-1
+      - mi-19
+      - mi-20
+      - mi-22
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t3-7
+  - item_id: mi-19
+    source_file: docs/_mitigations/mi-19_tool-chain-validation-and-sanitization.md
+    sequence: 19
+    title: Tool Chain Validation and Sanitization
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: filtering
+    nist_sp_800_53r5_references:
+      - si-10
+      - si-15
+      - sc-4
+    atr_references:
+      - ATR-2026-00011
+      - ATR-2026-00012
+      - ATR-2026-00013
+    mitigates:
+      - ri-25
+      - ri-10
+      - ri-24
+    related_mitigations:
+      - mi-3
+      - mi-18
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t4-4
+  - item_id: mi-20
+    source_file: docs/_mitigations/mi-20_mcp-server-security-governance.md
+    sequence: 20
+    title: MCP Server Security Governance
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: sourcing
+    nist_sp_800_53r5_references:
+      - sa-9
+      - sc-8
+      - si-4
+      - sr-3
+      - sr-4
+      - sr-5
+    atr_references:
+      - ATR-2026-00010
+    mitigates:
+      - ri-26
+      - ri-8
+      - ri-1
+    related_mitigations:
+      - mi-7
+      - mi-4
+    iosco_supervisory_toolkit_references:
+      - t4-4
+  - item_id: mi-21
+    source_file: docs/_mitigations/mi-21_agent-decision-audit-and-explainability.md
+    sequence: 21
+    title: Agent Decision Audit and Explainability
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: DET
+    mitigation_domain: monitoring
+    iso_42001_references:
+      - A-8-3
+      - A-6-2-6
+    eu_ai_act_references:
+      - c3-s2-a12
+      - c3-s3-a26
+      - c9-s1-a72
+      - c3-s2-a13
+      - c9-s4-a86
+    nist_sp_800_53r5_references:
+      - au-2
+      - au-3
+      - au-6
+      - ca-7
+    mitigates:
+      - ri-24
+      - ri-25
+      - ri-22
+    related_mitigations:
+      - mi-4
+      - mi-11
+    iosco_supervisory_toolkit_references:
+      - t2-recordkeeping
+      - t3-7
+      - t6-1
+      - t6-3
+      - t6-4
+      - t6-5
+  - item_id: mi-22
+    source_file: docs/_mitigations/mi-22_multi-agent-isolation-and-segmentation.md
+    sequence: 22
+    title: Multi-Agent Isolation and Segmentation
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: access
+    nist_sp_800_53r5_references:
+      - sc-7
+      - sc-32
+      - ac-4
+      - sc-3
+    atr_references:
+      - ATR-2026-00030
+      - ATR-2026-00076
+    mitigates:
+      - ri-28
+      - ri-24
+      - ri-27
+    related_mitigations:
+      - mi-18
+      - mi-12
+    iosco_supervisory_toolkit_references:
+      - t3-5
+      - t2-cybersecurity
+  - item_id: mi-23
+    source_file: docs/_mitigations/mi-23_agentic-system-credential-protection-framework.md
+    sequence: 23
+    title: Agentic System Credential Protection Framework
+    layout: mitigation
+    doc_status: Approved-Specification
+    mitigation_type: PREV
+    mitigation_domain: access
+    nist_sp_800_53r5_references:
+      - ia-5
+      - sc-28
+      - ac-3
+      - au-6
+    atr_references:
+      - ATR-2026-00113
+    mitigates:
+      - ri-29
+      - ri-24
+      - ri-26
+    related_mitigations:
+      - mi-18
+      - mi-14
+      - mi-12
+    iosco_supervisory_toolkit_references:
+      - t2-cybersecurity
+      - t3-5
+  - item_id: mi-24
+    source_file: docs/_mitigations/mi-24_human-in-the-loop-action-approval-gate.md
+    sequence: 24
+    title: Human-in-the-Loop Action Approval Gate
+    layout: mitigation
+    doc_status: Draft
+    mitigation_type: PREV
+    mitigation_domain: oversight
+    iso_42001_references:
+      - A-6-2-6
+      - A-9-2
+    eu_ai_act_references:
+      - c3-s2-a14
+    nist_sp_800_53r5_references:
+      - ac-3
+      - ac-5
+      - ac-6
+      - au-10
+      - si-4
+    mitigates:
+      - ri-24
+      - ri-18
+      - ri-22
+    related_mitigations:
+      - mi-18
+      - mi-11
+      - mi-21
+  - item_id: mi-25
+    source_file: docs/_mitigations/mi-25_skill-plugin-integrity-and-governance.md
+    sequence: 25
+    title: Skill/Plugin Integrity and Governance
+    layout: mitigation
+    doc_status: Draft
+    mitigation_type: PREV
+    mitigation_domain: sourcing
+    nist_sp_800_53r5_references:
+      - sr-3
+      - sr-4
+      - sr-5
+      - si-7
+      - cm-7
+    mitigates:
+      - ri-30
+      - ri-8
+      - ri-9
+    related_mitigations:
+      - mi-20
+      - mi-19
+      - mi-18
+      - mi-15
 use_cases:
-- item_id: uc-1
-  source_file: docs/_usecases/uc-1_credit-risk-analysis.md
-  sequence: 1
-  title: Credit Risk Analysis
-  layout: usecase
-  doc_status: Draft
-  category: Risk_Management_and_Compliance
-  description: An agent that performs credit risk analysis for small business loan applications
-  end_user: Risk analyst, loan officer
-  business_value: Reduces loan approval times from days to hours while standardizing risk
-    assessment
-  related_risks:
-  - ri-1
-  - ri-4
-  - ri-17
-  - ri-19
-  related_mitigations:
-  - mi-1
-  - mi-4
-  - mi-5
-  data_classifications:
-  - name: Customer_PII_Data
-    data_types:
-    - Credit applicant identity and contact information
-    - Business ownership and structure details
-  - name: Sensitive_Financial_Data
-    data_types:
-    - Individual credit application records and financial statements
-    - Account balances, income, and liability data
-    - Credit scores (input and agent-generated)
-  - name: Internal_Proprietary_Data
-    data_types:
-    - Proprietary internal lending policies
-    - Risk assessment models and scoring thresholds
-  data_handling_aspects:
-  - Centralized
-  - Privacy_Preserving
-  eu_ai_act_references:
-  - c3-s2-a10
-  sr11_7_references:
-  - overview
-  - s2-dev
-  - s3
-  - s4-inventory
-  regulatory_concerns:
-  - name: ECOA / Fair Lending
-    url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
-    jurisdiction: US
-  further_reading:
-  - name: Machine Learning in Credit Risk (Working Paper No. 1019)
-    url: https://www.bis.org/publ/work1019.htm
-    source: BIS
-  - name: AI in Credit Underwriting
-    url: https://www.accenture.com/us-en/insights/banking/credit-risk-ai
-    source: Accenture
-- item_id: uc-2
-  source_file: docs/_usecases/uc-2_autonomous-wealth-management.md
-  sequence: 2
-  title: Autonomous Wealth Management
-  layout: usecase
-  doc_status: Draft
-  category: Trading_and_Investment
-  description: An autonomous agent that manages client portfolios over long time horizons,
-    balancing market volatility with rigid adherence to client risk profiles
-  end_user: Wealth advisor, financial planner, retail wealth client
-  business_value: Solves fiduciary inconsistency by maintaining long-term constraint adherence
-    while adapting to market conditions
-  related_risks:
-  - ri-1
-  - ri-4
-  - ri-6
-  - ri-14
-  - ri-17
-  - ri-19
-  related_mitigations:
-  - mi-1
-  - mi-4
-  - mi-5
-  - mi-11
-  data_classifications:
-  - name: PHI_Other_Personal_Data
-    data_types:
-    - Health and life events linked to financial decisions (illness, disability)
-    - Personal circumstances affecting risk tolerance (marriage, retirement, bereavement)
-  - name: Customer_PII_Data
-    data_types:
-    - Client identity and contact information
-    - Long-term risk tolerance profiles (versioned over multi-year relationship)
-  - name: Sensitive_Financial_Data
-    data_types:
-    - Client portfolio holdings and balances
-    - Investment Policy Statement constraints and ethical restrictions
-    - Proprietary compliance and regulatory rule sets
-  data_handling_aspects:
-  - Centralized
-  - Privacy_Preserving
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a15
-  - c3-s2-a13
-  ffiec_itbooklets_references:
-  - dam-3
-  - mgt-2
-  nist_ai_600_1_references:
-  - 2-2
-  - 2-4
-  - 2-8
-  sr11_7_references:
-  - overview
-  - s2-dev
-  - s2-use
-  - s3
-  - s3-conceptual
-  - s4-board
-  - s4-inventory
-  regulatory_concerns:
-  - name: MiFID II
-    url: https://www.esma.europa.eu/regulation/post-trading/mifid-ii-and-mifir
-    jurisdiction: EU
-  - name: SEC Regulation Best Interest
-    url: https://www.sec.gov/info/edgar/regsbi-overview
-    jurisdiction: US
-  - name: GDPR Article 22
-    url: https://gdpr-info.eu/art-22-gdpr/
-    jurisdiction: EU
-  further_reading:
-  - name: AI and Machine Learning in Capital Markets (2021)
-    url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD658.pdf
-    source: IOSCO
-- item_id: uc-3
-  source_file: docs/_usecases/uc-3_loan-approval.md
-  sequence: 3
-  title: Loan Approval
-  layout: usecase
-  doc_status: Draft
-  category: Risk_and_Compliance
-  description: A multi-agent loan approval workflow that automates document intake, fraud
-    detection, credit risk assessment, decisioning, pricing, human review, agreement generation,
-    e-signature, and disbursement.
-  end_user: Loan officer, credit risk analyst, compliance officer, applicant
-  business_value: Reduces loan approval cycle time while improving consistency, auditability,
-    fraud detection, and risk-based pricing.
-  related_risks:
-  - ri-1
-  - ri-4
-  - ri-6
-  - ri-14
-  - ri-17
-  - ri-19
-  related_mitigations:
-  - mi-1
-  - mi-4
-  - mi-5
-  - mi-11
-  data_classifications:
-  - name: Customer_PII_Data
-    data_types:
-    - Applicant identity and contact information
-    - Government-issued identity documents
-    - Employment and address history
-  - name: Sensitive_Financial_Data
-    data_types:
-    - Loan applications and supporting financial documents
-    - Income, liabilities, assets, bank statements, and credit score data
-    - AI-generated risk scores, pricing recommendations, and decision rationale
-  - name: Internal_Proprietary_Data
-    data_types:
-    - Lending policies and underwriting thresholds
-    - Fraud detection rules and typologies
-    - Pricing models and risk appetite parameters
-  data_handling_aspects:
-  - Centralized
-  - Privacy_Preserving
-  eu_ai_act_references:
-  - c3-s2-a10
-  regulatory_concerns:
-  - name: ECOA / Fair Lending
-    url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
-    jurisdiction: US
-  - name: GDPR Article 22
-    url: https://gdpr-info.eu/art-22-gdpr/
-    jurisdiction: EU
-  further_reading:
-  - name: Machine Learning in Credit Risk (Working Paper No. 1019)
-    url: https://www.bis.org/publ/work1019.htm
-    source: BIS
-- item_id: uc-4
-  source_file: docs/_usecases/uc-4_anti-financial-crime-investigation.md
-  sequence: 4
-  title: Anti-Financial Crime Investigation
-  layout: usecase
-  doc_status: Draft
-  category: Risk_and_Compliance
-  description: A GenAI assistant that supports L2 anti-financial-crime investigators across
-    the AML investigation workflow, from alert triage and case enrichment through disposition
-    to drafting the STR/SAR for MLRO/BSA officer review and filing.
-  end_user: L2 AML investigator, financial crime analyst, MLRO/BSA officer
-  business_value: Reduces investigation handling time and alert backlog while improving narrative
-    consistency, evidence traceability, and the defensibility of dispositions and STR/SAR
-    filings.
-  related_risks:
-  - ri-1
-  - ri-2
-  - ri-4
-  - ri-10
-  - ri-17
-  - ri-18
-  - ri-19
-  - ri-22
-  related_mitigations:
-  - mi-1
-  - mi-4
-  - mi-5
-  - mi-11
-  - mi-13
-  - mi-14
-  - mi-16
-  - mi-17
-  - mi-21
-  data_classifications:
-  - name: Customer_PII_Data
-    data_types:
-    - KYC/CDD identity records and beneficial ownership information
-    - Politically exposed person (PEP) status and sanctions/name-screening match details
-    - Customer risk ratings and relationship history
-  - name: Sensitive_Financial_Data
-    data_types:
-    - Individual transaction records and payment history for subjects and counterparties
-    - Account balances and cross-border funds-flow data
-    - AI-generated risk indicators and disposition recommendations
-  - name: Confidential_Financial_Data
-    data_types:
-    - Draft and filed STR/SAR narratives and supporting case files
-    - Internal watchlists and prior investigation outcomes
-    - Law enforcement requests and regulator correspondence
-  - name: Internal_Proprietary_Data
-    data_types:
-    - Transaction monitoring scenarios, thresholds, and alert logic
-    - Money laundering typology libraries and red-flag indicators
-    - Investigation procedures and disposition criteria
-  data_handling_aspects:
-  - Centralized
-  - Privacy_Preserving
-  eu_ai_act_references:
-  - c3-s2-a10
-  - c3-s2-a12
-  - c3-s2-a13
-  - c3-s2-a14
-  sr11_7_references:
-  - overview
-  - s2-use
-  - s3
-  - s3-monitoring
-  - s4-inventory
-  regulatory_concerns:
-  - name: BSA / FinCEN Suspicious Activity Reporting (31 CFR § 1020.320)
-    url: https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1020/subpart-C/section-1020.320
-    jurisdiction: US
-  - name: EU Anti-Money Laundering Regulation (Regulation (EU) 2024/1624)
-    url: https://eur-lex.europa.eu/eli/reg/2024/1624/oj
-    jurisdiction: EU
-  - name: Tipping-Off Prohibition (Directive (EU) 2015/849 Art. 39; Regulation (EU) 2024/1624
-      Art. 73)
-    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L0849
-    jurisdiction: EU
-  - name: FATF Recommendations (R.20 Suspicious Transaction Reporting, R.21 Tipping-Off and
-      Confidentiality)
-    url: https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html
-    jurisdiction: International
-  further_reading:
-  - name: Opportunities and Challenges of New Technologies for AML/CFT
-    url: https://www.fatf-gafi.org/en/publications/Digitaltransformation/Opportunities-challenges-new-technologies-for-aml-cft.html
-    source: FATF
-  - name: Principles for Using Artificial Intelligence and Machine Learning in Financial Crime
-      Compliance
-    url: https://www.wolfsberg-group.org/resources/innovation/93
-    source: Wolfsberg Group
-  - name: 'Project Aurora: The Power of Data, Technology and Collaboration to Combat Money
-      Laundering Across Institutions and Borders'
-    url: https://www.bis.org/publ/othp66.htm
-    source: BIS
+  - item_id: uc-1
+    source_file: docs/_usecases/uc-1_credit-risk-analysis.md
+    sequence: 1
+    title: Credit Risk Analysis
+    layout: usecase
+    doc_status: Draft
+    category: Risk_Management_and_Compliance
+    description: An agent that performs credit risk analysis for small business loan applications
+    end_user: Risk analyst, loan officer
+    business_value: Reduces loan approval times from days to hours while standardizing risk
+      assessment
+    related_risks:
+      - ri-1
+      - ri-4
+      - ri-17
+      - ri-19
+    related_mitigations:
+      - mi-1
+      - mi-4
+      - mi-5
+    data_classifications:
+      - name: Customer_PII_Data
+        data_types:
+          - Credit applicant identity and contact information
+          - Business ownership and structure details
+      - name: Sensitive_Financial_Data
+        data_types:
+          - Individual credit application records and financial statements
+          - Account balances, income, and liability data
+          - Credit scores (input and agent-generated)
+      - name: Internal_Proprietary_Data
+        data_types:
+          - Proprietary internal lending policies
+          - Risk assessment models and scoring thresholds
+    data_handling_aspects:
+      - Centralized
+      - Privacy_Preserving
+    eu_ai_act_references:
+      - c3-s2-a10
+    sr11_7_references:
+      - overview
+      - s2-dev
+      - s3
+      - s4-inventory
+    regulatory_concerns:
+      - name: ECOA / Fair Lending
+        url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
+        jurisdiction: US
+    further_reading:
+      - name: Machine Learning in Credit Risk (Working Paper No. 1019)
+        url: https://www.bis.org/publ/work1019.htm
+        source: BIS
+      - name: AI in Credit Underwriting
+        url: https://www.accenture.com/us-en/insights/banking/credit-risk-ai
+        source: Accenture
+  - item_id: uc-2
+    source_file: docs/_usecases/uc-2_autonomous-wealth-management.md
+    sequence: 2
+    title: Autonomous Wealth Management
+    layout: usecase
+    doc_status: Draft
+    category: Trading_and_Investment
+    description: An autonomous agent that manages client portfolios over long time horizons,
+      balancing market volatility with rigid adherence to client risk profiles
+    end_user: Wealth advisor, financial planner, retail wealth client
+    business_value: Solves fiduciary inconsistency by maintaining long-term constraint adherence
+      while adapting to market conditions
+    related_risks:
+      - ri-1
+      - ri-4
+      - ri-6
+      - ri-14
+      - ri-17
+      - ri-19
+    related_mitigations:
+      - mi-1
+      - mi-4
+      - mi-5
+      - mi-11
+    data_classifications:
+      - name: PHI_Other_Personal_Data
+        data_types:
+          - Health and life events linked to financial decisions (illness, disability)
+          - Personal circumstances affecting risk tolerance (marriage, retirement, bereavement)
+      - name: Customer_PII_Data
+        data_types:
+          - Client identity and contact information
+          - Long-term risk tolerance profiles (versioned over multi-year relationship)
+      - name: Sensitive_Financial_Data
+        data_types:
+          - Client portfolio holdings and balances
+          - Investment Policy Statement constraints and ethical restrictions
+          - Proprietary compliance and regulatory rule sets
+    data_handling_aspects:
+      - Centralized
+      - Privacy_Preserving
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a15
+      - c3-s2-a13
+    ffiec_itbooklets_references:
+      - dam-3
+      - mgt-2
+    nist_ai_600_1_references:
+      - 2-2
+      - 2-4
+      - 2-8
+    sr11_7_references:
+      - overview
+      - s2-dev
+      - s2-use
+      - s3
+      - s3-conceptual
+      - s4-board
+      - s4-inventory
+    regulatory_concerns:
+      - name: MiFID II
+        url: https://www.esma.europa.eu/regulation/post-trading/mifid-ii-and-mifir
+        jurisdiction: EU
+      - name: SEC Regulation Best Interest
+        url: https://www.sec.gov/info/edgar/regsbi-overview
+        jurisdiction: US
+      - name: GDPR Article 22
+        url: https://gdpr-info.eu/art-22-gdpr/
+        jurisdiction: EU
+    further_reading:
+      - name: AI and Machine Learning in Capital Markets (2021)
+        url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD658.pdf
+        source: IOSCO
+  - item_id: uc-3
+    source_file: docs/_usecases/uc-3_loan-approval.md
+    sequence: 3
+    title: Loan Approval
+    layout: usecase
+    doc_status: Draft
+    category: Risk_and_Compliance
+    description: A multi-agent loan approval workflow that automates document intake, fraud
+      detection, credit risk assessment, decisioning, pricing, human review, agreement generation,
+      e-signature, and disbursement.
+    end_user: Loan officer, credit risk analyst, compliance officer, applicant
+    business_value: Reduces loan approval cycle time while improving consistency, auditability,
+      fraud detection, and risk-based pricing.
+    related_risks:
+      - ri-1
+      - ri-4
+      - ri-6
+      - ri-14
+      - ri-17
+      - ri-19
+    related_mitigations:
+      - mi-1
+      - mi-4
+      - mi-5
+      - mi-11
+    data_classifications:
+      - name: Customer_PII_Data
+        data_types:
+          - Applicant identity and contact information
+          - Government-issued identity documents
+          - Employment and address history
+      - name: Sensitive_Financial_Data
+        data_types:
+          - Loan applications and supporting financial documents
+          - Income, liabilities, assets, bank statements, and credit score data
+          - AI-generated risk scores, pricing recommendations, and decision rationale
+      - name: Internal_Proprietary_Data
+        data_types:
+          - Lending policies and underwriting thresholds
+          - Fraud detection rules and typologies
+          - Pricing models and risk appetite parameters
+    data_handling_aspects:
+      - Centralized
+      - Privacy_Preserving
+    eu_ai_act_references:
+      - c3-s2-a10
+    regulatory_concerns:
+      - name: ECOA / Fair Lending
+        url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
+        jurisdiction: US
+      - name: GDPR Article 22
+        url: https://gdpr-info.eu/art-22-gdpr/
+        jurisdiction: EU
+    further_reading:
+      - name: Machine Learning in Credit Risk (Working Paper No. 1019)
+        url: https://www.bis.org/publ/work1019.htm
+        source: BIS
+  - item_id: uc-4
+    source_file: docs/_usecases/uc-4_anti-financial-crime-investigation.md
+    sequence: 4
+    title: Anti-Financial Crime Investigation
+    layout: usecase
+    doc_status: Draft
+    category: Risk_and_Compliance
+    description: A GenAI assistant that supports L2 anti-financial-crime investigators across
+      the AML investigation workflow, from alert triage and case enrichment through disposition
+      to drafting the STR/SAR for MLRO/BSA officer review and filing.
+    end_user: L2 AML investigator, financial crime analyst, MLRO/BSA officer
+    business_value: Reduces investigation handling time and alert backlog while improving
+      narrative consistency, evidence traceability, and the defensibility of dispositions
+      and STR/SAR filings.
+    related_risks:
+      - ri-1
+      - ri-2
+      - ri-4
+      - ri-10
+      - ri-17
+      - ri-18
+      - ri-19
+      - ri-22
+    related_mitigations:
+      - mi-1
+      - mi-4
+      - mi-5
+      - mi-11
+      - mi-13
+      - mi-14
+      - mi-16
+      - mi-17
+      - mi-21
+    data_classifications:
+      - name: Customer_PII_Data
+        data_types:
+          - KYC/CDD identity records and beneficial ownership information
+          - Politically exposed person (PEP) status and sanctions/name-screening match details
+          - Customer risk ratings and relationship history
+      - name: Sensitive_Financial_Data
+        data_types:
+          - Individual transaction records and payment history for subjects and counterparties
+          - Account balances and cross-border funds-flow data
+          - AI-generated risk indicators and disposition recommendations
+      - name: Confidential_Financial_Data
+        data_types:
+          - Draft and filed STR/SAR narratives and supporting case files
+          - Internal watchlists and prior investigation outcomes
+          - Law enforcement requests and regulator correspondence
+      - name: Internal_Proprietary_Data
+        data_types:
+          - Transaction monitoring scenarios, thresholds, and alert logic
+          - Money laundering typology libraries and red-flag indicators
+          - Investigation procedures and disposition criteria
+    data_handling_aspects:
+      - Centralized
+      - Privacy_Preserving
+    eu_ai_act_references:
+      - c3-s2-a10
+      - c3-s2-a12
+      - c3-s2-a13
+      - c3-s2-a14
+    sr11_7_references:
+      - overview
+      - s2-use
+      - s3
+      - s3-monitoring
+      - s4-inventory
+    regulatory_concerns:
+      - name: BSA / FinCEN Suspicious Activity Reporting (31 CFR § 1020.320)
+        url: https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1020/subpart-C/section-1020.320
+        jurisdiction: US
+      - name: EU Anti-Money Laundering Regulation (Regulation (EU) 2024/1624)
+        url: https://eur-lex.europa.eu/eli/reg/2024/1624/oj
+        jurisdiction: EU
+      - name: Tipping-Off Prohibition (Directive (EU) 2015/849 Art. 39; Regulation (EU) 2024/1624
+          Art. 73)
+        url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L0849
+        jurisdiction: EU
+      - name: FATF Recommendations (R.20 Suspicious Transaction Reporting, R.21 Tipping-Off
+          and Confidentiality)
+        url: https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html
+        jurisdiction: International
+    further_reading:
+      - name: Opportunities and Challenges of New Technologies for AML/CFT
+        url: https://www.fatf-gafi.org/en/publications/Digitaltransformation/Opportunities-challenges-new-technologies-for-aml-cft.html
+        source: FATF
+      - name: Principles for Using Artificial Intelligence and Machine Learning in Financial
+          Crime Compliance
+        url: https://www.wolfsberg-group.org/resources/innovation/93
+        source: Wolfsberg Group
+      - name: 'Project Aurora: The Power of Data, Technology and Collaboration to Combat Money
+          Laundering Across Institutions and Borders'
+        url: https://www.bis.org/publ/othp66.htm
+        source: BIS
 financial_data_classification:
-- name: Public_Financial_Data
-  sensitivity: Low
-  description: Data that is publicly available and poses minimal risk if disclosed.
-  examples:
-  - Published financial statements and annual reports
-  - Public market prices and exchange rates
-  - Regulatory filings and public disclosures
-  storage_location: Public cloud, CDN
-  regulations: None specific
-  references:
-  - name: 'BCBS 239 P3: Accuracy and Integrity'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-- name: Internal_Proprietary_Data
-  sensitivity: Medium
-  description: Data generated or held within the organization, not intended for public release.
-    Includes aggregated risk data, models, and internal policies. That provide an advantatage
-    to AI model training and development,  but do not contain sensitive customer information.
-  examples:
-  - Aggregated transaction data and internal metrics
-  - Risk model parameters and lending policies
-  - Stress test assumptions and scenario data
-  - Internal performance and financial reporting
-  storage_location: Private cloud, internal servers
-  regulations: SOX
-  references:
-  - name: SOX Section 302/404
-    url: https://www.sec.gov/spotlight/sarbanes-oxley.htm
-    jurisdiction: US
-  - name: 'BCBS 239 P1: Governance'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P3: Accuracy and Integrity'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P4: Completeness'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-- name: Confidential_Financial_Data
-  sensitivity: High
-  description: Data that contains sensitive financial information about the firm or its customers.
-    Subject to strict access controls and regulatory protections.
-  examples:
-  - Customer account details and transaction history
-  - Credit risk profiles and internal ratings
-  - Proprietary trading strategies and model outputs
-  - Internal audit findings and compliance reports
-  storage_location: Encrypted storage, access-controlled systems
-  regulations: GLBA, GDPR, CCPA, BCBS 239
-  references:
-  - name: 'GLBA: Safeguards Rule'
-    url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
-    jurisdiction: US
-  - name: 'GDPR Article 5: Data Quality Principles'
-    url: https://gdpr-info.eu/art-5-gdpr/
-    jurisdiction: EU
-  - name: 'CCPA: Consumer Privacy Rights'
-    url: https://oag.ca.gov/privacy/ccpa
-    jurisdiction: US
-  - name: 'BCBS 239 P1: Governance'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P3: Accuracy and Integrity'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-- name: Customer_PII_Data
-  sensitivity: High
-  description: Non-public personal information (NPI) about consumers obtained in the course
-    of providing financial services. Covers identity, contact, and account-level information
-    as defined under GLBA.
-  examples:
-  - Customer names, addresses, and contact details
-  - Account numbers and financial history
-  - Credit application data and income declarations
-  - Long-term relationship and preference profiles
-  storage_location: Encrypted storage, access-controlled systems
-  regulations: GLBA, GDPR, CCPA
-  references:
-  - name: 'GLBA: Safeguards Rule (NPI)'
-    url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
-    jurisdiction: US
-  - name: 'GDPR Article 4: Definition of Personal Data'
-    url: https://gdpr-info.eu/art-4-gdpr/
-    jurisdiction: EU
-  - name: 'CCPA: Consumer Personal Information'
-    url: https://oag.ca.gov/privacy/ccpa
-    jurisdiction: US
-  - name: 'BCBS 239 P2: Data Architecture and IT Infrastructure'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-- name: Sensitive_Financial_Data
-  sensitivity: High
-  description: Detailed financial data about individuals or entities that reveals sensitive
-    business operations, transaction behaviour, or financial position. Subject to multiple
-    financial privacy regulations. Data that should be handle with care and only used for
-    specific purposes,  such as model training or risk assessment, with appropriate safeguards
-    in place.
-  examples:
-  - Individual transaction records and payment history
-  - Account balances and investment holdings
-  - Credit scores (input and model-generated)
-  - Investment Policy Statements and portfolio constraints
-  storage_location: Encrypted storage, access-controlled systems
-  regulations: GLBA, PSD2, GDPR, CCPA, MiFID II
-  references:
-  - name: 'GLBA: Safeguards Rule'
-    url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
-    jurisdiction: US
-  - name: 'PSD2: Payment Services Directive'
-    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L2366
-    jurisdiction: EU
-  - name: 'GDPR Article 5: Data Quality Principles'
-    url: https://gdpr-info.eu/art-5-gdpr/
-    jurisdiction: EU
-  - name: 'CCPA: Consumer Privacy Rights'
-    url: https://oag.ca.gov/privacy/ccpa
-    jurisdiction: US
-  - name: 'BCBS 239 P3: Accuracy and Integrity'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P5: Timeliness'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'NIST SP 800-60: Information Type Categorization'
-    url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
-    jurisdiction: US
-- name: Restricted_Financial_Data
-  sensitivity: Critical
-  description: Data that is highly sensitive and whose compromise could lead to severe financial,
-    operational, or reputational damage. Subject to the most stringent access controls and
-    regulatory protections. Ment only for a small group of people in the organization, such
-    as senior management, risk officers, and model developers.
-  examples:
-  - Payment card data (PAN) and cardholder information
-  - Credentials and access tokens for financial systems
-  - Proprietary trading algorithms and model IP
-  - Encryption keys and cryptographic material
-  storage_location: High-security encrypted storage, isolated systems, HSM for keys
-  regulations: PCI DSS, GLBA, Basel III/IV, SR 11-7
-  references:
-  - name: 'PCI DSS v4.0: Cardholder Data Environment'
-    url: https://www.pcisecuritystandards.org/document_library/
-    jurisdiction: International
-  - name: 'GLBA: Safeguards Rule'
-    url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
-    jurisdiction: US
-  - name: 'BCBS 239 P1: Governance'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'NIST SP 800-60: Information Type Categorization'
-    url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
-    jurisdiction: US
-- name: MNPI_Data
-  sensitivity: High
-  description: Material Non-Public Information (MNPI) about publicly traded companies or financial
-    instruments. Subject to insider trading laws and strict confidentiality requirements under
-    securities regulations.
-  examples:
-  - Unreleased earnings reports and financial forecasts
-  - M&A activity and strategic initiatives
-  - Significant contract wins or losses
-  - Regulatory investigations or legal proceedings
-  storage_location: Encrypted storage, access-controlled systems, strict need-to-know basis
-  regulations: SEC Insider Trading Rules, EU Market Abuse Regulation (MAR)
-  references:
-  - name: SEC Insider Trading Rules
-    url: https://www.sec.gov/fast-answers/answersinsiderhtm.html
-    jurisdiction: US
-  - name: EU Market Abuse Regulation (MAR)
-    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014R0598
-    jurisdiction: EU
-- name: PHI_Other_Personal_Data
-  sensitivity: Critical
-  description: Personal data revealing health, biometric, racial or ethnic origin, genetic,
-    or other highly sensitive characteristics linked to financial decisions. Subject to the
-    most restrictive processing conditions under GDPR Art 9 and CCPA Sensitive PI — explicit
-    consent or specific legal basis required.
-  examples:
-  - Health events and medical conditions linked to financial decisions
-  - Biometric identifiers used for authentication
-  - Personal life events affecting risk profiles (disability, chronic illness)
-  - Racial or ethnic origin data arising in credit or insurance contexts
-  storage_location: Isolated encrypted systems, TEE recommended, strict access controls
-  regulations: GDPR Art 9, CCPA Sensitive PI, HIPAA (if health-adjacent)
-  references:
-  - name: 'GDPR Article 9: Special Categories of Personal Data'
-    url: https://gdpr-info.eu/art-9-gdpr/
-    jurisdiction: EU
-  - name: 'CCPA: Sensitive Personal Information'
-    url: https://oag.ca.gov/privacy/ccpa
-    jurisdiction: US
-  - name: 'NIST SP 800-60: Information Type Categorization'
-    url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
-    jurisdiction: US
-  - name: HIPAA Privacy Rule
-    url: https://www.hhs.gov/hipaa/for-professionals/privacy/index.html
-    jurisdiction: US
-- name: Risk_Aggregation_Data
-  sensitivity: High
-  description: Aggregated risk exposures and positions across the firm, subject to BCBS 239
-    principles for accuracy, completeness, timeliness, and adaptability. Distinct from individual
-    customer data — this is firm-level risk intelligence requiring specific data lineage and
-    governance controls.
-  examples:
-  - Aggregated credit exposures and concentration data
-  - Trading book positions and market risk metrics
-  - Liquidity gaps and funding profiles
-  - Stress test outputs and capital adequacy data
-  storage_location: Secure internal systems with full data lineage and audit trail
-  regulations: BCBS 239, Basel III/IV, SR 11-7
-  references:
-  - name: 'BCBS 239 P3: Accuracy and Integrity'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P4: Completeness'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P5: Timeliness'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'BCBS 239 P6: Adaptability'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'SR 11-7: Model Risk Management'
-    url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm
-    jurisdiction: US
-- name: Critical_Financial_Data
-  sensitivity: Critical
-  description: Data whose compromise could cause severe financial, operational, or reputational
-    damage. Includes payment card data (PAN), credentials, and proprietary IP such as trading
-    algorithms. Excludes Sensitive Authentication Data which must never be stored.
-  examples:
-  - Payment card numbers (PAN) and cardholder data
-  - Banking credentials and access tokens
-  - Proprietary trading algorithms and model IP
-  - Encryption keys and cryptographic material
-  storage_location: High-security encrypted storage, isolated systems, HSM for keys
-  regulations: PCI DSS (CHD), GLBA, Basel III
-  references:
-  - name: 'PCI DSS v4.0: Cardholder Data Environment'
-    url: https://www.pcisecuritystandards.org/document_library/
-    jurisdiction: International
-  - name: 'GLBA: Safeguards Rule'
-    url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
-    jurisdiction: US
-  - name: 'BCBS 239 P1: Governance'
-    url: https://www.bis.org/publ/bcbs239.htm
-    jurisdiction: International
-  - name: 'NIST SP 800-60: Information Type Categorization'
-    url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
-    jurisdiction: US
-- name: Payment_Authentication_Data
-  sensitivity: Critical
-  description: Sensitive Authentication Data (SAD) as defined by PCI DSS. Must never be stored
-    after payment authorisation is complete, without exception. Distinct from Cardholder Data
-    — no compensating controls exist; post-authorisation storage is prohibited regardless
-    of encryption.
-  examples:
-  - Full magnetic stripe data or chip equivalent
-  - CVV2/CVC2/CID card verification values
-  - PIN blocks and encrypted PINs
-  - Full card credentials used in authorisation
-  storage_location: Never stored post-authorisation — processing only, in-memory
-  regulations: PCI DSS (SAD — never store rule)
-  references:
-  - name: 'PCI DSS v4.0: Sensitive Authentication Data (Req 3.2)'
-    url: https://www.pcisecuritystandards.org/document_library/
-    jurisdiction: International
+  - name: Public_Financial_Data
+    sensitivity: Low
+    description: Data that is publicly available and poses minimal risk if disclosed.
+    examples:
+      - Published financial statements and annual reports
+      - Public market prices and exchange rates
+      - Regulatory filings and public disclosures
+    storage_location: Public cloud, CDN
+    regulations: None specific
+    references:
+      - name: 'BCBS 239 P3: Accuracy and Integrity'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+  - name: Internal_Proprietary_Data
+    sensitivity: Medium
+    description: Data generated or held within the organization, not intended for public release.
+      Includes aggregated risk data, models, and internal policies. That provide an advantatage
+      to AI model training and development,  but do not contain sensitive customer information.
+    examples:
+      - Aggregated transaction data and internal metrics
+      - Risk model parameters and lending policies
+      - Stress test assumptions and scenario data
+      - Internal performance and financial reporting
+    storage_location: Private cloud, internal servers
+    regulations: SOX
+    references:
+      - name: SOX Section 302/404
+        url: https://www.sec.gov/spotlight/sarbanes-oxley.htm
+        jurisdiction: US
+      - name: 'BCBS 239 P1: Governance'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P3: Accuracy and Integrity'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P4: Completeness'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+  - name: Confidential_Financial_Data
+    sensitivity: High
+    description: Data that contains sensitive financial information about the firm or its
+      customers. Subject to strict access controls and regulatory protections.
+    examples:
+      - Customer account details and transaction history
+      - Credit risk profiles and internal ratings
+      - Proprietary trading strategies and model outputs
+      - Internal audit findings and compliance reports
+    storage_location: Encrypted storage, access-controlled systems
+    regulations: GLBA, GDPR, CCPA, BCBS 239
+    references:
+      - name: 'GLBA: Safeguards Rule'
+        url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
+        jurisdiction: US
+      - name: 'GDPR Article 5: Data Quality Principles'
+        url: https://gdpr-info.eu/art-5-gdpr/
+        jurisdiction: EU
+      - name: 'CCPA: Consumer Privacy Rights'
+        url: https://oag.ca.gov/privacy/ccpa
+        jurisdiction: US
+      - name: 'BCBS 239 P1: Governance'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P3: Accuracy and Integrity'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+  - name: Customer_PII_Data
+    sensitivity: High
+    description: Non-public personal information (NPI) about consumers obtained in the course
+      of providing financial services. Covers identity, contact, and account-level information
+      as defined under GLBA.
+    examples:
+      - Customer names, addresses, and contact details
+      - Account numbers and financial history
+      - Credit application data and income declarations
+      - Long-term relationship and preference profiles
+    storage_location: Encrypted storage, access-controlled systems
+    regulations: GLBA, GDPR, CCPA
+    references:
+      - name: 'GLBA: Safeguards Rule (NPI)'
+        url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
+        jurisdiction: US
+      - name: 'GDPR Article 4: Definition of Personal Data'
+        url: https://gdpr-info.eu/art-4-gdpr/
+        jurisdiction: EU
+      - name: 'CCPA: Consumer Personal Information'
+        url: https://oag.ca.gov/privacy/ccpa
+        jurisdiction: US
+      - name: 'BCBS 239 P2: Data Architecture and IT Infrastructure'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+  - name: Sensitive_Financial_Data
+    sensitivity: High
+    description: Detailed financial data about individuals or entities that reveals sensitive
+      business operations, transaction behaviour, or financial position. Subject to multiple
+      financial privacy regulations. Data that should be handle with care and only used for
+      specific purposes,  such as model training or risk assessment, with appropriate safeguards
+      in place.
+    examples:
+      - Individual transaction records and payment history
+      - Account balances and investment holdings
+      - Credit scores (input and model-generated)
+      - Investment Policy Statements and portfolio constraints
+    storage_location: Encrypted storage, access-controlled systems
+    regulations: GLBA, PSD2, GDPR, CCPA, MiFID II
+    references:
+      - name: 'GLBA: Safeguards Rule'
+        url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
+        jurisdiction: US
+      - name: 'PSD2: Payment Services Directive'
+        url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L2366
+        jurisdiction: EU
+      - name: 'GDPR Article 5: Data Quality Principles'
+        url: https://gdpr-info.eu/art-5-gdpr/
+        jurisdiction: EU
+      - name: 'CCPA: Consumer Privacy Rights'
+        url: https://oag.ca.gov/privacy/ccpa
+        jurisdiction: US
+      - name: 'BCBS 239 P3: Accuracy and Integrity'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P5: Timeliness'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'NIST SP 800-60: Information Type Categorization'
+        url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
+        jurisdiction: US
+  - name: Restricted_Financial_Data
+    sensitivity: Critical
+    description: Data that is highly sensitive and whose compromise could lead to severe financial,
+      operational, or reputational damage. Subject to the most stringent access controls and
+      regulatory protections. Ment only for a small group of people in the organization, such
+      as senior management, risk officers, and model developers.
+    examples:
+      - Payment card data (PAN) and cardholder information
+      - Credentials and access tokens for financial systems
+      - Proprietary trading algorithms and model IP
+      - Encryption keys and cryptographic material
+    storage_location: High-security encrypted storage, isolated systems, HSM for keys
+    regulations: PCI DSS, GLBA, Basel III/IV, SR 11-7
+    references:
+      - name: 'PCI DSS v4.0: Cardholder Data Environment'
+        url: https://www.pcisecuritystandards.org/document_library/
+        jurisdiction: International
+      - name: 'GLBA: Safeguards Rule'
+        url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
+        jurisdiction: US
+      - name: 'BCBS 239 P1: Governance'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'NIST SP 800-60: Information Type Categorization'
+        url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
+        jurisdiction: US
+  - name: MNPI_Data
+    sensitivity: High
+    description: Material Non-Public Information (MNPI) about publicly traded companies or
+      financial instruments. Subject to insider trading laws and strict confidentiality requirements
+      under securities regulations.
+    examples:
+      - Unreleased earnings reports and financial forecasts
+      - M&A activity and strategic initiatives
+      - Significant contract wins or losses
+      - Regulatory investigations or legal proceedings
+    storage_location: Encrypted storage, access-controlled systems, strict need-to-know basis
+    regulations: SEC Insider Trading Rules, EU Market Abuse Regulation (MAR)
+    references:
+      - name: SEC Insider Trading Rules
+        url: https://www.sec.gov/fast-answers/answersinsiderhtm.html
+        jurisdiction: US
+      - name: EU Market Abuse Regulation (MAR)
+        url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014R0598
+        jurisdiction: EU
+  - name: PHI_Other_Personal_Data
+    sensitivity: Critical
+    description: Personal data revealing health, biometric, racial or ethnic origin, genetic,
+      or other highly sensitive characteristics linked to financial decisions. Subject to
+      the most restrictive processing conditions under GDPR Art 9 and CCPA Sensitive PI —
+      explicit consent or specific legal basis required.
+    examples:
+      - Health events and medical conditions linked to financial decisions
+      - Biometric identifiers used for authentication
+      - Personal life events affecting risk profiles (disability, chronic illness)
+      - Racial or ethnic origin data arising in credit or insurance contexts
+    storage_location: Isolated encrypted systems, TEE recommended, strict access controls
+    regulations: GDPR Art 9, CCPA Sensitive PI, HIPAA (if health-adjacent)
+    references:
+      - name: 'GDPR Article 9: Special Categories of Personal Data'
+        url: https://gdpr-info.eu/art-9-gdpr/
+        jurisdiction: EU
+      - name: 'CCPA: Sensitive Personal Information'
+        url: https://oag.ca.gov/privacy/ccpa
+        jurisdiction: US
+      - name: 'NIST SP 800-60: Information Type Categorization'
+        url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
+        jurisdiction: US
+      - name: HIPAA Privacy Rule
+        url: https://www.hhs.gov/hipaa/for-professionals/privacy/index.html
+        jurisdiction: US
+  - name: Risk_Aggregation_Data
+    sensitivity: High
+    description: Aggregated risk exposures and positions across the firm, subject to BCBS
+      239 principles for accuracy, completeness, timeliness, and adaptability. Distinct from
+      individual customer data — this is firm-level risk intelligence requiring specific data
+      lineage and governance controls.
+    examples:
+      - Aggregated credit exposures and concentration data
+      - Trading book positions and market risk metrics
+      - Liquidity gaps and funding profiles
+      - Stress test outputs and capital adequacy data
+    storage_location: Secure internal systems with full data lineage and audit trail
+    regulations: BCBS 239, Basel III/IV, SR 11-7
+    references:
+      - name: 'BCBS 239 P3: Accuracy and Integrity'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P4: Completeness'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P5: Timeliness'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'BCBS 239 P6: Adaptability'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'SR 11-7: Model Risk Management'
+        url: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm
+        jurisdiction: US
+  - name: Critical_Financial_Data
+    sensitivity: Critical
+    description: Data whose compromise could cause severe financial, operational, or reputational
+      damage. Includes payment card data (PAN), credentials, and proprietary IP such as trading
+      algorithms. Excludes Sensitive Authentication Data which must never be stored.
+    examples:
+      - Payment card numbers (PAN) and cardholder data
+      - Banking credentials and access tokens
+      - Proprietary trading algorithms and model IP
+      - Encryption keys and cryptographic material
+    storage_location: High-security encrypted storage, isolated systems, HSM for keys
+    regulations: PCI DSS (CHD), GLBA, Basel III
+    references:
+      - name: 'PCI DSS v4.0: Cardholder Data Environment'
+        url: https://www.pcisecuritystandards.org/document_library/
+        jurisdiction: International
+      - name: 'GLBA: Safeguards Rule'
+        url: https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
+        jurisdiction: US
+      - name: 'BCBS 239 P1: Governance'
+        url: https://www.bis.org/publ/bcbs239.htm
+        jurisdiction: International
+      - name: 'NIST SP 800-60: Information Type Categorization'
+        url: https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final
+        jurisdiction: US
+  - name: Payment_Authentication_Data
+    sensitivity: Critical
+    description: Sensitive Authentication Data (SAD) as defined by PCI DSS. Must never be
+      stored after payment authorisation is complete, without exception. Distinct from Cardholder
+      Data — no compensating controls exist; post-authorisation storage is prohibited regardless
+      of encryption.
+    examples:
+      - Full magnetic stripe data or chip equivalent
+      - CVV2/CVC2/CID card verification values
+      - PIN blocks and encrypted PINs
+      - Full card credentials used in authorisation
+    storage_location: Never stored post-authorisation — processing only, in-memory
+    regulations: PCI DSS (SAD — never store rule)
+    references:
+      - name: 'PCI DSS v4.0: Sensitive Authentication Data (Req 3.2)'
+        url: https://www.pcisecuritystandards.org/document_library/
+        jurisdiction: International
 ai_use_cases:
-- name: Customer_and_Relationship_Management
-  use_case_areas:
-  - name: Personalized_Financial_Services
-    use_case_names:
-    - Adaptive_Product_Recommendations
-    - Dynamic_Pricing_and_Offers
-  - name: Customer_Service_and_Support
-    use_case_names:
-    - Conversational_Agents_and_Chatbots
-    - Voice_Assistants
-    - AI_Onboarding_and_KYC
-  - name: Retention_and_Churn
-    use_case_names:
-    - Behavioral_Segmentation
-    - Churn_Prediction
-- name: Risk_and_Compliance
-  use_case_areas:
-  - name: Fraud_Detection_and_Prevention
-    use_case_names:
-    - Transaction_Anomaly_Detection
-    - Identity_Verification_Document_Face_Behavioral
-    - Synthetic_Identity_Detection
-  - name: Credit_Risk_and_Scoring
-    use_case_names:
-    - Alternative_Data_Credit_Models
-    - Continuous_Credit_Monitoring
-    - Loan_Approval_and_Underwriting
-  - name: Regulatory_Compliance_RegTech
-    use_case_names:
-    - AML_Surveillance_and_Sanctions_Screening
-    - Transaction_Monitoring
-    - Automated_Regulatory_Reporting
-    - Explainable_AI_Model_Transparency
-- name: Investment_and_Portfolio_Management
-  use_case_areas:
-  - name: Algorithmic_and_Quant_Trading
-    use_case_names:
-    - Market_Forecasting_Models
-    - Reinforcement_Learning_Strategies
-    - News_and_Sentiment_Signals
-  - name: Wealth_and_Robo_Advisory
-    use_case_names:
-    - Personalized_Portfolio_Construction
-    - Continuous_Rebalancing
-    - Goal_Based_Investing
-  - name: Asset_Analytics
-    use_case_names:
-    - ESG_Scoring
-    - Market_Anomaly_Detection
-    - Risk_Factor_Modeling
-- name: Operations_and_Process_Optimization
-  use_case_areas:
-  - name: Process_Automation
-    use_case_names:
-    - Document_Intake_and_Extraction
-    - Reconciliation_Automation
-    - Claims_Processing
-  - name: Back_Office_Optimization
-    use_case_names:
-    - Liquidity_and_Cashflow_Forecasting
-    - Treasury_Operations_Automation
-    - IT_Observability_and_Predictive_Maintenance
-  - name: HR_and_Talent
-    use_case_names:
-    - Workforce_Analytics
-    - Capacity_Planning
-- name: Strategic_Insights_and_Decision_Support
-  use_case_areas:
-  - name: Financial_Forecasting
-    use_case_names:
-    - Revenue_and_Expense_Prediction
-    - Balance_Sheet_and_Capital_Planning
-    - Scenario_and_Stress_Testing
-  - name: Market_and_Competitive_Intelligence
-    use_case_names:
-    - NLP_Market_Scanning
-    - Competitor_Trend_Analysis
-  - name: Product_and_Pricing_Optimization
-    use_case_names:
-    - Demand_Modeling
-    - Dynamic_Rate_Setting
-  - name: AI_Governance_and_Ethics
-    use_case_names:
-    - Bias_Detection_and_Mitigation
-    - Model_Risk_Management
-    - Auditability_and_Lineage
+  - name: Customer_and_Relationship_Management
+    use_case_areas:
+      - name: Personalized_Financial_Services
+        use_case_names:
+          - Adaptive_Product_Recommendations
+          - Dynamic_Pricing_and_Offers
+      - name: Customer_Service_and_Support
+        use_case_names:
+          - Conversational_Agents_and_Chatbots
+          - Voice_Assistants
+          - AI_Onboarding_and_KYC
+      - name: Retention_and_Churn
+        use_case_names:
+          - Behavioral_Segmentation
+          - Churn_Prediction
+  - name: Risk_and_Compliance
+    use_case_areas:
+      - name: Fraud_Detection_and_Prevention
+        use_case_names:
+          - Transaction_Anomaly_Detection
+          - Identity_Verification_Document_Face_Behavioral
+          - Synthetic_Identity_Detection
+      - name: Credit_Risk_and_Scoring
+        use_case_names:
+          - Alternative_Data_Credit_Models
+          - Continuous_Credit_Monitoring
+          - Loan_Approval_and_Underwriting
+      - name: Regulatory_Compliance_RegTech
+        use_case_names:
+          - AML_Surveillance_and_Sanctions_Screening
+          - Transaction_Monitoring
+          - Automated_Regulatory_Reporting
+          - Explainable_AI_Model_Transparency
+  - name: Investment_and_Portfolio_Management
+    use_case_areas:
+      - name: Algorithmic_and_Quant_Trading
+        use_case_names:
+          - Market_Forecasting_Models
+          - Reinforcement_Learning_Strategies
+          - News_and_Sentiment_Signals
+      - name: Wealth_and_Robo_Advisory
+        use_case_names:
+          - Personalized_Portfolio_Construction
+          - Continuous_Rebalancing
+          - Goal_Based_Investing
+      - name: Asset_Analytics
+        use_case_names:
+          - ESG_Scoring
+          - Market_Anomaly_Detection
+          - Risk_Factor_Modeling
+  - name: Operations_and_Process_Optimization
+    use_case_areas:
+      - name: Process_Automation
+        use_case_names:
+          - Document_Intake_and_Extraction
+          - Reconciliation_Automation
+          - Claims_Processing
+      - name: Back_Office_Optimization
+        use_case_names:
+          - Liquidity_and_Cashflow_Forecasting
+          - Treasury_Operations_Automation
+          - IT_Observability_and_Predictive_Maintenance
+      - name: HR_and_Talent
+        use_case_names:
+          - Workforce_Analytics
+          - Capacity_Planning
+  - name: Strategic_Insights_and_Decision_Support
+    use_case_areas:
+      - name: Financial_Forecasting
+        use_case_names:
+          - Revenue_and_Expense_Prediction
+          - Balance_Sheet_and_Capital_Planning
+          - Scenario_and_Stress_Testing
+      - name: Market_and_Competitive_Intelligence
+        use_case_names:
+          - NLP_Market_Scanning
+          - Competitor_Trend_Analysis
+      - name: Product_and_Pricing_Optimization
+        use_case_names:
+          - Demand_Modeling
+          - Dynamic_Rate_Setting
+      - name: AI_Governance_and_Ethics
+        use_case_names:
+          - Bias_Detection_and_Mitigation
+          - Model_Risk_Management
+          - Auditability_and_Lineage
 cross_cutting_capabilities:
-- Data_Engineering_and_Feature_Stores
-- MLOps_and_Model_Lifecycle
-- Privacy_Preserving_AI_Federated_Learning_Synthetic_Data
-- Security_and_Adversarial_Robustness
-- Monitoring_Drift_and_Performance
+  - Data_Engineering_and_Feature_Stores
+  - MLOps_and_Model_Lifecycle
+  - Privacy_Preserving_AI_Federated_Learning_Synthetic_Data
+  - Security_and_Adversarial_Robustness
+  - Monitoring_Drift_and_Performance
 ai_deployment_model_taxonomy:
-- name: ai_type
-  options:
-  - name: Static_AI
-    description: Traditional AI/ML models with fixed logic and parameters after training (e.g.,
-      classical ML, rule-based systems).
-  - name: Dynamic_AI
-    description: AI/ML models that adapt or retrain over time based on new data (e.g., online
-      learning, adaptive models).
-  - name: Generative_AI
-    description: Models that generate new content, data, or predictions (e.g., LLMs, diffusion
-      models, GenAI).
-  - name: Agentic_AI
-    description: AI systems capable of autonomous decision-making and actions, often with
-      feedback loops (e.g., AI agents, RPA bots).
-  - name: Composite_AI
-    description: Solutions combining multiple AI paradigms (e.g., ensemble models, hybrid
-      AI, multi-modal AI).
-- name: architecture_pattern
-  options:
-  - name: Classical_ML
-    description: Supervised, unsupervised, or reinforcement learning models using structured
-      data.
-  - name: Deep_Learning
-    description: Neural network-based architectures (CNNs, RNNs, Transformers, etc.).
-  - name: Generative_AI
-    description: LLMs, diffusion models, GANs, and other generative architectures.
-  - name: Agentic/Autonomous_AI
-    description: Multi-agent systems, autonomous agents, and agent-based modeling.
-  - name: Hybrid/Composite
-    description: Architectures combining ML, GenAI, rules, and/or agentic components.
-  - name: Federated_Learning
-    description: Distributed learning across multiple data sources without centralizing data.
-- name: workflow_pattern
-  options:
-  - name: Prompt_Chaining
-    description: LLM-enabled steps execute in a fixed sequence where each step processes the
-      output of the previous one, with optional programmatic gates between steps. Control
-      flow is defined in code.
-  - name: Routing
-    description: An input is classified and directed to a specialized follow-up task or handler,
-      allowing prompts and tools to be optimized per category.
-  - name: Parallelization
-    description: Multiple LLM-enabled tasks run concurrently and their outputs are aggregated,
-      either by sectioning a task into independent subtasks or by voting across runs for higher
-      confidence.
-  - name: Orchestrator_Workers
-    description: A central LLM decomposes a task, delegates subtasks to worker LLMs, and synthesizes
-      their results, while the orchestration logic remains in predefined code paths.
-  - name: Evaluator_Optimizer
-    description: One LLM generates a response while another evaluates it against defined criteria
-      and provides feedback in an iterative refinement loop.
-- name: agent_pattern
-  options:
-  - name: Autonomous_Agent
-    description: A single LLM dynamically directs its own processes and tool usage in a loop,
-      planning and acting on environmental feedback until a stopping condition is met.
-  - name: Multi_Agent
-    description: Multiple autonomous agents coordinate to accomplish a task, including agent-to-agent
-      delegation and communication, where control flow emerges from agent decisions rather
-      than predefined code.
-- name: deployment_type
-  options:
-  - name: On_Premises
-    description: Deployed within the organization's own infrastructure/data centers.
-  - name: Private_Cloud
-    description: Hosted in a dedicated cloud environment for a single organization.
-  - name: Public_Cloud
-    description: Hosted in a shared cloud environment (AWS, Azure, GCP, etc.).
-  - name: Hybrid_Cloud
-    description: Combination of on-premises and cloud resources.
-  - name: Hosted_SaaS
-    description: AI/ML/GenAI provided as a managed service by a third party.
-  - name: Edge/On_Device
-    description: Deployed on local devices or edge infrastructure for low-latency or privacy.
-- name: data_handling
-  options:
-  - name: Centralized
-    description: All data is aggregated and processed in a central location.
-  - name: Federated
-    description: Data remains distributed; only model updates or insights are shared.
-  - name: Synthetic_Data
-    description: Use of artificially generated data for training, testing, or privacy.
-  - name: Privacy_Preserving
-    description: Techniques such as differential privacy, encryption, or secure enclaves.
-- name: regulatory_alignment
-  options:
-  - name: RegTech_Compliant
-    description: Designed to meet regulatory requirements (e.g., explainability, auditability,
-      traceability).
-  - name: Cross_Border
-    description: Supports data residency and sovereignty requirements for multi-jurisdictional
-      deployments.
-  - name: Sector_Specific
-    description: Tailored for financial industry standards (e.g., PCI DSS, GLBA, Basel III).
-- name: operational_model
-  options:
-  - name: Batch
-    description: Processes data in scheduled batches (e.g., overnight risk calculations).
-  - name: Real_Time
-    description: Processes data and produces outputs in real time (e.g., fraud detection).
-  - name: Human_in_the_Loop
-    description: Requires human validation or intervention at key steps.
-  - name: Fully_Autonomous
-    description: Operates end-to-end without human intervention.
-- name: integration_pattern
-  options:
-  - name: API_Based
-    description: Exposed via REST/gRPC APIs for integration with other systems.
-  - name: Embedded
-    description: Integrated directly into business applications or workflows.
-  - name: Event_Driven
-    description: Triggered by events or message queues (e.g., Kafka, RabbitMQ).
-  - name: Batch_File
-    description: Consumes or produces files for integration (e.g., CSV, XML).
+  - name: ai_type
+    options:
+      - name: Static_AI
+        description: Traditional AI/ML models with fixed logic and parameters after training
+          (e.g., classical ML, rule-based systems).
+      - name: Dynamic_AI
+        description: AI/ML models that adapt or retrain over time based on new data (e.g.,
+          online learning, adaptive models).
+      - name: Generative_AI
+        description: Models that generate new content, data, or predictions (e.g., LLMs, diffusion
+          models, GenAI).
+      - name: Agentic_AI
+        description: AI systems capable of autonomous decision-making and actions, often with
+          feedback loops (e.g., AI agents, RPA bots).
+      - name: Composite_AI
+        description: Solutions combining multiple AI paradigms (e.g., ensemble models, hybrid
+          AI, multi-modal AI).
+  - name: architecture_pattern
+    options:
+      - name: Classical_ML
+        description: Supervised, unsupervised, or reinforcement learning models using structured
+          data.
+      - name: Deep_Learning
+        description: Neural network-based architectures (CNNs, RNNs, Transformers, etc.).
+      - name: Generative_AI
+        description: LLMs, diffusion models, GANs, and other generative architectures.
+      - name: Agentic/Autonomous_AI
+        description: Multi-agent systems, autonomous agents, and agent-based modeling.
+      - name: Hybrid/Composite
+        description: Architectures combining ML, GenAI, rules, and/or agentic components.
+      - name: Federated_Learning
+        description: Distributed learning across multiple data sources without centralizing
+          data.
+  - name: workflow_pattern
+    options:
+      - name: Prompt_Chaining
+        description: LLM-enabled steps execute in a fixed sequence where each step processes
+          the output of the previous one, with optional programmatic gates between steps.
+          Control flow is defined in code.
+      - name: Routing
+        description: An input is classified and directed to a specialized follow-up task or
+          handler, allowing prompts and tools to be optimized per category.
+      - name: Parallelization
+        description: Multiple LLM-enabled tasks run concurrently and their outputs are aggregated,
+          either by sectioning a task into independent subtasks or by voting across runs for
+          higher confidence.
+      - name: Orchestrator_Workers
+        description: A central LLM decomposes a task, delegates subtasks to worker LLMs, and
+          synthesizes their results, while the orchestration logic remains in predefined code
+          paths.
+      - name: Evaluator_Optimizer
+        description: One LLM generates a response while another evaluates it against defined
+          criteria and provides feedback in an iterative refinement loop.
+  - name: agent_pattern
+    options:
+      - name: Autonomous_Agent
+        description: A single LLM dynamically directs its own processes and tool usage in
+          a loop, planning and acting on environmental feedback until a stopping condition
+          is met.
+      - name: Multi_Agent
+        description: Multiple autonomous agents coordinate to accomplish a task, including
+          agent-to-agent delegation and communication, where control flow emerges from agent
+          decisions rather than predefined code.
+  - name: deployment_type
+    options:
+      - name: On_Premises
+        description: Deployed within the organization's own infrastructure/data centers.
+      - name: Private_Cloud
+        description: Hosted in a dedicated cloud environment for a single organization.
+      - name: Public_Cloud
+        description: Hosted in a shared cloud environment (AWS, Azure, GCP, etc.).
+      - name: Hybrid_Cloud
+        description: Combination of on-premises and cloud resources.
+      - name: Hosted_SaaS
+        description: AI/ML/GenAI provided as a managed service by a third party.
+      - name: Edge/On_Device
+        description: Deployed on local devices or edge infrastructure for low-latency or privacy.
+  - name: data_handling
+    options:
+      - name: Centralized
+        description: All data is aggregated and processed in a central location.
+      - name: Federated
+        description: Data remains distributed; only model updates or insights are shared.
+      - name: Synthetic_Data
+        description: Use of artificially generated data for training, testing, or privacy.
+      - name: Privacy_Preserving
+        description: Techniques such as differential privacy, encryption, or secure enclaves.
+  - name: regulatory_alignment
+    options:
+      - name: RegTech_Compliant
+        description: Designed to meet regulatory requirements (e.g., explainability, auditability,
+          traceability).
+      - name: Cross_Border
+        description: Supports data residency and sovereignty requirements for multi-jurisdictional
+          deployments.
+      - name: Sector_Specific
+        description: Tailored for financial industry standards (e.g., PCI DSS, GLBA, Basel
+          III).
+  - name: operational_model
+    options:
+      - name: Batch
+        description: Processes data in scheduled batches (e.g., overnight risk calculations).
+      - name: Real_Time
+        description: Processes data and produces outputs in real time (e.g., fraud detection).
+      - name: Human_in_the_Loop
+        description: Requires human validation or intervention at key steps.
+      - name: Fully_Autonomous
+        description: Operates end-to-end without human intervention.
+  - name: integration_pattern
+    options:
+      - name: API_Based
+        description: Exposed via REST/gRPC APIs for integration with other systems.
+      - name: Embedded
+        description: Integrated directly into business applications or workflows.
+      - name: Event_Driven
+        description: Triggered by events or message queues (e.g., Kafka, RabbitMQ).
+      - name: Batch_File
+        description: Consumes or produces files for integration (e.g., CSV, XML).

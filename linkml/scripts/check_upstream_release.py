@@ -178,7 +178,9 @@ def check_main() -> tuple[list[str], bool]:
             "`tests/upstream_tree.tsv`."
         )
     else:
-        report.append(f"- {BRANCH} moved, but no file the schema reads and not the licence.")
+        report.append(
+            f"- {BRANCH} moved, but no file the schema reads and not the licence."
+        )
     return report, attention
 
 
@@ -186,7 +188,9 @@ def check_tags() -> tuple[list[str], bool]:
     """Report a tag FINOS added."""
     answer = json.loads(_get(f"{API}/tags?per_page=100"))
     new = sorted({t["name"] for t in answer} - KNOWN_TAGS)
-    report = [f"- Pinned edition: {PINNED_EDITION}, which FINOS's `docs/_config.yml` states."]
+    report = [
+        f"- Pinned edition: {PINNED_EDITION}, which FINOS's `docs/_config.yml` states."
+    ]
     if new:
         report.append(
             "- **FINOS adds "

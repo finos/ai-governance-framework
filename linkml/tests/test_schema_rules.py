@@ -84,7 +84,13 @@ SHARED_WITH_NEIGHBOURS = {name: set() for name in NEIGHBOURS} | {
     "d3fend.yaml": {"entries", "label", "release_date"},
     "gist.yaml": {"sequence"},
     "nist-nvd.yaml": {"options"},
-    "ocsf.yaml": {"category", "data_classifications", "issuer", "sensitivity", "sequence"},
+    "ocsf.yaml": {
+        "category",
+        "data_classifications",
+        "issuer",
+        "sensitivity",
+        "sequence",
+    },
     "oscal.yaml": {"category", "entries", "label", "related_risks", "risks"},
     "stix.yaml": {"issuer", "options"},
     "uco.yaml": {"issuer", "options"},
@@ -186,8 +192,7 @@ def test_copy_roots_the_concept_classes():
     concrete = {
         name
         for name, cls in doc["classes"].items()
-        if not cls.get("abstract")
-        and (name in ROOTS or cls.get("is_a") in ROOTS)
+        if not cls.get("abstract") and (name in ROOTS or cls.get("is_a") in ROOTS)
     }
     assert concrete == KNOWN_TYPES
 
@@ -213,7 +218,10 @@ def test_mappings_use_a_bound_prefix():
 
 @pytest.mark.parametrize(
     ("prefix", "neighbour"),
-    [("nist_ai_600_1", "nist-ai-600-1.yaml"), ("nist_sp_800_53", "nist-sp-800-53.yaml")],
+    [
+        ("nist_ai_600_1", "nist-ai-600-1.yaml"),
+        ("nist_sp_800_53", "nist-sp-800-53.yaml"),
+    ],
 )
 def test_mappings_name_a_class_of_the_neighbour(prefix, neighbour):
     """Every mapping to a released neighbour names a class of its copy: its

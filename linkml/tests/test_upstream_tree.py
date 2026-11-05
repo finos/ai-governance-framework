@@ -29,7 +29,9 @@ from aigf_rules import (
 ROOT = Path(__file__).parent.parent
 TREE = ROOT.parent
 DOCS = TREE / "docs"
-SCHEMA = ROOT / "src" / "ai_governance_framework" / "schema" / "ai_governance_framework.yaml"
+SCHEMA = (
+    ROOT / "src" / "ai_governance_framework" / "schema" / "ai_governance_framework.yaml"
+)
 JSON_SCHEMA = ROOT / "project" / "jsonschema" / "ai_governance_framework.schema.json"
 BUILDER = ROOT / "scripts" / "build_catalogue.py"
 WATCH = ROOT / "scripts" / "check_upstream_release.py"
@@ -81,7 +83,9 @@ def _errors(instance, class_name):
         "$defs": _json_schema()["$defs"],
         "$ref": f"#/$defs/{class_name}",
     }
-    return [e.message for e in jsonschema.Draft202012Validator(schema).iter_errors(instance)]
+    return [
+        e.message for e in jsonschema.Draft202012Validator(schema).iter_errors(instance)
+    ]
 
 
 def _blob_sha(path):
@@ -107,7 +111,9 @@ def test_the_pins_agree():
     assert commit == _watch().PINNED_COMMIT
     assert header["source"].endswith(f"/tree/{commit}")
     assert header["version"] == _config()["version"] == _watch().PINNED_EDITION
-    assert header["annotations"]["upstream_release_date"] == str(_config()["release-date"])
+    assert header["annotations"]["upstream_release_date"] == str(
+        _config()["release-date"]
+    )
     assert header["annotations"]["upstream_license"] == "CC-BY-4.0"
     assert "PackageLicenseDeclared: CC-BY-4.0" in (TREE / "LICENSE.spdx").read_text(
         encoding="utf-8"
@@ -136,7 +142,10 @@ def test_the_renaming_is_one_to_one(class_name):
     slots = set(builder.class_slots(_schema(), class_name))
     for path, matter in builder.pages(class_name):
         record = builder.page_record(_schema(), class_name, path, matter)
-        added = {"item_id": record.pop("item_id"), "source_file": record.pop("source_file")}
+        added = {
+            "item_id": record.pop("item_id"),
+            "source_file": record.pop("source_file"),
+        }
         assert set(record) <= slots, path.name
         assert {back.get(k, k): v for k, v in record.items()} == matter, path.name
         assert added["source_file"] == path.relative_to(TREE).as_posix()
@@ -149,7 +158,9 @@ def test_a_key_outside_the_schema_fails_rather_than_passing():
     assert _errors(matter, "AigfRisk"), path.name
 
 
-@pytest.mark.parametrize("stem", sorted(p.stem for p in (DOCS / "_data/references").glob("*.yml")))
+@pytest.mark.parametrize(
+    "stem", sorted(p.stem for p in (DOCS / "_data/references").glob("*.yml"))
+)
 def test_every_reference_file_validates_unchanged(stem):
     """A reference file needs no renaming: FINOS's keys are the schema's."""
     reference = _builder().reference_files()[stem]
@@ -253,9 +264,9 @@ def test_the_status_enum_is_the_config():
 
 def test_the_category_enum_is_the_config_and_the_listed_departures():
     departures = yaml.safe_load(DEPARTURES.read_text(encoding="utf-8"))
-    assert set(_labels("AigfUseCaseCategory")) == set(_config()["usecase_categories"]) | set(
-        departures["category_not_listed"].values()
-    )
+    assert set(_labels("AigfUseCaseCategory")) == set(
+        _config()["usecase_categories"]
+    ) | set(departures["category_not_listed"].values())
 
 
 def test_the_lens_enum_is_the_config():
@@ -274,7 +285,9 @@ def test_the_sensitivity_enum_is_the_data():
 
 def test_the_data_handling_enum_is_the_axis():
     axis = next(
-        a for a in _catalogue()["ai_deployment_model_taxonomy"] if a["name"] == "data_handling"
+        a
+        for a in _catalogue()["ai_deployment_model_taxonomy"]
+        if a["name"] == "data_handling"
     )
     assert set(_schema()["enums"]["AigfDataHandling"]["permissible_values"]) == {
         o["name"] for o in axis["options"]
@@ -297,7 +310,11 @@ def test_the_data_files_lose_nothing():
     ] == builder.read_yaml(DOCS / "_data" / "ai_use_cases.yml")["AI_use_cases"]
     original = builder.read_yaml(DOCS / "_data" / "ai_deployment_model.yml")
     assert [
-        {a["name"]: [{o["name"]: {"description": o["description"]}} for o in a["options"]]}
+        {
+            a["name"]: [
+                {o["name"]: {"description": o["description"]}} for o in a["options"]
+            ]
+        }
         for a in catalogue["ai_deployment_model_taxonomy"]
     ] == [
         {

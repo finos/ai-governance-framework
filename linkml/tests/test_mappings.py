@@ -28,7 +28,10 @@ def _catalogue():
     return yaml.safe_load(CATALOGUE.read_text(encoding="utf-8"))
 
 
-STEMS = [i["reference_file"] for i in yaml.safe_load(CATALOGUE.read_text())["reference_indexes"]]
+STEMS = [
+    i["reference_file"]
+    for i in yaml.safe_load(CATALOGUE.read_text())["reference_indexes"]
+]
 
 
 def _set(stem):
@@ -36,7 +39,11 @@ def _set(stem):
     lines = _script().set_path(stem).read_text(encoding="utf-8").splitlines()
     header = yaml.safe_load("\n".join(x[2:] for x in lines if x.startswith("# ")))
     rows = list(
-        csv.DictReader([x for x in lines if not x.startswith("#")], delimiter="\t", quoting=csv.QUOTE_NONE)
+        csv.DictReader(
+            [x for x in lines if not x.startswith("#")],
+            delimiter="\t",
+            quoting=csv.QUOTE_NONE,
+        )
     )
     return header, rows
 
@@ -68,10 +75,19 @@ def test_each_row_is_a_citation_and_each_citation_a_row(stem):
 def test_each_set_says_what_a_row_is(stem):
     header, rows = _set(stem)
     prefix = _script().object_prefix(stem)
-    assert set(header["curie_map"]) == {"ai_governance_framework", prefix, "semapv", "skos"}
-    assert header["mapping_provider"] == "https://github.com/finos/ai-governance-framework"
+    assert set(header["curie_map"]) == {
+        "ai_governance_framework",
+        prefix,
+        "semapv",
+        "skos",
+    }
+    assert (
+        header["mapping_provider"] == "https://github.com/finos/ai-governance-framework"
+    )
     assert {row["predicate_id"] for row in rows} == {"skos:relatedMatch"}
-    assert {row["mapping_justification"] for row in rows} == {"semapv:ManualMappingCuration"}
+    assert {row["mapping_justification"] for row in rows} == {
+        "semapv:ManualMappingCuration"
+    }
 
 
 def test_the_iso_set_carries_no_label():

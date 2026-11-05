@@ -85,7 +85,11 @@ def test_a_rule_finds_a_planted_fault(rule, section, key, value):
     [
         {"entries": {}},
         {"entries": {"a key": {"title": "T", "url": "https://example.org"}}},
-        {"entries": {"a": {"title": "T", "url": "https://x.org", "superseded_by": "b"}}},
+        {
+            "entries": {
+                "a": {"title": "T", "url": "https://x.org", "superseded_by": "b"}
+            }
+        },
     ],
 )
 def test_a_reference_file_rule_finds_a_planted_fault(reference):

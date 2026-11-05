@@ -8,11 +8,11 @@ doc_status: Approved-Specification
 mitigation_type: RESP
 mitigation_domain: sourcing
 nist_sp_800_53r5_references:
-- cm-2
-- cm-3
+  - cm-2
+  - cm-3
 mitigates:
-- ri-5
-- ri-6
+  - ri-5
+  - ri-6
 related_mitigations:
-- mi-5
-- mi-4
+  - mi-5
+  - mi-4

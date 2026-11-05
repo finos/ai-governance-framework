@@ -64,7 +64,10 @@ def test_main_moved_outside_what_the_schema_reads(watch, monkeypatch, capsys):
         (lambda t: t.update({"docs/_config.yml": "a" * 40}), "changes 1 file"),
         (lambda t: t.pop("docs/_config.yml"), "drops 1 file"),
         (lambda t: t.update({"docs/_risks/ri-99_new.md": "a" * 40}), "adds 1 file"),
-        (lambda t: t.update({"docs/_data/references/new.yml": "a" * 40}), "adds 1 file"),
+        (
+            lambda t: t.update({"docs/_data/references/new.yml": "a" * 40}),
+            "adds 1 file",
+        ),
         (lambda t: t.update({"LICENSE": "a" * 40}), "changes the licence"),
     ],
 )

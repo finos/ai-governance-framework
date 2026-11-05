@@ -113,7 +113,9 @@ def render(catalogue: dict, stem: str, reference: dict) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--check", action="store_true", help="Exit 1 when a set differs")
+    parser.add_argument(
+        "--check", action="store_true", help="Exit 1 when a set differs"
+    )
     args = parser.parse_args(argv)
     builder = _builder()
     catalogue = builder.catalogue(builder.read_yaml(builder.SCHEMA))
@@ -123,7 +125,10 @@ def main(argv: list[str] | None = None) -> int:
         text = render(catalogue, stem, reference)
         if args.check:
             if not path.is_file() or path.read_text(encoding="utf-8") != text:
-                print(f"{path.relative_to(ROOT)} differs from FINOS's files.", file=sys.stderr)
+                print(
+                    f"{path.relative_to(ROOT)} differs from FINOS's files.",
+                    file=sys.stderr,
+                )
                 status = 1
         else:
             path.write_text(text, encoding="utf-8")

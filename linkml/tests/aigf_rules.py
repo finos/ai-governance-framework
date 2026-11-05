@@ -110,5 +110,7 @@ def reference_file_faults(stem: str, reference: dict) -> list[str]:
             faults.append(f"{stem}: key {key} has a character outside the keys' form")
         successor = entry.get("superseded_by")
         if successor is not None and successor not in entries:
-            faults.append(f"{stem}: {key} is superseded by {successor}, which is not there")
+            faults.append(
+                f"{stem}: {key} is superseded by {successor}, which is not there"
+            )
     return faults

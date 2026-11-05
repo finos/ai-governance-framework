@@ -1,4 +1,4 @@
 name: data_handling
 options:
-- name: Centralized
-  description: Data is held and processed in one place.
+  - name: Centralized
+    description: Data is held and processed in one place.
