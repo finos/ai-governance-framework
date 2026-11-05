@@ -4,17 +4,18 @@ title: Data Filtering From External Knowledge Bases
 layout: mitigation
 doc-status: Approved-Specification
 type: PREV
+domain: filtering
 iso-42001_references:
   - A-7-2  # ISO 42001: Data for development and enhancement of AI system
   - A-7-3  # ISO 42001: Acquisition of data
   - A-7-4  # ISO 42001: Quality of data for AI systems
   - A-7-6  # ISO 42001: Data preparation
 nist-sp-800-53r5_references:
-  - ac-4  # AC-4 Information Flow Enforcement
+  - ac-4   # AC-4 Information Flow Enforcement
   - ac-22  # AC-22 Publicly Accessible Content
-  - mp-6  # MP-6 Media Sanitization
-  - pt-2  # PT-2 Authority To Process Personally Identifiable Information
-  - si-4  # SI-4 System Monitoring
+  - mp-6   # MP-6 Media Sanitization
+  - pt-2   # PT-2 Authority To Process Personally Identifiable Information
+  - si-4   # SI-4 System Monitoring
   - si-12  # SI-12 Information Management And Retention
   - si-15  # SI-15 Information Output Filtering
   - si-19  # SI-19 De-identification
@@ -23,8 +24,10 @@ mitigates:
   - ri-9  # Data Poisoning
 related_mitigations:
   - mi-1   # AI Data Leakage Prevention and Detection
-  - mi-6   # Data Quality Classification Sensitivity
+  - mi-6   # Data Quality & Classification/Sensitivity
   - mi-16  # Preserving Source Data Access Controls in AI Systems
+iosco-supervisory-toolkit_references:
+  - t3-4  # Table 3.4: Data Governance
 ---
 
 ## Purpose

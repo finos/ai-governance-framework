@@ -4,8 +4,9 @@ title: Information Leaked To Hosted Model
 layout: risk
 doc-status: Approved-Specification
 type: RC
+domain: leakage
 owasp-llm_references:
-  - llm02-2025  # LLM02:2025 Sensitive Information Disclosure
+  - llm02-2026  # LLM02:2026 Sensitive Information Disclosure
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy
   - 2-9  # 2.9. Information Security
@@ -17,9 +18,40 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
+canada-regulations_references:
+  # Securities cyber and outsourcing
+  - csa-sn-11-348          # Explicitly flags privacy law implications of inputting client info into third-party AI
+  - csa-sn-11-326          # CSA Cyber Security (2013) — first cross-sectoral cyber guidance
+  - csa-sn-11-332          # CSA Cyber Security (2016) — follow-up cyber risk expectations
+  - csa-sn-33-321          # CSA Cyber Security and Social Media (2017) — IFMs, PMs, EMDs
+  - ni-31-103-s11-1        # s. 11.1 compliance system — outsourcing accountability
+  - ni-31-103-s11-5        # s. 11.5 records — confidentiality of client records
+  - ni-31-103cp            # CP Part 11 — outsourcing accountability for client info transferred to AI provider
+  - ciro-idpc-rule-3800    # Rule 3800 recordkeeping/confidentiality — client info in AI-enabled workflows
+  - ciro-gn-2300-21-003    # Outsourcing Arrangements — confidentiality, cross-border due diligence
+  # Tier 3 benchmarks
+  - osfi-b13-d3            # OSFI B-13 Domain 3 Cyber Security — data confidentiality controls (FRFIs)
+  - iosco-fr-02-2026       # Toolkit — third-party data security considerations
+  # Tier 4 — primary privacy framework
+  - pipeda                 # PIPEDA 4.1.3 (third-party accountability), 4.7 (safeguards), s. 10.1 (breach notification)
+  - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency includes disclosing personal info used
+  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — PIAs for AI processing, cross-border adequacy
+uk-regulations_references:
+  # Systems, controls, outsourcing and third-party resilience
+  - fca-sysc # Systems and controls apply to confidential client data in AI workflows
+  - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted model providers
+  - pra-ss2-21-outsourcing # PRA outsourcing controls for material AI service providers
+  - boe-fca-pra-critical-third-parties-2024 # Systemic third-party services, including AI/cloud concentration
+  # Data protection and AI-specific privacy controls
+  - uk-gdpr-dpa-2018 # UK GDPR/DPA safeguards for personal data sent to hosted models
+  - ico-guidance-ai-data-protection # ICO AI guidance on controller accountability and security
+  - ico-ai-data-protection-toolkit # Toolkit prompts risk assessment of data leakage in AI systems
 related_risks:
   - ri-2   # Information Leaked to Vector Store
-  - ri-23  # Intellectual Property and Copyright
+  - ri-23  # Intellectual Property (IP) and Copyright
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
 ---
 ## Summary
 
@@ -45,7 +77,7 @@ The risk profile can be further influenced by the provider's data handling pract
 
 Enterprise LLMs typically offer better protections (private endpoints, no training data usage, encryption) than free services, which often use input data for model improvements. Thorough due diligence on provider practices is essential.
 
-This risk is aligned with OWASP’s [LLM02:2025 Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm02-sensitive-information-disclosure/), which highlights the dangers of exposing proprietary or personally identifiable information (PII) through large-scale, externally hosted AI systems.
+This risk is aligned with OWASP’s [LLM02:2026 Sensitive Information Disclosure](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM02_SensitiveInformationDisclosure.md), which highlights the dangers of exposing proprietary or personally identifiable information (PII) through large-scale, externally hosted AI systems.
 
 ### Consequences
 

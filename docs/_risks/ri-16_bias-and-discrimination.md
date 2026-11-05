@@ -4,6 +4,7 @@ title: Bias and Discrimination
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: alignment
 nist-ai-600-1_references:
   - 2-6  # 2.6. Harmful Bias and Homogenization
 ffiec-itbooklets_references:
@@ -16,9 +17,35 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a27  # III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems
+canada-regulations_references:
+  # Securities guidance
+  - csa-sn-11-348          # CSA SN 11-348: identifies systemic AI bias as a market fairness risk
+  - ni-81-107              # IRC referral for AI-related conflicts — bias from proprietary/affiliated models
+  # Tier 3 benchmarks
+  - osfi-e23-2027-p3-2     # OSFI E-23 Principle 3.2 Data Suitability — unwanted bias in model data/outputs (FRFIs, 2027)
+  - qc-amf-ai-guideline    # AMF AI Guideline — covers biased outputs and discriminatory proxies (QC FIs, 2027)
+  - iosco-fr-02-2026       # IOSCO Toolkit — bias/fairness within AI governance
+  # Tier 4 — operative anti-discrimination framework
+  - on-hrc-s1              # Provincial human rights codes — equal treatment in services
+  - chra-s3-s5             # CHRA ss. 3, 5 — federal anti-discrimination (federally regulated FIs only)
+uk-regulations_references:
+  # AI fairness and conduct expectations
+  - fca-ai-approach-2024 # FCA AI approach flags fairness, accountability and consumer outcomes
+  - fca-prin # Principles require integrity, skill/care/diligence and customers' interests
+  - fca-prin-2a # Consumer Duty requires good outcomes and avoidance of foreseeable harm
+  # Privacy, fairness and protected-characteristic law
+  - uk-gdpr-dpa-2018 # Fairness, special-category data and automated decision-making safeguards
+  - ico-guidance-ai-data-protection # ICO AI guidance addresses bias, fairness and statistical accuracy
+  - ico-ai-data-protection-toolkit # Toolkit includes bias/fairness checks for AI personal-data processing
+  - equality-act-2010 # Protected-characteristic discrimination baseline for services/employment
+  - consumer-credit-act-1974 # Consumer-credit protections relevant to AI credit decisions
 related_risks:
   - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight
+iosco-supervisory-toolkit_references:
+  - t2-advice  # Table 2: Investment Advice & Suitability
+  - t3-6       # Table 3.6: AI Model Validation, Testing and Monitoring
+  - t4-3       # Table 4.3: Fairness Due Diligence Assessment
 ---
 
 ## Summary

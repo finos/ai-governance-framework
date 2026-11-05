@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+{% assign _ref = site.data.references[page.dataset] %}
+
+<header class="py-5 bg-light border-bottom">
+    <div class="container">
+        <div class="mb-4">
+            <a href="/" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                Back to Risk Catalogue
+            </a>
+        </div>
+        <div class="d-flex align-items-center mb-3">
+            <img src="/2025_AIGovernanceFramework_Icon.png" alt="AI Governance Framework Icon" style="height: 48px;" class="me-3 mb-0">
+            <div>
+                <h1 class="display-4 mb-0">{{ _ref.title }}</h1>
+            </div>
+        </div>
+        <p class="lead mb-0">{{ _ref.description }}</p>
+        {% if _ref.source_url %}
+        <p class="mt-2 mb-0">
+            <a href="{{ _ref.source_url }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                Full document {% include external-link-icon.html %}
+            </a>
+        </p>
+        {% endif %}
+    </div>
+</header>
+
+<main class="container py-5">
+    {% for entry in _ref.entries %}
+        {% assign _key = entry[0] %}
+        {% assign _item = entry[1] %}
+        {% include reference-entry-card.html dataset=page.dataset key=_key item=_item %}
+    {% endfor %}
+</main>

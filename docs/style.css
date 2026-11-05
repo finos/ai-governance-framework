@@ -199,6 +199,15 @@ optgroup option {
     border-left-width: 4px !important;
 }
 
+/* Reference card collapse chevron */
+.collapse-icon {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+[aria-expanded="true"] .collapse-icon {
+    transform: rotate(180deg);
+}
+
 /* Collapse functionality */
 .collapse:not(.show) {
     display: none;

@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+      - id: validate-references
+        name: Validate reference YAML files
+        description: >
+          Checks that every file in docs/_data/references/ conforms to the
+          standard schema (title, description, entries). See
+          docs/_data/references/README.md for the full schema definition.
+        entry: python scripts/validate-references.py
+        language: system
+        files: ^docs/_data/references/.*\.yml$
+        pass_filenames: false

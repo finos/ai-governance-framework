@@ -4,6 +4,7 @@ title: Inadequate System Alignment
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: alignment
 ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - dam-5  # DAM: V Development
@@ -20,9 +21,15 @@ related_risks:
   - ri-4  # Hallucination and Inaccurate Outputs
   - ri-6  # Non-Deterministic Behaviour
 owasp-llm_references:
-  - llm07-2025  # LLM07:2025 System Prompt Leakage
+  - llm08-2026  # LLM08:2026 Hidden Context Exposure
+owasp-asi_references:
+  - asi10-2026  # ASI10: Rogue Agents
 owasp-ml_references:
   - ml08-2023  # ML08:2023 Model Skewing
+iosco-supervisory-toolkit_references:
+  - t2-advice  # Table 2: Investment Advice & Suitability
+  - t3-5       # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-6       # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary

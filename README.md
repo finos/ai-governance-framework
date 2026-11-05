@@ -8,8 +8,6 @@
 Our goal is to mutually develop a governance framework that manages the on-boarding, development of, and running AI-based solutions within financial services organisations - allowing us all to unlock the potential of this disruptive technology in a safe, trustworthy and compliant way.
 
 [Take me to the AI Governance Framework](https://air-governance-framework.finos.org/)
-
-[See the LinkML Schema](https://w3id.org/lmodel/ai-governance-framework)
  
 ## Introduction
 
@@ -38,10 +36,13 @@ We use the following channels:
 
 The project maintainers are
 - Colin Eberhardt - Scott Logic @ColinEberhardt (https://github.com/ColinEberhardt) Lead Maintainer
-- Vicente Herrera Garcia - ControlPlane @vicenteherrera (https://github.com/vicenteherrera) 
-- Alvin Shih - Morgan Stanley - @alvin-c-shih (https://github.com/alvin-c-shih)
+- Francesco Beltramini - ControlPlane @d1gital-f (https://github.com/d1gital-f) 
+- Alvin Shih - Morgan Stanley @alvin-c-shih (https://github.com/alvin-c-shih)
 - Chamindra de Silva - Citi @chamindra (https://github.com/chamindra)
 - Asad Ateeque – NatWest @aateeque (https://github.com/aateeque)
+- Naresh Babu Deenadayalan - RBC @iamravanan (https://github.com/iamravanan)
+- Hugo Calderon - Citi @hugo-calderon (https://github.com/hugo-calderon)
+- Stefano Amorelli - Qonto @stefanoamorelli (https://github.com/stefanoamorelli)
 
 ## Frequently Asked Questions
 

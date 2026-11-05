@@ -4,6 +4,7 @@ title: AI System Alerting and Denial of Wallet (DoW) / Spend Monitoring
 layout: mitigation
 doc-status: Approved-Specification
 type: DET
+domain: monitoring
 iso-42001_references:
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
   - A-4-2    # ISO 42001: Resource documentation
@@ -17,9 +18,13 @@ nist-sp-800-53r5_references:
 mitigates:
   - ri-7  # Availability of Foundational Model
 related_mitigations:
-  - mi-8   # Quality of Service QoS and DDoS Prevention for AI Systems
-  - mi-4   # AI System Observability
-  - mi-3   # User App Model Firewalling Filtering
+  - mi-8  # Quality of Service (QoS) and DDoS Prevention for AI Systems
+  - mi-4  # AI System Observability
+  - mi-3  # User/App/Model Firewalling/Filtering
+iosco-supervisory-toolkit_references:
+  - t7-performance  # Table 7: AI System Performance Indicators
+  - t2-reliability  # Table 2: System Reliability & Business Continuity Planning
+  - t6-5            # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Purpose

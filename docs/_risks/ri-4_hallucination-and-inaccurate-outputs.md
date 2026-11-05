@@ -4,8 +4,9 @@ title: Hallucination and Inaccurate Outputs
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: accuracy
 owasp-llm_references:
-  - llm09-2025  # LLM09:2025 Misinformation
+  - llm07-2026  # LLM07:2026 Misinformation
 owasp-ml_references:
   - ml09-2023  # ML09:2023 Output Integrity Attack
 nist-ai-600-1_references:
@@ -23,6 +24,9 @@ related_risks:
   - ri-14  # Inadequate System Alignment
   - ri-6   # Non-Deterministic Behaviour
   - ri-19  # Data Quality and Drift
+iosco-supervisory-toolkit_references:
+  - t2-model-risk  # Table 2: Model Risk Management
+  - t3-6           # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary

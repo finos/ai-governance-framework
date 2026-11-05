@@ -4,8 +4,9 @@ title: Tampering With the Foundational Model
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: components
 owasp-llm_references:
-  - llm03-2025  # LLM03:2025 Supply Chain
+  - llm04-2026  # LLM04:2026 Supply Chain
 owasp-ml_references:
   - ml05-2023  # ML05:2023 Model Theft
   - ml06-2023  # ML06:2023 ML Supply Chain Attacks
@@ -22,8 +23,11 @@ eu-ai-act_references:
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
   - c5-s2-a53  # V.S2.A53: Obligations for Providers of General-Purpose AI Models
 related_risks:
-  - ri-9   # Data Poisoning
-  - ri-7   # Availability of Foundational Model
+  - ri-9  # Data Poisoning
+  - ri-7  # Availability of Foundational Model
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t4-4              # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Summary
@@ -48,7 +52,5 @@ In a SaaS deployment context, organisations rely entirely on the integrity and t
 * [Poisoning Language Models During Instruction Tuning](https://arxiv.org/abs/2305.11491) – Explores how attackers can poison open-source models via instruction tuning.
 * [AI Supply Chain Security (CISA)](https://www.cisa.gov/resources-tools/resources/securing-artificial-intelligence-ai-supply-chain) – U.S. Cybersecurity & Infrastructure Security Agency guidance on securing the AI supply chain.
 * [Invisible Poison: Backdoor Attacks on NLP Models via Data Poisoning](https://arxiv.org/abs/2106.09132) – Demonstrates how malicious training data can inject backdoors into language models.
-* [Security Risks of ChatGPT and Other LLMs (MITRE ATLAS)](https://atlas.mitre.org/stories/llm-threats) – MITRE ATLAS write-up summarising threats and attack vectors related to LLMs.
+* [Careful Adoption of Agentic AI Services](https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services) – Guidance on LLM-based agentic AI security risks, including inherited LLM vulnerabilities, expanded attack surfaces, and system integrations.
 * [PyTorch Security Advisories](https://github.com/pytorch/pytorch/security/advisories) – Example of OSS dependency risks in foundational model supply chains.
-
-

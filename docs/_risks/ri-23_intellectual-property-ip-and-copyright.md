@@ -4,6 +4,7 @@ title: Intellectual Property (IP) and Copyright
 layout: risk
 doc-status: Approved-Specification
 type: RC
+domain: liability
 nist-ai-600-1_references:
   - 2-10  # 2.10. Intellectual Property
 ffiec-itbooklets_references:
@@ -18,6 +19,9 @@ eu-ai-act_references:
 related_risks:
   - ri-1   # Information Leaked To Hosted Model
   - ri-22  # Regulatory Compliance and Oversight
+iosco-supervisory-toolkit_references:
+  - t3-4  # Table 3.4: Data Governance
+  - t4-4  # Table 4.4: Supply Chain Risk Assessment
 ---
 
 ## Summary

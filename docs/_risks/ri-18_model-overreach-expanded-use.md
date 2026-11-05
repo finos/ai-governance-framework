@@ -4,8 +4,9 @@ title: Model Overreach / Expanded Use
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: agency
 owasp-llm_references:
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm03-2026  # LLM03:2026 Excessive Agency
 ffiec-itbooklets_references:
   - mgt-1  # MGT: I   Governance
   - mgt-2  # MGT: II Risk Management
@@ -14,10 +15,44 @@ eu-ai-act_references:
   - c3-s1-a6   # III.S1.A6: Classification Rules for High-Risk AI Systems
   - c3-s2-a14  # III.S2.A14: Human Oversight
   - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
+canada-regulations_references:
+  # Scope control and notification
+  - csa-sn-11-348          # CSA SN 11-348: AI governance/scope expectations
+  - ni-33-109-f5           # Form 33-109F5 — material business change notification
+  - ni-81-102              # s. 5.1(1)(c) — AI as material strategy = fundamental change, securityholder approval
+  - ni-81-106              # Part 11 material change reporting — AI scope expansion as a material change in fund operations
+  # Supervision and human oversight
+  - ciro-rules-phase-4     # Proposed Rule 3900 — supervision of automated tasks
+  - ciro-acr-2026          # CIRO 2026 Compliance Report — AI operational controls and scope
+  - csa-sn-31-342          # AR must remain decision-maker — AI assists but cannot substitute
+  # Outsourcing / third-party oversight
+  - ni-31-103-s11-1        # s. 11.1 — outsourcing obligations; registrant accountable for third-party AI scope
+  - ni-31-103cp            # CP Part 11 — registerable-vs-support activity: AI may assist but not substitute
+  - ciro-gn-2300-21-003    # Outsourcing Arrangements — monitoring for scope expansion by service providers
+  # Tier 3 benchmarks
+  - osfi-e23-2027-p3-6     # OSFI E-23 Principle 3.6 — monitoring/decommission catches scope drift (FRFIs, 2027)
+  - osfi-b-10              # OSFI B-10 — third-party risk management and concentration (FRFIs)
+uk-regulations_references:
+  # Scope, accountability and consumer-outcome controls
+  - fca-ai-approach-2024 # FCA AI approach frames safe and responsible adoption expectations
+  - fca-prin # Principles require appropriate skill, care and management of business risks
+  - fca-prin-2a # Consumer Duty constrains expanded AI use causing foreseeable harm
+  - fca-sysc # SYSC governance controls apply to material system changes and oversight
+  - fca-smcr # SMCR allocates senior accountability for AI use beyond approved scope
+  # Regulated advice and model-risk boundaries
+  - fca-cobs-9 # Suitability rules limit unsupported use in personal recommendations
+  - fca-cobs-9a # MiFID suitability requirements constrain portfolio/advice automation scope
+  - pra-ss1-23-mrm # Model inventory, tiering and change controls address model-use drift
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion emphasises governance of AI model use
 related_risks:
   - ri-10  # Prompt Injection
   - ri-17  # Lack of Explainability
   - ri-22  # Regulatory Compliance and Oversight
+iosco-supervisory-toolkit_references:
+  - t2-advice  # Table 2: Investment Advice & Suitability
+  - t3-5       # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7       # Table 3.7: Controls and Human Oversight of AI Systems
+  - t4-9       # Table 4.9: Use of Complex AI Products
 ---
 
 ## Summary

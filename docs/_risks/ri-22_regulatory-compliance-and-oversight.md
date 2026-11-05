@@ -4,6 +4,7 @@ title: Regulatory Compliance and Oversight
 layout: risk
 doc-status: Approved-Specification
 type: RC
+domain: liability
 nist-ai-600-1_references:
   - 2-9  # 2.9. Information Security
 ffiec-itbooklets_references:
@@ -17,10 +18,77 @@ eu-ai-act_references:
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
   - c3-s3-a21  # III.S3.A21: Cooperation with Competent Authorities
   - c3-s3-a27  # III.S3.A27: Fundamental Rights Impact Assessment for High-Risk AI Systems
+canada-regulations_references:
+  # AI-specific guidance
+  - csa-sn-11-348          # CSA SN 11-348: AI in Capital Markets — interpretive anchor
+  - ciro-acr-2026          # CIRO 2026 Compliance Report — AI section, FinOps posture
+  # Registration / conduct / suitability (NI 31-103 provisions)
+  - ni-31-103-s11-1        # s. 11.1 Compliance System — compliance/outsourcing accountability
+  - ni-31-103-s13-2        # s. 13.2 KYC
+  - ni-31-103-s13-2-1      # s. 13.2.1 KYP
+  - ni-31-103-s13-3        # s. 13.3 Suitability determination
+  - ni-31-103-s13-4        # s. 13.4 Material conflicts of interest
+  - ni-31-103cp            # CP Part 11 — outsourcing framework: due diligence, accountability
+  - csa-ciro-sn-31-363     # Joint CFR review — conflicts of interest
+  - csa-ciro-sn-31-368     # Joint CFR review — KYC/KYP/suitability
+  - csa-sn-31-342          # Online advice — AR must remain decision-maker; AI cannot substitute
+  - ni-33-109-f5           # Form 33-109F5 — material business change notification
+  # Investment funds
+  - ni-81-102              # s. 5.1(1)(c) fundamental change trigger; Part 15 sales communications; AI washing
+  - ni-81-107              # IRC referral for AI-related conflicts (proprietary models, vendor incentives)
+  - ni-81-106              # Material change reporting for AI adoption in fund operations
+  # CIRO rules and outsourcing
+  - ciro-idpc-rule-3100-3600  # Business conduct (operative IDPC Rules)
+  - ciro-idpc-rule-3800       # Recordkeeping and client reporting
+  - ciro-idpc-rule-3900       # Supervision
+  - ciro-rules-phase-4        # Proposed Rule 3900 — supervision of automated tasks
+  - ciro-gn-2300-21-003       # Outsourcing Arrangements — due diligence, SLAs, monitoring, exit
+  # Tier 3 benchmarks
+  - osfi-e23-2027          # OSFI E-23 Model Risk Management (FRFIs, eff. 2027)
+  - osfi-b-10              # OSFI B-10 Third-Party Risk Management (FRFIs) — concentration risk
+  - qc-amf-ai-guideline    # AMF AI Guideline (QC-regulated FIs, eff. 2027)
+  - iosco-fr-02-2026       # IOSCO Supervisory Toolkit for AI in Capital Markets
+  # Tier 4 adjacent compliance obligations
+  - pipeda                 # Privacy compliance for AI deployment — SN 11-348 flags privacy intersection
+  - qc-p39-s12-1           # Quebec Law 25 s. 12.1 — ADM transparency obligation
+  - qc-p39-s3-3-s17        # Quebec Law 25 ss. 3.3, 17 — mandatory PIAs, cross-border transfer adequacy
+uk-regulations_references:
+  # AI-specific supervisory materials and market intelligence
+  - fca-ai-approach-2024 # FCA's AI approach is the UK conduct-regulator interpretive anchor
+  - boe-fca-ai-survey-2024 # Joint survey frames current AI use, controls and supervisory concerns
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM engagement informs supervisory discussion topics
+  # Model risk, governance, accountability and conduct
+  - pra-ss1-23-mrm # Model risk management principles for in-scope banks and PRA-designated firms
+  - fca-prin # Principles for Businesses apply regardless of AI or human delivery channel
+  - fca-prin-2a # Consumer Duty is central for retail AI outcomes and foreseeable harm
+  - fca-sysc # Systems and controls sourcebook anchors AI governance and operational oversight
+  - fca-smcr # Senior accountability and certification regime for AI control ownership
+  # Advice, communications, prudential and outsourcing controls
+  - fca-cobs-4 # Financial promotions and client communications, including AI-generated content
+  - fca-cobs-9 # Suitability requirements for non-MiFID personal recommendations
+  - fca-cobs-9a # MiFID suitability requirements for advice and portfolio management
+  - fca-mifidpru # Prudential governance context for FCA investment firms
+  - fca-fg16-5-cloud # Cloud and third-party IT guidance for AI service-provider arrangements
+  - pra-ss2-21-outsourcing # PRA outsourcing and third-party risk management expectations
+  - boe-fca-pra-critical-third-parties-2024 # Critical third-party policy for systemic service dependencies
+  # Cross-cutting data, equality and consumer-credit obligations
+  - uk-gdpr-dpa-2018 # Privacy, transparency and automated-decision safeguards
+  - ico-guidance-ai-data-protection # ICO AI guidance for personal-data processing in AI systems
+  - ico-ai-data-protection-toolkit # ICO toolkit for AI data-protection risk assessment
+  - equality-act-2010 # Equality and non-discrimination obligations for services and employment
+  - consumer-credit-act-1974 # Consumer-credit law relevant to AI-assisted lending decisions
 related_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability
   - ri-18  # Model Overreach / Expanded Use
+iosco-supervisory-toolkit_references:
+  - t2-governance  # Table 2: AI Governance & Oversight
+  - t3-1           # Table 3.1: Oversight from Board or Governing Body
+  - t3-2           # Table 3.2: Senior Management Responsibilities
+  - t3-3           # Table 3.3: AI Risk Management Systems, Policies and Procedures
+  - t6-6           # Table 6.6: Reporting
+  - t4-7           # Table 4.7: Legal Framework and Accountability
+  - t5-2           # Table 5.2: AI Governance and Strategy Disclosures
 ---
 
 ## Summary

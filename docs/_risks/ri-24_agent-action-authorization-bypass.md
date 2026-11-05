@@ -4,12 +4,24 @@ title: Agent Action Authorization Bypass
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: agency
 owasp-llm_references:
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm03-2026  # LLM03:2026 Excessive Agency
+owasp-asi_references:
+  - asi02-2026  # ASI02: Tool Misuse and Exploitation
+  - asi03-2026  # ASI03: Identity and Privilege Abuse
+atr_references:
+  - ATR-2026-00012  # Unauthorized Tool Call
+  - ATR-2026-00040  # Agent Privilege Escalation
+  - ATR-2026-00098  # Unauthorized Financial Action by Agent
+  - ATR-2026-00118  # Human Approval Fatigue Exploitation
 related_risks:
   - ri-10  # Prompt Injection
   - ri-18  # Model Overreach / Expanded Use
   - ri-22  # Regulatory Compliance and Oversight
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
 ---
 
 ## Summary
@@ -70,5 +82,5 @@ The consequences of agent action authorization bypass can be severe for financia
 
 ## Links
 
-- [OWASP LLM06: Excessive Agency](https://genai.owasp.org/llmrisk/llm06-excessive-agency/)
+- [OWASP LLM03:2026 Excessive Agency](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md)
 - [FFIEC IT Handbook - Information Security](https://ithandbook.ffiec.gov/it-booklets/information-security.aspx)

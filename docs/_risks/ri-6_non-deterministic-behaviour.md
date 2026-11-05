@@ -4,8 +4,9 @@ title: Non-Deterministic Behaviour
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: accuracy
 owasp-llm_references:
-  - llm09-2025  # LLM09:2025 Misinformation
+  - llm07-2026  # LLM07:2026 Misinformation
 ffiec-itbooklets_references:
   - dam-3  # DAM: III Risk Management of Development, Acquisition, and Maintenance
   - aud-4  # AUD: Risk Assessment and Risk-Based Auditing
@@ -16,6 +17,11 @@ eu-ai-act_references:
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-14  # Inadequate System Alignment
+iosco-supervisory-toolkit_references:
+  - t2-model-risk    # Table 2: Model Risk Management
+  - t2-market-risks  # Table 2: Market Risks
+  - t3-5             # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-6             # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary

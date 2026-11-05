@@ -4,12 +4,24 @@ title: Tool Chain Manipulation and Injection
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: inputs
 owasp-llm_references:
-  - llm01-2025  # LLM01:2025 Prompt Injection
+  - llm01-2026  # LLM01:2026 Prompt Injection
+owasp-asi_references:
+  - asi02-2026  # ASI02: Tool Misuse and Exploitation
+  - asi05-2026  # ASI05: Unexpected Code Execution (RCE)
+atr_references:
+  - ATR-2026-00010  # Malicious Content in MCP Tool Response
+  - ATR-2026-00011  # Instruction Injection via Tool Output
+  - ATR-2026-00012  # Unauthorized Tool Call
+  - ATR-2026-00013  # Tool-Driven Server-Side Request Forgery
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass
   - ri-4   # Hallucination and Inaccurate Outputs
+iosco-supervisory-toolkit_references:
+  - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
+  - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
 ---
 
 ## Summary
@@ -87,5 +99,5 @@ Tool chain manipulation attacks can result in severe consequences for financial 
 
 ## Links
 
-- [OWASP LLM01: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [OWASP LLM01:2026 Prompt Injection](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md)
 - [MITRE ATT&CK: Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)

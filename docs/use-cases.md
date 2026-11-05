@@ -6,9 +6,19 @@ permalink: /use-cases/
 
 <header class="py-5 bg-light border-bottom">
     <div class="container">
-        <div class="text-center">
-            <h1 class="display-4">AI Use Cases Catalogue</h1>
-            <p class="lead">Explore financial services AI use cases organized by business function and risk profile</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="display-4">AI Use Cases Catalogue</h1>
+                <p class="lead mb-0">Explore financial services AI use cases organized by business function and risk profile</p>
+            </div>
+            <div class="ms-4 flex-shrink-0">
+                <a href="/propose/use-case/" class="btn btn-outline-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg me-1" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2z"/>
+                    </svg>
+                    Propose a Use Case
+                </a>
+            </div>
         </div>
     </div>
 </header>
@@ -61,7 +71,7 @@ permalink: /use-cases/
                             {% assign max_rank = 0 %}
                             {% for dc_entry in usecase.data_classifications %}
                             {% assign dc_name = dc_entry.name | default: dc_entry %}
-                            {% assign dc = site.data.data_classification.financial_data_classification | where: "name", dc_name | first %}
+                            {% assign dc = site.data.references.data_classification.financial_data_classification | where: "name", dc_name | first %}
                             {% if dc %}
                             {% if dc.sensitivity == "Critical" %}{% assign rank = 4 %}{% elsif dc.sensitivity == "High" %}{% assign rank = 3 %}{% elsif dc.sensitivity == "Medium" %}{% assign rank = 2 %}{% else %}{% assign rank = 1 %}{% endif %}
                             {% if rank > max_rank %}{% assign max_rank = rank %}{% assign max_sensitivity = dc.sensitivity %}{% endif %}

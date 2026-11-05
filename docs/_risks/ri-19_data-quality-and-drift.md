@@ -4,6 +4,7 @@ title: Data Quality and Drift
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: accuracy
 nist-ai-600-1_references:
   - 2-8  # 2.8. Information Integrity
 ffiec-itbooklets_references:
@@ -14,10 +15,43 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
+canada-regulations_references:
+  # Securities recordkeeping and data integrity
+  - csa-sn-11-348          # Identifies data quality as a key AI governance concern
+  - ni-31-103-s11-5        # s. 11.5 general records — accuracy/completeness (incl. records access)
+  - ciro-idpc-rule-3800    # Rule 3800 recordkeeping — accuracy/completeness, including AI-derived data
+  - ciro-acr-2026          # FinOps examination — verifying "AI is working as designed" implies data quality
+  # Outsourcing / technology governance
+  - ni-31-103cp            # CP Part 11 — outsourcing accountability extends to third-party AI data quality
+  - ciro-gn-2300-21-003    # Outsourcing Arrangements — SLAs and monitoring cover AI provider data quality
+  - osfi-b13-d2            # OSFI B-13 Domain 2 — technology operations/resilience, data integrity through lifecycle (FRFIs)
+  # Model risk management benchmarks
+  - osfi-e23-2027-p3-2     # E-23 Principle 3.2 Data Suitability — data quality for intended use (FRFIs, 2027)
+  - osfi-e23-2027-p3-6     # E-23 Principle 3.6 Monitoring/Decommission — ongoing monitoring, drift detection (FRFIs, 2027)
+  - qc-amf-ai-guideline    # Lifecycle risk management — data quality, hallucinations, drift (QC FIs, 2027)
+  - iosco-fr-02-2026       # Toolkit — model validation and ongoing monitoring across AI lifecycle
+  # Privacy accuracy obligation
+  - pipeda-schedule1       # PIPEDA Schedule 1 Principle 4.6 — accuracy of personal information used in AI models
+uk-regulations_references:
+  # AI adoption, operations and model lifecycle controls
+  - fca-ai-approach-2024 # FCA AI approach identifies data quality and model performance as governance concerns
+  - boe-fca-ai-survey-2024 # Sector survey evidence on AI use cases, controls and monitoring practices
+  - fca-prin-2a # Consumer Duty requires monitoring outcomes that can degrade through drift
+  - fca-sysc # Systems and controls require effective risk management and operational oversight
+  - pra-ss1-23-mrm # Model validation, monitoring and change controls address data/concept drift
+  - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion focuses on lifecycle and monitoring challenges
+  # Data protection accuracy and AI data-quality controls
+  - uk-gdpr-dpa-2018 # Accuracy, fairness and data-minimisation principles for personal-data inputs
+  - ico-guidance-ai-data-protection # ICO AI guidance covers data quality, accuracy and statistical validity
+  - ico-ai-data-protection-toolkit # Toolkit supports data-quality and drift-related risk assessment
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-16  # Bias and Discrimination
   - ri-9   # Data Poisoning
+iosco-supervisory-toolkit_references:
+  - t2-model-risk  # Table 2: Model Risk Management
+  - t3-4           # Table 3.4: Data Governance
+  - t3-6           # Table 3.6: AI Model Validation, Testing and Monitoring
 ---
 
 ## Summary

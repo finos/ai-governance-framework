@@ -4,8 +4,9 @@ title: Reputational Risk
 layout: risk
 doc-status: Approved-Specification
 type: OP
+domain: liability
 owasp-llm_references:
-  - llm09-2025  # LLM09:2025 Misinformation
+  - llm07-2026  # LLM07:2026 Misinformation
 ffiec-itbooklets_references:
   - mgt-2  # MGT: II Risk Management
   - bcm-3  # BCM: III Risk Management
@@ -14,10 +15,37 @@ eu-ai-act_references:
   - c2-a5      # II.A5 Prohibited AI Practices
   - c3-s2-a9   # III.S2.A9: Risk Management System
   - c3-s2-a14  # III.S2.A14: Human Oversight
+canada-regulations_references:
+  # Misleading AI claims / AI washing
+  - csa-sn-11-348          # Identifies misleading AI claims as a key risk; flags AI washing
+  - ni-81-102              # Part 15 sales communications — AI washing explicitly flagged by SN 11-348
+  - ni-31-103-s13-4        # s. 13.4 — material conflicts; fair, clear, accurate client-facing communications
+  # Conflicts that drive reputational harm
+  - csa-ciro-sn-31-363     # Conflicts of interest review — undisclosed AI conflicts produce reputational harm
+  - ni-81-107              # IRC referral — undisclosed/unresolved AI conflicts create reputational exposure
+  # Operational failure as reputational risk
+  - ciro-acr-2026          # FinOps examination — operational AI failures examined
+  - osfi-e23-2027          # E-23 explicitly frames bias/unfair outputs as reputational risk (FRFIs, 2027)
+  # International benchmark
+  - iosco-fr-02-2026       # Toolkit — reputational risk across the AI lifecycle
+uk-regulations_references:
+  # AI governance, conduct and public-claim risk
+  - fca-ai-approach-2024 # FCA AI approach includes responsible innovation and consumer trust expectations
+  - boe-fca-ai-survey-2024 # Survey context on adoption levels and risk controls informs reputational exposure
+  - fca-prin # Principles set high-level conduct expectations underpinning trust
+  - fca-prin-2a # Consumer Duty failures can create significant public and supervisory scrutiny
+  - fca-cobs-4 # Financial promotions must be fair, clear and not misleading, including AI claims
+  - fca-smcr # Senior accountability can attach to visible AI governance failures
+  # Adjacent rights and privacy harms that amplify reputation damage
+  - equality-act-2010 # Discriminatory AI outcomes create legal and reputational exposure
+  - uk-gdpr-dpa-2018 # Personal-data misuse or breaches trigger notification and trust impacts
 related_risks:
   - ri-10  # Prompt Injection
   - ri-16  # Bias and Discrimination
   - ri-4   # Hallucination and Inaccurate Outputs
+iosco-supervisory-toolkit_references:
+  - t2-disclosure  # Table 2: Disclosure & Transparency
+  - t5-4           # Table 5.4: Identifying Misleading Claims
 ---
 
 ## Summary

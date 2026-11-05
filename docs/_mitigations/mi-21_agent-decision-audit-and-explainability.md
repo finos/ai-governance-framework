@@ -4,14 +4,21 @@ title: Agent Decision Audit and Explainability
 layout: mitigation
 doc-status: Approved-Specification
 type: DET
+domain: monitoring
 iso-42001_references:
   - A-8-3    # ISO 42001: External reporting
   - A-6-2-6  # ISO 42001: AI system operation and monitoring
+eu-ai-act_references:
+  - c3-s2-a12  # III.S2.A12: Record-keeping
+  - c3-s3-a26  # III.S3.A26: Obligations of Deployers of High-Risk AI Systems
+  - c9-s1-a72  # IX.S1.A72: Post-Market Monitoring by Providers
+  - c3-s2-a13  # III.S2.A13: Transparency and Provision of Information to Deployers
+  - c9-s4-a86  # IX.S4.A86: Right to Explanation of Individual Decision-Making
 nist-sp-800-53r5_references:
-  - au-2   # AU-2 Event Logging
-  - au-3   # AU-3 Content of Audit Records
-  - au-6   # AU-6 Audit Record Review, Analysis, And Reporting
-  - ca-7   # CA-7 Authorization
+  - au-2  # AU-2 Event Logging
+  - au-3  # AU-3 Content Of Audit Records
+  - au-6  # AU-6 Audit Record Review, Analysis, And Reporting
+  - ca-7  # CA-7 Authorization
 mitigates:
   - ri-24  # Agent Action Authorization Bypass
   - ri-25  # Tool Chain Manipulation and Injection
@@ -19,6 +26,13 @@ mitigates:
 related_mitigations:
   - mi-4   # AI System Observability
   - mi-11  # Human Feedback Loop for AI Systems
+iosco-supervisory-toolkit_references:
+  - t2-recordkeeping  # Table 2: Recordkeeping & Audit Trail
+  - t3-7              # Table 3.7: Controls and Human Oversight of AI Systems
+  - t6-1              # Table 6.1: Documentation of AI Lifecycle Oversight
+  - t6-3              # Table 6.3: Documentation of AI-Generated Outcomes
+  - t6-4              # Table 6.4: Documentation of Explainability of AI Outputs
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Purpose
@@ -148,8 +162,17 @@ The following sections provide detailed implementation guidance primarily for Ti
   * **Data Processing Documentation**: Record what personal data was used in decisions and the legal basis for processing.
   * **Privacy Impact Documentation**: Capture privacy considerations and impact assessments for decisions affecting customer data.
 
+* **EU AI Act Record-keeping (Article 12)**:
+  * **Technical Requirement under Article 12(1)**: High-risk AI systems must technically allow automatic recording of events over the system lifetime. Tier 3 audit trail implementations described in this mitigation directly satisfy this requirement; Tier 0 and Tier 1 do not meet the threshold for systems classified as high-risk under Annex III.
+  * **Risk Identification under Article 12(2)(a)**: Logging must support identification of situations that may result in the AI system presenting a risk under Article 79(1) or in a substantial modification. Capture guardrail violations, exception paths, and decision boundary crossings.
+  * **Post-Market Monitoring under Article 12(2)(b)**: Logging must facilitate post-market monitoring under Article 72. Capture aggregate behavior metrics, drift indicators, and performance over time.
+  * **Operational Monitoring under Article 12(2)(c)**: Logging must support monitoring of high-risk AI systems under Article 26(5). Capture human review touchpoints, oversight interventions, and operational decisions.
+  * **Biometric ID Extension under Article 12(3)**: For biometric identification systems under Annex III point 1(a), additional structured requirements apply: start/end timestamps per use, reference database identification, input data matches, and identification of natural persons involved in verification.
+  * **Deployer Obligations under Article 26(5)**: Article 26(5) places monitoring obligations on the deployer (bank, insurer, healthcare provider, public administration), not only on the provider. Audit trail design must expose appropriate records to deployer audit interfaces, not only to provider-side observability.
+
 * **Audit Trail Standards**:
   * **Immutable Records**: Implement cryptographic protection to ensure audit records cannot be altered after creation.
+  * **Independent Verifiability**: Distinguish tamper-resistance (records are hard to alter) from tamper-evidence (alteration is detectable by a third party). Audit records should be verifiable by a deployer, auditor, or competent authority without requiring privileged access to the provider's systems. Self-reported logs that only the operator can produce or attest to satisfy the form of Article 12 record-keeping but weaken its purpose: the external-reporting expectation under ISO/IEC 42001 A.8.3 and the deployer monitoring duty under Article 26(5) both assume records an independent party can check. Techniques such as cryptographic hash chaining, signed log segments, or anchoring digests to an append-only transparency log raise integrity from operator-asserted to independently auditable.
   * **Retention Policies**: Establish appropriate retention periods for audit records based on regulatory requirements.
   * **Access Controls**: Implement strict access controls for audit records with appropriate segregation of duties.
 
@@ -236,3 +259,6 @@ Implementing comprehensive agent decision audit and explainability provides esse
 * [GDPR Article 22 - Automated Decision-Making](https://gdpr-info.eu/art-22-gdpr/)
 * [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 * [FFIEC IT Handbook - Audit](https://ithandbook.ffiec.gov/it-booklets/audit.aspx)
+* [Regulation (EU) 2024/1689 Article 12 - Record-keeping](https://artificialintelligenceact.eu/article/12/)
+* [Regulation (EU) 2024/1689 Article 26 - Obligations of Deployers](https://artificialintelligenceact.eu/article/26/)
+* [Regulation (EU) 2024/1689 Article 72 - Post-Market Monitoring](https://artificialintelligenceact.eu/article/72/)

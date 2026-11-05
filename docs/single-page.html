@@ -34,7 +34,7 @@ mitigation_order:
             {% assign risk_group = site.risks | group_by: "type" | where: "name", order | first %}
             {% if risk_group %}
               <li>
-                <strong>{{ site.risk_classification[risk_group.name] }}</strong>
+                <strong>{{ site.risk_type_labels[risk_group.name] }}</strong>
                 <ul>
                   {% assign sorted_risks = risk_group.items | sort: "sequence" %}
                   {% for risk in sorted_risks %}
@@ -52,7 +52,7 @@ mitigation_order:
             {% assign mitigation_group = site.mitigations | group_by: "type" | where: "name", order | first %}
             {% if mitigation_group %}
               <li>
-                <strong>{{ site.mitigation_classification[mitigation_group.name] }}</strong>
+                <strong>{{ site.mitigation_type_labels[mitigation_group.name] }}</strong>
                 <ul>
                   {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
                   {% for mitigation in sorted_mitigations %}
@@ -72,7 +72,7 @@ mitigation_order:
     {% for order in page.risk_order %}
       {% assign risk_group = site.risks | group_by: "type" | where: "name", order | first %}
       {% if risk_group %}
-        <h3 class="mt-4">{{ site.risk_classification[risk_group.name] }}</h3>
+        <h3 class="mt-4">{{ site.risk_type_labels[risk_group.name] }}</h3>
         {% assign sorted_risks = risk_group.items | sort: "sequence" %}
         {% for risk in sorted_risks %}
           <article id="{{ risk.id }}" class="mb-4">
@@ -93,7 +93,7 @@ mitigation_order:
     {% for order in page.mitigation_order %}
       {% assign mitigation_group = site.mitigations | group_by: "type" | where: "name", order | first %}
       {% if mitigation_group %}
-        <h3 class="mt-4">{{ site.mitigation_classification[mitigation_group.name] }}</h3>
+        <h3 class="mt-4">{{ site.mitigation_type_labels[mitigation_group.name] }}</h3>
         {% assign sorted_mitigations = mitigation_group.items | sort: "sequence" %}
         {% for mitigation in sorted_mitigations %}
           <article id="{{ mitigation.id }}" class="mb-4">

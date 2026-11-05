@@ -4,14 +4,23 @@ title: Agent-Mediated Credential Discovery and Harvesting
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: leakage
 owasp-llm_references:
-  - llm01-2025  # LLM01:2025 Prompt Injection
-  - llm06-2025  # LLM06:2025 Excessive Agency
+  - llm01-2026  # LLM01:2026 Prompt Injection
+  - llm03-2026  # LLM03:2026 Excessive Agency
+owasp-asi_references:
+  - asi03-2026  # ASI03: Identity and Privilege Abuse
+atr_references:
+  - ATR-2026-00113  # Credential Theft via Agent Channel
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass
   - ri-25  # Tool Chain Manipulation and Injection
   - ri-26  # MCP Server Supply Chain Compromise
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-5              # Table 3.5: Risk Management of Advanced AI Systems
+  - t6-5              # Table 6.5: Records on Incidents Relating to AI Products or Services
 ---
 
 ## Summary
@@ -107,7 +116,7 @@ Agent-mediated credential harvesting can result in catastrophic security consequ
 
 ## Links
 
-- [OWASP LLM01: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
-- [OWASP LLM06: Excessive Agency](https://genai.owasp.org/llmrisk/llm06-excessive-agency/)
+- [OWASP LLM01:2026 Prompt Injection](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md)
+- [OWASP LLM03:2026 Excessive Agency](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md)
 - [MITRE ATT&CK: Credential Access](https://attack.mitre.org/tactics/TA0006/)
 - [NIST SP 800-63B - Authentication and Lifecycle Management](https://pages.nist.gov/800-63-3/sp800-63b.html)

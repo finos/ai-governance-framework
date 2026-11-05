@@ -4,9 +4,10 @@ title: Information Leaked to Vector Store
 layout: risk
 doc-status: Approved-Specification
 type: SEC
+domain: leakage
 owasp-llm_references:
-  - llm02-2025  # LLM02:2025 Sensitive Information Disclosure
-  - llm08-2025  # LLM08:2025 Vector and Embedding Weaknesses
+  - llm02-2026  # LLM02:2026 Sensitive Information Disclosure
+  - llm09-2026  # LLM09:2026 Vector and Embedding Weaknesses
 nist-ai-600-1_references:
   - 2-4  # 2.4. Data Privacy
   - 2-9  # 2.9. Information Security
@@ -18,9 +19,42 @@ eu-ai-act_references:
   - c3-s2-a10  # III.S2.A10: Data and Data Governance
   - c3-s2-a15  # III.S2.A15: Accuracy, Robustness and Cybersecurity
   - c3-s3-a16  # III.S3.A16: Obligations of Providers of High-Risk AI Systems
+canada-regulations_references:
+  # Securities cyber and outsourcing
+  - csa-sn-11-348          # Privacy law implications for AI systems including embeddings/vector stores
+  - csa-sn-11-326          # CSA Cyber Security (2013)
+  - csa-sn-11-332          # CSA Cyber Security (2016)
+  - csa-sn-33-321          # CSA Cyber Security and Social Media (2017)
+  - ni-31-103-s11-1        # s. 11.1 compliance system
+  - ni-31-103-s11-5        # s. 11.5 records — including derived data
+  - ni-31-103cp            # CP Part 11 — outsourcing accountability extends to derived data assets
+  - ciro-idpc-rule-3800    # Rule 3800 — applies to derived data assets, not just source records
+  - ciro-gn-2300-21-003    # Outsourcing Arrangements — vector stores hosted by third parties
+  # Tier 3 benchmarks
+  - osfi-b13-d3            # OSFI B-13 Domain 3 — data confidentiality through lifecycle (FRFIs)
+  - osfi-b-10              # OSFI B-10 — vector store hosting concentration and vendor oversight (FRFIs)
+  - osfi-e23-2027          # Model lifecycle includes derived artifacts (embeddings/vectors); validation and protection (FRFIs, 2027)
+  - iosco-fr-02-2026       # Toolkit — third-party data security and model artifact considerations
+  # Tier 4 — primary privacy framework
+  - pipeda                 # PIPEDA 4.5 (retention — embeddings persist), 4.7 (safeguards), s. 10.1 (breach)
+  - qc-p39-s3-3-s17        # Quebec Law 25 — PIAs for vector processing; cross-border adequacy
+uk-regulations_references:
+  # Systems, controls, outsourcing and third-party resilience
+  - fca-sysc # Systems and controls cover derived records, embeddings and retrieval stores
+  - fca-fg16-5-cloud # Cloud/third-party IT guidance for hosted vector databases
+  - pra-ss2-21-outsourcing # PRA outsourcing expectations for material data stores
+  - boe-fca-pra-critical-third-parties-2024 # Critical third-party dependency risk for hosted retrieval infrastructure
+  # Data protection and AI-specific privacy controls
+  - uk-gdpr-dpa-2018 # UK GDPR/DPA applies where embeddings or metadata include personal data
+  - ico-guidance-ai-data-protection # ICO AI guidance covers security, minimisation and reuse controls
+  - ico-ai-data-protection-toolkit # Toolkit supports AI privacy risk assessment for retrieval stores
 related_risks:
-  - ri-1   # Information Leaked To Hosted Model
-  - ri-9   # Data Poisoning
+related_risks:
+  - ri-1  # Information Leaked To Hosted Model
+  - ri-9  # Data Poisoning
+iosco-supervisory-toolkit_references:
+  - t2-cybersecurity  # Table 2: Cybersecurity & Data Privacy/Protection
+  - t3-4              # Table 3.4: Data Governance
 ---
 
 ## Summary
