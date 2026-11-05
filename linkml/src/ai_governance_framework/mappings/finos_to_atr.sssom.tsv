@@ -1,0 +1,38 @@
+# mapping_set_id: https://w3id.org/lmodel/ai-governance-framework/mappings/finos_to_atr.sssom.tsv
+# mapping_set_version: v3
+# mapping_set_title: Citations of atr in the FINOS AI Governance Framework v3
+# mapping_set_description: Each row says that a page of the framework cites an entry of this reference file. FINOS's maintainers wrote the citations in the pages' front matter. A citation is not an equivalence.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/finos/ai-governance-framework
+# mapping_date: 2026-10-26
+# curie_map:
+#   ai_governance_framework: https://w3id.org/lmodel/ai-governance-framework/
+#   aigf_atr: https://w3id.org/lmodel/ai-governance-framework/references/atr/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_atr:ATR-2026-00010	ATR-2026-00010 Malicious Content in MCP Tool Response	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_atr:ATR-2026-00011	ATR-2026-00011 Instruction Injection via Tool Output	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_atr:ATR-2026-00012	ATR-2026-00012 Unauthorized Tool Call	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_atr:ATR-2026-00040	ATR-2026-00040 Agent Privilege Escalation	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_atr:ATR-2026-00098	ATR-2026-00098 Unauthorized Financial Action by Agent	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_atr:ATR-2026-00118	ATR-2026-00118 Human Approval Fatigue Exploitation	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_atr:ATR-2026-00010	ATR-2026-00010 Malicious Content in MCP Tool Response	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_atr:ATR-2026-00011	ATR-2026-00011 Instruction Injection via Tool Output	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_atr:ATR-2026-00012	ATR-2026-00012 Unauthorized Tool Call	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_atr:ATR-2026-00013	ATR-2026-00013 Tool-Driven Server-Side Request Forgery	semapv:ManualMappingCuration
+ai_governance_framework:ri-26	MCP Server Supply Chain Compromise	skos:relatedMatch	aigf_atr:ATR-2026-00010	ATR-2026-00010 Malicious Content in MCP Tool Response	semapv:ManualMappingCuration
+ai_governance_framework:ri-27	Agent State Persistence Poisoning	skos:relatedMatch	aigf_atr:ATR-2026-00075	ATR-2026-00075 Agent Memory Manipulation	semapv:ManualMappingCuration
+ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_atr:ATR-2026-00030	ATR-2026-00030 Cross-Agent Attack Detection	semapv:ManualMappingCuration
+ai_governance_framework:ri-28	Multi-Agent Trust Boundary Violations	skos:relatedMatch	aigf_atr:ATR-2026-00076	ATR-2026-00076 Insecure Inter-Agent Communication	semapv:ManualMappingCuration
+ai_governance_framework:ri-29	Agent-Mediated Credential Discovery and Harvesting	skos:relatedMatch	aigf_atr:ATR-2026-00113	ATR-2026-00113 Credential Theft via Agent Channel	semapv:ManualMappingCuration
+ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_atr:ATR-2026-00012	ATR-2026-00012 Unauthorized Tool Call	semapv:ManualMappingCuration
+ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_atr:ATR-2026-00040	ATR-2026-00040 Agent Privilege Escalation	semapv:ManualMappingCuration
+ai_governance_framework:mi-18	Agent Authority Least Privilege Framework	skos:relatedMatch	aigf_atr:ATR-2026-00098	ATR-2026-00098 Unauthorized Financial Action by Agent	semapv:ManualMappingCuration
+ai_governance_framework:mi-19	Tool Chain Validation and Sanitization	skos:relatedMatch	aigf_atr:ATR-2026-00011	ATR-2026-00011 Instruction Injection via Tool Output	semapv:ManualMappingCuration
+ai_governance_framework:mi-19	Tool Chain Validation and Sanitization	skos:relatedMatch	aigf_atr:ATR-2026-00012	ATR-2026-00012 Unauthorized Tool Call	semapv:ManualMappingCuration
+ai_governance_framework:mi-19	Tool Chain Validation and Sanitization	skos:relatedMatch	aigf_atr:ATR-2026-00013	ATR-2026-00013 Tool-Driven Server-Side Request Forgery	semapv:ManualMappingCuration
+ai_governance_framework:mi-20	MCP Server Security Governance	skos:relatedMatch	aigf_atr:ATR-2026-00010	ATR-2026-00010 Malicious Content in MCP Tool Response	semapv:ManualMappingCuration
+ai_governance_framework:mi-22	Multi-Agent Isolation and Segmentation	skos:relatedMatch	aigf_atr:ATR-2026-00030	ATR-2026-00030 Cross-Agent Attack Detection	semapv:ManualMappingCuration
+ai_governance_framework:mi-22	Multi-Agent Isolation and Segmentation	skos:relatedMatch	aigf_atr:ATR-2026-00076	ATR-2026-00076 Insecure Inter-Agent Communication	semapv:ManualMappingCuration
+ai_governance_framework:mi-23	Agentic System Credential Protection Framework	skos:relatedMatch	aigf_atr:ATR-2026-00113	ATR-2026-00113 Credential Theft via Agent Channel	semapv:ManualMappingCuration

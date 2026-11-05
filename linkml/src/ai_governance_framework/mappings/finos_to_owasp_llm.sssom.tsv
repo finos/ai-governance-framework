@@ -1,0 +1,37 @@
+# mapping_set_id: https://w3id.org/lmodel/ai-governance-framework/mappings/finos_to_owasp_llm.sssom.tsv
+# mapping_set_version: v3
+# mapping_set_title: Citations of owasp-llm in the FINOS AI Governance Framework v3
+# mapping_set_description: Each row says that a page of the framework cites an entry of this reference file. FINOS's maintainers wrote the citations in the pages' front matter. A citation is not an equivalence.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/finos/ai-governance-framework
+# mapping_date: 2026-10-26
+# curie_map:
+#   ai_governance_framework: https://w3id.org/lmodel/ai-governance-framework/
+#   aigf_owasp_llm: https://w3id.org/lmodel/ai-governance-framework/references/owasp-llm/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_owasp_llm:llm02-2026	LLM02:2026 Sensitive Information Disclosure	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_owasp_llm:llm02-2026	LLM02:2026 Sensitive Information Disclosure	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_owasp_llm:llm09-2026	LLM09:2026 Vector and Embedding Weaknesses	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_owasp_llm:llm07-2026	LLM07:2026 Misinformation	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_owasp_llm:llm07-2026	LLM07:2026 Misinformation	semapv:ManualMappingCuration
+ai_governance_framework:ri-6	Non-Deterministic Behaviour	skos:relatedMatch	aigf_owasp_llm:llm07-2026	LLM07:2026 Misinformation	semapv:ManualMappingCuration
+ai_governance_framework:ri-7	Availability of Foundational Model	skos:relatedMatch	aigf_owasp_llm:llm06-2026	LLM06:2026 Unbounded Consumption	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_owasp_llm:llm04-2026	LLM04:2026 Supply Chain	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_llm:llm04-2026	LLM04:2026 Supply Chain	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_llm:llm05-2026	LLM05:2026 Data and Model Poisoning	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_owasp_llm:llm10-2026	LLM10:2026 Improper Output Handling	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_owasp_llm:llm01-2026	LLM01:2026 Prompt Injection	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_owasp_llm:llm03-2026	LLM03:2026 Excessive Agency	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_owasp_llm:llm05-2026	LLM05:2026 Data and Model Poisoning	semapv:ManualMappingCuration
+ai_governance_framework:ri-10	Prompt Injection	skos:relatedMatch	aigf_owasp_llm:llm06-2026	LLM06:2026 Unbounded Consumption	semapv:ManualMappingCuration
+ai_governance_framework:ri-14	Inadequate System Alignment	skos:relatedMatch	aigf_owasp_llm:llm08-2026	LLM08:2026 Hidden Context Exposure	semapv:ManualMappingCuration
+ai_governance_framework:ri-18	Model Overreach / Expanded Use	skos:relatedMatch	aigf_owasp_llm:llm03-2026	LLM03:2026 Excessive Agency	semapv:ManualMappingCuration
+ai_governance_framework:ri-20	Reputational Risk	skos:relatedMatch	aigf_owasp_llm:llm07-2026	LLM07:2026 Misinformation	semapv:ManualMappingCuration
+ai_governance_framework:ri-24	Agent Action Authorization Bypass	skos:relatedMatch	aigf_owasp_llm:llm03-2026	LLM03:2026 Excessive Agency	semapv:ManualMappingCuration
+ai_governance_framework:ri-25	Tool Chain Manipulation and Injection	skos:relatedMatch	aigf_owasp_llm:llm01-2026	LLM01:2026 Prompt Injection	semapv:ManualMappingCuration
+ai_governance_framework:ri-29	Agent-Mediated Credential Discovery and Harvesting	skos:relatedMatch	aigf_owasp_llm:llm01-2026	LLM01:2026 Prompt Injection	semapv:ManualMappingCuration
+ai_governance_framework:ri-29	Agent-Mediated Credential Discovery and Harvesting	skos:relatedMatch	aigf_owasp_llm:llm03-2026	LLM03:2026 Excessive Agency	semapv:ManualMappingCuration
+ai_governance_framework:ri-30	Skill/Plugin Supply Chain Compromise	skos:relatedMatch	aigf_owasp_llm:llm03-2025	LLM03:2025 Supply Chain	semapv:ManualMappingCuration
+ai_governance_framework:ri-30	Skill/Plugin Supply Chain Compromise	skos:relatedMatch	aigf_owasp_llm:llm06-2025	LLM06:2025 Excessive Agency	semapv:ManualMappingCuration

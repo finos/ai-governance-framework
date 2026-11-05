@@ -1,0 +1,30 @@
+# mapping_set_id: https://w3id.org/lmodel/ai-governance-framework/mappings/finos_to_nist_ai_600_1.sssom.tsv
+# mapping_set_version: v3
+# mapping_set_title: Citations of nist-ai-600-1 in the FINOS AI Governance Framework v3
+# mapping_set_description: Each row says that a page of the framework cites an entry of this reference file. FINOS's maintainers wrote the citations in the pages' front matter. A citation is not an equivalence.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/finos/ai-governance-framework
+# mapping_date: 2026-10-26
+# curie_map:
+#   ai_governance_framework: https://w3id.org/lmodel/ai-governance-framework/
+#   aigf_nist_ai_600_1: https://w3id.org/lmodel/ai-governance-framework/references/nist-ai-600-1/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	semapv:ManualMappingCuration
+ai_governance_framework:ri-1	Information Leaked To Hosted Model	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	semapv:ManualMappingCuration
+ai_governance_framework:ri-2	Information Leaked to Vector Store	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_nist_ai_600_1:2-2	2.2. Confabulation	semapv:ManualMappingCuration
+ai_governance_framework:ri-4	Hallucination and Inaccurate Outputs	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
+ai_governance_framework:ri-5	Foundation Model Versioning	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
+ai_governance_framework:ri-8	Tampering With the Foundational Model	skos:relatedMatch	aigf_nist_ai_600_1:2-12	2.12. Value Chain and Component Integration	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
+ai_governance_framework:ri-9	Data Poisoning	skos:relatedMatch	aigf_nist_ai_600_1:2-12	2.12. Value Chain and Component Integration	semapv:ManualMappingCuration
+ai_governance_framework:ri-16	Bias and Discrimination	skos:relatedMatch	aigf_nist_ai_600_1:2-6	2.6. Harmful Bias and Homogenization	semapv:ManualMappingCuration
+ai_governance_framework:ri-19	Data Quality and Drift	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration
+ai_governance_framework:ri-22	Regulatory Compliance and Oversight	skos:relatedMatch	aigf_nist_ai_600_1:2-9	2.9. Information Security	semapv:ManualMappingCuration
+ai_governance_framework:ri-23	Intellectual Property (IP) and Copyright	skos:relatedMatch	aigf_nist_ai_600_1:2-10	2.10. Intellectual Property	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-2	2.2. Confabulation	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-4	2.4. Data Privacy	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_nist_ai_600_1:2-8	2.8. Information Integrity	semapv:ManualMappingCuration

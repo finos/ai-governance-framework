@@ -1,0 +1,29 @@
+# mapping_set_id: https://w3id.org/lmodel/ai-governance-framework/mappings/finos_to_sr11_7.sssom.tsv
+# mapping_set_version: v3
+# mapping_set_title: Citations of sr11-7 in the FINOS AI Governance Framework v3
+# mapping_set_description: Each row says that a page of the framework cites an entry of this reference file. FINOS's maintainers wrote the citations in the pages' front matter. A citation is not an equivalence.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/finos/ai-governance-framework
+# mapping_date: 2026-10-26
+# curie_map:
+#   ai_governance_framework: https://w3id.org/lmodel/ai-governance-framework/
+#   aigf_sr11_7: https://w3id.org/lmodel/ai-governance-framework/references/sr11-7/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
+ai_governance_framework:uc-1	Credit Risk Analysis	skos:relatedMatch	aigf_sr11_7:overview	SR 11-7: Model Risk Management Overview	semapv:ManualMappingCuration
+ai_governance_framework:uc-1	Credit Risk Analysis	skos:relatedMatch	aigf_sr11_7:s2-dev	SR 11-7 S2.1: Model Development	semapv:ManualMappingCuration
+ai_governance_framework:uc-1	Credit Risk Analysis	skos:relatedMatch	aigf_sr11_7:s3	SR 11-7 S3: Model Validation	semapv:ManualMappingCuration
+ai_governance_framework:uc-1	Credit Risk Analysis	skos:relatedMatch	aigf_sr11_7:s4-inventory	SR 11-7 S4.3: Model Inventory	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:overview	SR 11-7: Model Risk Management Overview	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:s2-dev	SR 11-7 S2.1: Model Development	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:s2-use	SR 11-7 S2.3: Model Use	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:s3	SR 11-7 S3: Model Validation	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:s3-conceptual	SR 11-7 S3.1: Conceptual Soundness	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:s4-board	SR 11-7 S4.1: Board and Senior Management Oversight	semapv:ManualMappingCuration
+ai_governance_framework:uc-2	Autonomous Wealth Management	skos:relatedMatch	aigf_sr11_7:s4-inventory	SR 11-7 S4.3: Model Inventory	semapv:ManualMappingCuration
+ai_governance_framework:uc-4	Anti-Financial Crime Investigation	skos:relatedMatch	aigf_sr11_7:overview	SR 11-7: Model Risk Management Overview	semapv:ManualMappingCuration
+ai_governance_framework:uc-4	Anti-Financial Crime Investigation	skos:relatedMatch	aigf_sr11_7:s2-use	SR 11-7 S2.3: Model Use	semapv:ManualMappingCuration
+ai_governance_framework:uc-4	Anti-Financial Crime Investigation	skos:relatedMatch	aigf_sr11_7:s3	SR 11-7 S3: Model Validation	semapv:ManualMappingCuration
+ai_governance_framework:uc-4	Anti-Financial Crime Investigation	skos:relatedMatch	aigf_sr11_7:s3-monitoring	SR 11-7 S3.2: Ongoing Monitoring	semapv:ManualMappingCuration
+ai_governance_framework:uc-4	Anti-Financial Crime Investigation	skos:relatedMatch	aigf_sr11_7:s4-inventory	SR 11-7 S4.3: Model Inventory	semapv:ManualMappingCuration
