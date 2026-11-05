@@ -1,0 +1,35 @@
+# Fails at: /source_file
+item_id: uc-1
+source_file: docs/uc-1.md
+sequence: 1
+title: Credit Risk Analysis
+layout: usecase
+doc_status: Draft
+category: Risk_Management_and_Compliance
+description: An agent that performs credit risk analysis for small business loan applications
+end_user: Risk analyst, loan officer
+business_value: Reduces loan approval times from days to hours while standardizing risk assessment
+related_risks:
+- ri-1
+- ri-4
+related_mitigations:
+- mi-1
+data_classifications:
+- name: Customer_PII_Data
+  data_types:
+  - Credit applicant identity and contact information
+data_handling_aspects:
+- Centralized
+- Privacy_Preserving
+eu_ai_act_references:
+- c3-s2-a10
+sr11_7_references:
+- overview
+regulatory_concerns:
+- name: ECOA / Fair Lending
+  url: https://www.consumerfinance.gov/compliance/compliance-resources/other-applicable-requirements/equal-credit-opportunity-act/
+  jurisdiction: US
+further_reading:
+- name: AI and Machine Learning in Capital Markets (2021)
+  url: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD658.pdf
+  source: IOSCO

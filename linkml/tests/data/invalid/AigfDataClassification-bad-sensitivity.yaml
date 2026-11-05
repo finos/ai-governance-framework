@@ -1,0 +1,12 @@
+# Fails at: /sensitivity
+name: Public_Financial_Data
+sensitivity: Severe
+description: Data that is publicly available and poses minimal risk if disclosed.
+examples:
+- Public market prices and exchange rates
+storage_location: Public cloud, CDN
+regulations: None specific
+references:
+- name: 'BCBS 239 P3: Accuracy and Integrity'
+  url: https://www.bis.org/publ/bcbs239.htm
+  jurisdiction: International

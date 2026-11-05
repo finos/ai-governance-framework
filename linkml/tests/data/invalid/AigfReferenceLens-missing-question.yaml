@@ -1,0 +1,5 @@
+# Fails at: /
+lens: threat
+label: Threat
+icon: bi-exclamation-triangle
+color: primary

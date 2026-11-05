@@ -1,0 +1,18 @@
+# Fails at: /mitigation_domain
+item_id: mi-10
+source_file: docs/_mitigations/mi-10_ai-model-version-pinning.md
+sequence: 10
+title: AI Model Version Pinning
+layout: mitigation
+doc_status: Approved-Specification
+mitigation_type: PREV
+mitigation_domain: inputs
+nist_sp_800_53r5_references:
+- cm-2
+- cm-3
+mitigates:
+- ri-5
+- ri-6
+related_mitigations:
+- mi-5
+- mi-4

@@ -1,0 +1,8 @@
+# Fails at: /entries/llm01-2026
+title: OWASP LLM Top 10
+description: The top ten security risks for LLM-based applications, published by OWASP.
+source_url: https://genai.owasp.org/
+lens: threat
+entries:
+  llm01-2026:
+    url: https://example.org

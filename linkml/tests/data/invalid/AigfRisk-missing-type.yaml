@@ -1,0 +1,15 @@
+# Fails at: /
+item_id: ri-10
+source_file: docs/_risks/ri-10_prompt-injection.md
+sequence: 10
+title: Prompt Injection
+layout: risk
+doc_status: Approved-Specification
+risk_domain: inputs
+owasp_llm_references:
+- llm01-2026
+owasp_asi_references:
+- asi01-2026
+related_risks:
+- ri-18
+- ri-20

@@ -1,0 +1,4 @@
+# Fails at: /
+options:
+- name: Centralized
+  description: Data is held and processed in one place.

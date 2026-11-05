@@ -1,0 +1,4 @@
+# Fails at: /
+entry_key: llm01-2026
+title: LLM01:2026 Prompt Injection
+description: An attacker manipulates a model through crafted input.

@@ -1,0 +1,6 @@
+name: Customer_and_Relationship_Management
+use_case_areas:
+- name: Personalized_Financial_Services
+  use_case_names:
+  - Adaptive_Product_Recommendations
+  - Dynamic_Pricing_and_Offers
