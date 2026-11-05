@@ -1,121 +1,88 @@
 # Contributing to ai-governance-framework
 
-:+1: First of all: Thank you for taking the time to contribute!
+*This file is a checklist, not a design log. Each rule is a line or two that links to where its reasoning lives. `lint-and-docs.yaml` holds it to a word budget.*
 
-The following is a set of guidelines for contributing to
-ai-governance-framework. These guidelines are not strict rules.
-Use your best judgment, and feel free to propose changes to this document
-in a pull request.
+## What this project is
 
-## Table Of Contents
+A LinkML schema of the AI Governance Framework that FINOS publishes, in a fork of FINOS's repository. FINOS's tree sits unchanged at the repository's root, and this project sits beside it.
 
-* [Code of Conduct](#code-of-conduct)
-* [Guidelines for Contributions and Requests](#contributions)
-  * [Reporting issues and making requests](#reporting-issues)
-  * [Questions and Discussion](#questions-and-discussion)
-  * [Adding new elements yourself](#adding-elements)
-* [Best Practices](#best-practices)
-  * [How to write a great issue](#great-issues)
-  * [How to create a great pull/merge request](#great-pulls)
+| Path | Holds |
+| --- | --- |
+| `linkml/src/ai_governance_framework/schema/` | The LinkML schema. Edit it. |
+| `linkml/src/ai_governance_framework/datamodel/`, `linkml/project/`, `linkml/docs/schema/` | Artefacts generated from the schema. |
+| `linkml/src/ai_governance_framework/data/` | The catalogue, which `linkml/scripts/build_catalogue.py` writes from FINOS's files. |
+| `linkml/src/ai_governance_framework/mappings/` | One SSSOM set of FINOS's citations per reference file, which `linkml/scripts/build_sssom_mappings.py` writes. |
+| `linkml/scripts/check_upstream_release.py` | The weekly comparison with FINOS's main. |
+| `linkml/docs/` | The website's own pages. |
+| `linkml/tests/` | Python tests and example data. |
+| `.lokf/knowledge/` | This repository's knowledge bundle. |
 
-<a id="code-of-conduct"></a>
+Everything else is FINOS's.
 
-## Code of Conduct
+## Development setup
 
-The ai-governance-framework team strives to create a
-welcoming environment for editors, users and other contributors.
-Please carefully read our [Code of Conduct](CODE_OF_CONDUCT.md).
+You need Python 3.10+, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just).
 
-<a id="contributions"></a>
+```bash
+git clone https://github.com/lmodel/ai-governance-framework.git
+cd ai-governance-framework/linkml
+uv sync --group dev
+just --list
+```
 
-## Guidelines for Contributions and Requests
+### Agent skills (optional, only for this repo's `.lokf/` bundle)
 
-<a id="reporting-issues"></a>
+The bundle is maintained with the Knowledge Trust Ladder (KTL) skills, **installed, never committed**. Continuous integration (CI) installs the librarian skill at run time, pinned to a release. [The install page](https://w3id.org/ktl/docs/install/) lists every route. With npm:
 
-### Reporting problems and suggesting changes to with the data model
+```bash
+npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-librarian --yes   # derive concepts
+npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes     # confirm them as a person
+```
 
-Please use our [Issue Tracker][issues] for any of the following:
+## Before opening a pull request
 
-- Reporting problems
-- Requesting new schema elements
+- **Leave FINOS's files alone.** A change to one goes to [FINOS](https://github.com/finos/ai-governance-framework). `linkml/tests/test_upstream_tree.py` holds every file `linkml/tests/upstream_tree.tsv` lists to its hash.
+- **Edit the schema, then regenerate.** From `linkml/`, run `just gen-project`, `just gen-doc`, `just build-catalogue`, `just build-mappings` and `just lokf-adapt`, and commit the output.
+- **Follow FINOS's keys and lists.** A key FINOS writes differently goes under the slot's `aliases`, and `linkml/tests/test_upstream_tree.py` holds the renaming one to one and each enum to `docs/_config.yml`. No rule of your own.
+- **A departure is reported, not hidden.** `linkml/tests/departures.yaml` lists where FINOS's files break a statement of FINOS's own. Add to it only with a report to FINOS.
+- **A row of an SSSOM set is a citation FINOS wrote.** It is not an equivalence, and no row is written by hand.
+- **A class mapping is read at its source.** `linkml/tests/test_schema_rules.py` holds each one to a released neighbour copy. A term with no sure match stays unmapped.
+- **Keep names apart.** A host imports this adapt copy beside the Linked Open Knowledge Format (LOKF) schema and the released copies in `linkml/tests/neighbours/`. `linkml/tests/test_schema_rules.py` checks this.
+- **Run the tests**: `just test` from `linkml/`. Example data goes in `tests/data/valid/` and `tests/data/invalid/`, named `ClassName-suffix.yaml`; an invalid example's first line, `# Fails at: <pointer>`, names where it fails.
+- **Follow the schema's conventions**: PascalCase classes and enums with the `Aigf` prefix, snake_case slots from FINOS's keys, FINOS's spelling for values, and a short description on every element.
+- **Run the pre-commit hooks** on what you staged, from the root (`uvx pre-commit run -c linkml/.pre-commit-config.yaml`).
+- **Lock files are part of the change.** CI installs with `uv sync --locked`, so an edit without its `linkml/uv.lock` (or `.lokf/uv.lock`) fails.
+- **Knowledge-bundle changes**: `cd .lokf && just lokf-validate` must pass, and `knowledge-registrar.yaml` runs on any `.lokf/**` change.
+- **`lint-and-docs.yaml`** runs ShellCheck, actionlint, markdownlint, lychee and codespell over this project's files, never FINOS's.
+- **Actions are pinned to commit hashes**; Dependabot bumps them.
+- **The skills pin moves with the sidecar copies.** When moving `TRUST_LADDER_SKILLS_REF` in `.github/workflows/knowledge-librarian.yaml`, copy the other `knowledge-*.yaml` workflows and `.lokf/scripts/` and `.lokf/m365/` from that release's `skills/ktl-sidecar/templates/` in the same pull request.
+- **If your change alters behaviour**, add an entry under `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
 
-<a id="questions-and-discussions"></a>
+## Taking a new edition from FINOS
 
-### Questions and Discussions
+The weekly watch opens an issue when FINOS's main changes a file the schema reads. On a branch, merge `upstream/main`, rewrite `linkml/tests/upstream_tree.tsv` from `git ls-tree -r`, move the pin in `linkml/scripts/check_upstream_release.py` and the schema's header, follow the changes, and regenerate. Merge with a merge commit: a squash loses FINOS's history, and the next merge conflicts on every file.
 
-Please use our [Discussions forum][discussions] to ask general questions or contribute to discussions.
+## Code of conduct
 
-<a id="adding-elements"></a>
+Participation here is covered by the [Contributor Covenant](CODE_OF_CONDUCT.md).
 
-### Adding new elements yourself
+## Using AI tools
 
-Please submit a [Pull Request][pulls] to submit a new term for consideration.
+Artificial intelligence (AI) assistance is welcome; [AI_COVENANT.md](AI_COVENANT.md) sets the rules, for people and the scheduled `knowledge-librarian` agent alike.
 
-<a id="best-practices"></a>
+## Reporting issues
 
-## Best Practices
+Use the [issue tracker](https://github.com/lmodel/ai-governance-framework/issues) for the schema. A problem in the framework belongs with [FINOS](https://github.com/finos/ai-governance-framework/issues).
 
-<a id="great-issues"></a>
+## Releasing (maintainers)
 
-### GitHub Best Practice
+- Write `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md) as you go. The release job refuses an empty one (`.github/scripts/changelog-release.mjs check`).
+- Type the commit ([Conventional Commits](https://www.conventionalcommits.org/)) for what the change *is*. Only `feat:`, `fix:`, `security:` and a breaking `!` start a release, FINOS's commits in a merge among them. A pull request that would release must carry a releasing type in its title.
+- On merge, [`semantic-release.yml`](../.github/workflows/semantic-release.yml) retitles the section to `## [X.Y.Z] - YYYY-MM-DD`, commits `linkml/CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. Once `KNOWLEDGE_RELEASE_ENABLED` is `true`, it dispatches `.github/workflows/knowledge-release.yaml`, which attaches the schema copy and the bundle when either changed.
+- That step runs behind the `release` GitHub Environment. Configure required reviewers on it in Settings → Environments, or every qualifying merge is released unattended.
+- Below 1.0.0: the `v0.0.0` baseline tag sits on the merge of FINOS's tree, so FINOS's older commits do not count. `.releaserc.json` maps `breaking: true` to `minor`.
+- A branch rule requiring pull requests, status checks or signed commits would reject the release job's own push to `main`, so leave them off. [SECURITY.md](../.github/SECURITY.md) says what holds `main` instead.
 
-- Creating and curating issues
-    - Read ["About Issues"][[about-issues]]
-    - Issues should be focused and actionable
-    - Complex issues should be broken down into simpler issues where possible
-- Pull Requests
-    - Read ["About Pull Requests"][about-pulls]
-    - Read [GitHub Pull Requests: 10 Tips to Know](https://blog.mergify.com/github-pull-requests-10-tips-to-know/)
-    - Pull Requests (PRs) should be atomic and aim to close a single issue
-    - Long running PRs should be avoided where possible
-    - PRs should reference issues following standard conventions (e.g. “fixes #123”)
-    - Schema developers should always be working on a single issue at any one time
-    - Never work on the main branch, always work on an issue/feature branch
-    - Core developers can work on branches off origin rather than forks
-    - Always create a PR on a branch to maximize transparency of what you are doing
-    - PRs should be reviewed and merged in a timely fashion by the ai-governance-framework technical leads
-    - PRs that do not pass GitHub actions should never be merged
-    - In the case of git conflicts, the contributor should try and resolve the conflict
-    - If a PR fails a GitHub action check, the contributor should try and resolve the issue in a timely fashion
+## License
 
-### Understanding LinkML
-
-Core developers should read the material on the [LinkML site](https://linkml.io/linkml), in particular:
-
-- [Overview](https://linkml.io/linkml/intro/overview.html)
-- [Tutorial](https://linkml.io/linkml/intro/tutorial.html)
-- [Schemas](https://linkml.io/linkml/schemas/index.html)
-- [FAQ](https://linkml.io/linkml/faq/index.html)
-
-### Modeling Best Practice
-
-- Follow Naming conventions
-    - Standard LinkML naming conventions should be followed (UpperCamelCase for classes and enums, snake_case for slots)
-    - Know how to use the LinkML linter to check style and conventions
-    - The names for classes should be nouns or noun-phrases: Person, GenomeAnnotation, Address, Sample
-    - Spell out abbreviations and short forms, except where this goes against convention (e.g. do not spell out DNA)
-    - Elements that are imported from outside (e.g. schema.org) need not follow the same naming conventions
-    - Multivalued slots should be named as plurals
-- Document model elements
-    - All model elements should have documentation (descriptions) and other textual annotations (e.g. comments, notes)
-    - Textual annotations on classes, slots and enumerations should be written with minimal jargon, clear grammar and no misspellings
-- Include examples and counter-examples (intentionally invalid examples)
-    - Rationale: these serve as documentation and unit tests
-    - These will be used by the automated test suite
-    - All elements of the schema must be illustrated with valid and invalid data examples in src/data. New schema elements will not be merged into the main branch until examples are provided
-    - Invalid example data files should be invalid for one single reason, which should be reflected in the filename. It should be possible to render the invalid example files valid by addressing that single fault.
-- Use enums for categorical values
-    - Rationale: Open-ended string ranges encourage multiple values to represent the same entity, like “water”, “H2O” and “HOH”
-    - Any slot whose values could be constrained to a finite set should use an Enum
-    - Non-categorical values, e.g. descriptive fields like `name` or `description` fall outside of this.
-- Reuse
-    - Existing scheme elements should be reused where appropriate, rather than making duplicative elements
-    - More specific classes can be created by refinining classes using inheritance (`is_a`)
-
-[about-branches]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
-[about-issues]: https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
-[about-pulls]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-[issues]: https://github.com/lmodel/ai-governance-framework/issues/
-[pulls]: https://github.com/lmodel/ai-governance-framework/pulls/
-
-We recommend also reading [GitHub Pull Requests: 10 Tips to Know](https://blog.mergify.com/github-pull-requests-10-tips-to-know/)
+By contributing, you agree that your contributions are licensed under the [Apache License 2.0](LICENSE). FINOS's files are under CC-BY-4.0; [NOTICE](NOTICE) says what applies where. Update it when you add something from elsewhere.
