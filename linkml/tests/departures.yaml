@@ -1,0 +1,15 @@
+# Where FINOS's files break a statement of FINOS's own at the pinned commit. A test
+# holds this list to the tree, so a new departure fails and a fixed one must go.
+
+# A use case's category that usecase_categories in docs/_config.yml does not list.
+category_not_listed:
+  uc-3: Risk_and_Compliance
+  uc-4: Risk_and_Compliance
+
+# A citation of an entry marked superseded_by, which docs/_data/references/README.md
+# says a page moves off.
+superseded_citations:
+  ri-30:
+    owasp-llm:
+      - llm03-2025
+      - llm06-2025
