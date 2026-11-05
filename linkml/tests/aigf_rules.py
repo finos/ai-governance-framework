@@ -101,8 +101,11 @@ def use_case_faults(catalogue: dict) -> list[str]:
 
 
 def reference_file_faults(stem: str, reference: dict) -> list[str]:
-    """A file has no entries, an entry's key is not a stable form, or superseded_by
-    names no entry of the file, as scripts/validate-references.py refuses."""
+    """A file has no entries or superseded_by names no entry of the file, as
+    scripts/validate-references.py refuses, or an entry's key has a character
+    outside letters, digits, dots and hyphens. That last rule is this project's:
+    docs/_data/references/README.md asks for a stable identifier, and the key is
+    the local part of a CURIE in the SSSOM sets."""
     entries = reference.get("entries") or {}
     faults = [] if entries else [f"{stem}: no entries"]
     for key, entry in entries.items():
