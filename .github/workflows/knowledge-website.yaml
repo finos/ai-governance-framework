@@ -1,0 +1,173 @@
+name: Knowledge website
+
+# Builds the site in website/ from the knowledge bundle, the README, docs/,
+# the figures, the changelog and, when site.config.mjs shows them, the LinkML
+# schema's pages and the data, and publishes the default branch's build to
+# GitHub Pages. A pull request that touches any of them gets the same build,
+# link check included, and no deployment. A weekly run rebuilds the site
+# from the default branch. It catches what no push to the paths below brings:
+# a schema or data change elsewhere, and the changelog's promotion, whose
+# commit skips CI. website/README.md says what each page is built from. The
+# ktl-website skill installed both.
+#
+# Two jobs, for least privilege. `build` runs the third-party packages, npm's
+# and the lokf toolkit's, and the repository's own site code, under a
+# read-only token. `deploy` runs harden-runner and GitHub's own deploy-pages
+# action and nothing else, holds the Pages scopes, and runs for the
+# default branch only, once the repository variable KNOWLEDGE_WEBSITE_ENABLED
+# is `true`. Until then this workflow builds but deploys nothing.
+#
+# Set the variable under Repository variables, not on an environment: a
+# job's `if:` sees only repository and organization variables. Before setting
+# it, tell Pages once to take its site from Actions, under
+# Settings > Pages > Source, or with:
+#   gh api -X POST repos/{owner}/{repo}/pages -f build_type=workflow
+# A repository that already publishes Pages another way (a gh-pages branch, a
+# docs tool's deploy) keeps the variable unset until that publisher is
+# retired: two publishers overwrite each other's site.
+on:
+  push:
+    paths:
+      - "website/**"
+      - ".lokf/**"
+      - "knowledge_bundle/**"
+      - "README.md"
+      - "docs/**"
+      - ".assets/**"
+      - "CHANGELOG.md"
+      - "llms.txt"
+      - ".linkml/**"
+      - "**/src/*/schema/**"
+      - "**/[Jj]ustfile"
+      - "**/.justfile"
+      - "**/pyproject.toml"
+      - "**/uv.lock"
+      - ".github/workflows/knowledge-website.yaml"
+  pull_request:
+    paths:
+      - "website/**"
+      - ".lokf/**"
+      - "knowledge_bundle/**"
+      - "README.md"
+      - "docs/**"
+      - ".assets/**"
+      - "CHANGELOG.md"
+      - "llms.txt"
+      - ".linkml/**"
+      - "**/src/*/schema/**"
+      - "**/[Jj]ustfile"
+      - "**/.justfile"
+      - "**/pyproject.toml"
+      - "**/uv.lock"
+      - ".github/workflows/knowledge-website.yaml"
+  schedule:
+    - cron: "23 5 * * 1" # Mondays at 05:23 UTC
+  workflow_dispatch:
+
+permissions: {} # deny by default; each job requests only the scopes it needs
+
+# A newer push supersedes a pull request's build, but a deployment from the
+# default branch always runs to the end.
+concurrency:
+  group: knowledge-website-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    name: Build the site (read-only)
+    # A push builds on the default branch only. A pull request or a dispatch always builds.
+    if: github.event_name != 'push' || github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      # The whole history, because the health page's "a source moved" lines
+      # come from git, as knowledge-report.sh computes them anywhere else.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          enable-cache: true
+          cache-dependency-glob: .lokf/uv.lock
+          # The downloaded wheels are pruned before the cache is saved. A
+          # schema or data command builds the project's own environment in
+          # the same cache, gigabytes for a project with machine-learning
+          # packages, and a repository's caches share 10 GB.
+          prune-cache: true
+
+      - name: Install the lokf toolkit the sidecar pins
+        run: uv sync --locked
+        working-directory: .lokf
+
+      - name: Use Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      # A schema or a data folder that site.config.mjs shows is written by
+      # its own command, which the sync runs when the folder is missing, as it
+      # always is here. A LinkML project's commands are recipes for just, a
+      # command runner the runner image lacks. Where .lokf/uv.lock pins
+      # rust-just, the step links the copy it checked by hash, alone, so the
+      # sidecar's other commands stay off PATH; else it installs the same
+      # version by name. setup-uv puts the tool directory on PATH on Windows
+      # only, so the step adds it.
+      - name: Install just, when the site builds a folder with it
+        run: |
+          if node website/scripts/config.mjs | grep -q '"build": "just '; then
+            if grep -qx 'name = "rust-just"' .lokf/uv.lock; then
+              mkdir -p "$HOME/.local/bin"
+              ln -sf "$PWD/.lokf/.venv/bin/just" "$HOME/.local/bin/just"
+            else
+              uv tool install rust-just==1.47.0
+            fi
+            echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          fi
+
+      # `build` runs the sync first and the link check after.
+      - name: Build the site and check its links
+        working-directory: website
+        env:
+          ASTRO_TELEMETRY_DISABLED: "1"
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: website/dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    # A scheduled run is always the default branch's, and its event carries
+    # no repository to compare the branch with, so it is let through by name.
+    if: vars.KNOWLEDGE_WEBSITE_ENABLED == 'true' && (github.event_name == 'schedule' || (github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)))
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        id: deployment

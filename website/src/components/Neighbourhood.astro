@@ -1,0 +1,182 @@
+---
+// A concept's neighbourhood: the concepts it names in its typed relations and
+// the ones that name it, drawn around it and coloured by how far each has
+// been checked. It is a static SVG, built with the page. Every node is a
+// link, and the record lists the same links in words.
+interface Node {
+  text: string;
+  href: string;
+  tone?: string;
+  dir: "out" | "in";
+}
+const { concept, title } = Astro.props;
+const seen = new Map<string, Node>();
+for (const rel of concept.relations)
+  for (const t of rel.targets) if (t.href.startsWith("/")) seen.set(t.href, { ...t, dir: "out" });
+for (const i of concept.incoming) if (!seen.has(i.from.href)) seen.set(i.from.href, { ...i.from, dir: "in" });
+const all = [...seen.values()];
+const nodes = all.slice(0, 10);
+const more = all.length - nodes.length;
+
+const W = 248;
+const H = 214;
+const cx = W / 2;
+const cy = 107;
+const r = 78;
+
+// Each label goes outside its node, above it in the upper half and below it
+// in the lower, or else beside it, shortened to the room left in the column:
+// whichever overlaps no node and no label already placed. A label's width is
+// estimated from its length at the 9.5px size it is drawn at.
+type Box = { x1: number; y1: number; x2: number; y2: number };
+const CHAR = 5.4;
+const fit = (s: string, room: number) => {
+  const n = Math.floor(room / CHAR);
+  return s.length <= n ? s : s.slice(0, n - 1) + "\u2026";
+};
+const around = (x: number, y: number, size: number): Box => ({ x1: x - size, y1: y - size, x2: x + size, y2: y + size });
+const overlaps = (a: Box, b: Box) => a.x1 < b.x2 && b.x1 < a.x2 && a.y1 < b.y2 && b.y1 < a.y2;
+
+const points = nodes.map((n, i) => {
+  const a = -Math.PI / 2 + (2 * Math.PI * i) / nodes.length;
+  return { ...n, a, x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+});
+const taken: { owner: number; box: Box }[] = [
+  { owner: -1, box: around(cx, cy, 11) },
+  ...points.map((p, i) => ({ owner: i, box: around(p.x, p.y, 8) })),
+];
+const placed = points.map((p, i) => {
+  const outside = () => {
+    const text = fit(p.text, 100);
+    const half = (text.length * CHAR) / 2;
+    const x = Math.min(Math.max(p.x, half + 1), W - half - 1);
+    const y = Math.sin(p.a) < -0.2 ? p.y - 11 : p.y + 18;
+    return { x, y, anchor: "middle", text, box: { x1: x - half, y1: y - 9, x2: x + half, y2: y + 3 } };
+  };
+  const beside = () => {
+    const right = Math.cos(p.a) >= 0;
+    const x = right ? p.x + 10 : p.x - 10;
+    const room = right ? W - 1 - x : x - 1;
+    if (room < 40) return null;
+    const text = fit(p.text, room);
+    const w = text.length * CHAR;
+    return { x, y: p.y + 3, anchor: right ? "start" : "end", text, box: { x1: right ? x : x - w, y1: p.y - 6, x2: right ? x + w : x, y2: p.y + 6 } };
+  };
+  const options = [outside(), beside()].filter((o) => o !== null);
+  const label = options.find((o) => !taken.some((t) => t.owner !== i && overlaps(t.box, o.box))) ?? options[0];
+  taken.push({ owner: i, box: label.box });
+  return { ...p, label };
+});
+---
+
+{
+  nodes.length > 0 && (
+    <section class="ktl-hood" aria-label="Concepts linked to this one">
+      <h2>Neighbourhood</h2>
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${title} and the ${all.length} concepts linked to it`}>
+        <defs>
+          <marker id="ktl-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L8 4 L0 8 z" class="ktl-hood__arrowhead" />
+          </marker>
+        </defs>
+        {placed.map((n) => {
+          const [x1, y1] = [cx + (n.x - cx) * 0.13, cy + (n.y - cy) * 0.13];
+          const [x2, y2] = [cx + (n.x - cx) * 0.8, cy + (n.y - cy) * 0.8];
+          return n.dir === "out" ? (
+            <line class="ktl-hood__edge" x1={x1} y1={y1} x2={x2} y2={y2} marker-end="url(#ktl-arrow)" />
+          ) : (
+            <line class="ktl-hood__edge ktl-hood__edge--in" x1={x2} y1={y2} x2={x1} y2={y1} marker-end="url(#ktl-arrow)" />
+          );
+        })}
+        <circle class={`ktl-hood__node ktl-hood__node--${concept.tone} ktl-hood__node--self`} cx={cx} cy={cy} r="9" />
+        {placed.map((n) => (
+          <a href={n.href}>
+            <title>
+              {n.text}
+              {n.dir === "in" ? " (names this concept)" : ""}
+            </title>
+            <circle class="ktl-hood__hit" cx={n.x} cy={n.y} r="14" />
+            <circle class={`ktl-hood__node ktl-hood__node--${n.tone ?? "nobody"}`} cx={n.x} cy={n.y} r="6" />
+            <text x={n.label.x} y={n.label.y} text-anchor={n.label.anchor}>
+              {n.label.text}
+            </text>
+          </a>
+        ))}
+      </svg>
+      <p class="ktl-hood__key">Arrows point out to the concepts this one names; dashed ones come in from concepts that name it.</p>
+      {more > 0 && <p class="ktl-hood__key">{more} more are in the record.</p>}
+      <p class="ktl-hood__key"><a href={concept.graph}>Open it in the knowledge graph</a></p>
+    </section>
+  )
+}
+
+<style>
+  .ktl-hood {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sl-color-hairline);
+  }
+  .ktl-hood h2 {
+    margin-bottom: 0.5rem;
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-h5);
+  }
+  .ktl-hood svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .ktl-hood__edge {
+    stroke: var(--sl-color-gray-5);
+    stroke-width: 1;
+  }
+  .ktl-hood__edge--in {
+    stroke-dasharray: 3 3;
+  }
+  .ktl-hood__arrowhead {
+    fill: var(--sl-color-gray-4);
+  }
+  .ktl-hood__hit {
+    fill: transparent;
+  }
+  .ktl-hood__node {
+    stroke: var(--sl-color-bg);
+    stroke-width: 2;
+  }
+  .ktl-hood__node--person {
+    fill: var(--ktl-person-fg);
+  }
+  .ktl-hood__node--automation {
+    fill: var(--ktl-automation-fg);
+  }
+  .ktl-hood__node--edited {
+    fill: var(--sl-color-bg);
+    stroke: var(--ktl-automation-fg);
+  }
+  .ktl-hood__node--nobody {
+    fill: var(--sl-color-bg);
+    stroke: var(--ktl-nobody-fg);
+  }
+  .ktl-hood__node--retired {
+    fill: var(--ktl-rung-off);
+  }
+  .ktl-hood__node--self {
+    stroke-width: 2.5;
+  }
+  .ktl-hood text {
+    fill: var(--sl-color-gray-2);
+    font-size: 9.5px;
+  }
+  .ktl-hood a:hover text,
+  .ktl-hood a:focus-visible text {
+    fill: var(--sl-color-text-accent);
+    text-decoration: underline;
+  }
+  .ktl-hood__key {
+    margin: 0.4rem 0 0;
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-xs);
+    line-height: 1.5;
+  }
+</style>

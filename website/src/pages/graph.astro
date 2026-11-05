@@ -1,0 +1,46 @@
+---
+// The bundle's typed relations, drawn from knowledge/graph.json, and on a
+// domain host the workspace's, drawn from the graph.json the federation
+// workflow serves beside the site, which scripts/sync.mjs names in
+// src/generated/workspace.json.
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import KnowledgeGraph from "../components/KnowledgeGraph.astro";
+import workspace from "../generated/workspace.json";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "Knowledge graph",
+    description: "Every concept in the knowledge bundle and the typed relations between them.",
+    tableOfContents: false,
+  }}
+>
+  <p>
+    Each node is a concept in the <a href={`${base}/knowledge/`}>knowledge bundle</a>, and each edge
+    is a typed relation from a concept's frontmatter, such as <code>about</code>,
+    <code>derivedFrom</code> or <code>relatedTo</code>, under the RDF predicate it projects to. A link
+    written in a concept's body is not an edge. Search dims the nodes that do not match, the boxes
+    hide node types and predicates, and selecting a node shows its details and a link to its page.
+    The page's address names the selected concept, so a link to it opens the graph there.
+  </p>
+  <p>
+    The trust shown in a node's details is the toolkit's tier. A concept's page gives its label in
+    the words the curator and the docent use. The same graph is{" "}
+    <a href={`${base}/knowledge/graph.nt`}>graph.nt</a> as N-Triples and{" "}
+    <a href={`${base}/knowledge/concepts.jsonld`}>concepts.jsonld</a> as JSON-LD.
+  </p>
+  {
+    workspace && (
+      <p>
+        This repository is a domain. The workspace view draws every bundle its members name, each in
+        a colour of its own, with the links between bundles dashed. Each node links to its IRI, which
+        a bundle with a site of its own serves as the concept's page. The view reads{" "}
+        <a href={workspace.index}>the workspace</a> the newest release built, which the federation
+        workflow adds to the site after building it.
+      </p>
+    )
+  }
+  <KnowledgeGraph workspace={workspace?.graph} />
+</StarlightPage>

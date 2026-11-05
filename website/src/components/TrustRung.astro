@@ -1,0 +1,32 @@
+---
+// The logo's ladder, drawn small, with the rungs a concept has climbed filled
+// in: grey for a draft nobody checked, amber for automation, and the blue
+// check for a named person. An edit after a person's confirmation leaves the
+// check as a dashed outline, the rung the concept dropped from. The label
+// beside it says the same in words, so screen readers skip the drawing.
+interface Props {
+  tone: "person" | "edited" | "automation" | "nobody" | "retired";
+}
+const { tone } = Astro.props;
+const lit = {
+  nobody: [true, false, false],
+  automation: [true, true, false],
+  edited: [true, true, false],
+  person: [true, true, true],
+  retired: [false, false, false],
+}[tone];
+---
+
+<svg class={`ktl-rung ktl-rung--${tone}`} viewBox="0 0 40 48" width="44" height="53" aria-hidden="true" focusable="false">
+  <rect class="ktl-rung__rail" x="7" y="6" width="3.5" height="38" rx="1.75"></rect>
+  <rect class="ktl-rung__rail" x="29.5" y="6" width="3.5" height="38" rx="1.75"></rect>
+  <rect class:list={["ktl-rung__step", "ktl-rung__step--draft", { "is-lit": lit[0] }]} x="5" y="34" width="30" height="5" rx="2.5"></rect>
+  <rect class:list={["ktl-rung__step", "ktl-rung__step--automation", { "is-lit": lit[1] }]} x="5" y="23" width="30" height="5" rx="2.5"></rect>
+  <path
+    class:list={["ktl-rung__check", { "is-lit": lit[2], "is-dropped": tone === "edited" }]}
+    d="M8 10.5 L16.5 17.5 L33 3.5"
+    fill="none"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+</svg>

@@ -1,0 +1,20 @@
+---
+// The reading levels of a page that has a retelling, under its title: the
+// page itself as Full and each retelling by its audience, the current one
+// unlinked. The sync writes the same list into `ktlLevels` on the page and
+// on each retelling, so a reader can move between them from either. Search
+// leaves it out, so a result's excerpt never opens on it.
+const { levels } = Astro.props;
+---
+
+<nav class="ktl-levels not-content" aria-label="Reading levels" data-pagefind-ignore>
+  <span>Reading level:</span>
+  {
+    levels.map((level: { label: string; href?: string }, i: number) => (
+      <>
+        {i > 0 && <span aria-hidden="true">·</span>}
+        {level.href ? <a href={level.href}>{level.label}</a> : <b aria-current="page">{level.label}</b>}
+      </>
+    ))
+  }
+</nav>

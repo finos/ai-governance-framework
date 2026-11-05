@@ -1,0 +1,166 @@
+---
+// Draws the page's mermaid diagrams in the browser: the class diagrams on
+// the schema's pages, and a ```mermaid block in the README, a docs page or a
+// concept. The Markdown plugin leaves each as a pre.ktl-mermaid holding its
+// source. mermaid loads only on a page with a diagram, and draws each again
+// in the other theme when the reader switches. The source stays hidden until
+// it is drawn, and shows instead when the script cannot run or a diagram
+// fails. A diagram drawn to the column's width can be too small to read, so a
+// button under it shows it at its own size, in a dialog that scrolls.
+---
+
+<noscript><style is:inline>pre.ktl-mermaid { visibility: visible; max-height: none; }</style></noscript>
+
+<script>
+  const blocks = [...document.querySelectorAll<HTMLElement>("pre.ktl-mermaid")];
+  const sources = blocks.map((block) => block.textContent ?? "");
+  const external = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+
+  const viewer = document.createElement("dialog");
+  viewer.className = "ktl-mermaid-viewer";
+  viewer.setAttribute("aria-label", "Diagram at full size");
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "ktl-mermaid-viewer__close";
+  close.textContent = "Close";
+  viewer.append(close);
+  let shown: { svg: SVGSVGElement; block: HTMLElement; style: string | null } | null = null;
+
+  function enlarge(block: HTMLElement) {
+    const svg = block.querySelector("svg");
+    if (!svg) return;
+    shown = { svg, block, style: svg.getAttribute("style") };
+    const [, , width, height] = (svg.getAttribute("viewBox") ?? "").split(/[\s,]+/).map(Number);
+    svg.style.maxWidth = "none";
+    if (width > 0 && height > 0) {
+      svg.style.width = `${width}px`;
+      svg.style.height = `${height}px`;
+    }
+    viewer.append(svg);
+    if (!viewer.isConnected) document.body.append(viewer);
+    viewer.showModal();
+    // A wide diagram opens at its middle, where a class diagram draws its class.
+    viewer.scrollTo({ left: (viewer.scrollWidth - viewer.clientWidth) / 2, top: 0 });
+  }
+
+  // Puts the diagram the dialog shows back under its button, at the column's
+  // width: when the dialog closes, and before a redraw replaces the diagram.
+  function restore() {
+    if (!shown) return;
+    if (shown.style === null) shown.svg.removeAttribute("style");
+    else shown.svg.setAttribute("style", shown.style);
+    shown.block.prepend(shown.svg);
+    shown = null;
+  }
+  viewer.addEventListener("close", restore);
+  // A click anywhere but on a link in the diagram closes it.
+  viewer.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element && event.target.closest("a"))) viewer.close();
+  });
+
+  async function draw() {
+    restore();
+    if (viewer.open) viewer.close();
+    let mermaid: typeof import("mermaid").default;
+    try {
+      ({ default: mermaid } = await import("mermaid"));
+    } catch (error) {
+      console.error(error);
+      for (const block of blocks) block.dataset.processed = "failed";
+      return;
+    }
+    const dark = document.documentElement.dataset.theme === "dark";
+    mermaid.initialize({ startOnLoad: false, theme: dark ? "dark" : "neutral" });
+    blocks.forEach((block, i) => {
+      block.removeAttribute("data-processed");
+      block.textContent = sources[i];
+    });
+    try {
+      await mermaid.run({ nodes: blocks });
+    } catch (error) {
+      console.error(error);
+    }
+    for (const block of blocks) {
+      if (!block.querySelector("svg")) {
+        block.dataset.processed = "failed";
+        continue;
+      }
+      // mermaid opens a diagram's links in a new tab. A link that stays on
+      // this site opens in the same tab, as every other link here does.
+      for (const link of block.querySelectorAll("a[target='_blank']")) {
+        const href = link.getAttribute("href") ?? link.getAttribute("xlink:href") ?? "";
+        if (!external.test(href)) link.removeAttribute("target");
+      }
+      if (!block.nextElementSibling?.classList.contains("ktl-mermaid-enlarge")) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "ktl-mermaid-enlarge";
+        button.textContent = "Show at full size";
+        button.addEventListener("click", () => enlarge(block));
+        block.after(button);
+      }
+    }
+  }
+
+  // One drawing at a time: a theme switch while one is drawing starts the
+  // next once it ends.
+  let drawing = Promise.resolve();
+  const redraw = () => {
+    drawing = drawing.then(draw).catch((error) => console.error(error));
+  };
+  if (blocks.length > 0) {
+    redraw();
+    new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  }
+</script>
+
+<style is:global>
+  .sl-markdown-content pre.ktl-mermaid {
+    border: 0;
+    background: none;
+    padding: 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .sl-markdown-content pre.ktl-mermaid:not([data-processed]) {
+    visibility: hidden;
+    max-height: 8rem;
+  }
+  .sl-markdown-content pre.ktl-mermaid[data-processed="failed"] {
+    text-align: start;
+  }
+  .ktl-mermaid-enlarge,
+  .ktl-mermaid-viewer__close {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 999rem;
+    background: none;
+    color: var(--sl-color-white);
+    font: inherit;
+    font-size: var(--sl-text-sm);
+    cursor: pointer;
+  }
+  .sl-markdown-content .ktl-mermaid-enlarge {
+    display: block;
+    margin-inline: auto;
+  }
+  dialog.ktl-mermaid-viewer {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 1rem;
+    border: 0;
+    background: var(--sl-color-bg);
+    overflow: auto;
+  }
+  .ktl-mermaid-viewer__close {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-bottom: 1rem;
+    background: var(--sl-color-bg);
+  }
+</style>

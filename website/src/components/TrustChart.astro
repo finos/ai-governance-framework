@@ -1,0 +1,201 @@
+---
+// How far the bundle has been checked, as two figures: the number the
+// architecture page says to watch, confirmed by a person, as a large figure
+// over a meter; and every concept's state as one stacked bar. The colours are
+// theme.css's chart steps. The legend carries every value as text and the
+// tables below repeat it, so the bars are hidden from screen readers and the
+// tooltip only adds.
+import { TRUST_STATES } from "../trust";
+
+interface Props {
+  counts: Record<(typeof TRUST_STATES)[number]["tone"], number>;
+  total: number;
+}
+const { counts, total } = Astro.props;
+const shown = TRUST_STATES.filter((s) => counts[s.tone] > 0);
+const pct = (n: number) => `${total ? ((100 * n) / total).toFixed(1) : 0}%`;
+---
+
+<figure class="ktl-health">
+  <div class="ktl-health__hero">
+    <p class="ktl-health__label">Confirmed by a person</p>
+    <p class="ktl-health__value">{counts.person} <span>of {total}</span></p>
+    <div class="ktl-meter" aria-hidden="true"><span style={`width: ${pct(counts.person)}`}></span></div>
+  </div>
+
+  <div class="ktl-stack" aria-hidden="true">
+    {shown.map((s) => (
+      <span
+        class={`ktl-stack__seg ktl-stack__seg--${s.tone}`}
+        style={`flex-grow: ${counts[s.tone]}`}
+        data-label={s.label}
+        data-value={`${counts[s.tone]} of ${total}`}
+      >
+        {s.tone === "person" && <span class="ktl-stack__count">{counts[s.tone]}</span>}
+      </span>
+    ))}
+    <div class="ktl-stack__tip" hidden><strong></strong><span></span></div>
+  </div>
+
+  <ul class="ktl-legend">
+    {shown.map((s) => (
+      <li>
+        <span class={`ktl-legend__key ktl-stack__seg--${s.tone}`}></span>{s.label} <strong>{counts[s.tone]}</strong>
+      </li>
+    ))}
+  </ul>
+  <figcaption>
+    Every concept in the bundle, by how far it has been checked, computed from its frontmatter when the site was built.
+  </figcaption>
+</figure>
+
+<script>
+  // One tooltip per bar: the value first, the label second. Text goes in with
+  // textContent, never as HTML.
+  for (const stack of document.querySelectorAll<HTMLElement>(".ktl-stack")) {
+    const tip = stack.querySelector<HTMLElement>(".ktl-stack__tip")!;
+    const [value, label] = [tip.querySelector("strong")!, tip.querySelector("span")!];
+    for (const seg of stack.querySelectorAll<HTMLElement>(".ktl-stack__seg")) {
+      seg.addEventListener("pointermove", (event) => {
+        value.textContent = seg.dataset.value ?? "";
+        label.textContent = seg.dataset.label ?? "";
+        tip.hidden = false;
+        const box = stack.getBoundingClientRect();
+        tip.style.left = `${Math.min(Math.max(event.clientX - box.left, 60), box.width - 60)}px`;
+      });
+      seg.addEventListener("pointerleave", () => (tip.hidden = true));
+    }
+  }
+</script>
+
+<style>
+  .ktl-health {
+    margin: 1.5rem 0 1rem;
+  }
+  .ktl-health__hero p {
+    margin: 0;
+  }
+  .ktl-health__label {
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-sm);
+  }
+  .ktl-health__value {
+    font-size: 3.25rem;
+    font-weight: 650;
+    line-height: 1.1;
+    color: var(--sl-color-white);
+  }
+  .ktl-health__value span {
+    font-size: var(--sl-text-xl);
+    font-weight: 500;
+    color: var(--sl-color-gray-3);
+  }
+  .ktl-meter {
+    height: 10px;
+    margin: 0.6rem 0 1.75rem;
+    border-radius: 5px;
+    background: var(--ktl-chart-track);
+    overflow: hidden;
+  }
+  .ktl-meter span {
+    display: block;
+    height: 100%;
+    border-radius: 0 4px 4px 0;
+    background: var(--ktl-chart-person);
+  }
+  .ktl-stack {
+    position: relative;
+    display: flex;
+    gap: 2px;
+    height: 24px;
+  }
+  .ktl-stack__seg {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 4px;
+    transition: filter 120ms;
+  }
+  .ktl-stack__seg:last-of-type {
+    border-radius: 0 4px 4px 0;
+  }
+  .ktl-stack__seg:hover {
+    filter: brightness(1.12);
+  }
+  .ktl-stack__seg--person {
+    background: var(--ktl-chart-person);
+  }
+  .ktl-stack__seg--edited {
+    background: var(--ktl-chart-edited);
+  }
+  .ktl-stack__seg--automation {
+    background: var(--ktl-chart-automation);
+  }
+  .ktl-stack__seg--nobody {
+    background: var(--ktl-chart-nobody);
+  }
+  /* A retired concept is off the ladder: an outline, not a colour. */
+  .ktl-stack__seg--retired {
+    border: 1.5px dashed var(--ktl-chart-nobody);
+  }
+  .ktl-stack__count {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--ktl-chart-on-person);
+    font-size: var(--sl-text-xs);
+    font-weight: 700;
+  }
+  .ktl-stack__tip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    display: grid;
+    gap: 0.1rem;
+    padding: 0.4rem 0.6rem;
+    white-space: nowrap;
+    background: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.35rem;
+    box-shadow: var(--sl-shadow-md);
+    font-size: var(--sl-text-xs);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .ktl-stack__tip[hidden] {
+    display: none;
+  }
+  .ktl-stack__tip strong {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+  }
+  .ktl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin: 0.9rem 0 0.4rem;
+    padding: 0;
+    list-style: none;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+  .ktl-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+  }
+  .ktl-legend strong {
+    color: var(--sl-color-white);
+  }
+  .ktl-legend__key {
+    box-sizing: border-box;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 2px;
+  }
+  figcaption {
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-xs);
+  }
+</style>

@@ -1,0 +1,124 @@
+---
+// A link to a concept page shows the concept's title, type, genre, trust
+// label and definition while the pointer or the keyboard focus rests on it,
+// before the reader follows the link. The script reads /knowledge/previews.json, which
+// the sync writes, once, on the first link it is asked about. The card
+// follows WCAG 1.4.13: the pointer can move onto it, Escape dismisses it, and
+// it goes when the pointer or the focus leaves. Links in the sidebars are
+// left out, since each sidebar entry carries its label as a tooltip, and so
+// is a link to the page itself.
+---
+
+<script>
+  type Preview = { title: string; type: string; genre?: string; label: string; tone: string; definition?: string };
+
+  const KNOWLEDGE = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/knowledge/`;
+  // Long enough that a pointer crossing a line of links opens nothing.
+  const DELAY = 300;
+  const GAP = 8;
+
+  const escapeHtml = (text: string) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // A definition is plain text with Markdown code spans, as the card shows it.
+  const inline = (text: string) => escapeHtml(text).replace(/`([^`]+)`/g, "<code>$1</code>");
+
+  /** The id of the concept a link opens, or null: another page, another site, or this page. */
+  function conceptOf(a: HTMLAnchorElement): string | null {
+    if (a.origin !== location.origin) return null;
+    const path = decodeURIComponent(a.pathname);
+    if (!path.startsWith(KNOWLEDGE) || !path.endsWith("/") || path === decodeURIComponent(location.pathname)) return null;
+    return path.slice(KNOWLEDGE.length, -1);
+  }
+
+  let index: Promise<Record<string, Preview>> | undefined;
+  const load = () =>
+    (index ??= fetch(`${KNOWLEDGE}previews.json`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({})));
+
+  const links = [...document.querySelectorAll<HTMLAnchorElement>("main a[href]")].filter(
+    (a) => a instanceof HTMLAnchorElement && conceptOf(a) !== null,
+  );
+  if (links.length > 0) {
+    // A popover sits above everything without a z-index. A browser without
+    // popovers gets a hidden element that the stylesheet places above the
+    // content instead.
+    const card = document.createElement("div");
+    card.className = "ktl-preview";
+    card.id = "ktl-preview";
+    card.setAttribute("role", "tooltip");
+    card.setAttribute("popover", "manual");
+    const popover = typeof card.showPopover === "function";
+    if (!popover) card.hidden = true;
+    document.body.append(card);
+
+    let current: HTMLAnchorElement | null = null;
+    let timer = 0;
+
+    // Below the link, or above it when the room below runs out, and within the
+    // viewport's width.
+    const place = (a: HTMLAnchorElement) => {
+      const r = a.getBoundingClientRect();
+      const h = card.offsetHeight;
+      const below = r.bottom + GAP + h <= innerHeight || r.top - GAP - h < 0;
+      card.style.top = `${below ? r.bottom + GAP : r.top - GAP - h}px`;
+      card.style.left = `${Math.max(GAP, Math.min(r.left, innerWidth - card.offsetWidth - GAP))}px`;
+    };
+
+    const hide = () => {
+      clearTimeout(timer);
+      current?.removeAttribute("aria-describedby");
+      current = null;
+      if (popover) {
+        if (card.matches(":popover-open")) card.hidePopover();
+      } else {
+        card.hidden = true;
+      }
+    };
+
+    const show = async (a: HTMLAnchorElement) => {
+      current = a;
+      const preview = (await load())[conceptOf(a)!];
+      // The pointer may have moved on while the index loaded.
+      if (!preview || current !== a) return;
+      card.innerHTML = [
+        `<p class="ktl-preview__head"><span class="ktl-card__type">${escapeHtml(preview.type)}</span>${preview.genre && preview.genre.toLowerCase() !== preview.type.toLowerCase() ? ` · ${escapeHtml(preview.genre)}` : ""}</p>`,
+        `<p class="ktl-preview__title">${escapeHtml(preview.title)}</p>`,
+        `<p><span class="ktl-label ktl-label--${escapeHtml(preview.tone)}">${escapeHtml(preview.label)}</span></p>`,
+        ...(preview.definition ? [`<p class="ktl-preview__definition">${inline(preview.definition)}</p>`] : []),
+      ].join("");
+      if (popover) card.showPopover();
+      else card.hidden = false;
+      place(a);
+      a.setAttribute("aria-describedby", card.id);
+    };
+
+    const soon = (a: HTMLAnchorElement, after: number) => {
+      clearTimeout(timer);
+      timer = window.setTimeout(() => show(a), after);
+    };
+    // Leaving the link gives the pointer a moment to reach the card.
+    const later = () => {
+      clearTimeout(timer);
+      timer = window.setTimeout(hide, 150);
+    };
+
+    const hover = matchMedia("(hover: hover)").matches;
+    for (const a of links) {
+      if (hover) {
+        a.addEventListener("pointerenter", () => soon(a, DELAY));
+        a.addEventListener("pointerleave", later);
+      }
+      a.addEventListener("focus", () => soon(a, 0));
+      a.addEventListener("blur", hide);
+    }
+    card.addEventListener("pointerenter", () => clearTimeout(timer));
+    card.addEventListener("pointerleave", later);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && current) hide();
+    });
+    // The card keeps to its link as the page scrolls or the window changes.
+    const follow = () => current && place(current);
+    addEventListener("scroll", follow, { passive: true });
+    addEventListener("resize", follow);
+  }
+</script>

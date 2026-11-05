@@ -1,0 +1,14 @@
+---
+// Starlight's page title, with the reading levels beneath it on a page that
+// has a retelling, and a concept's record on the pages the sync rendered
+// from the knowledge bundle.
+import Default from "@astrojs/starlight/components/PageTitle.astro";
+import ConceptCard from "./ConceptCard.astro";
+import ReadingLevels from "./ReadingLevels.astro";
+
+const { lokf: concept, ktlLevels: levels } = Astro.locals.starlightRoute.entry.data;
+---
+
+<Default />
+{levels && <ReadingLevels levels={levels} />}
+{concept && <ConceptCard concept={concept} />}

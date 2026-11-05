@@ -1,0 +1,175 @@
+---
+// A concept's record as a catalogue card: its type, genre and tags across
+// the top, with its ID as the call number; the rung it stands on and its
+// trust label in the words ktl-curator and ktl-docent use; its definition;
+// and the rest of its record below. The label comes from
+// knowledge-report.sh, so the site never derives it a second way.
+//
+// Search indexes only the definition, so a result's excerpt never opens on
+// the card's labels run together. Three attributes give Pagefind a Type, a
+// Genre and a Trust filter, which Starlight's search box shows: Pagefind
+// still reads filters in a part it leaves out.
+import TrustRung from "./TrustRung.astro";
+import { trustLabel } from "../trust";
+
+const { concept } = Astro.props;
+
+const actor = (by: string) => {
+  const [kind, ...rest] = by.split(":");
+  const who = rest.join(":") || by;
+  if (kind === "human") return { who, kind: "a person" };
+  if (kind === "process") return { who, kind: "automation" };
+  return { who: by, kind: "" };
+};
+const day = (at: string) => at.slice(0, 10);
+// An Explanation's genre is explanation: the card names it once, and search
+// still files it under its genre.
+const genreIsType = concept.genre?.toLowerCase() === concept.typeName.toLowerCase();
+// A definition is plain text with Markdown code spans. Escape it, then set the spans.
+const inline = (text: string) =>
+  text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/`([^`]+)`/g, "<code>$1</code>");
+// The label's first clause names the rung. A draft, a reopening, a passed
+// review date or a reader's dispute follows on a line of its own. A reopening
+// is a flag, not a rung: the rung stays, and the questions that wait are
+// shown under it.
+const [rung, ...also] = concept.label.split(/, (?=still a draft|reopened|past its review date|a reader disputed this)/);
+const flagged = also.some((a: string) => a.startsWith("reopened"));
+const questions: { date: string; by: string; text: string }[] = concept.questions ?? [];
+const written = concept.generated && actor(concept.generated.by);
+const lastCheck = concept.verified.at(-1);
+const checker = lastCheck && actor(lastCheck.by);
+---
+
+<section class={`ktl-card ktl-card--${concept.tone}`} aria-label="The concept's record">
+  <header class="ktl-card__head" data-pagefind-ignore>
+    <span>
+      <span data-pagefind-filter={genreIsType ? `Genre:${concept.genre}` : undefined}>
+        <span class="ktl-card__type" data-pagefind-filter="Type">{concept.typeName}</span>
+      </span>
+      {concept.genre && !genreIsType && (
+        <span class="ktl-card__tag" data-pagefind-filter="Genre">{concept.genre}</span>
+      )}
+      {concept.tags.map((tag: string) => <span class="ktl-card__tag">{tag}</span>)}
+    </span>
+    <code class="ktl-card__call" translate="no">{concept.id}</code>
+  </header>
+
+  <div class="ktl-card__trust" data-pagefind-ignore>
+    <TrustRung tone={concept.tone} />
+    <div>
+      <p class="ktl-card__label" data-pagefind-filter={`Trust:${trustLabel(concept.tone)}`}>
+        {rung.charAt(0).toUpperCase() + rung.slice(1)}
+      </p>
+      {also.length > 0 && <p class:list={["ktl-card__also", { "ktl-card__also--flag": flagged }]}>{also.join(", ")}</p>}
+      {questions.length > 0 && (
+        <ul class="ktl-card__questions" aria-label="Open questions">
+          {questions.map((q) => (
+            <li>
+              <span class="ktl-card__kind">{q.date}, <code>{actor(q.by).who}</code>{actor(q.by).kind && ` (${actor(q.by).kind})`}:</span>{" "}
+              <span set:html={inline(q.text)} />
+            </li>
+          ))}
+        </ul>
+      )}
+      <p class="ktl-card__when">
+        {written && (
+          <span>
+            Written {day(concept.generated.at)} by <code>{written.who}</code>{written.kind && ` (${written.kind})`}.
+          </span>
+        )}{" "}
+        {checker && (
+          <span>
+            Last checked {day(lastCheck.at)} by <code>{checker.who}</code>{checker.kind && ` (${checker.kind})`}.
+          </span>
+        )}
+      </p>
+    </div>
+  </div>
+
+  {concept.definition && <p class="ktl-card__definition" set:html={inline(concept.definition)} />}
+
+  <details class="ktl-card__more" open data-pagefind-ignore>
+    <summary>The full record</summary>
+    <dl>
+      <dt>Checks</dt>
+      <dd>
+        {concept.verified.length === 0 ? (
+          "none recorded"
+        ) : (
+          <ul>
+            {concept.verified.map((event: { by: string; at: string; note?: string }) => (
+              <li>
+                {day(event.at)} by <code>{actor(event.by).who}</code>
+                {actor(event.by).kind && <span class="ktl-card__kind"> ({actor(event.by).kind})</span>}
+                {event.note && <span>: {event.note}</span>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </dd>
+      {concept.reviewBy && (
+        <>
+          <dt>Review by</dt>
+          <dd>{concept.reviewBy}</dd>
+        </>
+      )}
+      {concept.sources.length > 0 && (
+        <>
+          <dt>Sources</dt>
+          <dd>
+            <ul>
+              {concept.sources.map((s: { text: string; href: string }) => (
+                <li><a href={s.href}><code>{s.text}</code></a></li>
+              ))}
+            </ul>
+          </dd>
+        </>
+      )}
+      {concept.relations.map((rel: { name: string; targets: { text: string; href: string }[] }) => (
+        <>
+          <dt>{rel.name}</dt>
+          <dd>
+            <ul>
+              {rel.targets.map((t) => (
+                <li><a href={t.href}>{t.text}</a></li>
+              ))}
+            </ul>
+          </dd>
+        </>
+      ))}
+      {concept.incoming.length > 0 && (
+        <>
+          <dt>Pointed to by</dt>
+          <dd>
+            <ul>
+              {concept.incoming.map((i: { name: string; from: { text: string; href: string } }) => (
+                <li><a href={i.from.href}>{i.from.text}</a> <span class="ktl-card__kind">({i.name})</span></li>
+              ))}
+            </ul>
+          </dd>
+        </>
+      )}
+      <dt>Graph</dt>
+      <dd><a href={concept.graph}>Open this concept in the knowledge graph</a></dd>
+      <dt>IRI</dt>
+      <dd><code class="ktl-card__iri">{concept.iri}</code></dd>
+      {concept.licence && (
+        <>
+          <dt>Licence</dt>
+          <dd>{concept.licence.href ? <a href={concept.licence.href} rel="license">{concept.licence.text}</a> : concept.licence.text}</dd>
+        </>
+      )}
+      <dt>Files</dt>
+      <dd class="ktl-card__files">
+        <a href={concept.files.markdown}>Markdown</a>
+        <a href={concept.files.jsonld}>JSON-LD</a>
+        <a href={concept.files.github}>Source on GitHub</a>
+        <a href={concept.files.history}>History on GitHub</a>
+      </dd>
+    </dl>
+  </details>
+</section>

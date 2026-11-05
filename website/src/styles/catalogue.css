@@ -1,0 +1,330 @@
+/* "Catalogue": the architecture page's library, as a style. Paper and ink greys warmed
+   toward the logo's canvas at Starlight's own lightness steps, a book face for
+   headings, a face made for legibility for reading, and each concept's record
+   as a catalogue card. The trust colours are theme.css's. */
+
+:root {
+  --sl-font: "Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif;
+  --ktl-font-display: "Source Serif 4 Variable", "Iowan Old Style", Georgia, serif;
+  --sl-line-height: 1.7;
+
+  --sl-color-white: hsl(45, 30%, 97%);
+  --sl-color-gray-1: hsl(45, 14%, 91%);
+  --sl-color-gray-2: hsl(45, 9%, 78%);
+  --sl-color-gray-3: hsl(45, 6%, 58%);
+  --sl-color-gray-4: hsl(45, 5%, 38%);
+  --sl-color-gray-5: hsl(45, 7%, 24%);
+  --sl-color-gray-6: hsl(45, 9%, 15%);
+  --sl-color-black: hsl(45, 10%, 10%);
+
+  /* The ladder mark's rails and unlit rungs, and the card's paper. */
+  --ktl-rail: #6e6d66;
+  --ktl-rung-off: hsl(45, 7%, 26%);
+  --ktl-card-bg: hsl(45, 10%, 12.5%);
+  --ktl-card-head: hsl(45, 10%, 15%);
+}
+
+:root[data-theme="light"] {
+  --sl-color-white: hsl(45, 12%, 11%);
+  --sl-color-gray-1: hsl(45, 10%, 17%);
+  --sl-color-gray-2: hsl(45, 8%, 24%);
+  --sl-color-gray-3: hsl(45, 6%, 36%);
+  --sl-color-gray-4: hsl(45, 6%, 52%); /* 3:1 for borders and arrowheads, on the page and the nav */
+  --sl-color-gray-5: hsl(45, 14%, 80%);
+  --sl-color-gray-6: hsl(45, 22%, 88.5%);
+  --sl-color-gray-7: hsl(45, 26%, 92.5%);
+  /* The page: an off-white, less glaring than white at full brightness. The
+     two greys above keep their steps below it, for the nav and inline code. */
+  --sl-color-black: hsl(45, 30%, 96%);
+
+  --ktl-rail: #a8a69d;
+  --ktl-rung-off: hsl(45, 18%, 86%);
+  --ktl-card-bg: hsl(45, 45%, 99.5%);
+  --ktl-card-head: hsl(45, 30%, 95%);
+}
+
+/* Headings in the book face. */
+h1#_top,
+.sl-markdown-content :is(h2, h3, h4),
+.hero h1 {
+  font-family: var(--ktl-font-display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.sl-markdown-content h2 {
+  border-bottom: 1px solid var(--sl-color-hairline-light);
+  padding-bottom: 0.2em;
+}
+
+/* The reading levels of a page that has a retelling, under the title. */
+.ktl-levels {
+  margin-top: 0.75rem;
+  color: var(--sl-color-gray-3);
+  font-size: var(--sl-text-sm);
+}
+.ktl-levels > * + * {
+  margin-inline-start: 0.4rem;
+}
+.ktl-levels b {
+  color: var(--sl-color-white);
+  font-weight: 600;
+}
+
+/* The record, as a catalogue card. */
+.ktl-card {
+  margin-top: 1.25rem;
+  background: var(--ktl-card-bg);
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.45rem;
+  box-shadow:
+    0 1px 0 var(--sl-color-hairline),
+    0 6px 18px -12px rgb(0 0 0 / 0.35);
+  font-size: var(--sl-text-sm);
+  overflow: hidden;
+}
+.ktl-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 1.1rem;
+  background: var(--ktl-card-head);
+  border-bottom: 3px double var(--sl-color-gray-5);
+  color: var(--sl-color-gray-3);
+  font-size: var(--sl-text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* The type reads a step above the genre and tags beside it. */
+.ktl-card__type {
+  color: var(--sl-color-gray-2);
+  font-weight: 600;
+}
+.ktl-card__tag::before {
+  content: "\00b7";
+  margin-inline: 0.5em;
+}
+.ktl-card__call {
+  letter-spacing: 0;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+.ktl-card__trust {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.85rem 1.1rem 0.6rem;
+}
+.ktl-card__trust p {
+  margin: 0;
+}
+.ktl-card__label {
+  font-family: var(--ktl-font-display);
+  font-size: var(--sl-text-xl);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--sl-color-white);
+}
+.ktl-card--person .ktl-card__label {
+  color: var(--ktl-person-fg);
+}
+.ktl-card--automation .ktl-card__label,
+.ktl-card--edited .ktl-card__label {
+  color: var(--ktl-automation-fg);
+}
+.ktl-card__also,
+.ktl-card__when,
+.ktl-card__kind {
+  color: var(--sl-color-gray-3);
+}
+/* A reopening is a flag on the rung, in the colour of work that waits. */
+.ktl-card__also--flag {
+  color: var(--ktl-automation-fg);
+  font-weight: 600;
+}
+.ktl-card__questions {
+  margin: 0.2rem 0 0;
+  padding: 0 0 0 1rem;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-2);
+}
+.ktl-card__questions li + li {
+  margin-top: 0.15rem;
+}
+.ktl-card__definition {
+  margin: 0;
+  padding: 0.2rem 1.1rem 0.9rem;
+  font-family: var(--ktl-font-display);
+  font-size: var(--sl-text-base);
+  font-style: italic;
+  color: var(--sl-color-gray-1);
+}
+.ktl-card__more > summary {
+  padding: 0.5rem 1.1rem;
+  border-top: 1px solid var(--sl-color-hairline-light);
+  color: var(--sl-color-text-accent);
+  cursor: pointer;
+  font-size: var(--sl-text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ktl-card__more dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.3rem 1.1rem;
+  margin: 0;
+  padding: 0.3rem 1.1rem 1rem;
+}
+.ktl-card__more dt {
+  color: var(--sl-color-gray-3);
+  font-weight: 600;
+}
+.ktl-card__more dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.ktl-card__more ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ktl-card__more li + li {
+  margin-top: 0.1rem;
+}
+/* A name stays whole. An IRI or a path breaks where it must. */
+.ktl-card__when code,
+.ktl-card__more li > code {
+  white-space: nowrap;
+}
+.ktl-card__iri {
+  font-size: var(--sl-text-xs);
+  overflow-wrap: anywhere;
+}
+.ktl-card__files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+/* A concept link's preview: a small card beside the link while the pointer
+   or the focus rests on it. It is a popover, drawn above everything, and
+   src/components/ConceptPreviews.astro places it. The z-index is for a
+   browser without popovers, under the site's header. */
+.ktl-preview {
+  position: fixed;
+  inset: auto;
+  z-index: 9;
+  width: min(22rem, calc(100vw - 1rem));
+  margin: 0;
+  padding: 0.6rem 0.9rem 0.7rem;
+  background: var(--ktl-card-bg);
+  color: var(--sl-color-text);
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.45rem;
+  box-shadow: var(--sl-shadow-md);
+  font-size: var(--sl-text-sm);
+  line-height: 1.5;
+}
+.ktl-preview p {
+  margin: 0;
+}
+.ktl-preview__head {
+  color: var(--sl-color-gray-3);
+  font-size: var(--sl-text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ktl-preview__title {
+  font-family: var(--ktl-font-display);
+  font-size: var(--sl-text-lg);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--sl-color-white);
+}
+.ktl-preview .ktl-label {
+  margin: 0.35rem 0 0.45rem;
+  font-size: var(--sl-text-xs);
+}
+.ktl-preview__definition {
+  color: var(--sl-color-gray-2);
+}
+@media (max-width: 40rem) {
+  .ktl-card__more dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ktl-card__more dd {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* The ladder mark. */
+.ktl-rung__rail {
+  fill: var(--ktl-rail);
+}
+.ktl-rung__step {
+  fill: var(--ktl-rung-off);
+}
+.ktl-rung__step--draft.is-lit {
+  fill: var(--ktl-nobody-fg);
+}
+.ktl-rung__step--automation.is-lit {
+  fill: var(--ktl-automation-fg);
+}
+.ktl-rung__check {
+  stroke: var(--ktl-rung-off);
+}
+.ktl-rung__check.is-lit,
+.ktl-rung__check.is-dropped {
+  stroke: var(--ktl-person-fg);
+}
+.ktl-rung__check.is-dropped {
+  stroke-dasharray: 2.5 3;
+  stroke-width: 2.5;
+}
+.ktl-rung--retired .ktl-rung__rail {
+  opacity: 0.45;
+}
+
+/* A trust dot before each concept in the sidebar: filled for a person's
+   confirmation or automation's check, a ring for an edit since a person
+   confirmed it or for a concept nobody has checked. */
+a[data-ktl-tone] {
+  display: flex;
+}
+a[data-ktl-tone]::before {
+  content: "";
+  flex: none;
+  align-self: center;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-inline-end: 0.5rem;
+  border-radius: 50%;
+  background: var(--ktl-dot, transparent);
+  border: 1.5px solid var(--ktl-dot-ring, var(--ktl-dot, transparent));
+}
+a[data-ktl-tone="person"] {
+  --ktl-dot: var(--ktl-person-fg);
+}
+a[data-ktl-tone="automation"] {
+  --ktl-dot: var(--ktl-automation-fg);
+}
+a[data-ktl-tone="edited"] {
+  --ktl-dot-ring: var(--ktl-automation-fg);
+}
+a[data-ktl-tone="nobody"] {
+  --ktl-dot-ring: var(--ktl-nobody-fg);
+}
+a[data-ktl-tone="retired"] {
+  --ktl-dot: var(--ktl-rung-off);
+}
+/* On the current page's entry the dot keeps its shape in the entry's own
+   colour, which the highlight behind it is chosen to carry. */
+a[data-ktl-tone="person"][aria-current="page"],
+a[data-ktl-tone="automation"][aria-current="page"],
+a[data-ktl-tone="retired"][aria-current="page"] {
+  --ktl-dot: currentColor;
+}
+a[data-ktl-tone="edited"][aria-current="page"],
+a[data-ktl-tone="nobody"][aria-current="page"] {
+  --ktl-dot-ring: currentColor;
+}

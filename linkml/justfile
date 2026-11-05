@@ -236,7 +236,7 @@ _add-artifacts:
 
 # Run the website's development server
 _serve:
-  cd website && npm ci --ignore-scripts && npm run dev
+  cd ../website && npm ci --ignore-scripts && npm run dev
 
 # Initialize git repository
 _git-init:

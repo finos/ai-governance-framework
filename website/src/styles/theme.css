@@ -1,0 +1,145 @@
+/* The colours of the logo and the diagrams: green is what an agent derived,
+   amber what automation checked, blue what a named person confirmed, and
+   grey a draft nobody has checked. */
+:root {
+  --sl-color-accent-low: #1f3310;
+  --sl-color-accent: #6fa33f;
+  --sl-color-accent-high: #cfe6b6;
+  --ktl-person-fg: #93c0f2;
+  --ktl-person-bg: #142639;
+  --ktl-automation-fg: #e4bd6e;
+  --ktl-automation-bg: #33290f;
+  --ktl-nobody-fg: #aba9a0;
+  --ktl-nobody-bg: #30302c;
+}
+:root[data-theme="light"] {
+  --sl-color-accent-low: #eaf3de;
+  --sl-color-accent: #3b6d11;
+  --sl-color-accent-high: #27500a;
+  --ktl-person-fg: #0c447c;
+  --ktl-person-bg: #e6f1fb;
+  --ktl-automation-fg: #7a4e0b;
+  --ktl-automation-bg: #faeeda;
+  --ktl-nobody-fg: #5f5e5a;
+  --ktl-nobody-bg: #ecebe5;
+}
+
+/* The trust colours as chart marks on the health page, dark steps first, each
+   set checked for colour-vision deficiency against its own page colour. Two
+   light steps fall below 3:1 against the page, so every value a chart draws
+   is also in its legend and its table. */
+:root {
+  --ktl-chart-person: #5a9be0;
+  --ktl-chart-on-person: #10233a;
+  --ktl-chart-edited: #b7791f;
+  --ktl-chart-automation: #e4bd6e;
+  --ktl-chart-nobody: #6e6d66;
+  --ktl-chart-track: #142639;
+}
+:root[data-theme="light"] {
+  --ktl-chart-person: #185fa5;
+  --ktl-chart-on-person: #fff;
+  --ktl-chart-edited: #c99a3e;
+  --ktl-chart-automation: #7a4e0b;
+  --ktl-chart-nobody: #aba9a0;
+  --ktl-chart-track: #d3e1ef;
+}
+
+/* A trust label, in the words ktl-curator and ktl-docent use. */
+.ktl-label {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: var(--sl-text-sm);
+  line-height: 1.6;
+  border: 1px solid currentColor;
+}
+.ktl-label--person {
+  color: var(--ktl-person-fg);
+  background: var(--ktl-person-bg);
+}
+.ktl-label--edited,
+.ktl-label--automation {
+  color: var(--ktl-automation-fg);
+  background: var(--ktl-automation-bg);
+}
+.ktl-label--nobody,
+.ktl-label--retired {
+  color: var(--ktl-nobody-fg);
+  background: var(--ktl-nobody-bg);
+}
+.ktl-label--edited {
+  border-style: dashed;
+}
+.ktl-label--retired {
+  text-decoration: line-through;
+}
+
+/* Links in a concept's record and on a group page take the site's link
+   colour, not the browser's. */
+.ktl-card a,
+.ktl-list a {
+  color: var(--sl-color-text-accent);
+}
+
+/* A group page lists its concepts with their labels. */
+.ktl-list .ktl-label {
+  margin-left: 0.25rem;
+  font-size: var(--sl-text-xs);
+}
+
+/* The graph explorer's links in a node's details. */
+.lokf-graph__detail a:not([hidden]) {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+/* The data page's two links per database, as buttons: Datasette Lite in the
+   accent, the download beside it, and the file's size. */
+.ktl-browse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.ktl-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4375rem 1.125rem;
+  border: 1px solid var(--sl-color-gray-4);
+  border-radius: 999rem;
+  color: var(--sl-color-white);
+  font-size: var(--sl-text-sm);
+  text-decoration: none;
+}
+.ktl-button--primary {
+  background: var(--sl-color-text-accent);
+  border-color: var(--sl-color-text-accent);
+  color: var(--sl-color-black);
+}
+.ktl-browse__size {
+  color: var(--sl-color-gray-3);
+  font-size: var(--sl-text-sm);
+}
+
+/* The hero logo at the size it was drawn for, not a poster. */
+.hero > img {
+  max-width: 11rem;
+}
+
+/* On a phone the title gives way to the logo rather than being cut off. */
+@media (max-width: 35rem) {
+  .site-title span {
+    display: none;
+  }
+}
+
+/* A diagram drawn 720 wide, with text of 9.5 to 14 units, is too small to
+   read at that size. Such a diagram carries width="720" in its source page,
+   which marks it apart from the logo, so it fills the text column instead.
+   The column is its limit on a wide screen too: a click opens the figure at
+   full size through the image zoom, so it need not grow past the text. */
+.sl-markdown-content img[width="720"] {
+  width: 100%;
+}

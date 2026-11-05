@@ -1,0 +1,34 @@
+---
+// Starlight's right-hand column, with a concept's neighbourhood under the
+// contents list on the pages the sync rendered from the knowledge bundle.
+// The column is fixed to the viewport, so the map takes the column's width,
+// and it shows only where the column does.
+import Default from "@astrojs/starlight/components/PageSidebar.astro";
+import Neighbourhood from "./Neighbourhood.astro";
+
+const { entry } = Astro.locals.starlightRoute;
+const concept = entry.data.lokf;
+---
+
+<Default />
+{
+  concept && (
+    <div class="ktl-hood-wrap">
+      <Neighbourhood concept={concept} title={entry.data.title} />
+    </div>
+  )
+}
+
+<style>
+  .ktl-hood-wrap {
+    display: none;
+    width: calc(var(--sl-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
+    margin-inline: var(--sl-sidebar-pad-x);
+    padding-bottom: 1.5rem;
+  }
+  @media (min-width: 72rem) {
+    .ktl-hood-wrap {
+      display: block;
+    }
+  }
+</style>

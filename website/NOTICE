@@ -1,0 +1,10 @@
+src/components/KnowledgeGraph.astro is adapted from the site of the LOKF
+toolkit (https://github.com/nicholsn/lokf, web/src/components/), which
+carries this notice:
+
+LOKF (Linked Open Knowledge Format)
+Copyright 2026 Nolan Nichols
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The changes made here are listed in the file's header comment.

@@ -1,0 +1,140 @@
+---
+// Bundle health, from the numbers knowledge-report.sh computed for this
+// build, which scripts/sync.mjs writes to src/generated/health.json.
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import TrustChart from "../components/TrustChart.astro";
+import data from "../generated/health.json";
+
+const share = (n: number, of: number) => (of ? `${((100 * n) / of).toFixed(0)}%` : "0%");
+const anyRetired = data.counts.retired > 0;
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "Bundle health",
+    description: "How far each concept in the knowledge bundle has been checked, computed when the site was built.",
+  }}
+  headings={[
+    { depth: 2, slug: "by-group", text: "By group" },
+    { depth: 2, slug: "every-concepts-label", text: "Every concept's label" },
+    { depth: 2, slug: "the-full-report", text: "The full report" },
+  ]}
+>
+  <p>
+    These counts and labels come from <code>knowledge-report.sh</code>, which computes them from each concept's
+    frontmatter and the repository's history when the site is built. None of them is stored in the bundle.
+  </p>
+
+  <TrustChart counts={data.counts} total={data.total} />
+
+  <table>
+    <thead><tr><th>Count</th><th>Concepts</th></tr></thead>
+    <tbody>
+      {data.line.map(([name, value]) => (
+        <tr><td>{name}</td><td>{value}</td></tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2 id="by-group">By group</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Group</th>
+        <th>Confirmed by a person</th>
+        <th>Edited since</th>
+        <th>Automation only</th>
+        <th>Nobody</th>
+        {anyRetired && <th>Retired</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {data.groups.map((g) => (
+        <tr>
+          <td><a href={g.href}>{g.label}</a></td>
+          <td>
+            <span class="ktl-share">
+              <span class="ktl-share__meter" aria-hidden="true"><span style={`width: ${share(g.person, g.total)}`}></span></span>
+              {g.person} of {g.total}
+            </span>
+          </td>
+          <td>{g.edited}</td>
+          <td>{g.automation}</td>
+          <td>{g.nobody}</td>
+          {anyRetired && <td>{g.retired}</td>}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2 id="every-concepts-label">Every concept's label</h2>
+  <table>
+    <thead><tr><th>Concept</th><th>Group</th><th>How far it has been checked</th></tr></thead>
+    <tbody>
+      {data.concepts.map((c) => (
+        <tr>
+          <td><a href={c.href}>{c.title}</a></td>
+          <td>{c.group}</td>
+          <td><span class={`ktl-dot ktl-dot--${c.tone}`} aria-hidden="true"></span>{c.label}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2 id="the-full-report">The full report</h2>
+  <p>This is the report ktl-curator starts from, as <code>knowledge-report.sh</code> printed it for this build.</p>
+  <pre class="ktl-report"><code>{data.report}</code></pre>
+</StarlightPage>
+
+<style>
+  /* One colour per meter: the share a person confirmed, over its track. */
+  .ktl-share {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+  }
+  .ktl-share__meter {
+    display: inline-block;
+    width: 5rem;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--ktl-chart-track);
+    overflow: hidden;
+  }
+  .ktl-share__meter span {
+    display: block;
+    height: 100%;
+    border-radius: 0 4px 4px 0;
+    background: var(--ktl-chart-person);
+  }
+  /* The sidebar's trust dot, beside each label in words. */
+  .ktl-dot {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-inline-end: 0.5rem;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+  }
+  .ktl-dot--person {
+    background: var(--ktl-person-fg);
+  }
+  .ktl-dot--automation {
+    background: var(--ktl-automation-fg);
+  }
+  .ktl-dot--edited {
+    border-color: var(--ktl-automation-fg);
+  }
+  .ktl-dot--nobody {
+    border-color: var(--ktl-nobody-fg);
+  }
+  .ktl-dot--retired {
+    background: var(--ktl-rung-off);
+  }
+  .ktl-report {
+    max-height: 32rem;
+    overflow: auto;
+    font-size: var(--sl-text-xs);
+  }
+</style>

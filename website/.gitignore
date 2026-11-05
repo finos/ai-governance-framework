@@ -1,0 +1,8 @@
+# Everything below is written by `npm run sync` or `astro build`; the
+# sources are the README, docs/, .assets/ and the bundle, never these.
+dist/
+.astro/
+node_modules/
+public/
+src/content/docs/
+src/generated/
