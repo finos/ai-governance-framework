@@ -35,13 +35,15 @@ import http.client
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TREE = ROOT.parent
 MANIFEST = ROOT / "tests" / "upstream_tree.tsv"
-API = "https://api.github.com/repos/finos/ai-governance-framework"
+API_ORIGIN = "https://api.github.com"
+API = f"{API_ORIGIN}/repos/finos/ai-governance-framework"
 USER_AGENT = "lmodel-ai-governance-framework-upstream-check"
 # The most one answer may hold. main's tree and the tag list are a few tens of
 # kilobytes; a larger answer is refused.
@@ -70,6 +72,21 @@ READ_FILES = {
 LICENCES = {"LICENSE", "LICENSE.spdx", "NOTICE"}
 
 
+class _HttpsApiOnly(urllib.request.HTTPRedirectHandler):
+    """Follows a redirect only to another https address of the GitHub API, so a
+    read never moves to plain http or to another host."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not newurl.startswith(API_ORIGIN + "/"):
+            raise urllib.error.HTTPError(
+                newurl, code, f"refused a redirect off {API_ORIGIN}", headers, fp
+            )
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+_OPENER = urllib.request.build_opener(_HttpsApiOnly)
+
+
 def _get(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     req.add_header("Accept", "application/vnd.github+json")
@@ -78,7 +95,7 @@ def _get(url: str) -> bytes:
         # urllib copies ordinary headers onto a redirect, so the token goes in an
         # unredirected one and reaches api.github.com alone.
         req.add_unredirected_header("Authorization", f"Bearer {token}")
-    with urllib.request.urlopen(req, timeout=60) as resp:
+    with _OPENER.open(req, timeout=60) as resp:
         data = resp.read(MAX_BYTES + 1)
     if len(data) > MAX_BYTES:
         raise ValueError(f"the answer from {url} is over {MAX_BYTES} bytes")
@@ -102,6 +119,10 @@ def pins() -> dict[str, str]:
     found = {}
     for line in MANIFEST.read_text(encoding="utf-8").splitlines():
         sha, path = line.split("\t", 1)
+        # A path is read under FINOS's tree alone, so one that climbs out of it, or
+        # starts at the root, is refused rather than followed.
+        if path.startswith("/") or ".." in path.split("/"):
+            raise ValueError(f"a manifest path outside FINOS's tree: {path}")
         found[path] = sha
     return found
 

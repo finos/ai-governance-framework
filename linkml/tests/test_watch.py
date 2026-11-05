@@ -8,6 +8,7 @@ a table of answers, so they run offline.
 import importlib.util
 import json
 import urllib.error
+import urllib.request
 from pathlib import Path
 
 import pytest
@@ -114,3 +115,31 @@ def test_the_report_is_written(watch, monkeypatch, tmp_path):
     report = tmp_path / "report.md"
     assert watch.main(["--report", str(report)]) == 0
     assert "has not moved" in report.read_text(encoding="utf-8")
+
+
+def test_a_redirect_off_the_api_is_refused(watch):
+    """A redirect is followed only to another https address of the GitHub API."""
+    handler = watch._HttpsApiOnly()
+    req = urllib.request.Request(f"{watch.API}/tags")
+    for elsewhere in (
+        "http://api.github.com/repos/finos/ai-governance-framework/tags",
+        "https://example.org/tags",
+        "https://api.github.com.example.org/tags",
+    ):
+        with pytest.raises(urllib.error.HTTPError):
+            handler.redirect_request(req, None, 302, "Found", {}, elsewhere)
+    followed = handler.redirect_request(
+        req, None, 302, "Found", {}, f"{watch.API_ORIGIN}/repositories/1/tags"
+    )
+    assert followed.full_url == f"{watch.API_ORIGIN}/repositories/1/tags"
+
+
+@pytest.mark.parametrize("path", ["../outside.md", "docs/../../x", "/etc/passwd"])
+def test_a_manifest_path_outside_the_tree_is_refused(
+    watch, monkeypatch, tmp_path, path
+):
+    manifest = tmp_path / "upstream_tree.tsv"
+    manifest.write_text(f"{'a' * 40}\t{path}\n", encoding="utf-8")
+    monkeypatch.setattr(watch, "MANIFEST", manifest)
+    with pytest.raises(ValueError):
+        watch.pins()
