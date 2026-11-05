@@ -2,6 +2,7 @@
 
 ## 2026-11-05
 
+* **Changed**: SSSOM sets of citations; a label is carried only where the cited work's terms allow it, and each row names its file's address.
 * **Prose**: reworded 3 concept bodies in plain English. No fact, link, number or frontmatter changed.
 * **Added**: FINOS AI Governance Framework.
 * **Added**: FINOS's tree.

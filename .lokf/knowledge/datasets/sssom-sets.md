@@ -17,8 +17,7 @@ sources:
     resource: linkml/tests/test_mappings.py
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T14:34:20Z"
-  revision: b30eac9ec59ac9014a65797446cf255b647e647c
+  at: "2026-11-05T15:45:24Z"
 status: draft
 ---
 
@@ -26,7 +25,7 @@ status: draft
 
 `linkml/scripts/build_sssom_mappings.py` writes each set from the catalogue. Every predicate is `skos:relatedMatch`, every justification is `semapv:ManualMappingCuration`, and FINOS is the mapping provider.[^build_sssom_mappings.py]
 
-An object keeps the key FINOS's file gives it, under a namespace this project binds for that file. The set for `iso-42001` leaves labels out, because that file's titles may be ISO's headings.[^build_sssom_mappings.py]
+An object keeps the key FINOS's file gives it, under a namespace this project binds for that file, and `object_source` names the address the file was generated from. A row carries the entry's title only where `LABEL_POSITIONS` in the builder records that the cited work's terms allow it: the sets for `iso-42001`, whose titles may be ISO's headings, and `iosco-supervisory-toolkit`, whose terms could not be read, name each entry by key alone.[^build_sssom_mappings.py]
 
 `linkml/tests/test_mappings.py` holds each set to the front matter both ways.[^test_mappings.py]
 
