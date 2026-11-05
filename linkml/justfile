@@ -35,33 +35,11 @@ gen_owl_args := env_var_or_default("LINKML_GENERATORS_OWL_ARGS", "")
 gen_pydantic_args := env_var_or_default("LINKML_GENERATORS_PYDANTIC_ARGS", "")
 gen_ts_args := env_var_or_default("LINKML_GENERATORS_TYPESCRIPT_ARGS", "")
 
-# Import map: rewrites canonical URI imports (e.g. `dpv:schema/dpv_common`) to
-# local files during build. Downstream consumers do NOT need this file; they
-# resolve the same URIs over HTTP via the w3id.org redirect.
-#
-# The committed `importmap.json` uses *relative* values for portability and
-# IDE/linter consumption. At build time we materialise `tmp/importmap.json`
-# with *absolute* paths because `linkml.utils.schemaloader.SchemaLoader`
-# joins importmap values with the importing schema's directory (which would
-# otherwise produce a doubled `src/dpv/schema/src/dpv/...` path).
-import_map_path := env_var_or_default("LINKML_IMPORT_MAP", "tmp/importmap.json")
-import_map := if import_map_path != "" {
-  "--importmap " + import_map_path
-} else {
-  ""
-}
-
 # Directory variables
 src := "src"
 dest := "project"
 pymodel := src / schema_name / "datamodel"
 source_schema_path := source_schema_dir / schema_name + ".yaml"
-# Pre-merged, self-contained schema used as input to `gen-project`. See
-# `_merged-schema` recipe and `scripts/linkml_import_tools.py` for the rationale: the
-# SchemaLoader-based sub-generators inside gen-project (python/sqltable/excel)
-# leak unresolved URI imports into a secondary SchemaView that ignores the
-# import map, so we must feed them a schema whose `imports:` list is empty.
-merged_schema_path := "tmp" / schema_name + ".yaml"
 docdir := "docs/elements"  # Directory for generated documentation
 distrib_schema_path := "docs/schema"  # Directory for publishing schema artifacts
 
@@ -128,14 +106,9 @@ clean: _wsl2_compat_check _clean_project
 [group('model development')]
 site: gen-project gen-doc
 
-# Deploy documentation site to Github Pages
-[group('deployment')]
-deploy: site
-  mkd-gh-deploy
-
 # Run all tests
 [group('model development')]
-test: _test-schema _test-python gen-data _test-examples
+test: _test-schema _test-python _test-examples
 
 # Run linting
 [group('model development')]
@@ -147,7 +120,7 @@ lint:
 gen-doc: _gen-yaml && _add-artifacts
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
-# Build docs and run test server
+# Build docs and serve the website locally
 [group('model development')]
 testdoc: gen-doc _serve
 
@@ -157,10 +130,8 @@ gen-python:
   uv run gen-pydantic {{gen_pydantic_args}} {{source_schema_path}} > {{pymodel}}/{{schema_name}}_pydantic.py
 
 # Generate project files including Python data model
-# Post-deps (`&&`) run after the body: regenerate the FINOS data files and
-# SSSOM mappings so they always reflect the freshly generated project.
 [group('model development')]
-gen-project: && gen-data
+gen-project:
   uv run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}}
   mkdir -p {{pymodel}}
   mv {{dest}}/*.py {{pymodel}}/
@@ -236,14 +207,8 @@ _update-linkml:
   uv lock --upgrade-package linkml-runtime --upgrade-package linkml
 
 # Test schema generation
-#
-# Use the pre-merged, self-contained schema (`tmp/ai_governance_framework.yaml`)
-# for the same reason as `gen-project`: SchemaLoader-based sub-generators
-# inside `gen-project` drop `--importmap` and try to fetch URI imports
-# over HTTP. Feeding the merged YAML sidesteps it.
-# Test the merged schema
-_test-schema: _merged-schema
-  uv run gen-project {{config_yaml}} -d tmp {{merged_schema_path}}
+_test-schema:
+  uv run gen-project {{config_yaml}} -d tmp {{source_schema_path}}
 
 # Run Python unit tests with pytest
 _test-python: gen-python
@@ -251,7 +216,7 @@ _test-python: gen-python
 
 # Run example tests
 _test-examples: _ensure_examples_output
-  uv run python scripts/issues/run_examples_patched.py \
+  uv run linkml-run-examples \
     --input-formats json \
     --input-formats yaml \
     --output-formats json \
@@ -259,7 +224,7 @@ _test-examples: _ensure_examples_output
     --counter-example-input-directory tests/data/invalid \
     --input-directory tests/data/valid \
     --output-directory examples/output \
-    --schema {{merged_schema_path}} > examples/output/README.md
+    --schema {{source_schema_path}} > examples/output/README.md
 
 # Add the merged model to docs/schema.
 _gen-yaml:
@@ -269,9 +234,9 @@ _gen-yaml:
 # Overridable recipe to add project-specific artifacts to the distribution schema path
 _add-artifacts:
 
-# Run documentation server
+# Run the website's development server
 _serve:
-  uv run mkdocs serve
+  cd website && npm ci --ignore-scripts && npm run dev
 
 # Initialize git repository
 _git-init:

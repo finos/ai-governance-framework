@@ -1,16 +1,16 @@
 # Changes here will be overwritten by Copier
 _commit: v0.5.0
 _src_path: gh:linkml/linkml-project-copier
-add_example: true
-copyright_year: '2024'
+add_example: false
+copyright_year: '2026'
 email: noel.mcloughlin@gmail.com
 existing_license_file: ''
 full_name: Noel McLoughlin
-gh_action_docs_preview: true
-gh_action_pypi: true
+gh_action_docs_preview: false
+gh_action_pypi: false
 github_org: lmodel
 license: Apache-2.0
-project_description: FINOS AI Governance Framework - LinkML Schema
+project_description: FINOS AI Governance Framework v3 (LinkML)
 project_name: ai-governance-framework
 project_slug: ai_governance_framework
 

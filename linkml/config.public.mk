@@ -8,7 +8,7 @@
 # - just works fine with quoted variables of dot-env files like this one
 LINKML_SCHEMA_NAME="ai_governance_framework"
 LINKML_SCHEMA_AUTHOR="Noel McLoughlin <noel.mcloughlin@gmail.com>"
-LINKML_SCHEMA_DESCRIPTION="FINOS AI Governance Framework - LinkML Schema"
+LINKML_SCHEMA_DESCRIPTION="FINOS AI Governance Framework v3 (LinkML)"
 LINKML_SCHEMA_SOURCE_DIR="src/ai_governance_framework/schema"
 
 ###### linkml generator variables, used by justfile

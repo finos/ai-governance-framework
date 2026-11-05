@@ -3,31 +3,31 @@ requires = ["hatchling", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ai_governance_framework"
-description = "FINOS AI Governance Framework - LinkML Schema"
+# Named like lmodel/slsa's slsa-linkml, so the PyPI name says what it holds;
+# the import package stays ai_governance_framework. PyPI publishing is off.
+name = "ai-governance-framework-linkml"
+description = "FINOS AI Governance Framework v3 (LinkML)"
 authors = [
   {name = "Noel McLoughlin", email = "noel.mcloughlin@gmail.com"},
 ]
 license = "Apache-2.0"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 readme = "README.md"
 requires-python = ">=3.10"
 dynamic = ["version"]
 
 dependencies = [
   "linkml-runtime >=1.9.4",
-  "ruamel-yaml>=0.19.1",
 ]
 
 [dependency-groups]
 dev = [
-    "linkml>=1.9.3",
-    "mkdocs-material>=8.2.8",
-    "mkdocs-mermaid2-plugin>=1.1.1",
-    "mkdocs-pymdownx-material-extras>=2.5.6",
-    "jupyter>=1.0.0",
-    "mknotebooks>= 0.8.0",
+    "jsonschema>=4.26.0",
+    "linkml>=1.12.1",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_governance_framework"]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
 # explicitly include files other than default into the build distributions.
@@ -57,11 +57,17 @@ target-version = "py310"
 [tool.codespell]
 skip = [
   "LICENSE",
+  "NOTICE",
   "pyproject.toml",
   "uv.lock",
   "project/*",
   "src/ai_governance_framework/datamodel/ai_governance_framework_pydantic.py",
   "src/ai_governance_framework/datamodel/ai_governance_framework.py",
+  # The catalogue carries FINOS's words, and the neighbours' adapt copies are
+  # copied as released.
+  "src/ai_governance_framework/data/*",
+  "src/ai_governance_framework/mappings/*",
+  "tests/neighbours/*",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
@@ -80,4 +86,7 @@ extend-exclude = [
   "project/*",
   "src/ai_governance_framework/datamodel/ai_governance_framework_pydantic.py",
   "src/ai_governance_framework/datamodel/ai_governance_framework.py",
+  "src/ai_governance_framework/data/*",
+  "src/ai_governance_framework/mappings/*",
+  "tests/neighbours/*",
 ]
