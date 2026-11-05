@@ -24,3 +24,9 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 ### Removed
 
 - **The copy of IBM's ai-atlas-nexus 0.5.0, the data dumps built on it and the two empty SSSOM sets.** The schema declared nothing of its own, and the dumps named v2's identifiers. `git show e10791f` holds what went.
+
+## [0.0.0] - 2026-11-05
+
+### Added
+
+- **The baseline**: this fork's merge of FINOS's v3 tree, which the `v0.0.0` tag marks.
