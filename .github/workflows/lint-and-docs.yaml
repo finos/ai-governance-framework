@@ -1,0 +1,144 @@
+name: Lint & docs
+
+# Static checks for the shell, workflows, and prose this project adds beside FINOS's
+# tree. FINOS's own files stay as FINOS writes them, so these leave them out. These
+# never touch the schema or the Python test suite (see main.yaml) or the LOKF bundle's
+# own semantics (see knowledge-registrar.yaml).
+# A push to a pull request's branch is covered by `pull_request`; `push` is
+# for main alone, so each change is checked once.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays at 06:00 UTC, to catch link rot without a PR.
+  workflow_dispatch:
+
+# Least-privilege default, as in the other workflows.
+permissions: {}
+
+concurrency:
+  group: lint-and-docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-scripts:
+    name: Lint shell scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: ShellCheck
+        uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38 # 2.0.0
+        with:
+          scandir: '.'
+          # FINOS's own scripts stay as FINOS writes them.
+          ignore_paths: ./scripts ./scripts_docs ./docs ./diagrams
+
+  lint-workflows:
+    name: Lint GitHub Actions workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: actionlint
+        uses: docker://rhysd/actionlint@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667 # v1.7.12
+        with:
+          # -ignore: actionlint 1.7.12 predates the copilot-requests scope
+          # knowledge-librarian.yaml requests; drop it once a release knows it.
+          args: -color -ignore copilot-requests
+
+  word-budgets:
+    name: Hold the governance files to their word budgets
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # CONTRIBUTING.md is a checklist and SECURITY.md a policy, not design
+      # logs; the budgets are the sibling repositories' and keep them so. The
+      # reasoning a rule needs goes beside the code it explains.
+      - name: Count words
+        run: |
+          status=0
+          for pair in linkml/CONTRIBUTING.md:1000 .github/SECURITY.md:900; do
+            file="${pair%%:*}"; budget="${pair##*:}"
+            words="$(wc -w < "$file")"
+            if [ "$words" -gt "$budget" ]; then
+              echo "::error file=$file::$file has $words words, over its budget of $budget. Move the reasoning beside the code it explains and link to it."
+              status=1
+            else
+              echo "$file: $words of $budget words"
+            fi
+          done
+          exit "$status"
+
+  validate-markdown:
+    name: Lint Markdown & check links
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@696eb3f2509270d7b882d2aa68347bc676e7af34 # v25.0.0
+        with:
+          globs: |
+            linkml/**/*.md
+            .lokf/**/*.md
+            .github/SECURITY.md
+            .github/PULL_REQUEST_TEMPLATE/*.md
+            website/*.md
+          config: linkml/.markdownlint-cli2.jsonc
+      # The remap checks this repository's own links on `main` (the bundle and
+      # the issue templates use them) against this checkout, so a pull request
+      # that moves a linked file fails here rather than after merge. A
+      # --remap replaces lychee.toml's remap rather than adding to it, so its
+      # raw.githubusercontent.com remap follows; the first match wins. The
+      # action evals its args, so each remap is single-quoted to keep its `$1`.
+      - name: Check links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress
+            --remap 'https://github.com/lmodel/ai-governance-framework/(?:blob|tree)/main/(.*) file://${{ github.workspace }}/$1'
+            --remap '^https://github\.com/([^/]+/[^/]+)/blob/([^?#]+)([?#].*)?$ https://raw.githubusercontent.com/$1/$2'
+            --config linkml/lychee.toml
+            "linkml/**/*.md"
+            ".lokf/**/*.md"
+            ".github/SECURITY.md"
+          fail: true
+      # This step does not use codespell-project/actions-codespell. That
+      # action passes its path to codespell unquoted under /bin/sh. There
+      # `**/*.md` means `*/*.md` and skips every file at the root and in
+      # dot-folders. git ls-files lists
+      # tracked files only, so the knowledge_bundle link is not read twice;
+      # [tool.codespell] in pyproject.toml supplies the ignore list.
+      - name: codespell
+        run: git ls-files -z 'linkml/*.md' '.lokf/*.md' '.github/SECURITY.md' | xargs -0 pipx run --spec codespell==2.4.2 codespell --toml linkml/pyproject.toml

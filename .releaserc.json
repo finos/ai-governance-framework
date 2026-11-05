@@ -1,0 +1,41 @@
+{
+  "branches": ["main"],
+  "tagFormat": "v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "breaking": true, "release": "minor" },
+          { "type": "security", "release": "patch" }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "verifyReleaseCmd": "node .github/scripts/changelog-release.mjs check",
+        "generateNotesCmd": "node .github/scripts/changelog-release.mjs notes ${nextRelease.version}",
+        "prepareCmd": "node .github/scripts/changelog-release.mjs promote ${nextRelease.version} $(date -u +%Y-%m-%d)"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["linkml/CHANGELOG.md"],
+        "message": "chore(release): ${nextRelease.version} - changelog promoted [skip ci]"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "successComment": false,
+        "failComment": false,
+        "failTitle": false,
+        "labels": false,
+        "releasedLabels": false
+      }
+    ]
+  ]
+}

@@ -13,47 +13,72 @@ env:
 
 permissions: {}
 
+concurrency:
+  group: build-and-test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
 
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
     strategy:
       matrix:
-        python-version: ["3.10", "3.12", "3.14"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
       fail-fast: false
 
+    # The schema project sits in linkml/, beside FINOS's tree.
     defaults:
       run:
         working-directory: linkml
 
     steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
 
       # https://github.com/actions/checkout
       - name: Check out repository
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
       # https://github.com/astral-sh/setup-uv
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.1.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
+          cache-dependency-glob: "linkml/uv.lock"
 
       # https://github.com/actions/setup-python
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install just
         run: |
-          uv tool install rust-just
+          uv tool install rust-just==1.47.0
 
       - name: Install project
-        run: uv sync --group dev
+        run: uv sync --locked --group dev
+
+      # A warning fails the step as an error does, as `just lint` reports it.
+      - name: Lint the schema
+        if: matrix.python-version == '3.13'
+        run: just lint
 
       - name: Run test suite
         run: just test
+
+      # .lokf/ai-governance-framework.yaml is the copy the knowledge bundle validates
+      # against and the release attaches, so it must match the schema and lokf.yaml.
+      - name: Check the adapted schema copy
+        if: matrix.python-version == '3.13'
+        run: |
+          uv sync --locked --project ../.lokf
+          just lokf-adapt-check

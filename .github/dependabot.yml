@@ -1,0 +1,73 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+
+version: 2
+updates:
+  # This project's own workflows. Every action is pinned to a commit SHA with
+  # its version in a trailing comment; Dependabot bumps both together. A SHA pin
+  # goes stale silently: actionlint catches syntax drift, not age. FINOS's
+  # validate-references.yml stays as FINOS writes it, since a test holds it to
+  # the pin.
+  - package-ecosystem: github-actions
+    directory: "/"
+    exclude-paths:
+      - ".github/workflows/validate-references.yml"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(actions)"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # The package's own tree (pyproject.toml + uv.lock): linkml-runtime at
+  # runtime and the LinkML toolchain for development. main.yaml is
+  # the gate that has to stay green.
+  - package-ecosystem: uv
+    directory: "/linkml"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      python:
+        patterns:
+          - "*"
+
+  # The .lokf/ sidecar's toolchain (the `lokf` package), kept apart from the
+  # package tree: it maintains the knowledge bundle and has nothing to do
+  # with the schema. A major bump can require concept frontmatter changes,
+  # so these want a human read, not a rubber stamp.
+  - package-ecosystem: uv
+    directory: "/.lokf"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(lokf)"
+
+  # The knowledge website's packages (website/package.json + package-lock.json).
+  # A bump makes the lock differ from the ktl-website template; that is expected.
+  - package-ecosystem: npm
+    directory: "/website"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(website)"
+    groups:
+      website:
+        patterns:
+          - "*"
+
+  # The release job's tools, which .github/release/package-lock.json pins
+  # with every package they pull in.
+  - package-ecosystem: npm
+    directory: "/.github/release"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci(release)"
+    groups:
+      release-tools:
+        patterns:
+          - "*"

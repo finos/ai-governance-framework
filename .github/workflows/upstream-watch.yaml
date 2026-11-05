@@ -1,0 +1,51 @@
+name: Upstream watch
+
+# A weekly check on what this repository is built from but does not control:
+# FINOS's main branch and its tags.
+# Nothing in a pull request can change them, so it runs on a schedule. A
+# failing check fails the run and opens an issue, or comments on the one
+# already open, so the finding does not depend on anyone reading the run log.
+on:  # yamllint disable-line rule:truthy
+  schedule:
+    - cron: "0 7 * * 1"  # Mondays at 07:00 UTC, after the knowledge workflows.
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: upstream-watch
+  cancel-in-progress: false
+
+jobs:
+  finos-tree:
+    name: FINOS's tree is the pinned commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write  # open or update the finding's issue
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Standard library only, so the runner's Python is enough. The token reaches
+      # api.github.com alone.
+      - name: Compare FINOS's main and tags with the pins
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 linkml/scripts/check_upstream_release.py --report "$RUNNER_TEMP/report.md"
+
+      - name: Open or update the issue
+        if: failure() && steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: "Upstream watch: FINOS's framework has changed"
+        run: .github/scripts/report-issue.sh

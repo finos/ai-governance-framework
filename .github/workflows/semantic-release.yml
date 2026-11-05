@@ -1,0 +1,216 @@
+name: Semantic release
+
+# Computes the next version for this repository from Conventional Commits on
+# `main`, and promotes linkml/CHANGELOG.md's "## [Unreleased]" section into a dated
+# heading via .github/scripts/changelog-release.mjs. It then tags the commit
+# and publishes a GitHub Release built from that same text. Once
+# KNOWLEDGE_RELEASE_ENABLED is `true`, it dispatches the knowledge release,
+# which attaches the schema's adapt copy and the bundle when the bundle or the
+# schema has changed. No file carries the version, so linkml/CHANGELOG.md is the
+# only file this job commits.
+#
+# Merging FINOS's main brings FINOS's commits into the range this job reads, and
+# some carry a feat or fix type. So the baseline tag sits on the merge of FINOS's
+# tree, not on an older commit, and a later merge of FINOS's main is a release of
+# this repository if it carries such a type: write its changelog entry in the same
+# pull request. The tags FINOS writes, v1 and v2, are not versions semantic-release
+# reads.
+#
+# The schema stays below 1.0.0 until its shape settles. Two things keep it
+# there. The `v0.0.0` baseline tag stops semantic-release defaulting a
+# first-ever release to 1.0.0, so the first is 0.1.0, and .releaserc.json
+# maps a breaking change to a minor bump rather than a major one, so 0.x
+# continues until someone removes that rule. See linkml/CONTRIBUTING.md,
+# "Releasing".
+#
+# `plan` previews every pull request into main with `--dry-run`, which
+# writes nothing and needs no write scope. So a broken commit message or a
+# broken exec script is caught in review, not after merge. `release` runs
+# only on a push to main and sits behind the `release` GitHub Environment.
+# Configure required reviewers on it in this repository's own
+# Settings > Environments (creating the environment here does not do that
+# for you). Otherwise every qualifying merge to main will cut a release with
+# no human step in between.
+
+on:
+  pull_request:
+    # `edited` matters: the title check below is the one check a person clears
+    # by retitling the pull request rather than by pushing. Without it the
+    # default types (opened, synchronize, reopened) never fire again, so the
+    # fix the error message asks for could not clear the check it failed.
+    types: [opened, synchronize, reopened, edited]
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: semantic-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+
+      # .github/release/package-lock.json pins the release tools and every
+      # package they pull in, and Dependabot keeps it current. They are not a
+      # dependency of the schema.
+      - name: Install semantic-release from its lockfile
+        run: npm ci --prefix .github/release --no-audit --no-fund --ignore-scripts
+
+      # Would these commits release? The types are .releaserc.json's: the
+      # Conventional Commits preset's feat/fix plus this repository's
+      # `security`, and any type marked breaking by a `!` or a BREAKING CHANGE
+      # footer. Both checks
+      # below key off this one answer.
+      - name: Read whether these commits would release
+        id: commits
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git log --format='%s%n%b' "$BASE..HEAD" \
+            | grep -qE '^((feat|fix|security)(\([^)]*\))?!?:|[a-z]+(\([^)]*\))?!:|BREAKING CHANGE:)'; then
+            echo "releases=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "releases=false" >> "$GITHUB_OUTPUT"
+            echo "No feat/fix/security or breaking commit here, so this pull request releases nothing."
+          fi
+
+      # With no v* tag, semantic-release treats the next release as the
+      # first and makes it 1.0.0, which a host's pin would then hold. The
+      # `v0.0.0` baseline tag is what keeps this repository in 0.x.
+      - name: Refuse to release before the baseline tag exists
+        if: steps.commits.outputs.releases == 'true'
+        run: |
+          if [ -z "$(git tag --list 'v*')" ]; then
+            echo "::error::No v* tag exists, so semantic-release would call this the first release and make it 1.0.0. Push the v0.0.0 baseline tag on main first; see CONTRIBUTING.md, Releasing."
+            exit 1
+          fi
+
+      # semantic-release detects a pull_request event itself and exits before
+      # running any plugin, including @semantic-release/exec's verifyRelease
+      # hook. So the --dry-run below never calls changelog-release.mjs check
+      # on this event. An empty "## [Unreleased]" would otherwise pass a
+      # pull request and only fail at release time. Call it directly, but
+      # only when these commits would release, or a chore-only pull request
+      # (a Dependabot bump, a docs tidy) fails for lacking notes it was never
+      # meant to write.
+      - name: Refuse an empty changelog entry when these commits would release
+        if: steps.commits.outputs.releases == 'true'
+        run: node .github/scripts/changelog-release.mjs check
+
+      # A squash merge takes its commit subject from the pull request title,
+      # and GitHub's default title is the branch name in words, which carries
+      # no type. A typed `fix:` commit then reaches main as "Fix the thing
+      # (#12)" and releases nothing, leaving its notes stranded in
+      # "## [Unreleased]". So when the commits would release, the title must
+      # too: then either squash or rebase releases. The title is read through
+      # `env:`, never interpolated into the script, since anyone can open a
+      # pull request.
+      - name: Refuse a title that would lose the release on a squash merge
+        if: steps.commits.outputs.releases == 'true'
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if printf '%s\n' "$TITLE" \
+            | grep -qE '^((feat|fix|security)(\([^)]*\))?!?:|[a-z]+(\([^)]*\))?!:)'; then
+            echo "Title carries a releasing type, so a squash merge releases too."
+          else
+            echo "::error::These commits would release, but the pull request title '$TITLE' has no releasing type (feat:, fix:, security:, or a breaking '!'). A squash merge uses the title as the commit subject and would release nothing - retitle the pull request, or use rebase and merge."
+            exit 1
+          fi
+
+      - name: Preview the next release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/release/node_modules/.bin/semantic-release --dry-run
+
+  release:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: release
+    permissions:
+      contents: write
+      actions: write # dispatch knowledge-release.yaml for the new tag
+    steps:
+      - name: Harden the runner
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
+      # This job's own job is to push a commit and a tag to `main` and to
+      # create the release. So it keeps the checkout action's default
+      # credential helper rather than passing persist-credentials: false,
+      # unlike the read-only `plan` job above. Nothing untrusted runs in this
+      # job, only the pinned release tool above and this repository's own
+      # reviewed scripts below.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+
+      # .github/release/package-lock.json pins the release tools and every
+      # package they pull in, and Dependabot keeps it current. They are not a
+      # dependency of the schema.
+      - name: Install semantic-release from its lockfile
+        run: npm ci --prefix .github/release --no-audit --no-fund --ignore-scripts
+
+      # The same guard as `plan`'s, for a push that did not come through a
+      # pull request.
+      - name: Refuse to release before the baseline tag exists
+        run: |
+          if [ -z "$(git tag --list 'v*')" ]; then
+            echo "::error::No v* tag exists, so semantic-release would call this the first release and make it 1.0.0. Push the v0.0.0 baseline tag on main first; see CONTRIBUTING.md, Releasing."
+            exit 1
+          fi
+
+      # changelog-release.mjs promote, run as the prepare step, writes
+      # `released=true` and `version` to this step's outputs. It runs only
+      # when semantic-release has a version to release, so the steps below
+      # key off it rather than guessing from the tags on HEAD.
+      - name: Release
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: .github/release/node_modules/.bin/semantic-release
+
+      # The release above is made with GITHUB_TOKEN, and GitHub starts no
+      # workflow from an event that token causes, so knowledge-release.yaml's
+      # `release` trigger never fires here. A dispatch is the one exception,
+      # so once KNOWLEDGE_RELEASE_ENABLED turns on that workflow, this step asks
+      # it to attach the schema copy and the bundle zip to the release.
+      - name: Attach the schema copy and the knowledge bundle
+        if: steps.release.outputs.released == 'true' && vars.KNOWLEDGE_RELEASE_ENABLED == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v${{ steps.release.outputs.version }}
+        run: |
+          gh workflow run knowledge-release.yaml --ref "$TAG" -f tag="$TAG" \
+            || { echo "::error::$TAG is released, but the bundle zip was not requested. Run the Knowledge Release workflow by hand with tag=$TAG."; exit 1; }
