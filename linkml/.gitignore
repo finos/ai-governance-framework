@@ -5,8 +5,8 @@
 
 # Derived schemas, generated from the schema.yaml
 tmp/
-project/
-!project/README.md
+# project/
+# !project/README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -142,3 +142,8 @@ dmypy.json
 .idea
 # Local vscode editor config
 .vscode
+
+# Agent skills are installed at run time, never committed.
+.agents/
+.claude/
+skills-lock.json

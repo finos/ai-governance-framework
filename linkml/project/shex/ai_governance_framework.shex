@@ -1,0 +1,343 @@
+# metamodel_version: 1.12.0
+# version: v3
+BASE <https://w3id.org/lmodel/ai-governance-framework/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX schema1: <http://schema.org/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<AigfCatalogue> CLOSED {
+    (  $<AigfCatalogue_tes> (  schema1:name @linkml:String ;
+          <version> @linkml:String ;
+          <release_date> @linkml:Date ;
+          <source_commit> @linkml:String ;
+          <reference_lenses> @<AigfReferenceLens> * ;
+          <reference_indexes> @<AigfReferenceIndex> * ;
+          <risks> @<AigfRisk> + ;
+          <mitigations> @<AigfMitigation> + ;
+          <use_cases> @<AigfUseCase> * ;
+          <financial_data_classification> @<AigfDataClassification> * ;
+          <ai_use_cases> @<AigfUseCaseDomain> * ;
+          <cross_cutting_capabilities> @linkml:String * ;
+          <ai_deployment_model_taxonomy> @<AigfDeploymentAxis> *
+       ) ;
+       rdf:type [ <AigfCatalogue> ] ?
+    )
+}
+
+<AigfDataClassification> CLOSED {
+    (  $<AigfDataClassification_tes> (  <name> @linkml:String ;
+          <sensitivity> [ <https://w3id.org/lmodel/ai-governance-framework/AigfSensitivity#Low>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfSensitivity#Medium>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfSensitivity#High>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfSensitivity#Critical> ] ;
+          schema1:description @linkml:String ;
+          <examples> @linkml:String * ;
+          <storage_location> @linkml:String ? ;
+          <regulations> @linkml:String ? ;
+          <references> @<AigfRegulatoryReference> *
+       ) ;
+       rdf:type [ <AigfDataClassification> ] ?
+    )
+}
+
+<AigfDataClassificationUse> CLOSED {
+    (  $<AigfDataClassificationUse_tes> (  <name> @linkml:String ;
+          <data_types> @linkml:String *
+       ) ;
+       rdf:type [ <AigfDataClassificationUse> ] ?
+    )
+}
+
+<AigfDeploymentAxis> CLOSED {
+    (  $<AigfDeploymentAxis_tes> (  <name> @linkml:String ;
+          <options> @<AigfDeploymentOption> *
+       ) ;
+       rdf:type [ <AigfDeploymentAxis> ] ?
+    )
+}
+
+<AigfDeploymentOption> CLOSED {
+    (  $<AigfDeploymentOption_tes> (  <name> @linkml:String ;
+          schema1:description @linkml:String ?
+       ) ;
+       rdf:type [ <AigfDeploymentOption> ] ?
+    )
+}
+
+<AigfFurtherReading> CLOSED {
+    (  $<AigfFurtherReading_tes> (  <name> @linkml:String ;
+          <url> @linkml:String ? ;
+          <source> @linkml:String ?
+       ) ;
+       rdf:type [ <AigfFurtherReading> ] ?
+    )
+}
+
+<AigfItem>  (
+    @<AigfMitigation> OR @<AigfRisk> OR @<AigfUseCase>
+)
+
+<AigfItem_struct> {
+    (  $<AigfItem_tes> (  <sequence> @linkml:Integer ;
+          schema1:name @linkml:String ;
+          <layout> @linkml:String ;
+          <doc_status> [ <https://w3id.org/lmodel/ai-governance-framework/AigfDocumentStatus#Pre-Draft>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfDocumentStatus#Draft>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfDocumentStatus#Working-Group-Approved>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfDocumentStatus#Approved-Specification> ] ;
+          <source_file> @linkml:String
+       ) ;
+       rdf:type [ <AigfItem> ]
+    )
+}
+
+<AigfMitigation> CLOSED {
+    (  $<AigfMitigation_tes> (  &<AigfItem_tes> ;
+          rdf:type [ <AigfItem> ] ? ;
+          &<AigfReferenceCitations_tes> ;
+          rdf:type [ <AigfReferenceCitations> ] ? ;
+          <mitigation_type> [ <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationType#PREV>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationType#DET> ] ;
+          <mitigation_domain> [ <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#sourcing>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#filtering>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#data>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#access>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#evaluation>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#oversight>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain#monitoring> ] ;
+          <mitigates> @<AigfRisk> + ;
+          <related_mitigations> @<AigfMitigation> * ;
+          <layout> @linkml:String ;
+          <source_file> @linkml:String ;
+          <atr_references> @linkml:String * ;
+          <canada_regulations_references> @linkml:String * ;
+          <eu_ai_act_references> @linkml:String * ;
+          <ffiec_itbooklets_references> @linkml:String * ;
+          <iosco_supervisory_toolkit_references> @linkml:String * ;
+          <iso_42001_references> @linkml:String * ;
+          <nist_ai_600_1_references> @linkml:String * ;
+          <nist_sp_800_53r5_references> @linkml:String * ;
+          <owasp_asi_references> @linkml:String * ;
+          <owasp_llm_references> @linkml:String * ;
+          <owasp_ml_references> @linkml:String * ;
+          <sr11_7_references> @linkml:String * ;
+          <uk_regulations_references> @linkml:String *
+       ) ;
+       rdf:type [ <AigfMitigation> ]
+    )
+}
+
+<AigfReferenceCitations> {
+    (  $<AigfReferenceCitations_tes> (  <atr_references> @linkml:String * ;
+          <canada_regulations_references> @linkml:String * ;
+          <eu_ai_act_references> @linkml:String * ;
+          <ffiec_itbooklets_references> @linkml:String * ;
+          <iosco_supervisory_toolkit_references> @linkml:String * ;
+          <iso_42001_references> @linkml:String * ;
+          <nist_ai_600_1_references> @linkml:String * ;
+          <nist_sp_800_53r5_references> @linkml:String * ;
+          <owasp_asi_references> @linkml:String * ;
+          <owasp_llm_references> @linkml:String * ;
+          <owasp_ml_references> @linkml:String * ;
+          <sr11_7_references> @linkml:String * ;
+          <uk_regulations_references> @linkml:String *
+       ) ;
+       rdf:type [ <AigfReferenceCitations> ] ?
+    )
+}
+
+<AigfReferenceEntry> CLOSED {
+    (  $<AigfReferenceEntry_tes> (  <entry_key> @linkml:String ;
+          schema1:name @linkml:String ;
+          <url> @linkml:String ;
+          schema1:description @linkml:String ? ;
+          <issuer> @linkml:String ? ;
+          <booklet_abbrev> @linkml:String ? ;
+          <superseded_by> @linkml:String ?
+       ) ;
+       rdf:type [ <AigfReferenceEntry> ]
+    )
+}
+
+<AigfReferenceFile> CLOSED {
+    (  $<AigfReferenceFile_tes> (  schema1:name @linkml:String ;
+          schema1:description @linkml:String ;
+          <source_url> @linkml:String ? ;
+          <lens> [ <https://w3id.org/lmodel/ai-governance-framework/AigfLens#threat>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfLens#obligation>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfLens#control> ] ;
+          <entries> @<AigfReferenceEntry> +
+       ) ;
+       rdf:type [ <AigfReferenceFile> ] ?
+    )
+}
+
+<AigfReferenceIndex> CLOSED {
+    (  $<AigfReferenceIndex_tes> (  <reference_name> @linkml:String ;
+          <lens> [ <https://w3id.org/lmodel/ai-governance-framework/AigfLens#threat>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfLens#obligation>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfLens#control> ] ;
+          <entry_keys> @linkml:String *
+       ) ;
+       rdf:type [ <AigfReferenceIndex> ] ?
+    )
+}
+
+<AigfReferenceLens> CLOSED {
+    (  $<AigfReferenceLens_tes> (  <lens> [ <https://w3id.org/lmodel/ai-governance-framework/AigfLens#threat>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfLens#obligation>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfLens#control> ] ;
+          <label> @linkml:String ;
+          <question> @linkml:String ;
+          <icon> @linkml:String ? ;
+          <color> @linkml:String ?
+       ) ;
+       rdf:type [ <AigfReferenceLens> ] ?
+    )
+}
+
+<AigfRegulatoryReference> CLOSED {
+    (  $<AigfRegulatoryReference_tes> (  <name> @linkml:String ;
+          <url> @linkml:String ? ;
+          <jurisdiction> @linkml:String ?
+       ) ;
+       rdf:type [ <AigfRegulatoryReference> ] ?
+    )
+}
+
+<AigfRisk> CLOSED {
+    (  $<AigfRisk_tes> (  &<AigfItem_tes> ;
+          rdf:type [ <AigfItem> ] ? ;
+          &<AigfReferenceCitations_tes> ;
+          rdf:type [ <AigfReferenceCitations> ] ? ;
+          <risk_type> [ <https://w3id.org/lmodel/ai-governance-framework/AigfRiskType#RC>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskType#OP>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskType#SEC> ] ;
+          <risk_domain> [ <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#components>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#inputs>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#leakage>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#accuracy>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#alignment>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#agency>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#vendor>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain#liability> ] ;
+          <related_risks> @<AigfRisk> * ;
+          <layout> @linkml:String ;
+          <source_file> @linkml:String ;
+          <atr_references> @linkml:String * ;
+          <canada_regulations_references> @linkml:String * ;
+          <eu_ai_act_references> @linkml:String * ;
+          <ffiec_itbooklets_references> @linkml:String * ;
+          <iosco_supervisory_toolkit_references> @linkml:String * ;
+          <iso_42001_references> @linkml:String * ;
+          <nist_ai_600_1_references> @linkml:String * ;
+          <nist_sp_800_53r5_references> @linkml:String * ;
+          <owasp_asi_references> @linkml:String * ;
+          <owasp_llm_references> @linkml:String * ;
+          <owasp_ml_references> @linkml:String * ;
+          <sr11_7_references> @linkml:String * ;
+          <uk_regulations_references> @linkml:String *
+       ) ;
+       rdf:type [ <AigfRisk> ]
+    )
+}
+
+<AigfUseCase> CLOSED {
+    (  $<AigfUseCase_tes> (  &<AigfItem_tes> ;
+          rdf:type [ <AigfItem> ] ? ;
+          &<AigfReferenceCitations_tes> ;
+          rdf:type [ <AigfReferenceCitations> ] ? ;
+          <category> [ <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Customer_Experience_and_Engagement>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Risk_Management_and_Compliance>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Operations_and_Process_Optimization>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Trading_and_Investment>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Data_Intelligence_and_Analytics>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Fraud_Detection_and_Security>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory#Risk_and_Compliance> ] ;
+          schema1:description @linkml:String ;
+          <end_user> @linkml:String ? ;
+          <business_value> @linkml:String ? ;
+          <related_risks> @<AigfRisk> * ;
+          <related_mitigations> @<AigfMitigation> * ;
+          <data_classifications> @<AigfDataClassificationUse> * ;
+          <data_handling_aspects> [ <https://w3id.org/lmodel/ai-governance-framework/AigfDataHandling#Centralized>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfDataHandling#Federated>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfDataHandling#Synthetic_Data>
+             <https://w3id.org/lmodel/ai-governance-framework/AigfDataHandling#Privacy_Preserving> ] * ;
+          <regulatory_concerns> @<AigfRegulatoryReference> * ;
+          <further_reading> @<AigfFurtherReading> * ;
+          <layout> @linkml:String ;
+          <source_file> @linkml:String ;
+          <atr_references> @linkml:String * ;
+          <canada_regulations_references> @linkml:String * ;
+          <eu_ai_act_references> @linkml:String * ;
+          <ffiec_itbooklets_references> @linkml:String * ;
+          <iosco_supervisory_toolkit_references> @linkml:String * ;
+          <iso_42001_references> @linkml:String * ;
+          <nist_ai_600_1_references> @linkml:String * ;
+          <nist_sp_800_53r5_references> @linkml:String * ;
+          <owasp_asi_references> @linkml:String * ;
+          <owasp_llm_references> @linkml:String * ;
+          <owasp_ml_references> @linkml:String * ;
+          <sr11_7_references> @linkml:String * ;
+          <uk_regulations_references> @linkml:String *
+       ) ;
+       rdf:type [ <AigfUseCase> ]
+    )
+}
+
+<AigfUseCaseArea> CLOSED {
+    (  $<AigfUseCaseArea_tes> (  <name> @linkml:String ;
+          <use_case_names> @linkml:String *
+       ) ;
+       rdf:type [ <AigfUseCaseArea> ] ?
+    )
+}
+
+<AigfUseCaseDomain> CLOSED {
+    (  $<AigfUseCaseDomain_tes> (  <name> @linkml:String ;
+          <use_case_areas> @<AigfUseCaseArea> *
+       ) ;
+       rdf:type [ <AigfUseCaseDomain> ] ?
+    )
+}

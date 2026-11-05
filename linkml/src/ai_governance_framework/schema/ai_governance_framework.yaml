@@ -1,43 +1,744 @@
 ---
 id: https://w3id.org/lmodel/ai-governance-framework
-name: ai-governance-framework
+name: ai_governance_framework
 title: FINOS AI Governance Framework
-description: |-
-  A FINOS-curated instance dataset of the ai-atlas-nexus [`ai-risk-ontology`](https://github.com/finos/ai-governance-framework).
-  
-  The [schema](https://github.com/lmodel/ai-governance-framework/blob/main/linkml/src/ai_governance_framework/schema/ai_governance_framework.yaml) and
-  cross-walked to ISO 42001 / NIST AI 600-1 / DPV / AIRO / OWASP via
-  SSSOM mapping files under `/src/ai_governance_framework/mappings/`.
-
-  The [ai-atlas-nexus](https://ibm.github.io/ai-atlas-nexus/) upstream is vendored under `./ai_risk_ontology/`
-  until the `https://w3id.org/ai-atlas-nexus/` redirect goes live.'
+description: >-
+  A LinkML model of the FINOS AI Governance Framework: its risks, mitigations and
+  use cases, the reference files they cite, and the data files beside them. Each
+  class keeps FINOS's keys and values, so FINOS's files are the test data.
+version: v3
+source: https://github.com/finos/ai-governance-framework/tree/67b8c3257695d5ede09d262798bf28a0e58d4740
 license: Apache-2.0
+keywords:
+  - AI governance
+  - AI risk
+  - financial services
+  - FINOS
 see_also:
+  - https://lmodel.github.io/ai-governance-framework
   - https://air-governance-framework.finos.org/
   - https://github.com/finos/ai-governance-framework
-  - https://lmodel.github.io/ai-governance-framework
-  - https://w3id.org/airo
-  - https://w3id.org/dpv
-source: https://github.com/finos/ai-governance-framework
-version: 0.1.0
+annotations:
+  upstream_commit: 67b8c3257695d5ede09d262798bf28a0e58d4740
+  upstream_release_date: "2026-10-26"
+  upstream_license: CC-BY-4.0
+comments:
+  - >-
+    FINOS tags no v3 release, so the version is the one docs/_config.yml states and
+    the source is the commit that merged it. scripts/check_upstream_release.py
+    reports a new tag, or main changing a path this schema reads.
+  - >-
+    JSON Schema generation turns a hyphen in a slot name or an alias into an
+    underscore, so doc-status cannot be a key of the generated schema, and a key
+    named type would project as a false rdf:type. Each slot that differs from FINOS's
+    key lists that key under aliases. scripts/build_catalogue.py renames by that list
+    and adds item_id and source_file, which FINOS's file name states, and
+    tests/test_upstream_tree.py shows that the renaming is one to one. A reference
+    file needs no renaming.
 
 prefixes:
   ai_governance_framework: https://w3id.org/lmodel/ai-governance-framework/
+  airo: https://w3id.org/airo#
   linkml: https://w3id.org/linkml/
   nexus: https://w3id.org/ai-atlas-nexus/
-  airo: https://w3id.org/airo#
+  nist_ai_600_1: https://w3id.org/lmodel/nist-ai-600-1/
+  nist_sp_800_53: https://w3id.org/lmodel/nist-sp-800-53/
   schema: http://schema.org/
-  # dpv: "https://w3id.org/dpv#"
-  dct: http://purl.org/dc/terms/
 
 default_prefix: ai_governance_framework
 default_range: string
 
 imports:
   - linkml:types
-  # ai-atlas-nexus backbone (Container, Risk, Action, AiSystem, Entry,
-  # Documentation, RiskGroup, RiskTaxonomy, ...). Vendored under
-  # `./ai_risk_ontology/` until https://w3id.org/ai-atlas-nexus/
-  # becomes active. `Container` carries `tree_root: true` upstream and
-  # in the vendored copy, so FINOS does not need to override it.
-  - ./ai_risk_ontology/ai-risk-ontology
+
+classes:
+
+  AigfCatalogue:
+    tree_root: true
+    description: One edition of the framework, as the facts FINOS's front matter and data files state.
+    comments:
+      - >-
+        The bodies of the risk, mitigation and use case pages stay in FINOS's files,
+        which source_file names. The catalogue names each reference file's entries by
+        key and leaves their titles there.
+    slots:
+      - title
+      - version
+      - release_date
+      - source_commit
+      - reference_lenses
+      - reference_indexes
+      - risks
+      - mitigations
+      - use_cases
+      - financial_data_classification
+      - ai_use_cases
+      - cross_cutting_capabilities
+      - ai_deployment_model_taxonomy
+    slot_usage:
+      title:
+        required: true
+      version:
+        required: true
+      release_date:
+        required: true
+      source_commit:
+        required: true
+      risks:
+        required: true
+      mitigations:
+        required: true
+
+  AigfItem:
+    abstract: true
+    description: A page of the framework that its front matter describes and that others cite by identifier.
+    slots:
+      - item_id
+      - sequence
+      - title
+      - layout
+      - doc_status
+      - source_file
+    slot_usage:
+      title:
+        required: true
+
+  AigfReferenceCitations:
+    mixin: true
+    description: The entries of FINOS's reference files that a page cites, one list for each file.
+    slots:
+      - atr_references
+      - canada_regulations_references
+      - eu_ai_act_references
+      - ffiec_itbooklets_references
+      - iosco_supervisory_toolkit_references
+      - iso_42001_references
+      - nist_ai_600_1_references
+      - nist_sp_800_53r5_references
+      - owasp_asi_references
+      - owasp_llm_references
+      - owasp_ml_references
+      - sr11_7_references
+      - uk_regulations_references
+
+  AigfRisk:
+    is_a: AigfItem
+    mixins:
+      - AigfReferenceCitations
+    description: A risk the framework names, from a file under docs/_risks/.
+    close_mappings:
+      - airo:Risk
+    slots:
+      - risk_type
+      - risk_domain
+      - related_risks
+    slot_usage:
+      item_id:
+        pattern: "^ri-[1-9][0-9]*$"
+      layout:
+        equals_string: risk
+      source_file:
+        pattern: "^docs/_risks/ri-[1-9][0-9]*_[a-z0-9-]+[.]md$"
+
+  AigfMitigation:
+    is_a: AigfItem
+    mixins:
+      - AigfReferenceCitations
+    description: A mitigation the framework names, from a file under docs/_mitigations/.
+    comments:
+      - >-
+        CONVENTIONS.md makes the link one way: a mitigation lists the risks it
+        mitigates, and a risk does not list its mitigations.
+    close_mappings:
+      - airo:RiskControl
+    related_mappings:
+      - nexus:Action
+    slots:
+      - mitigation_type
+      - mitigation_domain
+      - mitigates
+      - related_mitigations
+    slot_usage:
+      item_id:
+        pattern: "^mi-[1-9][0-9]*$"
+      layout:
+        equals_string: mitigation
+      source_file:
+        pattern: "^docs/_mitigations/mi-[1-9][0-9]*_[a-z0-9-]+[.]md$"
+
+  AigfUseCase:
+    is_a: AigfItem
+    mixins:
+      - AigfReferenceCitations
+    description: A worked use case with its risks, mitigations and data, from a file under docs/_usecases/.
+    slots:
+      - category
+      - description
+      - end_user
+      - business_value
+      - related_risks
+      - related_mitigations
+      - data_classifications
+      - data_handling_aspects
+      - regulatory_concerns
+      - further_reading
+    slot_usage:
+      item_id:
+        pattern: "^uc-[1-9][0-9]*$"
+      layout:
+        equals_string: usecase
+      source_file:
+        pattern: "^docs/_usecases/uc-[1-9][0-9]*_[a-z0-9-]+[.]md$"
+      description:
+        required: true
+
+  AigfDataClassificationUse:
+    description: A data classification a use case handles, with the kinds of data it holds under it.
+    slots:
+      - name
+      - data_types
+    slot_usage:
+      name:
+        description: The name of a classification in docs/_data/data_classification.yml.
+
+  AigfRegulatoryReference:
+    description: A regulation or guideline named by its title and address, with where it applies.
+    slots:
+      - name
+      - url
+      - jurisdiction
+
+  AigfFurtherReading:
+    description: A paper or article a use case points to.
+    slots:
+      - name
+      - url
+      - source
+
+  AigfDataClassification:
+    description: A class of financial data with its sensitivity and its handling, from docs/_data/data_classification.yml.
+    slots:
+      - name
+      - sensitivity
+      - description
+      - examples
+      - storage_location
+      - regulations
+      - references
+    slot_usage:
+      sensitivity:
+        required: true
+      description:
+        required: true
+
+  AigfReferenceLens:
+    description: How the site presents the reference files of one lens, from reference_lenses in docs/_config.yml.
+    slots:
+      - lens
+      - label
+      - question
+      - icon
+      - color
+    slot_usage:
+      lens:
+        required: true
+      label:
+        required: true
+      question:
+        required: true
+
+  AigfReferenceFile:
+    description: >-
+      One file under docs/_data/references/, which lists the citable entries of one
+      regulation, framework or standard.
+    comments:
+      - >-
+        These rules are the ones scripts/validate-references.py states, except that
+        superseded_by resolving within the file and entries not being empty are held
+        by tests/test_upstream_tree.py. No generator writes either.
+    slots:
+      - title
+      - description
+      - source_url
+      - lens
+      - entries
+    slot_usage:
+      title:
+        required: true
+      description:
+        required: true
+      lens:
+        required: true
+      entries:
+        required: true
+
+  AigfReferenceEntry:
+    description: One citable item of a reference file, under the key a page cites it by.
+    slots:
+      - entry_key
+      - title
+      - url
+      - description
+      - issuer
+      - booklet_abbrev
+      - superseded_by
+    slot_usage:
+      title:
+        required: true
+      url:
+        required: true
+
+  AigfReferenceIndex:
+    description: The keys one reference file holds, so that a catalogue's citations resolve within it.
+    slots:
+      - reference_name
+      - lens
+      - entry_keys
+    slot_usage:
+      lens:
+        required: true
+
+  AigfUseCaseDomain:
+    description: A top level of the use case taxonomy in docs/_data/ai_use_cases.yml.
+    slots:
+      - name
+      - use_case_areas
+
+  AigfUseCaseArea:
+    description: A second level of the use case taxonomy, with the use cases under it.
+    slots:
+      - name
+      - use_case_names
+
+  AigfDeploymentAxis:
+    description: One axis of the deployment model taxonomy in docs/_data/ai_deployment_model.yml.
+    slots:
+      - name
+      - options
+
+  AigfDeploymentOption:
+    description: One option on an axis of the deployment model taxonomy.
+    slots:
+      - name
+      - description
+
+slots:
+
+  # The catalogue.
+  title:
+    slot_uri: schema:name
+    description: The name FINOS gives the page, file or framework.
+  description:
+    slot_uri: schema:description
+    description: FINOS's description of the element.
+  version:
+    description: The edition, as docs/_config.yml writes it.
+  release_date:
+    aliases:
+      - release-date
+    range: date
+    description: The edition's date, as docs/_config.yml writes it.
+  source_commit:
+    pattern: "^[0-9a-f]{40}$"
+    description: The commit of FINOS's repository the catalogue was read from.
+  reference_lenses:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfReferenceLens
+    description: The lenses docs/_config.yml configures.
+  reference_indexes:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfReferenceIndex
+    description: The keys of each reference file.
+  risks:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfRisk
+    description: The risks of the edition.
+  mitigations:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfMitigation
+    description: The mitigations of the edition.
+  use_cases:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfUseCase
+    description: The worked use cases of the edition.
+  financial_data_classification:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfDataClassification
+    description: The classes of financial data docs/_data/data_classification.yml lists.
+  ai_use_cases:
+    aliases:
+      - AI_use_cases
+    multivalued: true
+    inlined_as_list: true
+    range: AigfUseCaseDomain
+    description: The use case taxonomy docs/_data/ai_use_cases.yml lists.
+  cross_cutting_capabilities:
+    multivalued: true
+    description: The capabilities docs/_data/ai_use_cases.yml lists apart from the taxonomy.
+  ai_deployment_model_taxonomy:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfDeploymentAxis
+    description: The axes docs/_data/ai_deployment_model.yml lists.
+
+  # A page's front matter.
+  item_id:
+    identifier: true
+    description: The page's identifier, which FINOS's file name starts with and other pages cite.
+  sequence:
+    required: true
+    range: integer
+    minimum_value: 1
+    description: The number in the page's identifier, which orders the pages.
+  layout:
+    required: true
+    description: The Jekyll layout that renders the page.
+  doc_status:
+    aliases:
+      - doc-status
+    required: true
+    range: AigfDocumentStatus
+    description: How far the page has been approved.
+  source_file:
+    required: true
+    description: The path of the page in FINOS's repository.
+  risk_type:
+    aliases:
+      - type
+    required: true
+    range: AigfRiskType
+    description: The group a risk appears in.
+  risk_domain:
+    aliases:
+      - domain
+    required: true
+    range: AigfRiskDomain
+    description: The domain a risk belongs to.
+  mitigation_type:
+    aliases:
+      - type
+    required: true
+    range: AigfMitigationType
+    description: The group a mitigation appears in.
+  mitigation_domain:
+    aliases:
+      - domain
+    required: true
+    range: AigfMitigationDomain
+    description: The domain a mitigation belongs to.
+  related_risks:
+    multivalued: true
+    range: AigfRisk
+    description: The risks a page relates to.
+  related_mitigations:
+    multivalued: true
+    range: AigfMitigation
+    description: The mitigations a page relates to.
+  mitigates:
+    required: true
+    multivalued: true
+    range: AigfRisk
+    description: The risks a mitigation addresses.
+
+  # A use case's front matter.
+  category:
+    required: true
+    range: AigfUseCaseCategory
+    description: The category a use case is listed under.
+  end_user:
+    description: Who uses the system the use case describes.
+  business_value:
+    description: What the use case is worth to the business.
+  data_classifications:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfDataClassificationUse
+    description: The data classifications a use case handles.
+  data_types:
+    multivalued: true
+    description: The kinds of data a use case holds under one classification.
+  data_handling_aspects:
+    multivalued: true
+    range: AigfDataHandling
+    description: The options of the deployment model's data_handling axis a use case takes.
+  regulatory_concerns:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfRegulatoryReference
+    description: The regulations a use case raises.
+  further_reading:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfFurtherReading
+    description: The papers and articles a use case points to.
+
+  # Citations of the reference files. Each slot's name is the file's stem with
+  # its hyphens as underscores, followed by _references, and each value is a key
+  # of that file. tests/test_upstream_tree.py resolves every one.
+  atr_references:
+    multivalued: true
+    description: Keys of docs/_data/references/atr.yml.
+  canada_regulations_references:
+    aliases:
+      - canada-regulations_references
+    multivalued: true
+    description: Keys of docs/_data/references/canada-regulations.yml.
+  eu_ai_act_references:
+    aliases:
+      - eu-ai-act_references
+    multivalued: true
+    description: Keys of docs/_data/references/eu-ai-act.yml.
+  ffiec_itbooklets_references:
+    aliases:
+      - ffiec-itbooklets_references
+    multivalued: true
+    description: Keys of docs/_data/references/ffiec-itbooklets.yml.
+  iosco_supervisory_toolkit_references:
+    aliases:
+      - iosco-supervisory-toolkit_references
+    multivalued: true
+    description: Keys of docs/_data/references/iosco-supervisory-toolkit.yml.
+  iso_42001_references:
+    aliases:
+      - iso-42001_references
+    multivalued: true
+    description: Keys of docs/_data/references/iso-42001.yml.
+  nist_ai_600_1_references:
+    aliases:
+      - nist-ai-600-1_references
+    multivalued: true
+    description: Keys of docs/_data/references/nist-ai-600-1.yml.
+    related_mappings:
+      - nist_ai_600_1:GaiRisk
+  nist_sp_800_53r5_references:
+    aliases:
+      - nist-sp-800-53r5_references
+    multivalued: true
+    description: Keys of docs/_data/references/nist-sp-800-53r5.yml.
+    related_mappings:
+      - nist_sp_800_53:Control
+  owasp_asi_references:
+    aliases:
+      - owasp-asi_references
+    multivalued: true
+    description: Keys of docs/_data/references/owasp-asi.yml.
+  owasp_llm_references:
+    aliases:
+      - owasp-llm_references
+    multivalued: true
+    description: Keys of docs/_data/references/owasp-llm.yml.
+  owasp_ml_references:
+    aliases:
+      - owasp-ml_references
+    multivalued: true
+    description: Keys of docs/_data/references/owasp-ml.yml.
+  sr11_7_references:
+    aliases:
+      - sr11-7_references
+    multivalued: true
+    description: Keys of docs/_data/references/sr11-7.yml.
+  uk_regulations_references:
+    aliases:
+      - uk-regulations_references
+    multivalued: true
+    description: Keys of docs/_data/references/uk-regulations.yml.
+
+  # The other keys of FINOS's data files.
+  name:
+    required: true
+    description: The name FINOS gives the element.
+  url:
+    pattern: "^http"
+    description: The address of the element.
+  jurisdiction:
+    description: Where a regulation applies.
+  source:
+    description: Who published a paper or article.
+  sensitivity:
+    range: AigfSensitivity
+    description: How sensitive a class of data is.
+  examples:
+    multivalued: true
+    description: Kinds of data in a class.
+  storage_location:
+    description: Where a class of data is held.
+  regulations:
+    description: The regulations that apply to a class of data, written as FINOS writes them.
+  references:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfRegulatoryReference
+    description: The regulations and guidelines a class of data cites.
+  lens:
+    range: AigfLens
+    description: Which question a reference file answers for a page.
+  label:
+    description: The lens's display name.
+  question:
+    description: The question the lens answers.
+  icon:
+    description: The Bootstrap Icons class the site shows beside the lens.
+  color:
+    description: The Bootstrap theme colour the site gives the lens.
+  source_url:
+    description: The address the file was generated from, or a canonical index page.
+  entries:
+    multivalued: true
+    inlined: true
+    range: AigfReferenceEntry
+    description: The file's citable items, keyed by the key a page cites them by.
+  entry_key:
+    key: true
+    description: The stable key a page cites the entry by.
+  issuer:
+    description: The body that issued the entry.
+  booklet_abbrev:
+    description: The abbreviation of the FFIEC booklet the entry belongs to.
+  superseded_by:
+    description: The key of the entry in the same file that replaces this one in a newer edition.
+  reference_name:
+    required: true
+    description: The reference file's stem.
+  entry_keys:
+    multivalued: true
+    description: The keys the reference file holds.
+  use_case_areas:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfUseCaseArea
+    description: The areas under a domain.
+  use_case_names:
+    multivalued: true
+    description: The use cases under an area, as the taxonomy names them.
+  options:
+    multivalued: true
+    inlined_as_list: true
+    range: AigfDeploymentOption
+    description: The options on an axis.
+
+enums:
+
+  AigfDocumentStatus:
+    description: How far a page has been approved, from document_status in docs/_config.yml.
+    permissible_values:
+      Pre-Draft:
+        description: Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written.
+      Draft:
+        description: The document is in the early stages of development, with content being written and structured but not yet polished.
+      Working-Group-Approved:
+        description: The document is in its final form and has been approved by the AIGF team.
+      Approved-Specification:
+        description: The publication of an Approved Specification in a publicly accessible manner.
+
+  AigfRiskType:
+    description: A risk's group, from risk_type_labels in docs/_config.yml.
+    permissible_values:
+      RC:
+        title: Regulatory and Compliance
+      OP:
+        title: Operational
+      SEC:
+        title: Security
+
+  AigfMitigationType:
+    description: A mitigation's group, from mitigation_type_labels in docs/_config.yml.
+    comments:
+      - >-
+        templates-for-ri-md/mi-template.md also offers RESP, for Response, which
+        docs/_config.yml does not list and no mitigation uses.
+    permissible_values:
+      PREV:
+        title: Preventative
+      DET:
+        title: Detective
+
+  AigfRiskDomain:
+    description: A risk's domain, from risk_domain_labels in docs/_config.yml.
+    permissible_values:
+      components:
+        title: Components
+      inputs:
+        title: Inputs
+      leakage:
+        title: Leakage
+      accuracy:
+        title: Accuracy
+      alignment:
+        title: Alignment
+      agency:
+        title: Agency
+      vendor:
+        title: Vendor
+      liability:
+        title: Liability
+
+  AigfMitigationDomain:
+    description: A mitigation's domain, from mitigation_domain_labels in docs/_config.yml.
+    permissible_values:
+      sourcing:
+        title: Sourcing
+      filtering:
+        title: Filtering
+      data:
+        title: Data
+      access:
+        title: Access
+      evaluation:
+        title: Evaluation
+      oversight:
+        title: Oversight
+      monitoring:
+        title: Monitoring
+
+  AigfUseCaseCategory:
+    description: A use case's category, from usecase_categories in docs/_config.yml.
+    permissible_values:
+      Customer_Experience_and_Engagement:
+        title: Customer Experience and Engagement
+      Risk_Management_and_Compliance:
+        title: Risk Management and Compliance
+      Operations_and_Process_Optimization:
+        title: Operations and Process Optimization
+      Trading_and_Investment:
+        title: Trading and Investment
+      Data_Intelligence_and_Analytics:
+        title: Data Intelligence and Analytics
+      Fraud_Detection_and_Security:
+        title: Fraud Detection and Security
+      Risk_and_Compliance:
+        title: Risk and Compliance
+        description: >-
+          A category uc-3 and uc-4 use. docs/_config.yml does not list it, though
+          docs/_data/ai_use_cases.yml has a domain of this name.
+
+  AigfSensitivity:
+    description: How sensitive a class of data is, as docs/_data/data_classification.yml grades it.
+    permissible_values:
+      Low: {}
+      Medium: {}
+      High: {}
+      Critical: {}
+
+  AigfLens:
+    description: The question a reference file answers, from docs/_data/references/README.md.
+    permissible_values:
+      threat:
+        description: What is this called elsewhere?
+      obligation:
+        description: Which rule requires me to address it?
+      control:
+        description: How do I implement and evidence it?
+
+  AigfDataHandling:
+    description: The options of the deployment model's data_handling axis.
+    permissible_values:
+      Centralized: {}
+      Federated: {}
+      Synthetic_Data: {}
+      Privacy_Preserving: {}

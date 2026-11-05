@@ -6,7 +6,6 @@
 # By default all generators are run. Specify here the ones to skip.
 excludes:
   - markdown
-  - shacl
 
 # Alternatively only specify the generators to run
 # (comment out the above "excludes" section)

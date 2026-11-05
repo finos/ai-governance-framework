@@ -1,0 +1,1637 @@
+{
+    "$defs": {
+        "AigfCatalogue": {
+            "additionalProperties": false,
+            "description": "One edition of the framework, as the facts FINOS's front matter and data files state.",
+            "properties": {
+                "ai_deployment_model_taxonomy": {
+                    "description": "The axes docs/_data/ai_deployment_model.yml lists.",
+                    "items": {
+                        "$ref": "#/$defs/AigfDeploymentAxis"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ai_use_cases": {
+                    "description": "The use case taxonomy docs/_data/ai_use_cases.yml lists.",
+                    "items": {
+                        "$ref": "#/$defs/AigfUseCaseDomain"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "cross_cutting_capabilities": {
+                    "description": "The capabilities docs/_data/ai_use_cases.yml lists apart from the taxonomy.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "financial_data_classification": {
+                    "description": "The classes of financial data docs/_data/data_classification.yml lists.",
+                    "items": {
+                        "$ref": "#/$defs/AigfDataClassification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "mitigations": {
+                    "description": "The mitigations of the edition.",
+                    "items": {
+                        "$ref": "#/$defs/AigfMitigation"
+                    },
+                    "type": "array"
+                },
+                "reference_indexes": {
+                    "description": "The keys of each reference file.",
+                    "items": {
+                        "$ref": "#/$defs/AigfReferenceIndex"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "reference_lenses": {
+                    "description": "The lenses docs/_config.yml configures.",
+                    "items": {
+                        "$ref": "#/$defs/AigfReferenceLens"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "release_date": {
+                    "description": "The edition's date, as docs/_config.yml writes it.",
+                    "format": "date",
+                    "type": "string"
+                },
+                "risks": {
+                    "description": "The risks of the edition.",
+                    "items": {
+                        "$ref": "#/$defs/AigfRisk"
+                    },
+                    "type": "array"
+                },
+                "source_commit": {
+                    "description": "The commit of FINOS's repository the catalogue was read from.",
+                    "pattern": "^[0-9a-f]{40}$",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                },
+                "use_cases": {
+                    "description": "The worked use cases of the edition.",
+                    "items": {
+                        "$ref": "#/$defs/AigfUseCase"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "version": {
+                    "description": "The edition, as docs/_config.yml writes it.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title",
+                "version",
+                "release_date",
+                "source_commit",
+                "risks",
+                "mitigations"
+            ],
+            "title": "AigfCatalogue",
+            "type": "object"
+        },
+        "AigfDataClassification": {
+            "additionalProperties": false,
+            "description": "A class of financial data with its sensitivity and its handling, from docs/_data/data_classification.yml.",
+            "properties": {
+                "description": {
+                    "description": "FINOS's description of the element.",
+                    "type": "string"
+                },
+                "examples": {
+                    "description": "Kinds of data in a class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                },
+                "references": {
+                    "description": "The regulations and guidelines a class of data cites.",
+                    "items": {
+                        "$ref": "#/$defs/AigfRegulatoryReference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "regulations": {
+                    "description": "The regulations that apply to a class of data, written as FINOS writes them.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sensitivity": {
+                    "$ref": "#/$defs/AigfSensitivity",
+                    "description": "How sensitive a class of data is."
+                },
+                "storage_location": {
+                    "description": "Where a class of data is held.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "sensitivity",
+                "description"
+            ],
+            "title": "AigfDataClassification",
+            "type": "object"
+        },
+        "AigfDataClassificationUse": {
+            "additionalProperties": false,
+            "description": "A data classification a use case handles, with the kinds of data it holds under it.",
+            "properties": {
+                "data_types": {
+                    "description": "The kinds of data a use case holds under one classification.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of a classification in docs/_data/data_classification.yml.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfDataClassificationUse",
+            "type": "object"
+        },
+        "AigfDataHandling": {
+            "description": "The options of the deployment model's data_handling axis.",
+            "enum": [
+                "Centralized",
+                "Federated",
+                "Synthetic_Data",
+                "Privacy_Preserving"
+            ],
+            "title": "AigfDataHandling",
+            "type": "string"
+        },
+        "AigfDeploymentAxis": {
+            "additionalProperties": false,
+            "description": "One axis of the deployment model taxonomy in docs/_data/ai_deployment_model.yml.",
+            "properties": {
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                },
+                "options": {
+                    "description": "The options on an axis.",
+                    "items": {
+                        "$ref": "#/$defs/AigfDeploymentOption"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfDeploymentAxis",
+            "type": "object"
+        },
+        "AigfDeploymentOption": {
+            "additionalProperties": false,
+            "description": "One option on an axis of the deployment model taxonomy.",
+            "properties": {
+                "description": {
+                    "description": "FINOS's description of the element.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfDeploymentOption",
+            "type": "object"
+        },
+        "AigfDocumentStatus": {
+            "description": "How far a page has been approved, from document_status in docs/_config.yml.",
+            "enum": [
+                "Pre-Draft",
+                "Draft",
+                "Working-Group-Approved",
+                "Approved-Specification"
+            ],
+            "title": "AigfDocumentStatus",
+            "type": "string"
+        },
+        "AigfFurtherReading": {
+            "additionalProperties": false,
+            "description": "A paper or article a use case points to.",
+            "properties": {
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Who published a paper or article.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "description": "The address of the element.",
+                    "pattern": "^http",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfFurtherReading",
+            "type": "object"
+        },
+        "AigfItem": {
+            "additionalProperties": false,
+            "description": "A page of the framework that its front matter describes and that others cite by identifier.",
+            "properties": {
+                "doc_status": {
+                    "$ref": "#/$defs/AigfDocumentStatus",
+                    "description": "How far the page has been approved."
+                },
+                "item_id": {
+                    "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+                    "type": "string"
+                },
+                "layout": {
+                    "description": "The Jekyll layout that renders the page.",
+                    "type": "string"
+                },
+                "sequence": {
+                    "description": "The number in the page's identifier, which orders the pages.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "source_file": {
+                    "description": "The path of the page in FINOS's repository.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "item_id",
+                "sequence",
+                "title",
+                "layout",
+                "doc_status",
+                "source_file"
+            ],
+            "title": "AigfItem",
+            "type": "object"
+        },
+        "AigfLens": {
+            "description": "The question a reference file answers, from docs/_data/references/README.md.",
+            "enum": [
+                "threat",
+                "obligation",
+                "control"
+            ],
+            "title": "AigfLens",
+            "type": "string"
+        },
+        "AigfMitigation": {
+            "additionalProperties": false,
+            "description": "A mitigation the framework names, from a file under docs/_mitigations/.",
+            "properties": {
+                "atr_references": {
+                    "description": "Keys of docs/_data/references/atr.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "canada_regulations_references": {
+                    "description": "Keys of docs/_data/references/canada-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "doc_status": {
+                    "$ref": "#/$defs/AigfDocumentStatus",
+                    "description": "How far the page has been approved."
+                },
+                "eu_ai_act_references": {
+                    "description": "Keys of docs/_data/references/eu-ai-act.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ffiec_itbooklets_references": {
+                    "description": "Keys of docs/_data/references/ffiec-itbooklets.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iosco_supervisory_toolkit_references": {
+                    "description": "Keys of docs/_data/references/iosco-supervisory-toolkit.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iso_42001_references": {
+                    "description": "Keys of docs/_data/references/iso-42001.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "item_id": {
+                    "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+                    "pattern": "^mi-[1-9][0-9]*$",
+                    "type": "string"
+                },
+                "layout": {
+                    "const": "mitigation",
+                    "description": "The Jekyll layout that renders the page.",
+                    "type": "string"
+                },
+                "mitigates": {
+                    "description": "The risks a mitigation addresses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mitigation_domain": {
+                    "$ref": "#/$defs/AigfMitigationDomain",
+                    "description": "The domain a mitigation belongs to."
+                },
+                "mitigation_type": {
+                    "$ref": "#/$defs/AigfMitigationType",
+                    "description": "The group a mitigation appears in."
+                },
+                "nist_ai_600_1_references": {
+                    "description": "Keys of docs/_data/references/nist-ai-600-1.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "nist_sp_800_53r5_references": {
+                    "description": "Keys of docs/_data/references/nist-sp-800-53r5.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_asi_references": {
+                    "description": "Keys of docs/_data/references/owasp-asi.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_llm_references": {
+                    "description": "Keys of docs/_data/references/owasp-llm.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_ml_references": {
+                    "description": "Keys of docs/_data/references/owasp-ml.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_mitigations": {
+                    "description": "The mitigations a page relates to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sequence": {
+                    "description": "The number in the page's identifier, which orders the pages.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "source_file": {
+                    "description": "The path of the page in FINOS's repository.",
+                    "pattern": "^docs/_mitigations/mi-[1-9][0-9]*_[a-z0-9-]+[.]md$",
+                    "type": "string"
+                },
+                "sr11_7_references": {
+                    "description": "Keys of docs/_data/references/sr11-7.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                },
+                "uk_regulations_references": {
+                    "description": "Keys of docs/_data/references/uk-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mitigation_type",
+                "mitigation_domain",
+                "mitigates",
+                "item_id",
+                "sequence",
+                "title",
+                "layout",
+                "doc_status",
+                "source_file"
+            ],
+            "title": "AigfMitigation",
+            "type": "object"
+        },
+        "AigfMitigationDomain": {
+            "description": "A mitigation's domain, from mitigation_domain_labels in docs/_config.yml.",
+            "enum": [
+                "sourcing",
+                "filtering",
+                "data",
+                "access",
+                "evaluation",
+                "oversight",
+                "monitoring"
+            ],
+            "title": "AigfMitigationDomain",
+            "type": "string"
+        },
+        "AigfMitigationType": {
+            "description": "A mitigation's group, from mitigation_type_labels in docs/_config.yml.",
+            "enum": [
+                "PREV",
+                "DET"
+            ],
+            "title": "AigfMitigationType",
+            "type": "string"
+        },
+        "AigfReferenceCitations": {
+            "additionalProperties": false,
+            "description": "The entries of FINOS's reference files that a page cites, one list for each file.",
+            "properties": {
+                "atr_references": {
+                    "description": "Keys of docs/_data/references/atr.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "canada_regulations_references": {
+                    "description": "Keys of docs/_data/references/canada-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "eu_ai_act_references": {
+                    "description": "Keys of docs/_data/references/eu-ai-act.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ffiec_itbooklets_references": {
+                    "description": "Keys of docs/_data/references/ffiec-itbooklets.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iosco_supervisory_toolkit_references": {
+                    "description": "Keys of docs/_data/references/iosco-supervisory-toolkit.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iso_42001_references": {
+                    "description": "Keys of docs/_data/references/iso-42001.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "nist_ai_600_1_references": {
+                    "description": "Keys of docs/_data/references/nist-ai-600-1.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "nist_sp_800_53r5_references": {
+                    "description": "Keys of docs/_data/references/nist-sp-800-53r5.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_asi_references": {
+                    "description": "Keys of docs/_data/references/owasp-asi.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_llm_references": {
+                    "description": "Keys of docs/_data/references/owasp-llm.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_ml_references": {
+                    "description": "Keys of docs/_data/references/owasp-ml.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sr11_7_references": {
+                    "description": "Keys of docs/_data/references/sr11-7.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "uk_regulations_references": {
+                    "description": "Keys of docs/_data/references/uk-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "AigfReferenceCitations",
+            "type": "object"
+        },
+        "AigfReferenceEntry": {
+            "additionalProperties": false,
+            "description": "One citable item of a reference file, under the key a page cites it by.",
+            "properties": {
+                "booklet_abbrev": {
+                    "description": "The abbreviation of the FFIEC booklet the entry belongs to.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "FINOS's description of the element.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "entry_key": {
+                    "description": "The stable key a page cites the entry by.",
+                    "type": "string"
+                },
+                "issuer": {
+                    "description": "The body that issued the entry.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "superseded_by": {
+                    "description": "The key of the entry in the same file that replaces this one in a newer edition.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The address of the element.",
+                    "pattern": "^http",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "entry_key",
+                "title",
+                "url"
+            ],
+            "title": "AigfReferenceEntry",
+            "type": "object"
+        },
+        "AigfReferenceEntry__identifier_optional": {
+            "additionalProperties": false,
+            "description": "One citable item of a reference file, under the key a page cites it by.",
+            "properties": {
+                "booklet_abbrev": {
+                    "description": "The abbreviation of the FFIEC booklet the entry belongs to.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "FINOS's description of the element.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "entry_key": {
+                    "description": "The stable key a page cites the entry by.",
+                    "type": "string"
+                },
+                "issuer": {
+                    "description": "The body that issued the entry.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "superseded_by": {
+                    "description": "The key of the entry in the same file that replaces this one in a newer edition.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The address of the element.",
+                    "pattern": "^http",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title",
+                "url"
+            ],
+            "title": "AigfReferenceEntry",
+            "type": "object"
+        },
+        "AigfReferenceFile": {
+            "additionalProperties": false,
+            "description": "One file under docs/_data/references/, which lists the citable entries of one regulation, framework or standard.",
+            "properties": {
+                "description": {
+                    "description": "FINOS's description of the element.",
+                    "type": "string"
+                },
+                "entries": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/AigfReferenceEntry__identifier_optional"
+                    },
+                    "description": "The file's citable items, keyed by the key a page cites them by.",
+                    "type": "object"
+                },
+                "lens": {
+                    "$ref": "#/$defs/AigfLens",
+                    "description": "Which question a reference file answers for a page."
+                },
+                "source_url": {
+                    "description": "The address the file was generated from, or a canonical index page.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title",
+                "description",
+                "lens",
+                "entries"
+            ],
+            "title": "AigfReferenceFile",
+            "type": "object"
+        },
+        "AigfReferenceIndex": {
+            "additionalProperties": false,
+            "description": "The keys one reference file holds, so that a catalogue's citations resolve within it.",
+            "properties": {
+                "entry_keys": {
+                    "description": "The keys the reference file holds.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "lens": {
+                    "$ref": "#/$defs/AigfLens",
+                    "description": "Which question a reference file answers for a page."
+                },
+                "reference_name": {
+                    "description": "The reference file's stem.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "reference_name",
+                "lens"
+            ],
+            "title": "AigfReferenceIndex",
+            "type": "object"
+        },
+        "AigfReferenceLens": {
+            "additionalProperties": false,
+            "description": "How the site presents the reference files of one lens, from reference_lenses in docs/_config.yml.",
+            "properties": {
+                "color": {
+                    "description": "The Bootstrap theme colour the site gives the lens.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "icon": {
+                    "description": "The Bootstrap Icons class the site shows beside the lens.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "label": {
+                    "description": "The lens's display name.",
+                    "type": "string"
+                },
+                "lens": {
+                    "$ref": "#/$defs/AigfLens",
+                    "description": "Which question a reference file answers for a page."
+                },
+                "question": {
+                    "description": "The question the lens answers.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "lens",
+                "label",
+                "question"
+            ],
+            "title": "AigfReferenceLens",
+            "type": "object"
+        },
+        "AigfRegulatoryReference": {
+            "additionalProperties": false,
+            "description": "A regulation or guideline named by its title and address, with where it applies.",
+            "properties": {
+                "jurisdiction": {
+                    "description": "Where a regulation applies.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The address of the element.",
+                    "pattern": "^http",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfRegulatoryReference",
+            "type": "object"
+        },
+        "AigfRisk": {
+            "additionalProperties": false,
+            "description": "A risk the framework names, from a file under docs/_risks/.",
+            "properties": {
+                "atr_references": {
+                    "description": "Keys of docs/_data/references/atr.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "canada_regulations_references": {
+                    "description": "Keys of docs/_data/references/canada-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "doc_status": {
+                    "$ref": "#/$defs/AigfDocumentStatus",
+                    "description": "How far the page has been approved."
+                },
+                "eu_ai_act_references": {
+                    "description": "Keys of docs/_data/references/eu-ai-act.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ffiec_itbooklets_references": {
+                    "description": "Keys of docs/_data/references/ffiec-itbooklets.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iosco_supervisory_toolkit_references": {
+                    "description": "Keys of docs/_data/references/iosco-supervisory-toolkit.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iso_42001_references": {
+                    "description": "Keys of docs/_data/references/iso-42001.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "item_id": {
+                    "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+                    "pattern": "^ri-[1-9][0-9]*$",
+                    "type": "string"
+                },
+                "layout": {
+                    "const": "risk",
+                    "description": "The Jekyll layout that renders the page.",
+                    "type": "string"
+                },
+                "nist_ai_600_1_references": {
+                    "description": "Keys of docs/_data/references/nist-ai-600-1.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "nist_sp_800_53r5_references": {
+                    "description": "Keys of docs/_data/references/nist-sp-800-53r5.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_asi_references": {
+                    "description": "Keys of docs/_data/references/owasp-asi.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_llm_references": {
+                    "description": "Keys of docs/_data/references/owasp-llm.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_ml_references": {
+                    "description": "Keys of docs/_data/references/owasp-ml.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_risks": {
+                    "description": "The risks a page relates to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "risk_domain": {
+                    "$ref": "#/$defs/AigfRiskDomain",
+                    "description": "The domain a risk belongs to."
+                },
+                "risk_type": {
+                    "$ref": "#/$defs/AigfRiskType",
+                    "description": "The group a risk appears in."
+                },
+                "sequence": {
+                    "description": "The number in the page's identifier, which orders the pages.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "source_file": {
+                    "description": "The path of the page in FINOS's repository.",
+                    "pattern": "^docs/_risks/ri-[1-9][0-9]*_[a-z0-9-]+[.]md$",
+                    "type": "string"
+                },
+                "sr11_7_references": {
+                    "description": "Keys of docs/_data/references/sr11-7.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                },
+                "uk_regulations_references": {
+                    "description": "Keys of docs/_data/references/uk-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "risk_type",
+                "risk_domain",
+                "item_id",
+                "sequence",
+                "title",
+                "layout",
+                "doc_status",
+                "source_file"
+            ],
+            "title": "AigfRisk",
+            "type": "object"
+        },
+        "AigfRiskDomain": {
+            "description": "A risk's domain, from risk_domain_labels in docs/_config.yml.",
+            "enum": [
+                "components",
+                "inputs",
+                "leakage",
+                "accuracy",
+                "alignment",
+                "agency",
+                "vendor",
+                "liability"
+            ],
+            "title": "AigfRiskDomain",
+            "type": "string"
+        },
+        "AigfRiskType": {
+            "description": "A risk's group, from risk_type_labels in docs/_config.yml.",
+            "enum": [
+                "RC",
+                "OP",
+                "SEC"
+            ],
+            "title": "AigfRiskType",
+            "type": "string"
+        },
+        "AigfSensitivity": {
+            "description": "How sensitive a class of data is, as docs/_data/data_classification.yml grades it.",
+            "enum": [
+                "Low",
+                "Medium",
+                "High",
+                "Critical"
+            ],
+            "title": "AigfSensitivity",
+            "type": "string"
+        },
+        "AigfUseCase": {
+            "additionalProperties": false,
+            "description": "A worked use case with its risks, mitigations and data, from a file under docs/_usecases/.",
+            "properties": {
+                "atr_references": {
+                    "description": "Keys of docs/_data/references/atr.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "business_value": {
+                    "description": "What the use case is worth to the business.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "canada_regulations_references": {
+                    "description": "Keys of docs/_data/references/canada-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "category": {
+                    "$ref": "#/$defs/AigfUseCaseCategory",
+                    "description": "The category a use case is listed under."
+                },
+                "data_classifications": {
+                    "description": "The data classifications a use case handles.",
+                    "items": {
+                        "$ref": "#/$defs/AigfDataClassificationUse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "data_handling_aspects": {
+                    "description": "The options of the deployment model's data_handling axis a use case takes.",
+                    "items": {
+                        "$ref": "#/$defs/AigfDataHandling"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "FINOS's description of the element.",
+                    "type": "string"
+                },
+                "doc_status": {
+                    "$ref": "#/$defs/AigfDocumentStatus",
+                    "description": "How far the page has been approved."
+                },
+                "end_user": {
+                    "description": "Who uses the system the use case describes.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "eu_ai_act_references": {
+                    "description": "Keys of docs/_data/references/eu-ai-act.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ffiec_itbooklets_references": {
+                    "description": "Keys of docs/_data/references/ffiec-itbooklets.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "further_reading": {
+                    "description": "The papers and articles a use case points to.",
+                    "items": {
+                        "$ref": "#/$defs/AigfFurtherReading"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iosco_supervisory_toolkit_references": {
+                    "description": "Keys of docs/_data/references/iosco-supervisory-toolkit.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "iso_42001_references": {
+                    "description": "Keys of docs/_data/references/iso-42001.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "item_id": {
+                    "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+                    "pattern": "^uc-[1-9][0-9]*$",
+                    "type": "string"
+                },
+                "layout": {
+                    "const": "usecase",
+                    "description": "The Jekyll layout that renders the page.",
+                    "type": "string"
+                },
+                "nist_ai_600_1_references": {
+                    "description": "Keys of docs/_data/references/nist-ai-600-1.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "nist_sp_800_53r5_references": {
+                    "description": "Keys of docs/_data/references/nist-sp-800-53r5.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_asi_references": {
+                    "description": "Keys of docs/_data/references/owasp-asi.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_llm_references": {
+                    "description": "Keys of docs/_data/references/owasp-llm.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "owasp_ml_references": {
+                    "description": "Keys of docs/_data/references/owasp-ml.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "regulatory_concerns": {
+                    "description": "The regulations a use case raises.",
+                    "items": {
+                        "$ref": "#/$defs/AigfRegulatoryReference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_mitigations": {
+                    "description": "The mitigations a page relates to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_risks": {
+                    "description": "The risks a page relates to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sequence": {
+                    "description": "The number in the page's identifier, which orders the pages.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "source_file": {
+                    "description": "The path of the page in FINOS's repository.",
+                    "pattern": "^docs/_usecases/uc-[1-9][0-9]*_[a-z0-9-]+[.]md$",
+                    "type": "string"
+                },
+                "sr11_7_references": {
+                    "description": "Keys of docs/_data/references/sr11-7.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The name FINOS gives the page, file or framework.",
+                    "type": "string"
+                },
+                "uk_regulations_references": {
+                    "description": "Keys of docs/_data/references/uk-regulations.yml.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category",
+                "description",
+                "item_id",
+                "sequence",
+                "title",
+                "layout",
+                "doc_status",
+                "source_file"
+            ],
+            "title": "AigfUseCase",
+            "type": "object"
+        },
+        "AigfUseCaseArea": {
+            "additionalProperties": false,
+            "description": "A second level of the use case taxonomy, with the use cases under it.",
+            "properties": {
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                },
+                "use_case_names": {
+                    "description": "The use cases under an area, as the taxonomy names them.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfUseCaseArea",
+            "type": "object"
+        },
+        "AigfUseCaseCategory": {
+            "description": "A use case's category, from usecase_categories in docs/_config.yml.",
+            "enum": [
+                "Customer_Experience_and_Engagement",
+                "Risk_Management_and_Compliance",
+                "Operations_and_Process_Optimization",
+                "Trading_and_Investment",
+                "Data_Intelligence_and_Analytics",
+                "Fraud_Detection_and_Security",
+                "Risk_and_Compliance"
+            ],
+            "title": "AigfUseCaseCategory",
+            "type": "string"
+        },
+        "AigfUseCaseDomain": {
+            "additionalProperties": false,
+            "description": "A top level of the use case taxonomy in docs/_data/ai_use_cases.yml.",
+            "properties": {
+                "name": {
+                    "description": "The name FINOS gives the element.",
+                    "type": "string"
+                },
+                "use_case_areas": {
+                    "description": "The areas under a domain.",
+                    "items": {
+                        "$ref": "#/$defs/AigfUseCaseArea"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "AigfUseCaseDomain",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/lmodel/ai-governance-framework",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "One edition of the framework, as the facts FINOS's front matter and data files state.",
+    "metamodel_version": "1.12.0",
+    "properties": {
+        "ai_deployment_model_taxonomy": {
+            "description": "The axes docs/_data/ai_deployment_model.yml lists.",
+            "items": {
+                "$ref": "#/$defs/AigfDeploymentAxis"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "ai_use_cases": {
+            "description": "The use case taxonomy docs/_data/ai_use_cases.yml lists.",
+            "items": {
+                "$ref": "#/$defs/AigfUseCaseDomain"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "cross_cutting_capabilities": {
+            "description": "The capabilities docs/_data/ai_use_cases.yml lists apart from the taxonomy.",
+            "items": {
+                "type": "string"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "financial_data_classification": {
+            "description": "The classes of financial data docs/_data/data_classification.yml lists.",
+            "items": {
+                "$ref": "#/$defs/AigfDataClassification"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "mitigations": {
+            "description": "The mitigations of the edition.",
+            "items": {
+                "$ref": "#/$defs/AigfMitigation"
+            },
+            "type": "array"
+        },
+        "reference_indexes": {
+            "description": "The keys of each reference file.",
+            "items": {
+                "$ref": "#/$defs/AigfReferenceIndex"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "reference_lenses": {
+            "description": "The lenses docs/_config.yml configures.",
+            "items": {
+                "$ref": "#/$defs/AigfReferenceLens"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "release_date": {
+            "description": "The edition's date, as docs/_config.yml writes it.",
+            "format": "date",
+            "type": "string"
+        },
+        "risks": {
+            "description": "The risks of the edition.",
+            "items": {
+                "$ref": "#/$defs/AigfRisk"
+            },
+            "type": "array"
+        },
+        "source_commit": {
+            "description": "The commit of FINOS's repository the catalogue was read from.",
+            "pattern": "^[0-9a-f]{40}$",
+            "type": "string"
+        },
+        "title": {
+            "description": "The name FINOS gives the page, file or framework.",
+            "type": "string"
+        },
+        "use_cases": {
+            "description": "The worked use cases of the edition.",
+            "items": {
+                "$ref": "#/$defs/AigfUseCase"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "version": {
+            "description": "The edition, as docs/_config.yml writes it.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "title",
+        "version",
+        "release_date",
+        "source_commit",
+        "risks",
+        "mitigations"
+    ],
+    "title": "ai_governance_framework",
+    "type": "object",
+    "version": "v3"
+}

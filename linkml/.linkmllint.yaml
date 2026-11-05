@@ -1,0 +1,11 @@
+# linkml-lint reads this file from the directory `just lint` runs in.
+# The recommended rules apply, with the naming rule fitted to FINOS's values, so
+# that FINOS's files validate unchanged. Permissible values keep FINOS's spelling
+# (SEC, Approved-Specification, Synthetic_Data), so the naming rule leaves them
+# out. Class, enum and slot names keep the rule's usual form.
+extends: recommended
+rules:
+  standard_naming:
+    level: error
+    exclude_type:
+      - permissible_value

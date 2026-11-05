@@ -1,0 +1,435 @@
+syntax = "proto3";
+package ai_governance_framework;
+// metamodel_version: 1.12.0
+// version: v3
+// One edition of the framework, as the facts FINOS's front matter and data files state.
+message AigfCatalogue {
+  // The name FINOS gives the page, file or framework.
+  string title = 1;
+  // The edition, as docs/_config.yml writes it.
+  string version = 2;
+  // The edition's date, as docs/_config.yml writes it.
+  string release_date = 3;
+  // The commit of FINOS's repository the catalogue was read from.
+  string source_commit = 4;
+  // The lenses docs/_config.yml configures.
+  repeated AigfReferenceLens reference_lenses = 5;
+  // The keys of each reference file.
+  repeated AigfReferenceIndex reference_indexes = 6;
+  // The risks of the edition.
+  repeated AigfRisk risks = 7;
+  // The mitigations of the edition.
+  repeated AigfMitigation mitigations = 8;
+  // The worked use cases of the edition.
+  repeated AigfUseCase use_cases = 9;
+  // The classes of financial data docs/_data/data_classification.yml lists.
+  repeated AigfDataClassification financial_data_classification = 10;
+  // The use case taxonomy docs/_data/ai_use_cases.yml lists.
+  repeated AigfUseCaseDomain ai_use_cases = 11;
+  // The capabilities docs/_data/ai_use_cases.yml lists apart from the taxonomy.
+  repeated string cross_cutting_capabilities = 12;
+  // The axes docs/_data/ai_deployment_model.yml lists.
+  repeated AigfDeploymentAxis ai_deployment_model_taxonomy = 13;
+}
+// A class of financial data with its sensitivity and its handling, from docs/_data/data_classification.yml.
+message AigfDataClassification {
+  // The name FINOS gives the element.
+  string name = 1;
+  // How sensitive a class of data is.
+  AigfSensitivity sensitivity = 2;
+  // FINOS's description of the element.
+  string description = 3;
+  // Kinds of data in a class.
+  repeated string examples = 4;
+  // Where a class of data is held.
+  string storage_location = 5;
+  // The regulations that apply to a class of data, written as FINOS writes them.
+  string regulations = 6;
+  // The regulations and guidelines a class of data cites.
+  repeated AigfRegulatoryReference references = 7;
+}
+// A data classification a use case handles, with the kinds of data it holds under it.
+message AigfDataClassificationUse {
+  // The name of a classification in docs/_data/data_classification.yml.
+  string name = 1;
+  // The kinds of data a use case holds under one classification.
+  repeated string data_types = 2;
+}
+// One axis of the deployment model taxonomy in docs/_data/ai_deployment_model.yml.
+message AigfDeploymentAxis {
+  // The name FINOS gives the element.
+  string name = 1;
+  // The options on an axis.
+  repeated AigfDeploymentOption options = 2;
+}
+// One option on an axis of the deployment model taxonomy.
+message AigfDeploymentOption {
+  // The name FINOS gives the element.
+  string name = 1;
+  // FINOS's description of the element.
+  string description = 2;
+}
+// A paper or article a use case points to.
+message AigfFurtherReading {
+  // The name FINOS gives the element.
+  string name = 1;
+  // The address of the element.
+  string url = 2;
+  // Who published a paper or article.
+  string source = 3;
+}
+// A page of the framework that its front matter describes and that others cite by identifier.
+message AigfItem {
+  // The page's identifier, which FINOS's file name starts with and other pages cite.
+  string item_id = 1;
+  // The number in the page's identifier, which orders the pages.
+  int32 sequence = 2;
+  // The name FINOS gives the page, file or framework.
+  string title = 3;
+  // The Jekyll layout that renders the page.
+  string layout = 4;
+  // How far the page has been approved.
+  AigfDocumentStatus doc_status = 5;
+  // The path of the page in FINOS's repository.
+  string source_file = 6;
+}
+// A mitigation the framework names, from a file under docs/_mitigations/.
+message AigfMitigation {
+  // The number in the page's identifier, which orders the pages.
+  int32 sequence = 1;
+  // The name FINOS gives the page, file or framework.
+  string title = 2;
+  // How far the page has been approved.
+  AigfDocumentStatus doc_status = 3;
+  // The group a mitigation appears in.
+  AigfMitigationType mitigation_type = 4;
+  // The domain a mitigation belongs to.
+  AigfMitigationDomain mitigation_domain = 5;
+  // The risks a mitigation addresses.
+  repeated AigfRisk mitigates = 6;
+  // The mitigations a page relates to.
+  repeated AigfMitigation related_mitigations = 7;
+  // The page's identifier, which FINOS's file name starts with and other pages cite.
+  string item_id = 8;
+  // The Jekyll layout that renders the page.
+  string layout = 9;
+  // The path of the page in FINOS's repository.
+  string source_file = 10;
+  // Keys of docs/_data/references/atr.yml.
+  repeated string atr_references = 11;
+  // Keys of docs/_data/references/canada-regulations.yml.
+  repeated string canada_regulations_references = 12;
+  // Keys of docs/_data/references/eu-ai-act.yml.
+  repeated string eu_ai_act_references = 13;
+  // Keys of docs/_data/references/ffiec-itbooklets.yml.
+  repeated string ffiec_itbooklets_references = 14;
+  // Keys of docs/_data/references/iosco-supervisory-toolkit.yml.
+  repeated string iosco_supervisory_toolkit_references = 15;
+  // Keys of docs/_data/references/iso-42001.yml.
+  repeated string iso_N42001_references = 16;
+  // Keys of docs/_data/references/nist-ai-600-1.yml.
+  repeated string nist_ai_N600_N1_references = 17;
+  // Keys of docs/_data/references/nist-sp-800-53r5.yml.
+  repeated string nist_sp_N800_N53r5_references = 18;
+  // Keys of docs/_data/references/owasp-asi.yml.
+  repeated string owasp_asi_references = 19;
+  // Keys of docs/_data/references/owasp-llm.yml.
+  repeated string owasp_llm_references = 20;
+  // Keys of docs/_data/references/owasp-ml.yml.
+  repeated string owasp_ml_references = 21;
+  // Keys of docs/_data/references/sr11-7.yml.
+  repeated string sr11_N7_references = 22;
+  // Keys of docs/_data/references/uk-regulations.yml.
+  repeated string uk_regulations_references = 23;
+}
+// The entries of FINOS's reference files that a page cites, one list for each file.
+message AigfReferenceCitations {
+  // Keys of docs/_data/references/atr.yml.
+  repeated string atr_references = 1;
+  // Keys of docs/_data/references/canada-regulations.yml.
+  repeated string canada_regulations_references = 2;
+  // Keys of docs/_data/references/eu-ai-act.yml.
+  repeated string eu_ai_act_references = 3;
+  // Keys of docs/_data/references/ffiec-itbooklets.yml.
+  repeated string ffiec_itbooklets_references = 4;
+  // Keys of docs/_data/references/iosco-supervisory-toolkit.yml.
+  repeated string iosco_supervisory_toolkit_references = 5;
+  // Keys of docs/_data/references/iso-42001.yml.
+  repeated string iso_N42001_references = 6;
+  // Keys of docs/_data/references/nist-ai-600-1.yml.
+  repeated string nist_ai_N600_N1_references = 7;
+  // Keys of docs/_data/references/nist-sp-800-53r5.yml.
+  repeated string nist_sp_N800_N53r5_references = 8;
+  // Keys of docs/_data/references/owasp-asi.yml.
+  repeated string owasp_asi_references = 9;
+  // Keys of docs/_data/references/owasp-llm.yml.
+  repeated string owasp_llm_references = 10;
+  // Keys of docs/_data/references/owasp-ml.yml.
+  repeated string owasp_ml_references = 11;
+  // Keys of docs/_data/references/sr11-7.yml.
+  repeated string sr11_N7_references = 12;
+  // Keys of docs/_data/references/uk-regulations.yml.
+  repeated string uk_regulations_references = 13;
+}
+// One citable item of a reference file, under the key a page cites it by.
+message AigfReferenceEntry {
+  // The stable key a page cites the entry by.
+  string entry_key = 1;
+  // The name FINOS gives the page, file or framework.
+  string title = 2;
+  // The address of the element.
+  string url = 3;
+  // FINOS's description of the element.
+  string description = 4;
+  // The body that issued the entry.
+  string issuer = 5;
+  // The abbreviation of the FFIEC booklet the entry belongs to.
+  string booklet_abbrev = 6;
+  // The key of the entry in the same file that replaces this one in a newer edition.
+  string superseded_by = 7;
+}
+// One file under docs/_data/references/, which lists the citable entries of one regulation, framework or standard.
+message AigfReferenceFile {
+  // The name FINOS gives the page, file or framework.
+  string title = 1;
+  // FINOS's description of the element.
+  string description = 2;
+  // The address the file was generated from, or a canonical index page.
+  string source_url = 3;
+  // Which question a reference file answers for a page.
+  AigfLens lens = 4;
+  // The file's citable items, keyed by the key a page cites them by.
+  repeated AigfReferenceEntry entries = 5;
+}
+// The keys one reference file holds, so that a catalogue's citations resolve within it.
+message AigfReferenceIndex {
+  // The reference file's stem.
+  string reference_name = 1;
+  // Which question a reference file answers for a page.
+  AigfLens lens = 2;
+  // The keys the reference file holds.
+  repeated string entry_keys = 3;
+}
+// How the site presents the reference files of one lens, from reference_lenses in docs/_config.yml.
+message AigfReferenceLens {
+  // Which question a reference file answers for a page.
+  AigfLens lens = 1;
+  // The lens's display name.
+  string label = 2;
+  // The question the lens answers.
+  string question = 3;
+  // The Bootstrap Icons class the site shows beside the lens.
+  string icon = 4;
+  // The Bootstrap theme colour the site gives the lens.
+  string color = 5;
+}
+// A regulation or guideline named by its title and address, with where it applies.
+message AigfRegulatoryReference {
+  // The name FINOS gives the element.
+  string name = 1;
+  // The address of the element.
+  string url = 2;
+  // Where a regulation applies.
+  string jurisdiction = 3;
+}
+// A risk the framework names, from a file under docs/_risks/.
+message AigfRisk {
+  // The number in the page's identifier, which orders the pages.
+  int32 sequence = 1;
+  // The name FINOS gives the page, file or framework.
+  string title = 2;
+  // How far the page has been approved.
+  AigfDocumentStatus doc_status = 3;
+  // The group a risk appears in.
+  AigfRiskType risk_type = 4;
+  // The domain a risk belongs to.
+  AigfRiskDomain risk_domain = 5;
+  // The risks a page relates to.
+  repeated AigfRisk related_risks = 6;
+  // The page's identifier, which FINOS's file name starts with and other pages cite.
+  string item_id = 7;
+  // The Jekyll layout that renders the page.
+  string layout = 8;
+  // The path of the page in FINOS's repository.
+  string source_file = 9;
+  // Keys of docs/_data/references/atr.yml.
+  repeated string atr_references = 10;
+  // Keys of docs/_data/references/canada-regulations.yml.
+  repeated string canada_regulations_references = 11;
+  // Keys of docs/_data/references/eu-ai-act.yml.
+  repeated string eu_ai_act_references = 12;
+  // Keys of docs/_data/references/ffiec-itbooklets.yml.
+  repeated string ffiec_itbooklets_references = 13;
+  // Keys of docs/_data/references/iosco-supervisory-toolkit.yml.
+  repeated string iosco_supervisory_toolkit_references = 14;
+  // Keys of docs/_data/references/iso-42001.yml.
+  repeated string iso_N42001_references = 15;
+  // Keys of docs/_data/references/nist-ai-600-1.yml.
+  repeated string nist_ai_N600_N1_references = 16;
+  // Keys of docs/_data/references/nist-sp-800-53r5.yml.
+  repeated string nist_sp_N800_N53r5_references = 17;
+  // Keys of docs/_data/references/owasp-asi.yml.
+  repeated string owasp_asi_references = 18;
+  // Keys of docs/_data/references/owasp-llm.yml.
+  repeated string owasp_llm_references = 19;
+  // Keys of docs/_data/references/owasp-ml.yml.
+  repeated string owasp_ml_references = 20;
+  // Keys of docs/_data/references/sr11-7.yml.
+  repeated string sr11_N7_references = 21;
+  // Keys of docs/_data/references/uk-regulations.yml.
+  repeated string uk_regulations_references = 22;
+}
+// A worked use case with its risks, mitigations and data, from a file under docs/_usecases/.
+message AigfUseCase {
+  // The number in the page's identifier, which orders the pages.
+  int32 sequence = 1;
+  // The name FINOS gives the page, file or framework.
+  string title = 2;
+  // How far the page has been approved.
+  AigfDocumentStatus doc_status = 3;
+  // The category a use case is listed under.
+  AigfUseCaseCategory category = 4;
+  // FINOS's description of the element.
+  string description = 5;
+  // Who uses the system the use case describes.
+  string end_user = 6;
+  // What the use case is worth to the business.
+  string business_value = 7;
+  // The risks a page relates to.
+  repeated AigfRisk related_risks = 8;
+  // The mitigations a page relates to.
+  repeated AigfMitigation related_mitigations = 9;
+  // The data classifications a use case handles.
+  repeated AigfDataClassificationUse data_classifications = 10;
+  // The options of the deployment model's data_handling axis a use case takes.
+  repeated AigfDataHandling data_handling_aspects = 11;
+  // The regulations a use case raises.
+  repeated AigfRegulatoryReference regulatory_concerns = 12;
+  // The papers and articles a use case points to.
+  repeated AigfFurtherReading further_reading = 13;
+  // The page's identifier, which FINOS's file name starts with and other pages cite.
+  string item_id = 14;
+  // The Jekyll layout that renders the page.
+  string layout = 15;
+  // The path of the page in FINOS's repository.
+  string source_file = 16;
+  // Keys of docs/_data/references/atr.yml.
+  repeated string atr_references = 17;
+  // Keys of docs/_data/references/canada-regulations.yml.
+  repeated string canada_regulations_references = 18;
+  // Keys of docs/_data/references/eu-ai-act.yml.
+  repeated string eu_ai_act_references = 19;
+  // Keys of docs/_data/references/ffiec-itbooklets.yml.
+  repeated string ffiec_itbooklets_references = 20;
+  // Keys of docs/_data/references/iosco-supervisory-toolkit.yml.
+  repeated string iosco_supervisory_toolkit_references = 21;
+  // Keys of docs/_data/references/iso-42001.yml.
+  repeated string iso_N42001_references = 22;
+  // Keys of docs/_data/references/nist-ai-600-1.yml.
+  repeated string nist_ai_N600_N1_references = 23;
+  // Keys of docs/_data/references/nist-sp-800-53r5.yml.
+  repeated string nist_sp_N800_N53r5_references = 24;
+  // Keys of docs/_data/references/owasp-asi.yml.
+  repeated string owasp_asi_references = 25;
+  // Keys of docs/_data/references/owasp-llm.yml.
+  repeated string owasp_llm_references = 26;
+  // Keys of docs/_data/references/owasp-ml.yml.
+  repeated string owasp_ml_references = 27;
+  // Keys of docs/_data/references/sr11-7.yml.
+  repeated string sr11_N7_references = 28;
+  // Keys of docs/_data/references/uk-regulations.yml.
+  repeated string uk_regulations_references = 29;
+}
+// A second level of the use case taxonomy, with the use cases under it.
+message AigfUseCaseArea {
+  // The name FINOS gives the element.
+  string name = 1;
+  // The use cases under an area, as the taxonomy names them.
+  repeated string use_case_names = 2;
+}
+// A top level of the use case taxonomy in docs/_data/ai_use_cases.yml.
+message AigfUseCaseDomain {
+  // The name FINOS gives the element.
+  string name = 1;
+  // The areas under a domain.
+  repeated AigfUseCaseArea use_case_areas = 2;
+}
+
+// The options of the deployment model's data_handling axis.
+enum AigfDataHandling {
+  AIGF_DATA_HANDLING_UNSPECIFIED = 0;
+  AIGF_DATA_HANDLING_CENTRALIZED = 1;
+  AIGF_DATA_HANDLING_FEDERATED = 2;
+  AIGF_DATA_HANDLING_SYNTHETIC_DATA = 3;
+  AIGF_DATA_HANDLING_PRIVACY_PRESERVING = 4;
+}
+// How far a page has been approved, from document_status in docs/_config.yml.
+enum AigfDocumentStatus {
+  AIGF_DOCUMENT_STATUS_UNSPECIFIED = 0;
+  AIGF_DOCUMENT_STATUS_PRE_DRAFT = 1;
+  AIGF_DOCUMENT_STATUS_DRAFT = 2;
+  AIGF_DOCUMENT_STATUS_WORKING_GROUP_APPROVED = 3;
+  AIGF_DOCUMENT_STATUS_APPROVED_SPECIFICATION = 4;
+}
+// The question a reference file answers, from docs/_data/references/README.md.
+enum AigfLens {
+  AIGF_LENS_UNSPECIFIED = 0;
+  AIGF_LENS_THREAT = 1;
+  AIGF_LENS_OBLIGATION = 2;
+  AIGF_LENS_CONTROL = 3;
+}
+// A mitigation's domain, from mitigation_domain_labels in docs/_config.yml.
+enum AigfMitigationDomain {
+  AIGF_MITIGATION_DOMAIN_UNSPECIFIED = 0;
+  AIGF_MITIGATION_DOMAIN_SOURCING = 1;
+  AIGF_MITIGATION_DOMAIN_FILTERING = 2;
+  AIGF_MITIGATION_DOMAIN_DATA = 3;
+  AIGF_MITIGATION_DOMAIN_ACCESS = 4;
+  AIGF_MITIGATION_DOMAIN_EVALUATION = 5;
+  AIGF_MITIGATION_DOMAIN_OVERSIGHT = 6;
+  AIGF_MITIGATION_DOMAIN_MONITORING = 7;
+}
+// A mitigation's group, from mitigation_type_labels in docs/_config.yml.
+enum AigfMitigationType {
+  AIGF_MITIGATION_TYPE_UNSPECIFIED = 0;
+  AIGF_MITIGATION_TYPE_PREV = 1;
+  AIGF_MITIGATION_TYPE_DET = 2;
+}
+// A risk's domain, from risk_domain_labels in docs/_config.yml.
+enum AigfRiskDomain {
+  AIGF_RISK_DOMAIN_UNSPECIFIED = 0;
+  AIGF_RISK_DOMAIN_COMPONENTS = 1;
+  AIGF_RISK_DOMAIN_INPUTS = 2;
+  AIGF_RISK_DOMAIN_LEAKAGE = 3;
+  AIGF_RISK_DOMAIN_ACCURACY = 4;
+  AIGF_RISK_DOMAIN_ALIGNMENT = 5;
+  AIGF_RISK_DOMAIN_AGENCY = 6;
+  AIGF_RISK_DOMAIN_VENDOR = 7;
+  AIGF_RISK_DOMAIN_LIABILITY = 8;
+}
+// A risk's group, from risk_type_labels in docs/_config.yml.
+enum AigfRiskType {
+  AIGF_RISK_TYPE_UNSPECIFIED = 0;
+  AIGF_RISK_TYPE_RC = 1;
+  AIGF_RISK_TYPE_OP = 2;
+  AIGF_RISK_TYPE_SEC = 3;
+}
+// How sensitive a class of data is, as docs/_data/data_classification.yml grades it.
+enum AigfSensitivity {
+  AIGF_SENSITIVITY_UNSPECIFIED = 0;
+  AIGF_SENSITIVITY_LOW = 1;
+  AIGF_SENSITIVITY_MEDIUM = 2;
+  AIGF_SENSITIVITY_HIGH = 3;
+  AIGF_SENSITIVITY_CRITICAL = 4;
+}
+// A use case's category, from usecase_categories in docs/_config.yml.
+enum AigfUseCaseCategory {
+  AIGF_USE_CASE_CATEGORY_UNSPECIFIED = 0;
+  AIGF_USE_CASE_CATEGORY_CUSTOMER_EXPERIENCE_AND_ENGAGEMENT = 1;
+  AIGF_USE_CASE_CATEGORY_RISK_MANAGEMENT_AND_COMPLIANCE = 2;
+  AIGF_USE_CASE_CATEGORY_OPERATIONS_AND_PROCESS_OPTIMIZATION = 3;
+  AIGF_USE_CASE_CATEGORY_TRADING_AND_INVESTMENT = 4;
+  AIGF_USE_CASE_CATEGORY_DATA_INTELLIGENCE_AND_ANALYTICS = 5;
+  AIGF_USE_CASE_CATEGORY_FRAUD_DETECTION_AND_SECURITY = 6;
+  AIGF_USE_CASE_CATEGORY_RISK_AND_COMPLIANCE = 7;
+}

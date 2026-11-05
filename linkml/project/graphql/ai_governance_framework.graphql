@@ -1,0 +1,300 @@
+# metamodel_version: 1.12.0
+# version: v3
+enum AigfDataHandling
+  {
+    Centralized
+    Federated
+    Synthetic_Data
+    Privacy_Preserving
+  }
+
+enum AigfDocumentStatus
+  {
+    Pre__HYPHEN_MINUS__Draft
+    Draft
+    Working__HYPHEN_MINUS__Group__HYPHEN_MINUS__Approved
+    Approved__HYPHEN_MINUS__Specification
+  }
+
+enum AigfLens
+  {
+    threat
+    obligation
+    control
+  }
+
+enum AigfMitigationDomain
+  {
+    sourcing
+    filtering
+    data
+    access
+    evaluation
+    oversight
+    monitoring
+  }
+
+enum AigfMitigationType
+  {
+    PREV
+    DET
+  }
+
+enum AigfRiskDomain
+  {
+    components
+    inputs
+    leakage
+    accuracy
+    alignment
+    agency
+    vendor
+    liability
+  }
+
+enum AigfRiskType
+  {
+    RC
+    OP
+    SEC
+  }
+
+enum AigfSensitivity
+  {
+    Low
+    Medium
+    High
+    Critical
+  }
+
+enum AigfUseCaseCategory
+  {
+    Customer_Experience_and_Engagement
+    Risk_Management_and_Compliance
+    Operations_and_Process_Optimization
+    Trading_and_Investment
+    Data_Intelligence_and_Analytics
+    Fraud_Detection_and_Security
+    Risk_and_Compliance
+  }
+
+type AigfCatalogue
+  {
+    title: String!
+    version: String!
+    releaseDate: String!
+    sourceCommit: String!
+    referenceLenses: [AigfReferenceLens]
+    referenceIndexes: [AigfReferenceIndex]
+    risks: [AigfRisk]!
+    mitigations: [AigfMitigation]!
+    useCases: [AigfUseCase]
+    financialDataClassification: [AigfDataClassification]
+    aiUseCases: [AigfUseCaseDomain]
+    crossCuttingCapabilities: [String]
+    aiDeploymentModelTaxonomy: [AigfDeploymentAxis]
+  }
+
+type AigfDataClassification
+  {
+    name: String!
+    sensitivity: AigfSensitivity!
+    description: String!
+    examples: [String]
+    storageLocation: String
+    regulations: String
+    references: [AigfRegulatoryReference]
+  }
+
+type AigfDataClassificationUse
+  {
+    name: String!
+    dataTypes: [String]
+  }
+
+type AigfDeploymentAxis
+  {
+    name: String!
+    options: [AigfDeploymentOption]
+  }
+
+type AigfDeploymentOption
+  {
+    name: String!
+    description: String
+  }
+
+type AigfFurtherReading
+  {
+    name: String!
+    url: String
+    source: String
+  }
+
+interface AigfItem
+  {
+    itemId: String!
+    sequence: Int!
+    title: String!
+    layout: String!
+    docStatus: AigfDocumentStatus!
+    sourceFile: String!
+  }
+
+type AigfMitigation implements AigfReferenceCitations
+  {
+    sequence: Int!
+    title: String!
+    docStatus: AigfDocumentStatus!
+    mitigationType: AigfMitigationType!
+    mitigationDomain: AigfMitigationDomain!
+    mitigates: [AigfRisk]!
+    relatedMitigations: [AigfMitigation]
+    itemId: String!
+    layout: String!
+    sourceFile: String!
+    atrReferences: [String]
+    canadaRegulationsReferences: [String]
+    euAiActReferences: [String]
+    ffiecItbookletsReferences: [String]
+    ioscoSupervisoryToolkitReferences: [String]
+    iso42001References: [String]
+    nistAi6001References: [String]
+    nistSp80053r5References: [String]
+    owaspAsiReferences: [String]
+    owaspLlmReferences: [String]
+    owaspMlReferences: [String]
+    sr117References: [String]
+    ukRegulationsReferences: [String]
+  }
+
+interface AigfReferenceCitations
+  {
+    atrReferences: [String]
+    canadaRegulationsReferences: [String]
+    euAiActReferences: [String]
+    ffiecItbookletsReferences: [String]
+    ioscoSupervisoryToolkitReferences: [String]
+    iso42001References: [String]
+    nistAi6001References: [String]
+    nistSp80053r5References: [String]
+    owaspAsiReferences: [String]
+    owaspLlmReferences: [String]
+    owaspMlReferences: [String]
+    sr117References: [String]
+    ukRegulationsReferences: [String]
+  }
+
+type AigfReferenceEntry
+  {
+    entryKey: String!
+    title: String!
+    url: String!
+    description: String
+    issuer: String
+    bookletAbbrev: String
+    supersededBy: String
+  }
+
+type AigfReferenceFile
+  {
+    title: String!
+    description: String!
+    sourceUrl: String
+    lens: AigfLens!
+    entries: [AigfReferenceEntry]!
+  }
+
+type AigfReferenceIndex
+  {
+    referenceName: String!
+    lens: AigfLens!
+    entryKeys: [String]
+  }
+
+type AigfReferenceLens
+  {
+    lens: AigfLens!
+    label: String!
+    question: String!
+    icon: String
+    color: String
+  }
+
+type AigfRegulatoryReference
+  {
+    name: String!
+    url: String
+    jurisdiction: String
+  }
+
+type AigfRisk implements AigfReferenceCitations
+  {
+    sequence: Int!
+    title: String!
+    docStatus: AigfDocumentStatus!
+    riskType: AigfRiskType!
+    riskDomain: AigfRiskDomain!
+    relatedRisks: [AigfRisk]
+    itemId: String!
+    layout: String!
+    sourceFile: String!
+    atrReferences: [String]
+    canadaRegulationsReferences: [String]
+    euAiActReferences: [String]
+    ffiecItbookletsReferences: [String]
+    ioscoSupervisoryToolkitReferences: [String]
+    iso42001References: [String]
+    nistAi6001References: [String]
+    nistSp80053r5References: [String]
+    owaspAsiReferences: [String]
+    owaspLlmReferences: [String]
+    owaspMlReferences: [String]
+    sr117References: [String]
+    ukRegulationsReferences: [String]
+  }
+
+type AigfUseCase implements AigfReferenceCitations
+  {
+    sequence: Int!
+    title: String!
+    docStatus: AigfDocumentStatus!
+    category: AigfUseCaseCategory!
+    description: String!
+    endUser: String
+    businessValue: String
+    relatedRisks: [AigfRisk]
+    relatedMitigations: [AigfMitigation]
+    dataClassifications: [AigfDataClassificationUse]
+    dataHandlingAspects: [AigfDataHandling]
+    regulatoryConcerns: [AigfRegulatoryReference]
+    furtherReading: [AigfFurtherReading]
+    itemId: String!
+    layout: String!
+    sourceFile: String!
+    atrReferences: [String]
+    canadaRegulationsReferences: [String]
+    euAiActReferences: [String]
+    ffiecItbookletsReferences: [String]
+    ioscoSupervisoryToolkitReferences: [String]
+    iso42001References: [String]
+    nistAi6001References: [String]
+    nistSp80053r5References: [String]
+    owaspAsiReferences: [String]
+    owaspLlmReferences: [String]
+    owaspMlReferences: [String]
+    sr117References: [String]
+    ukRegulationsReferences: [String]
+  }
+
+type AigfUseCaseArea
+  {
+    name: String!
+    useCaseNames: [String]
+  }
+
+type AigfUseCaseDomain
+  {
+    name: String!
+    useCaseAreas: [AigfUseCaseArea]
+  }

@@ -1,0 +1,1206 @@
+@prefix ai_governance_framework: <https://w3id.org/lmodel/ai-governance-framework/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix schema1: <http://schema.org/> .
+ai_governance_framework:AigfCatalogue a sh:NodeShape ;
+	rdfs:comment "One edition of the framework, as the facts FINOS's front matter and data files state." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n173 ;
+	sh:property _:c14n106 , _:c14n122 , _:c14n134 , _:c14n137 , _:c14n147 , _:c14n215 , _:c14n222 , _:c14n23 , _:c14n54 , _:c14n59 , _:c14n64 , _:c14n67 , _:c14n95 ;
+	sh:targetClass ai_governance_framework:AigfCatalogue .
+ai_governance_framework:AigfDataClassification a sh:NodeShape ;
+	rdfs:comment "A class of financial data with its sensitivity and its handling, from docs/_data/data_classification.yml." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n116 ;
+	sh:property _:c14n13 , _:c14n169 , _:c14n189 , _:c14n3 , _:c14n42 , _:c14n65 , _:c14n73 ;
+	sh:targetClass ai_governance_framework:AigfDataClassification .
+ai_governance_framework:AigfDataClassificationUse a sh:NodeShape ;
+	rdfs:comment "A data classification a use case handles, with the kinds of data it holds under it." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n15 ;
+	sh:property _:c14n228 , _:c14n62 ;
+	sh:targetClass ai_governance_framework:AigfDataClassificationUse .
+ai_governance_framework:AigfDeploymentAxis a sh:NodeShape ;
+	rdfs:comment "One axis of the deployment model taxonomy in docs/_data/ai_deployment_model.yml." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n125 ;
+	sh:property _:c14n136 , _:c14n5 ;
+	sh:targetClass ai_governance_framework:AigfDeploymentAxis .
+ai_governance_framework:AigfDeploymentOption a sh:NodeShape ;
+	rdfs:comment "One option on an axis of the deployment model taxonomy." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n172 ;
+	sh:property _:c14n226 , _:c14n41 ;
+	sh:targetClass ai_governance_framework:AigfDeploymentOption .
+ai_governance_framework:AigfFurtherReading a sh:NodeShape ;
+	rdfs:comment "A paper or article a use case points to." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n88 ;
+	sh:property _:c14n197 , _:c14n218 , _:c14n81 ;
+	sh:targetClass ai_governance_framework:AigfFurtherReading .
+ai_governance_framework:AigfItem a sh:NodeShape ;
+	rdfs:comment "A page of the framework that its front matter describes and that others cite by identifier." ;
+	sh:closed false ;
+	sh:ignoredProperties _:c14n101 ;
+	sh:property _:c14n112 , _:c14n28 , _:c14n32 , _:c14n40 , _:c14n52 , _:c14n74 ;
+	sh:targetClass ai_governance_framework:AigfItem .
+ai_governance_framework:AigfMitigation a sh:NodeShape ;
+	rdfs:comment "A mitigation the framework names, from a file under docs/_mitigations/." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n223 ;
+	sh:property _:c14n103 , _:c14n12 , _:c14n123 , _:c14n150 , _:c14n152 , _:c14n159 , _:c14n165 , _:c14n167 , _:c14n168 , _:c14n179 , _:c14n181 , _:c14n184 , _:c14n204 , _:c14n205 , _:c14n213 , _:c14n219 , _:c14n224 , _:c14n227 , _:c14n231 , _:c14n36 , _:c14n60 , _:c14n84 , _:c14n93 ;
+	sh:targetClass ai_governance_framework:AigfMitigation .
+ai_governance_framework:AigfReferenceCitations a sh:NodeShape ;
+	rdfs:comment "The entries of FINOS's reference files that a page cites, one list for each file." ;
+	sh:closed false ;
+	sh:ignoredProperties _:c14n68 ;
+	sh:property _:c14n0 , _:c14n171 , _:c14n176 , _:c14n196 , _:c14n221 , _:c14n29 , _:c14n39 , _:c14n43 , _:c14n44 , _:c14n45 , _:c14n48 , _:c14n57 , _:c14n79 ;
+	sh:targetClass ai_governance_framework:AigfReferenceCitations .
+ai_governance_framework:AigfReferenceEntry a sh:NodeShape ;
+	rdfs:comment "One citable item of a reference file, under the key a page cites it by." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n115 ;
+	sh:property _:c14n11 , _:c14n139 , _:c14n164 , _:c14n186 , _:c14n210 , _:c14n232 , _:c14n34 ;
+	sh:targetClass ai_governance_framework:AigfReferenceEntry .
+ai_governance_framework:AigfReferenceFile a sh:NodeShape ;
+	rdfs:comment "One file under docs/_data/references/, which lists the citable entries of one regulation, framework or standard." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n132 ;
+	sh:property _:c14n120 , _:c14n121 , _:c14n206 , _:c14n24 , _:c14n72 ;
+	sh:targetClass ai_governance_framework:AigfReferenceFile .
+ai_governance_framework:AigfReferenceIndex a sh:NodeShape ;
+	rdfs:comment "The keys one reference file holds, so that a catalogue's citations resolve within it." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n70 ;
+	sh:property _:c14n50 , _:c14n69 , _:c14n87 ;
+	sh:targetClass ai_governance_framework:AigfReferenceIndex .
+ai_governance_framework:AigfReferenceLens a sh:NodeShape ;
+	rdfs:comment "How the site presents the reference files of one lens, from reference_lenses in docs/_config.yml." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n193 ;
+	sh:property _:c14n144 , _:c14n146 , _:c14n149 , _:c14n77 , _:c14n98 ;
+	sh:targetClass ai_governance_framework:AigfReferenceLens .
+ai_governance_framework:AigfRegulatoryReference a sh:NodeShape ;
+	rdfs:comment "A regulation or guideline named by its title and address, with where it applies." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n19 ;
+	sh:property _:c14n140 , _:c14n35 , _:c14n37 ;
+	sh:targetClass ai_governance_framework:AigfRegulatoryReference .
+ai_governance_framework:AigfRisk a sh:NodeShape ;
+	rdfs:comment "A risk the framework names, from a file under docs/_risks/." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n96 ;
+	sh:property _:c14n107 , _:c14n108 , _:c14n110 , _:c14n131 , _:c14n156 , _:c14n158 , _:c14n161 , _:c14n162 , _:c14n175 , _:c14n180 , _:c14n187 , _:c14n190 , _:c14n192 , _:c14n195 , _:c14n212 , _:c14n26 , _:c14n4 , _:c14n49 , _:c14n51 , _:c14n58 , _:c14n71 , _:c14n99 ;
+	sh:targetClass ai_governance_framework:AigfRisk .
+ai_governance_framework:AigfUseCase a sh:NodeShape ;
+	rdfs:comment "A worked use case with its risks, mitigations and data, from a file under docs/_usecases/." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n10 ;
+	sh:property _:c14n100 , _:c14n105 , _:c14n111 , _:c14n118 , _:c14n135 , _:c14n141 , _:c14n142 , _:c14n143 , _:c14n145 , _:c14n151 , _:c14n163 , _:c14n170 , _:c14n183 , _:c14n188 , _:c14n211 , _:c14n22 , _:c14n220 , _:c14n27 , _:c14n33 , _:c14n56 , _:c14n66 , _:c14n7 , _:c14n8 , _:c14n82 , _:c14n83 , _:c14n85 , _:c14n9 , _:c14n90 , _:c14n97 ;
+	sh:targetClass ai_governance_framework:AigfUseCase .
+ai_governance_framework:AigfUseCaseArea a sh:NodeShape ;
+	rdfs:comment "A second level of the use case taxonomy, with the use cases under it." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n92 ;
+	sh:property _:c14n119 , _:c14n55 ;
+	sh:targetClass ai_governance_framework:AigfUseCaseArea .
+ai_governance_framework:AigfUseCaseDomain a sh:NodeShape ;
+	rdfs:comment "A top level of the use case taxonomy in docs/_data/ai_use_cases.yml." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n185 ;
+	sh:property _:c14n166 , _:c14n217 ;
+	sh:targetClass ai_governance_framework:AigfUseCaseDomain .
+_:c14n0 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iosco-supervisory-toolkit.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:iosco_supervisory_toolkit_references .
+_:c14n1 rdf:first ai_governance_framework:uk_regulations_references ;
+	rdf:rest rdf:nil .
+_:c14n10 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n100 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iosco-supervisory-toolkit.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 14 ;
+	sh:path ai_governance_framework:iosco_supervisory_toolkit_references .
+_:c14n101 rdf:first schema1:description ;
+	rdf:rest _:c14n191 .
+_:c14n102 rdf:first "liability" ;
+	rdf:rest rdf:nil .
+_:c14n103 sh:datatype xsd:string ;
+	sh:description "The path of the page in FINOS's repository." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 22 ;
+	sh:path ai_governance_framework:source_file ;
+	sh:pattern "^docs/_mitigations/mi-[1-9][0-9]*_[a-z0-9-]+[.]md$" .
+_:c14n104 rdf:first "Trading_and_Investment" ;
+	rdf:rest _:c14n129 .
+_:c14n105 sh:datatype xsd:string ;
+	sh:description "Who uses the system the use case describes." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:end_user .
+_:c14n106 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path schema1:name .
+_:c14n107 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/eu-ai-act.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:eu_ai_act_references .
+_:c14n108 sh:description "The group a risk appears in." ;
+	sh:in _:c14n216 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:risk_type .
+_:c14n109 rdf:first ai_governance_framework:owasp_ml_references ;
+	rdf:rest _:c14n80 .
+_:c14n11 sh:datatype xsd:string ;
+	sh:description "FINOS's description of the element." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path schema1:description .
+_:c14n110 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/sr11-7.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 14 ;
+	sh:path ai_governance_framework:sr11_7_references .
+_:c14n111 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-ai-600-1.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 16 ;
+	sh:path ai_governance_framework:nist_ai_600_1_references .
+_:c14n112 sh:datatype xsd:integer ;
+	sh:description "The number in the page's identifier, which orders the pages." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:minInclusive 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:sequence .
+_:c14n113 rdf:first ai_governance_framework:further_reading ;
+	rdf:rest _:c14n14 .
+_:c14n114 rdf:first ai_governance_framework:mitigation_domain ;
+	rdf:rest _:c14n182 .
+_:c14n115 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n116 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n117 rdf:first "Customer_Experience_and_Engagement" ;
+	rdf:rest _:c14n157 .
+_:c14n118 sh:class ai_governance_framework:AigfRisk ;
+	sh:description "The risks a page relates to." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:related_risks .
+_:c14n119 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n12 sh:datatype xsd:string ;
+	sh:description "The Jekyll layout that renders the page." ;
+	sh:in _:c14n31 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 20 ;
+	sh:path ai_governance_framework:layout .
+_:c14n120 sh:description "Which question a reference file answers for a page." ;
+	sh:in _:c14n233 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:lens .
+_:c14n121 sh:datatype xsd:string ;
+	sh:description "FINOS's description of the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path schema1:description .
+_:c14n122 sh:class ai_governance_framework:AigfDataClassification ;
+	sh:description "The classes of financial data docs/_data/data_classification.yml lists." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 9 ;
+	sh:path ai_governance_framework:financial_data_classification .
+_:c14n123 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/canada-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:canada_regulations_references .
+_:c14n124 rdf:first ai_governance_framework:atr_references ;
+	rdf:rest _:c14n155 .
+_:c14n125 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n126 rdf:first ai_governance_framework:sr11_7_references ;
+	rdf:rest _:c14n1 .
+_:c14n127 rdf:first ai_governance_framework:nist_sp_800_53r5_references ;
+	rdf:rest _:c14n154 .
+_:c14n128 rdf:first "leakage" ;
+	rdf:rest _:c14n76 .
+_:c14n129 rdf:first "Data_Intelligence_and_Analytics" ;
+	rdf:rest _:c14n6 .
+_:c14n13 sh:datatype xsd:string ;
+	sh:description "Kinds of data in a class." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:examples .
+_:c14n130 rdf:first "Low" ;
+	rdf:rest _:c14n230 .
+_:c14n131 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/canada-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:canada_regulations_references .
+_:c14n132 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n133 rdf:first "oversight" ;
+	rdf:rest _:c14n18 .
+_:c14n134 sh:datatype xsd:string ;
+	sh:description "The commit of FINOS's repository the catalogue was read from." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:source_commit ;
+	sh:pattern "^[0-9a-f]{40}$" .
+_:c14n135 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-asi.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 18 ;
+	sh:path ai_governance_framework:owasp_asi_references .
+_:c14n136 sh:class ai_governance_framework:AigfDeploymentOption ;
+	sh:description "The options on an axis." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:options .
+_:c14n137 sh:datatype xsd:string ;
+	sh:description "The edition, as docs/_config.yml writes it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:version .
+_:c14n138 rdf:first "sourcing" ;
+	rdf:rest _:c14n201 .
+_:c14n139 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path schema1:name .
+_:c14n14 rdf:first ai_governance_framework:iosco_supervisory_toolkit_references ;
+	rdf:rest _:c14n47 .
+_:c14n140 sh:datatype xsd:string ;
+	sh:description "The address of the element." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:url ;
+	sh:pattern "^http" .
+_:c14n141 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iso-42001.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 15 ;
+	sh:path ai_governance_framework:iso_42001_references .
+_:c14n142 sh:class ai_governance_framework:AigfDataClassificationUse ;
+	sh:description "The data classifications a use case handles." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:data_classifications .
+_:c14n143 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/canada-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 11 ;
+	sh:path ai_governance_framework:canada_regulations_references .
+_:c14n144 sh:datatype xsd:string ;
+	sh:description "The lens's display name." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:label .
+_:c14n145 sh:datatype xsd:string ;
+	sh:description "FINOS's description of the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path schema1:description .
+_:c14n146 sh:datatype xsd:string ;
+	sh:description "The question the lens answers." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:question .
+_:c14n147 sh:datatype xsd:string ;
+	sh:description "The capabilities docs/_data/ai_use_cases.yml lists apart from the taxonomy." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 11 ;
+	sh:path ai_governance_framework:cross_cutting_capabilities .
+_:c14n148 rdf:first "Risk_and_Compliance" ;
+	rdf:rest rdf:nil .
+_:c14n149 sh:datatype xsd:string ;
+	sh:description "The Bootstrap Icons class the site shows beside the lens." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:icon .
+_:c14n15 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n150 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/atr.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:atr_references .
+_:c14n151 sh:datatype xsd:string ;
+	sh:description "The page's identifier, which FINOS's file name starts with and other pages cite." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 23 ;
+	sh:path ai_governance_framework:item_id ;
+	sh:pattern "^uc-[1-9][0-9]*$" .
+_:c14n152 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 19 ;
+	sh:path schema1:name .
+_:c14n153 rdf:first "Privacy_Preserving" ;
+	rdf:rest rdf:nil .
+_:c14n154 rdf:first ai_governance_framework:owasp_asi_references ;
+	rdf:rest _:c14n208 .
+_:c14n155 rdf:first ai_governance_framework:business_value ;
+	rdf:rest _:c14n94 .
+_:c14n156 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-sp-800-53r5.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 10 ;
+	sh:path ai_governance_framework:nist_sp_800_53r5_references .
+_:c14n157 rdf:first "Risk_Management_and_Compliance" ;
+	rdf:rest _:c14n46 .
+_:c14n158 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iso-42001.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 8 ;
+	sh:path ai_governance_framework:iso_42001_references .
+_:c14n159 sh:datatype xsd:string ;
+	sh:description "The page's identifier, which FINOS's file name starts with and other pages cite." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 17 ;
+	sh:path ai_governance_framework:item_id ;
+	sh:pattern "^mi-[1-9][0-9]*$" .
+_:c14n16 rdf:first ai_governance_framework:related_mitigations ;
+	rdf:rest _:c14n89 .
+_:c14n160 rdf:first "vendor" ;
+	rdf:rest _:c14n102 .
+_:c14n161 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 18 ;
+	sh:path schema1:name .
+_:c14n162 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/uk-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 15 ;
+	sh:path ai_governance_framework:uk_regulations_references .
+_:c14n163 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/ffiec-itbooklets.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 13 ;
+	sh:path ai_governance_framework:ffiec_itbooklets_references .
+_:c14n164 sh:datatype xsd:string ;
+	sh:description "The address of the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:url ;
+	sh:pattern "^http" .
+_:c14n165 sh:class ai_governance_framework:AigfRisk ;
+	sh:description "The risks a mitigation addresses." ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:mitigates .
+_:c14n166 sh:class ai_governance_framework:AigfUseCaseArea ;
+	sh:description "The areas under a domain." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:use_case_areas .
+_:c14n167 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-ai-600-1.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 10 ;
+	sh:path ai_governance_framework:nist_ai_600_1_references .
+_:c14n168 sh:description "How far the page has been approved." ;
+	sh:in _:c14n254 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 21 ;
+	sh:path ai_governance_framework:doc_status .
+_:c14n169 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n17 rdf:first "inputs" ;
+	rdf:rest _:c14n128 .
+_:c14n170 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 25 ;
+	sh:path schema1:name .
+_:c14n171 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/sr11-7.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 11 ;
+	sh:path ai_governance_framework:sr11_7_references .
+_:c14n172 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n173 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n174 rdf:first "alignment" ;
+	rdf:rest _:c14n61 .
+_:c14n175 sh:description "The domain a risk belongs to." ;
+	sh:in _:c14n75 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:risk_domain .
+_:c14n176 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-llm.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 9 ;
+	sh:path ai_governance_framework:owasp_llm_references .
+_:c14n177 rdf:first "access" ;
+	rdf:rest _:c14n225 .
+_:c14n178 rdf:first "Federated" ;
+	rdf:rest _:c14n2 .
+_:c14n179 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-ml.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 14 ;
+	sh:path ai_governance_framework:owasp_ml_references .
+_:c14n18 rdf:first "monitoring" ;
+	rdf:rest rdf:nil .
+_:c14n180 sh:datatype xsd:string ;
+	sh:description "The page's identifier, which FINOS's file name starts with and other pages cite." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 16 ;
+	sh:path ai_governance_framework:item_id ;
+	sh:pattern "^ri-[1-9][0-9]*$" .
+_:c14n181 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-llm.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 13 ;
+	sh:path ai_governance_framework:owasp_llm_references .
+_:c14n182 rdf:first ai_governance_framework:mitigation_type ;
+	rdf:rest _:c14n207 .
+_:c14n183 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/eu-ai-act.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 12 ;
+	sh:path ai_governance_framework:eu_ai_act_references .
+_:c14n184 sh:description "The domain a mitigation belongs to." ;
+	sh:in _:c14n138 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:mitigation_domain .
+_:c14n185 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n186 sh:datatype xsd:string ;
+	sh:description "The abbreviation of the FFIEC booklet the entry belongs to." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:booklet_abbrev .
+_:c14n187 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-asi.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 11 ;
+	sh:path ai_governance_framework:owasp_asi_references .
+_:c14n188 sh:description "How far the page has been approved." ;
+	sh:in _:c14n246 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 27 ;
+	sh:path ai_governance_framework:doc_status .
+_:c14n189 sh:datatype xsd:string ;
+	sh:description "FINOS's description of the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path schema1:description .
+_:c14n19 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n190 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-ml.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 13 ;
+	sh:path ai_governance_framework:owasp_ml_references .
+_:c14n191 rdf:first rdf:type ;
+	rdf:rest _:c14n124 .
+_:c14n192 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-llm.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 12 ;
+	sh:path ai_governance_framework:owasp_llm_references .
+_:c14n193 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n194 rdf:first "OP" ;
+	rdf:rest _:c14n21 .
+_:c14n195 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iosco-supervisory-toolkit.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path ai_governance_framework:iosco_supervisory_toolkit_references .
+_:c14n196 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/canada-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:canada_regulations_references .
+_:c14n197 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n198 rdf:first ai_governance_framework:data_handling_aspects ;
+	rdf:rest _:c14n199 .
+_:c14n199 rdf:first ai_governance_framework:end_user ;
+	rdf:rest _:c14n203 .
+_:c14n2 rdf:first "Synthetic_Data" ;
+	rdf:rest _:c14n153 .
+_:c14n20 rdf:first "usecase" ;
+	rdf:rest rdf:nil .
+_:c14n200 rdf:first ai_governance_framework:risk_domain ;
+	rdf:rest _:c14n214 .
+_:c14n201 rdf:first "filtering" ;
+	rdf:rest _:c14n30 .
+_:c14n202 rdf:first "Centralized" ;
+	rdf:rest _:c14n178 .
+_:c14n203 rdf:first ai_governance_framework:eu_ai_act_references ;
+	rdf:rest _:c14n91 .
+_:c14n204 sh:datatype xsd:integer ;
+	sh:description "The number in the page's identifier, which orders the pages." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:minInclusive 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 18 ;
+	sh:path ai_governance_framework:sequence .
+_:c14n205 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iosco-supervisory-toolkit.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 8 ;
+	sh:path ai_governance_framework:iosco_supervisory_toolkit_references .
+_:c14n206 sh:datatype xsd:string ;
+	sh:description "The address the file was generated from, or a canonical index page." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:source_url .
+_:c14n207 rdf:first ai_governance_framework:nist_ai_600_1_references ;
+	rdf:rest _:c14n127 .
+_:c14n208 rdf:first ai_governance_framework:owasp_llm_references ;
+	rdf:rest _:c14n109 .
+_:c14n209 rdf:first "risk" ;
+	rdf:rest rdf:nil .
+_:c14n21 rdf:first "SEC" ;
+	rdf:rest rdf:nil .
+_:c14n210 sh:datatype xsd:string ;
+	sh:description "The body that issued the entry." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:issuer .
+_:c14n211 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/atr.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 10 ;
+	sh:path ai_governance_framework:atr_references .
+_:c14n212 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/ffiec-itbooklets.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:ffiec_itbooklets_references .
+_:c14n213 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-asi.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 12 ;
+	sh:path ai_governance_framework:owasp_asi_references .
+_:c14n214 rdf:first ai_governance_framework:risk_type ;
+	rdf:rest _:c14n126 .
+_:c14n215 sh:datatype xsd:date ;
+	sh:description "The edition's date, as docs/_config.yml writes it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:release_date .
+_:c14n216 rdf:first "RC" ;
+	rdf:rest _:c14n194 .
+_:c14n217 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n218 sh:datatype xsd:string ;
+	sh:description "The address of the element." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:url ;
+	sh:pattern "^http" .
+_:c14n219 sh:class ai_governance_framework:AigfMitigation ;
+	sh:description "The mitigations a page relates to." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:related_mitigations .
+_:c14n22 sh:datatype xsd:string ;
+	sh:description "The Jekyll layout that renders the page." ;
+	sh:in _:c14n20 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 26 ;
+	sh:path ai_governance_framework:layout .
+_:c14n220 sh:datatype xsd:string ;
+	sh:description "The path of the page in FINOS's repository." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 28 ;
+	sh:path ai_governance_framework:source_file ;
+	sh:pattern "^docs/_usecases/uc-[1-9][0-9]*_[a-z0-9-]+[.]md$" .
+_:c14n221 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/eu-ai-act.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:eu_ai_act_references .
+_:c14n222 sh:class ai_governance_framework:AigfDeploymentAxis ;
+	sh:description "The axes docs/_data/ai_deployment_model.yml lists." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 12 ;
+	sh:path ai_governance_framework:ai_deployment_model_taxonomy .
+_:c14n223 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n224 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/sr11-7.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 15 ;
+	sh:path ai_governance_framework:sr11_7_references .
+_:c14n225 rdf:first "evaluation" ;
+	rdf:rest _:c14n133 .
+_:c14n226 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n227 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/uk-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 16 ;
+	sh:path ai_governance_framework:uk_regulations_references .
+_:c14n228 sh:datatype xsd:string ;
+	sh:description "The name of a classification in docs/_data/data_classification.yml." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n229 rdf:first "DET" ;
+	rdf:rest rdf:nil .
+_:c14n23 sh:class ai_governance_framework:AigfRisk ;
+	sh:description "The risks of the edition." ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:risks .
+_:c14n230 rdf:first "Medium" ;
+	rdf:rest _:c14n63 .
+_:c14n231 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iso-42001.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 9 ;
+	sh:path ai_governance_framework:iso_42001_references .
+_:c14n232 sh:datatype xsd:string ;
+	sh:description "The stable key a page cites the entry by." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:entry_key .
+_:c14n233 rdf:first "threat" ;
+	rdf:rest _:c14n234 .
+_:c14n234 rdf:first "obligation" ;
+	rdf:rest _:c14n235 .
+_:c14n235 rdf:first "control" ;
+	rdf:rest rdf:nil .
+_:c14n236 rdf:first "threat" ;
+	rdf:rest _:c14n237 .
+_:c14n237 rdf:first "obligation" ;
+	rdf:rest _:c14n238 .
+_:c14n238 rdf:first "control" ;
+	rdf:rest rdf:nil .
+_:c14n239 rdf:first "threat" ;
+	rdf:rest _:c14n240 .
+_:c14n24 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path schema1:name .
+_:c14n240 rdf:first "obligation" ;
+	rdf:rest _:c14n241 .
+_:c14n241 rdf:first "control" ;
+	rdf:rest rdf:nil .
+_:c14n242 rdf:first "Pre-Draft" ;
+	rdf:rest _:c14n243 .
+_:c14n243 rdf:first "Draft" ;
+	rdf:rest _:c14n244 .
+_:c14n244 rdf:first "Working-Group-Approved" ;
+	rdf:rest _:c14n245 .
+_:c14n245 rdf:first "Approved-Specification" ;
+	rdf:rest rdf:nil .
+_:c14n246 rdf:first "Pre-Draft" ;
+	rdf:rest _:c14n247 .
+_:c14n247 rdf:first "Draft" ;
+	rdf:rest _:c14n248 .
+_:c14n248 rdf:first "Working-Group-Approved" ;
+	rdf:rest _:c14n249 .
+_:c14n249 rdf:first "Approved-Specification" ;
+	rdf:rest rdf:nil .
+_:c14n25 rdf:first ai_governance_framework:mitigates ;
+	rdf:rest _:c14n114 .
+_:c14n250 rdf:first "Pre-Draft" ;
+	rdf:rest _:c14n251 .
+_:c14n251 rdf:first "Draft" ;
+	rdf:rest _:c14n252 .
+_:c14n252 rdf:first "Working-Group-Approved" ;
+	rdf:rest _:c14n253 .
+_:c14n253 rdf:first "Approved-Specification" ;
+	rdf:rest rdf:nil .
+_:c14n254 rdf:first "Pre-Draft" ;
+	rdf:rest _:c14n255 .
+_:c14n255 rdf:first "Draft" ;
+	rdf:rest _:c14n256 .
+_:c14n256 rdf:first "Working-Group-Approved" ;
+	rdf:rest _:c14n257 .
+_:c14n257 rdf:first "Approved-Specification" ;
+	rdf:rest rdf:nil .
+_:c14n26 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/atr.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:atr_references .
+_:c14n27 sh:description "The options of the deployment model's data_handling axis a use case takes." ;
+	sh:in _:c14n202 ;
+	sh:order 7 ;
+	sh:path ai_governance_framework:data_handling_aspects .
+_:c14n28 sh:datatype xsd:string ;
+	sh:description "The page's identifier, which FINOS's file name starts with and other pages cite." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:item_id .
+_:c14n29 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-ai-600-1.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:nist_ai_600_1_references .
+_:c14n3 sh:description "How sensitive a class of data is." ;
+	sh:in _:c14n130 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:sensitivity .
+_:c14n30 rdf:first "data" ;
+	rdf:rest _:c14n177 .
+_:c14n31 rdf:first "mitigation" ;
+	rdf:rest rdf:nil .
+_:c14n32 sh:datatype xsd:string ;
+	sh:description "The Jekyll layout that renders the page." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:layout .
+_:c14n33 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-llm.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 19 ;
+	sh:path ai_governance_framework:owasp_llm_references .
+_:c14n34 sh:datatype xsd:string ;
+	sh:description "The key of the entry in the same file that replaces this one in a newer edition." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:superseded_by .
+_:c14n35 sh:datatype xsd:string ;
+	sh:description "Where a regulation applies." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:jurisdiction .
+_:c14n36 sh:description "The group a mitigation appears in." ;
+	sh:in _:c14n86 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:mitigation_type .
+_:c14n37 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n38 rdf:first "Critical" ;
+	rdf:rest rdf:nil .
+_:c14n39 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/uk-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 12 ;
+	sh:path ai_governance_framework:uk_regulations_references .
+_:c14n4 sh:description "How far the page has been approved." ;
+	sh:in _:c14n242 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 20 ;
+	sh:path ai_governance_framework:doc_status .
+_:c14n40 sh:datatype xsd:string ;
+	sh:description "The path of the page in FINOS's repository." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:source_file .
+_:c14n41 sh:datatype xsd:string ;
+	sh:description "FINOS's description of the element." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path schema1:description .
+_:c14n42 sh:datatype xsd:string ;
+	sh:description "Where a class of data is held." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:storage_location .
+_:c14n43 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-sp-800-53r5.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path ai_governance_framework:nist_sp_800_53r5_references .
+_:c14n44 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/atr.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:atr_references .
+_:c14n45 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-ml.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 10 ;
+	sh:path ai_governance_framework:owasp_ml_references .
+_:c14n46 rdf:first "Operations_and_Process_Optimization" ;
+	rdf:rest _:c14n104 .
+_:c14n47 rdf:first ai_governance_framework:iso_42001_references ;
+	rdf:rest _:c14n25 .
+_:c14n48 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-asi.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 8 ;
+	sh:path ai_governance_framework:owasp_asi_references .
+_:c14n49 sh:datatype xsd:string ;
+	sh:description "The path of the page in FINOS's repository." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 21 ;
+	sh:path ai_governance_framework:source_file ;
+	sh:pattern "^docs/_risks/ri-[1-9][0-9]*_[a-z0-9-]+[.]md$" .
+_:c14n5 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the element." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:name .
+_:c14n50 sh:datatype xsd:string ;
+	sh:description "The keys the reference file holds." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:entry_keys .
+_:c14n51 sh:class ai_governance_framework:AigfRisk ;
+	sh:description "The risks a page relates to." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:related_risks .
+_:c14n52 sh:description "How far the page has been approved." ;
+	sh:in _:c14n250 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:doc_status .
+_:c14n53 rdf:first ai_governance_framework:data_classifications ;
+	rdf:rest _:c14n198 .
+_:c14n54 sh:class ai_governance_framework:AigfUseCaseDomain ;
+	sh:description "The use case taxonomy docs/_data/ai_use_cases.yml lists." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 10 ;
+	sh:path ai_governance_framework:ai_use_cases .
+_:c14n55 sh:datatype xsd:string ;
+	sh:description "The use cases under an area, as the taxonomy names them." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:use_case_names .
+_:c14n56 sh:class ai_governance_framework:AigfFurtherReading ;
+	sh:description "The papers and articles a use case points to." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 9 ;
+	sh:path ai_governance_framework:further_reading .
+_:c14n57 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/ffiec-itbooklets.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:ffiec_itbooklets_references .
+_:c14n58 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-ai-600-1.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 9 ;
+	sh:path ai_governance_framework:nist_ai_600_1_references .
+_:c14n59 sh:class ai_governance_framework:AigfReferenceLens ;
+	sh:description "The lenses docs/_config.yml configures." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:reference_lenses .
+_:c14n6 rdf:first "Fraud_Detection_and_Security" ;
+	rdf:rest _:c14n148 .
+_:c14n60 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/ffiec-itbooklets.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path ai_governance_framework:ffiec_itbooklets_references .
+_:c14n61 rdf:first "agency" ;
+	rdf:rest _:c14n160 .
+_:c14n62 sh:datatype xsd:string ;
+	sh:description "The kinds of data a use case holds under one classification." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:data_types .
+_:c14n63 rdf:first "High" ;
+	rdf:rest _:c14n38 .
+_:c14n64 sh:class ai_governance_framework:AigfReferenceIndex ;
+	sh:description "The keys of each reference file." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:reference_indexes .
+_:c14n65 sh:class ai_governance_framework:AigfRegulatoryReference ;
+	sh:description "The regulations and guidelines a class of data cites." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:references .
+_:c14n66 sh:description "The category a use case is listed under." ;
+	sh:in _:c14n117 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:category .
+_:c14n67 sh:class ai_governance_framework:AigfUseCase ;
+	sh:description "The worked use cases of the edition." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 8 ;
+	sh:path ai_governance_framework:use_cases .
+_:c14n68 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n69 sh:datatype xsd:string ;
+	sh:description "The reference file's stem." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:reference_name .
+_:c14n7 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/owasp-ml.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 20 ;
+	sh:path ai_governance_framework:owasp_ml_references .
+_:c14n70 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n71 sh:datatype xsd:integer ;
+	sh:description "The number in the page's identifier, which orders the pages." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:minInclusive 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 17 ;
+	sh:path ai_governance_framework:sequence .
+_:c14n72 sh:class ai_governance_framework:AigfReferenceEntry ;
+	sh:description "The file's citable items, keyed by the key a page cites them by." ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:entries .
+_:c14n73 sh:datatype xsd:string ;
+	sh:description "The regulations that apply to a class of data, written as FINOS writes them." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:regulations .
+_:c14n74 sh:datatype xsd:string ;
+	sh:description "The name FINOS gives the page, file or framework." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path schema1:name .
+_:c14n75 rdf:first "components" ;
+	rdf:rest _:c14n17 .
+_:c14n76 rdf:first "accuracy" ;
+	rdf:rest _:c14n174 .
+_:c14n77 sh:description "Which question a reference file answers for a page." ;
+	sh:in _:c14n239 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 0 ;
+	sh:path ai_governance_framework:lens .
+_:c14n78 rdf:first ai_governance_framework:category ;
+	rdf:rest _:c14n53 .
+_:c14n79 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/iso-42001.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:iso_42001_references .
+_:c14n8 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/sr11-7.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 21 ;
+	sh:path ai_governance_framework:sr11_7_references .
+_:c14n80 rdf:first ai_governance_framework:regulatory_concerns ;
+	rdf:rest _:c14n16 .
+_:c14n81 sh:datatype xsd:string ;
+	sh:description "Who published a paper or article." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path ai_governance_framework:source .
+_:c14n82 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/uk-regulations.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 22 ;
+	sh:path ai_governance_framework:uk_regulations_references .
+_:c14n83 sh:class ai_governance_framework:AigfRegulatoryReference ;
+	sh:description "The regulations a use case raises." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 8 ;
+	sh:path ai_governance_framework:regulatory_concerns .
+_:c14n84 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-sp-800-53r5.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 11 ;
+	sh:path ai_governance_framework:nist_sp_800_53r5_references .
+_:c14n85 sh:class ai_governance_framework:AigfMitigation ;
+	sh:description "The mitigations a page relates to." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 5 ;
+	sh:path ai_governance_framework:related_mitigations .
+_:c14n86 rdf:first "PREV" ;
+	rdf:rest _:c14n229 .
+_:c14n87 sh:description "Which question a reference file answers for a page." ;
+	sh:in _:c14n236 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 1 ;
+	sh:path ai_governance_framework:lens .
+_:c14n88 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n89 rdf:first ai_governance_framework:related_risks ;
+	rdf:rest _:c14n200 .
+_:c14n9 sh:datatype xsd:integer ;
+	sh:description "The number in the page's identifier, which orders the pages." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:minInclusive 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 24 ;
+	sh:path ai_governance_framework:sequence .
+_:c14n90 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/nist-sp-800-53r5.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 17 ;
+	sh:path ai_governance_framework:nist_sp_800_53r5_references .
+_:c14n91 rdf:first ai_governance_framework:ffiec_itbooklets_references ;
+	rdf:rest _:c14n113 .
+_:c14n92 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n93 sh:datatype xsd:string ;
+	sh:description "Keys of docs/_data/references/eu-ai-act.yml." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path ai_governance_framework:eu_ai_act_references .
+_:c14n94 rdf:first ai_governance_framework:canada_regulations_references ;
+	rdf:rest _:c14n78 .
+_:c14n95 sh:class ai_governance_framework:AigfMitigation ;
+	sh:description "The mitigations of the edition." ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 7 ;
+	sh:path ai_governance_framework:mitigations .
+_:c14n96 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n97 sh:datatype xsd:string ;
+	sh:description "What the use case is worth to the business." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path ai_governance_framework:business_value .
+_:c14n98 sh:datatype xsd:string ;
+	sh:description "The Bootstrap theme colour the site gives the lens." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path ai_governance_framework:color .
+_:c14n99 sh:datatype xsd:string ;
+	sh:description "The Jekyll layout that renders the page." ;
+	sh:in _:c14n209 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 19 ;
+	sh:path ai_governance_framework:layout .

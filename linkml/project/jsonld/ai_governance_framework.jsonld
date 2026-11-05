@@ -1,0 +1,2743 @@
+{
+  "name": "ai_governance_framework",
+  "annotations": [
+    {
+      "tag": "upstream_commit",
+      "value": "67b8c3257695d5ede09d262798bf28a0e58d4740"
+    },
+    {
+      "tag": "upstream_release_date",
+      "value": "2026-10-26"
+    },
+    {
+      "tag": "upstream_license",
+      "value": "CC-BY-4.0"
+    }
+  ],
+  "description": "A LinkML model of the FINOS AI Governance Framework: its risks, mitigations and use cases, the reference files they cite, and the data files beside them. Each class keeps FINOS's keys and values, so FINOS's files are the test data.",
+  "title": "FINOS AI Governance Framework",
+  "comments": [
+    "FINOS tags no v3 release, so the version is the one docs/_config.yml states and the source is the commit that merged it. scripts/check_upstream_release.py reports a new tag, or main changing a path this schema reads.",
+    "JSON Schema generation turns a hyphen in a slot name or an alias into an underscore, so doc-status cannot be a key of the generated schema, and a key named type would project as a false rdf:type. Each slot that differs from FINOS's key lists that key under aliases. scripts/build_catalogue.py renames by that list and adds item_id and source_file, which FINOS's file name states, and tests/test_upstream_tree.py shows that the renaming is one to one. A reference file needs no renaming."
+  ],
+  "source": "https://github.com/finos/ai-governance-framework/tree/67b8c3257695d5ede09d262798bf28a0e58d4740",
+  "see_also": [
+    "https://lmodel.github.io/ai-governance-framework",
+    "https://air-governance-framework.finos.org/",
+    "https://github.com/finos/ai-governance-framework"
+  ],
+  "keywords": [
+    "AI governance",
+    "AI risk",
+    "financial services",
+    "FINOS"
+  ],
+  "id": "https://w3id.org/lmodel/ai-governance-framework",
+  "version": "v3",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "Apache-2.0",
+  "prefixes": [
+    {
+      "prefix_prefix": "ai_governance_framework",
+      "prefix_reference": "https://w3id.org/lmodel/ai-governance-framework/"
+    },
+    {
+      "prefix_prefix": "airo",
+      "prefix_reference": "https://w3id.org/airo#"
+    },
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "nexus",
+      "prefix_reference": "https://w3id.org/ai-atlas-nexus/"
+    },
+    {
+      "prefix_prefix": "nist_ai_600_1",
+      "prefix_reference": "https://w3id.org/lmodel/nist-ai-600-1/"
+    },
+    {
+      "prefix_prefix": "nist_sp_800_53",
+      "prefix_reference": "https://w3id.org/lmodel/nist-sp-800-53/"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  ],
+  "default_prefix": "ai_governance_framework",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#time",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "curie",
+      "definition_uri": "https://w3id.org/linkml/Curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Curie",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "jsonpointer",
+      "definition_uri": "https://w3id.org/linkml/Jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "jsonpath",
+      "definition_uri": "https://w3id.org/linkml/Jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "sparqlpath",
+      "definition_uri": "https://w3id.org/linkml/Sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "AigfDocumentStatus",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDocumentStatus",
+      "description": "How far a page has been approved, from document_status in docs/_config.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "Pre-Draft",
+          "description": "Initial brainstorming or collection of ideas, notes, and outlines. The document is not yet formally written."
+        },
+        {
+          "text": "Draft",
+          "description": "The document is in the early stages of development, with content being written and structured but not yet polished."
+        },
+        {
+          "text": "Working-Group-Approved",
+          "description": "The document is in its final form and has been approved by the AIGF team."
+        },
+        {
+          "text": "Approved-Specification",
+          "description": "The publication of an Approved Specification in a publicly accessible manner."
+        }
+      ]
+    },
+    {
+      "name": "AigfRiskType",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfRiskType",
+      "description": "A risk's group, from risk_type_labels in docs/_config.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "RC",
+          "title": "Regulatory and Compliance"
+        },
+        {
+          "text": "OP",
+          "title": "Operational"
+        },
+        {
+          "text": "SEC",
+          "title": "Security"
+        }
+      ]
+    },
+    {
+      "name": "AigfMitigationType",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfMitigationType",
+      "description": "A mitigation's group, from mitigation_type_labels in docs/_config.yml.",
+      "comments": [
+        "templates-for-ri-md/mi-template.md also offers RESP, for Response, which docs/_config.yml does not list and no mitigation uses."
+      ],
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "PREV",
+          "title": "Preventative"
+        },
+        {
+          "text": "DET",
+          "title": "Detective"
+        }
+      ]
+    },
+    {
+      "name": "AigfRiskDomain",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfRiskDomain",
+      "description": "A risk's domain, from risk_domain_labels in docs/_config.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "components",
+          "title": "Components"
+        },
+        {
+          "text": "inputs",
+          "title": "Inputs"
+        },
+        {
+          "text": "leakage",
+          "title": "Leakage"
+        },
+        {
+          "text": "accuracy",
+          "title": "Accuracy"
+        },
+        {
+          "text": "alignment",
+          "title": "Alignment"
+        },
+        {
+          "text": "agency",
+          "title": "Agency"
+        },
+        {
+          "text": "vendor",
+          "title": "Vendor"
+        },
+        {
+          "text": "liability",
+          "title": "Liability"
+        }
+      ]
+    },
+    {
+      "name": "AigfMitigationDomain",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfMitigationDomain",
+      "description": "A mitigation's domain, from mitigation_domain_labels in docs/_config.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "sourcing",
+          "title": "Sourcing"
+        },
+        {
+          "text": "filtering",
+          "title": "Filtering"
+        },
+        {
+          "text": "data",
+          "title": "Data"
+        },
+        {
+          "text": "access",
+          "title": "Access"
+        },
+        {
+          "text": "evaluation",
+          "title": "Evaluation"
+        },
+        {
+          "text": "oversight",
+          "title": "Oversight"
+        },
+        {
+          "text": "monitoring",
+          "title": "Monitoring"
+        }
+      ]
+    },
+    {
+      "name": "AigfUseCaseCategory",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseCategory",
+      "description": "A use case's category, from usecase_categories in docs/_config.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "Customer_Experience_and_Engagement",
+          "title": "Customer Experience and Engagement"
+        },
+        {
+          "text": "Risk_Management_and_Compliance",
+          "title": "Risk Management and Compliance"
+        },
+        {
+          "text": "Operations_and_Process_Optimization",
+          "title": "Operations and Process Optimization"
+        },
+        {
+          "text": "Trading_and_Investment",
+          "title": "Trading and Investment"
+        },
+        {
+          "text": "Data_Intelligence_and_Analytics",
+          "title": "Data Intelligence and Analytics"
+        },
+        {
+          "text": "Fraud_Detection_and_Security",
+          "title": "Fraud Detection and Security"
+        },
+        {
+          "text": "Risk_and_Compliance",
+          "description": "A category uc-3 and uc-4 use. docs/_config.yml does not list it, though docs/_data/ai_use_cases.yml has a domain of this name.",
+          "title": "Risk and Compliance"
+        }
+      ]
+    },
+    {
+      "name": "AigfSensitivity",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfSensitivity",
+      "description": "How sensitive a class of data is, as docs/_data/data_classification.yml grades it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "Low"
+        },
+        {
+          "text": "Medium"
+        },
+        {
+          "text": "High"
+        },
+        {
+          "text": "Critical"
+        }
+      ]
+    },
+    {
+      "name": "AigfLens",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfLens",
+      "description": "The question a reference file answers, from docs/_data/references/README.md.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "threat",
+          "description": "What is this called elsewhere?"
+        },
+        {
+          "text": "obligation",
+          "description": "Which rule requires me to address it?"
+        },
+        {
+          "text": "control",
+          "description": "How do I implement and evidence it?"
+        }
+      ]
+    },
+    {
+      "name": "AigfDataHandling",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDataHandling",
+      "description": "The options of the deployment model's data_handling axis.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "permissible_values": [
+        {
+          "text": "Centralized"
+        },
+        {
+          "text": "Federated"
+        },
+        {
+          "text": "Synthetic_Data"
+        },
+        {
+          "text": "Privacy_Preserving"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "title",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/title",
+      "description": "The name FINOS gives the page, file or framework.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/name"
+      ],
+      "slot_uri": "http://schema.org/name",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfCatalogue",
+        "AigfItem",
+        "AigfReferenceFile",
+        "AigfReferenceEntry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/description",
+      "description": "FINOS's description of the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/description"
+      ],
+      "slot_uri": "http://schema.org/description",
+      "owner": "AigfDeploymentOption",
+      "domain_of": [
+        "AigfUseCase",
+        "AigfDataClassification",
+        "AigfReferenceFile",
+        "AigfReferenceEntry",
+        "AigfDeploymentOption"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "version",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/version",
+      "description": "The edition, as docs/_config.yml writes it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/version",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "release_date",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/release_date",
+      "description": "The edition's date, as docs/_config.yml writes it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "release-date"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/release_date",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_commit",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_commit",
+      "description": "The commit of FINOS's repository the catalogue was read from.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_commit",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reference_lenses",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_lenses",
+      "description": "The lenses docs/_config.yml configures.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_lenses",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfReferenceLens",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reference_indexes",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_indexes",
+      "description": "The keys of each reference file.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_indexes",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfReferenceIndex",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "risks",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/risks",
+      "description": "The risks of the edition.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/risks",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfRisk",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mitigations",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigations",
+      "description": "The mitigations of the edition.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigations",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfMitigation",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "use_cases",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/use_cases",
+      "description": "The worked use cases of the edition.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/use_cases",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfUseCase",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "financial_data_classification",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/financial_data_classification",
+      "description": "The classes of financial data docs/_data/data_classification.yml lists.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/financial_data_classification",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfDataClassification",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ai_use_cases",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/ai_use_cases",
+      "description": "The use case taxonomy docs/_data/ai_use_cases.yml lists.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "AI_use_cases"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/ai_use_cases",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfUseCaseDomain",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "cross_cutting_capabilities",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/cross_cutting_capabilities",
+      "description": "The capabilities docs/_data/ai_use_cases.yml lists apart from the taxonomy.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/cross_cutting_capabilities",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ai_deployment_model_taxonomy",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/ai_deployment_model_taxonomy",
+      "description": "The axes docs/_data/ai_deployment_model.yml lists.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/ai_deployment_model_taxonomy",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "range": "AigfDeploymentAxis",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "item_id",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "identifier": true,
+      "owner": "AigfItem",
+      "domain_of": [
+        "AigfItem"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequence",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/sequence",
+      "description": "The number in the page's identifier, which orders the pages.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/sequence",
+      "owner": "AigfItem",
+      "domain_of": [
+        "AigfItem"
+      ],
+      "range": "integer",
+      "required": true,
+      "minimum_value": 1,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "layout",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "description": "The Jekyll layout that renders the page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "owner": "AigfItem",
+      "domain_of": [
+        "AigfItem"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "doc_status",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/doc_status",
+      "description": "How far the page has been approved.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "doc-status"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/doc_status",
+      "owner": "AigfItem",
+      "domain_of": [
+        "AigfItem"
+      ],
+      "range": "AigfDocumentStatus",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_file",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "description": "The path of the page in FINOS's repository.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "owner": "AigfItem",
+      "domain_of": [
+        "AigfItem"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "risk_type",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/risk_type",
+      "description": "The group a risk appears in.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "type"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/risk_type",
+      "owner": "AigfRisk",
+      "domain_of": [
+        "AigfRisk"
+      ],
+      "range": "AigfRiskType",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "risk_domain",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/risk_domain",
+      "description": "The domain a risk belongs to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "domain"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/risk_domain",
+      "owner": "AigfRisk",
+      "domain_of": [
+        "AigfRisk"
+      ],
+      "range": "AigfRiskDomain",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mitigation_type",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigation_type",
+      "description": "The group a mitigation appears in.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "type"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigation_type",
+      "owner": "AigfMitigation",
+      "domain_of": [
+        "AigfMitigation"
+      ],
+      "range": "AigfMitigationType",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mitigation_domain",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigation_domain",
+      "description": "The domain a mitigation belongs to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "domain"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigation_domain",
+      "owner": "AigfMitigation",
+      "domain_of": [
+        "AigfMitigation"
+      ],
+      "range": "AigfMitigationDomain",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "related_risks",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/related_risks",
+      "description": "The risks a page relates to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/related_risks",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfRisk",
+        "AigfUseCase"
+      ],
+      "range": "AigfRisk",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "related_mitigations",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/related_mitigations",
+      "description": "The mitigations a page relates to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/related_mitigations",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfMitigation",
+        "AigfUseCase"
+      ],
+      "range": "AigfMitigation",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mitigates",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigates",
+      "description": "The risks a mitigation addresses.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigates",
+      "owner": "AigfMitigation",
+      "domain_of": [
+        "AigfMitigation"
+      ],
+      "range": "AigfRisk",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "category",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/category",
+      "description": "The category a use case is listed under.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/category",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "AigfUseCaseCategory",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "end_user",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/end_user",
+      "description": "Who uses the system the use case describes.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/end_user",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "business_value",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/business_value",
+      "description": "What the use case is worth to the business.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/business_value",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_classifications",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/data_classifications",
+      "description": "The data classifications a use case handles.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/data_classifications",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "AigfDataClassificationUse",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_types",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/data_types",
+      "description": "The kinds of data a use case holds under one classification.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/data_types",
+      "owner": "AigfDataClassificationUse",
+      "domain_of": [
+        "AigfDataClassificationUse"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_handling_aspects",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/data_handling_aspects",
+      "description": "The options of the deployment model's data_handling axis a use case takes.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/data_handling_aspects",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "AigfDataHandling",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "regulatory_concerns",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/regulatory_concerns",
+      "description": "The regulations a use case raises.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/regulatory_concerns",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "AigfRegulatoryReference",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "further_reading",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/further_reading",
+      "description": "The papers and articles a use case points to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/further_reading",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "range": "AigfFurtherReading",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "atr_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/atr_references",
+      "description": "Keys of docs/_data/references/atr.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/atr_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "canada_regulations_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/canada_regulations_references",
+      "description": "Keys of docs/_data/references/canada-regulations.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "canada-regulations_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/canada_regulations_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eu_ai_act_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/eu_ai_act_references",
+      "description": "Keys of docs/_data/references/eu-ai-act.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "eu-ai-act_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/eu_ai_act_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ffiec_itbooklets_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/ffiec_itbooklets_references",
+      "description": "Keys of docs/_data/references/ffiec-itbooklets.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "ffiec-itbooklets_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/ffiec_itbooklets_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "iosco_supervisory_toolkit_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/iosco_supervisory_toolkit_references",
+      "description": "Keys of docs/_data/references/iosco-supervisory-toolkit.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "iosco-supervisory-toolkit_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/iosco_supervisory_toolkit_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "iso_42001_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/iso_42001_references",
+      "description": "Keys of docs/_data/references/iso-42001.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "iso-42001_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/iso_42001_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nist_ai_600_1_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/nist_ai_600_1_references",
+      "description": "Keys of docs/_data/references/nist-ai-600-1.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "nist-ai-600-1_references"
+      ],
+      "related_mappings": [
+        "https://w3id.org/lmodel/nist-ai-600-1/GaiRisk"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/nist_ai_600_1_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nist_sp_800_53r5_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/nist_sp_800_53r5_references",
+      "description": "Keys of docs/_data/references/nist-sp-800-53r5.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "nist-sp-800-53r5_references"
+      ],
+      "related_mappings": [
+        "https://w3id.org/lmodel/nist-sp-800-53/Control"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/nist_sp_800_53r5_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "owasp_asi_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/owasp_asi_references",
+      "description": "Keys of docs/_data/references/owasp-asi.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "owasp-asi_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/owasp_asi_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "owasp_llm_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/owasp_llm_references",
+      "description": "Keys of docs/_data/references/owasp-llm.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "owasp-llm_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/owasp_llm_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "owasp_ml_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/owasp_ml_references",
+      "description": "Keys of docs/_data/references/owasp-ml.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "owasp-ml_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/owasp_ml_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sr11_7_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/sr11_7_references",
+      "description": "Keys of docs/_data/references/sr11-7.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "sr11-7_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/sr11_7_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "uk_regulations_references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/uk_regulations_references",
+      "description": "Keys of docs/_data/references/uk-regulations.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "uk-regulations_references"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/uk_regulations_references",
+      "owner": "AigfReferenceCitations",
+      "domain_of": [
+        "AigfReferenceCitations"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/name",
+      "description": "The name FINOS gives the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/name",
+      "owner": "AigfDeploymentOption",
+      "domain_of": [
+        "AigfDataClassificationUse",
+        "AigfRegulatoryReference",
+        "AigfFurtherReading",
+        "AigfDataClassification",
+        "AigfUseCaseDomain",
+        "AigfUseCaseArea",
+        "AigfDeploymentAxis",
+        "AigfDeploymentOption"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "url",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/url",
+      "description": "The address of the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/url",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfRegulatoryReference",
+        "AigfFurtherReading",
+        "AigfReferenceEntry"
+      ],
+      "range": "string",
+      "pattern": "^http",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "jurisdiction",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/jurisdiction",
+      "description": "Where a regulation applies.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/jurisdiction",
+      "owner": "AigfRegulatoryReference",
+      "domain_of": [
+        "AigfRegulatoryReference"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source",
+      "description": "Who published a paper or article.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source",
+      "owner": "AigfFurtherReading",
+      "domain_of": [
+        "AigfFurtherReading"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sensitivity",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/sensitivity",
+      "description": "How sensitive a class of data is.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/sensitivity",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "range": "AigfSensitivity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "examples",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/examples",
+      "description": "Kinds of data in a class.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/examples",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "storage_location",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/storage_location",
+      "description": "Where a class of data is held.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/storage_location",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "regulations",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/regulations",
+      "description": "The regulations that apply to a class of data, written as FINOS writes them.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/regulations",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "references",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/references",
+      "description": "The regulations and guidelines a class of data cites.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/references",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "range": "AigfRegulatoryReference",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "lens",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "description": "Which question a reference file answers for a page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "owner": "AigfReferenceIndex",
+      "domain_of": [
+        "AigfReferenceLens",
+        "AigfReferenceFile",
+        "AigfReferenceIndex"
+      ],
+      "range": "AigfLens",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "label",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/label",
+      "description": "The lens's display name.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/label",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "question",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/question",
+      "description": "The question the lens answers.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/question",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "icon",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/icon",
+      "description": "The Bootstrap Icons class the site shows beside the lens.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/icon",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "color",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/color",
+      "description": "The Bootstrap theme colour the site gives the lens.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/color",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_url",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_url",
+      "description": "The address the file was generated from, or a canonical index page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_url",
+      "owner": "AigfReferenceFile",
+      "domain_of": [
+        "AigfReferenceFile"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "entries",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/entries",
+      "description": "The file's citable items, keyed by the key a page cites them by.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/entries",
+      "owner": "AigfReferenceFile",
+      "domain_of": [
+        "AigfReferenceFile"
+      ],
+      "range": "AigfReferenceEntry",
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "entry_key",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/entry_key",
+      "description": "The stable key a page cites the entry by.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/entry_key",
+      "key": true,
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfReferenceEntry"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "issuer",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/issuer",
+      "description": "The body that issued the entry.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/issuer",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfReferenceEntry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "booklet_abbrev",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/booklet_abbrev",
+      "description": "The abbreviation of the FFIEC booklet the entry belongs to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/booklet_abbrev",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfReferenceEntry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "superseded_by",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/superseded_by",
+      "description": "The key of the entry in the same file that replaces this one in a newer edition.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/superseded_by",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfReferenceEntry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reference_name",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_name",
+      "description": "The reference file's stem.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/reference_name",
+      "owner": "AigfReferenceIndex",
+      "domain_of": [
+        "AigfReferenceIndex"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "entry_keys",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/entry_keys",
+      "description": "The keys the reference file holds.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/entry_keys",
+      "owner": "AigfReferenceIndex",
+      "domain_of": [
+        "AigfReferenceIndex"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "use_case_areas",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/use_case_areas",
+      "description": "The areas under a domain.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/use_case_areas",
+      "owner": "AigfUseCaseDomain",
+      "domain_of": [
+        "AigfUseCaseDomain"
+      ],
+      "range": "AigfUseCaseArea",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "use_case_names",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/use_case_names",
+      "description": "The use cases under an area, as the taxonomy names them.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/use_case_names",
+      "owner": "AigfUseCaseArea",
+      "domain_of": [
+        "AigfUseCaseArea"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "options",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/options",
+      "description": "The options on an axis.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/options",
+      "owner": "AigfDeploymentAxis",
+      "domain_of": [
+        "AigfDeploymentAxis"
+      ],
+      "range": "AigfDeploymentOption",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfCatalogue_title",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/title",
+      "description": "The name FINOS gives the page, file or framework.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/name"
+      ],
+      "is_a": "title",
+      "domain": "AigfCatalogue",
+      "slot_uri": "http://schema.org/name",
+      "alias": "title",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfCatalogue_version",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/version",
+      "description": "The edition, as docs/_config.yml writes it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "version",
+      "domain": "AigfCatalogue",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/version",
+      "alias": "version",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "version",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfCatalogue_release_date",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/release_date",
+      "description": "The edition's date, as docs/_config.yml writes it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "aliases": [
+        "release-date"
+      ],
+      "is_a": "release_date",
+      "domain": "AigfCatalogue",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/release_date",
+      "alias": "release_date",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "release_date",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfCatalogue_source_commit",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_commit",
+      "description": "The commit of FINOS's repository the catalogue was read from.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "source_commit",
+      "domain": "AigfCatalogue",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_commit",
+      "alias": "source_commit",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source_commit",
+      "range": "string",
+      "required": true,
+      "pattern": "^[0-9a-f]{40}$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfCatalogue_risks",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/risks",
+      "description": "The risks of the edition.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "risks",
+      "domain": "AigfCatalogue",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/risks",
+      "alias": "risks",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "risks",
+      "range": "AigfRisk",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfCatalogue_mitigations",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigations",
+      "description": "The mitigations of the edition.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "mitigations",
+      "domain": "AigfCatalogue",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/mitigations",
+      "alias": "mitigations",
+      "owner": "AigfCatalogue",
+      "domain_of": [
+        "AigfCatalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "mitigations",
+      "range": "AigfMitigation",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfItem_title",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/title",
+      "description": "The name FINOS gives the page, file or framework.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/name"
+      ],
+      "is_a": "title",
+      "domain": "AigfItem",
+      "slot_uri": "http://schema.org/name",
+      "alias": "title",
+      "owner": "AigfItem",
+      "domain_of": [
+        "AigfItem"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfRisk_item_id",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "item_id",
+      "domain": "AigfRisk",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "identifier": true,
+      "alias": "item_id",
+      "owner": "AigfRisk",
+      "domain_of": [
+        "AigfRisk"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "item_id",
+      "range": "string",
+      "required": true,
+      "pattern": "^ri-[1-9][0-9]*$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfRisk_layout",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "description": "The Jekyll layout that renders the page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "layout",
+      "domain": "AigfRisk",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "alias": "layout",
+      "owner": "AigfRisk",
+      "domain_of": [
+        "AigfRisk"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "layout",
+      "range": "string",
+      "required": true,
+      "equals_string": "risk",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfRisk_source_file",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "description": "The path of the page in FINOS's repository.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "source_file",
+      "domain": "AigfRisk",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "alias": "source_file",
+      "owner": "AigfRisk",
+      "domain_of": [
+        "AigfRisk"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source_file",
+      "range": "string",
+      "required": true,
+      "pattern": "^docs/_risks/ri-[1-9][0-9]*_[a-z0-9-]+[.]md$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfMitigation_item_id",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "item_id",
+      "domain": "AigfMitigation",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "identifier": true,
+      "alias": "item_id",
+      "owner": "AigfMitigation",
+      "domain_of": [
+        "AigfMitigation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "item_id",
+      "range": "string",
+      "required": true,
+      "pattern": "^mi-[1-9][0-9]*$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfMitigation_layout",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "description": "The Jekyll layout that renders the page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "layout",
+      "domain": "AigfMitigation",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "alias": "layout",
+      "owner": "AigfMitigation",
+      "domain_of": [
+        "AigfMitigation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "layout",
+      "range": "string",
+      "required": true,
+      "equals_string": "mitigation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfMitigation_source_file",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "description": "The path of the page in FINOS's repository.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "source_file",
+      "domain": "AigfMitigation",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "alias": "source_file",
+      "owner": "AigfMitigation",
+      "domain_of": [
+        "AigfMitigation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source_file",
+      "range": "string",
+      "required": true,
+      "pattern": "^docs/_mitigations/mi-[1-9][0-9]*_[a-z0-9-]+[.]md$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfUseCase_item_id",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "description": "The page's identifier, which FINOS's file name starts with and other pages cite.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "item_id",
+      "domain": "AigfUseCase",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/item_id",
+      "identifier": true,
+      "alias": "item_id",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "item_id",
+      "range": "string",
+      "required": true,
+      "pattern": "^uc-[1-9][0-9]*$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfUseCase_layout",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "description": "The Jekyll layout that renders the page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "layout",
+      "domain": "AigfUseCase",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/layout",
+      "alias": "layout",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "layout",
+      "range": "string",
+      "required": true,
+      "equals_string": "usecase",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfUseCase_source_file",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "description": "The path of the page in FINOS's repository.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "source_file",
+      "domain": "AigfUseCase",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/source_file",
+      "alias": "source_file",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source_file",
+      "range": "string",
+      "required": true,
+      "pattern": "^docs/_usecases/uc-[1-9][0-9]*_[a-z0-9-]+[.]md$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfUseCase_description",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/description",
+      "description": "FINOS's description of the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/description"
+      ],
+      "is_a": "description",
+      "domain": "AigfUseCase",
+      "slot_uri": "http://schema.org/description",
+      "alias": "description",
+      "owner": "AigfUseCase",
+      "domain_of": [
+        "AigfUseCase"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfDataClassificationUse_name",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/name",
+      "description": "The name of a classification in docs/_data/data_classification.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "name",
+      "domain": "AigfDataClassificationUse",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/name",
+      "alias": "name",
+      "owner": "AigfDataClassificationUse",
+      "domain_of": [
+        "AigfDataClassificationUse"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfDataClassification_sensitivity",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/sensitivity",
+      "description": "How sensitive a class of data is.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "sensitivity",
+      "domain": "AigfDataClassification",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/sensitivity",
+      "alias": "sensitivity",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sensitivity",
+      "range": "AigfSensitivity",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfDataClassification_description",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/description",
+      "description": "FINOS's description of the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/description"
+      ],
+      "is_a": "description",
+      "domain": "AigfDataClassification",
+      "slot_uri": "http://schema.org/description",
+      "alias": "description",
+      "owner": "AigfDataClassification",
+      "domain_of": [
+        "AigfDataClassification"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceLens_lens",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "description": "Which question a reference file answers for a page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "lens",
+      "domain": "AigfReferenceLens",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "alias": "lens",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "lens",
+      "range": "AigfLens",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceLens_label",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/label",
+      "description": "The lens's display name.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "label",
+      "domain": "AigfReferenceLens",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/label",
+      "alias": "label",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "label",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceLens_question",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/question",
+      "description": "The question the lens answers.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "question",
+      "domain": "AigfReferenceLens",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/question",
+      "alias": "question",
+      "owner": "AigfReferenceLens",
+      "domain_of": [
+        "AigfReferenceLens"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "question",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceFile_title",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/title",
+      "description": "The name FINOS gives the page, file or framework.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/name"
+      ],
+      "is_a": "title",
+      "domain": "AigfReferenceFile",
+      "slot_uri": "http://schema.org/name",
+      "alias": "title",
+      "owner": "AigfReferenceFile",
+      "domain_of": [
+        "AigfReferenceFile"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceFile_description",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/description",
+      "description": "FINOS's description of the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/description"
+      ],
+      "is_a": "description",
+      "domain": "AigfReferenceFile",
+      "slot_uri": "http://schema.org/description",
+      "alias": "description",
+      "owner": "AigfReferenceFile",
+      "domain_of": [
+        "AigfReferenceFile"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceFile_lens",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "description": "Which question a reference file answers for a page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "lens",
+      "domain": "AigfReferenceFile",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "alias": "lens",
+      "owner": "AigfReferenceFile",
+      "domain_of": [
+        "AigfReferenceFile"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "lens",
+      "range": "AigfLens",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceFile_entries",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/entries",
+      "description": "The file's citable items, keyed by the key a page cites them by.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "entries",
+      "domain": "AigfReferenceFile",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/entries",
+      "alias": "entries",
+      "owner": "AigfReferenceFile",
+      "domain_of": [
+        "AigfReferenceFile"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "entries",
+      "range": "AigfReferenceEntry",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceEntry_title",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/title",
+      "description": "The name FINOS gives the page, file or framework.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mappings": [
+        "http://schema.org/name"
+      ],
+      "is_a": "title",
+      "domain": "AigfReferenceEntry",
+      "slot_uri": "http://schema.org/name",
+      "alias": "title",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfReferenceEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceEntry_url",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/url",
+      "description": "The address of the element.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "url",
+      "domain": "AigfReferenceEntry",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/url",
+      "alias": "url",
+      "owner": "AigfReferenceEntry",
+      "domain_of": [
+        "AigfReferenceEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "url",
+      "range": "string",
+      "required": true,
+      "pattern": "^http",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AigfReferenceIndex_lens",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "description": "Which question a reference file answers for a page.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "lens",
+      "domain": "AigfReferenceIndex",
+      "slot_uri": "https://w3id.org/lmodel/ai-governance-framework/lens",
+      "alias": "lens",
+      "owner": "AigfReferenceIndex",
+      "domain_of": [
+        "AigfReferenceIndex"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "lens",
+      "range": "AigfLens",
+      "required": true,
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "AigfCatalogue",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfCatalogue",
+      "description": "One edition of the framework, as the facts FINOS's front matter and data files state.",
+      "comments": [
+        "The bodies of the risk, mitigation and use case pages stay in FINOS's files, which source_file names. The catalogue names each reference file's entries by key and leaves their titles there."
+      ],
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "AigfCatalogue_title",
+        "AigfCatalogue_version",
+        "AigfCatalogue_release_date",
+        "AigfCatalogue_source_commit",
+        "reference_lenses",
+        "reference_indexes",
+        "AigfCatalogue_risks",
+        "AigfCatalogue_mitigations",
+        "use_cases",
+        "financial_data_classification",
+        "ai_use_cases",
+        "cross_cutting_capabilities",
+        "ai_deployment_model_taxonomy"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfCatalogue",
+      "tree_root": true,
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfItem",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfItem",
+      "description": "A page of the framework that its front matter describes and that others cite by identifier.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "abstract": true,
+      "slots": [
+        "item_id",
+        "sequence",
+        "AigfItem_title",
+        "layout",
+        "doc_status",
+        "source_file"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfItem",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfReferenceCitations",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceCitations",
+      "description": "The entries of FINOS's reference files that a page cites, one list for each file.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "mixin": true,
+      "slots": [
+        "atr_references",
+        "canada_regulations_references",
+        "eu_ai_act_references",
+        "ffiec_itbooklets_references",
+        "iosco_supervisory_toolkit_references",
+        "iso_42001_references",
+        "nist_ai_600_1_references",
+        "nist_sp_800_53r5_references",
+        "owasp_asi_references",
+        "owasp_llm_references",
+        "owasp_ml_references",
+        "sr11_7_references",
+        "uk_regulations_references"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceCitations",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfRisk",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfRisk",
+      "description": "A risk the framework names, from a file under docs/_risks/.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "close_mappings": [
+        "airo:Risk"
+      ],
+      "is_a": "AigfItem",
+      "mixins": [
+        "AigfReferenceCitations"
+      ],
+      "slots": [
+        "sequence",
+        "AigfItem_title",
+        "doc_status",
+        "risk_type",
+        "risk_domain",
+        "related_risks",
+        "AigfRisk_item_id",
+        "AigfRisk_layout",
+        "AigfRisk_source_file",
+        "atr_references",
+        "canada_regulations_references",
+        "eu_ai_act_references",
+        "ffiec_itbooklets_references",
+        "iosco_supervisory_toolkit_references",
+        "iso_42001_references",
+        "nist_ai_600_1_references",
+        "nist_sp_800_53r5_references",
+        "owasp_asi_references",
+        "owasp_llm_references",
+        "owasp_ml_references",
+        "sr11_7_references",
+        "uk_regulations_references"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfRisk",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfMitigation",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfMitigation",
+      "description": "A mitigation the framework names, from a file under docs/_mitigations/.",
+      "comments": [
+        "CONVENTIONS.md makes the link one way: a mitigation lists the risks it mitigates, and a risk does not list its mitigations."
+      ],
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "close_mappings": [
+        "airo:RiskControl"
+      ],
+      "related_mappings": [
+        "nexus:Action"
+      ],
+      "is_a": "AigfItem",
+      "mixins": [
+        "AigfReferenceCitations"
+      ],
+      "slots": [
+        "sequence",
+        "AigfItem_title",
+        "doc_status",
+        "mitigation_type",
+        "mitigation_domain",
+        "mitigates",
+        "related_mitigations",
+        "AigfMitigation_item_id",
+        "AigfMitigation_layout",
+        "AigfMitigation_source_file",
+        "atr_references",
+        "canada_regulations_references",
+        "eu_ai_act_references",
+        "ffiec_itbooklets_references",
+        "iosco_supervisory_toolkit_references",
+        "iso_42001_references",
+        "nist_ai_600_1_references",
+        "nist_sp_800_53r5_references",
+        "owasp_asi_references",
+        "owasp_llm_references",
+        "owasp_ml_references",
+        "sr11_7_references",
+        "uk_regulations_references"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfMitigation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfUseCase",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCase",
+      "description": "A worked use case with its risks, mitigations and data, from a file under docs/_usecases/.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "is_a": "AigfItem",
+      "mixins": [
+        "AigfReferenceCitations"
+      ],
+      "slots": [
+        "sequence",
+        "AigfItem_title",
+        "doc_status",
+        "category",
+        "AigfUseCase_description",
+        "end_user",
+        "business_value",
+        "related_risks",
+        "related_mitigations",
+        "data_classifications",
+        "data_handling_aspects",
+        "regulatory_concerns",
+        "further_reading",
+        "AigfUseCase_item_id",
+        "AigfUseCase_layout",
+        "AigfUseCase_source_file",
+        "atr_references",
+        "canada_regulations_references",
+        "eu_ai_act_references",
+        "ffiec_itbooklets_references",
+        "iosco_supervisory_toolkit_references",
+        "iso_42001_references",
+        "nist_ai_600_1_references",
+        "nist_sp_800_53r5_references",
+        "owasp_asi_references",
+        "owasp_llm_references",
+        "owasp_ml_references",
+        "sr11_7_references",
+        "uk_regulations_references"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCase",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfDataClassificationUse",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDataClassificationUse",
+      "description": "A data classification a use case handles, with the kinds of data it holds under it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "AigfDataClassificationUse_name",
+        "data_types"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDataClassificationUse",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfRegulatoryReference",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfRegulatoryReference",
+      "description": "A regulation or guideline named by its title and address, with where it applies.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "url",
+        "jurisdiction"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfRegulatoryReference",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfFurtherReading",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfFurtherReading",
+      "description": "A paper or article a use case points to.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "url",
+        "source"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfFurtherReading",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfDataClassification",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDataClassification",
+      "description": "A class of financial data with its sensitivity and its handling, from docs/_data/data_classification.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "AigfDataClassification_sensitivity",
+        "AigfDataClassification_description",
+        "examples",
+        "storage_location",
+        "regulations",
+        "references"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDataClassification",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfReferenceLens",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceLens",
+      "description": "How the site presents the reference files of one lens, from reference_lenses in docs/_config.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "AigfReferenceLens_lens",
+        "AigfReferenceLens_label",
+        "AigfReferenceLens_question",
+        "icon",
+        "color"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceLens",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfReferenceFile",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceFile",
+      "description": "One file under docs/_data/references/, which lists the citable entries of one regulation, framework or standard.",
+      "comments": [
+        "These rules are the ones scripts/validate-references.py states, except that superseded_by resolving within the file and entries not being empty are held by tests/test_upstream_tree.py. No generator writes either."
+      ],
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "AigfReferenceFile_title",
+        "AigfReferenceFile_description",
+        "source_url",
+        "AigfReferenceFile_lens",
+        "AigfReferenceFile_entries"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceFile",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfReferenceEntry",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceEntry",
+      "description": "One citable item of a reference file, under the key a page cites it by.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "entry_key",
+        "AigfReferenceEntry_title",
+        "AigfReferenceEntry_url",
+        "description",
+        "issuer",
+        "booklet_abbrev",
+        "superseded_by"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceEntry",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfReferenceIndex",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceIndex",
+      "description": "The keys one reference file holds, so that a catalogue's citations resolve within it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "reference_name",
+        "AigfReferenceIndex_lens",
+        "entry_keys"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfReferenceIndex",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfUseCaseDomain",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseDomain",
+      "description": "A top level of the use case taxonomy in docs/_data/ai_use_cases.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "use_case_areas"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseDomain",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfUseCaseArea",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseArea",
+      "description": "A second level of the use case taxonomy, with the use cases under it.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "use_case_names"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfUseCaseArea",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfDeploymentAxis",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDeploymentAxis",
+      "description": "One axis of the deployment model taxonomy in docs/_data/ai_deployment_model.yml.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "options"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDeploymentAxis",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AigfDeploymentOption",
+      "definition_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDeploymentOption",
+      "description": "One option on an axis of the deployment model taxonomy.",
+      "from_schema": "https://w3id.org/lmodel/ai-governance-framework",
+      "slots": [
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/ai-governance-framework/AigfDeploymentOption",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.12.0",
+  "source_file": "ai_governance_framework.yaml",
+  "source_file_date": "2026-11-05T13:57:21",
+  "source_file_size": 22167,
+  "@type": "SchemaDefinition",
+  "@context": [
+    "project/jsonld/ai_governance_framework.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/lmodel/ai-governance-framework/"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+   "ai_governance_framework": "https://w3id.org/lmodel/ai-governance-framework/",
+   "airo": "https://w3id.org/airo#",
+   "linkml": "https://w3id.org/linkml/",
+   "nexus": "https://w3id.org/ai-atlas-nexus/",
+   "nist_ai_600_1": "https://w3id.org/lmodel/nist-ai-600-1/",
+   "nist_sp_800_53": "https://w3id.org/lmodel/nist-sp-800-53/",
+   "schema": "http://schema.org/"
+}

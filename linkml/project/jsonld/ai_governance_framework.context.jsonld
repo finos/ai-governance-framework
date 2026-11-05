@@ -1,0 +1,347 @@
+{
+   "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "ai_governance_framework": "https://w3id.org/lmodel/ai-governance-framework/",
+      "airo": "https://w3id.org/airo#",
+      "linkml": "https://w3id.org/linkml/",
+      "nexus": "https://w3id.org/ai-atlas-nexus/",
+      "nist_ai_600_1": "https://w3id.org/lmodel/nist-ai-600-1/",
+      "nist_sp_800_53": "https://w3id.org/lmodel/nist-sp-800-53/",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "@vocab": "https://w3id.org/lmodel/ai-governance-framework/",
+      "ai_deployment_model_taxonomy": {
+         "@type": "@id",
+         "@id": "ai_deployment_model_taxonomy"
+      },
+      "ai_use_cases": {
+         "@type": "@id",
+         "@id": "ai_use_cases"
+      },
+      "item_id": "@id",
+      "atr_references": {
+         "@id": "atr_references"
+      },
+      "booklet_abbrev": {
+         "@id": "booklet_abbrev"
+      },
+      "business_value": {
+         "@id": "business_value"
+      },
+      "canada_regulations_references": {
+         "@id": "canada_regulations_references"
+      },
+      "category": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "category"
+      },
+      "color": {
+         "@id": "color"
+      },
+      "cross_cutting_capabilities": {
+         "@id": "cross_cutting_capabilities"
+      },
+      "data_classifications": {
+         "@type": "@id",
+         "@id": "data_classifications"
+      },
+      "data_handling_aspects": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "data_handling_aspects"
+      },
+      "data_types": {
+         "@id": "data_types"
+      },
+      "description": {
+         "@id": "schema:description"
+      },
+      "doc_status": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "doc_status"
+      },
+      "end_user": {
+         "@id": "end_user"
+      },
+      "entries": {
+         "@type": "@id",
+         "@id": "entries"
+      },
+      "entry_key": {
+         "@id": "entry_key"
+      },
+      "entry_keys": {
+         "@id": "entry_keys"
+      },
+      "eu_ai_act_references": {
+         "@id": "eu_ai_act_references"
+      },
+      "examples": {
+         "@id": "examples"
+      },
+      "ffiec_itbooklets_references": {
+         "@id": "ffiec_itbooklets_references"
+      },
+      "financial_data_classification": {
+         "@type": "@id",
+         "@id": "financial_data_classification"
+      },
+      "further_reading": {
+         "@type": "@id",
+         "@id": "further_reading"
+      },
+      "icon": {
+         "@id": "icon"
+      },
+      "iosco_supervisory_toolkit_references": {
+         "@id": "iosco_supervisory_toolkit_references"
+      },
+      "iso_42001_references": {
+         "@id": "iso_42001_references"
+      },
+      "issuer": {
+         "@id": "issuer"
+      },
+      "jurisdiction": {
+         "@id": "jurisdiction"
+      },
+      "label": {
+         "@id": "label"
+      },
+      "layout": {
+         "@id": "layout"
+      },
+      "lens": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "lens"
+      },
+      "mitigates": {
+         "@type": "@id",
+         "@id": "mitigates"
+      },
+      "mitigation_domain": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "mitigation_domain"
+      },
+      "mitigation_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "mitigation_type"
+      },
+      "mitigations": {
+         "@type": "@id",
+         "@id": "mitigations"
+      },
+      "name": {
+         "@id": "name"
+      },
+      "nist_ai_600_1_references": {
+         "@id": "nist_ai_600_1_references"
+      },
+      "nist_sp_800_53r5_references": {
+         "@id": "nist_sp_800_53r5_references"
+      },
+      "options": {
+         "@type": "@id",
+         "@id": "options"
+      },
+      "owasp_asi_references": {
+         "@id": "owasp_asi_references"
+      },
+      "owasp_llm_references": {
+         "@id": "owasp_llm_references"
+      },
+      "owasp_ml_references": {
+         "@id": "owasp_ml_references"
+      },
+      "question": {
+         "@id": "question"
+      },
+      "reference_indexes": {
+         "@type": "@id",
+         "@id": "reference_indexes"
+      },
+      "reference_lenses": {
+         "@type": "@id",
+         "@id": "reference_lenses"
+      },
+      "reference_name": {
+         "@id": "reference_name"
+      },
+      "references": {
+         "@type": "@id",
+         "@id": "references"
+      },
+      "regulations": {
+         "@id": "regulations"
+      },
+      "regulatory_concerns": {
+         "@type": "@id",
+         "@id": "regulatory_concerns"
+      },
+      "related_mitigations": {
+         "@type": "@id",
+         "@id": "related_mitigations"
+      },
+      "related_risks": {
+         "@type": "@id",
+         "@id": "related_risks"
+      },
+      "release_date": {
+         "@type": "xsd:date",
+         "@id": "release_date"
+      },
+      "risk_domain": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "risk_domain"
+      },
+      "risk_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "risk_type"
+      },
+      "risks": {
+         "@type": "@id",
+         "@id": "risks"
+      },
+      "sensitivity": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "sensitivity"
+      },
+      "sequence": {
+         "@type": "xsd:integer",
+         "@id": "sequence"
+      },
+      "source": {
+         "@id": "source"
+      },
+      "source_commit": {
+         "@id": "source_commit"
+      },
+      "source_file": {
+         "@id": "source_file"
+      },
+      "source_url": {
+         "@id": "source_url"
+      },
+      "sr11_7_references": {
+         "@id": "sr11_7_references"
+      },
+      "storage_location": {
+         "@id": "storage_location"
+      },
+      "superseded_by": {
+         "@id": "superseded_by"
+      },
+      "title": {
+         "@id": "schema:name"
+      },
+      "uk_regulations_references": {
+         "@id": "uk_regulations_references"
+      },
+      "url": {
+         "@id": "url"
+      },
+      "use_case_areas": {
+         "@type": "@id",
+         "@id": "use_case_areas"
+      },
+      "use_case_names": {
+         "@id": "use_case_names"
+      },
+      "use_cases": {
+         "@type": "@id",
+         "@id": "use_cases"
+      },
+      "version": {
+         "@id": "version"
+      },
+      "AigfCatalogue": {
+         "@id": "AigfCatalogue"
+      },
+      "AigfDataClassification": {
+         "@id": "AigfDataClassification"
+      },
+      "AigfDataClassificationUse": {
+         "@id": "AigfDataClassificationUse"
+      },
+      "AigfDeploymentAxis": {
+         "@id": "AigfDeploymentAxis"
+      },
+      "AigfDeploymentOption": {
+         "@id": "AigfDeploymentOption"
+      },
+      "AigfFurtherReading": {
+         "@id": "AigfFurtherReading"
+      },
+      "AigfItem": {
+         "@id": "AigfItem"
+      },
+      "AigfMitigation": {
+         "@id": "AigfMitigation"
+      },
+      "AigfReferenceCitations": {
+         "@id": "AigfReferenceCitations"
+      },
+      "AigfReferenceEntry": {
+         "@id": "AigfReferenceEntry"
+      },
+      "AigfReferenceFile": {
+         "@id": "AigfReferenceFile"
+      },
+      "AigfReferenceIndex": {
+         "@id": "AigfReferenceIndex"
+      },
+      "AigfReferenceLens": {
+         "@id": "AigfReferenceLens"
+      },
+      "AigfRegulatoryReference": {
+         "@id": "AigfRegulatoryReference"
+      },
+      "AigfRisk": {
+         "@id": "AigfRisk"
+      },
+      "AigfUseCase": {
+         "@id": "AigfUseCase"
+      },
+      "AigfUseCaseArea": {
+         "@id": "AigfUseCaseArea"
+      },
+      "AigfUseCaseDomain": {
+         "@id": "AigfUseCaseDomain"
+      }
+   }
+}
