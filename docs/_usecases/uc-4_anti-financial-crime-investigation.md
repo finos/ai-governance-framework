@@ -3,7 +3,7 @@ sequence: 4
 title: "Anti-Financial Crime Investigation"
 layout: usecase
 doc-status: Draft
-category: Risk_and_Compliance
+category: Risk_Management_and_Compliance
 
 description: "A GenAI assistant that supports L2 anti-financial-crime investigators across the AML investigation workflow, from alert triage and case enrichment through disposition to drafting the STR/SAR for MLRO/BSA officer review and filing."
 end_user: "L2 AML investigator, financial crime analyst, MLRO/BSA officer"
