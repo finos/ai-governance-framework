@@ -7,7 +7,7 @@ Dependencies:
     pip install PyYAML
 
 For each file in the '_mitigations' and '_risks' directories, the script:
-1. Reads the external risk titles from YAML files in docs/_data/
+1. Reads the external reference titles from YAML files in docs/_data/references/
 2. Reads the risk titles from files in the '_risks' directory
 3. Reads the mitigation titles from files in the '_mitigations' directory
 4. Creates mappings of IDs to their titles
@@ -20,7 +20,7 @@ Mitigation files (mi-*.md):
 
 Risk files (ri-*.md):
 - Updates 'related_risks' section with risk titles
-- Updates reference sections (eu-ai-act_references, ffiec-itbooklets_references, ffiec-itbooklets_v2_references, iso-42001_references, nist-ai-600-1_references, nist-sp-800-53r5_references, owasp-llm_references, owasp-ml_references) with reference titles from docs/_data/*.yml
+- Updates reference sections (atr_references, canada-regulations_references, eu-ai-act_references, ffiec-itbooklets_references, iosco-supervisory-toolkit_references, iso-42001_references, nist-ai-600-1_references, nist-sp-800-53r5_references, owasp-asi_references, owasp-llm_references, owasp-ml_references, sr11-7_references, uk-regulations_references) with reference titles from docs/_data/references/*.yml
 
 Example:
     Original YAML:
@@ -48,17 +48,21 @@ import yaml
 # Base directory for all relative paths
 SCRIPT_DIR = Path(__file__).parent
 
-# Reference types that correspond to YAML files in docs/_data/
+# Reference types that correspond to YAML files in docs/_data/references/
 REFERENCE_TYPES = [
+    'atr',
+    'canada-regulations',
     'eu-ai-act',
     'ffiec-itbooklets',
-    'ffiec-itbooklets_v2',
     'iosco-supervisory-toolkit',
     'iso-42001',
     'nist-ai-600-1',
     'nist-sp-800-53r5',
+    'owasp-asi',
     'owasp-llm',
-    'owasp-ml'
+    'owasp-ml',
+    'sr11-7',
+    'uk-regulations',
 ]
 
 def read_yaml_header(file_path):
@@ -79,9 +83,9 @@ def read_yaml_header(file_path):
     return None
 
 def get_reference_titles():
-    """Create mappings of reference IDs to their titles from YAML files in docs/_data."""
+    """Create mappings of reference IDs to their titles from YAML files in docs/_data/references."""
     reference_mappings = {}
-    data_dir = SCRIPT_DIR / '..' / 'docs' / '_data'
+    data_dir = SCRIPT_DIR / '..' / 'docs' / '_data' / 'references'
     
     for reference_type in REFERENCE_TYPES:
         yaml_file = data_dir / f'{reference_type}.yml'
@@ -93,8 +97,9 @@ def get_reference_titles():
                 with open(yaml_file, 'r', encoding='utf-8') as f:
                     data = yaml.safe_load(f)
                     
-                if data:
-                    for ref_id, ref_info in data.items():
+                entries = data.get('entries', data) if isinstance(data, dict) else None
+                if isinstance(entries, dict):
+                    for ref_id, ref_info in entries.items():
                         if isinstance(ref_info, dict) and 'title' in ref_info:
                             reference_mappings[ref_type][ref_id] = ref_info['title']
             except Exception as e:

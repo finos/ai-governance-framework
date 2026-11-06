@@ -28,7 +28,7 @@ FEATURES:
 OUTPUT FILES:
     - _refs-markdown/eu-ai-act/eu-ai-act-toc.md: Markdown table of contents
     - _refs-markdown/eu-ai-act/eu-ai-act-toc.html: Cached HTML source
-    - docs/_data/eu-ai-act.yml: YAML data for Jekyll integration
+    - docs/_data/references/eu-ai-act.yml: YAML data for Jekyll integration
 
 YAML FORMAT:
     The generated YAML uses hierarchical notation in titles:
@@ -86,7 +86,7 @@ YAML_KEY_PREFIX = ""  # Prefix for all YAML keys
 
 # Path constants
 EU_AI_ACT_DIR = SCRIPT_DIR / ".." / "_refs-markdown" / "eu-ai-act"
-DATA_DIR = SCRIPT_DIR / ".." / "docs" / "_data"
+DATA_DIR = SCRIPT_DIR / ".." / "docs" / "_data" / "references"
 OUTPUT_FILE = EU_AI_ACT_DIR / OUTPUT_FILENAME
 HTML_FILE = EU_AI_ACT_DIR / HTML_FILENAME
 YAML_FILE = DATA_DIR / YAML_FILENAME
@@ -469,17 +469,24 @@ def main():
         
         # Generate and write YAML
         print("Generating YAML file...")
-        yaml_data = create_flattened_yaml_data(chapters, annexes, recitals)
+        yaml_entries = create_flattened_yaml_data(chapters, annexes, recitals)
+        yaml_document = {
+            'title': 'EU AI Act',
+            'description': 'Regulation (EU) 2024/1689 establishing harmonised rules on artificial intelligence across the European Union.',
+            'source_url': BASE_URL,
+            'lens': 'obligation',
+            'entries': yaml_entries,
+        }
         
         yaml_content = f"# EU AI Act\n# Generated from {BASE_URL}\n\n"
-        yaml_content += yaml.dump(yaml_data, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        yaml_content += yaml.dump(yaml_document, default_flow_style=False, sort_keys=False, allow_unicode=True)
         
         YAML_FILE.write_text(yaml_content, encoding='utf-8')
         print(f"Successfully created {YAML_FILE}")
         
         total_items = len(chapters) + total_sections + total_articles + len(annexes) + len(recitals)
         print(f"Total items processed: {total_items}")
-        print(f"YAML entries created: {len(yaml_data)}")
+        print(f"YAML entries created: {len(yaml_entries)}")
         
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
