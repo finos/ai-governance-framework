@@ -31,6 +31,429 @@ related_mitigations:
 iosco-supervisory-toolkit_references:
   - t3-5  # Table 3.5: Risk Management of Advanced AI Systems
   - t3-7  # Table 3.7: Controls and Human Oversight of AI Systems
+assessment_requirements:
+  - id: AIC-CN-18.01
+    state: Active
+    text: >
+      Agents MUST be classified into defined functional roles with explicit authority boundaries
+      (such as Customer Service, Risk Assessment, Compliance, Trading, or Document Processing),
+      and agent identity and role MUST be included in all API invocations to enable authorization decisions.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute test API invocations with valid agent identity and assigned functional role to verify authorization succeeds.
+      - Execute test API invocations omitting or altering agent identity and role claims to verify requests are denied and logged.
+  - id: AIC-CN-18.02
+    state: Active
+    text: >
+      Comprehensive matrices MUST be maintained documenting exactly which APIs, endpoints,
+      and data sources each agent type can access, and version control MUST be implemented
+      for privilege definitions to track changes over time.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Inspect privilege definitions across version control to verify comprehensive matrices document authorized endpoints and data sources per agent type.
+      - Submit uncommitted or unversioned privilege definition modifications to verify policy validation pipelines reject untracked changes.
+  - id: AIC-CN-18.03
+    state: Active
+    text: >
+      The business justification for each privilege grant MUST be documented.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Inspect privilege matrices to verify every privilege grant includes a documented business justification.
+      - Submit privilege grant requests lacking documented business justifications to verify approval workflows reject the grants.
+  - id: AIC-CN-18.04
+    state: Active
+    text: >
+      Privilege assignments MUST be regularly reviewed.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Inspect review records to verify privilege assignments undergo regular scheduled reviews.
+      - Identify stale or expired privilege assignments to verify they are flagged, removed, or re-justified during review cycles.
+  - id: AIC-CN-18.05
+    state: Active
+    text: >
+      Agent access to high-value transaction APIs MUST be restricted based on configurable
+      monetary limits.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute transaction API calls at or below configured monetary limits to verify authorized operations succeed.
+      - Execute transaction API calls exceeding configured monetary limits to verify operations are denied and logged.
+  - id: AIC-CN-18.06
+    state: Active
+    text: >
+      Additional access restrictions MUST be implemented for VIP customers, high-net-worth
+      individuals, or customers with privacy flags.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute test operations targeting standard customer accounts to verify authorized processing proceeds.
+      - Execute test operations targeting VIP, high-net-worth, or privacy-flagged accounts without elevated clearance to verify additional restrictions deny access.
+  - id: AIC-CN-18.07
+    state: Active
+    text: >
+      Agent access MUST be limited to certain APIs during off-hours, weekends, or maintenance windows.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute API calls during authorized business operating windows to verify requests succeed.
+      - Execute API calls during off-hours, weekends, or maintenance windows to verify time-based restrictions deny access and log events.
+  - id: AIC-CN-18.08
+    state: Active
+    text: >
+      Agent access MUST be restricted based on customer location, regulatory jurisdiction, or data
+      residency requirements.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute test requests matching authorized customer locations and data residency jurisdictions to verify processing succeeds.
+      - Execute test requests originating from or targeting restricted locations, regulatory jurisdictions, or unapproved data residency zones to verify access is denied.
+  - id: AIC-CN-18.09
+    state: Active
+    text: >
+      Controlled privilege escalation mechanisms for agents needing temporary additional access
+      MUST require human approval, and all privilege escalation requests and approvals MUST be
+      logged and monitored.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute temporary privilege escalation workflows with approved human authorization to verify temporary access is granted and logged.
+      - Attempt privilege escalation without required human approval to verify requests are denied and escalation attempts are logged and monitored.
+  - id: AIC-CN-18.10
+    state: Active
+    text: >
+      Privileges MUST automatically de-escalate after specified time periods or task completion.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Verify agent operations execute successfully while temporary elevated privileges remain active within authorized timeframes.
+      - Simulate task completion and expiration of specified time periods to verify elevated privileges automatically de-escalate and subsequent privileged calls are denied.
+  - id: AIC-CN-18.11
+    state: Active
+    text: >
+      The tool manager MUST execute comprehensive authorization checks before any API calls are executed,
+      validating the agent's identity and role against the requested operation, and validating that
+      requested API endpoints and parameters are within authorized scope.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute API invocations within the agent's authorized scope through the tool manager to verify pre-execution authorization checks permit execution.
+      - Execute API invocations targeting unauthorized endpoints or out-of-scope parameters to verify the tool manager rejects execution before calls reach the API.
+  - id: AIC-CN-18.12
+    state: Active
+    text: >
+      The tool manager MUST reject and log any attempts to access unauthorized tools or APIs,
+      including the agent identity for audit purposes.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute test calls against authorized tools to verify normal operations succeed.
+      - Execute test calls attempting access to unauthorized tools or APIs to verify the tool manager rejects requests and logs the agent identity for audit.
+  - id: AIC-CN-18.13
+    state: Active
+    text: >
+      API gateway systems MUST integrate agent identity and privilege information.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute test API requests bearing valid agent identity and privilege tokens through the API gateway to verify successful integration and routing.
+      - Execute test API requests bearing missing, invalid, or forged agent identity tokens to verify the API gateway rejects calls.
+  - id: AIC-CN-18.14
+    state: Active
+    text: >
+      API gateway systems MUST implement rate limiting and throttling based on agent type and privilege
+      level.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Send API request traffic within configured rate limits for the agent type to verify requests are processed successfully.
+      - Transmit request bursts exceeding rate limits and throttling thresholds to verify the API gateway throttles or blocks excess traffic.
+  - id: AIC-CN-18.15
+    state: Active
+    text: >
+      API gateway systems MUST monitor API usage patterns to detect potential privilege abuse or
+      compromise.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Transmit standard baseline API usage patterns to verify normal monitoring telemetry is recorded without false alerts.
+      - Simulate aberrant usage patterns (such as rapid privilege probing or atypical endpoint sequences) to verify monitoring systems detect and flag potential abuse.
+  - id: AIC-CN-18.16
+    state: Active
+    text: >
+      API parameters passed by agents MUST conform to expected ranges, formats, and business rules,
+      inputs MUST be sanitized to prevent parameter injection attacks, and parameter whitelisting MUST
+      be implemented for high-risk APIs.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Transmit API calls with conforming parameter formats, valid ranges, and whitelisted values to verify requests are accepted.
+      - Transmit API calls containing out-of-range values, parameter injection payloads, or unwhitelisted parameters on high-risk APIs to verify sanitization and denial.
+  - id: AIC-CN-18.17
+    state: Active
+    text: >
+      For high-risk operations, approval workflows MUST require multiple agents of different
+      types to participate, enforcing separation of duties by ensuring no single agent can
+      complete end-to-end high-risk processes.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute high-risk workflows with multi-agent participation across distinct agent types to verify successful workflow completion.
+      - Attempt to complete end-to-end high-risk processes using a single agent to verify separation-of-duties enforcement blocks the unapproved flow.
+  - id: AIC-CN-18.18
+    state: Active
+    text: >
+      Human approval MUST be required for operations exceeding defined risk thresholds.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute operations with verified human approval for actions exceeding risk thresholds to verify processing proceeds.
+      - Submit operations exceeding defined risk thresholds without required human approval to verify operations are halted pending authorization.
+  - id: AIC-CN-18.19
+    state: Active
+    text: >
+      Privilege restrictions MUST enforce regulatory requirements such as transaction limits, reporting
+      thresholds, or approval requirements.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute transactions complying with regulatory limits, reporting thresholds, and approval requirements to verify transactions proceed.
+      - Execute transactions exceeding regulatory thresholds or violating mandatory compliance limits to verify privilege restrictions block execution.
+  - id: AIC-CN-18.20
+    state: Active
+    text: >
+      Privilege management MUST integrate with compliance monitoring systems to ensure agent actions
+      comply with regulatory frameworks.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute compliant agent actions to verify integration telemetry is successfully received by compliance monitoring systems.
+      - Execute agent actions that violate configured regulatory policies to verify compliance monitoring systems record violations and trigger alerts.
+  - id: AIC-CN-18.21
+    state: Active
+    text: >
+      Business rules—including credit limits, trading limits, fee waivers, and other business
+      constraints—MUST be encoded directly into privilege systems rather than relying solely on
+      application logic.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute operations within defined credit limits, trading limits, and fee waiver constraints to verify privilege systems authorize transactions.
+      - Execute operations exceeding credit, trading, or fee waiver limits to verify privilege-based controls reject operations independently of application logic.
+  - id: AIC-CN-18.22
+    state: Active
+    text: >
+      All agent access attempts, successful operations, and authorization failures MUST be logged,
+      including contextual information such as customer identifiers, transaction amounts, and business
+      justification, and centralized logging MUST be implemented for cross-agent correlation and
+      analysis.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute test operations across authorized and unauthorized flows to verify successful operations, access attempts, and failures are logged with context (customer IDs, amounts, justifications).
+      - Query the centralized logging repository to verify logs from all agents are centralized, searchable, and correlated across agents.
+  - id: AIC-CN-18.23
+    state: Active
+    text: >
+      Agent access patterns MUST be monitored to detect unusual API usage, privilege escalation
+      attempts, or deviation from normal behavior patterns; alerting MUST be implemented for agents
+      attempting to access unauthorized resources or exceeding normal usage patterns; and behavioral
+      analytics MUST be used to identify potentially compromised agents.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Generate baseline agent access patterns to verify monitoring captures normal operational telemetry without triggering anomaly alarms.
+      - Simulate privilege escalation attempts, unusual API usage bursts, and compromised behavioral deviations to verify real-time alerting and behavioral analytics trigger.
+  - id: AIC-CN-18.24
+    state: Active
+    text: >
+      Periodic reviews of agent privilege assignments MUST be conducted to ensure they remain
+      appropriate and necessary, privileges that are no longer required for agent functionality MUST be
+      removed or reduced, and privilege matrices MUST be reviewed and updated as business requirements
+      change.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Inspect privilege review records to verify periodic reviews of privilege assignments and matrix updates occur as business requirements change.
+      - Verify unused, obsolete, or unneeded privileges identified during reviews are removed or reduced from active matrices.
+  - id: AIC-CN-18.25
+    state: Active
+    text: >
+      Agent privilege management MUST integrate with existing IAM systems and directory services,
+      leveraging existing role-based access control (RBAC) infrastructure where possible.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Authenticate agents and evaluate privilege grants against directory services and existing RBAC infrastructure to verify successful integration.
+      - Attempt operations using roles or directory groups not granted in IAM to verify enterprise access control denies unauthorized actions.
+  - id: AIC-CN-18.26
+    state: Active
+    text: >
+      Single sign-on (SSO) capabilities MUST be implemented for agent authentication where appropriate.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Authenticate agents using single sign-on (SSO) credentials to verify valid tokens are issued and accepted across integrated services.
+      - Submit expired, revoked, or invalid SSO credentials to verify authentication fails and access to agent services is denied.
+  - id: AIC-CN-18.27
+    state: Active
+    text: >
+      Agent access logs MUST be fed into SIEM systems for correlation with other security events,
+      security alerts MUST be implemented for suspicious agent behavior or privilege violations, and
+      security operations teams MUST be enabled to investigate agent-related security incidents.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Verify agent access logs flow into SIEM systems and successfully correlate with existing enterprise security events.
+      - Simulate suspicious agent behaviors and privilege violations to verify SIEM alerts fire and security operations teams can investigate incidents.
+  - id: AIC-CN-18.28
+    state: Active
+    text: >
+      The enforcement point (an execution broker or OS-level mandatory access control) MUST be placed
+      beneath the agent, where it mediates every invocation and resists tampering, recognizing that
+      a policy held only in the agent's prompt is guidance, not enforcement; the agent process MUST be
+      denied the ability to start programs directly, so the broker is the only path to process creation;
+      and the operating system MUST enforce the executable allow-list independently of the broker,
+      failing closed if the OS mechanism is unavailable.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute allowed program requests through the broker beneath the agent to verify mediated execution succeeds.
+      - Attempt to launch programs directly from the agent process or simulate OS enforcement unavailability to verify direct execution fails and the system fails closed.
+  - id: AIC-CN-18.29
+    state: Active
+    text: >
+      The broker MUST be kept small and memory-safe, with no shell inside it and a strict request
+      schema, and launch each program with only the privileges, handles, and capabilities its entry
+      grants; and it MUST be security-reviewed and penetration-tested.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Verify the broker validates requests against a strict schema and launches programs with only granted privileges, handles, and capabilities.
+      - Attempt to invoke a shell inside the broker, submit malformed request schemas, and review penetration-test reports to verify memory safety and tamper resistance.
+  - id: AIC-CN-18.30
+    state: Active
+    text: >
+      A tool gate MUST be treated as enforcement only if the agent cannot alter, restart, or bypass
+      it; an MCP server the agent spawns or configures MUST be advisory (see MI-20).
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute tool requests mediated by an immutable tool gate to verify enforcement succeeds.
+      - Attempt to alter, restart, or bypass the tool gate, or bypass enforcement via an agent-spawned MCP server, to verify unauthorized actions are blocked.
+  - id: AIC-CN-18.31
+    state: Active
+    text: >
+      Each entry MUST be expressed as an absolute executable path plus an argument schema, never
+      a command-name pattern, and deny everything not named; allowed commands MUST be executed
+      directly as a program plus argument list, never as a text line handed to a shell; and interpreters
+      or subprocess launchers MUST NOT be allow-listed (denying flags such as `-c` or `-e` is not
+      enough, because a runtime also takes code from files, standard input, module paths, environment
+      variables, and configuration), running these as sandboxed jobs instead.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute allowed commands directly as absolute executable paths with valid argument schemas to verify direct program execution succeeds.
+      - Attempt to execute command-name patterns, text lines handed to a shell, or allow-listed interpreters/launchers (including with or without `-c`/`-e`) to verify execution is denied.
+  - id: AIC-CN-18.32
+    state: Active
+    text: >
+      Allowed executables MUST be pinned by hash, or by a version verified against the opened file,
+      on storage the agent cannot modify, and the allow-list MUST be re-validated whenever one changes;
+      a new release can add options that launch other programs.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute allowed executables verified against pinned cryptographic hashes or opened file versions on read-only storage to verify valid execution succeeds.
+      - Attempt to execute binaries with altered hashes, modify executable storage from the agent, or update executables without re-validating the allow-list to verify execution is blocked.
+  - id: AIC-CN-18.33
+    state: Active
+    text: >
+      File paths MUST be resolved before the authorization check, ensuring the object checked is
+      the object used, so path traversal and symlink swaps cannot redirect a narrow grant.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Submit requests with valid canonical file paths to verify path resolution and authorization succeed before execution.
+      - Submit path traversal sequences (`../`), symlink swaps, or TOCTOU substitutions between check and use to verify attacks are detected and blocked.
+  - id: AIC-CN-18.34
+    state: Active
+    text: >
+      Options and positional arguments MUST be classified as fixed (a literal value), constrained (an
+      enumerated set or strict pattern), or not permitted, rejecting everything else including alternate
+      spellings the target's parser accepts; and the complete argument vector MUST be validated against
+      how the pinned program parses it (order, repetition, precedence, subcommands, encodings) with
+      adversarial conformance tests per executable version, ensuring individually valid arguments
+      cannot combine into a forbidden command.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute commands with arguments strictly adhering to classified schemas (literal fixed values or constrained sets) to verify successful execution.
+      - Execute commands with unpermitted options, alternate parser spellings, or forbidden combined argument vectors to verify parser-conformance rejection.
+  - id: AIC-CN-18.35
+    state: Active
+    text: >
+      Argument values MUST be validated, not only their shape (recognizing that `rm -rf ./build`
+      and `rm -rf /` have the same shape), by bounding file paths to an authorized root and network
+      destinations to an authorized host list; each value MUST be passed as exactly one argument
+      element, never concatenated or split on whitespace; the end-of-options marker (`--`) MUST be
+      inserted before untrusted values where the target supports it, otherwise rejecting values
+      beginning with `-`; control characters and NUL bytes MUST be rejected; and argument length
+      and count MUST be capped.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Submit commands with single-element arguments bounded to authorized roots and host lists (including `--` end-of-options markers) to verify execution succeeds.
+      - Submit commands with out-of-root paths (e.g. `rm -rf /`), unwhitelisted hosts, concatenated whitespace, leading hyphens, control characters, or NUL bytes to verify rejection.
+  - id: AIC-CN-18.36
+    state: Active
+    text: >
+      Argument schemas MUST exclude options that accept a program or script (`find -exec`,
+      `tar --to-command`, `git -c core.pager=...`, `ssh -o ProxyCommand=...`) and indirection such
+      as `@file` response files or options naming a configuration file, plugin, or hook.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Submit allowed command schemas containing only benign, non-scripting arguments to verify normal execution proceeds.
+      - Submit argument vectors containing script-execution options (`find -exec`, `tar --to-command`, `git -c core.pager`, `ssh -o ProxyCommand`) or indirection (`@file`, configs) to verify rejection.
+  - id: AIC-CN-18.37
+    state: Active
+    text: >
+      Each command's environment MUST be built from an allow-list rather than inheriting the agent's;
+      variables such as `PATH`, `LD_PRELOAD`, `PYTHONPATH`, and `GIT_SSH_COMMAND` change what code runs
+      without changing the command line.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute commands within an allow-listed environment containing only required variables to verify execution succeeds.
+      - Inject inherited agent environment variables or dangerous overrides (`PATH`, `LD_PRELOAD`, `PYTHONPATH`, `GIT_SSH_COMMAND`) to verify they are stripped or blocked.
+  - id: AIC-CN-18.38
+    state: Active
+    text: >
+      The policy and any configuration that drives allowed commands (build files, package manifests,
+      version-control hooks, CI configuration) MUST be kept outside the agent's writable set or pinned
+      by content.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute allowed commands driven by verified, content-pinned build and configuration files to verify normal operations succeed.
+      - Attempt to modify policy or configuration files (build files, package manifests, hooks, CI configs) from the agent or run with unpinned configs to verify writes and execution fail.
+  - id: AIC-CN-18.39
+    state: Active
+    text: >
+      Every invocation MUST run in a fixed working directory with resource limits, a timeout, no
+      terminal, and standard input closed; it MUST be placed, before it starts, in a kernel-tracked
+      group its descendants cannot leave; and the group MUST be terminated when a limit is reached.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute invocations within fixed working directories under defined limits with closed standard input and no terminal to verify successful completion within resource limits.
+      - Attempt to attach a terminal, read standard input, escape the kernel-tracked group, or exceed timeouts and resource limits to verify the group is terminated.
+  - id: AIC-CN-18.40
+    state: Active
+    text: >
+      An allowed program MUST start a child directly only when the child is inert: its executable plus
+      the sandbox, credentials, and configuration it inherits bound its authority; and a child whose
+      behavior depends on its own arguments, configuration, or destinations (a shell, `ssh`, a compiler)
+      MUST go back through the broker.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Allow programs to directly launch inert children whose authority is bounded by inherited sandboxes, credentials, and configurations to verify permitted execution.
+      - Attempt to directly launch dynamic children whose behavior depends on their own arguments or destinations (such as shells, `ssh`, or compilers) to verify direct launch is denied and routed to the broker.
+  - id: AIC-CN-18.41
+    state: Active
+    text: >
+      General-purpose runtimes, builds, tests, and model-written code MUST be run as sandboxed jobs:
+      short-lived, default-deny network, no credentials, resource limits, an immutable toolchain, and
+      a pinned workspace snapshot as input; the boundary MUST be governed, not each command inside it.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Execute general-purpose runtimes, builds, tests, and model-written code as sandboxed jobs with default-deny network, no credentials, and pinned snapshots to verify successful isolated completion.
+      - Attempt outbound network connections, credential access, toolchain modifications, or persistent state mutations from inside sandboxed jobs to verify boundary denial.
+  - id: AIC-CN-18.42
+    state: Active
+    text: >
+      A job MUST produce a proposal, not an effect: its output (a diff, a test report) MUST
+      leave as bounded, validated data; and applying it anywhere MUST be a separate brokered action
+      that can be reviewed or gated.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Verify sandboxed jobs produce only bounded, validated data proposals (such as diffs or test reports).
+      - Attempt to directly apply mutations or effects outside the sandbox without a separate brokered review and gating step to verify direct application is denied.
+  - id: AIC-CN-18.43
+    state: Active
+    text: >
+      Every denied invocation MUST be logged with the agent's identity; and agent writes to persistence
+      locations (hooks, scheduled tasks, service definitions, CI configuration) MUST be logged as distinct
+      high-signal events, so later out-of-session execution can be traced back.
+    applicability: [Agentic_AI]
+    recommendation: |
+      - Verify denied invocations are recorded with agent identity in the audit log.
+      - Attempt writes to persistence locations (hooks, scheduled tasks, service definitions, CI configuration) and verify these writes are logged as distinct high-signal audit events.
 ---
 
 ## Purpose
