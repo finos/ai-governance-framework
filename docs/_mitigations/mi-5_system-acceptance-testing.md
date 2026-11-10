@@ -47,7 +47,7 @@ System Acceptance Testing for AI systems shares similarities with traditional so
 
 1. **Variability in AI Outputs:** LLM-based applications exhibit variability in their output, where the same response could be phrased differently despite exactly the same preconditions. The acceptance criteria needs to accommodate this variability, using techniques to validate a given response contains (or excludes) certain information, rather than expecting an exact match.
 
-2. **Quality Thresholds vs. Binary Pass/Fail:** For non-AI systems often the goal is to achieve a 100% pass rate for test cases. Whereas for LLM-based applications, it is likely that lower pass rate is acceptable. The overall quality of the system is considered a sliding scale rather than a fixed bar.
+2. **Explicit Acceptance Thresholds:** For AI systems, define a fixed, versioned, representative evaluation set, such as an established fact store, and score each criterion independently using documented rubrics. Set minimum thresholds for each criterion before testing, based on the system's intended use and risk; critical safety, compliance, and security cases must pass. Record evaluation results, accepted residual risks, and formal approval. If an LLM evaluates outputs, calibrate it against human expert judgments as described in [MI-15](/mitigations/mi-15_using-large-language-models-for-automated-evaluation-llm-as-a-judge-.html).
 
 ---
 
