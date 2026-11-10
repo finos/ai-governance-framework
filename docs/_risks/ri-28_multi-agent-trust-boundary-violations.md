@@ -12,6 +12,9 @@ owasp-asi_references:
 atr_references:
   - ATR-2026-00030  # Cross-Agent Attack Detection
   - ATR-2026-00076  # Insecure Inter-Agent Communication
+india-regulations_references:
+  - rbi-free-ai-2025-rec-22 # Para 4.4.63 gives AI agents acting beyond their intended scope as an example AI incident (Rec 22)
+  - cert-in-directions-2022-ii # Attacks on AI/ML applications (Annexure I item xx) are reportable within 6 hours
 related_risks:
   - ri-24  # Agent Action Authorization Bypass
   - ri-27  # Agent State Persistence Poisoning

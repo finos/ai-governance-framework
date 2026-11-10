@@ -23,6 +23,9 @@ eu-ai-act_references:
 atr_references:
   - ATR-2026-00010  # Malicious Content in MCP Tool Response (indirect prompt injection)
   - ATR-2026-00011  # Instruction Injection via Tool Output
+india-regulations_references:
+  - rbi-free-ai-2025-rec-20 # Lifecycle red teaming; para 4.4.59 tests for data leaked under unintended queries
+  - cert-in-directions-2022-ii # Attacks on AI/ML applications (Annexure I item xx) are reportable within 6 hours
 related_risks:
   - ri-18  # Model Overreach / Expanded Use
   - ri-20  # Reputational Risk

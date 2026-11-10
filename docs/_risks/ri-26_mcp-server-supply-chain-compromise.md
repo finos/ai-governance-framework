@@ -9,6 +9,9 @@ owasp-asi_references:
   - asi04-2026  # ASI04: Agentic Supply Chain Vulnerabilities
 atr_references:
   - ATR-2026-00010  # Malicious Content in MCP Tool Response
+india-regulations_references:
+  - rbi-free-ai-2025-rec-23 # AI inventory records dependencies, including external components that influence model performance
+  - cert-in-directions-2022-ii # Attacks on AI/ML applications (Annexure I item xx) are reportable within 6 hours
 related_risks:
   - ri-8  # Tampering With the Foundational Model
   - ri-9  # Data Poisoning

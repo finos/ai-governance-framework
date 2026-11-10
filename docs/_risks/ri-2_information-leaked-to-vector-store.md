@@ -48,6 +48,10 @@ uk-regulations_references:
   - uk-gdpr-dpa-2018 # UK GDPR/DPA applies where embeddings or metadata include personal data
   - ico-guidance-ai-data-protection # ICO AI guidance covers security, minimisation and reuse controls
   - ico-ai-data-protection-toolkit # Toolkit supports AI privacy risk assessment for retrieval stores
+india-regulations_references:
+  - dpdp-rules-2025-r6 # Encryption, masking, access control and access logging for stored personal data
+  - dpdp-rules-2025-r7 # Breach intimation to Data Principals and the Board, detailed report within 72 hours
+  - cert-in-directions-2022-ii # Data breach and data leak are reportable to CERT-In within 6 hours
 related_risks:
 related_risks:
   - ri-1  # Information Leaked To Hosted Model
