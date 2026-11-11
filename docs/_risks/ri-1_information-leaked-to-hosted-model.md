@@ -46,6 +46,10 @@ uk-regulations_references:
   - uk-gdpr-dpa-2018 # UK GDPR/DPA safeguards for personal data sent to hosted models
   - ico-guidance-ai-data-protection # ICO AI guidance on controller accountability and security
   - ico-ai-data-protection-toolkit # Toolkit prompts risk assessment of data leakage in AI systems
+india-regulations_references:
+  - rbi-free-ai-2025-rec-15 # Para 4.4.47: guardrails for external AI models keep sensitive data in the institution's control
+  - dpdp-act-2023-s8-5 # Security safeguards extend to processing by a Data Processor, such as a hosted model provider
+  - dpdp-rules-2025-r6 # Minimum safeguards, including r. 6(1)(f) contract terms with the Data Processor
 related_risks:
   - ri-2   # Information Leaked to Vector Store
   - ri-23  # Intellectual Property (IP) and Copyright

@@ -44,6 +44,9 @@ uk-regulations_references:
   - uk-gdpr-dpa-2018 # Accuracy, fairness and data-minimisation principles for personal-data inputs
   - ico-guidance-ai-data-protection # ICO AI guidance covers data quality, accuracy and statistical validity
   - ico-ai-data-protection-toolkit # Toolkit supports data-quality and drift-related risk assessment
+india-regulations_references:
+  - dpdp-act-2023-s8-3 # Personal data used to make a decision about a Data Principal must be complete, accurate and consistent
+  - rbi-free-ai-2025-rec-16 # Ongoing monitoring with mechanisms to detect and address model drift and degradation
 related_risks:
   - ri-4   # Hallucination and Inaccurate Outputs
   - ri-16  # Bias and Discrimination

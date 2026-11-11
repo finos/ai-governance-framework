@@ -44,6 +44,9 @@ uk-regulations_references:
   - fca-cobs-9a # MiFID suitability requirements constrain portfolio/advice automation scope
   - pra-ss1-23-mrm # Model inventory, tiering and change controls address model-use drift
   - pra-ai-mrm-roundtable-2025 # PRA AI/ML MRM discussion emphasises governance of AI model use
+india-regulations_references:
+  - rbi-free-ai-2025-rec-16 # Human oversight before autonomous AI is used in medium- and high-risk decisions
+  - rbi-free-ai-2025-rec-14 # Para 4.4.44: board-approved risk classification of AI use cases, reviewed periodically
 related_risks:
   - ri-10  # Prompt Injection
   - ri-17  # Lack of Explainability

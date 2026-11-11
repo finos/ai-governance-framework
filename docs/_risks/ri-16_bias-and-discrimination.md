@@ -39,6 +39,10 @@ uk-regulations_references:
   - ico-ai-data-protection-toolkit # Toolkit includes bias/fairness checks for AI personal-data processing
   - equality-act-2010 # Protected-characteristic discrimination baseline for services/employment
   - consumer-credit-act-1974 # Consumer-credit protections relevant to AI credit decisions
+india-regulations_references:
+  - dpdp-rules-2025-r13 # Significant Data Fiduciaries must verify algorithmic software does not risk Data Principals' rights
+  - dpdp-act-2023-s10 # Periodic DPIA assessing and managing risk to the rights of Data Principals
+  - rbi-free-ai-2025-rec-16 # Para 4.4.48: mechanisms to detect and address bias in AI models
 related_risks:
   - ri-19  # Data Quality and Drift
   - ri-22  # Regulatory Compliance and Oversight

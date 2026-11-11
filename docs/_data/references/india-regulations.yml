@@ -1,0 +1,125 @@
+title: "India Financial Services AI Regulations"
+description: "Indian regulatory references relevant to AI governance in financial services, covering the RBI FREE-AI framework, the Digital Personal Data Protection Act 2023 and Rules 2025, and CERT-In's cyber incident directions."
+source_url: "https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306"
+lens: obligation
+
+entries:
+  # RBI FREE-AI Committee report (13 August 2025). Recommendations to RBI-regulated
+  # entities (REs); committee recommendations, not a binding direction.
+
+  rbi-free-ai-2025-rec-14:
+    title: "RBI FREE-AI (2025) Recommendation 14 - Board-approved AI policy"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      REs should establish a board-approved AI policy covering governance structure,
+      accountability, risk appetite, operational safeguards, auditability, AI disclosures and
+      liability. Paragraph 4.4.44 asks for a low/medium/high risk classification of AI use cases.
+
+  rbi-free-ai-2025-rec-15:
+    title: "RBI FREE-AI (2025) Recommendation 15 - Data lifecycle governance"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      Data governance controls for AI covering collection, access, usage, retention and deletion,
+      in compliance with the DPDP Act. Paragraph 4.4.47 asks for guardrails, especially when using
+      open source or external AI models, so that sensitive data remains within secure environments
+      under the institution's control.
+
+  rbi-free-ai-2025-rec-16:
+    title: "RBI FREE-AI (2025) Recommendation 16 - AI system governance framework"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      Model governance across the lifecycle, including monitoring for drift and degradation, and
+      strong governance with human oversight before deploying autonomous AI systems. Paragraph
+      4.4.48 covers detection of drift, bias and unexplained behaviour; paragraph 4.4.49 requires
+      REs to define the tasks AI can perform autonomously and when human oversight is required.
+
+  rbi-free-ai-2025-rec-20:
+    title: "RBI FREE-AI (2025) Recommendation 20 - Red teaming"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      Structured, risk-proportionate red teaming across the AI lifecycle. Paragraph 4.4.60 sets at
+      least semi-annual red teaming for medium- and high-risk applications and before major model
+      updates.
+
+  rbi-free-ai-2025-rec-21:
+    title: "RBI FREE-AI (2025) Recommendation 21 - Business continuity plan for AI systems"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      BCP frameworks extended to AI model-specific performance degradation, with fallback
+      mechanisms tested through BCP drills.
+
+  rbi-free-ai-2025-rec-22:
+    title: "RBI FREE-AI (2025) Recommendation 22 - AI incident reporting"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      Recommends that financial sector regulators establish a dedicated AI incident reporting
+      framework for REs and FinTechs. Paragraph 4.4.63 lists
+      example incidents, including AI agents acting beyond their intended scope.
+
+  rbi-free-ai-2025-rec-23:
+    title: "RBI FREE-AI (2025) Recommendation 23 - AI inventory"
+    url: https://www.rbi.org.in/Scripts/FS_Publications.aspx?id=1306
+    issuer: RBI
+    description: >
+      An internal AI inventory of models, use cases, dependencies, risks and grievances, updated at
+      least half-yearly. Paragraph 4.4.68 includes third-party providers and other external
+      components that can influence model performance.
+
+  # Digital Personal Data Protection Act, 2023 (No. 22 of 2023). Sections 8 and 10 come into
+  # force eighteen months after notification G.S.R. 843(E) of 13 November 2025.
+
+  dpdp-act-2023-s8-3:
+    title: "DPDP Act 2023 s. 8(3) - Completeness, accuracy and consistency of personal data used for decisions"
+    url: https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf
+    issuer: Parliament of India / MeitY
+
+  dpdp-act-2023-s8-5:
+    title: "DPDP Act 2023 s. 8(5) - Reasonable security safeguards, including for processing by a Data Processor"
+    url: https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf
+    issuer: Parliament of India / MeitY
+
+  dpdp-act-2023-s10:
+    title: "DPDP Act 2023 s. 10 - Significant Data Fiduciary: DPO, independent data audit and periodic DPIA"
+    url: https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf
+    issuer: Parliament of India / MeitY
+
+  # Digital Personal Data Protection Rules, 2025 (G.S.R. 846(E), 13 November 2025).
+  # Rules 6, 7 and 13 come into force eighteen months after publication (rule 1(4)).
+
+  dpdp-rules-2025-r6:
+    title: "DPDP Rules 2025 r. 6 - Reasonable security safeguards (encryption, access control, logging, one-year log retention)"
+    url: https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+    issuer: MeitY
+
+  dpdp-rules-2025-r7:
+    title: "DPDP Rules 2025 r. 7 - Intimation of personal data breach to Data Principals and the Board (72 hours)"
+    url: https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+    issuer: MeitY
+
+  dpdp-rules-2025-r13:
+    title: "DPDP Rules 2025 r. 13 - Significant Data Fiduciary: annual DPIA and audit, due diligence on algorithmic software"
+    url: https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+    issuer: MeitY
+
+  # CERT-In Directions under section 70B(6) of the IT Act 2000 (No. 20(3)/2022-CERT-In,
+  # 28 April 2022).
+
+  cert-in-directions-2022-ii:
+    title: "CERT-In Directions 2022 (ii) - Report cyber incidents within 6 hours, including attacks on AI/ML systems"
+    url: https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf
+    issuer: CERT-In
+    description: >
+      Annexure I lists the reportable incident types, including data breach, data leak, unauthorised
+      access, and attacks or malicious activity affecting applications related to Artificial
+      Intelligence and Machine Learning (item xx).
+
+  cert-in-directions-2022-iv:
+    title: "CERT-In Directions 2022 (iv) - Enable logs of all ICT systems and keep them for 180 days in India"
+    url: https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf
+    issuer: CERT-In
