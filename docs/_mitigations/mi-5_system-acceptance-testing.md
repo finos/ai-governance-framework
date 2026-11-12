@@ -65,6 +65,7 @@ Effective System Acceptance Testing for AI systems in the financial services sec
     * **Usability and User Experience (UX):** Is the system intuitive, accessible, and easy for the intended users to operate effectively and efficiently?
     * **Regulatory Compliance and Policy Adherence:** Does the system's operation and data handling comply with all relevant financial regulations (e.g., data privacy, consumer protection) and internal governance policies?
     * **Resilience and Error Handling:** How does the system behave under stress, with invalid inputs, or in failure scenarios? Are error messages clear and actionable?
+* **Recording the Agreed Criteria:** Keep the agreed criteria as a dated, versioned record that states each metric, its threshold, the version of the evaluation set and the rule for comparing results against the threshold. If the criteria change after testing has started, add a new version with the reason and the approval instead of editing the original, so that a later reviewer (for example internal audit or a supervisor) can see which version each result was assessed against. A document or ticketing system with version history is sufficient for this; a hash of the record with an independent timestamp is an optional addition. A worked example is linked under Additional Resources.
 
 ### 2. Preparing a Representative Test Environment and Data
 * **Action:** Conduct SAT in a dedicated test environment that mirrors the intended production environment as closely as possible in terms of infrastructure, configurations, and dependencies.
@@ -121,3 +122,4 @@ System Acceptance Testing provides critical value for financial institutions:
 * [Evaluation / LangChain](https://python.langchain.com/v0.1/docs/guides/productionization/evaluation/)
 * [Promptfoo](https://www.promptfoo.dev/)
 * [Inspect](https://inspect.ai-safety-institute.org.uk/)
+* [Worked example of an acceptance record: recorded criteria, signed plan and report, change and re-review record, with offline verification (falsify-dev/falsify, MIT)](https://github.com/falsify-dev/falsify/tree/main/examples/acceptance-record)
