@@ -84,6 +84,12 @@ However, there are a number of excellent frameworks that we feel this group can 
 ### Will this framework address the EU AI Act?
 One of our key goals is to create a framework that makes it easy to follow whatever regional regulation are applied to the AI-based solutions you are building. We haven’t worked out exactly how to marry the two together just yet, and in all fairness, most of the AI-related regulations aren’t published yet. However, we will also consider pre-existing regulations that relate to AI-systems, for example data protection and sovereignty. 
 
+## Citing the framework
+
+[`CITATION.cff`](./CITATION.cff) has the citation metadata. On GitHub, the "Cite this repository" button in the sidebar builds an APA or BibTeX entry from it.
+
+The framework has no DOI yet. [RELEASING.md](./RELEASING.md) has the steps to publish each release on Zenodo, which mints one.
+
 ## Contributing
 
 ### Using DCO to sign your commits

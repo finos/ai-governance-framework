@@ -1,0 +1,87 @@
+# Citation metadata for the framework. GitHub shows it as "Cite this repository".
+# Spec: https://citation-file-format.github.io
+#
+# The Zenodo record is filled in from this file by hand. See RELEASING.md.
+#
+# Authors: the maintainers at the time of the release, in the order of the
+# README, then the working group. Add your ORCID if you have one.
+
+cff-version: 1.2.0
+message: "If you use this framework, please cite it as below."
+title: "FINOS AI Governance Framework"
+abstract: >-
+  The FINOS AI Governance Framework (AIGF) is an open catalogue of risks and
+  mitigations for on-boarding, developing and running AI systems in financial
+  services, with a focus on generative and agentic AI. Each risk and mitigation
+  is mapped to regulations, standards and guidance, including the EU AI Act,
+  NIST AI 600-1, NIST SP 800-53, ISO/IEC 42001, the OWASP Top 10 for LLM and
+  Agentic Applications and the FFIEC IT booklets. The framework also contains a
+  heuristic method to find the risks that apply to a use case, and a set of
+  worked use cases. It is developed in the open by the members and contributors
+  of FINOS, the Fintech Open Source Foundation.
+type: dataset
+version: "v3"
+date-released: 2026-10-26
+license: CC-BY-4.0
+url: "https://air-governance-framework.finos.org/"
+repository-code: "https://github.com/finos/ai-governance-framework"
+keywords:
+  - AI governance
+  - financial services
+  - generative AI
+  - agentic AI
+  - AI risk management
+  - regulatory compliance
+  - FINOS
+authors:
+  - given-names: Colin
+    family-names: Eberhardt
+  - given-names: Francesco
+    family-names: Beltramini
+  - given-names: Alvin
+    family-names: Shih
+  - given-names: Chamindra
+    family-names: de Silva
+  - given-names: Asad
+    family-names: Ateeque
+  - given-names: Naresh Babu
+    family-names: Deenadayalan
+  - given-names: Hugo
+    family-names: Calderon
+  - given-names: Stefano
+    family-names: Amorelli
+    orcid: "https://orcid.org/0009-0004-4917-0999"
+  - name: "FINOS AI Governance Framework Working Group"
+    website: "https://air-governance-framework.finos.org/"
+
+preferred-citation:
+  type: report
+  title: "FINOS AI Governance Framework"
+  authors:
+    - given-names: Colin
+      family-names: Eberhardt
+    - given-names: Francesco
+      family-names: Beltramini
+    - given-names: Alvin
+      family-names: Shih
+    - given-names: Chamindra
+      family-names: de Silva
+    - given-names: Asad
+      family-names: Ateeque
+    - given-names: Naresh Babu
+      family-names: Deenadayalan
+    - given-names: Hugo
+      family-names: Calderon
+    - given-names: Stefano
+      family-names: Amorelli
+      orcid: "https://orcid.org/0009-0004-4917-0999"
+    - name: "FINOS AI Governance Framework Working Group"
+      website: "https://air-governance-framework.finos.org/"
+  institution:
+    name: "Fintech Open Source Foundation (FINOS)"
+    website: "https://www.finos.org/"
+  version: "v3"
+  year: 2026
+  month: 10
+  license: CC-BY-4.0
+  url: "https://air-governance-framework.finos.org/"
