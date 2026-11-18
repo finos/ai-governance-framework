@@ -1,0 +1,8 @@
+{
+  "name": "mi21-receipt-verifier",
+  "private": true,
+  "description": "Pinned receipt verifier for the MI-21 conformance check.",
+  "dependencies": {
+    "@veritasacta/verify": "0.11.1"
+  }
+}

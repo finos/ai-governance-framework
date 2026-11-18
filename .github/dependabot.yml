@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # Opens a pull request when the pinned MI-21 conformance suite publishes a new release.
+  - package-ecosystem: "pip"
+    directory: "/.github/mi21"
+    schedule:
+      interval: "weekly"
+  # Opens a pull request when the pinned MI-21 receipt verifier publishes a release or an advisory.
+  - package-ecosystem: "npm"
+    directory: "/.github/mi21"
+    schedule:
+      interval: "weekly"
