@@ -1,0 +1,227 @@
+title: "US AI & Financial-Sector Regulatory References"
+description: "United States regulatory framework for AI in financial services, spanning state AI statutes, fair-lending and consumer protection, third-party risk, privacy and data protection, and recordkeeping and supervision obligations."
+
+entries:
+  # ---------------------------------------------------------------------------
+  # Tier 1 — AI-specific US statutes and regulatory guidance
+  # ---------------------------------------------------------------------------
+
+  colorado-ai-act:
+    title: 'Colorado AI Act (SB 24-205, CRS 6-1-1701 et seq.)'
+    url: https://leg.colorado.gov/bills/sb24-205
+    issuer: Colorado General Assembly
+    description: >
+      The first comprehensive US state AI statute. Imposes a duty of reasonable care on
+      developers and deployers of high-risk AI systems to protect consumers from algorithmic
+      discrimination in consequential decisions, expressly including financial and lending
+      services. Requires deployer risk management programs, impact assessments, and consumer
+      notices. Enforcement sits with the Colorado Attorney General; effective date deferred
+      to 2026-06-30 by subsequent amendment.
+
+  ca-cppa-admt:
+    title: 'California CPPA Regulations: Automated Decisionmaking Technology, Risk Assessments and Cybersecurity Audits (adopted 2025-07-24)'
+    url: https://cppa.ca.gov/regulations/ccpa_updates.html
+    issuer: CPPA
+    description: >
+      CCPA implementing regulations adopted by the California Privacy Protection Agency Board
+      2025-07-24 and filed with the Secretary of State 2025-09-22. Cover automated
+      decisionmaking technology used for significant decisions (including financial or lending
+      services), mandatory risk assessments for high-risk processing, annual cybersecurity
+      audits, and insurance-sector applicability. Phased compliance dates run from 2026 onward.
+
+  nydfs-ai-cyber-letter:
+    title: 'NYDFS Industry Letter: Cybersecurity Risks Arising from Artificial Intelligence (2024-10-16)'
+    url: https://www.dfs.ny.gov/industry-guidance/industry-letters/il20241016-cyber-risks-ai-and-strategies-combat-related-risks
+    issuer: NYDFS
+    description: >
+      Guidance under 23 NYCRR Part 500 for NYDFS-regulated entities on AI-specific
+      cybersecurity risks: AI-enabled social engineering, AI-enhanced attacks, exposure of
+      nonpublic information used by AI tools, and supply-chain dependencies. Frames expectations
+      for risk assessments, third-party due diligence, access controls and monitoring where AI
+      is deployed.
+
+  utah-ai-policy-act:
+    title: 'Utah Artificial Intelligence Policy Act (SB 149, 2024)'
+    url: https://le.utah.gov/~2024/bills/static/SB0149.html
+    issuer: Utah Legislature
+    description: >
+      Early state GenAI statute. Requires disclosure when a consumer interacts with generative
+      AI in regulated occupations and consumer transactions, and forecloses using the AI's
+      involvement as a defense to consumer-protection liability. A model for
+      disclosure-oriented state AI regulation.
+
+  finra-notice-24-09:
+    title: 'FINRA Regulatory Notice 24-09: Artificial Intelligence, Including Large Language Models (2024-06-27)'
+    url: https://www.finra.org/rules-guidance/notices/24-09
+    issuer: FINRA
+    description: >
+      Reminds member firms that existing obligations — supervision under Rule 3110,
+      communications standards under Rule 2210, recordkeeping — apply in full to AI and
+      GenAI tools, and that a technology-neutral rulebook means AI adoption does not create
+      a regulatory gap.
+
+  treasury-ai-report-2024:
+    title: 'US Treasury Report: Artificial Intelligence in Financial Services (2024-12)'
+    url: https://home.treasury.gov/news/press-releases/jy2751
+    issuer: US Treasury
+    description: >
+      Report on the uses, opportunities and risks of AI in the financial services sector,
+      synthesizing responses to Treasury's 2024 RFI. Covers governance gaps, data quality,
+      third-party concentration, and fair-lending implications of AI adoption.
+
+  # ---------------------------------------------------------------------------
+  # Tier 2 — Fair lending and consumer protection (technology-neutral, binding)
+  # ---------------------------------------------------------------------------
+
+  ecoa-reg-b:
+    title: 'ECOA / Regulation B (12 CFR Part 1002): Adverse Action and Fair Lending'
+    url: https://www.consumerfinance.gov/rules-policy/regulations/1002/
+    issuer: CFPB
+    description: >
+      Prohibits credit discrimination on protected bases and requires specific, accurate
+      reasons in adverse action notices. The binding constraint on AI-driven credit
+      underwriting: a model whose principal decision factors cannot be stated cannot
+      satisfy the notice requirement.
+
+  cfpb-circular-2022-03:
+    title: 'CFPB Circular 2022-03: Adverse Action Notification When Using Complex Algorithms (2022-05-26)'
+    url: https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/
+    issuer: CFPB
+    description: >
+      States that ECOA's specific-reasons requirement applies regardless of model complexity:
+      "black box" opacity is not a defense. Creditors using complex algorithmic models must
+      still identify the actual principal reasons for adverse action.
+
+  cfpb-circular-2023-03:
+    title: 'CFPB Circular 2023-03: Adverse Action Notification and the Proper Use of Sample Forms (2023-09-19)'
+    url: https://www.consumerfinance.gov/compliance/circulars/circular-2023-03-adverse-action-notification-requirements-and-the-proper-use-of-the-cfpbs-sample-forms-provided-in-regulation-b/
+    issuer: CFPB
+    description: >
+      Extends 2022-03: checklist reasons from sample forms are insufficient where AI models
+      rely on data outside a consumer's expectations; the stated reasons must reflect the
+      factors the model actually used.
+
+  fcra-adverse-action:
+    title: 'Fair Credit Reporting Act (15 USC 1681 et seq.): Permissible Purposes and Adverse Action'
+    url: https://www.ftc.gov/legal-library/browse/statutes/fair-credit-reporting-act
+    issuer: FTC/CFPB
+    description: >
+      Governs consumer-report data feeding AI models: permissible purposes (s. 604), adverse
+      action duties (s. 615), and accuracy obligations. Third-party data aggregation and
+      AI-derived scores can bring vendors within the definition of a consumer reporting agency.
+
+  ftc-act-s5-udap:
+    title: 'FTC Act Section 5: Unfair or Deceptive Acts or Practices Applied to AI'
+    url: https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check
+    issuer: FTC
+    description: >
+      The FTC's general UDAP authority applied to AI: unsubstantiated AI capability claims,
+      deceptive deployment, and unfairness from biased or harmful automated decisions. The
+      FTC's 2024 "Operation AI Comply" enforcement sweep confirmed active application to
+      AI marketing and deployment.
+
+  sec-ai-washing-enforcement:
+    title: 'SEC Enforcement: AI-Washing Charges Against Investment Advisers (2024-03-18)'
+    url: https://www.sec.gov/newsroom/press-releases/2024-36
+    issuer: SEC
+    description: >
+      First SEC "AI washing" actions, charging advisers with false and misleading statements
+      about their use of AI. Establishes that AI capability claims in offering and marketing
+      materials are tested under the ordinary antifraud standards.
+
+  # ---------------------------------------------------------------------------
+  # Tier 3 — Prudential and third-party risk
+  # (US model-risk supervision — FRB SR 11-7 and the FFIEC IT booklets — is
+  # already covered by the dedicated sr11-7.yml and ffiec-itbooklets.yml
+  # datasets in this directory and is deliberately not duplicated here.)
+  # ---------------------------------------------------------------------------
+
+  interagency-tprm-2023:
+    title: 'Interagency Guidance on Third-Party Relationships: Risk Management (2023-06-06)'
+    url: https://www.federalregister.gov/documents/2023/06/09/2023-12340/interagency-guidance-on-third-party-relationships-risk-management
+    issuer: FRB/OCC/FDIC
+    description: >
+      Joint final guidance on managing third-party relationships across their lifecycle:
+      planning, due diligence, contracting, ongoing monitoring, and termination. The
+      governing US framework for AI vendor, cloud, and hosted-model dependencies at
+      banking organizations.
+
+  # ---------------------------------------------------------------------------
+  # Tier 4 — Privacy and data protection (cross-cutting)
+  # ---------------------------------------------------------------------------
+
+  glba-safeguards:
+    title: 'GLBA Safeguards Rule (16 CFR Part 314)'
+    url: https://www.ftc.gov/legal-library/browse/rules/safeguards-rule
+    issuer: FTC
+    description: >
+      Requires financial institutions to maintain a comprehensive written information
+      security program with designated accountability, risk assessment, access controls,
+      encryption, monitoring and incident response — obligations that extend to nonpublic
+      personal information processed by or exposed to AI systems. Amended to add breach
+      notification effective 2024-05-13.
+
+  hipaa-privacy-rule:
+    title: 'HIPAA Privacy Rule (45 CFR Parts 160, 164)'
+    url: https://www.hhs.gov/hipaa/for-professionals/privacy/index.html
+    issuer: HHS OCR
+    description: >
+      Governs protected health information held by covered entities and business associates.
+      Reaches financial-services AI wherever health-adjacent data enters scope — health
+      savings accounts, disability and life underwriting, healthcare payment processing —
+      and via business-associate obligations on service providers.
+
+  hipaa-deidentification:
+    title: 'HIPAA De-identification Standard (45 CFR 164.514(b)): Safe Harbor and Expert Determination'
+    url: https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html
+    issuer: HHS OCR
+    description: >
+      The only US regulatory de-identification standard with defined methods: Safe Harbor
+      (removal of 18 enumerated identifiers) and Expert Determination (documented statistical
+      assessment of re-identification risk). The reference framework for de-identifying
+      training and evaluation data — with the caveat that both methods predate modern
+      re-identification techniques, so residual risk in embeddings and rich feature spaces
+      still requires assessment.
+
+  ccpa-cpra:
+    title: 'California Consumer Privacy Act as Amended by CPRA (Cal. Civ. Code 1798.100 et seq.)'
+    url: https://cppa.ca.gov/regulations/
+    issuer: CPPA
+    description: >
+      Broadest US state privacy statute: sensitive personal information category, purpose
+      limitation, data minimization, and rights of access, deletion and correction — all of
+      which constrain training data acquisition and retention for AI systems. Roughly twenty
+      other states have enacted comprehensive privacy statutes on this pattern; this entry
+      stands for the class.
+
+  # ---------------------------------------------------------------------------
+  # Tier 5 — Recordkeeping and supervision
+  # ---------------------------------------------------------------------------
+
+  sec-17a-4:
+    title: 'SEC Rule 17a-4 (17 CFR 240.17a-4): Records to Be Preserved by Broker-Dealers'
+    url: https://www.ecfr.gov/current/title-17/chapter-II/part-240/subject-group-ECFR69f5c8c270a679d/section-240.17a-4
+    issuer: SEC
+    description: >
+      Electronic recordkeeping requirements (amended 2022: audit-trail alternative to WORM)
+      that extend to AI-generated communications and records. AI outputs used in the conduct
+      of business fall within existing retention categories — the format is new, the
+      obligation is not.
+
+  finra-3110:
+    title: 'FINRA Rule 3110: Supervision'
+    url: https://www.finra.org/rules-guidance/rulebooks/finra-rules/3110
+    issuer: FINRA
+    description: >
+      Requires a supervisory system reasonably designed to achieve compliance — applied by
+      Notice 24-09 to AI tools: firms must understand and supervise the technology they
+      deploy, including third-party and generative AI.
+
+  finra-2210:
+    title: 'FINRA Rule 2210: Communications with the Public'
+    url: https://www.finra.org/rules-guidance/rulebooks/finra-rules/2210
+    issuer: FINRA
+    description: >
+      Fair-and-balanced standards for member communications, applied to AI-generated retail
+      content and to claims about AI capabilities in marketing — the FINRA-side complement
+      to SEC AI-washing enforcement.
