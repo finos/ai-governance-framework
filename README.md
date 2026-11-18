@@ -34,15 +34,35 @@ We use the following channels:
  - Meeting agenda and notes are [recorded on GitHub](https://github.com/finos/ai-governance-framework/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%93%86%20meeting%22).
  - Meetings are held bi-weekly, with details found on the [FINOS community calendar](https://www.finos.org/calendar)
 
-The project maintainers are
-- Colin Eberhardt - Scott Logic @ColinEberhardt (https://github.com/ColinEberhardt) Lead Maintainer
-- Francesco Beltramini - ControlPlane @d1gital-f (https://github.com/d1gital-f) 
-- Alvin Shih - Morgan Stanley @alvin-c-shih (https://github.com/alvin-c-shih)
-- Chamindra de Silva - Citi @chamindra (https://github.com/chamindra)
-- Asad Ateeque – NatWest @aateeque (https://github.com/aateeque)
-- Naresh Babu Deenadayalan - RBC @iamravanan (https://github.com/iamravanan)
-- Hugo Calderon - Citi @hugo-calderon (https://github.com/hugo-calderon)
-- Stefano Amorelli - Qonto @stefanoamorelli (https://github.com/stefanoamorelli)
+## Maintainers
+
+Each maintainer can add the regulatory environment they're familiar with, and their interests, so that contributors can see whether a change fits. Maintainers write their own, and update them whenever they think it would help. A bio describes the person's interests, not their employer's position.
+
+- **Colin Eberhardt** ([@ColinEberhardt](https://github.com/ColinEberhardt)), Scott Logic. Lead Maintainer.
+- **Francesco Beltramini** ([@d1gital-f](https://github.com/d1gital-f)), ControlPlane
+- **Alvin Shih** ([@alvin-c-shih](https://github.com/alvin-c-shih)), Morgan Stanley (USA)
+  - **Interests:**
+    - AI for SDLC, agent skill governance
+    - classification and presentation of risks / mitigations
+    - realization of policy as code
+- **Chamindra de Silva** ([@chamindra](https://github.com/chamindra)), Citi
+- **Asad Ateeque** ([@aateeque](https://github.com/aateeque)), NatWest
+- **Naresh Babu Deenadayalan** ([@iamravanan](https://github.com/iamravanan)), RBC
+- **Hugo Calderon** ([@hugo-calderon](https://github.com/hugo-calderon)), Citi
+- **Stefano Amorelli** ([@stefanoamorelli](https://github.com/stefanoamorelli)), Qonto
+
+To add yours, put the regulatory environment in brackets after your organisation, such as USA, UK, Canada or EU, or "industry partner" if you aren't at a regulated firm. Then list your interests, from your work or just from curiosity:
+
+```markdown
+- **Your Name** ([@username](https://github.com/username)), Organisation (UK)
+  - **Interests:**
+    - a topic
+    - another topic
+```
+
+The official list of maintainers is in [MAINTAINERS.md](MAINTAINERS.md).
+
+Planning a contribution? See [Getting a quick review](CONTRIBUTING.md#getting-a-quick-review).
 
 ## Frequently Asked Questions
 
@@ -101,7 +121,7 @@ Adding the `-s` flag to your `git commit` will add that line automatically. You 
 - [Signing commits
 ](https://docs.github.com/en/github/authenticating-to-github/signing-commits)
 
-See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for more information
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 
 ---
 
