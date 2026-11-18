@@ -3,7 +3,7 @@
 ## YAML Front Matter
 - Each file includes a YAML front matter block with attributes such as `sequence`, `title`, `layout`, `doc-status`, and `type`.
   - The `type` attribute is scalar and specifies the Risk or Mitigation classification.
-  - The `domain` attribute is scalar and places the item in one of the domains listed in `risk_domain_labels` or `mitigation_domain_labels` in `_config.yml` ([#398](https://github.com/finos/ai-governance-framework/issues/398)). Use the lower-case key, for example `domain: inputs`.
+  - The `domain` attribute is scalar and places the item in one of the domains listed in `risk_domain_labels` or `mitigation_domain_labels` in `_config.yml` ([#398](https://github.com/finos/ai-governance-framework/issues/398)). Use the lower-case key, for example `domain: inputs`. `scripts/validate-items.py` checks `type` and `domain` against these maps.
 
 ## File Naming Conventions
 - Risk files are named using the prefix `ri-*` (e.g., `ri-1.md`, `ri-2.md`).

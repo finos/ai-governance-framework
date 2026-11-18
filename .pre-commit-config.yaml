@@ -11,3 +11,12 @@ repos:
         language: system
         files: ^docs/_data/references/.*\.yml$
         pass_filenames: false
+      - id: validate-items
+        name: Validate risk and mitigation fields
+        description: >
+          Checks that the type and domain of every risk and mitigation are
+          keys in the labels maps in docs/_config.yml.
+        entry: python scripts/validate-items.py
+        language: system
+        files: ^docs/(_risks/.*\.md|_mitigations/.*\.md|_config\.yml)$
+        pass_filenames: false
