@@ -89,6 +89,19 @@ Effective agent privilege management must address the dynamic and autonomous nat
   * A "tool manager" is the component that mediates between agents and APIs/tools that are external to the agent, translating agent requests into concrete API calls and managing the execution of those calls. This layer provides a critical enforcement point for authorization controls.
   * Implement comprehensive authorization checks at the tool manager level before any API calls are executed, validating the agent's identity and role against the requested operation.
   * Validate that requested API endpoints and parameters are within the agent's authorized scope.
+  * Where an agent acts under a delegated mandate, check each fully resolved action (including the final operation, recipient, parameters, and any resulting obligations or exposures) against all applicable mandate constraints, such as permitted products, counterparties or purposes. Check all applicable limits, the mandate's effective start and expiration, and its revocation status.
+  * Define the commitment point for the action under the mandate. Recheck authority immediately before release at that point.
+    * If an API only queues work, enforce the applicable mandate at downstream release.
+    * Define how expiration or revocation affects instructions already accepted downstream, subject to applicable cancellation rules.
+  * Where an action consumes an aggregate limit, use the system responsible for that limit to enforce it atomically. Account for all channels sharing the limit.
+    * Use one of two atomic mechanisms:
+      * Check and reserve capacity in one step.
+      * Check and record consumption in one step, within the transaction that commits the action. A booking is an example of such a transaction.
+    * Apply each limit using the limit owner's units, currency, periods and exposure rules. A client-mandate limit does not replace other applicable limits.
+    * If neither atomic mechanism is available, do not release the action through the agent path. A check-only response does not enforce the limit at the commitment point.
+    * Keep pending or uncertain commitments counted until reconciliation establishes their outcome. Elapsed time alone does not confirm failure. Update reserved or booked exposure on confirmed outcomes according to the applicable limit rules.
+    * When authority is renewed or replaced for the same logical action, preserve its existing commitment and reconciliation state. A new authority record alone does not establish that earlier capacity is unused.
+  * Reject an action outside the mandate or whose current mandate cannot be verified. Do this even when identity, role and API permissions allow it. Log the rejection. Record an unambiguous mandate reference and version, the check time and result, or why verification failed.
   * Reject and log any attempts to access unauthorized tools or APIs, including the agent identity for audit purposes.
 
 * **API Gateway Integration**:
