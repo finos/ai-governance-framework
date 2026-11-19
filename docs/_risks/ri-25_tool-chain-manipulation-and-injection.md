@@ -15,6 +15,9 @@ atr_references:
   - ATR-2026-00011  # Instruction Injection via Tool Output
   - ATR-2026-00012  # Unauthorized Tool Call
   - ATR-2026-00013  # Tool-Driven Server-Side Request Forgery
+india-regulations_references:
+  - cert-in-directions-2022-ii # Attacks on AI/ML applications (Annexure I item xx) are reportable within 6 hours
+  - rbi-free-ai-2025-rec-16 # Para 4.4.49: safeguards, testing protocols and SoPs before autonomous AI acts on customer assets
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass

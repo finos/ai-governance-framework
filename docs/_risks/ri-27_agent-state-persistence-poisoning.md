@@ -9,6 +9,8 @@ owasp-asi_references:
   - asi06-2026  # ASI06: Memory & Context Poisoning
 atr_references:
   - ATR-2026-00075  # Agent Memory Manipulation
+india-regulations_references:
+  - cert-in-directions-2022-ii # Attacks on AI/ML applications (Annexure I item xx) are reportable within 6 hours
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass

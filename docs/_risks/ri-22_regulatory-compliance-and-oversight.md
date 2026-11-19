@@ -77,6 +77,9 @@ uk-regulations_references:
   - ico-ai-data-protection-toolkit # ICO toolkit for AI data-protection risk assessment
   - equality-act-2010 # Equality and non-discrimination obligations for services and employment
   - consumer-credit-act-1974 # Consumer-credit law relevant to AI-assisted lending decisions
+india-regulations_references:
+  - rbi-free-ai-2025-rec-14 # RBI's board-approved AI policy: governance, accountability, auditability, liability
+  - dpdp-act-2023-s10 # Significant Data Fiduciary: DPO, independent data auditor, periodic DPIA and audit
 related_risks:
   - ri-16  # Bias and Discrimination
   - ri-17  # Lack of Explainability

@@ -15,6 +15,9 @@ atr_references:
   - ATR-2026-00040  # Agent Privilege Escalation
   - ATR-2026-00098  # Unauthorized Financial Action by Agent
   - ATR-2026-00118  # Human Approval Fatigue Exploitation
+india-regulations_references:
+  - rbi-free-ai-2025-rec-16 # Para 4.4.49: define the tasks AI may perform autonomously and when human oversight is required
+  - rbi-free-ai-2025-rec-22 # Para 4.4.63 gives AI agents acting beyond their intended scope as an example AI incident (Rec 22)
 related_risks:
   - ri-10  # Prompt Injection
   - ri-18  # Model Overreach / Expanded Use

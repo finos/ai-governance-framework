@@ -12,6 +12,10 @@ owasp-asi_references:
   - asi03-2026  # ASI03: Identity and Privilege Abuse
 atr_references:
   - ATR-2026-00113  # Credential Theft via Agent Channel
+india-regulations_references:
+  - cert-in-directions-2022-ii # Unauthorised access to IT systems/data (Annexure I item iii) is reportable within 6 hours
+  - cert-in-directions-2022-iv # 180-day ICT logs, kept in India, support investigation of harvested credentials
+  - dpdp-rules-2025-r6 # r. 6(1)(b)-(c): access control on computer resources and access logs to detect misuse
 related_risks:
   - ri-10  # Prompt Injection
   - ri-24  # Agent Action Authorization Bypass
