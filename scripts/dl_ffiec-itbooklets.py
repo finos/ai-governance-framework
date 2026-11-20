@@ -14,7 +14,7 @@ Operations can be run individually or in combination using command line flags.
 
 Input: https://ithandbook.ffiec.gov/it-booklets
 Output: 
-    - _data/ffiec-itbooklets.yml (YAML mappings)
+    - docs/_data/references/ffiec-itbooklets.yml (YAML mappings)
     - _refs-markdown/ffiec-itbooklets/html/*.html (HTML files with navigation removed)
     - _refs-markdown/ffiec-itbooklets/markdown/*.md (Markdown files)
 
@@ -48,14 +48,14 @@ SCRIPT_DIR = Path(__file__).parent
 
 BASE_URL = "https://ithandbook.ffiec.gov"
 BOOKLETS_URL = f"{BASE_URL}/it-booklets"
-YAML_FILENAME = "ffiec-itbooklets_v2.yml"
+YAML_FILENAME = "ffiec-itbooklets.yml"
 REQUEST_TIMEOUT = 30
 DOWNLOAD_DELAY = 0.5
 URL_COMPONENTS_MAIN_BOOKLET = 5
 URL_COMPONENTS_SECTION = 6
 
 # Path constants
-DATA_DIR = SCRIPT_DIR / ".." / "docs" / "_data"
+DATA_DIR = SCRIPT_DIR / ".." / "docs" / "_data" / "references"
 CONFIG_DIR = SCRIPT_DIR / ".." / "docs"
 FFIEC_ITBOOKLETS_DIR = SCRIPT_DIR / ".." / "_refs-markdown" / "ffiec-itbooklets"
 YAML_FILE = DATA_DIR / YAML_FILENAME
@@ -81,10 +81,17 @@ def read_config_file(config_file):
 def write_yaml_file(yaml_file, booklets):
     """Write booklets data to YAML file."""
     try:
+        yaml_document = {
+            'title': 'FFIEC IT Examination Handbook',
+            'description': 'The FFIEC IT Examination Handbook booklets covering architecture, development, management, and security of financial institution IT systems.',
+            'source_url': BOOKLETS_URL,
+            'lens': 'obligation',
+            'entries': booklets,
+        }
         with open(yaml_file, 'w', encoding='utf-8') as f:
             f.write("# FFIEC IT Booklets\n")
             f.write(f"# Generated from {BOOKLETS_URL}\n\n")
-            yaml.dump(booklets, f, 
+            yaml.dump(yaml_document, f, 
                      default_flow_style=False, sort_keys=False)
         return True
     except (OSError, yaml.YAMLError) as e:
@@ -361,17 +368,18 @@ def download_html_files(yaml_file, html_output_dir):
         return False
     
     # Extract booklets data
-    if not data:
+    entries = data.get('entries', data) if isinstance(data, dict) else None
+    if not entries:
         print("No booklet data found in YAML file", file=sys.stderr)
         return False
     
-    print(f"Found {len(data)} booklets/sections to download")
+    print(f"Found {len(entries)} booklets/sections to download")
     print(f"HTML output directory: {html_output_dir}")
     
     success_count = 0
     error_count = 0
     
-    for key, booklet_info in data.items():
+    for key, booklet_info in entries.items():
         url = booklet_info.get('url')
         title = booklet_info.get('title', 'Unknown Title')
         

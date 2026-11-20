@@ -54,34 +54,48 @@ in `index.md`.
 
 # External References
 
-Risk files (`ri-*.md`) can include several types of external references.
+Risk and mitigation files (`ri-*.md` and `mi-*.md`) can include several types of external references defined in `docs/_data/references/` (see `docs/_data/references/README.md` for the schema):
 
 ## NIST References
-The `nist-sp-800-53r5_references:` section references keys from `_data/nist-sp-800-53r5.yml`.
-The `nist-ai-600-1_references:` section references keys from `_data/nist-ai-600-1.yml`.
+The `nist-sp-800-53r5_references:` section references keys from `_data/references/nist-sp-800-53r5.yml`.
+The `nist-ai-600-1_references:` section references keys from `_data/references/nist-ai-600-1.yml`.
 Each reference links to the corresponding NIST control or section with deep PDF links.
 
-## FFIEC References  
-The `ffiec-itbooklets_references:` section references keys from `_data/ffiec-itbooklets.yml`.
+## FFIEC References
+The `ffiec-itbooklets_references:` section references keys from `_data/references/ffiec-itbooklets.yml`.
 Each reference links to the corresponding FFIEC IT Handbook booklet.
 
 ## OWASP ML Top 10 References
-The `owasp-ml_references:` section references keys from `_data/owasp-ml.yml`.
+The `owasp-ml_references:` section references keys from `_data/references/owasp-ml.yml`.
 Each reference links to the corresponding OWASP Machine Learning Security Top 10 risk.
 
 ## OWASP LLM Top 10 References
-The `owasp-llm_references:` section references keys from `_data/owasp-llm.yml`.
+The `owasp-llm_references:` section references keys from `_data/references/owasp-llm.yml`.
 Each reference links to the corresponding OWASP LLM Security Top 10 risk.
 
 ## OWASP Agentic Applications Top 10 References
 The `owasp-asi_references:` section references keys from `_data/references/owasp-asi.yml`.
 Each reference links to the corresponding OWASP Top 10 for Agentic Applications risk.
 
-## EU AI Act References
-The `eu-ai-act_references:` section references keys from `_data/eu-ai-act.yml`.
-Each reference links to the corresponding EU AI Act article.
+## Agent Threat Rules (ATR) References
+The `atr_references:` section references keys from `_data/references/atr.yml`.
+Each reference links to the corresponding Agent Threat Rules detection rule.
 
-All reference types are displayed as separate cards in the risk layout sidebar.
+## EU AI Act References
+The `eu-ai-act_references:` section references keys from `_data/references/eu-ai-act.yml`.
+Each reference links to the corresponding EU AI Act article, annex, or recital.
+
+## ISO/IEC 42001 References
+The `iso-42001_references:` section references keys from `_data/references/iso-42001.yml`.
+Each reference links to the corresponding ISO/IEC 42001 control or clause.
+
+## Supervisory & Jurisdiction References
+- The `sr11-7_references:` section references keys from `_data/references/sr11-7.yml` (Federal Reserve SR 11-7 / OCC Bulletin 2011-12).
+- The `iosco-supervisory-toolkit_references:` section references keys from `_data/references/iosco-supervisory-toolkit.yml`.
+- The `canada-regulations_references:` section references keys from `_data/references/canada-regulations.yml`.
+- The `uk-regulations_references:` section references keys from `_data/references/uk-regulations.yml`.
+
+All reference types are grouped by lens (`threat`, `obligation`, `control`) in the risk and mitigation layout sidebar.
 
 ## Sorting and Grouping
 

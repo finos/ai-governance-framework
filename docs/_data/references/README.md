@@ -37,6 +37,7 @@ Entries are the individual citable items — articles, sections, controls, etc. 
 | `url` | Yes | Canonical URL for this specific entry |
 | `description` | No | Richer contextual description; not always rendered in UI |
 | `issuer` | No | Issuing body (e.g. `OSFI`, `CSA`, `CIRO`) |
+| `booklet_abbrev` | No | Short FFIEC IT Examination Handbook booklet code (e.g. `aio`, `aud`, `sec`), used in `ffiec-itbooklets.yml` |
 | `superseded_by` | No | Key of the entry (in the same file) that replaces this one in a newer edition of the framework |
 
 ---

@@ -1,5 +1,5 @@
 AI_use_cases:
-  - Customer_and_Relationship_Management:
+  - Customer_Experience_and_Engagement:
       - Personalized_Financial_Services:
           - Adaptive_Product_Recommendations
           - Dynamic_Pricing_and_Offers
@@ -10,11 +10,7 @@ AI_use_cases:
       - Retention_and_Churn:
           - Behavioral_Segmentation
           - Churn_Prediction
-  - Risk_and_Compliance:
-      - Fraud_Detection_and_Prevention:
-          - Transaction_Anomaly_Detection
-          - Identity_Verification_Document_Face_Behavioral
-          - Synthetic_Identity_Detection
+  - Risk_Management_and_Compliance:
       - Credit_Risk_and_Scoring:
           - Alternative_Data_Credit_Models
           - Continuous_Credit_Monitoring
@@ -24,19 +20,6 @@ AI_use_cases:
           - Transaction_Monitoring
           - Automated_Regulatory_Reporting
           - Explainable_AI_Model_Transparency
-  - Investment_and_Portfolio_Management:
-      - Algorithmic_and_Quant_Trading:
-          - Market_Forecasting_Models
-          - Reinforcement_Learning_Strategies
-          - News_and_Sentiment_Signals
-      - Wealth_and_Robo_Advisory:
-          - Personalized_Portfolio_Construction
-          - Continuous_Rebalancing
-          - Goal_Based_Investing
-      - Asset_Analytics:
-          - ESG_Scoring
-          - Market_Anomaly_Detection
-          - Risk_Factor_Modeling
   - Operations_and_Process_Optimization:
       - Process_Automation:
           - Document_Intake_and_Extraction
@@ -49,7 +32,20 @@ AI_use_cases:
       - HR_and_Talent:
           - Workforce_Analytics
           - Capacity_Planning
-  - Strategic_Insights_and_Decision_Support:
+  - Trading_and_Investment:
+      - Algorithmic_and_Quant_Trading:
+          - Market_Forecasting_Models
+          - Reinforcement_Learning_Strategies
+          - News_and_Sentiment_Signals
+      - Wealth_and_Robo_Advisory:
+          - Personalized_Portfolio_Construction
+          - Continuous_Rebalancing
+          - Goal_Based_Investing
+      - Asset_Analytics:
+          - ESG_Scoring
+          - Market_Anomaly_Detection
+          - Risk_Factor_Modeling
+  - Data_Intelligence_and_Analytics:
       - Financial_Forecasting:
           - Revenue_and_Expense_Prediction
           - Balance_Sheet_and_Capital_Planning
@@ -64,6 +60,11 @@ AI_use_cases:
           - Bias_Detection_and_Mitigation
           - Model_Risk_Management
           - Auditability_and_Lineage
+  - Fraud_Detection_and_Security:
+      - Fraud_Detection_and_Prevention:
+          - Transaction_Anomaly_Detection
+          - Identity_Verification_Document_Face_Behavioral
+          - Synthetic_Identity_Detection
 cross_cutting_capabilities:
   - Data_Engineering_and_Feature_Stores
   - MLOps_and_Model_Lifecycle
