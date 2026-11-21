@@ -137,6 +137,7 @@ Effective multi-agent isolation requires comprehensive security boundaries acros
 
 * **Circuit Breaker Implementation**:
   * **Agent Circuit Breakers**: Implement circuit breakers to isolate failing agents and prevent cascade failures.
+  * **Collective and Systemic Risk Controls**: Multiple individually compliant agents can jointly create unacceptable aggregate outcomes ([RI-28](/risks/ri-28_multi-agent-trust-boundary-violations.html)). Establish shared desk-wide or institution-wide controls to monitor and constrain aggregate risk across concurrent agent activity, including concentration, counterparty exposure, liquidity, and other relevant risk dimensions. As aggregate thresholds are approached, apply policy-defined restrictions, de-escalation, or human review. Sliding-window circuit breakers, atomic reservations, and rollback of uncommitted actions are implementation examples where applicable, rather than universal requirements.
   * **Service Degradation**: Design systems to continue operating with reduced capabilities when individual agents fail.
   * **Automatic Recovery**: Implement automatic recovery procedures for failed agents without affecting other system components.
 
